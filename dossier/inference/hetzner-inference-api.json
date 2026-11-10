@@ -119,6 +119,13 @@
       "proved": "third-party report that a card is needed before a token can be generated",
       "capture": "sha256:49f090cf71e2b181d56c72537ce9a57123e2d1473352d0a28fa4a9e8960b711f",
       "quote": "you still have to add a credit card to the account before it lets you generate a token"
+    },
+    {
+      "url": "probe:https://inference.hetzner.com/api/v1/chat/completions",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:2b8739e003d66b27cba5c4385611a7ec8f1efdc7d961ae223379dbbbd2de337e",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "qualifies-with-caveat",

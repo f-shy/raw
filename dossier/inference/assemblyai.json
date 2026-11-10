@@ -149,6 +149,13 @@
       "proved": "the REST API base URL is https://api.assemblyai.com",
       "capture": "sha256:75c5ada878c8768b1ff7c9a689652657029430c28a152567c5b1b48566bbb80a",
       "quote": "> base_url = \"https://api.assemblyai.com\""
+    },
+    {
+      "url": "probe:https://api.assemblyai.com/v2/transcript",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:a30a776f0a8dca4cdf91535ff55ac6e73daeccf1de6fd73a96e4a6e9bfff4603",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "trial-only",

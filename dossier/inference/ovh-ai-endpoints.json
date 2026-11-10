@@ -35,11 +35,11 @@
   "url": "https://oai.endpoints.kepler.ai.cloud.ovh.net/v1",
   "category": "inference endpoint, keyless",
   "free_tier": {
-    "stated": "no key required; 22 model ids on /v1/models, each carrying a pricing object in USD per token. Twelve of the 22 are chat models and two of those, Qwen3Guard-Gen-0.6B and Qwen3Guard-Gen-8B, price at exactly zero on prompt and completion. The other 10 ids are one image model, three embedding models, four TTS models and two ASR models",
+    "stated": "no key required; 21 model ids on /v1/models on 2026-11-10 (22 on 2026-10-22), each carrying a pricing object in USD per token on 2026-10-22. Twelve of the 22 are chat models and two of those, Qwen3Guard-Gen-0.6B and Qwen3Guard-Gen-8B, price at exactly zero on prompt and completion. The other 10 ids are one image model, three embedding models, four TTS models and two ASR models",
     "unit": "tokens",
     "metered_on": "request-count",
     "source_url": "https://oai.endpoints.kepler.ai.cloud.ovh.net/v1/models",
-    "read_on": "2026-10-22",
+    "read_on": "2026-11-10",
     "notes": "the pricing object is published per model and is the machine form of 'free'. Qwen3Guard-Gen-0.6B and Qwen3Guard-Gen-8B are the only two chat models priced at exactly zero on both prompt and completion. No chat model is priced at 0.00000001 USD: that figure belongs to the two embedding models bge-m3 and bge-multilingual-gemma2"
   },
   "endpoint": "https://oai.endpoints.kepler.ai.cloud.ovh.net/v1/chat/completions",
@@ -290,10 +290,17 @@
       "url": "probe:https://oai.endpoints.kepler.ai.cloud.ovh.net/v1/chat/completions",
       "date": "2026-10-28",
       "proved": "one POST with no Authorization header for Meta-Llama-3_3-70B-Instruct answered 200, echoed model Meta-Llama-3_3-70B-Instruct, returned content NEEDLE-9K2X in 307 bytes, and reported x-ratelimit-limit-minute: 2, x-ratelimit-remaining-minute: 1, ratelimit-limit: 2, ratelimit-remaining: 1, ratelimit-reset: 54 (seconds)"
+    },
+    {
+      "url": "probe:https://oai.endpoints.kepler.ai.cloud.ovh.net/v1/chat/completions",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 for Qwen3.8-27B answered 200 twice and echoed Qwen3.8-27B with content 'pong' and 76 tokens (59 prompt, 17 completion)",
+      "capture": "sha256:0801b9b6684d814973d50674c82e58893cde24765c90a540680791a7664d703a",
+      "quote": "\"status\": 200"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-28T05:28:44.125Z",
+  "verified_at": "2026-11-10T01:21:21.470Z",
   "notes": "The endpoint answers without a key but publishes a price per token, so 'keyless' describes the authentication requirement and not the cost. The two guard models are genuinely zero. Qwen3.5-397B-A17B and Qwen3.6-27B return empty content at max_tokens 256 with the reasoning field populated and finish_reason length, which is budget exhaustion and not a failure.",
   "binding": "request-rate",
   "stale": false,

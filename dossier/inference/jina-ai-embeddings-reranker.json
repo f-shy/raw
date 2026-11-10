@@ -132,6 +132,13 @@
       "capture": "sha256:16d0824ab71c0cd89aaa7776d67f33b355dbe2c6a31aa682f22c19e0fb042b5f",
       "quote": "Yes. The Reader API, Embeddings API, and Reranker API continue to be developed and maintained, and models continue to be published to cloud marketplace platforms.",
       "proved": "the vendor states the embeddings and reranker APIs continue to be served after the acquisition"
+    },
+    {
+      "url": "probe:https://api.jina.ai/v1/embeddings",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:d658b90813e4980496b49f59bfc7a3809ef73830add47967993cae3dfcc4d575",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "trial-only",

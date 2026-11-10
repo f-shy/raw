@@ -33,12 +33,12 @@
   "url": "https://api.kilo.ai/api/gateway",
   "category": "inference gateway, keyless",
   "free_tier": {
-    "stated": "14 of the 401 ids in the catalogue end in ':free' and require no key; three more are free without the suffix (reflection/beam-free, kilo-auto/free, openrouter/free). Eight of the nine ids probed answered in both runs",
+    "stated": "8 of the 380 ids in the catalogue end in ':free' and require no key; two more are free without the suffix (kilo-auto/free, openrouter/free). The free id probed answered in both runs",
     "unit": "tokens",
     "metered_on": "request-count",
     "source_url": "https://api.kilo.ai/api/gateway/models",
-    "read_on": "2026-10-22",
-    "notes": "the catalogue is 542343 bytes and was counted by id in this session: 401 ids, 14 ending in ':free'. The prober's '19 of 401 answering' is its own figure and is quoted as third-party, not as a count made here"
+    "read_on": "2026-11-10",
+    "notes": "the catalogue holds 380 ids by count, 8 ending in ':free'"
   },
   "endpoint": "https://api.kilo.ai/api/gateway/chat/completions",
   "identity_cost": {
@@ -326,10 +326,17 @@
       "proved": "the gateway documents a ceiling of 200 requests per hour per IP for free models",
       "capture": "sha256:dbd437d4c437acebea7725e866affa3b9b127544803384589cbfced0ec5e20ae",
       "quote": "Free models per IP | 200 requests per hour"
+    },
+    {
+      "url": "probe:https://api.kilo.ai/api/gateway/chat/completions",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 for nvidia/nemotron-3.5-super-vl:free answered 200 twice and echoed nvidia/nemotron-3.5-super-vl:free with empty content and the text in the reasoning field, 56 tokens (24 prompt, 32 completion)",
+      "capture": "sha256:6af0673394988b8c28950a8f6aa3a1e9d65fec5f59c77d9c3d7ebb92e02585d6",
+      "quote": "\"status\": 200"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-04T05:39:12.817Z",
+  "verified_at": "2026-11-10T01:21:21.204Z",
   "notes": "openrouter/free is a router id whose served model changes between calls, which makes it the least predictable row in the sweep and the clearest illustration that an echoed model string must be recorded per call rather than per endpoint.",
   "binding": "request-rate",
   "stale": false,

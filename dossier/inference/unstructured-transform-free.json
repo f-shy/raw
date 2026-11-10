@@ -190,6 +190,13 @@
       "proved": "the Transform login page offers Google sign-in beside an email field",
       "capture": "sha256:67e72d1beb05a53281289db06d44426e97b4242f05f96ce5ce5da45f54d14954",
       "quote": "Continue with Google"
+    },
+    {
+      "url": "probe:https://transform.unstructured.io/api/v2/parse",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:dfe56215d11653cfbf9638b5fa5c8463efeb80b18f9e496c70a5f427106e9cef",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "trial-only",

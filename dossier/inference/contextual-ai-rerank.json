@@ -95,6 +95,13 @@
       "capture": "sha256:43fa7c24ba7ef2089be2a5e9209f78ebb5e3e21837e4e8980fecebb216dd72a5",
       "quote": "2. Add a valid credit card under **Payment Methods** if you haven't already",
       "proved": "a card is asked for when topping up credits"
+    },
+    {
+      "url": "probe:https://api.contextual.ai/v1/rerank",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 503, so the endpoint is failing",
+      "capture": "sha256:76e5a6deb20602b217392df098092e9b0ab53506a2939b9e62f8a03cdfb24cb8",
+      "quote": "\"status\": 503"
     }
   ],
   "verdict": "trial-only",

@@ -113,6 +113,13 @@
       "capture": "sha256:58b028665aeaf51c0a5a18510ed671aac785cff2dc49b1e1e82b0e7223e2217a",
       "quote": "for=\"email\">Email</label>",
       "proved": "the login page carries an email field"
+    },
+    {
+      "url": "probe:https://api.grokified.com/v1/chat/completions",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:8d59857efa7df9b68df58f5771f99773db01828ec70ad2bf5930e63fbe132550",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "trial-only",

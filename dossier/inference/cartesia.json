@@ -150,6 +150,13 @@
       "proved": "the signup form asks for an email address",
       "capture": "sha256:df263991f58a0928aa4b6c54fd7281007fcfaae17ee9242930b1f09d726341bf",
       "quote": "Email address"
+    },
+    {
+      "url": "probe:https://api.cartesia.ai",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 405 at the recorded base URL, so the endpoint is not a completion route",
+      "capture": "sha256:05003e87c022e936f40c68ddd63513507eb854d3b61ac539e41a47e1dd8cb2c2",
+      "quote": "\"status\": 405"
     }
   ],
   "verdict": "qualifies-with-caveat",

@@ -14,7 +14,7 @@
   "interface": [
     "rest"
   ],
-  "verified_at": "2026-11-04T06:15:50.267Z",
+  "verified_at": "2026-11-10T01:21:20.151Z",
   "provider": "Coze",
   "url": "https://www.coze.com/open/docs/developer_guides/coze_api_overview",
   "category": "agent platform API, one-time free API call quota, daily message credits in the app",
@@ -78,6 +78,13 @@
       "capture": "sha256:a677e17bbeb762c93787f2305ab03005537aaef4f5a857967d33ee58a754fb73",
       "quote": "Each account is granted 10 credits per day.",
       "proved": "10 message credits per day in the app"
+    },
+    {
+      "url": "probe:https://api.coze.com/v3/chat",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered 200 with code 4101 'The token you entered is incorrect', so the endpoint gates on a token",
+      "capture": "sha256:8638292092c535c247f204d05568f3077ef4b43bf7ae336d7bc57f170824ad01",
+      "quote": "\"status\": 200"
     }
   ],
   "verdict": "trial-only",

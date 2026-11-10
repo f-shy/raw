@@ -84,6 +84,13 @@
       "proved": "the free status is explicitly provisional",
       "capture": "sha256:19cac103610f8be92010bb3c4ca1e53e53d78bd8ee5909c63454f5ddbf24cef0",
       "quote": "These models are free for now."
+    },
+    {
+      "url": "probe:https://router.requesty.ai/v1/chat/completions",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:5536a81e3c38af46484f5973ae9a8e33d76a18b9372b75bb3491b12b93163603",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "qualifies-with-caveat",

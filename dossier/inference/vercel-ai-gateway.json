@@ -194,6 +194,13 @@
       "proved": "free credits need a valid payment method on the team",
       "capture": "sha256:a2e961bef754cae320f79d1b0ee9dd55ef05dd2f610db7bbeb0db4077dbd3c89",
       "quote": "To use free AI Gateway Credits, [add a valid payment method]"
+    },
+    {
+      "url": "probe:https://ai-gateway.vercel.sh/v1/chat/completions",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:fc232326d47f2515ce295eff402e0ce892a9732cc504c7899c51019b8ae67afa",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "qualifies-with-caveat",

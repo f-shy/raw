@@ -156,6 +156,13 @@
       "proved": "a third-party list gives the free tier as 15k free credits plus pay-as-you-go",
       "capture": "sha256:7eb9f38d0d00b2e6c616bfcd2b507b785e6c1c89fd625d2766a4d0856cfbe450",
       "quote": "Reducto - Turn any unstructured documents (PDF, XLSX, JPG, PPTX, etc.) into structured JSON data. Parse, extract data, and edit PDF forms. Free tier with 15k free credits and pay-as-you-go."
+    },
+    {
+      "url": "probe:https://platform.reducto.ai/parse",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 403 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:ed9e473c1af35794d0d00f1d47d89b281e5c3679682764476c0a1fa6f291922f",
+      "quote": "\"status\": 403"
     }
   ],
   "verdict": "trial-only",

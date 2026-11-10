@@ -26,7 +26,7 @@
   "interface": [
     "unknown"
   ],
-  "interface_detail": "the hosted models are selected in the desktop editor's Agent Panel after a GitHub sign-in; Zed hosts the inference and bills it, and no REST API, CLI or SDK of Zed's reaches those hosted models outside the editor",
+  "interface_detail": "the hosted models are selected in the desktop editor's Agent Panel after a GitHub sign-in; Zed hosts the inference and bills it, and no REST API, CLI or SDK of Zed's reaches those hosted models outside the editor. The eval-cli binary in the Zed repository speaks to the agent loop with provider keys the user supplies, and not to the hosted models.",
   "tooling": "the user installs and runs the Zed desktop editor (macOS, Linux, Windows) and signs in with GitHub to reach the hosted models; the documented zed CLI options open paths, diffs and ssh:// URLs and name no agent command. Headless routes, all run from the user's machine: Remote Development runs a Zed headless server on a host reached over SSH while the UI and the model calls stay local, and the eval-cli crate of the zed repository is a GUI-free agent binary built with cargo that reads provider API keys from environment variables. unverified: whether eval-cli or the remote server can use the Zed-hosted models, because the pages read name only environment keys for eval-cli and a local sign-in for the editor",
   "chaining": "beyond USD 5 a month the hosted tokens bill at provider list price plus 10 percent, so Pro adds no discount to a stack; the same Zed account and plan also apply in Delta, the vendor's standalone agent app, and the free Personal plan on the user's own keys is the separate record zed-personal",
   "limits": [
@@ -248,9 +248,23 @@
       "proved": "Zed offers hosted versions of major LLMs billed through Zed",
       "capture": "sha256:75bf35be37e945a658a83c98b2103078ac3008e2bc0f26b1e28db331cb01bf07",
       "quote": "Zed's plans offer hosted versions of major LLMs with higher rate limits than direct API access."
+    },
+    {
+      "url": "https://zed.dev/pricing",
+      "date": "2026-11-10",
+      "proved": "the Pro plan's hosted models are reachable in the editor, and the eval-cli binary on the personal editor runs on the user's own provider keys",
+      "capture": "sha256:c4bb964b1aac63bfd642ba6d8fdd7200be3616bf4b526252781837072bc43aea",
+      "quote": "Our Pro plan comes with Zed hosted models out of the box."
+    },
+    {
+      "url": "https://raw.githubusercontent.com/zed-industries/zed/main/crates/eval_cli/README.md",
+      "date": "2026-11-10",
+      "proved": "the headless binary uses provider keys the user supplies",
+      "capture": "sha256:94746a214bc40208ad57701d74d99033c48518dfad7e5bb516cacd722a8ca7df",
+      "quote": "`eval-cli` reads provider API keys from environment variables such as"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-09T06:02:34.817Z",
+  "verified_at": "2026-11-10T01:56:02.008Z",
   "notes": "Pro is USD 10 a month for USD 5 of token credit, and the hosted list charges provider list price plus 10 percent for every token beyond it (for example Claude Fable 5.1 at USD 11.00 per million input tokens against USD 10.00 at the provider). The hosted list on 2026-11-02 spans Anthropic Claude Fable, Opus, Sonnet and Haiku, OpenAI GPT-6, GPT-5.x and Codex models, and Google Gemini 4 Argon, 3.1 Pro, 3.5 Flash and 3 Flash. Pro also includes unlimited edit predictions."
 }

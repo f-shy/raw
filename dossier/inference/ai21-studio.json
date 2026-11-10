@@ -61,6 +61,13 @@
       "proved": "billing information is needed after the trial credit is used or expires",
       "capture": "sha256:56166bef7864f433030d93d7e3fd1ec0162b70cd72d80de21d2b6d2481610e08",
       "quote": "Once your trial usage is exceeded or expires, you must provide valid billing information in your account to continue using the AI21 platform."
+    },
+    {
+      "url": "probe:https://api.ai21.com/studio/v1/chat/completions",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 400 before a model was chosen",
+      "capture": "sha256:eb38fdc7e2d8ee5d82bb44a236ec4b8ad0f1495f41897c864d39138eda4acfbc",
+      "quote": "\"status\": 400"
     }
   ],
   "verdict": "trial-only",

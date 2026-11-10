@@ -82,6 +82,13 @@
       "proved": "free tier allows 100,000 output tokens per minute",
       "capture": "sha256:279e1aeb81a162e9a016b89107d6949a933e1e6517b60fb0f6e9cccdcf6d28d0",
       "quote": "| **Output Tokens** | 100,000 | 300,000 | Custom |"
+    },
+    {
+      "url": "probe:https://api.inceptionlabs.ai/v1/chat/completions",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:e3b553a615915ce48c40ea1fbe63b09d030a7555acdce22c11804e4827c04b75",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "trial-only",

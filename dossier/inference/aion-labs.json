@@ -78,6 +78,13 @@
       "capture": "sha256:15ae9a9d6215dddebb58d46fe678570fdcf865cfcf613a90a8918810af4a1a61",
       "quote": "placeholder=\"Email address\"",
       "proved": "the account page offers an email address field"
+    },
+    {
+      "url": "probe:https://api.aionlabs.ai/v1/chat/completions",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:f02a4ee6fbd2d469e88ed44f8a7c537bf84f59a779ca339baddc0d35829e1305",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "qualifies-with-caveat",

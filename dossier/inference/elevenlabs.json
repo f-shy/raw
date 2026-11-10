@@ -155,6 +155,13 @@
       "proved": "the signup page offers a Google route and an email route",
       "capture": "sha256:66820da7468ff539149023906530c91286fbc2cb7a30ef42cea72e47227238af",
       "quote": "Sign up with Google"
+    },
+    {
+      "url": "probe:https://api.elevenlabs.io",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 404, so the recorded route does not exist",
+      "capture": "sha256:183d23c8f1683fc04a44629ed68176a6e97955e37fa50915e1884a2a638452d5",
+      "quote": "\"status\": 404"
     }
   ],
   "verdict": "qualifies-with-caveat",

@@ -108,6 +108,13 @@
       "capture": "sha256:21f8d7f4105af2a0de4b0ea8185461b7a2574da42b67e629611232371190b448",
       "quote": "{\"named_endpoints\":{\"/generate\":{\"parameters\":[",
       "proved": "a keyless GET /gradio_api/info answered 200 with a named /generate endpoint on a public chat Space"
+    },
+    {
+      "url": "probe:https://huggingface-projects-llama-2-13b-chat.hf.space/gradio_api/info",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 405 at the recorded base URL, so the endpoint is not a completion route",
+      "capture": "sha256:34290497c30ca8ec0d7d6b252647840952ae57af13184db8350622645602c5e3",
+      "quote": "\"status\": 405"
     }
   ],
   "verdict": "qualifies-with-caveat",

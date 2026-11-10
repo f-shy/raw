@@ -1,0 +1,14 @@
+{
+ "id": "20261110-review-ai-llm-q01",
+ "kind": "verify",
+ "topic": "inference",
+ "question": "Does api-airforce still qualify as identity_cost.kind anonymous with the verdict qualifies-with-caveat? A keyless POST on 2026-11-10 to kimi-k2.7-code answered 401 Missing Authorization and then 429, gemini-3.6-flash answered 402 and mistral-code-fim-latest answered 401. Which ids, if any, answer a completion with no Authorization header, and does the account route (a username and a password, no email and no card) keep the kind anonymous?",
+ "why": "the identity_cost and the verdict were set before any keyless completion was sent, and the first keyless completions did not answer",
+ "scope": {
+  "rids": [
+   "inference/api-airforce"
+  ]
+ },
+ "origin": "review of the ai-llm handover",
+ "created": "2026-11-10T04:09:00Z"
+}

@@ -124,6 +124,13 @@
       "proved": "the Organization quotas page holds the per-model ceilings",
       "capture": "sha256:150f49dbdc5b02ab3f5afcce2e4db6f9171919a3512edad71fefd7527e93e952",
       "quote": "| glm-5.2 | 200k | 1 000k |"
+    },
+    {
+      "url": "probe:https://api.scaleway.ai/v1/chat/completions",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:857fb7f7475716a322ce2d9b2e1069ae789e928da9429f887f058d1565302851",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "trial-only",

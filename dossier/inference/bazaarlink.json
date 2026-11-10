@@ -92,6 +92,13 @@
       "capture": "sha256:f9d01c007f2801ca7607f755ba808d70c04cf6a716611f207982fcfb0be8a076",
       "quote": "type=\"email\"",
       "proved": "the login page offers an email field"
+    },
+    {
+      "url": "probe:https://api.bazaarlink.ai/v1/chat/completions",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:e2876fe13f58128975c35800d0a7c1f988fabfe2c9d1bda7122c6afb07a49be0",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "qualifies-with-caveat",

@@ -118,6 +118,13 @@
       "capture": "sha256:8febedf53b359a24e25ca59072d2111c853b5240b074232f1d93a2b9e5f33fd9",
       "quote": "- Pinecone [Inference](https://docs.pinecone.io/guides/inference/understanding-inference.md)",
       "proved": "Pinecone Inference is part of the Starter plan, which the page labels Free"
+    },
+    {
+      "url": "probe:https://api.pinecone.io/embed",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:4634ca74192d96f37c684bb5a176e1dde5df959ff30f99efcfc6b645156716b0",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "qualifies-with-caveat",

@@ -105,6 +105,13 @@
       "proved": "terms list a valid email address and payment method among account requirements",
       "capture": "sha256:6af387802656e7e9dd7e54975bda825a0c4fc58cf0a7ffc29a2a5551c43c0925",
       "quote": "Provide a valid email address and payment method"
+    },
+    {
+      "url": "probe:https://api.routeway.ai/v1/chat/completions",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 403 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:44cf275f9fa968010c236223a26d45fb6d34df3b3de0efbcc2e01cc80d9c3524",
+      "quote": "\"status\": 403"
     }
   ],
   "verdict": "qualifies-with-caveat",

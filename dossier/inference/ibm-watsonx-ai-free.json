@@ -125,6 +125,13 @@
       "proved": "the watsonx.ai account setup page states that a credit card is entered to create the account",
       "capture": "sha256:e1de014a1726d046176ef4de40071b22132c1ce95d3e6e9c62b323451cb86e0c",
       "quote": "You must enter a credit card to create a Pay-As-You-Go IBM Cloud account."
+    },
+    {
+      "url": "probe:https://us-south.ml.cloud.ibm.com/ml/v1/text/embeddings",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:f9a86e50c8aabda2c75697a0f2cafea63ef1eb20a20b82b6f0c678c037cdca31",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "qualifies-with-caveat",

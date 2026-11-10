@@ -85,6 +85,13 @@
       "capture": "sha256:dfa6e14b337496317ff77b88d0f3180e202809adea8eec9938818cacc933ee25",
       "quote": "Free Qwen runs on shared spare GPU capacity.",
       "proved": "the free model runs on shared spare capacity"
+    },
+    {
+      "url": "probe:https://api.iteracompute.com/v1/chat/completions",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:ab991ec96f842e8623f3d638a7b9a0166a13a5826e2b681af3e539377676b546",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "qualifies-with-caveat",

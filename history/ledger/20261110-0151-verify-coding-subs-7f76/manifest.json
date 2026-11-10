@@ -1,0 +1,248 @@
+{
+ "manifest": 1,
+ "written": "2026-11-10T01:58:04Z",
+ "run": {
+  "run": "20261110-0151-verify-coding-subs-7f76",
+  "kind": "verify",
+  "topic": "coding-subs",
+  "request": "parse a monthly price for the paid records that state none, and state the interface of the six records that leave it unknown",
+  "created": "2026-11-10T01:51:38Z",
+  "base": "19d5dd2dbcb21688a8225e2b7d5eff47d5661871",
+  "branch": "rq/20261110-0151-verify-coding-subs-7f76",
+  "issue": null,
+  "rounds": 0,
+  "research_issue": null
+ },
+ "units": [
+  {
+   "id": "u01",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "coding-subs",
+   "tally": {
+    "confirmed": 5,
+    "applied": 5,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Set the monthly price of the cheapest paid step from the vendor's own page for each record, with a capture and an exact quote.",
+   "scope": {
+    "rids": [
+     "coding-subs/abacus-chatllm",
+     "coding-subs/alibaba-cloud-model-studio-coding-plan",
+     "coding-subs/amp-individual",
+     "coding-subs/augment-code-standard",
+     "coding-subs/augment-code-business"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u02",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "coding-subs",
+   "tally": {
+    "confirmed": 5,
+    "applied": 5,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Set the monthly price of the cheapest paid step from the vendor's own page for each record, with a capture and an exact quote.",
+   "scope": {
+    "rids": [
+     "coding-subs/charm-hyper",
+     "coding-subs/factory",
+     "coding-subs/qwencloud-token-plan-personal-edition",
+     "coding-subs/qwencloud-token-plan-team-edition",
+     "coding-subs/stepfun-step-plan"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u03",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "coding-subs",
+   "tally": {
+    "confirmed": 5,
+    "applied": 5,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Set the monthly price of the cheapest paid step from the vendor's own page for each record, with a capture and an exact quote.",
+   "scope": {
+    "rids": [
+     "coding-subs/tabnine-enterprise",
+     "coding-subs/v0-plus",
+     "coding-subs/warp-build",
+     "coding-subs/warp-max",
+     "coding-subs/zai-glm-coding-plan"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u04",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "coding-subs",
+   "tally": {
+    "evidence": 2,
+    "confirmed": 2,
+    "applied": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "State whether a monthly price exists for each record and, where it does not, record the reason from the page.",
+   "scope": {
+    "rids": [
+     "coding-subs/anthropic-api",
+     "coding-subs/kimi"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u05",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "coding-subs",
+   "tally": {
+    "confirmed": 6,
+    "applied": 1,
+    "evidence": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read the page that settles each record's programmatic interface and confirm the interface and its detail.",
+   "scope": {
+    "rids": [
+     "coding-subs/bolt-free",
+     "coding-subs/bolt-pro",
+     "coding-subs/devin",
+     "coding-subs/windsurf",
+     "coding-subs/zed-pro",
+     "coding-subs/zed-personal"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u06",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "coding-subs",
+   "audits": "u01",
+   "score": {
+    "supported": 10,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 10,
+    "upper95": 0.278,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 10 claim(s) integrated by unit u01 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u07",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "coding-subs",
+   "audits": "u02",
+   "score": {
+    "supported": 10,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 10,
+    "upper95": 0.278,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 10 claim(s) integrated by unit u02 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u08",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "coding-subs",
+   "audits": "u03",
+   "score": {
+    "supported": 10,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 10,
+    "upper95": 0.278,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 10 claim(s) integrated by unit u03 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u09",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "coding-subs",
+   "audits": "u04",
+   "score": {
+    "supported": 4,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 4,
+    "upper95": 0.49,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 4 claim(s) integrated by unit u04 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u10",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "coding-subs",
+   "audits": "u05",
+   "score": {
+    "supported": 13,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 13,
+    "upper95": 0.228,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 13 claim(s) integrated by unit u05 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  }
+ ],
+ "report": [
+  "run 20261110-0151-verify-coding-subs-7f76 (verify coding-subs): parse a monthly price for the paid records that state none, and state the interface of the six records that leave it...",
+  "units 10: integrated 10",
+  "applied 18, confirmed 23, added 0, corroborated 0, dead 0, related 0, rejected 0, conflicts 0, open questions 1, evidence rows dropped 0",
+  "ledger lines 44, captures cited 21, conflicts logged 0 (0 handled by reconcile units)",
+  "audit of u01 by u06: 10 supported, 0 unsupported, 0 cannot tell; upper95 0.278 -> kept",
+  "audit of u02 by u07: 10 supported, 0 unsupported, 0 cannot tell; upper95 0.278 -> kept",
+  "audit of u03 by u08: 10 supported, 0 unsupported, 0 cannot tell; upper95 0.278 -> kept",
+  "audit of u04 by u09: 4 supported, 0 unsupported, 0 cannot tell; upper95 0.490 -> kept",
+  "audit of u05 by u10: 13 supported, 0 unsupported, 0 cannot tell; upper95 0.228 -> kept"
+ ],
+ "merged": {},
+ "undo_skipped": [],
+ "conflicts": []
+}
