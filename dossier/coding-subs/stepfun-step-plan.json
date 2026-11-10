@@ -190,14 +190,24 @@
       "proved": "the four-tier ladder, Credit allowances, conversion rate, month-end clearance, booster packs, no-RPM statement and the two Base URLs are unchanged on 2026-10-30",
       "capture": "sha256:0171869dc8e3a3da509347c75d4011d66c650576e3d393d9ef8c1c7cb8cc5677",
       "quote": "| **Flash Plus** | Daily productivity | 1,600M | \\$9.99 | \\$26.99 | \\$95.99 |"
+    },
+    {
+      "url": "https://platform.stepfun.ai/docs/en/step-plan/overview.md",
+      "date": "2026-11-10",
+      "proved": "the page states the plan table prices Flash Mini at USD 6.99 a month",
+      "capture": "sha256:f34b855cfb7a52579f5e6faf2fb4479aa86d53591e2e0800c4e264e18b39ddcd",
+      "quote": "| **Flash Mini** | Getting started with AI | 400M | \\$6.99"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-30T17:50:31.458Z",
+  "verified_at": "2026-11-10T01:55:59.601Z",
   "notes": "This record carried verdict: trial-only and confidence: unverified until 2026-10-22T04:14Z, on a 396-byte shell from www.stepfun.com/pricing. The seed row it dismissed cited platform.stepfun.ai/docs/en/step-plan/overview.md, which returns 9444 bytes of current documentation, and that is the URL restored here. The seed's row is dated 2026-10-07, not 2026-09-07 as the topic README's staleness table said. At USD 9.99 for 1,600M Credits, or about USD 228.6 of model usage, this is the cheapest plan in the market per unit of work and the strongest counter-example to the topic's 'nothing under USD 20 carries a usable allowance' conclusion.",
   "history": [
     "../../history/2026-10-22T043000Z/stepfun-tier-restored.md"
   ],
   "stale": false,
-  "stale_checked_at": "2026-10-22T04:31:47.000Z"
+  "stale_checked_at": "2026-10-22T04:31:47.000Z",
+  "extras": {
+    "monthly_usd": 6.99
+  }
 }
