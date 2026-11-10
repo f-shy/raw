@@ -125,6 +125,13 @@
       "proved": "the Workers Free plan carries the 10,000 Neurons per day free allocation",
       "capture": "sha256:74e40a4722407253e54b039a5c2eb7e37714cf93ecc0fa8c97dbb9a3449dda6f",
       "quote": "| Workers Free | 10,000 Neurons per day | N/A - Upgrade to Workers Paid |"
+    },
+    {
+      "url": "probe:https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/run/",
+      "date": "2026-11-09",
+      "proved": "a keyless POST on 2026-11-09 answered HTTP 404, so the recorded route does not exist",
+      "capture": "sha256:c1cfbc8540e7d9462f2adede5e4d86f8bb2a83ff2072819d2a4bccfaeda4d3e5",
+      "quote": "\"status\": 404"
     }
   ],
   "verdict": "qualifies-with-caveat",

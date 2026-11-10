@@ -110,6 +110,13 @@
       "capture": "sha256:7a673e698eb68662b0dab4bd4dbf7a5413cc5b2f8d94e1939e13cbe21d05aa71",
       "quote": "\"id\":\"bgg1996/melirrhoe\"",
       "proved": "a keyless GET /v1/models answered 200 and listed bgg1996/melirrhoe, whose allow_anonymous flag follows in the body"
+    },
+    {
+      "url": "probe:https://net.beaverai.org/v1/chat/completions",
+      "date": "2026-11-09",
+      "proved": "a keyless POST on 2026-11-09 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:49f461bf5fa016ea3acabeb8dc785d7f7c8093405af520fabb056d372e65c1f7",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "qualifies-with-caveat",
