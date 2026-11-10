@@ -153,7 +153,7 @@
     {
       "url": "probe:https://api.deepgram.com",
       "date": "2026-11-10",
-      "proved": "a keyless POST on 2026-11-10 answered HTTP 404, so the recorded route does not exist",
+      "proved": "a POST to the bare host https://api.deepgram.com, with no path and no key, answered HTTP 404 with an empty body; no API route was requested, so the route was not tested",
       "capture": "sha256:ccdf064ead2fead1bd728c6de34c8dd6fdc8bdf7afcaecf3c112a3e72f1e1f03",
       "quote": "\"status\": 404"
     }

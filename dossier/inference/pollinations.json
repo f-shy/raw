@@ -41,7 +41,7 @@
     "detail": "no key required, but the allowance is metered per IP and shared with everything else on that address",
     "country": null
   },
-  "reliability_note": "a keyless POST on 2026-11-10 for openai-fast answered 200 twice with content 'pong'; on 2026-10-22 gpt-5-nano returned 402 in run 1 and 404 in run 2, eight minutes apart",
+  "reliability_note": "a keyless POST on 2026-11-10 for openai-fast answered 200 twice with content 'pong'; on 2026-10-22 gpt-5-nano returned 402 in run 1 and 404 in run 2, eight minutes apart. The record of 2026-10-28 said: the same model on the same base URL returned 402 and 404 responses intermittently across test runs on 2026-10-28",
   "confidence": "measured",
   "confidence_note": "the per-IP 402 was observed. The advertised id openai-fast is listed by GET /models with the aliases openai, gpt-oss, gpt-oss-20b and ovh-reasoning, and a completion for openai-fast reports the served model as gpt-oss-20b, so the served model is the advertised one under one of its aliases.",
   "probe": {

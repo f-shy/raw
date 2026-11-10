@@ -129,7 +129,7 @@
     {
       "url": "probe:https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/run/",
       "date": "2026-11-10",
-      "proved": "a keyless POST on 2026-11-10 answered HTTP 404, so the recorded route does not exist",
+      "proved": "a request with the literal placeholder {account_id} in the account position of the URL answered HTTP 404 with Cloudflare code 7003 \"Could not route to /client/v4/accounts/%7Baccount_id%7D/ai/run/, perhaps your object identifier is invalid?\"; the recorded route was not tested",
       "capture": "sha256:c1cfbc8540e7d9462f2adede5e4d86f8bb2a83ff2072819d2a4bccfaeda4d3e5",
       "quote": "\"status\": 404"
     }

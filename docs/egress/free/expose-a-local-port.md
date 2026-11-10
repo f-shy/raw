@@ -335,7 +335,7 @@ Three findings a reader should carry:
 3. **A password page on a free tunnel is not a failure.** localtunnel's visitor page
    asks for the tunnel password, which is the host's public IP: it is the service's
    normal anti-abuse step. The throttle and the multi-second stalls are the honest
-   limits; its client repository has had no push since 2025-08.
+   limits; the age of its client repository is unverified, no capture holds a push date.
 
 The authless set is also shrinking: Optimistix is shut down, ssi.sh's hosted demo
 requires password or a pre-registered key, tunnelto is account-gated trialware, and

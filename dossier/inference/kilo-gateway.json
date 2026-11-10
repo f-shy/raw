@@ -33,12 +33,12 @@
   "url": "https://api.kilo.ai/api/gateway",
   "category": "inference gateway, keyless",
   "free_tier": {
-    "stated": "8 of the 380 ids in the catalogue end in ':free' and require no key; two more are free without the suffix (kilo-auto/free, openrouter/free). The free id probed answered in both runs",
+    "stated": "on 2026-11-10 the catalogue listed 380 ids, 8 of them ending in ':free' and requiring no key, and two more free without the suffix (kilo-auto/free, openrouter/free); the free id probed answered in both runs. On 2026-10-22 it listed 401 ids, 14 of them ending in ':free' and requiring no key, and three more free without the suffix (reflection/beam-free, kilo-auto/free, openrouter/free); eight of the nine ids probed then answered in both runs",
     "unit": "tokens",
     "metered_on": "request-count",
     "source_url": "https://api.kilo.ai/api/gateway/models",
     "read_on": "2026-11-10",
-    "notes": "the catalogue holds 380 ids by count, 8 ending in ':free'"
+    "notes": "on 2026-11-10 the catalogue held 380 ids by count, 8 ending in ':free'; on 2026-10-22 the catalogue was 542343 bytes and held 401 ids, 14 ending in ':free'; 19 of 401 answering on 2026-10-22 is the third-party probe's own figure, not a count of ours"
   },
   "endpoint": "https://api.kilo.ai/api/gateway/chat/completions",
   "identity_cost": {

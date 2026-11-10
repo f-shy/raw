@@ -85,7 +85,7 @@
   ],
   "verdict": "fails-egress",
   "verified_at": "2026-11-05T00:00:00.000Z",
-  "notes": "SSH-based reverse tunneling service. Throughput on free connections measured at 11.4 KiB/s (approximately 0.98 GiB/day). A sandbox measured about 6-8 kB/s on the anonymous tier on 2026-11-05, consistent with the 11.4 KiB/s read here.",
+  "notes": "SSH-based reverse tunneling service. Throughput on free connections measured at 11.4 KiB/s (about 11.7 kB/s, approximately 0.98 GiB/day). A sandbox measured about 6-8 kB/s on the anonymous tier on 2026-11-05.",
   "history": [],
   "extras": {
     "stale_after_days": 180,
@@ -99,5 +99,5 @@
   "interface_detail": "ssh -R 80:127.0.0.1:PORT nokey@localhost.run",
   "stale": false,
   "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "confidence_note": " the free tier works end to end but throttles to about 6-8 kB/s, so a 4 MiB transfer does not complete (measured 2026-11-05)."
+  "confidence_note": "the free tier works end to end but throttles to about 6-8 kB/s, so a 4 MiB transfer does not complete (measured 2026-11-05)."
 }

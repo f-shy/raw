@@ -5,11 +5,11 @@
   "url": "https://www.blacksmith.sh/pricing",
   "category": "CI runner (hosted, GitHub Actions-compatible)",
   "free_tier": {
-    "stated": "3,000 free minutes a month on every plan the page lists. Beyond the free minutes the page states only that it is 33% cheaper than GitHub per-minute pricing, which puts a 4-core Linux minute at about USD 0.008 against GitHub list price of USD 0.012.",
+    "stated": "3,000 free minutes a month on every plan the page lists. Beyond the free minutes the page states only that it is 33% cheaper than GitHub per-minute pricing; it prints no per-minute price.",
     "unit": "minutes",
     "metered_on": "wall-clock",
     "source_url": "https://www.blacksmith.sh/pricing",
-    "read_on": "2026-11-10",
+    "read_on": "2026-10-30",
     "notes": ""
   },
   "per_object_cap": {
@@ -45,7 +45,7 @@
     },
     {
       "kind": "request-rate",
-      "value": "33% cheaper than GitHub per-minute pricing, so a 4-core Linux minute is about USD 0.008 against GitHub list price of USD 0.012",
+      "value": "33% cheaper than GitHub per-minute pricing; the page prints no per-minute price",
       "source": "https://www.blacksmith.sh/pricing"
     },
     {
@@ -76,49 +76,49 @@
     },
     {
       "url": "https://www.blacksmith.sh/pricing",
-      "date": "2026-11-10",
+      "date": "2026-10-30",
       "proved": "the free allowance is 3,000 minutes a month",
       "capture": "sha256:7fa1f56cd550b9066cb1d96c0a9a9b4c346a34b9ac0c17791a9010c9336e86bc",
       "quote": "3,000 free min/mo."
     },
     {
       "url": "https://www.blacksmith.sh/pricing",
-      "date": "2026-11-10",
+      "date": "2026-10-30",
       "proved": "Docker layer caching and sticky disks cost USD 0.50 a GB-month",
       "capture": "sha256:7fa1f56cd550b9066cb1d96c0a9a9b4c346a34b9ac0c17791a9010c9336e86bc",
       "quote": "Docker layer caching (+$0.50/GB/mo.)"
     },
     {
       "url": "https://www.blacksmith.sh/pricing",
-      "date": "2026-11-10",
+      "date": "2026-10-30",
       "proved": "the discount is 33% below GitHub per-minute pricing",
       "capture": "sha256:7fa1f56cd550b9066cb1d96c0a9a9b4c346a34b9ac0c17791a9010c9336e86bc",
       "quote": "We are 33% cheaper than GitHub per-minute pricing"
     },
     {
       "url": "https://www.blacksmith.sh/pricing",
-      "date": "2026-11-10",
+      "date": "2026-10-30",
       "proved": "no signup requirement is stated on the pricing page",
       "capture": "sha256:7fa1f56cd550b9066cb1d96c0a9a9b4c346a34b9ac0c17791a9010c9336e86bc",
       "quote": "Try for free"
     },
     {
       "url": "https://www.blacksmith.sh/pricing",
-      "date": "2026-11-10",
+      "date": "2026-10-30",
       "proved": "the hardware is claimed to run 2x faster than GitHub's runners",
       "capture": "sha256:7fa1f56cd550b9066cb1d96c0a9a9b4c346a34b9ac0c17791a9010c9336e86bc",
       "quote": "We are 2x faster than GitHub's runners."
     },
     {
       "url": "https://www.blacksmith.sh/pricing",
-      "date": "2026-11-10",
+      "date": "2026-10-30",
       "proved": "a startup discount is application-gated",
       "capture": "sha256:7fa1f56cd550b9066cb1d96c0a9a9b4c346a34b9ac0c17791a9010c9336e86bc",
       "quote": "Under 100 employees"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T02:22:59.411Z",
+  "verified_at": "2026-10-30T10:47:30.677Z",
   "price_per_tb_month": null,
   "notes": "The plan grid shows 3,000 free minutes a month on every plan, a 33% discount against GitHub per-minute pricing and three paid add-ons. The startup and OSS programmes are application-gated and grant a discount rather than a free tier. The macOS M4 rate quoted in a comparison report is not on the page read here and stays unverified.",
   "extras": {

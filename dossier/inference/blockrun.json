@@ -33,12 +33,12 @@
   "url": "https://blockrun.ai/api/v1",
   "category": "inference relay",
   "free_tier": {
-    "stated": "9 of 117 model ids on /v1/models carry billing_mode free; the rest carry list prices spanning openai, google, anthropic, xai, zai, bytedance, deepseek, qwen, nvidia and eleven other families",
+    "stated": "on 2026-11-10, 9 of 117 model ids on /v1/models carried billing_mode free; on 2026-10-22, 7 of 117 carried an input price of 0 (the two counts use different markers); the rest carry list prices spanning openai, google, anthropic, xai, zai, bytedance, deepseek, qwen, nvidia and eleven other families",
     "unit": "tokens",
     "metered_on": "request-count",
     "source_url": "https://blockrun.ai/api/v1/models",
     "read_on": "2026-11-10",
-    "notes": "the nine free ids are nvidia/nemotron-3-super-120b, nvidia/nemotron-3-nano-omni-30b-a3b-reasoning, nvidia/nemotron-3.5-lightning, nvidia/nemotron-3-ultra-550b, cohere/north-mini-code, poolside/laguna-xs-2.1, nvidia/muse-glimmer-30b, nvidia/nemotron-3.5-bolt and nvidia/minimax-m3.1-flash"
+    "notes": "on 2026-11-10 the nine free ids were nvidia/nemotron-3-super-120b, nvidia/nemotron-3-nano-omni-30b-a3b-reasoning, nvidia/nemotron-3.5-lightning, nvidia/nemotron-3-ultra-550b, cohere/north-mini-code, poolside/laguna-xs-2.1, nvidia/muse-glimmer-30b, nvidia/nemotron-3.5-bolt and nvidia/minimax-m3.1-flash; on 2026-10-22 the seven zero-priced ids were nvidia/nemotron-3-nano-omni-30b-a3b-reasoning, nvidia/nemotron-3.5-lightning, nvidia/llama-3.2-11b-vision, nvidia/nemotron-3-ultra-550b, cohere/north-mini-code, poolside/laguna-xs-2.1 and nvidia/muse-glimmer-30b"
   },
   "endpoint": "https://blockrun.ai/api/v1/chat/completions",
   "identity_cost": {
@@ -46,7 +46,7 @@
     "detail": "no Authorization header sent and none required for the free route",
     "country": null
   },
-  "reliability_note": "a keyless POST on 2026-11-10 for nvidia/nemotron-3.5-lightning answered 200 twice and echoed the model, after earlier identical calls answered 2 and refused 3 with FREE_MODEL_FAILED and 'NVIDIA API error: 429 Too Many Requests'",
+  "reliability_note": "a keyless POST on 2026-11-10 for nvidia/nemotron-3.5-lightning answered 200 twice and echoed the model; on 2026-10-22, 5 sequential identical calls answered 2 and refused 3 with FREE_MODEL_FAILED and a debug field naming 'NVIDIA API error: 429 Too Many Requests'",
   "confidence": "measured",
   "confidence_note": "the relay is proved by its own error body naming NVIDIA, and the substitution by the echoed model string. Both are measured; the upstream arrangement is inferred from them.",
   "probe": {
