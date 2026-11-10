@@ -114,3 +114,13 @@ only cross-machine lock.
 A maintainer reviews the pull request, starts the gate on its head, and merges. `rq merge` is not a
 command a contributor runs: it needs write access, it merges with `--match-head-commit`, and it files
 the follow-up issue.
+
+⭐ A pull request from your fork is merged at the head the gate checked. `scripts/rq merge RUN --pr NUMBER`
+brings the branch up to date with `main`, pushes it to `rq/RUN` in `f-shy/raw`, where the gate runs, and then pushes
+that same commit to your fork's branch, fast-forward only. That push needs "Allow edits by maintainers" on the pull
+request, which GitHub offers by default when you open it. ⚠ Without it, `merge` stops before it merges: allow
+edits, or merge `main` into your branch yourself, and the maintainer runs `merge` again. `merge` never deletes your
+branch.
+
+A run that another pull request carries (several runs combined in one) is merged with
+`scripts/rq merge RUN --pr NUMBER`, once for each run it carries.
