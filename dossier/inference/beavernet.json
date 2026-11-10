@@ -19,11 +19,11 @@
   "url": "https://net.beaverai.org/v1",
   "category": "inference gateway, community GPU pool, anonymous tier",
   "free_tier": {
-    "stated": "Works without a key, with limits; a free key gives more. 4 models available; the listing carries a per-model allow_anonymous flag",
+    "stated": "Works without a key, with limits; a free key gives more. /v1/models lists 9 ids on 2026-11-09, only the echo/ ids answered with no key; the listing carries a per-model allow_anonymous flag",
     "unit": "requests",
     "metered_on": "request-count",
     "source_url": "https://net.beaverai.org/",
-    "read_on": "2026-10-28",
+    "read_on": "2026-11-09",
     "notes": "the limits are not stated as numbers on the page; models are served by volunteers sharing their own GPUs"
   },
   "endpoint": "https://net.beaverai.org/v1/chat/completions",
@@ -110,9 +110,16 @@
       "capture": "sha256:7a673e698eb68662b0dab4bd4dbf7a5413cc5b2f8d94e1939e13cbe21d05aa71",
       "quote": "\"id\":\"bgg1996/melirrhoe\"",
       "proved": "a keyless GET /v1/models answered 200 and listed bgg1996/melirrhoe, whose allow_anonymous flag follows in the body"
+    },
+    {
+      "url": "probe:https://net.beaverai.org/v1/chat/completions",
+      "date": "2026-11-09",
+      "capture": "sha256:8b56fa04aaa7b6dd7231e56123dc75be6fdee9b0790b32bf2ccf274dc5b087eb",
+      "quote": "\"status\": 200",
+      "proved": "a keyless POST on 2026-11-09 for echo/huihui-qwen3.8-27b-abliterated answered 200 twice and echoed huihui-qwen3.8-27b-abliterated with content pong"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-28T04:36:18.974Z",
+  "verified_at": "2026-11-10T02:44:00.000Z",
   "notes": "whether a keyless POST to /v1/chat/completions answers is unverified"
 }

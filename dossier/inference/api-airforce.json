@@ -138,9 +138,16 @@
       "capture": "sha256:a8751dbcdbd0b350e87244c4bcdedc348fdc9370de65674a9e9ec26960e0977d",
       "quote": "multi-provider aggregation (Pollinations + [ApiAirforce](https://api.airforce/) today, more as they appear)",
       "proved": "a third-party keyless router lists Api.Airforce as a keyless upstream"
+    },
+    {
+      "url": "probe:https://api.airforce/v1/chat/completions",
+      "date": "2026-11-09",
+      "capture": "sha256:6c8843a845eefa29d808b4eed8f0ad94837bbe57ec4e69987d402ce8e4e1ea90",
+      "quote": "\"status\": 401",
+      "proved": "a keyless POST on 2026-11-09 to the free id kimi-k2.7-code answered HTTP 401 Missing Authorization, so the free route needs an Authorization header"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-28T04:36:18.974Z",
+  "verified_at": "2026-11-10T02:44:00.000Z",
   "notes": "whether a completion answers with no Authorization header is unverified; the account route is the documented one"
 }

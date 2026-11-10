@@ -105,9 +105,16 @@
       "capture": "sha256:e728e2b02f3e1d30a1f89e6625f99362cb3ed6a56f0e9b84a5989dfd6c2ae5ac",
       "quote": "{\"object\":\"list\",\"data\":[{\"id\":\"gpt-oss\",\"object\":\"model\",\"owned_by\":\"OpenAI\"}",
       "proved": "a keyless GET /v1/models answered 200 with the model list"
+    },
+    {
+      "url": "probe:https://dg-ai.scriptsnsenses.workers.dev/v1/chat",
+      "date": "2026-11-09",
+      "proved": "a keyless POST on 2026-11-09 answered 200 with ok true, model gpt-oss and an empty reply",
+      "capture": "sha256:5444a50d2649097e7ee78b5545442679c2e5815f52754800eb808e68f5c0cac6",
+      "quote": "\"status\": 200"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-28T04:36:18.974Z",
+  "verified_at": "2026-11-10T01:21:20.503Z",
   "notes": "ids such as claude-sonnet-3.5 and gemini-2.5-pro are labelled by their upstream vendor in the listing and are served through the freeAI gateway backend named on the page; the served model is unverified"
 }

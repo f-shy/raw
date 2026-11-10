@@ -104,6 +104,13 @@
       "capture": "sha256:4daa645d55634686f35b4e141a64ccd6abfd2039024afb3ec9b6e03b1be7fed6",
       "quote": "| **Read**       | 1,200             | 1,000          | 1 minute |",
       "proved": "read operations are limited to 1,200 per minute with a burst capacity of 1,000"
+    },
+    {
+      "url": "probe:https://api.mixedbread.com/v1/stores/search",
+      "date": "2026-11-09",
+      "proved": "a keyless POST on 2026-11-09 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:e47573ad60ded82e908f726f18ac901c25c365ed878123b9e90a9bd9f8279dc9",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "trial-only",

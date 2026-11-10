@@ -178,6 +178,13 @@
       "proved": "a third-party guide reports the same email, Google, GitHub and SSO sign-up methods",
       "capture": "sha256:e1b66c91a55e981fe0d9c9a9a4c7cb200df4ecc252c094211cdcda592e7f2b9e",
       "quote": "Go to console.groq.com and sign up with your email address, Google, GitHub, or SSO."
+    },
+    {
+      "url": "probe:https://api.groq.com/openai/v1/chat/completions",
+      "date": "2026-11-09",
+      "proved": "a keyless POST on 2026-11-09 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:bb7048d2c555b3b7602cee0b2f5aba0898fbfeb111388e0b979b81f1231000a3",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "qualifies-with-caveat",

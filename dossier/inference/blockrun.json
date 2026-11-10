@@ -33,12 +33,12 @@
   "url": "https://blockrun.ai/api/v1",
   "category": "inference relay",
   "free_tier": {
-    "stated": "7 of 117 model ids on /v1/models carry an input price of 0; the rest carry list prices spanning openai, google, anthropic, xai, zai, bytedance, deepseek, qwen, nvidia and eleven other families",
+    "stated": "9 of 117 model ids on /v1/models carry billing_mode free; the rest carry list prices spanning openai, google, anthropic, xai, zai, bytedance, deepseek, qwen, nvidia and eleven other families",
     "unit": "tokens",
     "metered_on": "request-count",
     "source_url": "https://blockrun.ai/api/v1/models",
-    "read_on": "2026-10-22",
-    "notes": "the seven zero-priced ids are nvidia/nemotron-3-nano-omni-30b-a3b-reasoning, nvidia/nemotron-3.5-lightning, nvidia/llama-3.2-11b-vision, nvidia/nemotron-3-ultra-550b, cohere/north-mini-code, poolside/laguna-xs-2.1 and nvidia/muse-glimmer-30b"
+    "read_on": "2026-11-09",
+    "notes": "the nine free ids are nvidia/nemotron-3-super-120b, nvidia/nemotron-3-nano-omni-30b-a3b-reasoning, nvidia/nemotron-3.5-lightning, nvidia/nemotron-3-ultra-550b, cohere/north-mini-code, poolside/laguna-xs-2.1, nvidia/muse-glimmer-30b, nvidia/nemotron-3.5-bolt and nvidia/minimax-m3.1-flash"
   },
   "endpoint": "https://blockrun.ai/api/v1/chat/completions",
   "identity_cost": {
@@ -46,7 +46,7 @@
     "detail": "no Authorization header sent and none required for the free route",
     "country": null
   },
-  "reliability_note": "5 sequential identical calls answered 2 and refused 3 with FREE_MODEL_FAILED and a debug field naming 'NVIDIA API error: 429 Too Many Requests'",
+  "reliability_note": "a keyless POST on 2026-11-09 for nvidia/nemotron-3.5-lightning answered 200 twice and echoed the model, after earlier identical calls answered 2 and refused 3 with FREE_MODEL_FAILED and 'NVIDIA API error: 429 Too Many Requests'",
   "confidence": "measured",
   "confidence_note": "the relay is proved by its own error body naming NVIDIA, and the substitution by the echoed model string. Both are measured; the upstream arrangement is inferred from them.",
   "probe": {
@@ -164,13 +164,20 @@
       "proved": "the free route is still limited per source IP by request rate",
       "capture": "sha256:041d612f47f75550fdcb581e18c7b754b72d150dc46f0ff7073de28565ae8475",
       "quote": "**30 requests per minute** (burst) and **300 requests per hour** (sustained)"
+    },
+    {
+      "url": "probe:https://blockrun.ai/api/v1/chat/completions",
+      "date": "2026-11-09",
+      "proved": "a keyless POST on 2026-11-09 for nvidia/nemotron-3.5-lightning answered 200 twice and echoed nvidia/nemotron-3.5-lightning with 56 tokens (24 prompt, 32 completion)",
+      "capture": "sha256:4fcea24310d308aa980892921873cfc8567e30e890a7862708b79add745fb6dd",
+      "quote": "\"status\": 200"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-04T05:39:11.781Z",
+  "verified_at": "2026-11-10T01:21:20.150Z",
   "notes": "The relay category's clearest instance. An error body that names a different vendor's API is the cheapest available tell, and the echoed model string is the second. A caller that does not compare the echoed model receives a plausible answer from a model it did not choose.",
   "binding": "request-rate",
   "stale": false,
   "stale_checked_at": "2026-10-22T00:00:00.000Z",
   "binding_note": "the upstream NVIDIA 429 binds, and it arrives inside a 200-style error body rather than as a 429 status, so a client cannot see it by status code"
-}
+}

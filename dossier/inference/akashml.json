@@ -156,6 +156,13 @@
       "proved": "trial credits are granted after onboarding; their size is not on the public pages",
       "capture": "sha256:fa3fbd14d4e415cbc0e229d45af4b2fa77c884570eec2989e6d44de7bda6e09a",
       "quote": "2. **Add a payment method** during onboarding to receive trial credits."
+    },
+    {
+      "url": "probe:https://api.akashml.com/v1/chat/completions",
+      "date": "2026-11-09",
+      "proved": "a keyless POST on 2026-11-09 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:ed76abe983af4870cdf50718c5f6530f7d0112335550032ecad36c67a7723c2a",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "trial-only",
