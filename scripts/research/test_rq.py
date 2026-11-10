@@ -1789,7 +1789,9 @@ def git_guard_case():
         except common.GitRefused:
             pass
     # origin's own URL is origin: judged with the repository that names it
-    for a in nope + [("push", "-q", "https://github.com/f-shy/raw.git", "a" * 40 + ":refs/heads/main")]:
+    forms = ["https://github.com/f-shy/raw.git", "git@github.com:f-shy/raw.git", "ssh://git@github.com/f-shy/raw.git",
+             "https://github.com/F-Shy/raw", "git://github.com/f-shy/raw.git/"]
+    for a in nope + [("push", "-q", u, "a" * 40 + ":refs/heads/main") for u in forms]:
         try:
             common.git_guard(list(a), merge_session=True, repo=gd)
             kept.append(a)
@@ -1805,6 +1807,10 @@ def git_guard_case():
     ok(not kept, "even the merge session pushes a bare commit only to a branch other than origin's main, with no force "
                  "and no delete (%s)" % kept)
     ok(fork_main, "the merge session may push a bare commit to the main of a fork, which is not origin")
+    ok(common.repo_slug("git@github.com:F-Shy/raw.git") == common.repo_slug("https://github.com/f-shy/raw/") == "f-shy/raw"
+       and common.repo_slug("ssh://git@github.com:22/f-shy/raw.git") == "f-shy/raw" and common.repo_slug("origin") == ""
+       and common.repo_slug("https://github.com/contrib/raw.git") == "contrib/raw",
+       "one helper reduces the ssh and https forms of a remote to owner/name (the guard and the CI check share it)")
     ok(os.environ.get("GIT_OPTIONAL_LOCKS") == "0" and os.environ.get("PYTHONPYCACHEPREFIX", "").replace("\\", "/").endswith(".tmp/rq/pycache"),
        "a harness process holds GIT_OPTIONAL_LOCKS=0 and PYTHONPYCACHEPREFIX in its environment")
     ok(os.environ.get("GIT_TERMINAL_PROMPT") == "0" and os.environ.get("GCM_INTERACTIVE") == "never" and
@@ -3445,6 +3451,32 @@ def fork_merge_case(repo, tmp):
             ok("real work" in str(e) and git(own, "rev-parse", "refs/heads/rq/" + run) == odd,
                "a local rq/RUN with commits the pull request's head lacks stops the merge and is left alone (%s)" % str(e)[:80])
         git(own, "update-ref", "-d", "refs/heads/rq/" + run, odd)
+        # what is dropped is what prepare/merge made, by their exact subjects; a free-text `rq put` reason is not
+        upref = "refs/remotes/origin/main"
+        mainc = git(own, "rev-parse", upref)
+        side = git(own, "commit-tree", "%s^{tree}" % tip, "-p", "%s~1" % tip, "-m", "work that is on no remote")
+        put_like = git(own, "commit-tree", "%s^{tree}" % tip, "-p", "%s~1" % tip, "-m", "rq %s: merge the notes of the audit" % run)
+        put_main = git(own, "commit-tree", "%s^{tree}" % tip, "-p", "%s~1" % tip, "-m", "rq %s: merge main" % run)
+        made = git(own, "commit-tree", "%s^{tree}" % tip, "-p", "%s~1" % tip, "-p", mainc, "-m", "rq %s: merge main" % run)
+        made_bad = git(own, "commit-tree", "%s^{tree}" % tip, "-p", "%s~1" % tip, "-p", side, "-m", "rq %s: merge main" % run)
+        rendered = git(own, "commit-tree", "%s^{tree}" % tip, "-p", made,
+                       "-m", "rq %s: render the touched tables and the manifest" % run)
+        for name, c_ in (("an rq put commit whose reason starts with merge", put_like),
+                         ("a single-parent commit named like a merge", put_main),
+                         ("a merge commit whose other parent is on no remote", made_bad)):
+            git(own, "update-ref", "refs/heads/rq/" + run, c_, "")
+            try:
+                land.seed_from_pr({"run": run}, 77, own)
+                ok(False, "%s is kept and the merge stops" % name)
+            except common.Fail as e:
+                ok(git(own, "rev-parse", "refs/heads/rq/" + run) == c_ and "not behind" in str(e),
+                   "%s is kept and the merge stops (%s)" % (name, str(e)[:80]))
+            git(own, "update-ref", "-d", "refs/heads/rq/" + run, c_)
+        git(own, "update-ref", "refs/heads/rq/" + run, rendered, "")
+        land.seed_from_pr({"run": run}, 77, own)
+        ok(git(own, "rev-parse", "refs/heads/rq/" + run) == tip,
+           "a merge main and a render commit that merge made are dropped: the branch takes the head of the pull request")
+        git(own, "update-ref", "-d", "refs/heads/rq/" + run, tip)
         # rq review reads a fork's run from the pull request's head
         import review
         try:
@@ -3562,14 +3594,31 @@ def fork_merge_case(repo, tmp):
         if args[:2] == ["pr", "view"] and "body" in args:
             return prs3["body"]
         return base(args, repo_, input_text)
+    mainc3 = gitdir(origin, "rev-parse", "refs/heads/main")
+    gitdir(origin, "update-ref", "refs/pull/55/head", mainc3)                  # the carrying pull request's head holds the run
+    gitdir(origin, "update-ref", "refs/pull/56/head", gitdir(origin, "rev-list", "--max-parents=0", "refs/heads/main").splitlines()[0])
     real = track.gh
     track.gh = gh3
     try:
+        # a typo in --pr: main holds the run, but that pull request's head does not, so nothing after the merge runs
+        try:
+            land.merge(run2, own3, wait_ci=False, pr="56")
+            ok(False, "--pr on a merged pull request whose head lacks the run stops")
+        except common.Fail as e:
+            ok("does not carry run" in str(e) and not [a for a in log3 if a[:2] in (["issue", "close"], ["issue", "comment"], ["pr", "comment"])]
+               and issues == {123: "OPEN", 321: "OPEN"} and not prs3["comments"][1:],
+               "--pr on a merged pull request whose head lacks the run stops before any step after the merge (%s)" % str(e)[:80])
+        try:
+            land.merge(run2, own3, wait_ci=False, pr="57")
+            ok(False, "--pr on a pull request that does not exist stops")
+        except common.Fail as e:
+            ok(issues == {123: "OPEN", 321: "OPEN"}, "--pr on a pull request with no head to read stops (%s)" % str(e)[:80])
+        mark = len(log3)
         try:
             land.merge(run2, own3, wait_ci=False, pr=carrying)
         except common.Fail as e:
             ok(False, "--pr on a merged carrying pull request finishes the steps after the merge (%s)" % e)
-        prlookups = {a[2] for a in log3 if a[:1] == ["pr"] and len(a) > 2 and not a[2].startswith("-")}
+        prlookups = {a[2] for a in log3[mark:] if a[:1] == ["pr"] and len(a) > 2 and not a[2].startswith("-")}
         shut = [a for a in log3 if a[:2] == ["issue", "close"]]
         ok(issues[123] == "CLOSED" and shut and shut[0][2] == "123",
            "--pr on a merged carrying pull request closes the run's own rq:run issue")

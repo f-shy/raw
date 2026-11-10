@@ -1228,6 +1228,31 @@ def pr_carries(n, run, repo=REPO):
     return bool(got and got[0] == "blob")
 
 
+def merge_made_only(repo, run, head, local):
+    """[] when every commit of `local` beyond `head` (first parent) is one that prepare/merge made themselves and that
+    loses nothing when dropped: a merge commit with the exact subject "rq RUN: merge main" or "rq RUN: merge
+    origin/rq/RUN" (merge_into) whose other parents are all on origin/main or origin/rq/RUN, or the render commit with
+    the exact subject "rq RUN: render the touched tables and the manifest" (prepare). Otherwise the subjects of the
+    commits that are not (a free-text `rq put` reason can start with "merge" too, and rq put pushes nothing)."""
+    up = rev(repo, upstream(repo))
+    mine = rev(repo, "refs/remotes/%s/rq/%s" % (REMOTE, run))
+    safe = [x for x in (up, mine) if x]
+    merges = ("rq %s: merge main" % run, "rq %s: merge origin/rq/%s" % (run, run))
+    render = "rq %s: render the touched tables and the manifest" % run
+    out = git(repo, "log", "--first-parent", "--format=%H%x09%P%x09%s", "%s..%s" % (head, local)) or ""
+    bad = []
+    for line in out.splitlines():
+        sha, parents, subject = (line.split("\t", 2) + ["", ""])[:3]
+        ps = parents.split()
+        if len(ps) == 2 and subject in merges:
+            if all(any(is_ancestor(repo, p, x) for x in safe) for p in ps[1:]):
+                continue
+        elif len(ps) == 1 and subject == render:
+            continue
+        bad.append(subject)
+    return bad
+
+
 def seed_from_pr(r, n, repo=REPO):
     """Bring the local rq/RUN level with the head of the pull request, so that a merge builds on the head the pull request
     has now: absent, behind or equal -> the PR's head; ahead -> kept; diverged -> the PR's head when what the branch holds
@@ -1243,12 +1268,11 @@ def seed_from_pr(r, n, repo=REPO):
     elif is_ancestor(repo, local, head):
         git(repo, "update-ref", ref, head, local)
     else:
-        subjects = (git(repo, "log", "--first-parent", "--format=%s", "%s..%s" % (head, local)) or "").splitlines()
-        mine = ("rq %s: merge " % run, "rq %s: render the touched" % run)
-        if not all(x.startswith(mine) for x in subjects):
+        lost = merge_made_only(repo, run, head, local)
+        if lost:
             raise Fail("rq/%s in this clone holds commits that the head of pull request %d lacks (%s) and is not behind it: "
                        "nothing is merged, so that work is not lost. Push or drop it first (scripts/rq cleanup %s drops the "
-                       "local branch once origin holds its tip)" % (run, n, "; ".join(subjects[:3]), run), 1)
+                       "local branch once origin holds its tip)" % (run, n, "; ".join(lost[:3]), run), 1)
         git(repo, "update-ref", ref, head, local)  # the commits an earlier merge made on a head that moved on
     return
 
@@ -1342,7 +1366,10 @@ def merge(run, repo=REPO, wait_ci=True, pr=None):
     pr: the pull request that carries the run (a number or a URL) when it is not the run's own: every lookup of the
     pull request reads that one. A pull request whose head is another branch (a fork's, a carrying one) gets the gated
     head pushed to that branch before the merge (pr_head_plan). One carrying pull request holds several runs, each
-    merged or resumed with its own `rq merge RUN --pr N`."""
+    merged or resumed with its own `rq merge RUN --pr N`. Known and left as is: with --pr, prepare's update_branch still
+    takes origin/rq/RUN into the branch, so a commit on origin/rq/RUN that the carrying pull request lacks reaches main
+    through it, unreviewed there. Skipping that merge would make the gate push of rq/RUN (not a fast-forward of
+    origin/rq/RUN) fail or need a force, so the carrying pull request's reviewer reads the run's diff on rq/RUN too."""
     extra, n = (), None
     if pr is not None:
         n, extra = pr_context(pr, repo)
@@ -1366,6 +1393,9 @@ def merge(run, repo=REPO, wait_ci=True, pr=None):
             if not (held and held[0] == "blob"):
                 raise Fail("the pull request %s is merged, but main does not hold run %s (no %s): it does not carry "
                            "this run" % (url, run, manifest_rel(run)), 1)
+            if not pr_carries(n, run, repo):
+                raise Fail("the pull request %s is merged, but its head holds no %s: it does not carry run %s. Nothing "
+                           "is finished; check the run id and the pull request number" % (url, manifest_rel(run), run), 1)
         if merged_comment(r, repo):
             raise Fail("the pull request of %s is merged and rq merge finished (it carries the rq merged: comment)" % run, 1)
         return ["the pull request %s is merged; finishing the steps after the merge" % url] + after_merge(r, repo, view, local)
