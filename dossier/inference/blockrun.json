@@ -168,7 +168,7 @@
     {
       "url": "probe:https://blockrun.ai/api/v1/chat/completions",
       "date": "2026-11-09",
-      "proved": "a keyless POST on 2026-11-09 for nvidia/nemotron-3.5-lightning answered 200 twice and echoed nvidia/nemotron-3.5-lightning with content \"Here's a thinking process:\\n\\n1.  **Analyz\"",
+      "proved": "a keyless POST on 2026-11-09 for nvidia/nemotron-3.5-lightning answered 200 twice and echoed nvidia/nemotron-3.5-lightning with 56 tokens (24 prompt, 32 completion)",
       "capture": "sha256:28f6efdf83685ff082b75b007bbf1db52a86fa4955f1a3622662d08b8db0f099",
       "quote": "\"status\": 200"
     }
@@ -180,4 +180,4 @@
   "stale": false,
   "stale_checked_at": "2026-10-22T00:00:00.000Z",
   "binding_note": "the upstream NVIDIA 429 binds, and it arrives inside a 200-style error body rather than as a 429 status, so a client cannot see it by status code"
-}
+}
