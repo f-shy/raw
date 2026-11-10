@@ -114,9 +114,9 @@
     {
       "url": "probe:https://net.beaverai.org/v1/chat/completions",
       "date": "2026-11-09",
-      "proved": "a keyless POST on 2026-11-09 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
-      "capture": "sha256:49f461bf5fa016ea3acabeb8dc785d7f7c8093405af520fabb056d372e65c1f7",
-      "quote": "\"status\": 401"
+      "capture": "sha256:8b56fa04aaa7b6dd7231e56123dc75be6fdee9b0790b32bf2ccf274dc5b087eb",
+      "quote": "\"status\": 200",
+      "proved": "a keyless POST on 2026-11-09 for echo/huihui-qwen3.8-27b-abliterated answered 200 twice and echoed huihui-qwen3.8-27b-abliterated with content pong"
     }
   ],
   "verdict": "qualifies-with-caveat",

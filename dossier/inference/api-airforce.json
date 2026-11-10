@@ -142,9 +142,9 @@
     {
       "url": "probe:https://api.airforce/v1/chat/completions",
       "date": "2026-11-09",
-      "proved": "a keyless POST on 2026-11-09 answered HTTP 402 with a payment quote, so no free route is served",
-      "capture": "sha256:9e50ce7c9bd5f2ba4fa67d202ad668b465817880e09074bf93f295a0214fd471",
-      "quote": "\"status\": 402"
+      "capture": "sha256:6c8843a845eefa29d808b4eed8f0ad94837bbe57ec4e69987d402ce8e4e1ea90",
+      "quote": "\"status\": 401",
+      "proved": "a keyless POST on 2026-11-09 to the free id kimi-k2.7-code answered HTTP 401 Missing Authorization, so the free route needs an Authorization header"
     }
   ],
   "verdict": "qualifies-with-caveat",
