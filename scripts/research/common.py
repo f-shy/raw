@@ -287,7 +287,8 @@ def git_guard(args, merge_session=False):
     """Refuse every git command that is not in the allowlist of the one-tree design (section 1.2): research writes git
     objects and the refs refs/heads/rq/* and refs/heads/intake/* with an old value, and fetches into
     refs/remotes/origin/*; it never writes the checkout's branch, index, files or configuration. The merge session's
-    commands (rq sync, the legacy step of rq wipe) pass merge_session=True."""
+    commands (rq sync, the legacy step of rq wipe, rq merge's push of the gated head to a pull request's branch) pass
+    merge_session=True."""
     args = [str(a) for a in args]
     if not args:
         raise GitRefused("git with no subcommand", 2)
@@ -376,6 +377,10 @@ def git_guard(args, merge_session=False):
         for spec in pos[1:]:
             if spec.startswith("+"):
                 no("no forced push")
+            src, _, dst = spec.partition(":")
+            if (merge_session and "--delete" not in flags and re.fullmatch(r"[0-9a-f]{40}", src)
+                    and dst.startswith("refs/heads/") and dst != "refs/heads/" + BASE):
+                continue  # rq merge: the gated head, fast-forward only, to the branch a pull request has as its head
             dst = spec.split(":", 1)[-1]
             if not _ref_ok(dst):
                 no("push only refs/heads/rq/* or refs/heads/intake/* to the same name")
