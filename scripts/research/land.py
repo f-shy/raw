@@ -174,13 +174,14 @@ def write_manifest(r, repo=REPO):
     return True
 
 
-def read_manifest(run, repo=REPO, do_fetch=True):
-    """The manifest from the run branch, or from main once the run merged. -> dict with "source", or None."""
+def read_manifest(run, repo=REPO, do_fetch=True, extra=()):
+    """The manifest from the run branch, or from main once the run merged. extra: refs to read first, the head of a
+    pull request that carries the run. -> dict with "source", or None."""
     if do_fetch and has_remote(repo):
         fetch(repo, [BASE])
         fetch(repo, [run_refspec(run)])
     # full refnames: a local branch named origin/main or origin/rq/RUN never stands in for origin's (G7-03)
-    for ref in ("refs/remotes/%s/rq/%s" % (REMOTE, run), "refs/heads/rq/" + run, UPSTREAM_REF, BASE_REF):
+    for ref in tuple(extra) + ("refs/remotes/%s/rq/%s" % (REMOTE, run), "refs/heads/rq/" + run, UPSTREAM_REF, BASE_REF):
         c = rev(repo, ref)
         if not c:
             continue
@@ -192,8 +193,9 @@ def read_manifest(run, repo=REPO, do_fetch=True):
     return None
 
 
-def run_view(run, repo=REPO):
-    """The run as a merge session sees it: this checkout's run folder when it ran the run, else the manifest."""
+def run_view(run, repo=REPO, extra=()):
+    """The run as a merge session sees it: this checkout's run folder when it ran the run, else the manifest (extra:
+    see read_manifest)."""
     if os.path.exists(os.path.join(run_dir(run, repo), "run.json")):
         try:
             m = build_manifest(run, repo)
@@ -203,7 +205,7 @@ def run_view(run, repo=REPO):
             m["source"] = "local"
             m["run"].update({k: v for k, v in units.load_run(run, repo).items() if k in ("pr", "phase", "landed", "followup")})
             return m
-    m = read_manifest(run, repo)
+    m = read_manifest(run, repo, extra=extra)
     if not m:
         raise Fail("no run %s in this checkout, and no %s on origin/rq/%s or origin/main (the research session writes "
                    "it with scripts/rq land %s)" % (run, manifest_rel(run), run, run), 2)
@@ -1196,15 +1198,161 @@ def merge_author(run, repo=REPO):
     return addr
 
 
-def merge(run, repo=REPO, wait_ci=True):
+def pr_arg(text):
+    """The number of a pull request given as 55, #55 or the URL of a pull request of this repository. A URL of another
+    repository is refused: its number would name a different pull request here. -> int."""
+    t = (text or "").strip()
+    m = re.fullmatch(r"#?(\d+)", t)
+    if m:
+        return int(m.group(1))
+    m = re.fullmatch(r"https?://github\.com/([^/\s]+)/([^/\s]+)/pull/(\d+)/?(?:[?#].*)?", t)
+    if not m:
+        raise Fail("--pr takes a pull request number or the URL of a pull request, not %r" % text, 2)
+    if track.GITHUB_REPO and ("%s/%s" % (m.group(1), m.group(2))).lower() != track.GITHUB_REPO.lower():
+        raise Fail("--pr names %s/%s, a pull request of another repository than %s" % (m.group(1), m.group(2), track.GITHUB_REPO), 2)
+    return int(m.group(3))
+
+
+def pr_context(pr, repo=REPO):
+    """For --pr: fetch the head of the pull request. -> (number, refs the manifest is read from first)."""
+    n = pr_arg(pr)
+    if has_remote(repo):
+        fetch(repo, ["+refs/pull/%d/head:%s" % (n, pr_ref_of(n))])
+    return n, (pr_ref_of(n),)
+
+
+def pr_carries(n, run, repo=REPO):
+    """True when the head of pull request n (fetched by pr_context) holds the manifest of the run."""
+    c = rev(repo, pr_ref_of(n))
+    got = catfile(repo).get("%s:%s" % (c, manifest_rel(run))) if c else None
+    return bool(got and got[0] == "blob")
+
+
+def seed_from_pr(r, n, repo=REPO):
+    """Bring the local rq/RUN level with the head of the pull request, so that a merge builds on the head the pull request
+    has now: absent, behind or equal -> the PR's head; ahead -> kept; diverged -> the PR's head when what the branch holds
+    beyond it was made by an earlier merge (main merged in, the render), else a stop: the commits would be lost."""
+    run = r["run"]
+    ref, head, local = ref_of(run), rev(repo, pr_ref_of(n)), rev(repo, ref_of(run))
+    if not head:
+        raise Fail("the head of pull request %d could not be fetched from %s" % (n, REMOTE), 1)
+    if not local:
+        git(repo, "update-ref", ref, head, "")
+    elif local == head or is_ancestor(repo, head, local):
+        return
+    elif is_ancestor(repo, local, head):
+        git(repo, "update-ref", ref, head, local)
+    else:
+        subjects = (git(repo, "log", "--first-parent", "--format=%s", "%s..%s" % (head, local)) or "").splitlines()
+        mine = ("rq %s: merge " % run, "rq %s: render the touched" % run)
+        if not all(x.startswith(mine) for x in subjects):
+            raise Fail("rq/%s in this clone holds commits that the head of pull request %d lacks (%s) and is not behind it: "
+                       "nothing is merged, so that work is not lost. Push or drop it first (scripts/rq cleanup %s drops the "
+                       "local branch once origin holds its tip)" % (run, n, "; ".join(subjects[:3]), run), 1)
+        git(repo, "update-ref", ref, head, local)  # the commits an earlier merge made on a head that moved on
+    return
+
+
+def pr_ref_of(n):
+    return "refs/remotes/%s/pr/%d" % (REMOTE, n)
+
+
+def fork_url(owner, name):
+    """The URL the merge pushes a fork's head branch to (the selftest replaces this function)."""
+    return "https://github.com/%s/%s.git" % (owner, name)
+
+
+def pr_info(pr, repo=REPO):
+    """The head of a pull request as GitHub has it: {headRepository, headRepositoryOwner, headRefName, headRefOid,
+    maintainerCanModify, isCrossRepository}, or None when gh does not say."""
+    out = track.gh(["pr", "view", pr, "--json", "headRepository,headRepositoryOwner,headRefName,headRefOid,"
+                    "maintainerCanModify,isCrossRepository"], repo)
+    try:
+        d = json.loads(out) if out else None
+    except ValueError:
+        d = None
+    return d if isinstance(d, dict) and d.get("headRefName") else None
+
+
+def pr_head_plan(r, head, repo=REPO):
+    """Where the pull request's own head branch must be moved so that its head is `head`, the commit the gate checks:
+    None when it is that commit already (or gh does not say, and gh pr merge then refuses a head it does not have),
+    else {"url", "ref", "oid", "why"}: the fork's repository for a pull request from a fork, origin for a carrying
+    branch (combine/...). Fail, before anything is merged, when the fork does not allow edits by maintainers."""
+    info = pr_info(r.get("pr") or r["branch"], repo)
+    if not info or not info.get("headRefOid") or info["headRefOid"] == head:
+        return None
+    ref, oid = info["headRefName"], info["headRefOid"]
+    if info.get("isCrossRepository"):
+        owner = (info.get("headRepositoryOwner") or {}).get("login")
+        name = (info.get("headRepository") or {}).get("name")
+        if not owner or not name:
+            raise Fail("the pull request %s comes from a fork that GitHub no longer names (deleted?), so its head %s "
+                       "cannot be moved to %s. Nothing is merged. Merge the fork's head after the contributor merges "
+                       "main into it" % (r.get("pr"), oid[:10], head[:10]), 1)
+        if not info.get("maintainerCanModify"):
+            raise Fail("the pull request %s is from the fork %s/%s and does not allow edits by maintainers, so the "
+                       "merge cannot move its branch %s to the head the gate checks (%s). Nothing is merged. Ask the "
+                       "contributor to allow edits by maintainers, or to merge main into the branch, and then merge "
+                       "the fork's head" % (r.get("pr"), owner, name, ref, head[:10]), 1)
+        plan = {"url": fork_url(owner, name), "ref": ref, "oid": oid, "why": "the fork %s/%s" % (owner, name)}
+    elif ref == "rq/" + r["run"]:
+        return {"url": REMOTE, "ref": ref, "oid": oid, "why": REMOTE, "pushed": True}
+    else:
+        plan = {"url": REMOTE, "ref": ref, "oid": oid, "why": "%s (the branch of the pull request)" % REMOTE}
+    import common
+    try:  # the guard the push will meet, asked now: a refusal after the gate would cost an hour for nothing
+        common.git_guard(["push", "-q", plan["url"], "%s:refs/heads/%s" % (head, ref)], merge_session=True, repo=repo)
+    except common.GitRefused:
+        raise Fail("the merge may not push the head to %s on %s (the branch of pull request %s): it never writes %s of this "
+                   "repository. Nothing is merged" % (ref, plan["why"], r.get("pr"), BASE), 1)
+    return plan
+
+
+def push_pr_head(r, plan, head, repo=REPO):
+    """Push `head` to the pull request's head branch, fast-forward only (no force), so that the head the pull request
+    has is the commit the gate checked. Fail, before the merge, when the push is refused. -> a line, or None."""
+    if plan.get("pushed"):
+        return None  # push_branch pushed rq/RUN to origin: that is this branch
+    if not is_ancestor(repo, plan["oid"], head):
+        raise Fail("the head of the pull request %s (%s) is not an ancestor of %s: the branch moved while the merge "
+                   "ran. Nothing is merged. Run scripts/rq merge %s again" % (r.get("pr"), plan["oid"][:10], head[:10], r["run"]), 1)
+    rc, out, err = git_run(repo, "push", "-q", plan["url"], "%s:refs/heads/%s" % (head, plan["ref"]),
+                           timeout=NET_TIMEOUT, merge_session=True)
+    if rc != 0:
+        msg = (err or out).strip()[:300]
+        raise Fail("the push of %s to %s on %s was refused: %s. Nothing is merged. Ask the contributor to allow edits by "
+                   "maintainers, or to merge main into the branch, and then merge the fork's head"
+                   % (head[:10], plan["ref"], plan["why"], msg), 1)
+    for _ in range(6):  # GitHub moves the head of the pull request a moment after the push
+        info = pr_info(r.get("pr") or r["branch"], repo)
+        if not info or info.get("headRefOid") == head:
+            break
+        time.sleep(5)  # wait: poll, GitHub has not updated the pull request's head yet
+    return "pushed %s to %s on %s: the head of the pull request is the commit the gate checked" % (head[:10], plan["ref"], plan["why"])
+
+
+def merge(run, repo=REPO, wait_ci=True, pr=None):
     """The merge session: run only by a session that did not run the research. Brings the branch up to date with main
     in git objects, renders, pushes, runs the light checks, waits for the remote CI on that head (ci.py), merges it
     with --match-head-commit and the account's noreply address as the merge commit's author (merge_author), then the
     steps after
     the merge. On a MERGED pull request without the `rq merged:` comment it resumes after the merge (2.7). It works in any
-    clone: without the run folder it reads the manifest on the branch."""
-    view = run_view(run, repo)
+    clone: without the run folder it reads the manifest on the branch.
+    pr: the pull request that carries the run (a number or a URL) when it is not the run's own: every lookup of the
+    pull request reads that one. A pull request whose head is another branch (a fork's, a carrying one) gets the gated
+    head pushed to that branch before the merge (pr_head_plan). One carrying pull request holds several runs, each
+    merged or resumed with its own `rq merge RUN --pr N`."""
+    extra, n = (), None
+    if pr is not None:
+        n, extra = pr_context(pr, repo)
+    view = run_view(run, repo, extra)
     r = dict(view["run"])
+    if n is not None:
+        found = (track.gh(["pr", "view", str(n), "--json", "url", "--jq", ".url"], repo) or "").strip()
+        if not found:
+            raise Fail("gh does not know pull request %s (or gh is missing)" % pr, 1)
+        r["pr"] = found
     st = pr_state(r, repo)
     if st is None:
         raise Fail("no pull request for branch %s (gh is missing, or the research session has not run scripts/rq land %s)"
@@ -1212,25 +1360,36 @@ def merge(run, repo=REPO, wait_ci=True):
     local = os.path.exists(os.path.join(run_dir(run, repo), "run.json"))
     url = pr_url(r, repo)
     if st == "MERGED":
+        if n is not None:
+            fetch(repo, [BASE])
+            held = catfile(repo).get("%s:%s" % (rev(repo, upstream(repo)), manifest_rel(run)))
+            if not (held and held[0] == "blob"):
+                raise Fail("the pull request %s is merged, but main does not hold run %s (no %s): it does not carry "
+                           "this run" % (url, run, manifest_rel(run)), 1)
         if merged_comment(r, repo):
             raise Fail("the pull request of %s is merged and rq merge finished (it carries the rq merged: comment)" % run, 1)
         return ["the pull request %s is merged; finishing the steps after the merge" % url] + after_merge(r, repo, view, local)
     if st != "OPEN":
         raise Fail("the pull request of %s is not open (%s)" % (run, st), 1)
+    if n is not None and not pr_carries(n, run, repo):
+        raise Fail("pull request %d does not carry run %s: its head holds no %s. Nothing is merged; check the run id and the "
+                   "pull request number" % (n, run, manifest_rel(run)), 1)
     author = merge_author(run, repo)
     lock = run_lock(run, repo) if local else None
     if lock:
         lock.acquire()
     try:
-        if not rev(repo, ref_of(run)):
+        if n is not None:
+            seed_from_pr(r, n, repo)  # the head the pull request has now, not a branch an earlier merge left
+        elif not rev(repo, ref_of(run)):
             fetch(repo, [run_refspec(run)])
             remote = rev(repo, "refs/remotes/%s/rq/%s" % (REMOTE, run))
             if not remote and r.get("pr"):
                 m = re.search(r"/pull/(\d+)", r["pr"] or "")
                 if m:
-                    n = int(m.group(1))
-                    fetch(repo, ["+refs/pull/%d/head:refs/remotes/%s/pr/%d" % (n, REMOTE, n)])
-                    remote = rev(repo, "refs/remotes/%s/pr/%d" % (REMOTE, n))
+                    k = int(m.group(1))
+                    fetch(repo, ["+refs/pull/%d/head:%s" % (k, pr_ref_of(k))])
+                    remote = rev(repo, pr_ref_of(k))
             if not remote:
                 raise Fail("branch rq/%s is neither in this clone nor on %s" % (run, REMOTE), 1)
             git(repo, "update-ref", ref_of(run), remote, "")
@@ -1240,6 +1399,9 @@ def merge(run, repo=REPO, wait_ci=True):
         rep = got[0]
         while True:
             if push_target(repo):
+                # a pull request whose head is another branch (a fork's, a carrying one) cannot be merged at a head it
+                # does not have: stop now, before the gate runs, when that branch cannot be moved
+                pr_head_plan(r, rev(repo, ref_of(run)), repo)
                 push_branch(r, repo, "merge")
             head = rev(repo, ref_of(run))
             if ci.remote():
@@ -1263,6 +1425,13 @@ def merge(run, repo=REPO, wait_ci=True):
             if again_ is None or again_ == EMPTY:
                 break
             rep = again_[0]
+        if push_target(repo):
+            # the gate checked `head`; the pull request must have it as its head, or gh pr merge --match-head-commit
+            # names a head the pull request lacks. A fork's branch gets it fast-forward only; nothing happens when the
+            # pull request has this head already
+            plan = pr_head_plan(r, head, repo)
+            line = push_pr_head(r, plan, head, repo) if plan else None
+            rep = rep + ([line] if line else [])
         if track.gh(["pr", "merge", r.get("pr") or r["branch"], "--merge", "--match-head-commit", head,
                      "--author-email", author], repo) is None:
             raise Fail("the merge of %s failed; it stays open: %s" % (r["branch"], url), 1)
@@ -1302,6 +1471,7 @@ def after_merge(r, repo, view, local):
         lr.update(phase="merged", landed=r["landed"], followup=r.get("followup"))
         units.save_run(lr, repo)
     judged = judge_issue(r, repo)
+    shut = close_run_issue(r, repo)
     # a unit planned from a public report answers that issue; it closes when a publish carries the result
     answers = ["unit %s answers %s#%s: after the publish that carries it, comment with the record path and close it "
                "(gh issue close %s --repo %s --comment \"...\")" % (u["id"], u["issue"]["repo"], u["issue"]["number"],
@@ -1309,8 +1479,24 @@ def after_merge(r, repo, view, local):
                for u in view["units"] if isinstance(u.get("issue"), dict) and u.get("status") == "integrated"]
     track.gh(["pr", "comment", r.get("pr") or r["branch"], "--body-file", "-"], repo,
              no_close("%s %s follow-up %s" % (track.MERGED, run, ("#%s" % r["followup"]) if r.get("followup") else "none")))
-    out += (["follow-up issue #%s: open items" % r["followup"]] if r.get("followup") else []) + ([judged] if judged else []) + answers
+    out += (["follow-up issue #%s: open items" % r["followup"]] if r.get("followup") else []) + ([judged] if judged else []) + ([shut] if shut else []) + answers
     return out
+
+
+def close_run_issue(r, repo=REPO):
+    """The run's own rq:run issue (r["issue"]) closes when it is still open. A pull request that land opened says
+    "Closes #N" and GitHub closed it with the merge; a pull request that carries the run, or that someone else opened,
+    does not. -> a line, or None."""
+    n = r.get("issue")
+    if not n:
+        return None
+    st = track.issue_state(n, repo)
+    if not st or st.get("state") != "OPEN":
+        return None
+    if track.gh(["issue", "close", str(n), "--reason", "completed", "--comment",
+                 no_close("The run %s is merged (%s)." % (r["run"], pr_url(r, repo)))], repo) is None:
+        return "issue #%s (the run's own) could not be closed: close it by hand" % n
+    return "issue #%s closed: the run's own rq:run issue" % n
 
 
 def judge_issue(r, repo=REPO):

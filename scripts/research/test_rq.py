@@ -1763,7 +1763,9 @@ def git_guard_case():
     ok(passed == good, "the allowlist passes merge-tree --write-tree, config --get, update-ref of rq/ and intake/ with an "
                        "old value, fetch into remotes, push of a run branch, a diff of two commits and the reads (%s)" % [a for a in good if a not in passed])
     ms = [("merge", "--ff-only", "origin/main"), ("update-index", "-q", "--refresh"), ("maintenance", "run", "--auto"),
-          ("reset", "--hard", "origin/main"), ("worktree", "prune")]
+          ("reset", "--hard", "origin/main"), ("worktree", "prune"),
+          ("push", "-q", "origin", "a" * 40 + ":refs/heads/combine/x"),
+          ("push", "-q", "https://github.com/o/n.git", "b" * 40 + ":refs/heads/feature")]
     okm = []
     for a in ms:
         try:
@@ -1772,6 +1774,37 @@ def git_guard_case():
         except common.GitRefused:
             pass
     ok(okm == ms, "the merge session's own commands pass only with merge_session=True")
+    nope = [("push", "-q", "origin", "a" * 40 + ":refs/heads/main"), ("push", "-q", "origin", "+" + "a" * 40 + ":refs/heads/x"),
+            ("push", "-q", "--delete", "origin", "a" * 40 + ":refs/heads/x"), ("push", "-q", "origin", "refs/heads/rq/x:refs/heads/y"),
+            ("push", "-q", "origin", "a" * 40 + ":refs/tags/v1")]
+    import tempfile
+    gd = tempfile.mkdtemp(prefix="rq-guard-")
+    subprocess.run(["git", "init", "-q", gd], check=True)
+    subprocess.run(["git", "-C", gd, "remote", "add", "origin", "https://github.com/f-shy/raw.git"], check=True)
+    kept = []
+    for a in nope:
+        try:
+            common.git_guard(list(a), merge_session=True)
+            kept.append(a)
+        except common.GitRefused:
+            pass
+    # origin's own URL is origin: judged with the repository that names it
+    for a in nope + [("push", "-q", "https://github.com/f-shy/raw.git", "a" * 40 + ":refs/heads/main")]:
+        try:
+            common.git_guard(list(a), merge_session=True, repo=gd)
+            kept.append(a)
+        except common.GitRefused:
+            pass
+    fm = ("push", "-q", "https://github.com/contrib/raw.git", "a" * 40 + ":refs/heads/main")
+    try:
+        common.git_guard(list(fm), merge_session=True, repo=gd)
+        fork_main = True
+    except common.GitRefused:
+        fork_main = False
+    shutil.rmtree(gd, ignore_errors=True)
+    ok(not kept, "even the merge session pushes a bare commit only to a branch other than origin's main, with no force "
+                 "and no delete (%s)" % kept)
+    ok(fork_main, "the merge session may push a bare commit to the main of a fork, which is not origin")
     ok(os.environ.get("GIT_OPTIONAL_LOCKS") == "0" and os.environ.get("PYTHONPYCACHEPREFIX", "").replace("\\", "/").endswith(".tmp/rq/pycache"),
        "a harness process holds GIT_OPTIONAL_LOCKS=0 and PYTHONPYCACHEPREFIX in its environment")
     ok(os.environ.get("GIT_TERMINAL_PROMPT") == "0" and os.environ.get("GCM_INTERACTIVE") == "never" and
@@ -3269,6 +3302,299 @@ def round2_case(repo, tmp):
     set_phase(repo, s_run, "merged")
     state.release(repo, s_run)
     let_go()
+
+
+def fork_merge_case(repo, tmp):
+    """rq merge of a pull request from a fork, and of a run that another pull request carries. A fork's pull request
+    has the fork's commit as its head: the merge pushes the prepared head to origin (the gate) and, fast-forward only,
+    to the fork's branch, then merges that head; with no edits by maintainers, or with a refused push, it stops before
+    the merge. `--pr N` reads the carrying pull request for every lookup, finishes a merged one (the follow-up, the
+    claimed issue, the run's own issue, the rq merged: comment) and merges an open one."""
+    import common
+    import land
+    import state
+    import track
+    import inspect
+    origin = repo + "-origin.git"
+    if "pr" not in inspect.signature(land.merge).parameters or not hasattr(land, "fork_url"):
+        ok(False, "rq merge takes --pr and pushes a fork's pull request to the fork's branch (land.merge has no pr "
+                  "argument: origin/main's merge cannot run these cases)")
+        return
+
+    def gitdir(d, *args):
+        return subprocess.run(["git", "--git-dir", d] + list(args), capture_output=True, text=True).stdout.strip()
+
+    def landed(rid, page, quote, issue=None, research_issue=None):
+        run = new_run(repo, "verify", "storage", "fork merge")
+        ids, r = plan_units(repo, run, [{"kind": "verify", "question": "f1", "scope": {"rids": [rid]}}])
+        if not ids:
+            ok(False, "fork merge: a run planned (%s)" % (r.stdout + r.stderr)[-300:])
+            return None, None
+        verify_lane(repo, run, ids[0], rid, page, quote)
+        sh(repo, "collect", run)
+        sh(repo, "integrate", run)
+        rj = os.path.join(repo, ".tmp", run, "run.json")
+        d = json.load(open(rj, encoding="utf-8"))
+        d.update({k: v for k, v in (("issue", issue), ("research_issue", research_issue)) if v})
+        json.dump(d, open(rj, "w", encoding="utf-8"))
+        prs = {"state": None, "comments": [], "url": "https://github.com/o/r/pull/99"}
+        land_inprocess(repo, run, prs)
+        return run, prs
+
+    def clone(name):
+        d = os.path.join(tmp, name)
+        subprocess.run(["git", "clone", "-q", origin, d], check=True)
+        git(d, "config", "user.name", "t")
+        git(d, "config", "user.email", "t@example.invalid")
+        return d
+
+    def push_main(d, rel, text):
+        with open(os.path.join(d, *rel.split("/")), "w", encoding="utf-8", newline="\n") as f:
+            f.write(text)
+        git(d, "add", rel)
+        git(d, "-c", "core.hooksPath=", "commit", "-q", "-m", "test: main moves on")
+        git(d, "push", "-q", "origin", "HEAD:refs/heads/main")
+
+    def gh_for(w):
+        base = fake_gh(w["prs"], None)
+
+        def gh(args, repo_=None, input_text=None):
+            w["log"].append(list(args))
+            cur = gitdir(w["fork"], "rev-parse", "refs/heads/" + w["branch"])
+            if args[:2] == ["pr", "view"] and any(a.startswith("headRepository,") for a in args):
+                return json.dumps({"headRefName": w["branch"], "headRefOid": cur, "isCrossRepository": True,
+                                   "maintainerCanModify": w["can"], "headRepository": {"name": "raw"},
+                                   "headRepositoryOwner": {"login": "contrib"}})
+            if args[:2] == ["pr", "merge"]:
+                h = args[args.index("--match-head-commit") + 1]
+                w["heads"].append(h)
+                if h != cur:
+                    return None  # GitHub refuses a head the pull request does not have
+                subprocess.run(["git", "-C", repo_, "push", "-q", "origin", "%s:refs/heads/main" % h], check=True)
+            return base(args, repo_, input_text)
+        return gh
+
+    def fork_world(tag, rid, page, quote, n, branch):
+        run, prs = landed(rid, page, quote)
+        if not run:
+            return None
+        tip = git(repo, "rev-parse", "refs/heads/rq/" + run)
+        fork = os.path.join(tmp, "fork-%s.git" % tag)
+        subprocess.run(["git", "init", "-q", "--bare", fork], check=True)
+        subprocess.run(["git", "-C", repo, "push", "-q", fork, "%s:refs/heads/%s" % (tip, branch)], check=True)
+        gitdir(origin, "update-ref", "refs/pull/%d/head" % n, tip)          # the pull request's head is the fork's commit
+        prs["url"] = "https://github.com/o/r/pull/%d" % n
+        own = clone("own-" + tag)
+        push_main(own, "scripts/sources/fork-merge-%s.tsv" % tag, "slug\tnote\nx\tmain\n")
+        return {"tag": tag, "run": run, "prs": prs, "tip": tip, "fork": fork, "n": n, "branch": branch, "own": own,
+                "can": False, "heads": [], "log": []}
+
+    def drop_origin_branch(w):
+        gitdir(origin, "update-ref", "-d", "refs/heads/rq/" + w["run"])     # a fork's run branch was never pushed to origin
+        for d in (w1["own"], w2["own"]):                                    # nor was it ever fetched
+            subprocess.run(["git", "-C", d, "update-ref", "-d", "refs/remotes/origin/rq/" + w["run"]], capture_output=True)
+
+    def contributor_merges_main(w):
+        c = os.path.join(tmp, "contrib-" + w["tag"])
+        subprocess.run(["git", "clone", "-q", "-b", w["branch"], w["fork"], c], check=True)
+        git(c, "config", "user.name", "c")
+        git(c, "config", "user.email", "c@example.invalid")
+        subprocess.run(["git", "-C", c, "fetch", "-q", origin, "main"], check=True)
+        git(c, "-c", "core.hooksPath=", "merge", "-q", "--no-edit", "FETCH_HEAD")
+        git(c, "push", "-q", "origin", "HEAD:refs/heads/" + w["branch"])
+        new = git(c, "rev-parse", "HEAD")
+        subprocess.run(["git", "-C", c, "push", "-q", origin, "HEAD:refs/pull/%d/head" % w["n"]], check=True)  # GitHub's copy
+        return new
+
+    w1 = fork_world("one", "storage/b2drop", "B2DROP fork page: 52 GB per record.", "52 GB per record", 77, "feature-x")
+    w2 = fork_world("two", "storage/4everland", "Fork main page: 52 GB per record.", "52 GB per record", 78, "main") if w1 else None
+    if not w1 or not w2:
+        return
+    run, prs, tip, fork, own = w1["run"], w1["prs"], w1["tip"], w1["fork"], w1["own"]
+    real = (track.gh, land.fork_url)
+    land.fork_url = lambda owner, name: (w1["fork"] if w1["on"] else w2["fork"]) if (owner, name) == ("contrib", "raw") else "no-such-fork"
+    w1["on"] = True
+    try:
+        # ---- --pr names a pull request that does not carry the run: nothing is rebuilt, pushed or merged
+        track.gh = gh_for(w1)
+        w1["can"] = True
+        before = (gitdir(origin, "rev-parse", "refs/heads/main"), gitdir(fork, "rev-parse", "refs/heads/feature-x"))
+        try:
+            land.merge(w2["run"], own, wait_ci=False, pr="77")
+            ok(False, "--pr on an open pull request that does not carry the run stops")
+        except common.Fail as e:
+            ok("does not carry run" in str(e) and not w1["heads"] and before == (
+                gitdir(origin, "rev-parse", "refs/heads/main"), gitdir(fork, "rev-parse", "refs/heads/feature-x"))
+               and w1["prs"]["state"] == "OPEN",
+               "--pr on an open pull request that does not carry the run stops before a push or a merge (%s)" % str(e)[:100])
+        let_go()
+        if common.GITHUB_REPO:
+            try:
+                land.merge(run, own, wait_ci=False, pr="https://github.com/other-owner/other-repo/pull/77")
+                ok(False, "--pr with the URL of another repository is refused")
+            except common.Fail as e:
+                ok("another repository" in str(e), "--pr with the URL of another repository is refused (%s)" % str(e)[:80])
+        # a local rq/RUN with work the pull request's head lacks is never thrown away
+        git(own, "fetch", "-q", origin, "+refs/pull/77/head:refs/remotes/origin/pr/77")
+        odd = git(own, "commit-tree", "%s^{tree}" % tip, "-p", "%s~1" % tip, "-m", "real work on a side branch")
+        git(own, "update-ref", "refs/heads/rq/" + run, odd, "")
+        try:
+            land.seed_from_pr({"run": run}, 77, own)
+            ok(False, "a local rq/RUN with commits the pull request's head lacks stops the merge")
+        except common.Fail as e:
+            ok("real work" in str(e) and git(own, "rev-parse", "refs/heads/rq/" + run) == odd,
+               "a local rq/RUN with commits the pull request's head lacks stops the merge and is left alone (%s)" % str(e)[:80])
+        git(own, "update-ref", "-d", "refs/heads/rq/" + run, odd)
+        # rq review reads a fork's run from the pull request's head
+        import review
+        try:
+            lines = review.review(run, 3, own, pr="77")
+            ok(any("pull request: https://github.com/o/r/pull/77" in x for x in lines) and any("read from" in x for x in lines),
+               "rq review RUN --pr N reads the run of a fork from the pull request's head (%s)" % lines[-2:])
+        except common.Fail as e:
+            ok(False, "rq review RUN --pr N reads the run of a fork from the pull request's head (%s)" % str(e)[:200])
+        let_go()
+        w1["can"] = False
+        drop_origin_branch(w1)
+        drop_origin_branch(w2)
+
+        # ---- a pull request from a fork
+        try:
+            land.merge(run, own, wait_ci=False, pr="77")
+            ok(False, "a fork's pull request without edits by maintainers stops before the merge")
+        except common.Fail as e:
+            ok(not w1["heads"] and prs["state"] == "OPEN" and "edits by maintainers" in str(e)
+               and "merge main" in str(e) and gitdir(fork, "rev-parse", "refs/heads/feature-x") == tip
+               and not gitdir(origin, "rev-parse", "--verify", "-q", "refs/heads/rq/" + run),
+               "a fork's pull request without edits by maintainers stops before the merge and before any push (%s)" % str(e)[:140])
+        let_go()
+        w1["can"] = True
+        hook = os.path.join(fork, "hooks", "pre-receive")
+        with open(hook, "w", encoding="utf-8", newline="\n") as f:
+            f.write("#!/bin/sh\necho 'refused by the fork' >&2\nexit 1\n")
+        os.chmod(hook, 0o755)
+        try:
+            land.merge(run, own, wait_ci=False, pr="77")
+            ok(False, "a refused push to the fork stops before the merge")
+        except common.Fail as e:
+            ok(not w1["heads"] and prs["state"] == "OPEN" and "refused" in str(e) and "edits by maintainers" in str(e)
+               and gitdir(fork, "rev-parse", "refs/heads/feature-x") == tip,
+               "a refused push to the fork stops before the merge (%s)" % str(e)[:140])
+        let_go()
+        os.remove(hook)
+        out = land.merge(run, own, wait_ci=False, pr="77")
+        gate = gitdir(origin, "rev-parse", "--verify", "-q", "refs/heads/rq/" + run)
+        fh = gitdir(fork, "rev-parse", "refs/heads/feature-x")
+        ok(prs["state"] == "MERGED" and w1["heads"] == [fh] and fh != tip
+           and subprocess.run(["git", "--git-dir", fork, "merge-base", "--is-ancestor", tip, fh]).returncode == 0
+           and gitdir(origin, "rev-parse", "refs/heads/main") == fh and not gate,
+           "a fork's pull request: the prepared head goes to the fork branch (fast-forward) and is the head that is merged "
+           "(%s)" % out[-3:])
+        ok(any(c_.startswith("rq merged: %s" % run) for c_ in prs["comments"]) and fh,
+           "after the merge origin's rq/RUN is gone and the fork's branch stays")
+        let_go()
+
+        # ---- a fork's main as the head, and the retry after the contributor merged main into the branch
+        w1["on"] = False
+        track.gh = gh_for(w2)
+        run2f, prs2f, own2, fork2 = w2["run"], w2["prs"], w2["own"], w2["fork"]
+        try:
+            land.merge(run2f, own2, wait_ci=False, pr="78")
+            ok(False, "a fork pull request without edits stops before the merge (main as the head branch)")
+        except common.Fail as e:
+            ok(not w2["heads"] and "edits by maintainers" in str(e), "no edits by maintainers: stop, as above (%s)" % str(e)[:60])
+        let_go()
+        ch = contributor_merges_main(w2)
+        out = land.merge(run2f, own2, wait_ci=False, pr="78")
+        ok(prs2f["state"] == "MERGED" and w2["heads"] == [ch] and gitdir(fork2, "rev-parse", "refs/heads/main") == ch,
+           "the retry after the contributor merged main into the fork builds on the fork's new head and merges it with no "
+           "push to the fork (%s)" % (w2["heads"], ))
+        let_go()
+        # the plan: a fork's main is a branch the merge may write, origin's main never
+        info = {"headRefName": "main", "headRefOid": "a" * 40, "isCrossRepository": True, "maintainerCanModify": True,
+                "headRepository": {"name": "raw"}, "headRepositoryOwner": {"login": "contrib"}}
+        track.gh = lambda args, repo_=None, input_text=None: json.dumps(info) if "headRefName" in " ".join(args) else ""
+        rr = {"run": run, "branch": "rq/" + run, "pr": "78"}
+        plan = land.pr_head_plan(rr, "b" * 40, own2)
+        ok(bool(plan) and plan["ref"] == "main", "a fork's main is a head branch the merge may push to")
+        info["isCrossRepository"] = False
+        try:
+            land.pr_head_plan(rr, "b" * 40, own2)
+            ok(False, "origin's main is never a push target, and the refusal comes before the gate")
+        except common.Fail as e:
+            ok("never writes" in str(e), "origin's main is never a push target, and the refusal comes before the gate")
+        info.update(isCrossRepository=True, headRefOid="a" * 40)
+        track.gh = lambda args, repo_=None, input_text=None: json.dumps(dict(info, headRefName="feature-x")) if "headRefName" in " ".join(args) else ""
+        ok(land.pr_head_plan(rr, "a" * 40, own2) is None,
+           "a head the fork's pull request has already needs no push, whatever maintainerCanModify says")
+    finally:
+        track.gh, land.fork_url = real
+        let_go()
+    for x in (run, run2f):
+        set_phase(repo, x, "merged")
+        state.release(repo, x)
+
+    # ---- a run that another pull request carries
+    run2, prs2 = landed("storage/b2share", "Carried page: 3 TB of storage per box.", "3 TB of storage per box",
+                        issue=123, research_issue=321)
+    if not run2:
+        return
+    own2 = clone("carried-own")
+    git(own2, "fetch", "-q", "origin", "rq/" + run2)
+    git(own2, "-c", "core.hooksPath=", "merge", "-q", "--no-edit", "FETCH_HEAD")   # pull request 55 carries the run
+    git(own2, "push", "-q", "origin", "HEAD:refs/heads/main")
+    gitdir(origin, "update-ref", "-d", "refs/heads/rq/" + run2)
+    own3 = clone("carried-merged")
+    carrying = "https://github.com/%s/pull/55" % (common.GITHUB_REPO or "o/r")
+    prs3 = {"state": "MERGED", "comments": ["rq merged: some-other-run topic storage"], "url": carrying,
+            "body": "- [x] A line.\n- [ ] Another line.\n"}
+    issues = {123: "OPEN", 321: "OPEN"}
+    log3 = []
+    base = fake_gh(prs3, None)
+
+    def gh3(args, repo_=None, input_text=None):
+        log3.append(list(args))
+        if args[:2] == ["issue", "view"] and int(args[2]) in issues:
+            return json.dumps({"state": issues[int(args[2])], "labels": [], "comments": [], "body": ""})
+        if args[:2] == ["issue", "close"]:
+            issues[int(args[2])] = "CLOSED"
+            return ""
+        if args[:2] == ["pr", "view"] and "body" in args:
+            return prs3["body"]
+        return base(args, repo_, input_text)
+    real = track.gh
+    track.gh = gh3
+    try:
+        try:
+            land.merge(run2, own3, wait_ci=False, pr=carrying)
+        except common.Fail as e:
+            ok(False, "--pr on a merged carrying pull request finishes the steps after the merge (%s)" % e)
+        prlookups = {a[2] for a in log3 if a[:1] == ["pr"] and len(a) > 2 and not a[2].startswith("-")}
+        shut = [a for a in log3 if a[:2] == ["issue", "close"]]
+        ok(issues[123] == "CLOSED" and shut and shut[0][2] == "123",
+           "--pr on a merged carrying pull request closes the run's own rq:run issue")
+        ok(any(c_.startswith("rq merged: %s" % run2) for c_ in prs3["comments"]),
+           "--pr on a merged carrying pull request posts the rq merged: comment")
+        ok(prlookups <= {carrying, "55"} and carrying in prlookups, "--pr makes every pull request lookup on the carrying pull request (%s)" % sorted(prlookups))
+        ok(any(a[:2] == ["issue", "comment"] and a[2] == "321" for a in log3),
+           "--pr on a merged carrying pull request judges the claimed issue from that pull request's body")
+        # a second run of the same merge finds the comment and stops
+        try:
+            land.merge(run2, own3, wait_ci=False, pr="55")
+            ok(False, "--pr on a finished merge stops")
+        except common.Fail as e:
+            ok("rq merged" in str(e), "--pr on a pull request whose rq merged: comment exists stops (%s)" % str(e)[:80])
+        # a pull request that does not hold the run
+        try:
+            land.merge("20990101-000000-none", own3, wait_ci=False, pr="55")
+            ok(False, "--pr names a pull request that does not hold the run")
+        except common.Fail as e:
+            ok("no run" in str(e) or "does not carry" in str(e), "--pr with a run that main does not hold stops (%s)" % str(e)[:80])
+    finally:
+        track.gh = real
+        let_go()
+    set_phase(repo, run2, "merged")
+    state.release(repo, run2)
 
 
 DOCS = ["AGENTS.md", "METHODOLOGY.md", "README.md", "BRIEF.md", "docs/README.md", "docs/research-protocol.md",
@@ -5918,7 +6244,7 @@ REPO_CASES = ("flow", "primitives_case", "overlay_case", "generated_conflict_cas
               "parallel_runs_case", "followup_case", "state_save_case", "round2_case", "round3_case", "round4_case",
               "round5_case", "round6_case", "round7_case", "claim_case", "round8_case", "closing_case", "swarm_case",
               "queue_plan_case", "relet_case", "phase_case", "forge_read_case", "import_case", "push_soft_case",
-              "collect_hint_case")
+              "collect_hint_case", "fork_merge_case")
 ALL_CASES = ("basics", "git_guard_case", "doc_rules_case", "followup_body_case") + REPO_CASES + ("wipe_case",
                                                                                                 "one_tree_load_case")
 
@@ -6026,6 +6352,8 @@ def main(argv=None):
                 queue_plan_case(repo, tmp)
             if want("relet_case"):
                 relet_case(repo)
+            if want("fork_merge_case"):
+                fork_merge_case(repo, tmp)
             let_go()
         if want("wipe_case"):
             wipe_case(tmp)

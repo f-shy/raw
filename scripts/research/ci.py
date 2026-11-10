@@ -160,7 +160,9 @@ def ensure(head, base, branch, repo=REPO, register=120, poll=10):
                    "workflow has no push trigger, or Actions is off (%s)" % (head[:10], CI_REPO, runs_url()), 1)
     if not dispatch(head, base, branch, repo):
         raise Fail("the remote CI was not started: gh workflow run %s --repo %s --ref %s failed (the network, the gh "
-                   "login, or a workflow that is not on %s)" % (CI_WORKFLOW, CI_REPO, branch, CI_REPO), 1)
+                   "login, a workflow that is not on %s, or a branch that %s lacks: origin here is not %s, so the push "
+                   "went elsewhere, and only a push to %s gets the head checked)"
+                   % (CI_WORKFLOW, CI_REPO, branch, CI_REPO, CI_REPO, CI_REPO, CI_REPO), 1)
     t0 = time.time()
     while True:
         try:

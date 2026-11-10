@@ -283,11 +283,26 @@ def _ref_ok(name):
     return bool(os.environ.get("RQ_SELFTEST")) and name.startswith("refs/heads/test-")
 
 
-def git_guard(args, merge_session=False):
+def _is_origin(remote, repo):
+    """True when a push target is origin: its name, or the URL that origin has."""
+    if remote == REMOTE:
+        return True
+    if not repo:
+        return False
+    try:
+        url = subprocess.run(["git", "-C", repo, "remote", "get-url", REMOTE], capture_output=True, text=True).stdout.strip()
+    except OSError:
+        return False
+    norm = lambda u: u.replace("\\", "/").rstrip("/").removesuffix(".git").lower()
+    return bool(url) and norm(url) == norm(remote)
+
+
+def git_guard(args, merge_session=False, repo=None):
     """Refuse every git command that is not in the allowlist of the one-tree design (section 1.2): research writes git
     objects and the refs refs/heads/rq/* and refs/heads/intake/* with an old value, and fetches into
     refs/remotes/origin/*; it never writes the checkout's branch, index, files or configuration. The merge session's
-    commands (rq sync, the legacy step of rq wipe) pass merge_session=True."""
+    commands (rq sync, the legacy step of rq wipe, rq merge's push of the gated head to a pull request's branch) pass
+    merge_session=True."""
     args = [str(a) for a in args]
     if not args:
         raise GitRefused("git with no subcommand", 2)
@@ -376,6 +391,11 @@ def git_guard(args, merge_session=False):
         for spec in pos[1:]:
             if spec.startswith("+"):
                 no("no forced push")
+            src, _, dst = spec.partition(":")
+            if (merge_session and "--delete" not in flags and re.fullmatch(r"[0-9a-f]{40}", src)
+                    and dst.startswith("refs/heads/")
+                    and (dst != "refs/heads/" + BASE or not _is_origin(pos[0], repo))):
+                continue  # rq merge: the gated head, fast-forward only, to the branch a pull request has as its head (main of a fork too, never origin's)
             dst = spec.split(":", 1)[-1]
             if not _ref_ok(dst):
                 no("push only refs/heads/rq/* or refs/heads/intake/* to the same name")
@@ -393,7 +413,7 @@ def git_guard(args, merge_session=False):
 
 
 def git_argv(repo, args, merge_session=False):
-    git_guard(args, merge_session)
+    git_guard(args, merge_session, repo)
     return ["git", "-C", repo, "-c", "gc.auto=0", "-c", "maintenance.auto=false"] + [str(a) for a in args]
 
 

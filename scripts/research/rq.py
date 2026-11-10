@@ -668,7 +668,7 @@ def cmd_land(a):
 
 
 def cmd_merge(a):
-    for ln in land.merge(a.run, wait_ci=not a.no_ci):
+    for ln in land.merge(a.run, wait_ci=not a.no_ci, pr=a.pr):
         print(ln)
     return 0
 
@@ -722,7 +722,7 @@ def cmd_ci(a):
 
 
 def cmd_review(a):
-    for ln in review.review(a.run, a.sample):
+    for ln in review.review(a.run, a.sample, pr=a.pr):
         print(ln)
     return 0
 
@@ -962,9 +962,18 @@ def main(argv=None):
                    "1-based, as N,N; a line that says a merge session ticks it is never ticked")
     p.set_defaults(f=cmd_land)
     p = sp.add_parser("review", help="merge session: runs waiting for review, or one run's decisions")
-    p.add_argument("run", nargs="?"); p.add_argument("--sample", type=int, default=3); p.set_defaults(f=cmd_review)
-    p = sp.add_parser("merge", help="merge session: update in git objects, CI, merge, follow-up"); p.add_argument("run")
-    p.add_argument("--no-ci", action="store_true"); p.set_defaults(f=cmd_merge)
+    p.add_argument("run", nargs="?"); p.add_argument("--sample", type=int, default=3)
+    p.add_argument("--pr", metavar="NUMBER|URL", help="with RUN: read the run from this pull request's head (a fork's run, "
+                   "or a run that another pull request carries); rq merge RUN --pr reads the same one")
+    p.set_defaults(f=cmd_review)
+    p = sp.add_parser("merge", help="merge session: update in git objects, CI, merge, follow-up; a fork's pull request gets "
+                   "the gated head pushed to its branch (needs Allow edits by maintainers)"); p.add_argument("run")
+    p.add_argument("--no-ci", action="store_true", help="skip the remote CI (the light checks still run), only on purpose")
+    p.add_argument("--pr", metavar="NUMBER|URL", help="the pull request that carries the run when it is not the run's "
+                   "own (several runs combined in one, or a branch that is not rq/RUN): every lookup reads it; merged, "
+                   "it finishes the steps after the merge; open, it is merged, and the next run it carries is "
+                   "resumed with its own rq merge RUN --pr N")
+    p.set_defaults(f=cmd_merge)
     p = sp.add_parser("ci", help="the remote CI of a run's pushed head: its state; --wait waits as rq merge does")
     p.add_argument("run", nargs="?"); p.add_argument("--pr", type=int, help="a pull request that is not a run")
     p.add_argument("--wait", action="store_true"); p.set_defaults(f=cmd_ci)

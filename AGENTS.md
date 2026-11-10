@@ -322,7 +322,8 @@ run with one unit (section 2 rule 14).
    git objects, renders the tables of the topics the run touched, checks the
    records it touched and opens the pull request, in under a minute. A push of
    the run branch starts the heavy checks on that head in this repository's
-   Actions (a fork's push starts nothing, so `land` asks for a run);
+   Actions. A fork's push starts nothing: the merge session's `scripts/rq merge`
+   pushes the head to `rq/RUN` in this repository, which starts them;
    `scripts/rq ci RUN` shows them (section 0).
 
 ⛔ **A run ends at its pull request; the session does not.** After `scripts/rq land`,

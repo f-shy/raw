@@ -30,15 +30,21 @@ def open_prs(repo=REPO):
     return json.loads(out or "[]")
 
 
-def review(run=None, sample=3, repo=REPO):
+def review(run=None, sample=3, repo=REPO, pr=None):
     if not run:
         rows = open_prs(repo)
         if not rows:
             return ["no pull request waits for review (label rq:review)"]
         return ["#%d %s  run %s  %s" % (p["number"], p["url"], p["headRefName"][3:], p["title"][:80]) for p in rows]
     # the run folder of this clone when it ran the run, else the manifest the run branch carries
-    view = land.run_view(run, repo)
-    r, us = view["run"], view["units"]
+    n, extra = land.pr_context(pr, repo) if pr is not None else (None, ())
+    view = land.run_view(run, repo, extra) if extra else land.run_view(run, repo)
+    r, us = dict(view["run"]), view["units"]
+    if n is not None:
+        # a fork's run, or a run another pull request carries: the pull request is the one named, and it must hold the run
+        if not land.pr_carries(n, run, repo):
+            raise Fail("pull request %d does not carry run %s: its head holds no %s" % (n, run, land.manifest_rel(run)), 1)
+        r["pr"] = (track.gh(["pr", "view", str(n), "--json", "url", "--jq", ".url"], repo) or "").strip() or r.get("pr")
     out = list(view["report"])
     if view["source"] != "local":
         out.append("read from %s:%s (this clone did not run the research)" % (view["source"], land.manifest_rel(run)))
@@ -171,7 +177,7 @@ def via_of(tv, sha):
 
 def track_body(r, repo=REPO):
     import track
-    return track.gh(["pr", "view", r["branch"], "--json", "body", "--jq", ".body"], repo) or ""
+    return track.gh(["pr", "view", r.get("pr") or r["branch"], "--json", "body", "--jq", ".body"], repo) or ""
 
 
 def publish_status(public=PUBLIC, repo=REPO):
