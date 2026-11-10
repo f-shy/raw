@@ -218,6 +218,13 @@
       "url": "probe:https://api.llm7.io/v1/chat/completions",
       "date": "2026-10-28",
       "proved": "one POST with no Authorization header for nemotron-3-nano:30b answered 200 and echoed model nemotron-3-nano:30b; content was empty with a reasoning field and finish_reason length at max_tokens 64; no rate-limit header was returned (headers: server cloudflare, x-llm-gateway-cache MISS, x-request-id)"
+    },
+    {
+      "url": "probe:https://api.llm7.io/v1/chat/completions",
+      "date": "2026-11-09",
+      "proved": "a keyless POST on 2026-11-09 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:1124637faabae0c6073b99ff6dbe18a0b3ef2fc53a3eb35138d3d1e92bc07381",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "qualifies-with-caveat",

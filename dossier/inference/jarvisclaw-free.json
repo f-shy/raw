@@ -105,6 +105,13 @@
       "capture": "sha256:506207c36780a5866b669a33243a2b30261845bd331ba6be4c574fc98d32389f",
       "quote": "Invalid token",
       "proved": "a keyless GET to /v1/models answered 401 Invalid token"
+    },
+    {
+      "url": "probe:https://api.jarvisclaw.ai/v1/chat/completions",
+      "date": "2026-11-09",
+      "proved": "a keyless POST on 2026-11-09 answered HTTP 402 with a payment quote, so no free route is served",
+      "capture": "sha256:6e38d7fdbd48f6ee7f703bdbd4100ddd5a12ee4f6637e14ad2e56160a41eaeee",
+      "quote": "\"status\": 402"
     }
   ],
   "verdict": "qualifies-with-caveat",
