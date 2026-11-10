@@ -127,7 +127,7 @@ did not need a change.
 ## Monthly
 
 - **Re-probe the inference endpoints.** They rot in days. Once
-  `scripts/probe/inference-sweep.py` exists (issue #35), its loop is weekly, as
+  `scripts/probe/inference-sweep.py` exists, its loop is weekly, as
   [`expansion/free-inference.md`](expansion/free-inference.md) says; until then, a
   `verify` run on `inference` with `--from-worklist stale` is the monthly step.
 - **Run the netdisk sweep.** 7.4% monthly turnover. See

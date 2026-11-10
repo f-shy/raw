@@ -464,10 +464,17 @@ def cmd_audit(a):
                 print("audit unit %s not scored: %s; send it back with scripts/rq brief %s %s --fix"
                       % (u["id"], "; ".join(u.get("problems") or ["invalid"]), a.run, u["id"]))
         if uns:
-            print("%d unsupported claim(s): those of kept units are conflicts now (scripts/rq plan %s --conflicts); "
-                  "those of undone units go with the queued re-run" % (len(uns), a.run))
-            for c in uns:
-                write_json(os.path.join(run_dir(a.run), "unsupported", "%s-%s.json" % (c["audit"], c["cid"])), c)
+            claims_n = sum(1 for c in uns if not c.get("skipped"))
+            print("%d unsupported claim(s)%s: those of kept units are conflicts now (scripts/rq plan %s --conflicts); "
+                  "those of undone units go with the queued re-run" % (
+                      claims_n, "" if claims_n == len(uns) else " and %d value(s) an undo had to leave" % (len(uns) - claims_n),
+                      a.run))
+        # the rows of this score, and the rows an older score saved as scored and then crashed before it wrote
+        for c in uns:
+            write_json(os.path.join(run_dir(a.run), "unsupported", audit.unsupported_name(c)), c)
+        for c in audit.missing_unsupported(a.run):
+            write_json(os.path.join(run_dir(a.run), "unsupported", audit.unsupported_name(c)), c)
+            print("wrote the missing unsupported/%s" % audit.unsupported_name(c))
         with run_lock(a.run):
             pushed = land.push_branch(units.load_run(a.run), again="audit --score", soft=True)
         if pushed:

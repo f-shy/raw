@@ -3197,8 +3197,35 @@ def round2_case(repo, tmp):
             verify_lane(repo, w, ids_w2[0], y, "Undo page two: tooling two.", "tooling two", path="$.tooling")
             sh(repo, "collect", w)
             sh(repo, "integrate", w)
-            with common.run_lock(w, repo):
-                undone, skipped = integrate.undo_unit(w, ids_w[0], "test undo", repo)
+            # the audit of the first unit fails; the second unit changed its value since, so the undo leaves it
+            sh(repo, "audit", w, expect=0)
+            aw = [x for x in units.units_of(w, repo) if x["kind"] == "audit" and x["audits"] == ids_w[0]]
+            ok(bool(aw), "G2-07: an auditor is planned for the first unit")
+            if aw:
+                Aw = lane_dir(repo, w, aw[0]["id"])
+                cw = json.load(open(os.path.join(Aw, "claims.json"), encoding="utf-8"))
+                write_lines(os.path.join(Aw, "verdicts.jsonl"), [{"cid": c_["cid"], "verdict": "unsupported", "note": "undo skip"}
+                                                                  for c_ in cw])
+                receipt(Aw, w, aw[0]["id"])
+                sh(repo, "collect", w)
+                rs = sh(repo, "audit", w, "--score")
+                skipped = (units.load_unit(w, ids_w[0], repo).get("undo_skipped") or [])
+                ok(rs.returncode == 0 and "KeyError" not in rs.stderr and "REVERTED" in rs.stdout,
+                   "G2-07: audit --score finishes when the undo had to skip a value (%s)" % (rs.stderr.strip()[-200:],))
+                udir = os.path.join(common.run_dir(w, repo), "unsupported")
+                names = sorted(os.listdir(udir)) if os.path.isdir(udir) else []
+                rows = [json.load(open(os.path.join(udir, n), encoding="utf-8")) for n in names]
+                sk = [c_ for c_ in rows if c_.get("skipped")]
+                ok(sk and all(c_.get("cid", "").startswith("skip-") and c_["audit"] == aw[0]["id"] for c_ in sk) and
+                   not any(re.search(r'[:$\[\]/\\*?"<>|]', n) for n in names),
+                   "G2-07: a skipped value gets a cid and an unsupported file with a safe name (%s)" % names)
+                # a score of an older harness saved the audit as scored, then crashed before it wrote the files
+                for n in names:
+                    if "skip-" in n:
+                        os.remove(os.path.join(udir, n))
+                rs = sh(repo, "audit", w, "--score", expect=0)
+                ok(any("skip-" in n for n in os.listdir(udir)) and "wrote the missing" in rs.stdout,
+                   "G2-07: a second score writes the unsupported files the crash left out")
             led = integrate.ledger_lines(common.TreeView(repo, "refs/heads/rq/" + w), w, ids_w[0])
             ok(any(s_["path"] == "$.tooling" for s_ in skipped) and
                any(l.get("op") == "undo_skipped" and l.get("path") == "$.tooling" and l.get("old") == "tooling one"

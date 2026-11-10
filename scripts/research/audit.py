@@ -5,10 +5,12 @@ A unit is reverted when more than 10% of its decided claims are unsupported, or,
 rather than every claim, when the Wilson 95% upper bound on that rate exceeds 25%. Each unsupported claim of a
 kept unit becomes a conflict, and so a reconcile item.
 """
+import hashlib
 import json
 import math
 import os
 import random
+import re
 
 import track
 import units
@@ -168,6 +170,51 @@ def score(run, repo=REPO):
         return _score(r, run, view, repo)
 
 
+def skip_cid(rid, path):
+    """The claim id of a value an undo left (a later unit changed it since): stable, unique per (rid, path) and safe
+    as a file name on every system, so `rq audit --score` can write `unsupported/<audit>-<cid>.json` for it."""
+    raw = "%s %s" % (rid, path)
+    return "skip-%s-%s" % (re.sub(r"[^A-Za-z0-9._-]+", "-", raw).strip("-")[:60],
+                           hashlib.sha1(raw.encode("utf-8")).hexdigest()[:8])
+
+
+def skip_row(audit_id, s):
+    """The unsupported row of one undo_skipped entry {rid, path, wrote, now}. It is not an auditor's verdict: the
+    `skipped` flag keeps it out of the conflicts of a kept unit and out of the count of unsupported claims."""
+    return {"cid": skip_cid(s["rid"], s.get("path")), "rid": s["rid"], "path": s.get("path"), "value": s.get("wrote"),
+            "audit": audit_id, "skipped": True,
+            "note": "the unit was undone, but a later unit has changed this value since; now %s"
+            % json.dumps(s.get("now"), ensure_ascii=False)[:160]}
+
+
+def missing_unsupported(run, repo=REPO):
+    """The unsupported rows of the scored audits of a run that have no file in `unsupported/` yet. An older harness
+    saved an audit as scored and then crashed on a skipped row (no cid) before it wrote the files, and a later score
+    skips a scored audit; the rows are rebuilt from the audit's claims and verdicts and from the target's undo_skipped."""
+    out = []
+    udir = os.path.join(run_dir(run, repo), "unsupported")
+    for a in units.units_of(run, repo):
+        if a["kind"] != "audit" or not a.get("scored"):
+            continue
+        d = units.unit_dir(run, a["id"], repo)
+        claims = {c["cid"]: c for c in read_json(os.path.join(d, "claims.json"), []) if c.get("cid")}
+        rows = [dict(claims[v["cid"]], audit=a["id"], note=v.get("note"), quote=v.get("quote"))
+                for v in read_jsonl(os.path.join(d, "verdicts.jsonl"))
+                if v.get("cid") in claims and v.get("verdict") == "unsupported"]
+        try:
+            rows += [skip_row(a["id"], s) for s in units.load_unit(run, a["audits"], repo).get("undo_skipped") or []]
+        except Fail:
+            pass
+        out += [c for c in rows if not os.path.exists(os.path.join(udir, unsupported_name(c)))]
+    return out
+
+
+def unsupported_name(c):
+    """The file name of an unsupported row in `unsupported/`: audit id and claim id, made safe for Windows too."""
+    cid = c.get("cid") or "skip-%s" % hashlib.sha1(("%s %s" % (c.get("rid"), c.get("path"))).encode("utf-8")).hexdigest()[:8]
+    return re.sub(r'[^A-Za-z0-9._-]+', "-", "%s-%s" % (c.get("audit"), cid)) + ".json"
+
+
 def _score(r, run, view, repo):
     rows, unsupported = [], []
     for a in units.units_of(run, repo):
@@ -229,9 +276,7 @@ def _score(r, run, view, repo):
             target.update({"status": "reverted", "undone": undone, "undo_skipped": skipped})
             units.save_unit(target, repo)
             for s in skipped:
-                unsupported.append({"rid": s["rid"], "path": s["path"], "value": s["wrote"], "audit": a["id"],
-                                    "note": "the unit was undone, but a later unit has changed this value since; now %s"
-                                    % json.dumps(s["now"], ensure_ascii=False)[:160]})
+                unsupported.append(skip_row(a["id"], s))
             found = ["%s %s: %s" % (c["rid"], c.get("path"), (c.get("note") or "")[:300].replace("\n", " "))
                      for c in unsupported if c.get("audit") == a["id"] and c.get("rid")]
             q = {"id": "%s-%s-rerun" % (run, target["id"]), "kind": target["kind"], "topic": target["topic"],

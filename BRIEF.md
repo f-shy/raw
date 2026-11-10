@@ -209,7 +209,7 @@ records the correction.
 ⛔ **Azure and AWS are excluded from this ladder.** Both were refused at signup,
 so their credit balances are unreachable capacity, not findings. The same applies
 to every AWS offer: the AWS Free plan in section 3.8 is listed as `documented`,
-not as reachable, until its signup is settled (#58).
+not as reachable, until its signup is settled.
 
 ⭐ **Six document no card:** Snowflake, CockroachDB, Databricks, Deepgram, Aiven and
 Speechmatics. **One renews:** Modal at USD 30 a month, and it is card-gated, so the renewal
@@ -326,28 +326,29 @@ of the topic documents. It runs to several hundred entries.
 
 ⚠ **The gate is red on `main` on `staleness` and `sources`, and both checks depend on the clock.**
 
-`sources` goes red one day after the last diff of a registered list whose cadence
-is one day. The lists past that cadence are `lowendtalk-com-26` in
-`scripts/sources/debrid-aggregators.tsv` and `monosans-proxy-list` in
-`scripts/sources/ip-proxy-aggregators.tsv`. It clears when the list is diffed and
-the new `last_diff` is committed (`docs/research-protocol.md` section 2, "A
-registered provider list is updated by the parent"). Issue #36 owns the registry;
-issue #46 covers the debrid list and #44 the ip-proxy list. A change
-that touches neither list leaves this red line as it is.
+`sources` goes red when a registered list is past its cadence, which is one, seven or
+fourteen days. On 2026-11-10 nine lists are: six in `scripts/sources/debrid-aggregators.tsv`
+(`lowendbox-com-24`, `lowendtalk-com-26`, `world-debrid-com`, `reddit-com`, `reddit-com-37`
+and `reddit-com-39`), one in `scripts/sources/egress-aggregators.tsv` (`lowendtalk`) and two in
+`scripts/sources/ip-proxy-aggregators.tsv` (`monosans-proxy-list` and `cn-proxy-forums`). A
+list clears when it is diffed and the new `last_diff` is committed
+(`docs/research-protocol.md` section 2, "A registered provider list is updated by the
+parent"). `python3 scripts/sources/aggregator-diff.py --root . --registry FILE --check` names
+the lists past their cadence in one registry. A change that touches no list leaves this red
+line as it is.
 
 `staleness`: CI's gate prints the count (in an own clone, `sh scripts/gate.sh --root . --check staleness`), and
 `python scripts/dossier/staleness.py dossier/ --stale-only` names the records; the `flags` column
 says why. A record past its `verified_at` window, or with no fresh evidence (`evidence-past-limit`),
 clears when its sources are re-read and the record confirmed; re-dating a record without that is the bulk
 touch the check exists to catch. ⚠ A record flagged `evidence-past-topic` does not clear that way: its
-oldest evidence row is older than the topic allows, and rows are only added. Three compute
-records are of that kind. Whether a newer row of the same URL retires the old one is undecided (#58).
-Issue #26 holds the re-run of the compute records, and issue #21 the storage re-check.
+oldest evidence row is older than the topic allows, and rows are only added. Five compute
+records are of that kind. Whether a newer row of the same URL retires the old one is undecided.
+Issue #4 holds the re-check of the storage records, which are most of the count.
 CI tests each pushed head with `scripts/rq gatecmp` against the base it resolves; a pull request from a fork starts nothing.
 
-⚠ **The count grows with the as-of date.** In an own clone, `sh scripts/gate.sh --root . --check staleness --as-of DATE` gives 2
-records on 2026-10-28, 5 on 2026-11-04 and 1,688 on 2026-11-05. Issue #21 holds the re-check of the
-storage records.
+⚠ **The count grows with the as-of date.** In an own clone, `sh scripts/gate.sh --root . --check staleness --as-of DATE` gives 3
+records on 2026-10-28, 6 on 2026-11-04, 1,465 on 2026-11-05 and 1,677 on 2026-11-10.
 
 ### Known soft spots
 

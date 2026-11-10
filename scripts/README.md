@@ -24,7 +24,7 @@ incomplete rather than the catalogue.
 scripts/
   README.md            this file: the contract for everything below
   SELFTEST.md          what was run, and what it proved
-  gate.sh              the definition of done; eleven checks, exit 1 on a defect; CI runs it on every pushed head
+  gate.sh              the definition of done; twelve checks, exit 1 on a defect; CI runs it on every pushed head
   hygiene.py           refuse to commit scratch, secrets, build output, oversize captures
   linkcheck.py         every relative Markdown link in the tree resolves
   own-hardware.py      refuse a recommendation to acquire physical hardware
@@ -63,10 +63,11 @@ scripts/
     rules/             projection.json (what the public build strips, and why) and needs.json (best-per-need queries)
   fr                   wrapper: `scripts/fr <command>`
   research/            the research harness (see research/README.md and docs/research-protocol.md)
-    rq.py              open, context, plan, briefs, brief, capture, show, put, resolve, folder, lint, collect,
-                       integrate, audit, check, policy, land, report, status, queue, close;
+    rq.py              open, issues, release, abandon, context, plan, briefs, brief, capture, show, put, resolve,
+                       folder, lint, collect, integrate, audit, check, policy, import-bundle, land, report,
+                       status, queue, close;
                        in CI or an own clone: gatecmp, baseline-diff;
-                       for a merge session: review, merge, cleanup, intake, publish-status, wipe, sync
+                       for a merge session: review, ci, merge, cleanup, intake, publish-status, wipe, sync
     checks.py          the contradiction rules C01 to C21, with baseline.tsv as the ratchet
     test_rq.py         the harness selftest, in a throwaway clone with no network
   rq                   wrapper: `scripts/rq <command>`; without sh, `python scripts/research/rq.py <command>`
@@ -214,7 +215,7 @@ python scripts/hygiene.py --selftest                 # 0
 
 sh scripts/broker/broker.sh status --human           # 0, 3 unreachable, 4 refused
 sh scripts/broker/broker.sh read URL                 # 0, 1 origin said no, 4 broker said no
-sh scripts/discover/probe-alist.sh --help            # 0
+bash scripts/discover/probe-alist.sh --help            # 0
 ```
 
 ⚠ **`validate.py` needs `--schema`.** The documented form in earlier revisions of
@@ -243,8 +244,8 @@ fixture it must **fail**.
 
 ## The checks the gate runs, and the ones it does not
 
-`gate.sh` (in CI, or in an own clone) runs exactly eleven: `schema`, `staleness`, `binding`, `links`,
-`attribution`, `units`, `tree`, `rellinks`, `sources`, `projection` and
+`gate.sh` (in CI, or in an own clone) runs exactly twelve: `schema`, `staleness`, `binding`, `links`,
+`attribution`, `units`, `tree`, `rellinks`, `sources`, `projection`, `selfhosted` and
 `contradictions` (which runs `scripts/rq check --gate`). `projection`
 builds the public store with `fshy/build.py --check`: every source value must get
 exactly one disposition and the leak scan must find no operator host, personal
