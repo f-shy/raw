@@ -163,9 +163,10 @@ has a `binding_note` that says why.
   because it needs no account.
 - **playit.gg's 1-2 TB/day is one sentence from the provider.** It is the
   strongest free relay found and the weakest evidence in the topic.
-- **Every measurement here ran from one host on one network on 2026-10-22.** The
-  absolute rates are that host's; the ratios between the lanes are the durable
-  part.
+- **Every measurement here ran from one host on one network.** The absolute rates are
+  that host's; the ratios between the lanes are the durable part. The first batch ran
+  on 2026-10-22, and a capability-free sandbox added a second batch of authless relays
+  on 2026-11-05; the two batches disagree on absolute throughput, which is the point.
 
 ## Records that no other document names
 

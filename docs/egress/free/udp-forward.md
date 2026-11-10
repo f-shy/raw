@@ -20,7 +20,7 @@ that do not publish a number are the ones worth reading.
 | openport.pw | 1 persistent port | yes, default on | none published | anonymous | `qualifies-with-caveat` |
 | Pinggy | a session, not a tunnel | yes, with a free token | unlimited bytes, 60 minutes | anonymous | `qualifies-with-caveat` |
 | Port Buddy | 1 UDP tunnel | yes | none published | email | `qualifies-with-caveat` |
-| rustunnel | Hobby, 1 GB/month | yes on the managed cloud | 1 GB | email | `paid-only` |
+| rustunnel | Hobby, 1 GB/month | yes on the managed cloud | 1 GB | email | `fails-quota` |
 | wstunnel demo | an allowlisted demo relay | only demo hosts | none | anonymous | `trial-only` |
 
 ## portwarp
@@ -110,6 +110,7 @@ Every row was read. Each has a record.
 | provider | free ceiling | why it fails |
 | --- | --- | --- |
 | LocalToNet | 1 GB/month | 3% of the bar, and UDP is on some plans only |
+| rustunnel | 1 GB/month | 0.1% of the bar, though TCP and UDP are both on the free plan |
 | TunnelThat | 512 MB/month | 0.05% of the bar |
 | OutRay | 2 GB/month | 0.2% of the bar |
 | CloudPub | 250 GB/month | 25% of the bar, and TCP and UDP are PRO |

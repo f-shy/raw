@@ -40,6 +40,11 @@
       "kind": "per-ip-shaping",
       "value": "4,128,768 of 104,857,600 bytes in 180 s on a 100 MiB object, and 1,027,916 of 1,048,576 in 90 s on a 1 MiB object",
       "source": "probe"
+    },
+    {
+      "kind": "per-ip-shaping",
+      "value": "about 6-8 kB/s on the anonymous tier; a 4 MiB transfer does not complete",
+      "source": "probe:https://709bf77787aa29.lhr.life/"
     }
   ],
   "identity_cost": {
@@ -47,7 +52,7 @@
     "detail": "the nokey@ ssh target needs no account",
     "country": null
   },
-  "reliability_note": "the free hostname is a random <hex>.lhr.life subdomain that changes every session",
+  "reliability_note": "the free hostname is a random <hex>.lhr.life subdomain that changes every session; the anonymous path is the nokey@ username, and a harness measured a hard throttle of about 6-8 kB/s, so a 4 MiB transfer does not complete.",
   "confidence": "documented",
   "evidence": [
     {
@@ -69,11 +74,18 @@
       "url": "https://localhost.run/docs/",
       "date": "2026-10-23",
       "proved": "'Put a locally running HTTP, HTTPS or TLS app on the internet' and 'no account setup is needed for free domains'"
+    },
+    {
+      "url": "probe:https://709bf77787aa29.lhr.life/",
+      "date": "2026-11-05",
+      "proved": "the anonymous tier throttles a transfer to about 6-8 kB/s",
+      "capture": "sha256:1c52272c47512567e0682ca55a92e49de554676e0d01ae7004ab278defdb8c8e",
+      "quote": "~6-8 KB/s"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
-  "notes": "SSH-based reverse tunneling service. Throughput on free connections measured at 11.4 KiB/s (approximately 0.98 GiB/day).",
+  "verified_at": "2026-11-05T00:00:00.000Z",
+  "notes": "SSH-based reverse tunneling service. Throughput on free connections measured at 11.4 KiB/s (approximately 0.98 GiB/day). A sandbox measured about 6-8 kB/s on the anonymous tier on 2026-11-05, consistent with the 11.4 KiB/s read here.",
   "history": [],
   "extras": {
     "stale_after_days": 180,
@@ -86,5 +98,6 @@
   "binding_note": "two objects of different sizes hit the same ~23 KB/s aggregate ceiling, so it is shaping.",
   "interface_detail": "ssh -R 80:127.0.0.1:PORT nokey@localhost.run",
   "stale": false,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z"
+  "stale_checked_at": "2026-10-22T00:00:00.000Z",
+  "confidence_note": " the free tier works end to end but throttles to about 6-8 kB/s, so a 4 MiB transfer does not complete (measured 2026-11-05)."
 }

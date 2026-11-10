@@ -47,7 +47,7 @@
     "detail": "a source checkout",
     "country": "None"
   },
-  "reliability_note": "not established",
+  "reliability_note": "the hosted ssi.sh requires password auth or a pre-registered key on ports 22 and 2222, because the authless demo was disabled 'due to abuse'; the authless path exists only self-hosted.",
   "confidence": "reported",
   "confidence_note": "Read the project README and run a client to raise this to documented; the list sentence is the only evidence here.",
   "evidence": [
@@ -55,13 +55,20 @@
       "url": "https://github.com/anderspitman/awesome-tunneling",
       "date": "2026-10-23",
       "proved": "list entry sentence: Open source ngrok/serveo alternative. SSH-based but uses a custom server written in Go. Supports WebSocket tunneling."
+    },
+    {
+      "url": "probe:ssi.sh:22",
+      "date": "2026-11-05",
+      "proved": "the hosted demo requires password auth or a pre-registered key because the authless demo was disabled",
+      "capture": "sha256:04dbd5acc3aa861bfa07a37171a2f92f873d470b8e48732f5f6e3d5ae81f0396",
+      "quote": "due to abuse"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-05T00:00:00.000Z",
   "price_per_tb_month": "USD 0",
   "history": [],
-  "notes": "SSH remote forwarding, HTTP and WebSocket. Classified from the aggregator's own sentence; no vendor page was fetched for this name.",
+  "notes": "SSH remote forwarding, HTTP and WebSocket. Classified from the aggregator's own sentence; no vendor page was fetched for this name. The hosted ssi.sh refuses anonymous users on ports 22 and 2222, so the authless path is self-hosted only (measured 2026-11-05).",
   "extras": {
     "wg_path": "none",
     "wg_detail": "",

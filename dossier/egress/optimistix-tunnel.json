@@ -6,11 +6,11 @@
   "category": "ssh tunnel (http, tcp, tls)",
   "tier": "free",
   "free_tier": {
-    "stated": "Enjoy free local tunneling without any payment or subscription.",
-    "unit": "unlimited",
+    "stated": "None: the service is permanently discontinued and all tunnels, subdomains and accounts are no longer active.",
+    "unit": "none",
     "metered_on": "none",
     "source_url": "https://optimistixtunnel.com/features/ssh-tunneling/",
-    "read_on": "2026-10-23",
+    "read_on": "2026-11-10",
     "notes": ""
   },
   "per_object_cap": {
@@ -53,7 +53,7 @@
     "detail": "'No signup, no install' per the aggregator; the page says 'No downloads or installations needed - just use the SSH client'.",
     "country": "None"
   },
-  "reliability_note": "Single-operator service with no published capacity; an outage is not covered by anything.",
+  "reliability_note": "the vendor page says the service has been permanently discontinued and points readers at Cloudflare Tunnel instead",
   "confidence": "documented",
   "confidence_note": "Tunnel specifications and protocol support are documented in official repository guides.",
   "evidence": [
@@ -66,13 +66,27 @@
       "url": "https://optimistixtunnel.com/",
       "date": "2026-10-23",
       "proved": "SSH-based, 'HTTPS / TCP / TLS-supported tunnels', no price or plan table"
+    },
+    {
+      "url": "https://optimistixtunnel.com/",
+      "date": "2026-11-10",
+      "proved": "the service is permanently discontinued",
+      "capture": "sha256:2ed63246e7ac6e29e053c7448ce6846586444e97e0ce0b037eebdad775641498",
+      "quote": "The service has been permanently discontinued, and all tunnels, subdomains and accounts are no longer active."
+    },
+    {
+      "url": "https://optimistixtunnel.com/",
+      "date": "2026-11-10",
+      "proved": "the vendor recommends Cloudflare Tunnel instead",
+      "capture": "sha256:2ed63246e7ac6e29e053c7448ce6846586444e97e0ce0b037eebdad775641498",
+      "quote": "we recommend **Cloudflare Tunnel**"
     }
   ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verdict": "dead",
+  "verified_at": "2026-11-10T03:25:21.415Z",
   "price_per_tb_month": "USD 0",
   "history": [],
-  "notes": "optimistixtunnel.com/pricing returns an origin error, so the free claim comes from the feature page. A free raw-TCP SSH forward with no account is unusual and worth a measurement.",
+  "notes": "The vendor page read on 2026-11-10 says the service has been permanently discontinued and recommends Cloudflare Tunnel; a third-party harness had already recorded the shutdown on 2026-11-05 after a challenge page had once made the site look alive.",
   "extras": {
     "wg_path": "none",
     "wg_detail": "",

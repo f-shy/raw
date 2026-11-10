@@ -254,8 +254,8 @@ from the records.
 | confidence | Records |
 | --- | --- |
 | `measured` | 4 |
-| `documented` | 1206 |
-| `reported` | 180 |
+| `documented` | 1207 |
+| `reported` | 179 |
 | `inferred` | 6 |
 | `unverified` | 15 |
 | **all** | 1411 |

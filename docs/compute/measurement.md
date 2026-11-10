@@ -4,7 +4,7 @@ Every claim in this topic carries one rung of the evidence ladder, and the
 counts below are rendered from the records rather than typed.
 
 <!-- generated:start topic=compute kind=totals fields=records,reported,documented,measured,unverified labels=records,reported,documented,measured,unverified -->
-records 1411; reported 180; documented 1206; measured 4; unverified 15
+records 1411; reported 179; documented 1207; measured 4; unverified 15
 <!-- generated:end -->
 
 The `reported` rows came from a pinned third-party catalogue and no page was
@@ -293,6 +293,7 @@ breaking change.
 | Bittensor | Permissionless GPU network of 128 subnets w... | paid-only | documented | not applicable: the unit is a m... | not applicable: the u... | card | `dossier/compute/bittensor.json` |
 | Bizfly Cloud | A 3-day free trial of one Cloud Server at u... | trial-only | documented | not applicable: the unit is a m... | The server trial is t... | country-phone | `dossier/compute/bizfly-cloud.json` |
 | Black Forest Labs | Pay-as-you-go credits with a published calc... | paid-only | documented | not applicable: the unit is a m... | not applicable: the u... | email | `dossier/compute/black-forest-labs.json` |
+| Blacksmith (GitHub Action... | 3,000 free minutes a month on every plan th... | qualifies-with-caveat | documented | not stated | not stated | email | `dossier/compute/blacksmith.json` |
 | Blaxel | 'Up to $200 in free credits' on the pay-as-... | qualifies-with-caveat | documented | No per-sandbox vCPU or memory c... | 7 d | email | `dossier/compute/blaxel.json` |
 | Blinkenshell | 100 MB disk quota, 128 MB memory limit, SSH... | fails-identity | documented | not applicable: the unit is a m... | no expiry is publishe... | any-phone | `dossier/compute/blinkenshell.json` |
 | boat | No signup credit. 'Your first plan starts w... | paid-only | documented | Sizes: 'small 2 vCPU / 4 GB / 1... | 14 d | card | `dossier/compute/boat.json` |
@@ -465,7 +466,7 @@ breaking change.
 | Deno Deploy | Free at USD 0: 1 million requests a month,... | qualifies-with-caveat | documented | a 768 MB default memory allocat... | revision storage is 1... | email | `dossier/compute/deno-deploy.json` |
 | Deno Sandbox | a free plan with a monthly request allowanc... | qualifies-with-caveat | documented | not stated | not stated | email | `dossier/compute/deno-sandbox.json` |
 | Deplexo | Free plan, quoted: '1 app', 'CPU per app 0.... | qualifies-with-caveat | documented | not applicable: the unit is a m... | not applicable: the u... | email | `dossier/compute/deplexo.json` |
-| Depot (GitHub Actions run... | a trial with 2,000 sandbox minutes, 2,000 G... | trial-only | documented | not stated | not stated | email | `dossier/compute/depot.json` |
+| Depot (GitHub Actions run... | No free tier: a 7-day trial, then the Devel... | trial-only | documented | not stated | not stated | email | `dossier/compute/depot.json` |
 | DesignSafe-CI | A Startup Allocation may request up to 20,0... | fails-identity | documented | not applicable: the unit is a m... | not applicable: the u... | institution | `dossier/compute/designsafe-ci.json` |
 | Deta Space | nothing reachable: deta.space returned a Cl... | dead | documented | not applicable | data was deleted at t... | email | `dossier/compute/deta-space.json` |
 | Devin , including | Devin Free: "Free $0", "Light quota to code... | qualifies-with-caveat | documented | not applicable: the unit is a m... | not applicable: the u... | email | `dossier/compute/devin-including.json` |
@@ -1286,7 +1287,7 @@ breaking change.
 | wap.ac | No free tier. TW 512 LXC is USD 1.00 a mont... | qualifies-with-caveat | documented | not applicable: the unit is a m... | the container persist... | email | `dossier/compute/wapac-tw-512-lxc.json` |
 | wap.ac (WAPAC) | No free tier. TW 512 LXC is USD 1.00 a mont... | fails-quota | documented | not applicable: the unit is a m... | monthly billing; the... | card | `dossier/compute/wapac-tw-512-lxc-ipv6.json` |
 | Warp | Warp Free: "$0/month" with "Warp Agent CLI... | qualifies-with-caveat | documented | not applicable: the unit is a m... | not applicable: the u... | email | `dossier/compute/warp.json` |
-| WarpBuild (GitHub Actions... | no free tier: per-minute runners from $0.00... | paid-only | documented | not stated | not stated | email | `dossier/compute/warpbuild.json` |
+| WarpBuild (GitHub Actions... | No free allowance is published: the FAQ say... | paid-only | documented | not stated | not stated | email | `dossier/compute/warpbuild.json` |
 | Wasmer | Free forever: 150 GB of bandwidth, a global... | qualifies-with-caveat | documented | not stated | not stated | email | `dossier/compute/wasmer.json` |
 | webapp.io | a free trial of hosted test environments th... | qualifies-with-caveat | documented | not stated | not stated | email | `dossier/compute/webapp-io.json` |
 | WebARENA Indigo | no free tier and no setup fee; billing is h... | qualifies | documented | not applicable: the unit is a m... | the instance bills fr... | card | `dossier/compute/webarena-indigo.json` |

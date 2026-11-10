@@ -1,0 +1,68 @@
+{
+  "topic": "egress",
+  "slug": "letstunnel",
+  "provider": "LetsTunnel",
+  "url": "https://letstunnel.com/",
+  "category": "relay (hosted, HTTPS tunnel, QUIC)",
+  "tier": "free",
+  "free_tier": {
+    "stated": "Free for developers with no account, with public HTTPS URLs, QUIC on UDP 8443 and a desktop app. On 2026-11-05 the relay presented a self-signed certificate and no tunnel could be established.",
+    "unit": "none",
+    "metered_on": "none",
+    "source_url": "https://letstunnel.com/",
+    "read_on": "2026-11-10"
+  },
+  "per_object_cap": {
+    "stated": "not applicable: a tunnel, not an object",
+    "bytes": null,
+    "source_url": "https://letstunnel.com/"
+  },
+  "retention": {
+    "stated": "not applicable: a live tunnel",
+    "days": null,
+    "source_url": "https://letstunnel.com/"
+  },
+  "egress": {
+    "terms": "no byte quota is published; the relay was unreachable with a valid certificate on 2026-11-05",
+    "metered": false,
+    "free_allowance": null,
+    "price_per_tb": null,
+    "source_url": "https://letstunnel.com/"
+  },
+  "interface": [
+    "cli"
+  ],
+  "interface_detail": "the letstunnel CLI starts a tunnel and prints a public https://<name>.letstunnel.com URL; the documented relay port is UDP 8443 over QUIC",
+  "tooling": "the letstunnel npm CLI, a node wrapper around a Rust client",
+  "chaining": "nothing chains until the relay certificate is fixed; the authless claim looks genuine and the CLI loads",
+  "limits": [],
+  "binding": "none",
+  "binding_note": "nothing is reachable to bind on: the relay presented a self-signed certificate on 2026-11-05, so a client that verifies TLS cannot connect.",
+  "identity_cost": {
+    "kind": "anonymous",
+    "detail": "no account is claimed: the page says 'Free for developers', and no signup was attempted",
+    "country": null
+  },
+  "reliability_note": "the relay presented a self-signed certificate on 2026-11-05, so a client that verifies TLS cannot connect; the documented relay port 8443 was unreachable",
+  "confidence": "reported",
+  "confidence_note": "the free and no-account claims are read from the vendor page; the certificate failure is a sandbox observation, so the record is reported",
+  "evidence": [
+    {
+      "url": "https://letstunnel.com/",
+      "date": "2026-11-10",
+      "proved": "the client is free for developers",
+      "capture": "sha256:d81003b301c95239418c5f7f55a1d858639d0cde75ef8409b2f162278c425ae8",
+      "quote": "Free for developers."
+    },
+    {
+      "url": "probe:https://relay.letstunnel.com:443",
+      "date": "2026-11-05",
+      "proved": "the relay presented a self-signed certificate",
+      "capture": "sha256:827d21fcb63a90b50a38a346bcd6b225a023bc86743668470d7e5282abaf6983",
+      "quote": "self-signed certificate"
+    }
+  ],
+  "verdict": "fails-egress",
+  "verified_at": "2026-11-10T03:20:00.000Z",
+  "notes": "The authless claim looks genuine and the CLI loads, but the relay presented a self-signed certificate on 2026-11-05, so no tunnel could be established. Retest when the certificate is fixed."
+}

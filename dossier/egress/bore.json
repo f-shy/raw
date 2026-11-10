@@ -47,7 +47,7 @@
     "detail": "the software needs no account",
     "country": null
   },
-  "reliability_note": "one shared instance on a single DigitalOcean host, funded by sponsorship, with a standing abuse problem: the author has publicly considered shutting it down and has had phishing reports on bore.pub",
+  "reliability_note": "one shared instance on a single DigitalOcean host, funded by sponsorship, with a standing abuse problem: the author has publicly considered shutting it down and has had phishing reports on bore.pub. A harness measured a 406-410 ms median on bore.pub; its bulk-transfer figure came through that sandbox's WARP egress and is not a fact about bore.",
   "confidence": "documented",
   "evidence": [
     {
@@ -83,11 +83,18 @@
       "proved": "bore.pub is the one public instance of the server",
       "capture": "sha256:f0000d4963e55d52d576cef6947643ca67f1317eb04e368e48a6da7b7b4f1682",
       "quote": "As mentioned in the startup instructions, there is a public instance of the `bore` server running at `bore.pub`."
+    },
+    {
+      "url": "probe:bore.pub:2898",
+      "date": "2026-11-05",
+      "proved": "bore.pub answered with a 406-410 ms median latency",
+      "capture": "sha256:c2b7d914b3c3f54f523c99110ca0e6ecc6d3688effa6272495a7eb3dd562aafa",
+      "quote": "med 406-410 / p95 422-462 ms"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T10:32:57.641Z",
-  "notes": "Public demo instance at bore.pub provides ephemeral TCP tunnels without published throughput or bandwidth guarantees. Public infrastructure is shared and subject to rate limits and upstream abuse filtering.",
+  "verified_at": "2026-11-05T00:00:00.000Z",
+  "notes": "Public demo instance at bore.pub provides ephemeral TCP tunnels without published throughput or bandwidth guarantees. Public infrastructure is shared and subject to rate limits and upstream abuse filtering. A sandbox measured a 406-410 ms median latency on bore.pub on 2026-11-05; its bulk-transfer figure there was an artifact of that sandbox egress path.",
   "history": [],
   "extras": {
     "stale_after_days": 180,
@@ -100,7 +107,7 @@
   "interface_detail": "bore local PORT --to bore.pub",
   "stale": false,
   "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "confidence_note": "self-hosted bore 0.6.0 server and client on this host carried a 4,194,304-byte object byte-identically, sha256 46386cf4dbccceb80f80148d46d37f1a30d72912089cfbe4b3e51d9d55a79747, at 1.88 MiB/s against a 53.47 MiB/s direct baseline, so the software is measured. The record is documented and not measured because bore.pub, the one public instance, publishes no capacity and was not reachable from this host: it resolves to 159.223.110.159 over DNS-over-HTTPS and accepts TCP on 7835, but this host's resolver returns no record for the name",
+  "confidence_note": "bore 0.6.0 server and client on one host carried a 4,194,304-byte object byte-identically (sha256 46386cf4dbccceb80f80148d46d37f1a30d72912089cfbe4b3e51d9d55a79747) at 1.88 MiB/s against a 53.47 MiB/s direct baseline, so the software is measured. The record is documented and not measured because bore.pub, the one public instance, publishes no capacity: a sandbox measured a 406-410 ms median latency on 2026-11-05, and its bulk-transfer figure there was an artifact of that sandbox egress path.",
   "binding_note": "Nothing in the vocabulary binds: bore.pub publishes no quota and imposes no rate. The operator's numbers are the ceiling of the whole instance, 1.5 TB in one month (2023-01-02) and 2.8 TB in one month (2024-08-01), so a single client at 1 TiB/month would be 39 to 73 per cent of everything the public instance was observed to carry, and the operator's answer to that was a request to reduce.",
   "limits_note": "no limit of any of the six kinds was published for bore.pub: it is one shared public instance with no commitment, and the software imposes none",
   "self_hosted": false

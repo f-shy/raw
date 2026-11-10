@@ -53,7 +53,7 @@
     "detail": "No account, email or card: the connection string is a public key derived from a keypair generated locally.",
     "country": "None"
   },
-  "reliability_note": "Depends on public HyperDHT bootstrap nodes; symmetric NAT defeats the holepunch and falls back to TCP, which breaks UDP-only protocols.",
+  "reliability_note": "Depends on public HyperDHT bootstrap nodes; symmetric NAT defeats the holepunch and falls back to TCP, which breaks UDP-only protocols. A harness verified the server side and public-DHT peer discovery on 2026-11-05; the end-to-end data path was not testable in that sandbox.",
   "confidence": "documented",
   "confidence_note": "A measured transfer between two peers behind different NATs would show the real throughput and whether the DHT path holds; that is the missing rung.",
   "evidence": [
@@ -85,13 +85,20 @@
       "proved": "the documentation lists unlimited bandwidth with no artificial limits or throttling",
       "capture": "sha256:10ec45d6e66d73e4c6a673e2696fa8f7dfa48a6cab0ffe58118c2ac38faf40e4",
       "quote": "No artificial limits or throttling."
+    },
+    {
+      "url": "probe:holesail",
+      "date": "2026-11-05",
+      "proved": "peer discovery on the public DHT worked from a capability-free sandbox",
+      "capture": "sha256:33995b2eba9c39ca4f812c06c82d3d09bcdcd82d897be7778ea1c4a907ac1627",
+      "quote": "peer discovery on the public DHT works from this network"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-04T06:53:00.065Z",
+  "verified_at": "2026-11-05T00:00:00.000Z",
   "price_per_tb_month": "USD 0",
   "history": [],
-  "notes": "Not a hosted ingress: a third party cannot connect unless they run holesail with the connection string. It qualifies as free UDP capacity between two machines under one control, which covers a WireGuard endpoint only if the far side also runs it.",
+  "notes": "Not a hosted ingress: a third party cannot connect unless they run holesail with the connection string. It qualifies as free UDP capacity between two machines under one control, which covers a WireGuard endpoint only if the far side also runs it. A sandbox verified the server side and public-DHT peer discovery on 2026-11-05 but could not test the data path.",
   "extras": {
     "wg_path": "inside-udp",
     "wg_detail": "The transport after holepunching is UDX, a custom UDP protocol, with a TCP fallback. A WireGuard datagram can ride that path between two peers running holesail.",

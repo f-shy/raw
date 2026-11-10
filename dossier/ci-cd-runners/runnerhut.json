@@ -1,0 +1,133 @@
+{
+  "topic": "ci-cd-runners",
+  "slug": "runnerhut",
+  "provider": "RunnerHut",
+  "url": "https://runnerhut.com/pricing",
+  "category": "CI runner (hosted, GitHub Actions-compatible)",
+  "free_tier": {
+    "stated": "3,000 Linux minutes a month on the free plan, with unlimited cache, every runner family and full analytics; per-second billing with a one-minute minimum beyond it. The 2 vCPU Linux x64 runner is USD 0.0040 a minute, the 2 vCPU ARM64 runner USD 0.0032, Windows USD 0.0080, macOS USD 0.0400 and an L4 GPU runner USD 0.0900.",
+    "unit": "minutes",
+    "source_url": "https://runnerhut.com/pricing",
+    "metered_on": "wall-clock",
+    "read_on": "2026-11-10"
+  },
+  "per_object_cap": {
+    "stated": "not applicable: a job is bounded by the runner size, and the page prices a 2 vCPU tier and scales linearly with size"
+  },
+  "retention": {
+    "stated": "not applicable: a job runs and is destroyed; the page publishes no artifact or cache retention window"
+  },
+  "egress": {
+    "terms": "no egress charge is published: the page says it bills per-second compute with no per-developer fee, no cache charges and no egress surprises",
+    "metered": false
+  },
+  "interface": [
+    "git"
+  ],
+  "tooling": "a one-line change to an existing GitHub Actions workflow; no agent, CLI or self-hosted runner is needed",
+  "chaining": "GitHub Actions on a public repository stays free and comes first; RunnerHut buys private-repository minutes at USD 0.0040 for 2 vCPU against GitHub list price of USD 0.0060, and the 3,000 free minutes cover a small private pipeline before any card is needed",
+  "limits": [
+    {
+      "kind": "request-rate",
+      "value": "3,000 Linux minutes a month on the free plan",
+      "source": "https://runnerhut.com/pricing"
+    },
+    {
+      "kind": "request-rate",
+      "value": "USD 0.0040 a minute for the 2 vCPU Linux x64 runner, USD 0.0032 for ARM64, USD 0.0900 for an L4 GPU runner",
+      "source": "https://runnerhut.com/pricing"
+    },
+    {
+      "kind": "request-rate",
+      "value": "per-second billing with a one-minute minimum, so a 20-second job is billed as a full minute",
+      "source": "https://runnerhut.com/pricing"
+    }
+  ],
+  "identity_cost": {
+    "kind": "email",
+    "detail": "an email address and a GitHub account to connect a repository: the homepage states \"No credit card required · 3,000 free minutes\", and no signup was performed"
+  },
+  "reliability_note": "the page publishes no job wall clock, no concurrency cap and no queue limit; per-second billing with a one-minute minimum rounds a short job up to a full minute",
+  "confidence": "documented",
+  "evidence": [
+    {
+      "url": "https://runnerhut.com/pricing",
+      "date": "2026-11-10",
+      "proved": "the free plan is 3,000 Linux minutes a month with unlimited cache",
+      "capture": "sha256:aa23425588cf89ddc6c343f85aeeabe26ec367de3d97fdcf6c709a1ff83b809a",
+      "quote": "3,000 Linux minutes a month. Everything included"
+    },
+    {
+      "url": "https://runnerhut.com/pricing",
+      "date": "2026-11-10",
+      "proved": "prices are per minute for the 2 vCPU tier and scale linearly with size",
+      "capture": "sha256:aa23425588cf89ddc6c343f85aeeabe26ec367de3d97fdcf6c709a1ff83b809a",
+      "quote": "Prices are per minute for the 2 vCPU tier and scale linearly with size."
+    },
+    {
+      "url": "https://runnerhut.com/pricing",
+      "date": "2026-11-10",
+      "proved": "cache is unlimited and no retention window is stated",
+      "capture": "sha256:aa23425588cf89ddc6c343f85aeeabe26ec367de3d97fdcf6c709a1ff83b809a",
+      "quote": "Unlimited cache"
+    },
+    {
+      "url": "https://runnerhut.com/pricing",
+      "date": "2026-11-10",
+      "proved": "no egress charge is published",
+      "capture": "sha256:aa23425588cf89ddc6c343f85aeeabe26ec367de3d97fdcf6c709a1ff83b809a",
+      "quote": "No per-developer fee, no cache charges, no egress surprises."
+    },
+    {
+      "url": "https://runnerhut.com/",
+      "date": "2026-11-10",
+      "proved": "a workflow targets the runners by changing one line",
+      "capture": "sha256:17ebf4716a6100de57ef86cab4fea0dd4de16d8ed4e67114d8d85be5c5cce903",
+      "quote": "Change one line in your workflow."
+    },
+    {
+      "url": "https://runnerhut.com/",
+      "date": "2026-11-10",
+      "proved": "the runners are drop-in and need no agent",
+      "capture": "sha256:17ebf4716a6100de57ef86cab4fea0dd4de16d8ed4e67114d8d85be5c5cce903",
+      "quote": "There is no agent to install"
+    },
+    {
+      "url": "https://runnerhut.com/pricing",
+      "date": "2026-11-10",
+      "proved": "the 2 vCPU Linux rate is USD 0.0040 a minute against GitHub list price of USD 0.0060",
+      "capture": "sha256:aa23425588cf89ddc6c343f85aeeabe26ec367de3d97fdcf6c709a1ff83b809a",
+      "quote": "| Linux x64 | $0.0040 | $0.0060 | 33% |"
+    },
+    {
+      "url": "https://runnerhut.com/pricing",
+      "date": "2026-11-10",
+      "proved": "per-second billing with a one-minute minimum",
+      "capture": "sha256:aa23425588cf89ddc6c343f85aeeabe26ec367de3d97fdcf6c709a1ff83b809a",
+      "quote": "Per-second billing with a one-minute minimum."
+    },
+    {
+      "url": "https://runnerhut.com/pricing",
+      "date": "2026-11-10",
+      "proved": "the free pool is Linux minutes",
+      "capture": "sha256:aa23425588cf89ddc6c343f85aeeabe26ec367de3d97fdcf6c709a1ff83b809a",
+      "quote": "3,000 Linux minutes a month. Everything included"
+    },
+    {
+      "url": "https://runnerhut.com/",
+      "date": "2026-11-10",
+      "proved": "no credit card is required for the free minutes",
+      "capture": "sha256:17ebf4716a6100de57ef86cab4fea0dd4de16d8ed4e67114d8d85be5c5cce903",
+      "quote": "No credit card required · 3,000 free minutes"
+    }
+  ],
+  "verdict": "qualifies-with-caveat",
+  "verified_at": "2026-11-10T02:39:57.384Z",
+  "extras": {},
+  "interface_detail": "a GitHub Actions workflow points its runs-on label at a RunnerHut runner; the homepage calls them drop-in runners and says there is no agent to install",
+  "limits_note": "no concurrency cap, queue charge, cache charge or egress charge is published; the free pool is Linux only and every runner family is available on the paid meter",
+  "binding": "request-rate",
+  "binding_note": "3,000 minutes is the first thing to fail: on a 2 vCPU runner it is 50 hours of wall-clock time a month, and nothing else on the free plan is capped.",
+  "confidence_note": "The free pool, the five runner rates and the billing granularity are read from the vendor own pricing page, and the no-card and drop-in claims from its homepage. Raise by running one job on the free plan and reading the minute counter and the first invoice line.",
+  "notes": "A hosted GitHub Actions runner with a free pool large enough for a small private pipeline: 3,000 Linux minutes a month, no cache charge and no egress charge. The rates undercut GitHub list price on every family the page lists, and the one-minute minimum is the only rounding. The free pool is Linux only, and the runners are EU-hosted with data residency in six regions."
+}

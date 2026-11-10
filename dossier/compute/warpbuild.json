@@ -5,11 +5,11 @@
   "url": "https://www.warpbuild.com/pricing",
   "category": "macOS host",
   "free_tier": {
-    "stated": "no free tier: per-minute runners from $0.003 a minute for 2 vCPU and 8 GB, with no hard concurrency limit and caching free",
+    "stated": "No free allowance is published: the FAQ says a payment method is added when an account reaches its free usage or credit limits, and no page states the size of that free usage. Hosted Linux x86 runners are USD 0.004 a minute for 2 vCPU and 8 GB and USD 0.008 for 4 vCPU and 16 GB; the ARM64 2 vCPU runner is USD 0.003; BYOC runners are USD 0.002 a minute.",
     "unit": "none",
-    "metered_on": "none",
+    "metered_on": "wall-clock",
     "source_url": "https://www.warpbuild.com/pricing",
-    "read_on": "2026-10-22"
+    "read_on": "2026-11-10"
   },
   "per_object_cap": {
     "stated": "not stated",
@@ -39,29 +39,29 @@
   "limits": [
     {
       "kind": "request-rate",
-      "value": "$0.003 to $0.004 a minute for 2 vCPU and 8 GB, $0.064 for 32 vCPU and 128 GB",
-      "source": "https://www.warpbuild.com/pricing"
-    },
-    {
-      "kind": "request-rate",
-      "value": "no hard concurrency limit: each builder profile is shared across jobs",
+      "value": "USD 0.004 a minute for a hosted 2 vCPU / 8 GB Linux x86 runner, USD 0.008 for 4 vCPU / 16 GB, and USD 0.002 a minute for BYOC",
       "source": "https://www.warpbuild.com/pricing"
     },
     {
       "kind": "per-object-cap",
-      "value": "snapshot storage is $0.025 an hour per snapshot; caching is free",
+      "value": "cache storage is USD 0.20 a GB-month; SAML SSO is USD 250 a month",
+      "source": "https://www.warpbuild.com/pricing"
+    },
+    {
+      "kind": "request-rate",
+      "value": "no free allowance is published; the FAQ only names a free usage or credit limit that a payment method ends",
       "source": "https://www.warpbuild.com/pricing"
     }
   ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented.",
+  "limits_note": "no hard concurrency limit: the page says each builder profile is shared across jobs, and it sells no job cap or queue limit",
   "identity_cost": {
     "kind": "email",
-    "detail": "unverified: not stated in the source card. `email` is the assumed value because every priced host in the set requires an account, and no signup was performed, so the kind is not established for this provider",
+    "detail": "an email address: \"you can sign up with your email and start using WarpBuild immediately. You will be need to add a payment method when you hit the free usage or credit limits\"",
     "country": null
   },
   "reliability_note": "no reliability event recorded in the source passes",
   "confidence": "documented",
-  "confidence_note": "the pricing page was read on 2026-10-22 and publishes the per-minute table across Intel, Arm and Apple Silicon plus the concurrency position. There is no free tier, so the verdict moves to paid-only",
+  "confidence_note": "The whole plan grid, the BYOC rate and the FAQ identity answer are read from the vendor own pricing page. Raise by signing up with email only and reading the credit or usage limit the dashboard shows.",
   "evidence": [
     {
       "url": "https://www.warpbuild.com/pricing",
@@ -72,12 +72,47 @@
       "url": "https://www.warpbuild.com/pricing",
       "date": "2026-10-22",
       "proved": "a per-minute runner table: '2vCPU, 8GB RAM $0.004', '4vCPU, 16GB RAM $0.008', '32vCPU, 128GB RAM $0.064', a cheaper '2vCPU, 8GB $0.003' tier, Apple Silicon rows at '$0.08' for 6 vCPU and 14 GB, and 'Each builder profile is shared across jobs using that profile. There is no hard concurrency limit.' quoted"
+    },
+    {
+      "url": "https://www.warpbuild.com/pricing",
+      "date": "2026-11-10",
+      "proved": "hosted 2 vCPU Linux x86 runners are USD 0.004 a minute",
+      "capture": "sha256:1090ba0555392e915d690044981cce32f456762095020c56db5512dc82215f51",
+      "quote": "2vCPU, 8GB RAM    | $0.004"
+    },
+    {
+      "url": "https://www.warpbuild.com/pricing",
+      "date": "2026-11-10",
+      "proved": "hosted 4 vCPU Linux x86 runners are USD 0.008 a minute",
+      "capture": "sha256:1090ba0555392e915d690044981cce32f456762095020c56db5512dc82215f51",
+      "quote": "4vCPU, 16GB RAM   | $0.008"
+    },
+    {
+      "url": "https://www.warpbuild.com/pricing",
+      "date": "2026-11-10",
+      "proved": "BYOC runners are USD 0.002 a minute",
+      "capture": "sha256:1090ba0555392e915d690044981cce32f456762095020c56db5512dc82215f51",
+      "quote": "Linux Runners                 | $0.002/min"
+    },
+    {
+      "url": "https://www.warpbuild.com/pricing",
+      "date": "2026-11-10",
+      "proved": "signup needs an email and no card until the free usage limit is reached",
+      "capture": "sha256:1090ba0555392e915d690044981cce32f456762095020c56db5512dc82215f51",
+      "quote": "No, you can sign up with your email and start using WarpBuild immediately."
+    },
+    {
+      "url": "https://www.warpbuild.com/pricing",
+      "date": "2026-11-10",
+      "proved": "the ARM64 2 vCPU runner is USD 0.003 a minute",
+      "capture": "sha256:1090ba0555392e915d690044981cce32f456762095020c56db5512dc82215f51",
+      "quote": "Linux from $0.003/min"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:48:22.000Z",
+  "verified_at": "2026-11-10T02:22:59.202Z",
   "price_per_tb_month": null,
-  "notes": "",
+  "notes": "The plan grid priced at USD 0.004 a minute for 2 vCPU and USD 0.008 for 4 vCPU on the day it was read, with ARM64 2 vCPU at USD 0.003, cache storage at USD 0.20 a GB-month and BYOC at USD 0.002 a minute. No free allowance is published, so a reader cannot size the free usage the FAQ refers to; the USD 0.003 entry that names 2 vCPU is the ARM64 row, not the x86 one.",
   "extras": {
     "seed_status": "ranked",
     "talaria_m10h_usd": 54.0,

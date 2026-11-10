@@ -19,7 +19,6 @@ Sorted by verdict, because the verdict is what a reader acts on.
 
 | provider | transport | free ceiling | identity | verdict |
 | --- | --- | --- | --- | --- |
-| Optimistix Tunnel | TCP over SSH | no byte limit published | anonymous | `qualifies-with-caveat` |
 | Global Socket | TCP, public relay | no limit published | anonymous | `qualifies-with-caveat` |
 | tuns.sh | TCP and UDP | none, paid membership | email | `paid-only` |
 | UpVPN | TCP and UDP | none, metered or annual | card | `paid-only` |
@@ -37,35 +36,31 @@ Sorted by verdict, because the verdict is what a reader acts on.
 | EasyTier | volunteer relays | not published | anonymous | `fails-egress` |
 | Lantunnel | mesh, no public URL | not published | email | `fails-egress` |
 | SSH-J.com | SSH jump, no public port | not published | anonymous | `fails-egress` |
+| Optimistix Tunnel | none, service shut down | not applicable | anonymous | `dead` |
 | Lokal.so | none, domain repurposed | not applicable | anonymous | `dead` |
 | pgrok (proxy.jetzt) | none, archived relay | not applicable | anonymous | `dead` |
 | Tabserve.dev | none, domain repurposed | not applicable | anonymous | `dead` |
 
 ## The row that qualifies
 
-Optimistix Tunnel offers free SSH remote forwarding with no account
-(`documented`, read 2026-10-23). The feature page says "100% Free" and
-"Completely Free to Use", and it names the protocols as "HTTPS / TCP / TLS
-Tunnel". A free raw TCP forward with no signup is rare in this class.
-
-⚠ **Two limits, and one of them is the test.** The protocol wall is real: the
-service forwards TCP, and it publishes no UDP path and no WireGuard config. The
-byte wall is unknown, because no page states a tolerance. A single sustained
-transfer would settle the second limit, and no transfer was run.
-
-The pricing page returns an origin error, so the free claim rests on the feature
-page and the landing page. Both were read.
-
-Global Socket is the second entry with no account. It is a binary plus a public
-relay, and the project page shows SSH reached over the relay with a shared
-secret as the only credential (`documented`, read 2026-10-23). It publishes no
-byte, port or time limit and carries no price, so the allowance is a lead rather
-than a number.
+Global Socket is the entry with no account that survives the sweep. It is a binary
+plus a public relay, and the project page shows SSH reached over the relay with a
+shared secret as the only credential (`documented`, read 2026-10-23). It publishes
+no byte, port or time limit and carries no price, so the allowance is a lead rather
+than a number. A sandbox measured a 2.6-3.1 s round trip per request through the
+public relay on 2026-11-05, the cost of an SRP-4096 handshake per connection.
 
 ⚠ **A relay with no published limit is the cheapest thing here and the least
 certain.** The provider is a volunteer project, so a tolerance exists whether or not it is
 written down. It is the one entry in this list worth a sustained transfer before any
 other.
+
+Optimistix Tunnel, the previous answer, has been **permanently discontinued**: its
+own page says so, points readers at Cloudflare Tunnel, and states that all tunnels,
+subdomains and accounts are no longer active (`documented`, read 2026-11-10). A
+challenge page had once made it look alive, which is why a third-party harness
+rechecked it and recorded the shutdown on 2026-11-05. Its two limits are moot now:
+it never published a byte tolerance, and the protocol wall was TCP only.
 
 ## The limits table the overview omits
 

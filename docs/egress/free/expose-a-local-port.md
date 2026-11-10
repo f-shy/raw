@@ -23,6 +23,10 @@ Sorted by what a reader can use now, not alphabetically.
 | LocalXpose | 2 active tunnels, no time limit | a count of tunnels, which is not one of the seven kinds | email | `qualifies-with-caveat` |
 | tunnelto | free generated subdomain | none published | email | `qualifies-with-caveat` |
 | openport.pw | one persistent port, no signup | unstated | anonymous | `qualifies-with-caveat` |
+| Cruma | 1 GiB per session, 3-hour anonymous session | `volume-quota`: 1 GiB per session | anonymous | `qualifies-with-caveat` |
+| liveapps.dev | free named subdomain, no account | `retention-clamped`: the URL lasts about an hour | anonymous | `qualifies-with-caveat` |
+| nport.link | free stable URL, no sign-up | `retention-clamped`: a 4-hour session cap | anonymous | `qualifies-with-caveat` |
+| LetsTunnel | free, no account claimed | the relay presents a self-signed certificate | anonymous | `fails-egress` |
 | localtunnel | a public URL on a shared server | none published | anonymous | `qualifies-with-caveat` |
 | bore | MIT software, one shared public instance | nothing binds; `bore.pub` publishes no quota | anonymous | `qualifies-with-caveat` |
 | localhost.run | free subdomain, no account | `per-ip-shaping`: 11.4 KiB/s measured | anonymous | `fails-egress` |
@@ -299,6 +303,45 @@ Evidence: `github.com/fatedier/frp` (read 2026-10-22); probe records in
 Verdict: `paid-only`. The software is free and the path is not. It needs a host
 with a public address, and that host is a separate provider. The finding is the host,
 not frp.
+
+## What a capability-free sandbox measured on 2026-11-05
+
+A second harness ran the authless clients from a sandbox that refuses `bind(2)`, with
+the origin on a unix socket and the tunnel client's origin dial rewritten. Every
+"works" below returned an origin marker over the public URL, so the tunnel carried
+real bytes, not a landing page. The numbers are that sandbox's; the *ordering* and the
+hard caps are the durable part.
+
+| provider | median `/lat` | bulk transfer | hard cap observed |
+| --- | --- | --- | --- |
+| liveapps.dev | 223 ms | 4 MiB fails with a 504 after ~30 s | a 30 s relay timeout |
+| Cruma | 329 ms | 4 MiB at 117-126 kB/s | 1 GiB per session, 3-hour session |
+| srv.us | 357 ms | 4 MiB does not finish at 31-43 kB/s | none, only the throttle |
+| localtunnel | 391 ms | 4 MiB at about 20-22 kB/s | none, only the throttle |
+| bore.pub | 406 ms | 4 MiB stalls at about 18 kB/s through that egress | none |
+| localhost.run | 458 ms | 4 MiB at 6-8 kB/s | none, only the throttle |
+| serveo | 710 ms | connection dies at about 2.4-2.5 MiB after ~10 s | a per-connection transfer cut |
+| Pinggy | 836 ms | 4 MiB does not finish at about 50 kB/s | the 60-minute session |
+| tunnl.gg | 908 ms | both runs stop at exactly 2,486,272 bytes | about 2.37 MiB per request |
+
+Three findings a reader should carry:
+
+1. **Latency and throughput are independent.** liveapps.dev has the lowest median and
+   cannot finish a 4 MiB object; serveo has the highest raw bandwidth and cuts the
+   connection mid-transfer. Sort by the job, not by a single number.
+2. **The SSH relays are throttled, not broken.** srv.us, localhost.run and Pinggy all
+   carry an origin marker at 30-900 ms, and all three are shaped to tens of kB/s. A
+   webhook or an SSH session is fine; a file is not.
+3. **A password page on a free tunnel is not a failure.** localtunnel's visitor page
+   asks for the tunnel password, which is the host's public IP: it is the service's
+   normal anti-abuse step. The throttle and the multi-second stalls are the honest
+   limits; its client repository has had no push since 2025-08.
+
+The authless set is also shrinking: Optimistix is shut down, ssi.sh's hosted demo
+requires password or a pre-registered key, tunnelto is account-gated trialware, and
+LetsTunnel's relay presented a self-signed certificate on 2026-11-05. The durable
+authless paths are the Cloudflare quick tunnel, Cruma, liveapps.dev, nport.link and the
+SSH relays that kept anonymous usernames.
 
 ## What did not work
 

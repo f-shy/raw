@@ -3,14 +3,14 @@
   "slug": "blacksmith",
   "provider": "Blacksmith (GitHub Actions runners)",
   "url": "https://www.blacksmith.sh/pricing",
-  "category": "macOS host",
+  "category": "CI runner (hosted, GitHub Actions-compatible)",
   "free_tier": {
-    "stated": "USD 12.0 of compute credit each month, per published documentation; unverified against live endpoints.",
-    "unit": "mixed",
+    "stated": "3,000 free minutes a month on every plan the page lists. Beyond the free minutes the page states only that it is 33% cheaper than GitHub per-minute pricing, which puts a 4-core Linux minute at about USD 0.008 against GitHub list price of USD 0.012.",
+    "unit": "minutes",
     "metered_on": "wall-clock",
     "source_url": "https://www.blacksmith.sh/pricing",
-    "read_on": "2026-10-02",
-    "notes": "Historical research record."
+    "read_on": "2026-11-10",
+    "notes": ""
   },
   "per_object_cap": {
     "stated": "not stated",
@@ -40,19 +40,29 @@
   "limits": [
     {
       "kind": "request-rate",
-      "value": "the page renders testimonials rather than a plan table, so the monthly credit figure is not established here",
+      "value": "3,000 free minutes a month",
+      "source": "https://www.blacksmith.sh/pricing"
+    },
+    {
+      "kind": "request-rate",
+      "value": "33% cheaper than GitHub per-minute pricing, so a 4-core Linux minute is about USD 0.008 against GitHub list price of USD 0.012",
+      "source": "https://www.blacksmith.sh/pricing"
+    },
+    {
+      "kind": "per-object-cap",
+      "value": "Docker layer caching and sticky disks add USD 0.50 a GB-month; a static IP adds USD 100 an IP a month",
       "source": "https://www.blacksmith.sh/pricing"
     }
   ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented.",
+  "limits_note": "the page publishes no per-minute price table for each runner size; the only price statement is the 33% discount against GitHub, and the macOS M4 rate quoted in a comparison report is not on the page read here",
   "identity_cost": {
     "kind": "email",
-    "detail": "unverified: not stated in the source card. `email` is the assumed value because every priced host in the set requires an account, and no signup was performed, so the kind is not established for this provider",
+    "detail": "unverified: the pricing page states no signup requirement. Connecting a repository needs a GitHub account, and no signup was performed, so whether a card is required is not established",
     "country": null
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "reported",
-  "confidence_note": "the pricing page was read on 2026-10-22 and its extracted body carries testimonials rather than a ladder, so the USD 12 monthly figure still rests on earlier readings card. The page did not contradict it, and it did not confirm it.",
+  "reliability_note": "the page states no job wall clock, no concurrency cap and no queue limit; the only reliability claim is that the hardware runs 2x faster than GitHub runner, which no page here measures",
+  "confidence": "documented",
+  "confidence_note": "The free allowance, the discount claim and the add-on prices are read from the vendor own pricing page; the per-size rate table is rendered by script and is not in the page text. Raise by running one job on a free account and reading the invoice line.",
   "evidence": [
     {
       "url": "https://www.blacksmith.sh/pricing",
@@ -63,12 +73,54 @@
       "url": "https://www.blacksmith.sh/pricing",
       "date": "2026-10-22",
       "proved": "the pricing page was read on 2026-10-22 and returns customer testimonials only: 'The amount we pay an engineer per minute is far higher than any CI minute'. It states no plan, price or free allowance"
+    },
+    {
+      "url": "https://www.blacksmith.sh/pricing",
+      "date": "2026-11-10",
+      "proved": "the free allowance is 3,000 minutes a month",
+      "capture": "sha256:7fa1f56cd550b9066cb1d96c0a9a9b4c346a34b9ac0c17791a9010c9336e86bc",
+      "quote": "3,000 free min/mo."
+    },
+    {
+      "url": "https://www.blacksmith.sh/pricing",
+      "date": "2026-11-10",
+      "proved": "Docker layer caching and sticky disks cost USD 0.50 a GB-month",
+      "capture": "sha256:7fa1f56cd550b9066cb1d96c0a9a9b4c346a34b9ac0c17791a9010c9336e86bc",
+      "quote": "Docker layer caching (+$0.50/GB/mo.)"
+    },
+    {
+      "url": "https://www.blacksmith.sh/pricing",
+      "date": "2026-11-10",
+      "proved": "the discount is 33% below GitHub per-minute pricing",
+      "capture": "sha256:7fa1f56cd550b9066cb1d96c0a9a9b4c346a34b9ac0c17791a9010c9336e86bc",
+      "quote": "We are 33% cheaper than GitHub per-minute pricing"
+    },
+    {
+      "url": "https://www.blacksmith.sh/pricing",
+      "date": "2026-11-10",
+      "proved": "no signup requirement is stated on the pricing page",
+      "capture": "sha256:7fa1f56cd550b9066cb1d96c0a9a9b4c346a34b9ac0c17791a9010c9336e86bc",
+      "quote": "Try for free"
+    },
+    {
+      "url": "https://www.blacksmith.sh/pricing",
+      "date": "2026-11-10",
+      "proved": "the hardware is claimed to run 2x faster than GitHub's runners",
+      "capture": "sha256:7fa1f56cd550b9066cb1d96c0a9a9b4c346a34b9ac0c17791a9010c9336e86bc",
+      "quote": "We are 2x faster than GitHub's runners."
+    },
+    {
+      "url": "https://www.blacksmith.sh/pricing",
+      "date": "2026-11-10",
+      "proved": "a startup discount is application-gated",
+      "capture": "sha256:7fa1f56cd550b9066cb1d96c0a9a9b4c346a34b9ac0c17791a9010c9336e86bc",
+      "quote": "Under 100 employees"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-22T04:46:22.762Z",
+  "verified_at": "2026-11-10T02:22:59.411Z",
   "price_per_tb_month": null,
-  "notes": "",
+  "notes": "The plan grid shows 3,000 free minutes a month on every plan, a 33% discount against GitHub per-minute pricing and three paid add-ons. The startup and OSS programmes are application-gated and grant a discount rather than a free tier. The macOS M4 rate quoted in a comparison report is not on the page read here and stays unverified.",
   "extras": {
     "seed_status": "ranked",
     "talaria_m10h_usd": 33.0,

@@ -45,6 +45,11 @@
       "kind": "per-ip-shaping",
       "value": "measured 4,847,616 of 10,485,760 bytes in 180 s, about 26.9 KiB/s, which caps a full month at about 69.8 GB (0.063 TiB)",
       "source": "probe"
+    },
+    {
+      "kind": "per-ip-shaping",
+      "value": "about 50 kB/s on the free tier; a 4 MiB transfer does not complete",
+      "source": "probe:https://hdiom-104-28-207-178.free.pinggy.net/"
     }
   ],
   "identity_cost": {
@@ -52,7 +57,7 @@
     "detail": "no account for the 60-minute tier; the SSH session is unauthenticated",
     "country": null
   },
-  "reliability_note": "the free hostname is a random subdomain that changes every session",
+  "reliability_note": "the free hostname is a random subdomain that changes every session; a harness measured an 836 ms median latency and about 50 kB/s, so a 4 MiB transfer does not complete inside the 60-minute session.",
   "confidence": "documented",
   "evidence": [
     {
@@ -84,10 +89,17 @@
       "url": "https://pinggy.io/help/",
       "date": "2026-10-23",
       "proved": "'Pinggy's free plan has a tunnel timeout of 60 minutes'"
+    },
+    {
+      "url": "probe:https://hdiom-104-28-207-178.free.pinggy.net/",
+      "date": "2026-11-05",
+      "proved": "the free tier transfers at about 50 kB/s",
+      "capture": "sha256:be1f0f5da87ff4ed55d877c4526e33575fa8721d8a66c08a69b07d40eeef4a4b",
+      "quote": "~49-51 KB/s"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-05T00:00:00.000Z",
   "notes": "2026-10-23: the free tier carries UDP, not only SSH TCP. Pinggy documents 'ssh -p 443 -R0:localhost:51820 udp@free.pinggy.io' as the way to expose a self-hosted WireGuard server, and the free host form returns a public UDP port such as udp://rndnj-103-170-183-11.a.free.pinggy.online:43210, so wg_path is inside-udp. The volume still binds: the only rate this corpus has measured on the free tier is 26.9 KiB/s, from the HTTP tier, which is 2.2 GiB/day and 66 GiB/month.",
   "history": [],
   "extras": {
@@ -101,5 +113,6 @@
   "binding_note": "The 60-minute cap bounds each session and the measured 26.9 KiB/s bounds everything those sessions can carry: at that rate a whole month is about 69.8 GB, 0.063 TiB, so the rate is what fails and it fails by a factor of 16 rather than at a quota.",
   "interface_detail": "ssh -p 443 -R0:127.0.0.1:PORT qr@free.pinggy.io",
   "stale": false,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z"
+  "stale_checked_at": "2026-10-22T00:00:00.000Z",
+  "confidence_note": " the free tier works end to end at an 836 ms median latency and about 50 kB/s (measured 2026-11-05)."
 }

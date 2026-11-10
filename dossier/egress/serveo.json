@@ -50,6 +50,11 @@
       "kind": "per-ip-shaping",
       "value": "public TCP and UDP forwarding are paid-only",
       "source": "https://serveo.net/docs/wireguard"
+    },
+    {
+      "kind": "per-object-cap",
+      "value": "a large transfer is cut at about 2.4-2.5 MiB after about 10 s on the anonymous tier",
+      "source": "probe:https://cc2e2fd2b49711e2-104-28-207-178.serveousercontent.com/"
     }
   ],
   "identity_cost": {
@@ -57,8 +62,8 @@
     "detail": "the ssh target needs no account; a key is optional for reserved names",
     "country": null
   },
-  "reliability_note": "the SSH banner printed a tunnel URL that has no usable DNS record, on two separate sessions",
-  "confidence": "documented",
+  "reliability_note": "the SSH banner printed a tunnel URL that has no usable DNS record, on two separate sessions; a harness measured a 710 ms median latency and a 4 MiB transfer cut at about 2.4-2.5 MiB after about 10 s, while the tunnel itself stayed up.",
+  "confidence": "reported",
   "evidence": [
     {
       "url": "https://serveo.net/",
@@ -84,11 +89,18 @@
       "url": "https://serveo.net/",
       "date": "2026-10-23",
       "proved": "'Get 3 active tunnels and custom subdomains for $0/month' and Pro at $60/yr"
+    },
+    {
+      "url": "probe:https://cc2e2fd2b49711e2-104-28-207-178.serveousercontent.com/",
+      "date": "2026-11-05",
+      "proved": "a 4 MiB transfer is cut at about 2.4-2.5 MiB after about 10 s while the tunnel stays up",
+      "capture": "sha256:463ee9a99b08d1fdbe7df302753f6e4ab1f14ac4754c77bce1f1b2eca0a65023",
+      "quote": "connection died at 10.5s, 2,400,032"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
-  "notes": "Serveo provides SSH and WireGuard port forwarding. Free tiers receive an HTTP hostname; raw public TCP and UDP forwarding require a paid Pro subscription at $60 annually.",
+  "verified_at": "2026-11-05T00:00:00.000Z",
+  "notes": "Serveo provides SSH and WireGuard port forwarding. Free tiers receive an HTTP hostname; raw public TCP and UDP forwarding require a paid Pro subscription at $60 annually. A sandbox measured a 710 ms median latency and a transfer cut at about 2.4-2.5 MiB after about 10 s on 2026-11-05, while the tunnel stayed up.",
   "history": [],
   "extras": {
     "stale_after_days": 180,
@@ -100,5 +112,6 @@
   "binding_note": "with no resolvable address there is no meter and no capacity; the control plane is the whole product that works.",
   "interface_detail": "ssh -R 80:localhost:3000 serveo.net",
   "stale": false,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z"
+  "stale_checked_at": "2026-10-22T00:00:00.000Z",
+  "confidence_note": " the anonymous tier carries about 230 kB/s and cuts a transfer at about 2.4-2.5 MiB after about 10 s, while the tunnel stays up (measured 2026-11-05)."
 }

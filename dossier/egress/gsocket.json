@@ -53,7 +53,7 @@
     "detail": "a shared secret string is the only credential: 'gsocket -s ExampleSecretChangeMe /usr/sbin/sshd -D'.",
     "country": "None"
   },
-  "reliability_note": "Shared secret, no account: anyone holding the secret reaches the service, and the relay operator can see connection metadata.",
+  "reliability_note": "Shared secret, no account: anyone holding the secret reaches the service, and the relay operator can see connection metadata. A harness measured a 2.6-3.1 s round trip per request through the public relay, the cost of an SRP-4096 handshake per connection plus the relay hop.",
   "confidence": "documented",
   "confidence_note": "Public relay provides encrypted socket tunneling. Relay throughput allowances are unmetered in documentation.",
   "evidence": [
@@ -61,13 +61,20 @@
       "url": "https://www.gsocket.io/",
       "date": "2026-10-23",
       "proved": "'two workstations on different private networks to communicate'; SSH example over the relay; 'SRP-AES-256-CBC-SHA-End2End'"
+    },
+    {
+      "url": "probe:https://gs.thc.org/",
+      "date": "2026-11-05",
+      "proved": "a relay round trip took 2.6-3.1 s per request",
+      "capture": "sha256:f42fea71c93511808d109c6a1819d6dfa7f6ffb0436ec0eac2af331a84afe87b",
+      "quote": "min 2.6 s / med 3.0 s / max 3.1 s"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-05T00:00:00.000Z",
   "price_per_tb_month": "USD 0",
   "history": [],
-  "notes": "A free public relay with no account and end-to-end encryption, carrying TCP only. Closest thing here to a no-identity TCP ingress, which is why it is worth a measurement even though it is not UDP.",
+  "notes": "A free public relay with no account and end-to-end encryption, carrying TCP only. Closest thing here to a no-identity TCP ingress, which is why it is worth a measurement even though it is not UDP. A sandbox measured a 2.6-3.1 s round trip per request through the public relay on 2026-11-05.",
   "extras": {
     "wg_path": "none",
     "wg_detail": "",

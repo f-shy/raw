@@ -1,0 +1,147 @@
+{
+  "topic": "ci-cd-runners",
+  "slug": "compiler-dev",
+  "provider": "compiler.dev",
+  "url": "https://compiler.dev/pricing",
+  "category": "CI runner (hosted, GitHub Actions-compatible)",
+  "free_tier": {
+    "stated": "200 free minutes over 14 days, up to 8 jobs at once, Linux only, with no card; a card is needed only when the minutes run out. Beyond the trial the Basic plan is USD 0.001 a core-minute, so a 2-core runner is USD 0.002 a minute and an 8-core runner USD 0.008.",
+    "unit": "minutes",
+    "source_url": "https://compiler.dev/pricing",
+    "metered_on": "wall-clock",
+    "read_on": "2026-11-10"
+  },
+  "per_object_cap": {
+    "stated": "not applicable: a job is bounded by the runner size, chosen with a label such as compiler-8cpu"
+  },
+  "retention": {
+    "stated": "not applicable: a job runs and is destroyed; the trial itself ends after 14 days"
+  },
+  "egress": {
+    "terms": "not stated: the page prices compute per core-minute and publishes no egress allowance or egress charge",
+    "metered": false
+  },
+  "interface": [
+    "git"
+  ],
+  "tooling": "a GitHub App installation and a runs-on label change on an existing workflow; no agent or self-hosted runner is needed",
+  "chaining": "GitHub Actions on a public repository stays free and comes first; compiler.dev sells private-repository minutes at USD 0.001 a core-minute, which is USD 0.002 for 2 cores against GitHub list price of USD 0.006, and the 200 free minutes are enough to compare one pipeline before a card is added",
+  "limits": [
+    {
+      "kind": "request-rate",
+      "value": "200 free minutes over 14 days, up to 8 concurrent jobs, Linux only",
+      "source": "https://compiler.dev/pricing"
+    },
+    {
+      "kind": "request-rate",
+      "value": "USD 0.001 a core-minute on Basic, USD 0.00175 on Pro and USD 0.043 on Turbo",
+      "source": "https://compiler.dev/pricing"
+    },
+    {
+      "kind": "retention-clamped",
+      "value": "the free window is 14 days; prepaid credit never expires and unused credit is refunded on request",
+      "source": "https://compiler.dev/pricing"
+    }
+  ],
+  "identity_cost": {
+    "kind": "email",
+    "detail": "an email and a GitHub account, with no card for the trial: \"No card needed: the trial starts when you install the App\"; a card is added only when the 200 minutes run out"
+  },
+  "reliability_note": "the trial is capped at 8 concurrent jobs and Linux only; the page publishes no job wall clock and no queue limit",
+  "confidence": "documented",
+  "evidence": [
+    {
+      "url": "https://compiler.dev/pricing",
+      "date": "2026-11-10",
+      "proved": "the trial is 200 free minutes over 14 days with no card",
+      "capture": "sha256:ff3c78c6ee986744d1fd45ceb1a0fa23813a9ad0f9e6d63f0f92f3a8a869678d",
+      "quote": "200 free minutes over 14 days, up to 8 jobs at once, Linux only."
+    },
+    {
+      "url": "https://compiler.dev/pricing",
+      "date": "2026-11-10",
+      "proved": "the price is per core-minute",
+      "capture": "sha256:ff3c78c6ee986744d1fd45ceb1a0fa23813a9ad0f9e6d63f0f92f3a8a869678d",
+      "quote": "One price: $0.001 per core-minute."
+    },
+    {
+      "url": "https://compiler.dev/pricing",
+      "date": "2026-11-10",
+      "proved": "a job is bounded by the runner size",
+      "capture": "sha256:ff3c78c6ee986744d1fd45ceb1a0fa23813a9ad0f9e6d63f0f92f3a8a869678d",
+      "quote": "`compiler-8cpu` (8 vCPU)"
+    },
+    {
+      "url": "https://compiler.dev/pricing",
+      "date": "2026-11-10",
+      "proved": "the trial itself ends after 14 days",
+      "capture": "sha256:ff3c78c6ee986744d1fd45ceb1a0fa23813a9ad0f9e6d63f0f92f3a8a869678d",
+      "quote": "200 free minutes over 14 days"
+    },
+    {
+      "url": "https://compiler.dev/pricing",
+      "date": "2026-11-10",
+      "proved": "no egress allowance or charge is published",
+      "capture": "sha256:ff3c78c6ee986744d1fd45ceb1a0fa23813a9ad0f9e6d63f0f92f3a8a869678d",
+      "quote": "One price: $0.001 per core-minute."
+    },
+    {
+      "url": "https://compiler.dev/pricing",
+      "date": "2026-11-10",
+      "proved": "a job targets a runner by its runs-on label",
+      "capture": "sha256:ff3c78c6ee986744d1fd45ceb1a0fa23813a9ad0f9e6d63f0f92f3a8a869678d",
+      "quote": "`compiler-8cpu` (8 vCPU)"
+    },
+    {
+      "url": "https://compiler.dev/pricing",
+      "date": "2026-11-10",
+      "proved": "the trial starts when the GitHub App is installed",
+      "capture": "sha256:ff3c78c6ee986744d1fd45ceb1a0fa23813a9ad0f9e6d63f0f92f3a8a869678d",
+      "quote": "the trial starts when you install the App"
+    },
+    {
+      "url": "https://compiler.dev/pricing",
+      "date": "2026-11-10",
+      "proved": "the Basic rate is USD 0.001 a core-minute",
+      "capture": "sha256:ff3c78c6ee986744d1fd45ceb1a0fa23813a9ad0f9e6d63f0f92f3a8a869678d",
+      "quote": "One price: $0.001 per core-minute."
+    },
+    {
+      "url": "https://compiler.dev/pricing",
+      "date": "2026-11-10",
+      "proved": "the free window is 14 days",
+      "capture": "sha256:ff3c78c6ee986744d1fd45ceb1a0fa23813a9ad0f9e6d63f0f92f3a8a869678d",
+      "quote": "200 free minutes over 14 days"
+    },
+    {
+      "url": "https://compiler.dev/pricing",
+      "date": "2026-11-10",
+      "proved": "prepaid credit never expires",
+      "capture": "sha256:ff3c78c6ee986744d1fd45ceb1a0fa23813a9ad0f9e6d63f0f92f3a8a869678d",
+      "quote": "Never expires; unused credit refunded on request."
+    },
+    {
+      "url": "https://compiler.dev/pricing",
+      "date": "2026-11-10",
+      "proved": "no card is needed for the trial",
+      "capture": "sha256:ff3c78c6ee986744d1fd45ceb1a0fa23813a9ad0f9e6d63f0f92f3a8a869678d",
+      "quote": "Start with 200 free minutes. No card."
+    },
+    {
+      "url": "https://compiler.dev/pricing",
+      "date": "2026-11-10",
+      "proved": "the trial is capped at 8 concurrent jobs",
+      "capture": "sha256:ff3c78c6ee986744d1fd45ceb1a0fa23813a9ad0f9e6d63f0f92f3a8a869678d",
+      "quote": "up to 8 jobs at once, Linux only"
+    }
+  ],
+  "verdict": "trial-only",
+  "verified_at": "2026-11-10T02:39:57.591Z",
+  "extras": {},
+  "interface_detail": "a GitHub Actions workflow names a compiler.dev runner label such as compiler-2cpu or compiler-8cpu; the trial starts when the GitHub App is installed",
+  "limits_note": "prepaid credit is sold in USD 20, USD 100 (which buys USD 110) and USD 500 (which buys USD 600) blocks that never expire; Turbo runs on dedicated machines and is arranged with the vendor",
+  "binding": "retention-clamped",
+  "binding_note": "The 14-day window fails before the 200 minutes for most pipelines: the trial is a comparison allowance, and a project that wants to keep using it must add a card and buy prepaid credit.",
+  "confidence_note": "The trial terms, the three rates and the credit terms are read from the vendor own pricing page. Raise by running a job in the trial and reading the minute counter and the first prepaid-credit line.",
+  "notes": "A per-core-minute hosted runner with a small no-card trial: 200 minutes over 14 days, 8 concurrent jobs, Linux only. The rate is the lowest published core-minute price in this topic, and the trial is sized for a comparison rather than for a workload."
+}

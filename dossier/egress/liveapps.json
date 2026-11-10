@@ -1,0 +1,100 @@
+{
+  "topic": "egress",
+  "slug": "liveapps",
+  "provider": "liveapps.dev",
+  "url": "https://liveapps.dev/",
+  "category": "relay (hosted, HTTPS tunnel, authless)",
+  "tier": "free",
+  "free_tier": {
+    "stated": "Free with no account: a public HTTPS URL on *.liveapps.dev, a chosen subdomain, and one outbound WebSocket from the CLI to the relay. The page publishes no monthly quota; a sandbox measured the URL expiring after about an hour and a 30-second relay timeout that kills a multi-megabyte transfer.",
+    "unit": "hours",
+    "metered_on": "wall-clock",
+    "source_url": "https://liveapps.dev/",
+    "read_on": "2026-11-10"
+  },
+  "per_object_cap": {
+    "stated": "not applicable: a tunnel; a transfer the relay timeout interrupts does not complete",
+    "bytes": null,
+    "source_url": "https://liveapps.dev/"
+  },
+  "retention": {
+    "stated": "not applicable: a live tunnel; the URL expires after about an hour",
+    "days": null,
+    "source_url": "https://liveapps.dev/"
+  },
+  "egress": {
+    "terms": "no byte quota is published; the relay's 30-second upstream timeout ends a transfer that has not finished, so a 4 MiB object returns a 504 page",
+    "metered": false,
+    "free_allowance": null,
+    "price_per_tb": null,
+    "source_url": "https://liveapps.dev/"
+  },
+  "interface": [
+    "cli"
+  ],
+  "interface_detail": "npx liveapps tunnel --port 3000 --name worldofz prints a https://<name>.liveapps.dev URL; the CLI keeps one outbound WebSocket to the relay",
+  "tooling": "the liveapps npm CLI on node; no agent or daemon",
+  "chaining": "a named subdomain makes it a usable webhook and demo lane; the one-hour URL and the 30-second timeout rule out file transfer and long-lived services",
+  "limits": [
+    {
+      "kind": "retention-clamped",
+      "value": "the public URL expires after about an hour",
+      "source": "probe:https://warped-wiry-wool.liveapps.dev/"
+    },
+    {
+      "kind": "request-rate",
+      "value": "a 30-second relay timeout returns a 504 for a transfer that has not finished",
+      "source": "probe:https://warped-wiry-wool.liveapps.dev/"
+    }
+  ],
+  "binding": "retention-clamped",
+  "binding_note": "the one-hour URL fails first for anything but a demo, and the 30-second timeout fails first inside that hour for a large transfer.",
+  "identity_cost": {
+    "kind": "anonymous",
+    "detail": "no account: the page's comparison table lists 'Account required | no', and the harness created a tunnel through the public API with no credentials",
+    "country": null
+  },
+  "reliability_note": "the URL expires after about an hour and the relay returns a 504 after about 30 s on a transfer that has not finished; a sandbox measured a 223 ms median latency, the lowest of the authless set",
+  "confidence": "reported",
+  "confidence_note": "the free and no-account claims are read from the vendor page; the one-hour expiry and the 30-second timeout are a sandbox measurement, so the record is reported rather than documented",
+  "evidence": [
+    {
+      "url": "https://liveapps.dev/",
+      "date": "2026-11-10",
+      "proved": "no account is required",
+      "capture": "sha256:9cd353777c6df4bbcc4ef563d0c715873cf89782b7058a7eba38d0e45c50d868",
+      "quote": "| Account required | no |"
+    },
+    {
+      "url": "https://liveapps.dev/",
+      "date": "2026-11-10",
+      "proved": "a custom subdomain is free",
+      "capture": "sha256:9cd353777c6df4bbcc4ef563d0c715873cf89782b7058a7eba38d0e45c50d868",
+      "quote": "| Custom subdomain | yes |"
+    },
+    {
+      "url": "probe:https://warped-wiry-wool.liveapps.dev/",
+      "date": "2026-11-05",
+      "proved": "the URL expires after about an hour",
+      "capture": "sha256:de1014306d7aafba9c8afb95b55b8157e989a4a1b9e9ed7f96360b0a68698102",
+      "quote": "expires in ~1h"
+    },
+    {
+      "url": "probe:https://warped-wiry-wool.liveapps.dev/",
+      "date": "2026-11-05",
+      "proved": "a 4 MiB transfer returns a 504 after about 30 s",
+      "capture": "sha256:de1014306d7aafba9c8afb95b55b8157e989a4a1b9e9ed7f96360b0a68698102",
+      "quote": "504 Gateway time-out after ~30 s"
+    },
+    {
+      "url": "probe:https://warped-wiry-wool.liveapps.dev/",
+      "date": "2026-11-05",
+      "proved": "the /lat median was 223 ms",
+      "capture": "sha256:de1014306d7aafba9c8afb95b55b8157e989a4a1b9e9ed7f96360b0a68698102",
+      "quote": "min 211 / med 223 / p95 295 ms"
+    }
+  ],
+  "verdict": "qualifies-with-caveat",
+  "verified_at": "2026-11-10T03:20:00.000Z",
+  "notes": "The lowest median latency of the authless relays measured on 2026-11-05, at 223 ms. The 30-second relay timeout makes it a webhook and demo lane rather than a file-transfer lane, and the URL lasts about an hour."
+}

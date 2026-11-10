@@ -5,11 +5,11 @@
   "url": "https://depot.dev/pricing",
   "category": "macOS host",
   "free_tier": {
-    "stated": "a trial with 2,000 sandbox minutes, 2,000 GitHub Actions minutes, 500 container build minutes and 25 GB of cache storage inside its 7-day window",
+    "stated": "No free tier: a 7-day trial, then the Developer plan is USD 20 a month and includes 2,000 GitHub Actions minutes, 2,000 sandbox minutes, 500 container build minutes and 25 GB of cache and registry storage each month; additional GitHub Actions minutes are USD 0.006 a minute for the base 2 vCPU Linux runner.",
     "unit": "minutes",
     "metered_on": "wall-clock",
     "source_url": "https://depot.dev/pricing",
-    "read_on": "2026-10-22"
+    "read_on": "2026-11-10"
   },
   "per_object_cap": {
     "stated": "not stated",
@@ -39,21 +39,21 @@
   "limits": [
     {
       "kind": "request-rate",
-      "value": "2,000 sandbox minutes and 2,000 GitHub Actions minutes inside a 7-day trial",
-      "source": "https://depot.dev/pricing"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "the included block ends with the 7-day trial; after that usage bills per second",
+      "value": "2,000 GitHub Actions minutes a month on the USD 20 Developer plan, then USD 0.006 a minute for the base 2 vCPU Linux runner",
       "source": "https://depot.dev/pricing"
     },
     {
       "kind": "per-object-cap",
-      "value": "25 GB of cache and registry storage included in the trial",
+      "value": "25 GB of cache and registry storage on the Developer plan, then USD 0.20 a GB-month",
+      "source": "https://depot.dev/pricing"
+    },
+    {
+      "kind": "retention-clamped",
+      "value": "the free window is a 7-day trial; the monthly allowance needs the USD 20 plan",
       "source": "https://depot.dev/pricing"
     }
   ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented.",
+  "limits_note": "the Startup plan at USD 200 a month raises the included GitHub Actions minutes to 20,000 and cache to 250 GB; the Business plan is custom and can run in the customer AWS account",
   "identity_cost": {
     "kind": "email",
     "detail": "unverified: not stated in the source card. `email` is the assumed value because every priced host in the set requires an account, and no signup was performed, so the kind is not established for this provider",
@@ -61,7 +61,7 @@
   },
   "reliability_note": "no reliability event recorded in the source passes",
   "confidence": "documented",
-  "confidence_note": "the pricing page was read on 2026-10-22 and puts the included block behind a 7-day trial button. That makes it a trial rather than a tier, contradicting paid-only only in the sense that a trial exists",
+  "confidence_note": "The plan grid, the included allowances and the overage rates are read from the vendor own pricing page. Raise by running a job in the trial and reading the invoice line for a minute beyond the included block.",
   "evidence": [
     {
       "url": "https://depot.dev/pricing",
@@ -72,12 +72,40 @@
       "url": "https://depot.dev/pricing",
       "date": "2026-10-22",
       "proved": "'Start for free, scale to any size, and pay per second for what you use' with an included block of '2,000 sandbox minutes', '2,000 GitHub Actions minutes', '500 container build minutes' and '25 GB cache and registry storage', under a 'START A 7-DAY TRIAL' button, quoted"
+    },
+    {
+      "url": "https://depot.dev/pricing",
+      "date": "2026-11-10",
+      "proved": "the Developer plan includes 2,000 GitHub Actions minutes a month",
+      "capture": "sha256:13ef3b8f597e6b5cb32d37833b14bc15df6f2405009ddcf08d06399d67d4e560",
+      "quote": "2,000 GitHub Actions minutes"
+    },
+    {
+      "url": "https://depot.dev/pricing",
+      "date": "2026-11-10",
+      "proved": "additional GitHub Actions minutes are USD 0.006 a minute",
+      "capture": "sha256:13ef3b8f597e6b5cb32d37833b14bc15df6f2405009ddcf08d06399d67d4e560",
+      "quote": "$0.006 / minute"
+    },
+    {
+      "url": "https://depot.dev/pricing",
+      "date": "2026-11-10",
+      "proved": "the Startup plan includes 20,000 GitHub Actions minutes",
+      "capture": "sha256:13ef3b8f597e6b5cb32d37833b14bc15df6f2405009ddcf08d06399d67d4e560",
+      "quote": "20,000 GitHub Actions minutes"
+    },
+    {
+      "url": "https://depot.dev/pricing",
+      "date": "2026-11-10",
+      "proved": "a 7-day trial is the only free window",
+      "capture": "sha256:13ef3b8f597e6b5cb32d37833b14bc15df6f2405009ddcf08d06399d67d4e560",
+      "quote": "START A 7-DAY TRIAL"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-10-22T04:46:47.907Z",
+  "verified_at": "2026-11-10T02:22:59.305Z",
   "price_per_tb_month": null,
-  "notes": "",
+  "notes": "The 2,000 sandbox minutes and 2,000 GitHub Actions minutes are an allowance included in the USD 20 a month Developer plan, not a grant inside the 7-day trial; the trial is the only free window. The overage rate is USD 0.006 a minute for the base 2 vCPU Linux runner, and cache beyond 25 GB is USD 0.20 a GB-month.",
   "extras": {
     "seed_status": "ranked",
     "talaria_m10h_usd": 128.0,

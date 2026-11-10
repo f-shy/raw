@@ -1,0 +1,81 @@
+{
+  "topic": "egress",
+  "slug": "nport",
+  "provider": "nport.link",
+  "url": "https://nport.link/",
+  "category": "relay (hosted, HTTPS tunnel, Cloudflare-backed)",
+  "tier": "free",
+  "free_tier": {
+    "stated": "Free with no sign-up: a stable https://user-<n>.nport.link URL over HTTP/HTTPS and WebSocket, served from Cloudflare's edge. The harness measured a 4-hour session cap and confirmed the CLI spawns a bundled cloudflared.",
+    "unit": "hours",
+    "metered_on": "wall-clock",
+    "source_url": "https://nport.link/",
+    "read_on": "2026-11-10"
+  },
+  "per_object_cap": {
+    "stated": "not applicable: a tunnel, not an object",
+    "bytes": null,
+    "source_url": "https://nport.link/"
+  },
+  "retention": {
+    "stated": "not applicable: a live tunnel; the harness measured a 4-hour session cap",
+    "days": null,
+    "source_url": "probe:https://user-8740.nport.link/"
+  },
+  "egress": {
+    "terms": "no byte quota is published; the tunnel is a Cloudflare edge in front of a bundled cloudflared, so Cloudflare's terms and edge limits apply",
+    "metered": false,
+    "free_allowance": null,
+    "price_per_tb": null,
+    "source_url": "https://nport.link/"
+  },
+  "interface": [
+    "cli"
+  ],
+  "interface_detail": "nport 8080 registers a stable https://user-<n>.nport.link name and runs a bundled cloudflared tunnel to it",
+  "tooling": "the nport npm CLI, which spawns a bundled cloudflared binary",
+  "chaining": "it adds a stable name and a session cap over a Cloudflare quick tunnel rather than an independent relay network; a reader who excludes Cloudflare from the threat model excludes this too",
+  "limits": [
+    {
+      "kind": "retention-clamped",
+      "value": "a 4-hour session cap",
+      "source": "probe:https://user-8740.nport.link/"
+    }
+  ],
+  "binding": "retention-clamped",
+  "binding_note": "the 4-hour session cap fails first; the edge is Cloudflare's, so its limits also apply underneath.",
+  "identity_cost": {
+    "kind": "anonymous",
+    "detail": "no sign-up: the page says 'No sign-up required', and the harness registered a tunnel with zero credentials",
+    "country": null
+  },
+  "reliability_note": "nport is a wrapper around cloudflared and the public edge is Cloudflare's, so an outage or a policy change at Cloudflare reaches it; the harness measured a 4-hour session cap",
+  "confidence": "reported",
+  "confidence_note": "the no-sign-up and Cloudflare claims are read from the vendor page; the 4-hour cap is a sandbox measurement, so the record is reported",
+  "evidence": [
+    {
+      "url": "https://nport.link/",
+      "date": "2026-11-10",
+      "proved": "no sign-up is required",
+      "capture": "sha256:86237d429bb66455614f7322db3273895262b8695973f20a58de8a9db2ec7688",
+      "quote": "No sign-up required."
+    },
+    {
+      "url": "https://nport.link/",
+      "date": "2026-11-10",
+      "proved": "the tunnel edge is Cloudflare's",
+      "capture": "sha256:86237d429bb66455614f7322db3273895262b8695973f20a58de8a9db2ec7688",
+      "quote": "Powered by Cloudflare"
+    },
+    {
+      "url": "probe:https://user-8740.nport.link/",
+      "date": "2026-11-05",
+      "proved": "the harness measured a 4-hour session cap",
+      "capture": "sha256:5190691e81bec69ed84140fb9825e0f900cc171d64ef00f0c39bc893fea73290",
+      "quote": "4 h session cap"
+    }
+  ],
+  "verdict": "qualifies-with-caveat",
+  "verified_at": "2026-11-10T03:20:00.000Z",
+  "notes": "A stable-name wrapper around a Cloudflare quick tunnel: the naming is its own, the edge is not. The 4-hour session cap and the Cloudflare dependency are the two facts a reader needs."
+}

@@ -14,6 +14,7 @@ the whole product.
 | --- | --- | --- | --- |
 | unlimited minutes, gated on repository visibility | no minute cap, 20 concurrent jobs, 6 h/job | GitHub Actions on a public repo, AppVeyor on a public repo | the per-job clock and the concurrency |
 | a monthly minute allowance, gated on identity | 400 to 30,000 units a month | GitLab, CircleCI, Buildkite, Azure, Cirrus | the monthly pool |
+| a monthly minute pool on a GitHub-compatible runner | 200 to 3,000 minutes a month | Blacksmith, RunnerHut, runners.io, WarpBuild, Depot, compiler.dev | the monthly pool, the vCPU-weighted unit and the card gate |
 | run the runner on a rented VM | unlimited minutes, no minute cap, gated on the VM's clock | Woodpecker, Forgejo Actions, Drone (dead) | the VM's monthly invoice and its uptime |
 
 ## The three numbers that decide it
@@ -58,6 +59,7 @@ the machine is the cost and the CI system is only a scheduler.
 | document | answers |
 | --- | --- |
 | [`free/github-actions.md`](free/github-actions.md) | the public-versus-private split, the 6-hour cap, the 20-job concurrency, and the cache and artifact pools |
+| [`free/hosted-gha-runners.md`](free/hosted-gha-runners.md) | the hosted runners a workflow reaches by changing `runs-on`, and what each free allowance buys in vCPU-minutes |
 | [`free/other-hosted.md`](free/other-hosted.md) | GitLab, CircleCI, Buildkite, Azure, AppVeyor, Cirrus and Codeberg, with the caps each one hides |
 | [`free/registries-and-cache.md`](free/registries-and-cache.md) | GHCR at 500 MB, the GitHub Packages pool, the GitLab registry exclusion, and Docker Hub's anonymous tokens |
 | [`paid/minute-packs.md`](paid/minute-packs.md) | what a minute costs beyond the allowance, and the cheapest way to buy more |
@@ -114,6 +116,9 @@ Every provider named in this topic has one record.
 | `travis-ci` | Travis CI | dead | documented |
 | `codeberg-ci` | Codeberg CI (Woodpecker) | qualifies-with-caveat | documented |
 | `codeberg-forgejo-actions` | Codeberg Forgejo Actions | qualifies-with-caveat | documented |
+| `compiler-dev` | compiler.dev | trial-only | documented |
+| `runnerhut` | RunnerHut | qualifies-with-caveat | documented |
+| `runners-io` | runners.io | qualifies-with-caveat | documented |
 | `cirrus-ci` | Cirrus CI | qualifies-with-caveat | documented |
 | `ghcr` | GitHub Container Registry | qualifies-with-caveat | measured |
 | `github-packages` | GitHub Packages | qualifies-with-caveat | documented |

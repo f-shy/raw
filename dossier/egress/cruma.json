@@ -1,0 +1,105 @@
+{
+  "topic": "egress",
+  "slug": "cruma",
+  "provider": "Cruma",
+  "url": "https://cruma.io/pricing",
+  "category": "relay (hosted, HTTPS tunnel, anonymous tier)",
+  "tier": "anonymous",
+  "free_tier": {
+    "stated": "Free with no account: a public HTTPS URL per tunnel, a 3-hour session window and 1 GiB of traffic per session on the anonymous tier. A free account removes the session window and allows 3 GiB per UTC day; paid plans have a full-speed allowance that refills continuously, and sustained use beyond it continues at a reduced rate.",
+    "unit": "GiB",
+    "metered_on": "downloaded-bytes",
+    "source_url": "https://cruma.io/pricing",
+    "read_on": "2026-11-10"
+  },
+  "per_object_cap": {
+    "stated": "not applicable: a tunnel, not an object",
+    "bytes": null,
+    "source_url": "https://cruma.io/pricing"
+  },
+  "retention": {
+    "stated": "not applicable: a live tunnel; an anonymous session ends after 3 hours",
+    "days": null,
+    "source_url": "https://cruma.io/pricing"
+  },
+  "egress": {
+    "terms": "1 GiB per session on the anonymous tier and 3 GiB per UTC day on the free account; past the cap visitors get an HTTP 429 page. Paid plans have a continuously refilling full-speed allowance, 750 GB on Basic and 1.5 TB on Pro, and continue at a reduced rate beyond it.; ingress: http",
+    "metered": true,
+    "free_allowance": "1 GiB per session (anonymous); 3 GiB per UTC day (free account)",
+    "price_per_tb": null,
+    "source_url": "https://cruma.io/pricing"
+  },
+  "interface": [
+    "cli"
+  ],
+  "interface_detail": "cruma proxy http <host:port> prints a public https://<id>.tun.cruma.io URL; the desktop app and the local reverse proxy use the same agent",
+  "tooling": "the cruma CLI from npm (@cruma-io/cli) or the desktop app; the agent is also a local web server and reverse proxy",
+  "chaining": "one anonymous tunnel publishes a webhook receiver or a small HTTP service; it carries TCP only, and the 1 GiB session cap makes it a test lane rather than a service lane",
+  "limits": [
+    {
+      "kind": "volume-quota",
+      "value": "1 GiB per session on the anonymous tier",
+      "source": "https://cruma.io/pricing"
+    },
+    {
+      "kind": "retention-clamped",
+      "value": "a 3-hour session window on the anonymous tier",
+      "source": "https://cruma.io/pricing"
+    },
+    {
+      "kind": "request-rate",
+      "value": "past the cap visitors get an HTTP 429 page",
+      "source": "https://cruma.io/pricing"
+    }
+  ],
+  "binding": "volume-quota",
+  "binding_note": "the session byte cap fails first: 1 GiB is one large file, and the 3-hour window ends the tunnel even when the bytes are unspent.",
+  "identity_cost": {
+    "kind": "anonymous",
+    "detail": "no account: the homepage says 'Free · no account needed'; a free account is optional and raises the daily cap to 3 GiB",
+    "country": null
+  },
+  "reliability_note": "an anonymous session ends after 3 hours and 1 GiB; a capability-free sandbox measured a 329 ms median latency and 117-126 kB/s on a 4 MiB transfer on 2026-11-05",
+  "confidence": "documented",
+  "confidence_note": "the anonymous tier's limits are read from the vendor pricing page; the latency and throughput are a sandbox measurement and are recorded as such",
+  "evidence": [
+    {
+      "url": "https://cruma.io/pricing",
+      "date": "2026-11-10",
+      "proved": "the anonymous tier is a 3-hour session with 1 GiB of traffic",
+      "capture": "sha256:f207d51497dd4b55fb5b9de57712199a8ba71891be8359619c0c696ca43aaf48",
+      "quote": "3-hour session window"
+    },
+    {
+      "url": "https://cruma.io/pricing",
+      "date": "2026-11-10",
+      "proved": "past the cap visitors get an HTTP 429 page",
+      "capture": "sha256:f207d51497dd4b55fb5b9de57712199a8ba71891be8359619c0c696ca43aaf48",
+      "quote": "past the cap, visitors get an HTTP 429 page"
+    },
+    {
+      "url": "https://cruma.io/pricing",
+      "date": "2026-11-10",
+      "proved": "the free account allows 3 GiB per UTC day",
+      "capture": "sha256:f207d51497dd4b55fb5b9de57712199a8ba71891be8359619c0c696ca43aaf48",
+      "quote": "Free tunnels at 3 GiB per UTC day"
+    },
+    {
+      "url": "https://cruma.io/",
+      "date": "2026-11-10",
+      "proved": "no account is needed for a free tunnel",
+      "capture": "sha256:88542b15974b7a106bd63139e67f8aba6e38798746a31716d297e5477070dc22",
+      "quote": "Free · no account needed"
+    },
+    {
+      "url": "probe:https://tun.cruma-cust1.com/",
+      "date": "2026-11-05",
+      "proved": "a 4 MiB transfer completed at 117-126 kB/s and /lat returned 200",
+      "capture": "sha256:e3b9e671b9637952dcd876c4cad821a9d4e22a5d44064934190f68c60fd1a133",
+      "quote": "126 kB/s and 117 kB/s"
+    }
+  ],
+  "verdict": "qualifies-with-caveat",
+  "verified_at": "2026-11-10T03:20:00.000Z",
+  "notes": "The fastest non-Cloudflare relay in a 2026-11-05 benchmark of authless relays: 329 ms median against 107 ms for a Cloudflare quick tunnel. The anonymous tier is a development allowance of 3 hours and 1 GiB per session, not a service tier."
+}

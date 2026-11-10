@@ -40,6 +40,11 @@
       "kind": "per-ip-shaping",
       "value": "no published limit: the original author wrote 'There are no limitations - abuse happens, server goes down, comes back up sometime later'",
       "source": "https://github.com/localtunnel/localtunnel/issues/288"
+    },
+    {
+      "kind": "per-ip-shaping",
+      "value": "about 20-22 kB/s on the public instance, with multi-second stalls",
+      "source": "probe:https://eleven-ways-accept.loca.lt/"
     }
   ],
   "identity_cost": {
@@ -47,7 +52,7 @@
     "detail": "no account to use the shared server",
     "country": null
   },
-  "reliability_note": "the shared server is a single volunteer-run instance with no published capacity",
+  "reliability_note": "the shared server is a single volunteer-run instance with no published capacity; its client repository has had no push since 2025-08, and a harness measured about 20-22 kB/s with multi-second stalls, so a 4 MiB transfer does not complete.",
   "confidence": "documented",
   "evidence": [
     {
@@ -73,11 +78,25 @@
       "proved": "the project page states a public URL proxied to a local server and lists no byte or rate limit",
       "capture": "sha256:e06dfea03a86ad96d64a06912b48b36a7067d35311a47ac16fd132f080c813f9",
       "quote": "Localtunnel will assign you a unique publicly accessible url that will proxy all requests to your locally running webserver."
+    },
+    {
+      "url": "probe:https://eleven-ways-accept.loca.lt/",
+      "date": "2026-11-05",
+      "proved": "the public instance transfers at about 20-22 kB/s and stalls for seconds",
+      "capture": "sha256:6a6c3be02c5b9d27b271bb356b1a20eb2c6d0b11f756ae0b892e6f049463f5e2",
+      "quote": "hit 85 s cap having pulled only **1.87 MiB**"
+    },
+    {
+      "url": "probe:https://eleven-ways-accept.loca.lt/",
+      "date": "2026-11-05",
+      "proved": "the public instance transfers at about 20-22 kB/s",
+      "capture": "sha256:6a6c3be02c5b9d27b271bb356b1a20eb2c6d0b11f756ae0b892e6f049463f5e2",
+      "quote": "hit 85 s cap having pulled only **1.87 MiB**"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T10:32:57.641Z",
-  "notes": "Open-source HTTP reverse tunnel service. Operates shared public gateway instances with unmetered byte allowances, constrained by server capacity and uptime.",
+  "verified_at": "2026-11-05T00:00:00.000Z",
+  "notes": "Open-source HTTP reverse tunnel service. Operates shared public gateway instances with unmetered byte allowances, constrained by server capacity and uptime. A sandbox measured about 20-22 kB/s with multi-second stalls on 2026-11-05; its client repository has had no push since 2025-08.",
   "history": [],
   "extras": {
     "stale_after_days": 180,
@@ -89,5 +108,6 @@
   "interface_detail": "npx localtunnel --port PORT against the shared localtunnel.me server",
   "stale": false,
   "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding_note": "No byte figure exists anywhere: the author says there are no limitations and the current maintainer explains outages as CPU saturation, so the failure mode is the single volunteer instance rather than a meter. A user measured about 0.8 Mbit/s download through it in 2019, which would cap a month near 260 GB, but that is that instance on that day."
+  "binding_note": "No byte figure exists anywhere: the author says there are no limitations and the current maintainer explains outages as CPU saturation, so the failure mode is the single volunteer instance rather than a meter. A user measured about 0.8 Mbit/s download through it in 2019, which would cap a month near 260 GB, but that is that instance on that day.",
+  "confidence_note": " the public instance works end to end at about 20-22 kB/s with multi-second stalls; its client repository has had no push since 2025-08 (measured 2026-11-05)."
 }

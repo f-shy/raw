@@ -38,7 +38,13 @@
   "interface_detail": "ssh srv.us -R 1:localhost:3000",
   "tooling": "OpenSSH",
   "chaining": "HTTP ingress only; composes with a web service and nothing that needs UDP",
-  "limits": [],
+  "limits": [
+    {
+      "kind": "per-ip-shaping",
+      "value": "about 31-43 kB/s on the anonymous tier; a 4 MiB transfer does not complete in 60-80 s",
+      "source": "probe:https://h3pkbwcm6vf3gysn3lt26bpomq.srv.us/"
+    }
+  ],
   "limits_note": "",
   "binding": "none",
   "binding_note": "Nothing in the vocabulary binds because the transport cannot carry a UDP datagram at all; the limit is protocol, not quantity.",
@@ -47,7 +53,7 @@
     "detail": "an SSH key pair and nothing else: 'Stable URLs derived from your SSH key. No accounts.'",
     "country": "None"
   },
-  "reliability_note": "one operator (xmit dev team); the tunnel lives only while the ssh session lives",
+  "reliability_note": "one operator (xmit dev team); the tunnel lives only while the ssh session lives; a harness measured a 357 ms median latency and about 31-43 kB/s, so a 4 MiB transfer does not complete in 60-80 s.",
   "confidence": "documented",
   "confidence_note": "Raise by attempting a UDP forward with ssh -R and recording the server's refusal; not attempted because the service is documented as an HTTP terminator.",
   "evidence": [
@@ -55,13 +61,20 @@
       "url": "https://docs.srv.us/",
       "date": "2026-10-23",
       "proved": "'Yet another solution to expose any HTTP server to the Internet through a tunnel', 'Free & fully open source. Stable URLs derived from your SSH key. No accounts.'"
+    },
+    {
+      "url": "probe:https://h3pkbwcm6vf3gysn3lt26bpomq.srv.us/",
+      "date": "2026-11-05",
+      "proved": "the anonymous tier transfers at about 31-43 kB/s",
+      "capture": "sha256:37e445a31ee1c439875a6c6066b4342adc1b36f0c01c07cee9029600a10d4268",
+      "quote": "~31-43 KB/s"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-05T00:00:00.000Z",
   "price_per_tb_month": "USD 0",
   "history": [],
-  "notes": "Worth reading because it is the rare no-account service with a stable address, which is the property WireGuard needs. The protocol excludes it.",
+  "notes": "Worth reading because it is the rare no-account service with a stable address, which is the property WireGuard needs. The protocol excludes it. A sandbox measured a 357 ms median latency and about 31-43 kB/s on 2026-11-05.",
   "extras": {
     "wg_path": "none",
     "wg_detail": "the service terminates TLS and speaks HTTP: 'expose any HTTP server to the Internet through a tunnel' and returns https URLs, so there is no UDP path",
