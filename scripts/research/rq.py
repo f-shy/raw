@@ -722,7 +722,7 @@ def cmd_ci(a):
 
 
 def cmd_review(a):
-    for ln in review.review(a.run, a.sample):
+    for ln in review.review(a.run, a.sample, pr=a.pr):
         print(ln)
     return 0
 
@@ -962,7 +962,10 @@ def main(argv=None):
                    "1-based, as N,N; a line that says a merge session ticks it is never ticked")
     p.set_defaults(f=cmd_land)
     p = sp.add_parser("review", help="merge session: runs waiting for review, or one run's decisions")
-    p.add_argument("run", nargs="?"); p.add_argument("--sample", type=int, default=3); p.set_defaults(f=cmd_review)
+    p.add_argument("run", nargs="?"); p.add_argument("--sample", type=int, default=3)
+    p.add_argument("--pr", metavar="NUMBER|URL", help="with RUN: read the run from this pull request's head (a fork's run, "
+                   "or a run that another pull request carries); rq merge RUN --pr reads the same one")
+    p.set_defaults(f=cmd_review)
     p = sp.add_parser("merge", help="merge session: update in git objects, CI, merge, follow-up; a fork's pull request gets "
                    "the gated head pushed to its branch (needs Allow edits by maintainers)"); p.add_argument("run")
     p.add_argument("--no-ci", action="store_true", help="skip the remote CI (the light checks still run), only on purpose")

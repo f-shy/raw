@@ -815,7 +815,7 @@ git config rq.researchCheckout true          # the research checkout only
 
 # each run (in the research checkout, or in your own clone)
 scripts/rq review                            # the pull requests labelled rq:review, with their run ids
-scripts/rq review RUN                        # the report, merged drafts, new records of another tier, unrestored undos, open conflicts, re-checks
+scripts/rq review RUN [--pr N]               # the report, merged drafts, new records of another tier, unrestored undos, open conflicts, re-checks
 scripts/rq ci RUN                            # the remote checks of the head: green, or stop (--pr N for a pull request that is not a run)
 scripts/rq folder review RUN                 # prints .tmp/review-RUN/
 scripts/rq capture --lane .tmp/review-RUN --wait URL [--provider ID]  # each re-check line: read the page again, with the pin its via= names
@@ -824,7 +824,7 @@ git diff --stat origin/main...origin/rq/RUN -- dossier
 git diff origin/main...origin/rq/RUN -- scripts/research/baseline.tsv  # no added row for a run (rows --prune removed are expected)
 gh pr edit NUMBER --body-file FILE           # tick a line no run may tick (section 9), only when it is true
 scripts/rq merge RUN                         # update in git objects, the light checks, the remote CI, merge, follow-up, the claimed issue
-scripts/rq merge RUN --pr NUMBER             # the same for a pull request from a fork, or one that carries the run (a number or a URL)
+scripts/rq merge RUN --pr NUMBER             # the same for a fork's pull request, or one that carries the run (a number, or a URL of this repository)
 scripts/rq cleanup RUN                       # only after a close without a merge; gives the claimed issue back
 scripts/rq close RUN --reason "..."          # a run whose session died, with no pull request
 scripts/rq intake NUMBER                     # a public report becomes a pull request on intake/fshy-NUMBER
@@ -889,8 +889,13 @@ in this repository's Actions and nowhere else; nothing on this machine runs the 
 
 ⭐ **A pull request from a fork.** A contributor's `land` pushes `rq/RUN` to the contributor's fork and opens the pull
 request against this repository, so the pull request's head is the fork's commit and `origin/rq/RUN` does not exist.
-Pass the number, `scripts/rq merge RUN --pr NUMBER`: `merge` reads the head from `refs/pull/NUMBER/head`, brings it
-up to date with `main` in git objects and pushes the result to `rq/RUN` on `origin`, where the gate runs on that
+⚠ A fork's run, also on a branch named `rq/RUN`, always needs `--pr NUMBER`, for the review and for the merge:
+`scripts/rq review RUN --pr NUMBER` and `scripts/rq merge RUN --pr NUMBER` read the run's manifest from
+`refs/pull/NUMBER/head`, because `origin` has no `rq/RUN`, and `scripts/rq ci --pr NUMBER` shows the remote run of
+the pull request's head (`rq ci RUN` reads `origin/rq/RUN`, which exists only once `merge` has pushed it). `merge`
+refuses a pull request whose head holds no manifest of the run, so a mistyped run id or number merges nothing. It
+builds on the head the pull request has now: after the contributor merges `main` into the branch, run `merge` again.
+`merge` reads the head from `refs/pull/NUMBER/head`, brings it up to date with `main` in git objects and pushes the result to `rq/RUN` on `origin`, where the gate runs on that
 exact commit. When the run is green it pushes the same commit, fast-forward only and never forced, to the fork's
 head branch, so that the pull request's head is the commit the gate checked, and then merges with
 `--match-head-commit`. A head that already holds `main` needs no push to the fork. The push needs "Allow edits by
