@@ -283,6 +283,23 @@ def _ref_ok(name):
     return bool(os.environ.get("RQ_SELFTEST")) and name.startswith("refs/heads/test-")
 
 
+def repo_slug(url):
+    """owner/name (lower case) of a git remote URL in any form (https, ssh://, git@host:owner/name, with or without
+    .git), or "" when the text is not a URL of that shape (a path, a remote's name)."""
+    url = (url or "").strip().replace("\\", "/")
+    if "://" in url:
+        url = url.split("://", 1)[1].split("/", 1)[-1]          # strip scheme and host
+    elif ":" in url.split("/", 1)[0]:
+        url = url.split(":", 1)[1]                              # git@host:owner/name
+    else:
+        return ""
+    url = url.rstrip("/")
+    url = url[:-4] if url.endswith(".git") else url
+    owner, _, name = url.rpartition("/")
+    owner = owner.rsplit("/", 1)[-1]
+    return ("%s/%s" % (owner, name)).lower() if owner and name else ""
+
+
 def _is_origin(remote, repo):
     """True when a push target is origin: its name, or the URL that origin has."""
     if remote == REMOTE:
@@ -293,6 +310,9 @@ def _is_origin(remote, repo):
         url = subprocess.run(["git", "-C", repo, "remote", "get-url", REMOTE], capture_output=True, text=True).stdout.strip()
     except OSError:
         return False
+    a, b = repo_slug(url), repo_slug(remote)
+    if a and b:
+        return a == b  # ssh and https forms of one repository are one
     norm = lambda u: u.replace("\\", "/").rstrip("/").removesuffix(".git").lower()
     return bool(url) and norm(url) == norm(remote)
 
