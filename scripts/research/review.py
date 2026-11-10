@@ -38,7 +38,7 @@ def review(run=None, sample=3, repo=REPO, pr=None):
         return ["#%d %s  run %s  %s" % (p["number"], p["url"], p["headRefName"][3:], p["title"][:80]) for p in rows]
     # the run folder of this clone when it ran the run, else the manifest the run branch carries
     n, extra = land.pr_context(pr, repo) if pr is not None else (None, ())
-    view = land.run_view(run, repo, extra)
+    view = land.run_view(run, repo, extra) if extra else land.run_view(run, repo)
     r, us = dict(view["run"]), view["units"]
     if n is not None:
         # a fork's run, or a run another pull request carries: the pull request is the one named, and it must hold the run
