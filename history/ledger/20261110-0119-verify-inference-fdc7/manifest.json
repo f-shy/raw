@@ -1,0 +1,316 @@
+{
+ "manifest": 1,
+ "written": "2026-11-10T01:23:21Z",
+ "run": {
+  "run": "20261110-0119-verify-inference-fdc7",
+  "kind": "verify",
+  "topic": "inference",
+  "request": "the 50 usable or trial records that no probe has ever called, and the six measured endpoints re-probed",
+  "created": "2026-11-10T01:19:06Z",
+  "base": "471b98e66a0d79c2b547509b45ce4263587051c1",
+  "branch": "rq/20261110-0119-verify-inference-fdc7",
+  "issue": null,
+  "rounds": 0,
+  "research_issue": null
+ },
+ "units": [
+  {
+   "id": "u01",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "inference",
+   "tally": {
+    "evidence": 7,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Probe each record's endpoint with no credential and record what it answered: a keyless completion, a gate on a key, a route that is not a completion, or no endpoint at all.",
+   "scope": {
+    "rids": [
+     "inference/ai-horde-text",
+     "inference/ai21-studio",
+     "inference/aion-labs",
+     "inference/akashml",
+     "inference/api-airforce",
+     "inference/assemblyai",
+     "inference/bazaarlink"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u02",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "inference",
+   "tally": {
+    "evidence": 4,
+    "confirmed": 2,
+    "applied": 1,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Probe each record's endpoint with no credential and record what it answered: a keyless completion, a gate on a key, a route that is not a completion, or no endpoint at all.",
+   "scope": {
+    "rids": [
+     "inference/beavernet",
+     "inference/blockrun",
+     "inference/byteplus-modelark-free-tokens",
+     "inference/cartesia",
+     "inference/cloudflare-workers-ai",
+     "inference/contextual-ai-rerank",
+     "inference/coze"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u03",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "inference",
+   "tally": {
+    "evidence": 4,
+    "confirmed": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Probe each record's endpoint with no credential and record what it answered: a keyless completion, a gate on a key, a route that is not a completion, or no endpoint at all.",
+   "scope": {
+    "rids": [
+     "inference/dahl-inference",
+     "inference/deepgram",
+     "inference/dg-ai-api",
+     "inference/elevenlabs",
+     "inference/flm",
+     "inference/free-ai",
+     "inference/grokified"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u04",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "inference",
+   "tally": {
+    "evidence": 6,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Probe each record's endpoint with no credential and record what it answered: a keyless completion, a gate on a key, a route that is not a completion, or no endpoint at all.",
+   "scope": {
+    "rids": [
+     "inference/groq",
+     "inference/hetzner-inference-api",
+     "inference/huggingface-gradio-chat-spaces",
+     "inference/huggingface-zerogpu-spaces-api",
+     "inference/ibm-watsonx-ai-free",
+     "inference/inception-labs",
+     "inference/iteracompute"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u05",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "inference",
+   "tally": {
+    "evidence": 4,
+    "confirmed": 1,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Probe each record's endpoint with no credential and record what it answered: a keyless completion, a gate on a key, a route that is not a completion, or no endpoint at all.",
+   "scope": {
+    "rids": [
+     "inference/jarvisclaw-free",
+     "inference/jina-ai-embeddings-reranker",
+     "inference/kilo-gateway",
+     "inference/llamaparse-free",
+     "inference/llm7",
+     "inference/mixedbread-search-starter",
+     "inference/netlify-ai-gateway"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u06",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "inference",
+   "tally": {
+    "questions": 3,
+    "confirmed": 3,
+    "evidence": 1,
+    "applied": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Probe each record's endpoint with no credential and record what it answered: a keyless completion, a gate on a key, a route that is not a completion, or no endpoint at all.",
+   "scope": {
+    "rids": [
+     "inference/nous-portal-free",
+     "inference/nvidia-build-trial",
+     "inference/ovh-ai-endpoints",
+     "inference/pinecone-inference",
+     "inference/pollinations",
+     "inference/puter-js-ai",
+     "inference/qdrant-cloud-inference"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u07",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "inference",
+   "tally": {
+    "evidence": 4,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Probe each record's endpoint with no credential and record what it answered: a keyless completion, a gate on a key, a route that is not a completion, or no endpoint at all.",
+   "scope": {
+    "rids": [
+     "inference/reducto-standard",
+     "inference/requesty",
+     "inference/routeway",
+     "inference/scaleway-generative-apis",
+     "inference/speechmatics",
+     "inference/stability-ai",
+     "inference/stepfun-open-platform"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u08",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "inference",
+   "tally": {
+    "questions": 5,
+    "evidence": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Probe each record's endpoint with no credential and record what it answered: a keyless completion, a gate on a key, a route that is not a completion, or no endpoint at all.",
+   "scope": {
+    "rids": [
+     "inference/tencent-hy-text-global",
+     "inference/token-harbor",
+     "inference/unstructured-transform-free",
+     "inference/vercel-ai-gateway",
+     "inference/weaviate-embeddings",
+     "inference/xiaomi-mimo-api",
+     "inference/zhipu-bigmodel-open-platform"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u09",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "inference",
+   "audits": "u02",
+   "score": {
+    "supported": 3,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 3,
+    "upper95": 0.562,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 3 claim(s) integrated by unit u02 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u10",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "inference",
+   "audits": "u03",
+   "score": {
+    "supported": 3,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 3,
+    "upper95": 0.562,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 3 claim(s) integrated by unit u03 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u11",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "inference",
+   "audits": "u05",
+   "score": {
+    "supported": 1,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 1,
+    "upper95": 0.793,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 1 claim(s) integrated by unit u05 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u12",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "inference",
+   "audits": "u06",
+   "score": {
+    "supported": 4,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 4,
+    "upper95": 0.49,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 4 claim(s) integrated by unit u06 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  }
+ ],
+ "report": [
+  "run 20261110-0119-verify-inference-fdc7 (verify inference): the 50 usable or trial records that no probe has ever called, and the six measured endpoints re-probed",
+  "units 12: integrated 12",
+  "applied 2, confirmed 9, added 0, corroborated 0, dead 0, related 0, rejected 0, conflicts 0, open questions 19, evidence rows dropped 0",
+  "ledger lines 43, captures cited 41, conflicts logged 0 (0 handled by reconcile units)",
+  "audit of u02 by u09: 3 supported, 0 unsupported, 0 cannot tell; upper95 0.562 -> kept",
+  "audit of u03 by u10: 3 supported, 0 unsupported, 0 cannot tell; upper95 0.562 -> kept",
+  "audit of u05 by u11: 1 supported, 0 unsupported, 0 cannot tell; upper95 0.793 -> kept",
+  "audit of u06 by u12: 4 supported, 0 unsupported, 0 cannot tell; upper95 0.490 -> kept"
+ ],
+ "merged": {},
+ "undo_skipped": [],
+ "conflicts": []
+}

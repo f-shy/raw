@@ -138,6 +138,13 @@
       "capture": "sha256:a8751dbcdbd0b350e87244c4bcdedc348fdc9370de65674a9e9ec26960e0977d",
       "quote": "multi-provider aggregation (Pollinations + [ApiAirforce](https://api.airforce/) today, more as they appear)",
       "proved": "a third-party keyless router lists Api.Airforce as a keyless upstream"
+    },
+    {
+      "url": "probe:https://api.airforce/v1/chat/completions",
+      "date": "2026-11-09",
+      "proved": "a keyless POST on 2026-11-09 answered HTTP 402 with a payment quote, so no free route is served",
+      "capture": "sha256:9e50ce7c9bd5f2ba4fa67d202ad668b465817880e09074bf93f295a0214fd471",
+      "quote": "\"status\": 402"
     }
   ],
   "verdict": "qualifies-with-caveat",

@@ -121,6 +121,13 @@
       "proved": "the slowest listed text model had a queue ETA of 516 seconds; the listing holds 28 text models, counted from the response, and the fastest had an ETA of 0",
       "capture": "sha256:aae0fef5abb8fbade255ce0ecb40e836577bbe1e445238007e6e97fac1f60741",
       "quote": "{\"performance\":12.4,\"queued\":6402.0,\"jobs\":14.0,\"eta\":516,\"type\":\"text\",\"name\":\"aphrodite\\/TheDrummer\\/Behemoth-128B-v3-4.25bpw-h6-exl3\",\"count\":1}"
+    },
+    {
+      "url": "probe:https://aihorde.net/api/",
+      "date": "2026-11-09",
+      "proved": "a keyless POST on 2026-11-09 answered HTTP 405 at the recorded base URL, so the endpoint is not a completion route",
+      "capture": "sha256:5539492a46abeb2fe344ac04c19c43d195a6688a22cef999ef8dbef766e611e2",
+      "quote": "\"status\": 405"
     }
   ],
   "verdict": "qualifies-with-caveat",
