@@ -81,8 +81,15 @@
       "capture": "sha256:4acd635f608b6867c358d6ffa8dcbe66ccc7cc47b85030d3d9275cacba4edaa2",
       "quote": "| Concurrent requests | 20 | 3 | 2 |",
       "proved": "concurrent AI requests are 20 paid, 3 free and 2 anonymous"
+    },
+    {
+      "url": "probe:https://js.puter.com/v2/",
+      "date": "2026-11-09",
+      "proved": "a keyless POST on 2026-11-09 answered 200 with an empty body, so the recorded base URL is not a completion route",
+      "capture": "sha256:1e20106cef83d9091926fa2ba2ae3d3f2fdbc38766b2192e6ffab102a634b135",
+      "quote": "\"status\": 200"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-28T04:36:18.974Z"
+  "verified_at": "2026-11-10T01:21:21.471Z"
 }
