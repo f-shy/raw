@@ -19,11 +19,11 @@
   "url": "https://net.beaverai.org/v1",
   "category": "inference gateway, community GPU pool, anonymous tier",
   "free_tier": {
-    "stated": "Works without a key, with limits; a free key gives more. 4 models available; the listing carries a per-model allow_anonymous flag",
+    "stated": "Works without a key, with limits; a free key gives more. /v1/models lists 9 ids on 2026-11-09, only the echo/ ids answered with no key; the listing carries a per-model allow_anonymous flag",
     "unit": "requests",
     "metered_on": "request-count",
     "source_url": "https://net.beaverai.org/",
-    "read_on": "2026-10-28",
+    "read_on": "2026-11-09",
     "notes": "the limits are not stated as numbers on the page; models are served by volunteers sharing their own GPUs"
   },
   "endpoint": "https://net.beaverai.org/v1/chat/completions",

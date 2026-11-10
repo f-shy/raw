@@ -33,12 +33,12 @@
   "url": "https://blockrun.ai/api/v1",
   "category": "inference relay",
   "free_tier": {
-    "stated": "7 of 117 model ids on /v1/models carry an input price of 0; the rest carry list prices spanning openai, google, anthropic, xai, zai, bytedance, deepseek, qwen, nvidia and eleven other families",
+    "stated": "9 of 117 model ids on /v1/models carry billing_mode free; the rest carry list prices spanning openai, google, anthropic, xai, zai, bytedance, deepseek, qwen, nvidia and eleven other families",
     "unit": "tokens",
     "metered_on": "request-count",
     "source_url": "https://blockrun.ai/api/v1/models",
-    "read_on": "2026-10-22",
-    "notes": "the seven zero-priced ids are nvidia/nemotron-3-nano-omni-30b-a3b-reasoning, nvidia/nemotron-3.5-lightning, nvidia/llama-3.2-11b-vision, nvidia/nemotron-3-ultra-550b, cohere/north-mini-code, poolside/laguna-xs-2.1 and nvidia/muse-glimmer-30b"
+    "read_on": "2026-11-09",
+    "notes": "the nine free ids are nvidia/nemotron-3-super-120b, nvidia/nemotron-3-nano-omni-30b-a3b-reasoning, nvidia/nemotron-3.5-lightning, nvidia/nemotron-3-ultra-550b, cohere/north-mini-code, poolside/laguna-xs-2.1, nvidia/muse-glimmer-30b, nvidia/nemotron-3.5-bolt and nvidia/minimax-m3.1-flash"
   },
   "endpoint": "https://blockrun.ai/api/v1/chat/completions",
   "identity_cost": {
@@ -169,7 +169,7 @@
       "url": "probe:https://blockrun.ai/api/v1/chat/completions",
       "date": "2026-11-09",
       "proved": "a keyless POST on 2026-11-09 for nvidia/nemotron-3.5-lightning answered 200 twice and echoed nvidia/nemotron-3.5-lightning with 56 tokens (24 prompt, 32 completion)",
-      "capture": "sha256:28f6efdf83685ff082b75b007bbf1db52a86fa4955f1a3622662d08b8db0f099",
+      "capture": "sha256:4fcea24310d308aa980892921873cfc8567e30e890a7862708b79add745fb6dd",
       "quote": "\"status\": 200"
     }
   ],
