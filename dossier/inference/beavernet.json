@@ -19,11 +19,11 @@
   "url": "https://net.beaverai.org/v1",
   "category": "inference gateway, community GPU pool, anonymous tier",
   "free_tier": {
-    "stated": "Works without a key, with limits; a free key gives more. /v1/models lists 9 ids on 2026-11-09, only the echo/ ids answered with no key; the listing carries a per-model allow_anonymous flag",
+    "stated": "Works without a key, with limits; a free key gives more. /v1/models lists 9 ids on 2026-11-10; the one echo/ id probed answered with no key, and the one other id probed, blue/dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8, answered 401 and requires a key; the listing carries a per-model allow_anonymous flag",
     "unit": "requests",
     "metered_on": "request-count",
     "source_url": "https://net.beaverai.org/",
-    "read_on": "2026-11-09",
+    "read_on": "2026-11-10",
     "notes": "the limits are not stated as numbers on the page; models are served by volunteers sharing their own GPUs"
   },
   "endpoint": "https://net.beaverai.org/v1/chat/completions",
@@ -113,10 +113,17 @@
     },
     {
       "url": "probe:https://net.beaverai.org/v1/chat/completions",
-      "date": "2026-11-09",
+      "date": "2026-11-10",
       "capture": "sha256:8b56fa04aaa7b6dd7231e56123dc75be6fdee9b0790b32bf2ccf274dc5b087eb",
       "quote": "\"status\": 200",
-      "proved": "a keyless POST on 2026-11-09 for echo/huihui-qwen3.8-27b-abliterated answered 200 twice and echoed huihui-qwen3.8-27b-abliterated with content pong"
+      "proved": "a keyless POST on 2026-11-10 for echo/huihui-qwen3.8-27b-abliterated answered 200 twice and echoed huihui-qwen3.8-27b-abliterated, the first call with empty content at 32 reasoning tokens and the second with content pong"
+    },
+    {
+      "url": "probe:https://net.beaverai.org/v1/chat/completions",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 for blue/dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8 answered 401 on both calls with the message that the model requires an API key, in the same probe in which echo/huihui-qwen3.8-27b-abliterated answered 200 twice",
+      "capture": "sha256:49f461bf5fa016ea3acabeb8dc785d7f7c8093405af520fabb056d372e65c1f7",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "qualifies-with-caveat",

@@ -41,7 +41,7 @@
     "detail": "no key required, but the allowance is metered per IP and shared with everything else on that address",
     "country": null
   },
-  "reliability_note": "a keyless POST on 2026-11-09 for openai-fast answered 200 twice with content 'pong'; the same model returned 402 and 404 an hour apart on 2026-10-22",
+  "reliability_note": "a keyless POST on 2026-11-10 for openai-fast answered 200 twice with content 'pong'; on 2026-10-22 gpt-5-nano returned 402 in run 1 and 404 in run 2, eight minutes apart",
   "confidence": "measured",
   "confidence_note": "the per-IP 402 was observed. The advertised id openai-fast is listed by GET /models with the aliases openai, gpt-oss, gpt-oss-20b and ovh-reasoning, and a completion for openai-fast reports the served model as gpt-oss-20b, so the served model is the advertised one under one of its aliases.",
   "probe": {
@@ -135,8 +135,8 @@
     },
     {
       "url": "probe:https://text.pollinations.ai/openai/chat/completions",
-      "date": "2026-11-09",
-      "proved": "a keyless POST on 2026-11-09 for openai-fast answered 200 twice and echoed gpt-oss-20b with content 'pong' and 344 tokens (315 prompt, 29 completion)",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 for openai-fast answered 200 twice and echoed gpt-oss-20b with content 'pong' and 344 tokens (315 prompt, 29 completion)",
       "capture": "sha256:3a67cc241ac2052d9216edc29069d0bc6b155252dd0869a45577c33b24a441a4",
       "quote": "\"status\": 200"
     }

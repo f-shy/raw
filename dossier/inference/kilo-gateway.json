@@ -37,7 +37,7 @@
     "unit": "tokens",
     "metered_on": "request-count",
     "source_url": "https://api.kilo.ai/api/gateway/models",
-    "read_on": "2026-11-09",
+    "read_on": "2026-11-10",
     "notes": "the catalogue holds 380 ids by count, 8 ending in ':free'"
   },
   "endpoint": "https://api.kilo.ai/api/gateway/chat/completions",
@@ -329,8 +329,8 @@
     },
     {
       "url": "probe:https://api.kilo.ai/api/gateway/chat/completions",
-      "date": "2026-11-09",
-      "proved": "a keyless POST on 2026-11-09 for nvidia/nemotron-3.5-super-vl:free answered 200 twice and echoed nvidia/nemotron-3.5-super-vl:free with empty content and the text in the reasoning field, 56 tokens (24 prompt, 32 completion)",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 for nvidia/nemotron-3.5-super-vl:free answered 200 twice and echoed nvidia/nemotron-3.5-super-vl:free with empty content and the text in the reasoning field, 56 tokens (24 prompt, 32 completion)",
       "capture": "sha256:6af0673394988b8c28950a8f6aa3a1e9d65fec5f59c77d9c3d7ebb92e02585d6",
       "quote": "\"status\": 200"
     }

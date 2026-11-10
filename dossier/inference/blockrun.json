@@ -37,7 +37,7 @@
     "unit": "tokens",
     "metered_on": "request-count",
     "source_url": "https://blockrun.ai/api/v1/models",
-    "read_on": "2026-11-09",
+    "read_on": "2026-11-10",
     "notes": "the nine free ids are nvidia/nemotron-3-super-120b, nvidia/nemotron-3-nano-omni-30b-a3b-reasoning, nvidia/nemotron-3.5-lightning, nvidia/nemotron-3-ultra-550b, cohere/north-mini-code, poolside/laguna-xs-2.1, nvidia/muse-glimmer-30b, nvidia/nemotron-3.5-bolt and nvidia/minimax-m3.1-flash"
   },
   "endpoint": "https://blockrun.ai/api/v1/chat/completions",
@@ -46,7 +46,7 @@
     "detail": "no Authorization header sent and none required for the free route",
     "country": null
   },
-  "reliability_note": "a keyless POST on 2026-11-09 for nvidia/nemotron-3.5-lightning answered 200 twice and echoed the model, after earlier identical calls answered 2 and refused 3 with FREE_MODEL_FAILED and 'NVIDIA API error: 429 Too Many Requests'",
+  "reliability_note": "a keyless POST on 2026-11-10 for nvidia/nemotron-3.5-lightning answered 200 twice and echoed the model, after earlier identical calls answered 2 and refused 3 with FREE_MODEL_FAILED and 'NVIDIA API error: 429 Too Many Requests'",
   "confidence": "measured",
   "confidence_note": "the relay is proved by its own error body naming NVIDIA, and the substitution by the echoed model string. Both are measured; the upstream arrangement is inferred from them.",
   "probe": {
@@ -167,8 +167,8 @@
     },
     {
       "url": "probe:https://blockrun.ai/api/v1/chat/completions",
-      "date": "2026-11-09",
-      "proved": "a keyless POST on 2026-11-09 for nvidia/nemotron-3.5-lightning answered 200 twice and echoed nvidia/nemotron-3.5-lightning with 56 tokens (24 prompt, 32 completion)",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 for nvidia/nemotron-3.5-lightning answered 200 twice and echoed nvidia/nemotron-3.5-lightning with 56 tokens (24 prompt, 32 completion)",
       "capture": "sha256:4fcea24310d308aa980892921873cfc8567e30e890a7862708b79add745fb6dd",
       "quote": "\"status\": 200"
     }
@@ -180,4 +180,4 @@
   "stale": false,
   "stale_checked_at": "2026-10-22T00:00:00.000Z",
   "binding_note": "the upstream NVIDIA 429 binds, and it arrives inside a 200-style error body rather than as a 429 status, so a client cannot see it by status code"
-}
+}

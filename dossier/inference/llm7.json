@@ -40,11 +40,11 @@
   "url": "https://api.llm7.io/v1",
   "category": "inference endpoint, keyless",
   "free_tier": {
-    "stated": "no key required for the ids probed; /v1/models lists 67 ids, none with a zero price",
+    "stated": "no key required for the ids probed; /v1/models lists 67 ids, none with a zero price; the paid Claude ids anthropic/claude-opus-4-6 and anthropic/claude-opus-4-7 answered 401 with no key",
     "unit": "tokens",
     "metered_on": "request-count",
     "source_url": "https://api.llm7.io/v1/models",
-    "read_on": "2026-11-09",
+    "read_on": "2026-11-10",
     "notes": "the catalogue carries a per-model pricing object in USD per 1M tokens and every one is above zero, which makes the free access a quota rather than a price"
   },
   "endpoint": "https://api.llm7.io/v1/chat/completions",
@@ -221,10 +221,17 @@
     },
     {
       "url": "probe:https://api.llm7.io/v1/chat/completions",
-      "date": "2026-11-09",
+      "date": "2026-11-10",
       "capture": "sha256:2fa551da9272c5107bd7f0aa2fecc7678623667e10b959dc68c76d0d76d7b3a4",
       "quote": "\"status\": 200",
-      "proved": "a keyless POST on 2026-11-09 for codestral-latest answered 200 twice and echoed codestral-latest with 14 tokens (11 prompt, 3 completion)"
+      "proved": "a keyless POST on 2026-11-10 for codestral-latest answered 200 twice and echoed codestral-latest with 14 tokens (11 prompt, 3 completion)"
+    },
+    {
+      "url": "probe:https://api.llm7.io/v1/chat/completions",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 for anthropic/claude-opus-4-6 and anthropic/claude-opus-4-7 answered 401 Missing API key on both calls of each id",
+      "capture": "sha256:1124637faabae0c6073b99ff6dbe18a0b3ef2fc53a3eb35138d3d1e92bc07381",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "qualifies-with-caveat",

@@ -33,12 +33,12 @@
   "url": "https://api.free.ai/v1",
   "category": "inference endpoint, keyless",
   "free_tier": {
-    "stated": "513 model entries in /v1/models, 45 of them marked self_hosted true; every id probed answers from one backend, Qwen/Qwen3-30B-A3B-Instruct",
+    "stated": "476 model entries in /v1/models on 2026-11-10 (513 on 2026-10-22), 45 of them marked self_hosted true on 2026-10-22; every id probed answers from one backend, Qwen/Qwen3-30B-A3B-Instruct",
     "unit": "tokens",
     "metered_on": "request-count",
     "source_url": "https://api.free.ai/v1/models",
-    "read_on": "2026-10-22",
-    "notes": "the catalogue carries prompt and completion prices of '0' per entry. The count 513 is the length of the models array, measured today"
+    "read_on": "2026-11-10",
+    "notes": "the catalogue carries prompt and completion prices of '0' per entry. The count 476 is the length of the models array on 2026-11-10; it was 513 on 2026-10-22"
   },
   "endpoint": "https://api.free.ai/v1/chat/completions",
   "identity_cost": {
@@ -166,8 +166,8 @@
     },
     {
       "url": "probe:https://api.free.ai/v1/chat/completions",
-      "date": "2026-11-09",
-      "proved": "a keyless POST on 2026-11-09 for qwen7b answered 200 twice and echoed Qwen/Qwen3-30B-A3B-Instruct with content 'pong' and 21 tokens (19 prompt, 2 completion)",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 for qwen7b answered 200 twice and echoed Qwen/Qwen3-30B-A3B-Instruct with content 'pong' and 21 tokens (19 prompt, 2 completion)",
       "capture": "sha256:bcc9c9e3c8cd34a29cd7c9e40de89ef4c4521a7cbeeab6e2da30e6c96f3e72fa",
       "quote": "\"status\": 200"
     }

@@ -45,12 +45,12 @@
   "binding_note": "1 request per minute binds long before 1 000 requests per day",
   "identity_cost": {
     "kind": "anonymous",
-    "detail": "a free account with a username and a password: no email and no card required to start, and the API key is generated in the dashboard. The g4f.dev provider page states the free tier is available without an API key and its JavaScript example sends no Authorization header; a keyless completion was not exercised",
+    "detail": "a free account with a username and a password: no email and no card required to start, and the API key is generated in the dashboard. The g4f.dev provider page states the free tier is available without an API key and its JavaScript example sends no Authorization header; a keyless POST on 2026-11-10 to kimi-k2.7-code answered 401 Missing Authorization, and a second call 429",
     "country": null
   },
   "reliability_note": "the listing carries a status per id: 22 of the 29 ids with tier free read major_outage when the listing was fetched, so most free ids were not serving",
   "confidence": "documented",
-  "confidence_note": "the plan limits and the signup are first-party; the keyless claim is on the g4f.dev provider page and in a third-party router that lists the service as a keyless upstream. No completion was sent because probe.py issues GET and HEAD only",
+  "confidence_note": "the plan limits and the signup are first-party; the keyless claim is on the g4f.dev provider page and in a third-party router that lists the service as a keyless upstream. The 2026-10-28 probes sent no completion because probe.py issues GET and HEAD only; a keyless POST on 2026-11-10 then answered 401 Missing Authorization, and a second call 429",
   "probe": {
     "instrument": "scripts/probe/probe.py",
     "records": [
@@ -141,13 +141,20 @@
     },
     {
       "url": "probe:https://api.airforce/v1/chat/completions",
-      "date": "2026-11-09",
+      "date": "2026-11-10",
       "capture": "sha256:6c8843a845eefa29d808b4eed8f0ad94837bbe57ec4e69987d402ce8e4e1ea90",
       "quote": "\"status\": 401",
-      "proved": "a keyless POST on 2026-11-09 to the free id kimi-k2.7-code answered HTTP 401 Missing Authorization, so the free route needs an Authorization header"
+      "proved": "a keyless POST on 2026-11-10 to kimi-k2.7-code answered HTTP 401 Missing Authorization on the first call and HTTP 429 Global rate limit exceeded on the second"
+    },
+    {
+      "url": "probe:https://api.airforce/v1/chat/completions",
+      "date": "2026-11-10",
+      "proved": "a keyless POST on 2026-11-10 for gemini-3.6-flash answered 402 on both calls and for mistral-code-fim-latest answered 401 Missing Authorization on both calls",
+      "capture": "sha256:9e50ce7c9bd5f2ba4fa67d202ad668b465817880e09074bf93f295a0214fd471",
+      "quote": "\"status\": 402"
     }
   ],
   "verdict": "qualifies-with-caveat",
   "verified_at": "2026-11-10T02:44:00.000Z",
-  "notes": "whether a completion answers with no Authorization header is unverified; the account route is the documented one"
+  "notes": "a keyless completion is not served for the ids tried on 2026-11-10: kimi-k2.7-code answered 401 Missing Authorization and then 429, gemini-3.6-flash answered 402, and mistral-code-fim-latest answered 401; whether any id answers with no Authorization header is unverified; the account route is the documented one"
 }
