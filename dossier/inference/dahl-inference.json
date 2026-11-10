@@ -85,6 +85,13 @@
       "capture": "sha256:30c66a27bb24a911a0406541c93c4134a7817f55343d2872e91bd118009190a2",
       "quote": "When a model is at capacity, requests are admitted by account class: **paid** accounts first, then **free** accounts, then keys not linked to an account.",
       "proved": "free accounts queue behind paid at capacity"
+    },
+    {
+      "url": "probe:https://inference.dahl.global/v1/chat/completions",
+      "date": "2026-11-09",
+      "proved": "a keyless POST on 2026-11-09 answered HTTP 401 with the vendor's own gate message, so the tier is gated on a key",
+      "capture": "sha256:fd814a72cba6894c12f9e94198ae5bda6466286f0c0eed7f2c27e2c6ee4deb6a",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "trial-only",

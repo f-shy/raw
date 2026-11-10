@@ -149,6 +149,13 @@
       "proved": "a Pay As You Go account needs auto-load or purchased credits once the initial credits are used",
       "capture": "sha256:ba56073ff7df99797ccac4f1811ecf7f408ea05d88c9aec3b46f7e37799692ea",
       "quote": "If you are on a Pay As You Go plan, once your initial Credits are used, you must be enrolled in auto-load or purchase additional Credits to continue using the Services."
+    },
+    {
+      "url": "probe:https://api.deepgram.com",
+      "date": "2026-11-09",
+      "proved": "a keyless POST on 2026-11-09 answered HTTP 404, so the recorded route does not exist",
+      "capture": "sha256:ccdf064ead2fead1bd728c6de34c8dd6fdc8bdf7afcaecf3c112a3e72f1e1f03",
+      "quote": "\"status\": 404"
     }
   ],
   "verdict": "trial-only",

@@ -152,9 +152,16 @@
       "capture": "sha256:315185a868ac95f4f737c9dade875241b82ddb5bbbdbe73fc1af894d4d6f0e21",
       "quote": "- **$0, no signup**No account, no API key, no credit card.",
       "proved": "the home page states no account, no API key and no credit card"
+    },
+    {
+      "url": "probe:https://flm.stonech.at/v1/chat/completions",
+      "date": "2026-11-09",
+      "proved": "a keyless POST on 2026-11-09 for auto answered 200 twice with content 'pong'",
+      "capture": "sha256:71bcfd3b3b6de19a40bda447f510ac934f1ba5c2a33f972080052bffed9c5e03",
+      "quote": "\"status\": 200"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-28T04:36:18.974Z",
+  "verified_at": "2026-11-10T01:21:20.504Z",
   "notes": "the requested model is never echoed because the service ignores it; the guide names no field that reports the model chosen, so which model answered a given request is unknown"
 }
