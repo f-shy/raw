@@ -9,12 +9,12 @@ units, so the headline numbers are not comparable until the unit is fixed.
 ## The comparison
 
 Rates are the 2 vCPU Linux class unless the row says otherwise. GitHub's own
-list price is the reference: **USD 0.006** for a 2-core Linux minute and
-**USD 0.012** for a 4-core one.
+list price is the reference: **USD 0.006** for a 2-core Linux minute. The
+corpus holds no stored source for a 4-core Linux rate, so none is given.
 
 | provider | free allowance | extra rate | card | verdict |
 | --- | --- | --- | --- | --- |
-| Blacksmith | 3,000 minutes a month | 33% below GitHub per-minute, so about USD 0.008 for 4 cores | not stated | `qualifies-with-caveat` |
+| Blacksmith | 3,000 minutes a month | 33% below GitHub per-minute pricing; the page prints no per-minute price | not stated | `qualifies-with-caveat` |
 | RunnerHut | 3,000 Linux minutes a month | USD 0.0040, one-minute minimum | no | `qualifies-with-caveat` |
 | runners.io | 3,000 run-minutes a month | USD 0.0040 a run-minute | **yes** | `qualifies-with-caveat` |
 | WarpBuild | none published | USD 0.004; USD 0.002 BYOC | no | `paid-only` |
@@ -52,8 +52,8 @@ the same compute is spread over half the time. Convert before comparing.
 
 **Blacksmith: 3,000 minutes a month** on every plan, with Docker layer caching and
 sticky disks at USD 0.50 a GB-month and a static IP at USD 100 a month. The page
-states no per-size price table, only the 33% discount, so the per-core figure is
-derived from GitHub's list price rather than read.
+states no per-size price table, only the 33% discount, so no per-minute figure is
+stated for it.
 
 **RunnerHut: 3,000 Linux minutes a month** with unlimited cache and every runner
 family on one meter. The rates are USD 0.0040 for 2 vCPU x64, USD 0.0032 for
@@ -84,11 +84,12 @@ Nothing here beats it for a public project. A hosted runner is for the private
 repository whose minutes are metered, or for macOS, Windows and GPU shapes that
 GitHub sells at a higher price or not at all.
 
-`Evidence:` `docs.github.com/en/billing/reference/actions-runner-pricing` (read
-2026-11-10): Linux 2-core USD 0.006 and 4-core USD 0.012. `blacksmith.sh/pricing`
-(read 2026-11-10): 3,000 free minutes a month, the 33% discount, the add-on
-prices. `runnerhut.com/pricing` and `runnerhut.com` (read 2026-11-10): the 3,000
-free Linux minutes, the five rates, the one-minute minimum, no card required.
+`Evidence:` `docs.github.com/en/billing/concepts/product-billing/github-actions`
+(read 2026-10-30, recorded in `ci-cd-runners/github-actions-private`): Linux
+2-core USD 0.006. `blacksmith.sh/pricing` (read 2026-10-30): 3,000 free minutes a
+month, the 33% discount, the add-on prices. `runnerhut.com/pricing` and
+`runnerhut.com` (read 2026-11-10): the 3,000 free Linux minutes, the five
+rates, the one-minute minimum, no card required.
 `runners.io/pricing` and `runners.io` (read 2026-11-10): 3,000 run-minutes, the
 run-minute weighting, the card requirement. `warpbuild.com/pricing` (read
 2026-11-10): the rate table, BYOC, cache storage, the signup answer.

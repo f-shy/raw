@@ -19,7 +19,7 @@
   "url": "https://net.beaverai.org/v1",
   "category": "inference gateway, community GPU pool, anonymous tier",
   "free_tier": {
-    "stated": "Works without a key, with limits; a free key gives more. /v1/models lists 9 ids on 2026-11-10; the one echo/ id probed answered with no key, and the one other id probed, blue/dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8, answered 401 and requires a key; the listing carries a per-model allow_anonymous flag",
+    "stated": "Works without a key, with limits; a free key gives more. /v1/models listed 9 ids on 2026-11-10; the one echo/ id probed answered with no key, and the one other id probed, blue/dealignai/DeepSeek-V4.1-Flash-1017-UNCENSORED-FP8, answered 401 and requires a key; the listing carries a per-model allow_anonymous flag. On 2026-10-28 the home page counted 4 models available",
     "unit": "requests",
     "metered_on": "request-count",
     "source_url": "https://net.beaverai.org/",
@@ -43,7 +43,7 @@
     "detail": "the page says try it without an account, or sign up with just a name; a GET to /v1/usage, /v1/limits and /v1/chat/completions with no Authorization header answered 401 Missing or invalid Authorization header, so the anonymous route may need a header or token that the page does not show",
     "country": null
   },
-  "reliability_note": "the model set is small and changes with volunteer availability: the home page counts 4 models available",
+  "reliability_note": "the model set is small and changes with volunteer availability: the home page counted 4 models available on 2026-10-28, and /v1/models listed 9 ids on 2026-11-10",
   "confidence": "documented",
   "confidence_note": "the claim is first-party and the listing was read by GET; the 401 on keyless GETs to the chat and usage routes conflicts with it, and no completion was sent because probe.py issues GET and HEAD only",
   "probe": {

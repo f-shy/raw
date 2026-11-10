@@ -52,7 +52,7 @@
     "detail": "no account to use the shared server",
     "country": null
   },
-  "reliability_note": "the shared server is a single volunteer-run instance with no published capacity; its client repository has had no push since 2025-08, and a harness measured about 20-22 kB/s with multi-second stalls, so a 4 MiB transfer does not complete.",
+  "reliability_note": "the shared server is a single volunteer-run instance with no published capacity; a harness measured about 20-22 kB/s with multi-second stalls, so a 4 MiB transfer does not complete. unverified: the age of the client repository, no capture holds a push date.",
   "confidence": "documented",
   "evidence": [
     {
@@ -96,7 +96,7 @@
   ],
   "verdict": "qualifies-with-caveat",
   "verified_at": "2026-11-05T00:00:00.000Z",
-  "notes": "Open-source HTTP reverse tunnel service. Operates shared public gateway instances with unmetered byte allowances, constrained by server capacity and uptime. A sandbox measured about 20-22 kB/s with multi-second stalls on 2026-11-05; its client repository has had no push since 2025-08.",
+  "notes": "Open-source HTTP reverse tunnel service. Operates shared public gateway instances with unmetered byte allowances, constrained by server capacity and uptime. A sandbox measured about 20-22 kB/s with multi-second stalls on 2026-11-05. unverified: the age of its client repository, no capture holds a push date.",
   "history": [],
   "extras": {
     "stale_after_days": 180,
@@ -109,5 +109,5 @@
   "stale": false,
   "stale_checked_at": "2026-10-22T00:00:00.000Z",
   "binding_note": "No byte figure exists anywhere: the author says there are no limitations and the current maintainer explains outages as CPU saturation, so the failure mode is the single volunteer instance rather than a meter. A user measured about 0.8 Mbit/s download through it in 2019, which would cap a month near 260 GB, but that is that instance on that day.",
-  "confidence_note": " the public instance works end to end at about 20-22 kB/s with multi-second stalls; its client repository has had no push since 2025-08 (measured 2026-11-05)."
+  "confidence_note": "the public instance works end to end at about 20-22 kB/s with multi-second stalls (measured 2026-11-05); the client repository activity was not checked against a capture."
 }

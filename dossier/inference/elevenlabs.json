@@ -159,7 +159,7 @@
     {
       "url": "probe:https://api.elevenlabs.io",
       "date": "2026-11-10",
-      "proved": "a keyless POST on 2026-11-10 answered HTTP 404, so the recorded route does not exist",
+      "proved": "a POST to the bare host https://api.elevenlabs.io, with no path and no key, answered HTTP 404 with the body {\"detail\": \"Not Found\"}; no API route was requested, so the route was not tested",
       "capture": "sha256:183d23c8f1683fc04a44629ed68176a6e97955e37fa50915e1884a2a638452d5",
       "quote": "\"status\": 404"
     }

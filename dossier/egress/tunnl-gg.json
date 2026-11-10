@@ -65,7 +65,7 @@
   },
   "reliability_note": "TLS terminates at the edge, so it is not end-to-end encrypted; a phishing interstitial appears for first-time visitors; the server is MIT and self-hostable. A harness measured a 908 ms median latency and both 4 MiB transfers stopping at exactly 2,486,272 bytes, a per-request cap of about 2.37 MiB on the free anonymous tier.",
   "confidence": "reported",
-  "confidence_note": "A measured run would show the real throughput ceiling; the protocol limitation is already decisive for UDP. the anonymous tier caps a request at about 2.37 MiB and measures a 908 ms median latency (measured 2026-11-05).",
+  "confidence_note": "A measured run would show the real throughput ceiling; the protocol limitation is already decisive for UDP. The anonymous tier caps a request at about 2.37 MiB and measures a 908 ms median latency (measured 2026-11-05).",
   "evidence": [
     {
       "url": "https://tunnl.gg/",
