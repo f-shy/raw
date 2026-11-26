@@ -13,10 +13,10 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "200 MB maximum per file",
+    "stated": "Maximum individual file size 200 MB; maximum files per user 1000",
     "bytes": 200000000,
     "source_url": "https://dev.epicgames.com/docs/epic-online-services/player-and-game-data/player-data-storage-interface/player-data-storage-overview",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Maximum individual file size 200 MB; auto-delete file size 400 MB; total storage space per user 400 MB; maximum files per user 1000"
   },
   "retention": {
     "stated": "Files that exceed the auto-delete file size are deleted following the upload.",
@@ -79,10 +79,38 @@
       "proved": "a file above the auto-delete size is deleted after upload",
       "capture": "sha256:5db07007d00e6efcf9b23fb4d63b95dcb88ecea52d3577f0632ee16c081e95ab",
       "quote": "Files that exceed the auto-delete file size are deleted following the upload."
+    },
+    {
+      "url": "https://dev.epicgames.com/docs/epic-online-services/player-and-game-data/player-data-storage-interface/player-data-storage-overview",
+      "date": "2026-11-25",
+      "proved": "the usage table gives the per-file and per-user file counts",
+      "capture": "sha256:5db07007d00e6efcf9b23fb4d63b95dcb88ecea52d3577f0632ee16c081e95ab",
+      "quote": "| Usage Type | Limitation |\n| --- | --- |\n| Read or write | 1000 requests per minute |\n| Maximum individual file size (see note below) | 200 MB |\n| Auto-delete file size | 400 MB |\n| Total storage space per user | 400 MB |\n| Maximum files per user | 1000 |"
+    },
+    {
+      "url": "https://dev.epicgames.com/docs/epic-online-services/player-and-game-data/player-data-storage-interface/player-data-storage-overview",
+      "date": "2026-11-25",
+      "proved": "the usage table lists the file size, auto-delete size, user total and file count",
+      "capture": "sha256:5db07007d00e6efcf9b23fb4d63b95dcb88ecea52d3577f0632ee16c081e95ab",
+      "quote": "| Usage Type | Limitation |\n| --- | --- |\n| Read or write | 1000 requests per minute |\n| Maximum individual file size (see note below) | 200 MB |\n| Auto-delete file size | 400 MB |\n| Total storage space per user | 400 MB |\n| Maximum files per user | 1000 |"
+    },
+    {
+      "url": "https://dev.epicgames.com/docs/epic-online-services/player-and-game-data/player-data-storage-interface/player-data-storage-overview",
+      "date": "2026-11-25",
+      "proved": "the usage table states the per-user total, per-file size and file count",
+      "capture": "sha256:5db07007d00e6efcf9b23fb4d63b95dcb88ecea52d3577f0632ee16c081e95ab",
+      "quote": "| Usage Type | Limitation |\n| --- | --- |\n| Read or write | 1000 requests per minute |\n| Maximum individual file size (see note below) | 200 MB |\n| Auto-delete file size | 400 MB |\n| Total storage space per user | 400 MB |\n| Maximum files per user | 1000 |"
+    },
+    {
+      "url": "https://dev.epicgames.com/docs/epic-online-services/player-and-game-data/player-data-storage-interface/player-data-storage-overview",
+      "date": "2026-11-25",
+      "proved": "oversized files are deleted after upload",
+      "capture": "sha256:5db07007d00e6efcf9b23fb4d63b95dcb88ecea52d3577f0632ee16c081e95ab",
+      "quote": "Files that exceed the auto-delete file size are deleted following the upload."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:14.805Z",
+  "verified_at": "2026-11-25T19:55:26.263Z",
   "notes": "400 MB total storage space per user, 200 MB maximum individual file size, 1000 files per user",
   "history": [],
   "extras": {

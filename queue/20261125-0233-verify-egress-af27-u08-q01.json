@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u08-q01",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Which schema limits[].kind should name a monthly byte allowance counted per account (volume-quota vs per-ip-shaping), and which should name a device-bound VPN with no published cap?",
+ "why": "The corpus uses volume-quota for a per-account monthly byte allowance while the records' binding_note says per-ip-shaping is the nearest kind, and cloudflare-warp has no published limit at all; neither case fits a vocabulary kind exactly.",
+ "scope": {
+  "rids": [
+   "egress/cloudflare-turn",
+   "egress/fastly-free",
+   "egress/iroh-shared-relay",
+   "egress/vercel-hobby",
+   "egress/cloudflare-warp"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u08",
+ "created": "2026-11-25T11:04:40Z"
+}

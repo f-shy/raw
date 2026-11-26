@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u26-rerun",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/proxylink-dev $.egress.terms: The page notes two early-access limitations, not only the 200 MB recording cap; it does not state 'ingress: tcp+udp'.\n- egress/remote-it $.binding: The page describes a self-service account, agent install and sharing, not 'write-gated' (curator, review, build recipe or phone PIN).\n- egress/railway $.binding: The page gives a $1/month credit and $0.05/GB egress with no included GB; it states no volume quota.",
+ "scope": {
+  "rids": [
+   "egress/proxylink-dev",
+   "egress/qingting-map",
+   "egress/railway",
+   "egress/remote-it",
+   "egress/render",
+   "egress/route48-org"
+  ]
+ },
+ "origin": "audit u67 of 20261125-0233-verify-egress-af27/u26 failed: 3 of 30 unsupported",
+ "created": "2026-11-25T16:37:38Z"
+}

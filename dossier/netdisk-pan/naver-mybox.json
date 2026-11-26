@@ -12,13 +12,13 @@
     "read_on": "2026-10-21"
   },
   "per_object_cap": {
-    "stated": "4 GB per file on the free 30 GB plan; maxFileBytes is returned per account and depends on the plan",
-    "bytes": 4000000000,
+    "stated": "unverified: a third party reports 4 GB per file on the free plan but now states the figure is not confirmed against official guidance; maxFileBytes is returned per account and depends on the plan",
+    "bytes": null,
     "source_url": "https://bokgoon.com/free-cloud-storage-services/"
   },
   "retention": {
-    "stated": "Dormant after two years without a login, and stored files are deleted",
-    "days": 730,
+    "stated": "unverified: a third party previously reported dormancy after two years without a login, but now states no MYBOX-specific dormancy deletion rule was found in official documents and that the general Naver account policy appears to apply",
+    "days": null,
     "source_url": "https://bokgoon.com/free-cloud-storage-services/"
   },
   "egress": {
@@ -36,7 +36,7 @@
   "limits": [
     {
       "kind": "per-object-cap",
-      "value": "4 GB per file on the free plan",
+      "value": "unverified: a third party reports 4 GB per file on the free plan but now states the figure is not confirmed against official guidance",
       "source": "https://bokgoon.com/free-cloud-storage-services/"
     },
     {
@@ -46,7 +46,7 @@
     },
     {
       "kind": "retention-clamped",
-      "value": "two years without a login makes the account dormant and deletes the files",
+      "value": "unverified: a third party previously reported dormancy after two years without a login, but now states no MYBOX-specific dormancy deletion rule was found in official documents",
       "source": "https://bokgoon.com/free-cloud-storage-services/"
     }
   ],
@@ -108,13 +108,62 @@
       "proved": "downloads are limited to 50,000 per day on every plan from 30 GB to 20 TB",
       "capture": "sha256:c39418cbc9e7e91f505b3cd1cc875f2cba66362e327177d2341e4dae3b63df39",
       "quote": "| 다운로드 | 50,000회/일 | 50,000회/일 | 50,000회/일 | 50,000회/일 | 50,000회/일 | 50,000회/일 | 50,000회/일 | 50,000회/일 |"
+    },
+    {
+      "url": "https://mybox.naver.com/",
+      "date": "2026-11-25",
+      "proved": "the free plan still starts at 30 GB",
+      "capture": "sha256:44dc5a1ab75037437ce698e68f6414613c3b2e3cd8d27bff508fdec6551a0d3b",
+      "quote": "국내 최대 무료 용량 30GB로 시작하세요."
+    },
+    {
+      "url": "https://developers.mybox.naver.com/getting-started",
+      "date": "2026-11-25",
+      "proved": "the 50,000-downloads-per-day allowance is still flat across all eight tiers",
+      "capture": "sha256:c39418cbc9e7e91f505b3cd1cc875f2cba66362e327177d2341e4dae3b63df39",
+      "quote": "| 다운로드 | 50,000회/일 | 50,000회/일 | 50,000회/일 | 50,000회/일 | 50,000회/일 | 50,000회/일 | 50,000회/일 | 50,000회/일 |"
+    },
+    {
+      "url": "https://developers.mybox.naver.com/getting-started",
+      "date": "2026-11-25",
+      "proved": "the shared limit across tiers is still stated as temporary until 2026-12-31",
+      "capture": "sha256:c39418cbc9e7e91f505b3cd1cc875f2cba66362e327177d2341e4dae3b63df39",
+      "quote": "26.12.31까지 한시적으로 모든 요금제 한도가 동일하게 적용됩니다."
+    },
+    {
+      "url": "https://bokgoon.com/free-cloud-storage-services/",
+      "date": "2026-11-25",
+      "proved": "the third party that sourced the 4 GB figure now marks it as unconfirmed against official guidance",
+      "capture": "sha256:b770398adc17cd863fdffe6d7154b7006b13e0c85fb5be2e60f36d5c0bedbef8",
+      "quote": "| 1 | 네이버 MYBOX | 30GB | 무료 요금제 4GB라는 자료가 있으나 공식 안내 기준 확인 필요 | MYBOX 전용 휴면 삭제 규정은 공식 문서에서 확인하지 못함. 네이버 계정 정책을 따르는 것으로 보임 | 있음 (Windows, macOS) | 예 |"
+    },
+    {
+      "url": "https://bokgoon.com/free-cloud-storage-services/",
+      "date": "2026-11-25",
+      "proved": "the third party now says no MYBOX-specific dormancy deletion rule was found in official documents",
+      "capture": "sha256:b770398adc17cd863fdffe6d7154b7006b13e0c85fb5be2e60f36d5c0bedbef8",
+      "quote": "| 1 | 네이버 MYBOX | 30GB | 무료 요금제 4GB라는 자료가 있으나 공식 안내 기준 확인 필요 | MYBOX 전용 휴면 삭제 규정은 공식 문서에서 확인하지 못함. 네이버 계정 정책을 따르는 것으로 보임 | 있음 (Windows, macOS) | 예 |"
+    },
+    {
+      "url": "https://bokgoon.com/free-cloud-storage-services/",
+      "date": "2026-11-25",
+      "proved": "the third party that supplied the binding figures now marks both as unconfirmed",
+      "capture": "sha256:b770398adc17cd863fdffe6d7154b7006b13e0c85fb5be2e60f36d5c0bedbef8",
+      "quote": "| 1 | 네이버 MYBOX | 30GB | 무료 요금제 4GB라는 자료가 있으나 공식 안내 기준 확인 필요 | MYBOX 전용 휴면 삭제 규정은 공식 문서에서 확인하지 못함. 네이버 계정 정책을 따르는 것으로 보임 | 있음 (Windows, macOS) | 예 |"
+    },
+    {
+      "url": "https://bokgoon.com/free-cloud-storage-services/",
+      "date": "2026-11-25",
+      "proved": "the third party now marks the 4 GB cap and the dormancy rule as unconfirmed against official documents",
+      "capture": "sha256:b770398adc17cd863fdffe6d7154b7006b13e0c85fb5be2e60f36d5c0bedbef8",
+      "quote": "| 1 | 네이버 MYBOX | 30GB | 무료 요금제 4GB라는 자료가 있으나 공식 안내 기준 확인 필요 | MYBOX 전용 휴면 삭제 규정은 공식 문서에서 확인하지 못함. 네이버 계정 정책을 따르는 것으로 보임 | 있음 (Windows, macOS) | 예 |"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-04T00:21:08.720Z",
+  "verified_at": "2026-11-25T03:33:18.627Z",
   "history": [],
   "binding": "per-object-cap",
-  "binding_note": "Storage is limited to 30 GB total with a 4 GB per-file cap, and stored content is deleted after 730 days of account dormancy. The 4 GB per-file ceiling remains an immutable boundary across multiple accounts.",
+  "binding_note": "Storage is limited to 30 GB total on the first-party page. The 4 GB per-file cap and the dormancy deletion rule are unverified: the third party that supplied them now says official guidance does not confirm either.",
   "notes": "The cleanest documented API in the Asian drive set and the smallest quota. Recorded because an official API with personal access tokens is rare in this population, and because two years of dormancy deleting the bytes is a retention fact that a reader would not guess.",
   "extras": {
     "access_mode": "registration-gated",

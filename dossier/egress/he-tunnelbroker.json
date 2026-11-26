@@ -5,7 +5,7 @@
   "url": "https://tunnelbroker.net/",
   "category": "IPv6 tunnel (free)",
   "free_tier": {
-    "stated": "a free 6in4 tunnel and a routed /48",
+    "stated": "Our free tunnel broker service enables you to reach the IPv6 Internet by tunneling over existing IPv4 connections from your IPv6 enabled host or router to one of our IPv6 routers. Ability to get your own /48 prefix once your tunnel is up",
     "unit": "unlimited",
     "metered_on": "none",
     "source_url": "https://tunnelbroker.net/",
@@ -58,10 +58,31 @@
       "url": "https://tunnelbroker.net/",
       "date": "2026-10-23",
       "proved": "'Our free tunnel broker service enables you to reach the IPv6 Internet by tunneling over existing IPv4 connections' and 'Ability to get your own /48 prefix once your tunnel is up'"
+    },
+    {
+      "url": "https://tunnelbroker.net/",
+      "date": "2026-11-25",
+      "proved": "the free tunnel broker and the /48 prefix are still offered",
+      "capture": "sha256:dd76e6f776ab5f78ae56d90cc5643a19190a822628d59bb9ed14b5e52141be5a",
+      "quote": "Our free tunnel broker service enables you to reach the IPv6 Internet by tunneling over existing IPv4 connections from your IPv6 enabled host or router to one of our IPv6 routers. ... Ability to get your own /48 prefix once your tunnel is up"
+    },
+    {
+      "url": "https://ipv6.he.net/certification/faq.php",
+      "date": "2026-11-25",
+      "proved": "the tunnel is 6in4 over IPv4 and only the routed /64 or /48 is delegated reverse DNS",
+      "capture": "sha256:9ab33db698480da1f60842d521213b77e30b2d6887d73196d193c164b9adf0ec",
+      "quote": "In order to create a 6in4 tunnel, your IPv4 endpoint must be reachable. ... We delegate only to the routed /64 or /48s."
+    },
+    {
+      "url": "https://tunnelbroker.net/",
+      "date": "2026-11-25",
+      "proved": "registration is still a plain signup whose password is mailed",
+      "capture": "sha256:dd76e6f776ab5f78ae56d90cc5643a19190a822628d59bb9ed14b5e52141be5a",
+      "quote": "If you are a new user please register by clicking on Register below. After registering your password will be mailed to you and you can return here to activate your tunnel."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T19:55:29.663Z",
   "notes": "Re-read 2026-10-23 and unchanged: still a free tunnel over an existing IPv4 connection with a /48 once the tunnel is up, still protocol 41 or GRE, and WireGuard is not offered. A WireGuard client therefore cannot use it directly and would need a second host to terminate the tunnel.",
   "history": [],
   "extras": {

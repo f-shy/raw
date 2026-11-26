@@ -6,7 +6,7 @@
   "category": "paas l4 port",
   "tier": "free",
   "free_tier": {
-    "stated": "TCP redirections are currently available free of charge as long as the feature is in BETA stage. Once the feature leaves the BETA stage, it won't be free anymore.",
+    "stated": "TCP redirections are free.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://www.clever.cloud/developers/doc/develop/common-configuration/tcp-redirections/",
@@ -42,7 +42,7 @@
   "limits": [
     {
       "kind": "volume-quota",
-      "value": "no free application allowance; TCP redirection free only while in beta",
+      "value": "the application a redirection points at is priced by the size and number of scalers and add-ons; the TCP redirection itself is free",
       "source": "https://www.clever.cloud/pricing/"
     }
   ],
@@ -54,7 +54,7 @@
     "detail": "Pay-as-you-go account with a funded balance; the pricing page says each month you fund your account to reflect your usual consumption.",
     "country": "None"
   },
-  "reliability_note": "The feature is labelled BETA and the free status is explicitly temporary. Random port above 5000, so the endpoint is not predictable.",
+  "reliability_note": "The public port is chosen by Clever Cloud and stays the same while the redirection exists, even when the application redeploys.",
   "confidence": "documented",
   "confidence_note": "The beta statement is dated 2022 on the blog and unversioned in the docs; re-reading it later is what keeps this record honest.",
   "evidence": [
@@ -72,10 +72,45 @@
       "url": "https://www.clever.cloud/blog/features/2022/03/29/tcp-redirections-are-now-available/",
       "date": "2026-10-23",
       "proved": "\"It can be used freely and is not charged.\" (2022-03-29)"
+    },
+    {
+      "url": "https://www.clever.cloud/developers/doc/develop/common-configuration/tcp-redirections/",
+      "date": "2026-11-25",
+      "proved": "the docs state TCP redirections are free, with no beta qualifier",
+      "capture": "sha256:f71e3c10998e8dcedc658a2306ae7ea5281a84191c0cb453bf801f2e1a676f62",
+      "quote": "TCP redirections are free."
+    },
+    {
+      "url": "https://www.clever.cloud/developers/doc/develop/common-configuration/tcp-redirections/",
+      "date": "2026-11-25",
+      "proved": "the public port is assigned by the platform and is stable for the life of the redirection",
+      "capture": "sha256:f71e3c10998e8dcedc658a2306ae7ea5281a84191c0cb453bf801f2e1a676f62",
+      "quote": "Clever Cloud chooses the public port. It stays the same while the redirection exists, even when the application redeploys"
+    },
+    {
+      "url": "https://www.clever.cloud/pricing/",
+      "date": "2026-11-25",
+      "proved": "application pricing depends on scaler size and count; no free application tier is stated",
+      "capture": "sha256:9b334fce68b0126603ae2d3a5ce2ef89b27618618e02c8f083386c776c195061",
+      "quote": "Our pricing depends on the size and the number of scalers and add-ons you need. Compare it with your current pricing on our calculator."
+    },
+    {
+      "url": "https://www.clever.cloud/developers/doc/develop/common-configuration/tcp-redirections/",
+      "date": "2026-11-25",
+      "proved": "the redirection is created in the Console or with Clever Tools",
+      "capture": "sha256:f71e3c10998e8dcedc658a2306ae7ea5281a84191c0cb453bf801f2e1a676f62",
+      "quote": "With Clever Tools, set the namespace with `--namespace`:"
+    },
+    {
+      "url": "https://www.clever.cloud/pricing/",
+      "date": "2026-11-25",
+      "proved": "the account is funded monthly to match consumption",
+      "capture": "sha256:9b334fce68b0126603ae2d3a5ce2ef89b27618618e02c8f083386c776c195061",
+      "quote": "Each month, you fund your Clever Cloud account with an amount that reflects your usual consumption, adjusted each month according to the actual consumption you have made."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:40.712Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The redirection is a genuinely free L4 path, but only to a paid application. The application must still listen on 8080 regardless of TCP configuration.",

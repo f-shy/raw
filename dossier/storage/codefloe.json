@@ -15,13 +15,13 @@
   "per_object_cap": {
     "stated": "500 MB per release asset or issue/comment attachment",
     "source_url": "https://docs.codefloe.com/usage-quotas/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "the usage-quotas page caps release assets and issue/comment attachments at 500 MB per file, web-editor uploads at 100 MB, and states no per-file limit for LFS objects and packages"
   },
   "retention": {
     "stated": "Single small operator on one Hetzner box; nightly off-site backups with 90-day retention described as disaster recovery, not per-account restore",
     "days": 90,
     "source_url": "https://docs.codefloe.com/usage-quotas/",
-    "notes": "Extracted from published terms."
+    "notes": "backups are taken on a schedule (repositories hourly, other data daily, database full every Sunday with diff backups on other days) and stored off-site; no retention period is stated"
   },
   "egress": {
     "terms": "There is no limit today.",
@@ -123,10 +123,31 @@
       "proved": "the quota table states 5 GB Git, 20 GB packages, 10 GB Git LFS and 10 GB attachments",
       "capture": "sha256:575354bec2c72d99aa3d8fe0cf7d5aa5583e34fe6fce210c7aec8a10469e1483",
       "quote": "| Git repo size | “Packages” size | Git LFS size | Attachments size | Actions Artifacts size |\n| 5 GB | 20 GB | 10 GB | 10 GB | 2 GB |"
+    },
+    {
+      "url": "https://docs.codefloe.com/usage-quotas/",
+      "date": "2026-11-25",
+      "proved": "release assets and issue/comment attachments have a 500 MB per-file cap",
+      "capture": "sha256:c3bca2d1857be2bee30f156e529566287163c5a17145cce01af2d3966a3e4a50",
+      "quote": "| Release assets and issue/comment attachments | 500 MB |"
+    },
+    {
+      "url": "https://docs.codefloe.com/infrastructure/backups/",
+      "date": "2026-11-25",
+      "proved": "backups are kept off-site in a separate region, with no retention period stated on the page",
+      "capture": "sha256:5b0d4e28384993571f61efc629f1a6bfe1290a4aacdb0e6eb2e9ac4cf26f8c7b",
+      "quote": "All backups are stored in a dedicated object-storage project, in a different region from the live data."
+    },
+    {
+      "url": "https://docs.codefloe.com/usage-quotas/",
+      "date": "2026-11-25",
+      "proved": "the usage-quotas page still states the 500 MB per-file cap",
+      "capture": "sha256:c3bca2d1857be2bee30f156e529566287163c5a17145cce01af2d3966a3e4a50",
+      "quote": "| Release assets and issue/comment attachments | 500 MB |"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T02:51:00.984Z",
+  "verified_at": "2026-11-25T04:14:17.956Z",
   "notes": "5 GB Git + 20 GB packages + 10 GB Git LFS + 10 GB attachments per account/organization; unlimited public and private repositories",
   "history": [],
   "extras": {

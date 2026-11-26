@@ -16,13 +16,13 @@
     "stated": "per-object-cap: 1 GiB",
     "bytes": 1073741824,
     "source_url": "https://docs.wal.app/docs/network-reference",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The maximum blob size on Walrus is approximately 13.6 GiB."
   },
   "retention": {
     "stated": "Maximum number of epochs for which storage can be bought: 53.",
     "days": 53,
     "source_url": "https://docs.wal.app/docs/network-reference",
-    "notes": "Extracted from published terms."
+    "notes": "Walrus can wipe the Testnet state at any point, possibly without warning."
   },
   "egress": {
     "terms": "unmetered. Reads are served by ~55 independent community aggregators plus the Mysten reference aggregator; all returned CORS-open bytes with no metering observed and no auth header.",
@@ -95,10 +95,52 @@
       "proved": "the reference table states a 53-epoch maximum storage duration",
       "capture": "sha256:4fccddd5da1881cecb9741a2b59d4ea06dbe894e6b5d1883c2b130a6ce556a82",
       "quote": "| Maximum number of epochs for which storage can be bought | 53 | 53 |"
+    },
+    {
+      "url": "https://docs.wal.app/docs/network-reference",
+      "date": "2026-11-25",
+      "proved": "Testnet state can be wiped without warning",
+      "capture": "sha256:4fccddd5da1881cecb9741a2b59d4ea06dbe894e6b5d1883c2b130a6ce556a82",
+      "quote": "Walrus can wipe the Testnet state at any point, possibly without warning."
+    },
+    {
+      "url": "https://docs.wal.app/docs/large-uploads",
+      "date": "2026-11-25",
+      "proved": "the first-party maximum blob size is approximately 13.6 GiB",
+      "capture": "sha256:b8b9c6085c865b408b9ed2f3710ec138297dc86d846a13db1d9360d1da05fb07",
+      "quote": "The maximum blob size on Walrus is approximately 13.6 GiB."
+    },
+    {
+      "url": "https://docs.wal.app/docs/network-reference",
+      "date": "2026-11-25",
+      "proved": "Testnet data has no guaranteed retention",
+      "capture": "sha256:4fccddd5da1881cecb9741a2b59d4ea06dbe894e6b5d1883c2b130a6ce556a82",
+      "quote": "Walrus can wipe the Testnet state at any point, possibly without warning."
+    },
+    {
+      "url": "https://docs.wal.app/docs/large-uploads",
+      "date": "2026-11-25",
+      "proved": "the documented maximum blob size is approximately 13.6 GiB",
+      "capture": "sha256:b8b9c6085c865b408b9ed2f3710ec138297dc86d846a13db1d9360d1da05fb07",
+      "quote": "The maximum blob size on Walrus is approximately 13.6 GiB."
+    },
+    {
+      "url": "https://docs.wal.app/docs/system-overview/public-aggregators-and-publishers",
+      "date": "2026-11-25",
+      "proved": "the public services have a default 10 MiB request limit",
+      "capture": "sha256:8ed46a696d33caee203de74b8f351cc52f77f14941102abe68313b40a1287448",
+      "quote": "Most aggregators and publishers limit requests to 10 MiB by default."
+    },
+    {
+      "url": "https://docs.wal.app/docs/system-overview/public-aggregators-and-publishers",
+      "date": "2026-11-25",
+      "proved": "the public services use HTTP and the Walrus CLI daemon modes",
+      "capture": "sha256:8ed46a696d33caee203de74b8f351cc52f77f14941102abe68313b40a1287448",
+      "quote": "An aggregator serves blob reads over HTTP, and a publisher accepts blob uploads over HTTP. Both roles run through the Walrus client's daemon mode: `walrus aggregator` for reads, `walrus publisher` for stores, or `walrus daemon` for both"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:35.597Z",
+  "verified_at": "2026-11-25T19:55:25.446Z",
   "notes": "No account, no key, no quota. Docs quote only a per-request limit: 'Most aggregators and publishers limit requests to 10 MiB by default'. In practice the reference publisher accepted 300 MiB and 1 GiB. Max storage duration is 53 epochs; on Testnet 1 epoch = 1 day.",
   "history": [],
   "extras": {

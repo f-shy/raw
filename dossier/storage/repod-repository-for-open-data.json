@@ -16,12 +16,12 @@
     "stated": "5 GB per single file",
     "bytes": 5000000000,
     "source_url": "https://info.repod.icm.edu.pl/?page_id=354",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The size limit of a single file is 5.0 GB, and the size limit for the sum of files being transferred at the same time is 20.0 GB. The size of the entire dataset is not limited."
   },
   "retention": {
     "stated": "Publication assigns a DOI and freezes that version. Versions are immutable after publish, so this is write-once-per-version, not mutable working storage.",
     "source_url": "https://info.repod.icm.edu.pl/?page_id=354",
-    "notes": "Extracted from published terms."
+    "notes": "Po opublikowaniu danej wersji zbioru danych nie ma możliwości jej usunięcia."
   },
   "egress": {
     "terms": "Repozytorium nie pobiera opłat od użytkowników deponujących oraz pobierających dane.",
@@ -101,10 +101,31 @@
       "proved": "the page states a 5 GB limit on a single file",
       "capture": "sha256:a8461eb8b153c15fe91472a3aaf63b8a0135fbcc7694a9ff09192e4d5157fed3",
       "quote": "Jedynym ograniczeniem jest limit wielkości pojedynczego pliku, wynoszący 5GB."
+    },
+    {
+      "url": "https://info.repod.icm.edu.pl/?lang=en&page_id=534",
+      "date": "2026-11-25",
+      "proved": "the deposit guide states the per-file cap, the simultaneous-transfer cap and no dataset-size cap",
+      "capture": "sha256:35ffc6a21b3c5bf2f694884b0ed92975c63d268b1f31d2bf5f58ebaede00c642",
+      "quote": "The size limit of a single file is 5.0 GB, and the size limit for the sum of files being transferred at the same time is 20.0 GB. The size of the entire dataset is not limited."
+    },
+    {
+      "url": "https://info.repod.icm.edu.pl/?page_id=354",
+      "date": "2026-11-25",
+      "proved": "the preservation policy says a published dataset version cannot be deleted",
+      "capture": "sha256:a8461eb8b153c15fe91472a3aaf63b8a0135fbcc7694a9ff09192e4d5157fed3",
+      "quote": "Po opublikowaniu danej wersji zbioru danych nie ma możliwości jej usunięcia."
+    },
+    {
+      "url": "https://info.repod.icm.edu.pl/?page_id=354",
+      "date": "2026-11-25",
+      "proved": "the preservation policy says depositors and downloaders are not charged",
+      "capture": "sha256:a8461eb8b153c15fe91472a3aaf63b8a0135fbcc7694a9ff09192e4d5157fed3",
+      "quote": "Repozytorium nie pobiera opłat od użytkowników deponujących oraz pobierających dane."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-10T00:50:30.560Z",
+  "verified_at": "2026-11-25T19:55:19.657Z",
   "notes": "No dataset-size limit at all: 'Repozytorium akceptuje zbiory danych o dowolnej wielkości. Jedynym ograniczeniem jest limit wielkości pojedynczego pliku, wynoszący 5GB' (the repository accepts datasets of any size; the only limit is 5 GB per single file). A sibling UW deposit guide adds '20 GB for the sum of files transferred simultaneously'. Storage itself is unpriced: 'Korzystanie z repozytorium nie wiąże się z żadnymi opłatami' (using the repository involves no fees).",
   "history": [],
   "extras": {

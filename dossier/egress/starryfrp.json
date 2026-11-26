@@ -43,6 +43,11 @@
       "kind": "volume-quota",
       "value": "1 to 10 GiB per day via check-in",
       "source": "https://frp.starryfrp.com/"
+    },
+    {
+      "kind": "per-ip-shaping",
+      "value": "8 Mbps rate limit on the free plan",
+      "source": "https://frp.starryfrp.com/"
     }
   ],
   "limits_note": "",
@@ -61,10 +66,24 @@
       "url": "https://frp.starryfrp.com/",
       "date": "2026-10-23",
       "proved": "UDP is a supported tunnel type, with check-in traffic of 1 to 10 GiB per day"
+    },
+    {
+      "url": "https://frp.starryfrp.com/",
+      "date": "2026-11-25",
+      "proved": "the free plan carries an 8 Mbps rate limit",
+      "capture": "sha256:822844b1a53d901b90171112a89801a46cc4b5868ea8f9c970221986ffc6a82f",
+      "quote": "**8 Mbps** 限速"
+    },
+    {
+      "url": "https://frp.starryfrp.com/",
+      "date": "2026-11-25",
+      "proved": "the free plan grants 1 to 10 GiB of random traffic per daily check-in",
+      "capture": "sha256:822844b1a53d901b90171112a89801a46cc4b5868ea8f9c970221986ffc6a82f",
+      "quote": "**1 ~ 10 GiB** 每日签到随机流量"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:47.897Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The page is a marketing site with no published per-tunnel quota table; the check-in sentence is the only number on it.",

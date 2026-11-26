@@ -1,0 +1,15 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u04-q02",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Is the TunnelAPI free tunnel path reachable today, and did the 100 MB monthly bandwidth cap change after the 2026-07-20 archived copy?",
+ "why": "The live host and docs host refused every broker read route on 2026-11-25 and a direct probe ended in a transport error; only the archived plan page is readable.",
+ "scope": {
+  "rids": [
+   "egress/tunnelapi-1-0",
+   "egress/tunnelapi-2-0"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u04",
+ "created": "2026-11-25T09:55:02Z"
+}

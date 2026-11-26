@@ -16,15 +16,15 @@
     "stated": "Maximum audio file size: 2 GB.",
     "bytes": 2000000000,
     "source_url": "https://help.rss.com/en/support/solutions/articles/44002697443-the-free-plan",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "**Maximum audio file size:** 2 GB."
   },
   "retention": {
     "stated": "Your episodes are never deleted",
     "source_url": "https://help.rss.com/en/support/solutions/articles/44002697443-the-free-plan",
-    "notes": "Extracted from published terms."
+    "notes": "Your episodes are never deleted"
   },
   "egress": {
-    "terms": "Free and unmetered. No bandwidth line anywhere in the Free plan or the pricing page; delivery is offloaded to Triton Digital's CDN (rsscom.pdn.tritondigital.com) behind CloudFront. Zero egress pricing to the account holder.",
+    "terms": "Publish with unlimited episodes, audio and downloads.",
     "metered": false
   },
   "interface": [
@@ -95,10 +95,38 @@
       "proved": "the first-episode article states a 2 GB maximum audio file size",
       "capture": "sha256:587b3ebfd46540cd9118dca6bc2188f938809c4a2097dee3554d0aab1745be99",
       "quote": "Maximum audio file size: 2 GB."
+    },
+    {
+      "url": "https://help.rss.com/en/support/solutions/articles/44000495445-how-do-i-create-my-first-episode-",
+      "date": "2026-11-25",
+      "proved": "the first-episode article states a 2 GB maximum audio file size",
+      "capture": "sha256:587b3ebfd46540cd9118dca6bc2188f938809c4a2097dee3554d0aab1745be99",
+      "quote": "**Maximum audio file size:** 2 GB."
+    },
+    {
+      "url": "https://help.rss.com/en/support/solutions/articles/44002697443-the-free-plan",
+      "date": "2026-11-25",
+      "proved": "the free-plan article states that episodes are not deleted",
+      "capture": "sha256:deb08cb2100a1e7b945bcfaffb063c4a8db88db12104da21fc1a7c7b94478057",
+      "quote": "Your episodes are never deleted"
+    },
+    {
+      "url": "https://rss.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the pricing page states unlimited downloads for the free plan",
+      "capture": "sha256:14537f1acdb9aac64f25df2ee591e1333ab7cb87a39ffcab6491876bc49e95cb",
+      "quote": "Publish with unlimited episodes, audio and downloads."
+    },
+    {
+      "url": "https://help.rss.com/en/support/solutions/articles/44002697443-the-free-plan",
+      "date": "2026-11-25",
+      "proved": "the free-plan article states unlimited episodes and audio with no storage cap",
+      "capture": "sha256:deb08cb2100a1e7b945bcfaffb063c4a8db88db12104da21fc1a7c7b94478057",
+      "quote": "Unlimited episodes and unlimited audio, with no storage cap"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:30.561Z",
+  "verified_at": "2026-11-25T19:55:19.659Z",
   "notes": "Unlimited. Free plan: 'Unlimited episodes and unlimited audio, with no storage cap', 'no trial and no expiry date', 'Your episodes are never deleted'. Only three stated limits: one podcast per account, 30 days of analytics history, one voicemail. Max file size 2 GB per episode. With unlimited episodes that is unbounded total capacity.",
   "history": [],
   "extras": {

@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u133-q03",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "hostingmammoth.com/object-storage answers HTTP 403 to every route; can the limits (5 TB max object, 1 TB egress, EUR 1.00/TB overage) be re-read when the wall lifts?",
+ "why": "Cloudflare 403 on direct probe, broker providers 502/504/422, no archive copy; interface and per_object_cap stay unchecked.",
+ "scope": {
+  "rids": [
+   "storage/hosting-mammoth-object-storage"
+  ]
+ },
+ "origin": "20261125-0129-verify-storage-1818/u133",
+ "created": "2026-11-25T12:15:44Z"
+}

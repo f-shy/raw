@@ -15,15 +15,15 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://strapi.io/pricing-cloud",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Non-image uploads are capped at 200 MB on all Strapi Cloud plans. The cap is enforced at the infrastructure level and cannot be overridden via the `strapi::body` middleware configuration."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://strapi.io/pricing-cloud",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "| Backup retention (in month) | - | 1 month | 1 month |"
   },
   "egress": {
-    "terms": "50 GB/month asset bandwidth included on Starter ($35/mo). Self-hosted Strapi has no storage cap but the compute is paid.",
+    "terms": "$35 ... 50 GB asset storage ... 50 GB asset bandwidth",
     "metered": true,
     "free_allowance": "50 GB per month"
   },
@@ -33,7 +33,7 @@
     "graphql",
     "cli"
   ],
-  "interface_detail": "rest",
+  "interface_detail": "Strapi turns your model into REST and GraphQL APIs instantly, fully typed.",
   "tooling": "Strapi REST + GraphQL, upload plugin → any S3-compatible provider, `strapi` CLI; self-host is MIT-licensed",
   "chaining": "No free tier on Cloud at all. The cheapest plan is $35/project/month. The free path is self-hosting Strapi on free compute (Oracle/AWS free tier) pointed at another storage backend, which is orchestration, not a free storage tier.",
   "limits": [],
@@ -58,10 +58,73 @@
       "proved": "Starter is USD 35 per project per month with 50 GB asset storage and 50 GB asset bandwidth; no free Cloud tier is listed",
       "capture": "sha256:5f6ae8e323e70f2a348305abd9ef4a69e0e34144595bfc3f444482dc2818fb20",
       "quote": "$35\n\nper project / month\n\n[Sign up](https://cloud.strapi.io/?plan=essential)\n\n100k API requests\n\n50 GB asset storage\n\n50 GB asset bandwidth"
+    },
+    {
+      "url": "https://docs.strapi.io/cloud/advanced/upload-size-limits",
+      "date": "2026-11-25",
+      "proved": "the Strapi Cloud docs state the 200 MB non-image upload cap and its infrastructure enforcement",
+      "capture": "sha256:9aec303d51eed2d2af706ddc973c9f62bc20169a89e76b9ee247d4e17140deac",
+      "quote": "Non-image uploads are capped at 200 MB on all Strapi Cloud plans. The cap is enforced at the infrastructure level and cannot be overridden via the `strapi::body` middleware configuration."
+    },
+    {
+      "url": "https://strapi.io/pricing-cloud",
+      "date": "2026-11-25",
+      "proved": "the pricing comparison gives backup retention as none on Starter and one month on Pro and Business",
+      "capture": "sha256:5f6ae8e323e70f2a348305abd9ef4a69e0e34144595bfc3f444482dc2818fb20",
+      "quote": "| Backup retention (in month) | - | 1 month | 1 month |"
+    },
+    {
+      "url": "https://strapi.io",
+      "date": "2026-11-25",
+      "proved": "the homepage states REST and GraphQL API generation",
+      "capture": "sha256:41bd65dbc30ec859bcf4be83dd41e93b4618d2f4a9275669fcd032b9cf9043f7",
+      "quote": "Strapi turns your model into REST and GraphQL APIs instantly, fully typed."
+    },
+    {
+      "url": "https://strapi.io/pricing-cloud",
+      "date": "2026-11-25",
+      "proved": "the Starter card pairs the $35 monthly price with 50 GB asset storage and 50 GB asset bandwidth",
+      "capture": "sha256:5f6ae8e323e70f2a348305abd9ef4a69e0e34144595bfc3f444482dc2818fb20",
+      "quote": "$35 ... 50 GB asset storage ... 50 GB asset bandwidth"
+    },
+    {
+      "url": "https://docs.strapi.io/cloud/advanced/upload-size-limits",
+      "date": "2026-11-25",
+      "proved": "the docs state the 200 MB non-image cap",
+      "capture": "sha256:9aec303d51eed2d2af706ddc973c9f62bc20169a89e76b9ee247d4e17140deac",
+      "quote": "Non-image uploads are capped at 200 MB on all Strapi Cloud plans. The cap is enforced at the infrastructure level and cannot be overridden via the `strapi::body` middleware configuration."
+    },
+    {
+      "url": "https://strapi.io/pricing-cloud",
+      "date": "2026-11-25",
+      "proved": "the pricing table states backup retention by plan",
+      "capture": "sha256:5f6ae8e323e70f2a348305abd9ef4a69e0e34144595bfc3f444482dc2818fb20",
+      "quote": "| Backup retention (in month) | - | 1 month | 1 month |"
+    },
+    {
+      "url": "https://strapi.io",
+      "date": "2026-11-25",
+      "proved": "the homepage states REST and GraphQL APIs",
+      "capture": "sha256:41bd65dbc30ec859bcf4be83dd41e93b4618d2f4a9275669fcd032b9cf9043f7",
+      "quote": "Strapi turns your model into REST and GraphQL APIs instantly, fully typed."
+    },
+    {
+      "url": "https://strapi.io/pricing-cloud",
+      "date": "2026-11-25",
+      "proved": "the Starter card states the 50 GB monthly asset bandwidth",
+      "capture": "sha256:5f6ae8e323e70f2a348305abd9ef4a69e0e34144595bfc3f444482dc2818fb20",
+      "quote": "$35 ... 50 GB asset storage ... 50 GB asset bandwidth"
+    },
+    {
+      "url": "https://docs.strapi.io/cloud/getting-started/usage-billing",
+      "date": "2026-11-25",
+      "proved": "the billing docs state that asset bandwidth overages are charged",
+      "capture": "sha256:f59cccfa7037ae990adfecd26bf54ab916cbd84abd2c69ddf288e8d4291374c7",
+      "quote": "If you exceed the limits of your plan for API Requests, Asset Bandwidth, or Asset Storage, you will be charged for the corresponding overages."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-19T21:15:23.337Z",
+  "verified_at": "2026-11-25T19:55:22.268Z",
   "notes": "50 GB asset storage + 50 GB asset bandwidth on Starter. But Starter is $35/month, NOT free.",
   "history": [],
   "extras": {

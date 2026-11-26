@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u23-rerun",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/novanode-ip-tunnel $.egress.terms: Egress/terms portion is supported, but claimed \"ingress: tcp+udp\" conflicts with page stating WireGuard uses UDP only (\"only outbound UDP to our endpoint is needed\"; \"WireGuard only\").\n- egress/oray-peanut-hull $.limits[1]: Cited capture supports 1 Mbps but does not state the '18:00-08:00 speed boost'; that detail appears in a different capture (sha256:babe4255...), so the full claimed value is not supported by this cited capture.",
+ "scope": {
+  "rids": [
+   "egress/nilloc",
+   "egress/northflank",
+   "egress/novanode-ip-tunnel",
+   "egress/onlyssh",
+   "egress/openport-io",
+   "egress/oray-peanut-hull"
+  ]
+ },
+ "origin": "audit u64 of 20261125-0233-verify-egress-af27/u23 failed: 2 of 19 unsupported",
+ "created": "2026-11-25T16:37:38Z"
+}

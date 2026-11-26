@@ -25,15 +25,15 @@
     "notes": "Binding failure documented in record details."
   },
   "egress": {
-    "terms": "not assessed; the provider was rejected before its egress mattered",
+    "terms": "Paid OneLake storage is billed per GB used; data-transfer charges are not itemised on the trial page, and choosing a capacity region minimizes ingress and egress charges.",
     "metered": false
   },
   "interface": [
-    "unknown"
+    "rest"
   ],
   "interface_detail": "not documented",
   "tooling": "not documented",
-  "chaining": "rejected: it composes with nothing because it does not hold bytes here",
+  "chaining": "OneLake accepts existing ADLS and Blob tools through dfs.fabric.microsoft.com endpoints, and exposes shortcuts to data sources outside OneLake.",
   "limits": [
     {
       "kind": "retention-clamped",
@@ -130,10 +130,31 @@
       "proved": "the trial capacity allows up to 1 TB of data in OneLake",
       "capture": "sha256:d5598fbd504c6499a23ffa6333efb9f39d4edf0a1e9d41756616116c89776711",
       "quote": "- Store up to **1 TB of data** in OneLake."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-api-parity",
+      "date": "2026-11-25",
+      "proved": "the first-party documentation states OneLake's ADLS and Blob REST API surface",
+      "capture": "sha256:fbd4bcb40aef738dc6c89842991fbeebea7217d8ade774e4f1e52250c1620143",
+      "quote": "OneLake supports the same APIs as Azure Data Lake Storage (ADLS) and Azure Blob Storage."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-consumption",
+      "date": "2026-11-25",
+      "proved": "the consumption page states the per-GB storage billing basis",
+      "capture": "sha256:5c8d5d67d274533ada92563b0eb8409f533d7b3c0ec791d6c971a10c4612f3f2",
+      "quote": "OneLake storage is billed at a pay-as-you-go rate per GB of data used and doesn't consume Fabric Capacity Units (CUs)."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-access-api",
+      "date": "2026-11-25",
+      "proved": "the first-party documentation states OneLake chains with existing ADLS and Blob tooling",
+      "capture": "sha256:2d7f5e457a70604d605ed711838e09cf47190ad7da6437e7365bf950f89711b4",
+      "quote": "OneLake provides open access to all of your Fabric items through existing Azure Data Lake Storage (ADLS) and Blob APIs and SDKs. You can access your data in OneLake through any API, SDK, or tool compatible with ADLS or Azure Blob Storage just by using a OneLake URI instead."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-04T01:24:31.180Z",
+  "verified_at": "2026-11-25T01:53:16.160Z",
   "notes": "1 TB of OneLake data for a 60-day trial; content is kept 7 days after the trial ends.",
   "history": [],
   "extras": {

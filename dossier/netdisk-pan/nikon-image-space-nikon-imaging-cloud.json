@@ -158,10 +158,45 @@
       "proved": "a Nikon ID is free to create",
       "capture": "sha256:aa61311b19cb0e517ec26a2d176f38354eca17501cbdd41f1bbc06860ba65f23",
       "quote": "Create a Nikon ID and use the service (free)"
+    },
+    {
+      "url": "https://imagingcloud.nikon.com/",
+      "date": "2026-11-25",
+      "proved": "the replacement image storage is still 5 GB",
+      "capture": "sha256:82989232125b3cd5a78269de5a89e1c772a0e4821f1449b5bcd94df25e51c8dc",
+      "quote": "A 5 GB image storage service with cloud sharing features."
+    },
+    {
+      "url": "https://nij.nikon.com/news/products/2026/0825.html",
+      "date": "2026-11-25",
+      "proved": "Nikon's own notice confirms IMAGE SPACE ended on 2026-10-15 at 09:00 JST",
+      "capture": "sha256:cde5973b1866141a2c33ca16a019b64f320493f97d40af535b9c2b9e46419756",
+      "quote": "2026年10月15日（木）9:00（日本時間）をもって、NIKON IMAGE SPACEのサービスは終了いたしました。"
+    },
+    {
+      "url": "https://www.nikonimagespace.com/",
+      "date": "2026-11-25",
+      "proved": "the former host itself now serves a termination notice instead of the old service",
+      "capture": "sha256:79a0f554b55973e1390097db69f919efbf3646bdb4c7b71945295e6d8faa20d4",
+      "quote": "The NIKON IMAGE SPACE service was terminated on October 15th, 2026."
+    },
+    {
+      "url": "https://accounts.cld.nikon.com/termsofuse?serviceId=NIC&country_code=",
+      "date": "2026-11-25",
+      "proved": "a Nikon ID is still required for the replacement service",
+      "capture": "sha256:a711b1ebc4192c1bd5dfa2a0720a0cd7ff1566a1c17ae9074788b8ae0e7da830",
+      "quote": "In order to use Nikon Imaging Cloud, you must first register for a Nikon ID"
+    },
+    {
+      "url": "https://accounts.cld.nikon.com/termsofuse?serviceId=NIC&country_code=",
+      "date": "2026-11-25",
+      "proved": "the first-party terms add a 30-day retention for images held in the cloud-transfer server, distinct from the 5 GB image storage",
+      "capture": "sha256:a711b1ebc4192c1bd5dfa2a0720a0cd7ff1566a1c17ae9074788b8ae0e7da830",
+      "quote": "Uploaded images will only be stored in Cloud Server for a maximum of 30 days, including the date of upload."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-04T00:20:56.363Z",
+  "verified_at": "2026-11-25T03:33:18.628Z",
   "history": [],
   "binding": "retention-clamped",
   "binding_note": "Service operations ceased on 2026-10-15. Standard storage was restricted to 2 GB or 20 GB, while the unlimited SnapBridge tier returned downscaled 2-megapixel copies rather than original binary payloads.",

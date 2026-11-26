@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0233-verify-netdisk-pan-6b92-u03-q01",
+ "kind": "verify",
+ "topic": "netdisk-pan",
+ "question": "Should the combined Nikon record be split: a dead record for the terminated IMAGE SPACE host and a separate record for the live Nikon Imaging Cloud 5 GB replacement, with a successor_of relation?",
+ "why": "IMAGE SPACE is confirmed terminated by Nikon's own notice, but the same record also describes a live 5 GB replacement; setting the whole record dead would falsely mark the replacement dead, so no dead op was proposed.",
+ "scope": {
+  "rids": [
+   "netdisk-pan/nikon-image-space-nikon-imaging-cloud"
+  ]
+ },
+ "origin": "20261125-0233-verify-netdisk-pan-6b92/u03",
+ "created": "2026-11-25T03:33:18Z"
+}

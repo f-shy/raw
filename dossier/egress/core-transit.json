@@ -53,7 +53,7 @@
     "detail": "Self-serve portal checkout, with purchase orders accepted: \"Can I pay via a purchase order or for a full year in advance? Yes!\". The signup form was not read.",
     "country": "None"
   },
-  "reliability_note": "Standard service is described as best-effort and month-to-month; no uptime figure is published for it.",
+  "reliability_note": "unverified: https://www.coretransit.net/core-transit-pricing/ answered HTTP 522 on 2026-11-25; no read of the page succeeded",
   "confidence": "documented",
   "confidence_note": "Price, rate and options are first-party. Address count at the base price is not stated (\"Available on Request\"), which is the gap a sales email would close.",
   "evidence": [
@@ -66,6 +66,13 @@
       "url": "https://www.coretransit.net/",
       "date": "2026-10-23",
       "proved": "\"Static IP Anywhere\" is aimed at hobbyists, small business, MSPs and enterprises; a 30 minute call is offered for enterprise sizing"
+    },
+    {
+      "url": "probe:www.coretransit.net",
+      "date": "2026-11-25",
+      "proved": "the pricing page answered HTTP 522 from its origin",
+      "capture": "sha256:d5f12b0396b40d90adfd0a25eda43b12b1592af24477b650d91675e188384a73",
+      "quote": "\"status\": 522"
     }
   ],
   "verdict": "paid-only",

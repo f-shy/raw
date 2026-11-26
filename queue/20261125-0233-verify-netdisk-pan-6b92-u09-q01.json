@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0233-verify-netdisk-pan-6b92-u09-q01",
+ "kind": "verify",
+ "topic": "netdisk-pan",
+ "question": "Does pan.ios98.com still answer an anonymous mount list after the TLS EOF at 2026-11-25T02:34:36.596Z, and does its next probe move consecutive_failures to 2 or reset it to 0?",
+ "why": "one failed probe cannot distinguish a transient TLS error from a dead host under the three-strike retirement policy, and no listing was returned to compare with the recorded hash",
+ "scope": {
+  "rids": [
+   "netdisk-pan/pan-ios98-com"
+  ]
+ },
+ "origin": "20261125-0233-verify-netdisk-pan-6b92/u09",
+ "created": "2026-11-25T19:55:34Z"
+}

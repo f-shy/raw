@@ -38,7 +38,13 @@
   "interface_detail": "Cloud Seeder installers for Windows and macOS, or manual setup with their addresses",
   "tooling": "Cloud Seeder (their client) or a manual WireGuard configuration",
   "chaining": "a paid alternative to Route64 for the same job: a routed public prefix onto a machine that has no public address",
-  "limits": [],
+  "limits": [
+    {
+      "kind": "per-ip-shaping",
+      "value": "1 Gbps Encrypted Tunnels",
+      "source": "https://www.ipv6.rs/l/en-US/"
+    }
+  ],
   "limits_note": "",
   "binding": "none",
   "binding_note": "Unmetered traffic and 1 Gbps tunnels, so nothing in the vocabulary fails at 1 TiB/month. The gate is the subscription price, which is not a limit kind.",
@@ -60,10 +66,31 @@
       "url": "https://www.ipv6.rs/l/en-US/cloudseeder/",
       "date": "2026-10-23",
       "proved": "the client that installs the tunnel, distributed as a signed installer"
+    },
+    {
+      "url": "https://www.ipv6.rs/l/en-US/",
+      "date": "2026-11-25",
+      "proved": "each tunnel is rated at 1 Gbps",
+      "capture": "sha256:db145127ba605a3a494581c3b08f8aed854e713a83805b703c824c99a5050700",
+      "quote": "- 1 Gbps Encrypted Tunnels"
+    },
+    {
+      "url": "https://www.ipv6.rs/l/en-US/",
+      "date": "2026-11-25",
+      "proved": "traffic is unmetered",
+      "capture": "sha256:db145127ba605a3a494581c3b08f8aed854e713a83805b703c824c99a5050700",
+      "quote": "- Unmetered Traffic"
+    },
+    {
+      "url": "https://www.ipv6.rs/l/en-US/",
+      "date": "2026-11-25",
+      "proved": "the monthly plan price",
+      "capture": "sha256:db145127ba605a3a494581c3b08f8aed854e713a83805b703c824c99a5050700",
+      "quote": "$6.95/mo"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:43.556Z",
   "price_per_tb_month": "USD 6.95/month",
   "history": [],
   "notes": "No free tier and no trial stated. The raw HTML is a Shells white-label shell titled 'KLB Vue Template' with a Realm name of shells.com, so nothing is readable without rendering; the numbers above come from the rendered markdown. Port forwarding on a public IPv6 is the ingress, so UDP is carried as routed IP rather than as a vendor feature.",

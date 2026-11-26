@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0233-verify-netdisk-pan-6b92-u19-q04",
+ "kind": "verify",
+ "topic": "media.advanced360.top name resolution",
+ "question": "Does media.advanced360.top resolve for a client with working DNS, and to what?",
+ "why": "tcpprobe cannot resolve any host in this environment (a control against telnyx.com:443 failed the same way), so its failure shows nothing about this host; a DoH query returned an A record for it.",
+ "scope": {
+  "rids": [
+   "netdisk-pan/media-advanced360-top"
+  ]
+ },
+ "origin": "20261125-0233-verify-netdisk-pan-6b92/u19",
+ "created": "2026-11-25T15:23:47Z"
+}

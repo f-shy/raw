@@ -15,16 +15,16 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://pockethost.io/pricing",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: the limits page states 10 GB per paid instance, pooled across the account; no per-file size cap is stated there."
   },
   "retention": {
-    "stated": "10 GB file storage + 250 MB DB per PocketBase slot. Slots are $9.99/mo (or $5/mo annual, or lifetime), with a 7-day trial.",
-    "days": 7,
-    "source_url": "https://pockethost.io/pricing",
-    "notes": "Extracted from published terms."
+    "stated": "Nothing is deleted. A powered-off instance keeps all of its data, and you can power it back on whenever your plan has room.",
+    "days": null,
+    "source_url": "https://pockethost.io/docs/limits",
+    "notes": "Nothing is deleted. A powered-off instance keeps all of its data, and you can power it back on whenever your plan has room."
   },
   "egress": {
-    "terms": "Unmetered bandwidth and CPU, fair use. This is the standout: storage is paid but egress is genuinely unmetered.",
+    "terms": "- Unmetered bandwidth and CPU (fair use)",
     "metered": false
   },
   "interface": [
@@ -34,7 +34,7 @@
   ],
   "interface_detail": "rest",
   "tooling": "PocketBase REST/realtime API, `pocketbase` JS/Dart SDKs, SFTP file access on PocketHost, S3 storage backend supported (like standalone PocketBase)",
-  "chaining": "Storage pools across slots ('Storage adds to your account pool, shared across every PocketBase you run'), so 10 slots = 100 GB for ~$50-100/mo. Not free, but the only entrant here with unmetered egress. Self-hosting PocketBase is free/MIT. That is the free path, on compute that is already available.",
+  "chaining": "**10 GB per paid instance**, pooled across your account.",
   "limits": [
     {
       "kind": "per-ip-shaping",
@@ -75,10 +75,87 @@
       "proved": "the current pricing page describes shared per-instance storage, not a 7-day trial",
       "capture": "sha256:1bbdcc88f34196937736222bd15282ef4d14a1b2801a12fd992baeadafe2b746",
       "quote": "Each paid instance adds 10 GB to your account's shared storage."
+    },
+    {
+      "url": "https://pockethost.io/docs/limits",
+      "date": "2026-11-25",
+      "proved": "the limits page states pooled disk storage but no per-file size cap",
+      "capture": "sha256:9aa3d8b75f0b56bf6e233b11bb9bac8b9328035c82d28f1335d2e067492d0a87",
+      "quote": "**10 GB per paid instance**, pooled across your account."
+    },
+    {
+      "url": "https://pockethost.io/docs/limits",
+      "date": "2026-11-25",
+      "proved": "data is kept when an instance is powered off after a plan reduction",
+      "capture": "sha256:9aa3d8b75f0b56bf6e233b11bb9bac8b9328035c82d28f1335d2e067492d0a87",
+      "quote": "Nothing is deleted. A powered-off instance keeps all of its data, and you can power it back on whenever your plan has room."
+    },
+    {
+      "url": "https://pockethost.io/docs/limits",
+      "date": "2026-11-25",
+      "proved": "powered-off instances keep their data",
+      "capture": "sha256:9aa3d8b75f0b56bf6e233b11bb9bac8b9328035c82d28f1335d2e067492d0a87",
+      "quote": "Nothing is deleted. A powered-off instance keeps all of its data, and you can power it back on whenever your plan has room."
+    },
+    {
+      "url": "https://pockethost.io/docs/limits",
+      "date": "2026-11-25",
+      "proved": "the captured page gives no file-expiry period",
+      "capture": "sha256:9aa3d8b75f0b56bf6e233b11bb9bac8b9328035c82d28f1335d2e067492d0a87",
+      "quote": "Nothing is deleted. A powered-off instance keeps all of its data, and you can power it back on whenever your plan has room."
+    },
+    {
+      "url": "https://pockethost.io/docs/limits",
+      "date": "2026-11-25",
+      "proved": "the limits page states the data-preservation term",
+      "capture": "sha256:9aa3d8b75f0b56bf6e233b11bb9bac8b9328035c82d28f1335d2e067492d0a87",
+      "quote": "Nothing is deleted. A powered-off instance keeps all of its data, and you can power it back on whenever your plan has room."
+    },
+    {
+      "url": "https://pockethost.io/pricing",
+      "date": "2026-11-25",
+      "proved": "the paid plan lists unmetered bandwidth under fair use",
+      "capture": "sha256:1bbdcc88f34196937736222bd15282ef4d14a1b2801a12fd992baeadafe2b746",
+      "quote": "- Unmetered bandwidth and CPU (fair use)"
+    },
+    {
+      "url": "https://pockethost.io/pricing",
+      "date": "2026-11-25",
+      "proved": "bandwidth is unmetered under fair use",
+      "capture": "sha256:1bbdcc88f34196937736222bd15282ef4d14a1b2801a12fd992baeadafe2b746",
+      "quote": "- Unmetered bandwidth and CPU (fair use)"
+    },
+    {
+      "url": "https://pockethost.io/docs/limits",
+      "date": "2026-11-25",
+      "proved": "storage from paid instances is pooled across the account",
+      "capture": "sha256:9aa3d8b75f0b56bf6e233b11bb9bac8b9328035c82d28f1335d2e067492d0a87",
+      "quote": "**10 GB per paid instance**, pooled across your account."
+    },
+    {
+      "url": "https://pockethost.io/docs/limits",
+      "date": "2026-11-25",
+      "proved": "paid-instance storage is pooled across the account",
+      "capture": "sha256:9aa3d8b75f0b56bf6e233b11bb9bac8b9328035c82d28f1335d2e067492d0a87",
+      "quote": "**10 GB per paid instance**, pooled across your account."
+    },
+    {
+      "url": "https://pockethost.io/docs/ftp",
+      "date": "2026-11-25",
+      "proved": "SFTP access is documented",
+      "capture": "sha256:f3a4d819436891f6b66f65b0c9dd80962bad9c1479f9b0685edea40c6d274545",
+      "quote": "PocketHost provides **SFTP** access to your instance files."
+    },
+    {
+      "url": "https://pockethost.io/docs/s3",
+      "date": "2026-11-25",
+      "proved": "S3-compatible storage is documented for the hosted instances",
+      "capture": "sha256:a0c2963d80d86c320661e15d089fa83b0282b58cf83c5414e4827f37ee57cf4b",
+      "quote": "S3 storage works seamlessly with PocketBase for the following use cases:"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-19T21:14:38.526Z",
+  "verified_at": "2026-11-25T19:55:15.333Z",
   "notes": "10 GB file storage + 250 MB DB per PocketBase slot. Slots are $9.99/mo (or $5/mo annual, or lifetime), with a 7-day trial.",
   "history": [],
   "extras": {

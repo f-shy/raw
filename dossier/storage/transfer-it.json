@@ -13,15 +13,15 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No file size limits.",
+    "stated": "Unlimited transfer size.",
     "source_url": "https://blog.mega.io/introducing-transfer-it",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Unlimited number of transfers."
   },
   "retention": {
-    "stated": "Retention: SERVER CLAMPS EXPIRY TO 90 DAYS",
+    "stated": "Transfers expire after 90 days.",
     "days": 90,
     "source_url": "https://transfer.it/",
-    "notes": "unverified: https://transfer.it/ is a 900-byte JavaScript single-page app and states no retention period"
+    "notes": "Transfers expire after 90 days."
   },
   "egress": {
     "terms": "unmetered; direct host-issued CDN URL (gfsXXX.userstorage.mega.co.nz) supports Range and returns 206. Link/bandwidth not metered per-download on the free tier.",
@@ -107,10 +107,52 @@
       "proved": "the transfer.it response is a 900-byte HTML page",
       "capture": "sha256:1e339c391337e73e5de8aa5624b9cfd6b0fd073522757d166db87bb8942cc9ec",
       "quote": "content-length: 900"
+    },
+    {
+      "url": "https://transfer.it/compare",
+      "date": "2026-11-25",
+      "proved": "the first-party comparison states that transfer size is unlimited",
+      "capture": "sha256:b2421a0530f97fcbf77ab4b49aa42e9616473452a2c17c41944cb3609d40e302",
+      "quote": "Unlimited transfer size"
+    },
+    {
+      "url": "https://transfer.it/compare",
+      "date": "2026-11-25",
+      "proved": "the first-party comparison states that the number of transfers is unlimited",
+      "capture": "sha256:b2421a0530f97fcbf77ab4b49aa42e9616473452a2c17c41944cb3609d40e302",
+      "quote": "Unlimited number of transfers"
+    },
+    {
+      "url": "https://transfer.it/compare",
+      "date": "2026-11-25",
+      "proved": "the first-party comparison states a 90-day transfer expiry",
+      "capture": "sha256:b2421a0530f97fcbf77ab4b49aa42e9616473452a2c17c41944cb3609d40e302",
+      "quote": "Transfers expire after 90 days"
+    },
+    {
+      "url": "https://transfer.it/compare",
+      "date": "2026-11-25",
+      "proved": "the first-party comparison states an unlimited transfer size",
+      "capture": "sha256:b2421a0530f97fcbf77ab4b49aa42e9616473452a2c17c41944cb3609d40e302",
+      "quote": "Unlimited transfer size"
+    },
+    {
+      "url": "https://transfer.it/compare",
+      "date": "2026-11-25",
+      "proved": "the first-party comparison states an unlimited number of transfers",
+      "capture": "sha256:b2421a0530f97fcbf77ab4b49aa42e9616473452a2c17c41944cb3609d40e302",
+      "quote": "Unlimited number of transfers"
+    },
+    {
+      "url": "https://transfer.it/compare",
+      "date": "2026-11-25",
+      "proved": "the first-party comparison states that transfers expire after 90 days",
+      "capture": "sha256:b2421a0530f97fcbf77ab4b49aa42e9616473452a2c17c41944cb3609d40e302",
+      "quote": "Transfers expire after 90 days"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:34.758Z",
+  "verified_at": "2026-11-25T19:55:26.956Z",
   "notes": "No file size limits. Send 100 GB, 1 TB, or even more, all for free.",
   "history": [],
   "extras": {

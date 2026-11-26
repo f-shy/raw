@@ -1,0 +1,16 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u31-q01",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Which limits[].kind names an ingress-protocol wall (HTTP-only free tier, raw TCP self-hosted only)? The vocabulary has none; write-gated is the nearest term and is used for egress/tunnelite, egress/tunnelmole and egress/tunnet.",
+ "why": "a protocol wall is not a write gate; a kind such as protocol-gated would sort these records correctly",
+ "scope": {
+  "rids": [
+   "egress/tunnelite",
+   "egress/tunnelmole",
+   "egress/tunnet"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u31",
+ "created": "2026-11-25T15:43:49Z"
+}

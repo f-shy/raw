@@ -13,14 +13,14 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "Upload code rejects project files above 500MiB and directs larger uploads to a moderator or admin.",
     "source_url": "https://raw.githubusercontent.com/modrinth/code/main/apps/labrinth/src/routes/v3/version_creation.rs",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Upload code rejects project files above 500MiB and directs larger uploads to a moderator or admin."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://raw.githubusercontent.com/modrinth/code/main/apps/labrinth/src/routes/v3/version_creation.rs",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: no retention period stated in the API reference"
   },
   "egress": {
     "terms": "Free. All files served from cdn.modrinth.com behind Cloudflare with `Accept-Ranges: bytes`, no auth, no signed URLs, no expiry.",
@@ -95,10 +95,31 @@
       "proved": "a migration sets the versions-per-project default to 10000",
       "capture": "sha256:c9ebe59287df110284682f2ddfac0ca8c775ba28697eb2df69cd66b96202b179",
       "quote": "ADD COLUMN versions_per_project INTEGER NOT NULL DEFAULT 10000,"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/modrinth/code/main/apps/labrinth/src/routes/v3/version_creation.rs",
+      "date": "2026-11-25",
+      "proved": "the upload route enforces a 500MiB per-file cap",
+      "capture": "sha256:2ee1cd1e6d5dcdfd03fd7f623d47ff384f3a719923f9916a0a578d58abbda877",
+      "quote": "Project file exceeds the maximum of 500MiB. Contact a moderator or admin to request permission to upload larger files."
+    },
+    {
+      "url": "https://docs.modrinth.com/api/operations/deleteversion/",
+      "date": "2026-11-25",
+      "proved": "the API reference names the VERSION_DELETE authorization scope",
+      "capture": "sha256:228ae1bab8864ccf1f30985d82a3a865996aec60142d6eacc2d25fc3312851fc",
+      "quote": "VERSION_DELETE"
+    },
+    {
+      "url": "https://docs.modrinth.com/api/operations/createversion/",
+      "date": "2026-11-25",
+      "proved": "the REST reference documents POST /version with attached version files",
+      "capture": "sha256:269e22e930900a87d508adbe0102f39c2f6eb4fc4902b97845a94816ce796a20",
+      "quote": "This route creates a version on an existing project. There must be at least one file attached to each new version, unless the new version’s status is `draft`. `.mrpack`, `.jar`, `.zip`, and `.litemod` files are accepted."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:01.148Z",
+  "verified_at": "2026-11-25T21:21:14.519Z",
   "notes": "500 MiB per version file (hard code-level cap: `read_from_field(field, 500 * (1 << 20), \"Project file exceeds the maximum of 500MiB...\")`). No stated total-account storage quota. Per-user quotas read from `user_limits`: projects = 256, projects_per_day = 10, versions_per_project = 10000, versions_per_day = 150.",
   "history": [],
   "extras": {

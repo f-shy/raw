@@ -15,15 +15,15 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.fairdata.fi/en/ida-quotas-by-organisation/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: the quotas-by-organisation page, the application instructions, the IDA terms of use and the Fairdata use policy state no per-object size cap"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "Published datasets are retained continuously while they remain downloadable through Fairdata Services and meet the terms of use",
     "source_url": "https://www.fairdata.fi/en/ida-quotas-by-organisation/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Data outside a published dataset is deleted 90 days after the CSC project closes; CSC may delete data transferred to IDA more than 24 months ago that is not part of a published dataset"
   },
   "egress": {
-    "terms": "Free; IDA is a CSC national service and 'The use of Fairdata IDA doesn't consume Billing Units.'",
+    "terms": "The use of Fairdata IDA doesn't consume Billing Units.",
     "metered": false
   },
   "interface": [
@@ -105,10 +105,80 @@
       "proved": "Fairdata IDA does not consume Billing Units",
       "capture": "sha256:d0dd0e9a79635d765dfce741f511240ef41008412b2ed2ae3f1d4a6cd80dc1a8",
       "quote": "The use of Fairdata IDA doesn't consume Billing Units."
+    },
+    {
+      "url": "https://www.fairdata.fi/en/ida-quotas-by-organisation/",
+      "date": "2026-11-25",
+      "proved": "the quotas table states allocation amounts but no per-object size cap",
+      "capture": "sha256:c7943235ba948377d4dd63c11d896f3e0fb5d44e2d32280db2295800ecf454ab",
+      "quote": "| **University** | **Quota in terabytes** |\n| --- | --- |\n| Aalto University | 480 |\n| University of Helsinki | 1500 |"
+    },
+    {
+      "url": "https://www.fairdata.fi/en/ida-research-data-storage-service-terms-of-use/",
+      "date": "2026-11-25",
+      "proved": "the IDA terms state continuous retention of published datasets independent of account and project validity",
+      "capture": "sha256:ed38f0b0063316f60a267ccb496b039cf8bd22183e481f23d2d33d8142d59020",
+      "quote": "Services retain Research Datasets stored in the IDA service and published in Etsin continuously, regardless of the validity of the User’s account and CSC Project"
+    },
+    {
+      "url": "https://www.fairdata.fi/en/ida-research-data-storage-service-terms-of-use/",
+      "date": "2026-11-25",
+      "proved": "the IDA terms state deletion 90 days after project closure for data outside a published dataset",
+      "capture": "sha256:ed38f0b0063316f60a267ccb496b039cf8bd22183e481f23d2d33d8142d59020",
+      "quote": "CSC will delete the Data stored in IDA (including published Data) 90 days after the CSC Project is closed, as described in the [General Terms of Use for CSC’s Services for Research](https://research.csc.fi/terms-of-use/)."
+    },
+    {
+      "url": "https://www.fairdata.fi/en/ida-research-data-storage-service-terms-of-use/",
+      "date": "2026-11-25",
+      "proved": "data outside a published dataset may be deleted after 24 months even while the project is active",
+      "capture": "sha256:ed38f0b0063316f60a267ccb496b039cf8bd22183e481f23d2d33d8142d59020",
+      "quote": "Unless otherwise agreed, CSC reserves the right to delete Data from the IDA service that was transferred to IDA more than 24 months ago but is not part of any Research Dataset findable in the Fairdata Etsin service."
+    },
+    {
+      "url": "https://docs.csc.fi/accounts/billing/",
+      "date": "2026-11-25",
+      "proved": "CSC's billing documentation states that IDA use does not consume Billing Units",
+      "capture": "sha256:0ad62f71ef1d7df52e8b39964ee75235a25241222672b3069f21de63e85d2567",
+      "quote": "The use of Fairdata IDA doesn't consume Billing Units."
+    },
+    {
+      "url": "https://www.fairdata.fi/en/ida-quotas-by-organisation/",
+      "date": "2026-11-25",
+      "proved": "the quotas table still lists the 1500 TB Helsinki pool quoted by the free tier",
+      "capture": "sha256:c7943235ba948377d4dd63c11d896f3e0fb5d44e2d32280db2295800ecf454ab",
+      "quote": "| **University** | **Quota in terabytes** |\n| --- | --- |\n| Aalto University | 480 |\n| University of Helsinki | 1500 |"
+    },
+    {
+      "url": "https://www.fairdata.fi/en/ida-research-data-storage-service-terms-of-use/",
+      "date": "2026-11-25",
+      "proved": "the IDA terms still state continuous retention for published datasets",
+      "capture": "sha256:ed38f0b0063316f60a267ccb496b039cf8bd22183e481f23d2d33d8142d59020",
+      "quote": "Services retain Research Datasets stored in the IDA service and published in Etsin continuously, regardless of the validity of the User’s account and CSC Project"
+    },
+    {
+      "url": "https://www.fairdata.fi/en/ida-research-data-storage-service-terms-of-use/",
+      "date": "2026-11-25",
+      "proved": "the IDA terms still state deletion 90 days after project closure for data outside a published dataset",
+      "capture": "sha256:ed38f0b0063316f60a267ccb496b039cf8bd22183e481f23d2d33d8142d59020",
+      "quote": "CSC will delete the Data stored in IDA (including published Data) 90 days after the CSC Project is closed, as described in the [General Terms of Use for CSC’s Services for Research](https://research.csc.fi/terms-of-use/)."
+    },
+    {
+      "url": "https://docs.csc.fi/accounts/billing/",
+      "date": "2026-11-25",
+      "proved": "CSC states IDA use consumes no Billing Units, so egress is not metered",
+      "capture": "sha256:0ad62f71ef1d7df52e8b39964ee75235a25241222672b3069f21de63e85d2567",
+      "quote": "The use of Fairdata IDA doesn't consume Billing Units."
+    },
+    {
+      "url": "https://www.fairdata.fi/en/ida/apply-for-ida-storage-space/",
+      "date": "2026-11-25",
+      "proved": "the write gate remains approval by the home organisation's IDA contact person",
+      "capture": "sha256:c099992dbc44d9ea929afb7f6f0ebdc5d89323b3e1db3261e54675cf643acbfd",
+      "quote": "You will receive an email confirmation after the organisation’s IDA contact person has approved your application (usually within a few working days)."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:12.225Z",
+  "verified_at": "2026-11-25T04:14:18.948Z",
   "notes": "No flat per-user number; the quota is a slice of your organisation's allocation. Published national pool (last updated 2025-02-28): University of Helsinki 1,500 TB, Aalto 480 TB, University of Oulu 465 TB, University of Turku 427 TB, Tampere universities 361.7 TB, Åbo Akademi 150 TB, and so on. You apply for a number of GiB in MyCSC and your organisation's IDA contact person approves it, 'usually within a few working days'.",
   "history": [],
   "extras": {

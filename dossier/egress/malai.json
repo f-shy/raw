@@ -6,7 +6,7 @@
   "category": "p2p tunnel",
   "tier": "free",
   "free_tier": {
-    "stated": "The deployment is paused. The last public offer was: No signup, no accounts, and you can self-host your own http bridge if you want.",
+    "stated": "The deployment is temporarily paused.",
     "unit": "none",
     "metered_on": "unstated",
     "source_url": "https://malai.sh/",
@@ -71,10 +71,24 @@
       "url": "https://malai.sh/",
       "date": "2026-10-23",
       "proved": "the page returns upstream status 402 with the title 'Deployment Paused', which confirms the service is not running"
+    },
+    {
+      "url": "https://malai.sh/",
+      "date": "2026-11-25",
+      "proved": "malai.sh answers HTTP 402 with this pause notice and serves no page, plan or allowance",
+      "capture": "sha256:255177335efafdf04573c090bb5e6df6eb633a549b86d69011258557d070bc1b",
+      "quote": "This deployment is temporarily paused"
+    },
+    {
+      "url": "https://malai.sh/",
+      "date": "2026-11-25",
+      "proved": "nothing is served from malai.sh; the deployment is disabled",
+      "capture": "sha256:255177335efafdf04573c090bb5e6df6eb633a549b86d69011258557d070bc1b",
+      "quote": "This deployment is temporarily paused"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T19:55:30.545Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Recorded as dead rather than deleted so the next session does not rediscover it. The pattern, an iroh relay plus a community bridge, recurs in several 2025-2026 launches and the bridge is the part that dies. Historical citation moved out of evidence because it no longer proves the present claim: 'Launch: share a dev server over P2P on the iroh stack, no signup, public bridge at kulfi.site.' (https://news.ycombinator.com/item?id=43844500, 2025-04-30).",

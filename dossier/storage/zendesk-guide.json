@@ -16,12 +16,12 @@
     "stated": "20 MB per file",
     "bytes": 20000000,
     "source_url": "https://support.zendesk.com/hc/en-us/articles/4408884048794-What-are-the-attachment-limits-and-supported-file-types-in-my-help-center",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "- Articles: 20MB limit per file or image upload."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "- **Delete media**: Permanently removes the selected media from the media library and any published article that uses it. You can only delete the media that you have uploaded.",
     "source_url": "https://support.zendesk.com/hc/en-us/articles/4408884048794-What-are-the-attachment-limits-and-supported-file-types-in-my-help-center",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "- **Delete media**: Permanently removes the selected media from the media library and any published article that uses it. You can only delete the media that you have uploaded."
   },
   "egress": {
     "terms": "Free and unranged-open. Article attachments are served from `support.zendesk.com/hc/article_attachments/<id>` with no auth, no referer check, `Accept-Ranges: bytes`, `Access-Control-Allow-Origin` permissive, `x-amz-replication-status: COMPLETED`, AES256 at rest.",
@@ -84,10 +84,38 @@
       "proved": "help center article attachments are 20 MB per file and have no overall per-article storage limit",
       "capture": "sha256:a5283732e0d6c39d177eb5ede20118fff9d4147fd03cecbff401b49c928fc710",
       "quote": "Articles: 20MB limit per file or image upload.\n\n- Community posts and comments: 2MB limit per image file.\n\nEach article has no limit on overall storage or total number of attached files."
+    },
+    {
+      "url": "https://support.zendesk.com/hc/en-us/articles/4408884048794-What-are-the-attachment-limits-and-supported-file-types-in-my-help-center",
+      "date": "2026-11-25",
+      "proved": "the attachment page states a 20MB per-file limit for articles",
+      "capture": "sha256:a5283732e0d6c39d177eb5ede20118fff9d4147fd03cecbff401b49c928fc710",
+      "quote": "- Articles: 20MB limit per file or image upload."
+    },
+    {
+      "url": "https://support.zendesk.com/hc/en-us/articles/6041620684314-Working-with-attachments-in-the-media-library",
+      "date": "2026-11-25",
+      "proved": "the media-library page states that media can be permanently deleted from the library and its published articles",
+      "capture": "sha256:04ab6119e6a94b190c903a4e7ebd125e9257aacc52163b8993f755cb5a25ed86",
+      "quote": "- **Delete media**: Permanently removes the selected media from the media library and any published article that uses it. You can only delete the media that you have uploaded."
+    },
+    {
+      "url": "https://support.zendesk.com/hc/en-us/articles/4408884048794-What-are-the-attachment-limits-and-supported-file-types-in-my-help-center",
+      "date": "2026-11-25",
+      "proved": "article attachments have a 20MB per-file limit",
+      "capture": "sha256:a5283732e0d6c39d177eb5ede20118fff9d4147fd03cecbff401b49c928fc710",
+      "quote": "- Articles: 20MB limit per file or image upload."
+    },
+    {
+      "url": "https://support.zendesk.com/hc/en-us/articles/6041620684314-Working-with-attachments-in-the-media-library",
+      "date": "2026-11-25",
+      "proved": "media can be permanently deleted from the library and published articles",
+      "capture": "sha256:04ab6119e6a94b190c903a4e7ebd125e9257aacc52163b8993f755cb5a25ed86",
+      "quote": "- **Delete media**: Permanently removes the selected media from the media library and any published article that uses it. You can only delete the media that you have uploaded."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-19T21:15:23.338Z",
+  "verified_at": "2026-11-25T21:21:19.435Z",
   "notes": "'Each article has no limit on overall storage or total number of attached files.' Per-file 20 MB. But account-level file storage is separately capped at 10 GB base + 2 GB/agent (Team). The article-level 'no limit' sits inside that account bucket.",
   "history": [],
   "extras": {

@@ -1,0 +1,15 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u88-q04",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "What account fields do the signup pages at https://panel.neoprotect.net/auth/register and https://dashboard.ngrok.com/signup require? The panel answered HTTP 405 to every read route and the ngrok page is a login wall; the identity gates remain unread.",
+ "why": "the identity cost cannot be confirmed without an account, and no account may be created.",
+ "scope": {
+  "rids": [
+   "egress/neoprotect",
+   "egress/ngrok-free"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u88",
+ "created": "2026-11-25T19:55:31Z"
+}

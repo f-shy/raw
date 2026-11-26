@@ -70,10 +70,52 @@
       "url": "https://ngrok.com/docs/gateway/endpoints/protocols",
       "date": "2026-10-23",
       "proved": "endpoints are limited to http, https, tcp and tls"
+    },
+    {
+      "url": "https://ngrok.com/docs/pricing-limits/free-plan-limits",
+      "date": "2026-11-25",
+      "proved": "the free plan allows 3 online endpoints, 3 concurrent agents, 1 user and 1 development domain",
+      "capture": "sha256:12cf55d71dac0e00e2d9b06c26f110dcc54fdd664df4bbd2758ac8bfb49f5546",
+      "quote": "| Online endpoints | Up to 3 |\n| Concurrent agents | 3 |\n| Users | 1 |\n| Development domains | 1 |"
+    },
+    {
+      "url": "https://ngrok.com/docs/pricing-limits/free-plan-limits",
+      "date": "2026-11-25",
+      "proved": "the free plan allows 1 GB out, 20,000 HTTP requests and 5,000 TCP connections a month and up to 3 online endpoints",
+      "capture": "sha256:12cf55d71dac0e00e2d9b06c26f110dcc54fdd664df4bbd2758ac8bfb49f5546",
+      "quote": "| Data transfer out | 1 GB / month | ... | HTTP requests | 20,000 / month | ... | TCP connections | 5,000 / month | ... | Logs & events | 10,000 / month | ... | Webhook verifications | 500 / month | ... | Online endpoints | Up to 3 |"
+    },
+    {
+      "url": "https://ngrok.com/docs/pricing-limits/free-plan-limits",
+      "date": "2026-11-25",
+      "proved": "the free plan's monthly quotas are 1 GB out, 20,000 HTTP requests, 5,000 TCP connections, 10,000 log events and 500 webhook verifications",
+      "capture": "sha256:12cf55d71dac0e00e2d9b06c26f110dcc54fdd664df4bbd2758ac8bfb49f5546",
+      "quote": "| Data transfer out | 1 GB / month | ... | HTTP requests | 20,000 / month | ... | TCP connections | 5,000 / month | ... | Logs & events | 10,000 / month | ... | Webhook verifications | 500 / month |"
+    },
+    {
+      "url": "https://ngrok.com/docs/pricing-limits/free-plan-limits",
+      "date": "2026-11-25",
+      "proved": "the free plan's rate limits are 4,000 HTTP requests a minute and 100 TCP connections a minute",
+      "capture": "sha256:12cf55d71dac0e00e2d9b06c26f110dcc54fdd664df4bbd2758ac8bfb49f5546",
+      "quote": "| HTTP request rate | 4,000 / min |\n| TCP connection rate | 100 / min |"
+    },
+    {
+      "url": "https://ngrok.com/docs/pricing-limits/free-plan-limits",
+      "date": "2026-11-25",
+      "proved": "free plan data transfer out is 1 GB per month",
+      "capture": "sha256:12cf55d71dac0e00e2d9b06c26f110dcc54fdd664df4bbd2758ac8bfb49f5546",
+      "quote": "| Data transfer out | 1 GB / month |"
+    },
+    {
+      "url": "https://ngrok.com/docs/errors/err_ngrok_8013",
+      "date": "2026-11-25",
+      "proved": "a card must be added before TCP endpoints can be used on a free account",
+      "capture": "sha256:948bfb6ac2ff07c38b57fb220cc3378ab453c087e2deec602af74fe14811beec",
+      "quote": "You must add a credit or debit card before you can use TCP endpoints on a free account. We require a valid card as a way to combat abuse and keep the internet a safe place. This card will NOT be charged."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T19:55:31.198Z",
   "notes": "The record merged rate and quota into one request-rate entry. The docs separate three kinds of limit and the rate row is a distinct constraint that binds before the monthly count on a burst. Replaces the note about the vocabulary with the ratio and the documented consequence.",
   "history": [],
   "extras": {
@@ -88,5 +130,5 @@
   "interface_detail": "ngrok http; the dev domain is <name>.ngrok-free.app",
   "stale": false,
   "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "limits_note": "the allowance is a byte volume over a period, which none of the six kinds names; the number is in egress.free_allowance and binding names per-ip-shaping as the nearest kind. counts of things, not rates, so no vocabulary kind names them: 3 online endpoints and one dev domain per account"
+  "limits_note": "3 online endpoints, 3 concurrent agents, 1 user and 1 development domain"
 }

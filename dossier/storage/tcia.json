@@ -13,14 +13,14 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "| getImage | Set of images in a zip file | ZIP | SeriesInstanceUID (R) | NA | NA | NA |  |",
     "source_url": "https://www.cancerimagingarchive.net/primary-data/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "| getImage | Set of images in a zip file | ZIP | SeriesInstanceUID (R) | NA | NA | NA |  |"
   },
   "retention": {
-    "stated": "Per-object-cap: one zip per DICOM series (tens of MB each). The archive is sharded by series, not by dataset. Retention: permanent, DOI per collection.",
+    "stated": "Every TCIA dataset is published with a **Data Citation** which includes a persistent Digital Object Identifier (DOI) that must be cited or attributed any time the data are used as shown below.",
     "source_url": "https://www.cancerimagingarchive.net/primary-data/",
-    "notes": "Extracted from published terms."
+    "notes": "Every TCIA dataset is published with a **Data Citation** which includes a persistent Digital Object Identifier (DOI) that must be cited or attributed any time the data are used as shown below."
   },
   "egress": {
     "terms": "Free and anonymous. NBIA REST API serves DICOM series zips with no key; CORS open.",
@@ -77,10 +77,38 @@
       "proved": "the primary-data page states applications are reviewed quarterly by the TCIA Advisory Group",
       "capture": "sha256:4e0210320b8894682a945d7f06aa0315d4e31ceb6ef44c13aa96808dd1fc1096",
       "quote": "Applications are reviewed quarterly by the TCIA Advisory Group to assess their utility to the TCIA user community."
+    },
+    {
+      "url": "https://wiki.cancerimagingarchive.net/display/Public/TCIA+Programmatic+Interface+(REST+API)+Usage+Guide+v1",
+      "date": "2026-11-25",
+      "proved": "getImage returns a ZIP keyed by SeriesInstanceUID",
+      "capture": "sha256:1c109ca02551552e83b0626f600c18e8d34eb569443b1e4d13c137d2ac20579d",
+      "quote": "| getImage | Set of images in a zip file | ZIP | SeriesInstanceUID (R) | NA | NA | NA |  |"
+    },
+    {
+      "url": "https://www.cancerimagingarchive.net/data-usage-policies-and-restrictions/",
+      "date": "2026-11-25",
+      "proved": "the usage page states a persistent DOI for every dataset",
+      "capture": "sha256:8dc182c5d0a2be953fea880bf87cb68ca907ba38689d4edace54e611b431ea83",
+      "quote": "Every TCIA dataset is published with a **Data Citation** which includes a persistent Digital Object Identifier (DOI) that must be cited or attributed any time the data are used as shown below."
+    },
+    {
+      "url": "https://www.cancerimagingarchive.net/primary-data/",
+      "date": "2026-11-25",
+      "proved": "the primary-data page states quarterly advisory review",
+      "capture": "sha256:4317031f4b8caaa4ffa05403fd636c03b8bb3cdc4c4ea6835adeb0977f05ad1a",
+      "quote": "Applications are reviewed quarterly by the TCIA Advisory Group to assess their utility to the TCIA user community."
+    },
+    {
+      "url": "https://www.cancerimagingarchive.net/primary-data/",
+      "date": "2026-11-25",
+      "proved": "the primary-data page states the no-fee position",
+      "capture": "sha256:4317031f4b8caaa4ffa05403fd636c03b8bb3cdc4c4ea6835adeb0977f05ad1a",
+      "quote": "We do not charge a fee for sharing your data through TCIA except in rare circumstances where proposals are extremely large."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:33.173Z",
+  "verified_at": "2026-11-25T19:55:23.965Z",
   "notes": "Free. 'We do not charge a fee for sharing your data through TCIA except in rare circumstances where proposals are extremely large.'",
   "history": [],
   "extras": {

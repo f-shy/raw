@@ -1,0 +1,15 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u51-q02",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Does AWS Free Tier signup ask for a card, and does AWS Activate state a $1,000 minimum credit?",
+ "why": "the captured Free Tier page carries no card wording and the captured Activate page states only 'up to $200,000'; identity_cost.detail on aws-free-tier and the $1,000 floor in notes and extras.volume_stated are unsupported by the captured pages",
+ "scope": {
+  "rids": [
+   "egress/aws-free-tier",
+   "egress/aws-activate"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u51",
+ "created": "2026-11-25T15:43:54Z"
+}

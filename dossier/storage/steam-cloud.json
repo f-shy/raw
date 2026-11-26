@@ -16,15 +16,15 @@
     "stated": "100MB maximum size for a call to ISteamRemoteStorage::FileWrite or ISteamRemoteStorage::FileWriteStreamWriteChunk",
     "bytes": 100000000,
     "source_url": "https://partner.steamgames.com/doc/features/cloud",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "| 100MB | Maximum size for a call to ISteamRemoteStorage::FileWrite or ISteamRemoteStorage::FileWriteStreamWriteChunk |"
   },
   "retention": {
     "stated": "Per-object-cap: 100 MB per FileWrite call (256 MB 'may result in a non-optimal storage endpoint'); per-object-cap: ~10,000 files per cloud save; the game must be launchable/owned for the user, and impersonating it blocks normal play during sync. Retention: indefinite. No expiry documented, but a developer can change quota or delist and the data can be evicted.",
     "source_url": "https://partner.steamgames.com/doc/features/cloud",
-    "notes": "Extracted from published terms."
+    "notes": "The Steam Client does the work of ensuring that the files are kept synchronized across all computers the user may be accessing."
   },
   "egress": {
-    "terms": "Unmetered and anonymous on the download path via the Steam client / Steamworks SDK. No published per-GB charge.",
+    "terms": "No per-GB egress charge is published and the Steamworks page states no egress term; the Steam client keeps the cloud files synchronized across the user's computers and downloads them to a new computer before the game launches.",
     "metered": false
   },
   "interface": [
@@ -32,7 +32,7 @@
   ],
   "interface_detail": "rest",
   "tooling": "Steamworks SDK `ISteamRemoteStorage` (FileWrite, FileWriteStreamWriteChunk, FileReadAsync). Working wrapper exists: github.com/Fldicoahkiin/SteamCloudFileManager. 237 stars, Rust, Windows/macOS/Linux, '支持任意文件的上传、下载与删除' (arbitrary file upload/download/delete against any owned game's cloud). Design writeup: krutonium.ca/posts/using-steam-as-cloud-storage/.",
-  "chaining": "One Steam account x every owned Cloud-enabled game with a large quota. At 93 GB/game, 12 games = ~1.1 TB; 100 games = ~9 TB. Multiply again by accounts. The lever is picking titles whose developers set 93 GB, not buying storage.",
+  "chaining": "You are able to share Cloud storage space between two app IDs by filling out the `Shared cloud APP ID` field.",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -83,10 +83,52 @@
       "proved": "the page limits one FileWrite or FileWriteStreamWriteChunk call to 100MB",
       "capture": "sha256:f13b0e9e5cd9acacba3cdd0ae19f8c84f7510fd3b158c35a324c43a5fc55b22b",
       "quote": "| 100MB | Maximum size for a call to ISteamRemoteStorage::FileWrite or ISteamRemoteStorage::FileWriteStreamWriteChunk |"
+    },
+    {
+      "url": "https://partner.steamgames.com/doc/features/cloud",
+      "date": "2026-11-25",
+      "proved": "the Steamworks file-size table states the 100MB FileWrite call ceiling",
+      "capture": "sha256:f13b0e9e5cd9acacba3cdd0ae19f8c84f7510fd3b158c35a324c43a5fc55b22b",
+      "quote": "| 100MB | Maximum size for a call to ISteamRemoteStorage::FileWrite or ISteamRemoteStorage::FileWriteStreamWriteChunk |"
+    },
+    {
+      "url": "https://partner.steamgames.com/doc/features/cloud",
+      "date": "2026-11-25",
+      "proved": "the Steamworks page states that Steam keeps cloud files synchronized across the user's computers",
+      "capture": "sha256:f13b0e9e5cd9acacba3cdd0ae19f8c84f7510fd3b158c35a324c43a5fc55b22b",
+      "quote": "The Steam Client does the work of ensuring that the files are kept synchronized across all computers the user may be accessing."
+    },
+    {
+      "url": "https://partner.steamgames.com/doc/features/cloud",
+      "date": "2026-11-25",
+      "proved": "the setup page describes sharing cloud storage between two app IDs",
+      "capture": "sha256:f13b0e9e5cd9acacba3cdd0ae19f8c84f7510fd3b158c35a324c43a5fc55b22b",
+      "quote": "You are able to share Cloud storage space between two app IDs by filling out the `Shared cloud APP ID` field."
+    },
+    {
+      "url": "https://partner.steamgames.com/doc/features/cloud",
+      "date": "2026-11-25",
+      "proved": "the page states that cloud files are downloaded automatically to a new computer",
+      "capture": "sha256:f13b0e9e5cd9acacba3cdd0ae19f8c84f7510fd3b158c35a324c43a5fc55b22b",
+      "quote": "If the user changes computers, the files are automatically downloaded to the new computer prior to the game launching."
+    },
+    {
+      "url": "https://partner.steamgames.com/doc/features/cloud",
+      "date": "2026-11-25",
+      "proved": "the page states cross-computer file synchronization",
+      "capture": "sha256:f13b0e9e5cd9acacba3cdd0ae19f8c84f7510fd3b158c35a324c43a5fc55b22b",
+      "quote": "The Steam Client does the work of ensuring that the files are kept synchronized across all computers the user may be accessing."
+    },
+    {
+      "url": "https://partner.steamgames.com/doc/features/cloud",
+      "date": "2026-11-25",
+      "proved": "the page states automatic cloud-file downloads to a new computer",
+      "capture": "sha256:f13b0e9e5cd9acacba3cdd0ae19f8c84f7510fd3b158c35a324c43a5fc55b22b",
+      "quote": "If the user changes computers, the files are automatically downloaded to the new computer prior to the game launching."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:32.477Z",
+  "verified_at": "2026-11-25T19:55:22.267Z",
   "notes": "Quota is set by each game's developer as 'Byte quota per user' and 'Number of files allowed per user', 'enforced on each Cloud-enabled game, on a per-user-per-game basis'. No Valve-imposed total. Community-observed ceilings: 93 GB per game, ~10,000 files. Defaults are frequently tiny (a few MB to 1 GB).",
   "history": [],
   "extras": {
@@ -111,7 +153,7 @@
     "identity_cost_defaulted": true,
     "quota_verbatim": "Quota is set by each game's developer as 'Byte quota per user' and 'Number of files allowed per user', 'enforced on each Cloud-enabled game, on a per-user-per-game basis'. No Valve-imposed total. Community-observed ceilings: 93 GB per game, ~10,000 files. Defaults are frequently tiny (a few MB to 1 GB).",
     "limits_verbatim": "per-object-cap: 100 MB per FileWrite call (256 MB 'may result in a non-optimal storage endpoint'); per-object-cap: ~10,000 files per cloud save; the game must be launchable/owned for the user, and impersonating it blocks normal play during sync. Retention: indefinite — no expiry documented, but a developer can change quota or delist and the data can be evicted.",
-    "egress_verbatim": "Unmetered and anonymous on the download path via the Steam client / Steamworks SDK. No published per-GB charge.",
+    "egress_verbatim": "The Steam Client does the work of ensuring that the files are kept synchronized across all computers the user may be accessing.",
     "chaining_verbatim": "One Steam account x every owned Cloud-enabled game with a large quota. At 93 GB/game, 12 games = ~1.1 TB; 100 games = ~9 TB. Multiply again by accounts. The lever is picking titles whose developers set 93 GB, not buying storage.",
     "tooling_verbatim": "Steamworks SDK `ISteamRemoteStorage` (FileWrite, FileWriteStreamWriteChunk, FileReadAsync). Working wrapper exists: github.com/Fldicoahkiin/SteamCloudFileManager — 237 stars, Rust, Windows/macOS/Linux, '支持任意文件的上传、下载与删除' (arbitrary file upload/download/delete against any owned game's cloud). Design writeup: krutonium.ca/posts/using-steam-as-cloud-storage/.",
     "interface_verbatim": "rest",

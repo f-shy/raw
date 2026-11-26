@@ -16,16 +16,16 @@
     "stated": "1 TB per file",
     "bytes": 1000000000000,
     "source_url": "https://patrins.com/docs",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Up to 1 TB per file on every plan, including Free; there is no per-file fee, only the total storage quota."
   },
   "retention": {
     "stated": "Anonymous downloads expire 7 hours after link generation; temp files auto-delete at 7 days.",
     "days": 0,
     "source_url": "https://patrins.com/docs",
-    "notes": "Extracted from published terms."
+    "notes": "Toggle Temporary before you upload and the file is automatically deleted 7 days later; it does not count against permanent storage."
   },
   "egress": {
-    "terms": "Unlimited bandwidth on all plans, stated on the pricing table and repeated in docs. No egress product.",
+    "terms": "All plans include unlimited file size, unlimited bandwidth, and every platform feature.",
     "metered": false
   },
   "interface": [
@@ -36,7 +36,7 @@
   ],
   "interface_detail": "webdav",
   "tooling": "Supports rclone via WebDAV (`https://patrins.com/dav`). Features REST API and tus 1.0 resumable uploads, webhooks, command-line interface, Telegram integration, and WebDAV drive mapping.",
-  "chaining": "rclone WebDAV mount + N free accounts x 8 GB permanent, or the anonymous 1 TB-per-file path for transit. The 8 GB cap is the binding number for storage; 1 TB/file only helps if something downstream holds the bytes.",
+  "chaining": "8 GB permanent storage with 1 TB max file size; rclone mount patrins: /mnt/patrins.",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -137,10 +137,80 @@
       "proved": "the sign-up form offers Google as a registration route",
       "capture": "sha256:3239e644cdcd0330ae3a423a516b957270c6108de1a6dd7bfb5a010bf45f774d",
       "quote": "Continue with Google"
+    },
+    {
+      "url": "https://patrins.com/",
+      "date": "2026-11-25",
+      "proved": "the homepage states a 1 TB per-file ceiling on every plan including Free, with the total storage quota as the only other limit",
+      "capture": "sha256:7bea14eebd179414320a72cf5bb553c99a2816ca6fcaf2e4d6877dd675a8e59b",
+      "quote": "Up to **1 TB per file** — on every plan, including Free. There's no per-file fee; you're only limited by your total storage quota."
+    },
+    {
+      "url": "https://patrins.com/",
+      "date": "2026-11-25",
+      "proved": "the homepage confirms the 1 TB per-file ceiling",
+      "capture": "sha256:7bea14eebd179414320a72cf5bb553c99a2816ca6fcaf2e4d6877dd675a8e59b",
+      "quote": "Up to **1 TB per file** — on every plan, including Free. There's no per-file fee; you're only limited by your total storage quota."
+    },
+    {
+      "url": "https://patrins.com/",
+      "date": "2026-11-25",
+      "proved": "the homepage states the 7-day temporary-file deletion and that it does not use permanent storage",
+      "capture": "sha256:7bea14eebd179414320a72cf5bb553c99a2816ca6fcaf2e4d6877dd675a8e59b",
+      "quote": "Toggle `Temporary` before you upload and the file is automatically deleted 7 days later. It doesn't count against your permanent storage."
+    },
+    {
+      "url": "https://patrins.com/",
+      "date": "2026-11-25",
+      "proved": "the homepage confirms the 7-day temporary-file deletion",
+      "capture": "sha256:7bea14eebd179414320a72cf5bb553c99a2816ca6fcaf2e4d6877dd675a8e59b",
+      "quote": "Toggle `Temporary` before you upload and the file is automatically deleted 7 days later. It doesn't count against your permanent storage."
+    },
+    {
+      "url": "https://patrins.com/upload",
+      "date": "2026-11-25",
+      "proved": "the upload page states the 7-hour link expiry and 7-day temporary-file deletion",
+      "capture": "sha256:ca69e5bed287ac150e7629a4ab4fd1edf2b1f04f8f93d57472bc817605779d18",
+      "quote": "Share this link with others. Download links are generated on-demand and expire after 7 hours. ... Temporary files auto-delete after 7 days"
+    },
+    {
+      "url": "https://patrins.com/",
+      "date": "2026-11-25",
+      "proved": "the homepage documents WebDAV, rclone, REST and CLI access",
+      "capture": "sha256:7bea14eebd179414320a72cf5bb553c99a2816ca6fcaf2e4d6877dd675a8e59b",
+      "quote": "Connect over WebDAV and browse files like any local folder — Finder, Explorer, or rclone. ... **Full REST API.** Upload, manage, share, and search files with a single Bearer token. ... Drag it in, use the CLI, or hit the API."
+    },
+    {
+      "url": "https://patrins.com/docs",
+      "date": "2026-11-25",
+      "proved": "the docs state that all plans, including Free, have unlimited bandwidth",
+      "capture": "sha256:ac71dc53b83e9654e568317d3ee6c2c150e678e34dd55e1fe3a3119c579f9e81",
+      "quote": "All plans include unlimited file size, unlimited bandwidth, and every platform feature."
+    },
+    {
+      "url": "https://patrins.com/docs",
+      "date": "2026-11-25",
+      "proved": "the docs state unlimited bandwidth on all plans",
+      "capture": "sha256:ac71dc53b83e9654e568317d3ee6c2c150e678e34dd55e1fe3a3119c579f9e81",
+      "quote": "All plans include unlimited file size, unlimited bandwidth, and every platform feature."
+    },
+    {
+      "url": "https://patrins.com/",
+      "date": "2026-11-25",
+      "proved": "the homepage gives the free storage quota, the per-file ceiling and an rclone WebDAV mount example",
+      "capture": "sha256:7bea14eebd179414320a72cf5bb553c99a2816ca6fcaf2e4d6877dd675a8e59b",
+      "quote": "8 GB permanent storage ... 1 TB max file size ... rclone mount patrins: /mnt/patrins"
+    },
+    {
+      "url": "https://patrins.com/",
+      "date": "2026-11-25",
+      "proved": "the homepage confirms the quota, cap and rclone mount",
+      "capture": "sha256:7bea14eebd179414320a72cf5bb553c99a2816ca6fcaf2e4d6877dd675a8e59b",
+      "quote": "8 GB permanent storage ... 1 TB max file size ... rclone mount patrins: /mnt/patrins"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:37.736Z",
+  "verified_at": "2026-11-25T19:55:14.040Z",
   "notes": "Two separate numbers, and the split matters: free plan storage is 8 GB, but the per-file ceiling is unlimited (marketing says 1 TB) on every plan including free, with unlimited bandwidth. Anonymous temporary uploads accept up to 1 TB per file and self-delete after 7 days.",
   "history": [],
   "extras": {

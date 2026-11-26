@@ -15,15 +15,15 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://utho.com/archive-storage",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: no per-object cap is stated on the archive-storage page"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "Long-term data retention for compliance records, backups, logs, and cold data.",
     "source_url": "https://utho.com/archive-storage",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Long-term data retention for compliance records, backups, logs, and cold data."
   },
   "egress": {
-    "terms": "«No egress fees in India» on the object-storage page and «Zero egress fees» / «No bandwidth overage charges» on the pricing page. The archive page itself says «No hidden retrieval fees». Utho's own pricing API, however, gives no bandwidth allowance per object plan (every plan's `bandwidth` field is 0), so the free-egress claim rests on marketing copy rather than a metered allowance. Record it as a claim, not a contract.",
+    "terms": "Zero egress fees, zero early termination penalties.",
     "metered": false
   },
   "interface": [
@@ -41,7 +41,7 @@
     "detail": "card",
     "country": null
   },
-  "reliability_note": "The archive-storage URL no longer carries the archive offer: a direct GET was answered with a Cloudflare challenge, and the page served through the read provider is the generic Utho cloud homepage with no archive rate, no retrieval window and no durability claim. The former archive pricing is no longer readable at its first-party URL.",
+  "reliability_note": "Standard retrieval within 1-4 hours. Instant retrieval available for time-sensitive compliance requests.",
   "confidence": "reported",
   "confidence_note": "mechanically converted from the seed corpus; no page was read for this record in the storage-dossier pass. One page read moves it to documented.",
   "evidence": [
@@ -83,10 +83,45 @@
       "proved": "the archive-storage URL now serves a generic cloud homepage and states no archive rate",
       "capture": "sha256:5f1461351d8646ef7209176d4a13094e13fed8ec09b633068448de9b165c0710",
       "quote": "Cloud Infrastructure That Runs India's Digital Backbone"
+    },
+    {
+      "url": "https://utho.com/archive-storage",
+      "date": "2026-11-25",
+      "proved": "the archive page's closing offer statement gives a rate and commitment but no per-object cap",
+      "capture": "sha256:74645ee63b06fb30033cf4f90ae87fa644677998a927ec8ce719ae5fced2d3d5",
+      "quote": "₹0.37/GB/month. No minimum commitment. Deploy in 30 seconds."
+    },
+    {
+      "url": "https://utho.com/archive-storage",
+      "date": "2026-11-25",
+      "proved": "the archive page states the intended retention class",
+      "capture": "sha256:74645ee63b06fb30033cf4f90ae87fa644677998a927ec8ce719ae5fced2d3d5",
+      "quote": "Long-term data retention for compliance records, backups, logs, and cold data."
+    },
+    {
+      "url": "https://utho.com/archive-storage",
+      "date": "2026-11-25",
+      "proved": "the archive page states the retrieval windows",
+      "capture": "sha256:74645ee63b06fb30033cf4f90ae87fa644677998a927ec8ce719ae5fced2d3d5",
+      "quote": "Standard retrieval within 1-4 hours. Instant retrieval available for time-sensitive compliance requests."
+    },
+    {
+      "url": "https://utho.com/simple-pricing",
+      "date": "2026-11-25",
+      "proved": "the first-party pricing page states zero egress fees",
+      "capture": "sha256:a92681320f810463bd5cdbdecae0054751139c7d3077582f773e7779f17ea0f8",
+      "quote": "Zero egress fees, zero early termination penalties."
+    },
+    {
+      "url": "https://utho.com/object-storage",
+      "date": "2026-11-25",
+      "proved": "the object-storage page states no egress fees in India",
+      "capture": "sha256:f2c0cddb13c0c3d283acd5ef8c8520316c57c51653b1aa979aac44a867ef17f6",
+      "quote": "S3-compatible object storage with 11 nines durability. CDN-ready. Pay-as-you-go. No egress fees in India."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:15:22.710Z",
+  "verified_at": "2026-11-25T21:21:18.734Z",
   "price_per_tb_month": "Archive: $4.10/TB/mo at both 5 TB and 20 TB ($49.16/TB/yr), egress claimed $0. Standard object tier: $20.53/TB/mo at 10 TB ($205.28/mo), $26.32/TB/mo at 5 TB, $37.73/TB/mo at 250 GB — so the standard tier is 5× the archive tier at the same vendor. INR at 0.010527 USD/INR.",
   "notes": "₹0.38/GB/month, no minimum commitment, 11-nines designed durability, 1-4 hour standard retrieval (instant available). The general object tier is quoted separately at ₹4/GB/month above a 100 GB base.",
   "history": [],

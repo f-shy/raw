@@ -16,12 +16,12 @@
     "stated": "per-object-cap: 1.037 GB",
     "bytes": 1036999999,
     "source_url": "https://api.printables.com/graphql/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "unverified: the model page describes one object as 1.04 GB of data; no platform per-object ceiling is stated on that page."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
-    "source_url": "https://api.printables.com/graphql/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "stated": "PRINTABLES does not serve as data storage and the Operator does not guarantee to the User that the User Content will not be damaged, modified or deleted.",
+    "source_url": "https://www.prusa3d.com/page/terms-of-service-of-printables-com_231249/",
+    "notes": "PRINTABLES does not serve as data storage and the Operator does not guarantee to the User that the User Content will not be damaged, modified or deleted."
   },
   "egress": {
     "terms": "Backed by Google Cloud Storage (x-goog-* headers), fronted by files.printables.com with `Cache-Control: public, max-age=31536000` and `Access-Control-Allow-Origin: *`. No egress cap published, no paywall on download, no account needed to download.",
@@ -122,10 +122,45 @@
       "proved": "the account article states that email and password is one registration path",
       "capture": "sha256:9c55f2117c7006ce8fb6609dfa5f149b00431daf92066378226f76e107a82e2e",
       "quote": "to use an email or password for registration"
+    },
+    {
+      "url": "https://www.prusa3d.com/page/terms-of-service-of-printables-com_231249/",
+      "date": "2026-11-25",
+      "proved": "the operator disclaims preservation of uploaded user content",
+      "capture": "sha256:f04cadb9cf4b637dc19ab4691c7caad7b04e8ff132cc4305d2ef170c37cd013a",
+      "quote": "PRINTABLES does not serve as data storage and the Operator does not guarantee to the User that the User Content will not be damaged, modified or deleted."
+    },
+    {
+      "url": "https://www.prusa3d.com/page/terms-of-service-of-printables-com_231249/",
+      "date": "2026-11-25",
+      "proved": "uploaded content is not guaranteed to be preserved",
+      "capture": "sha256:f04cadb9cf4b637dc19ab4691c7caad7b04e8ff132cc4305d2ef170c37cd013a",
+      "quote": "PRINTABLES does not serve as data storage and the Operator does not guarantee to the User that the User Content will not be damaged, modified or deleted."
+    },
+    {
+      "url": "https://www.prusa3d.com/page/terms-of-service-of-printables-com_231249/",
+      "date": "2026-11-25",
+      "proved": "the terms state the preservation disclaimer",
+      "capture": "sha256:f04cadb9cf4b637dc19ab4691c7caad7b04e8ff132cc4305d2ef170c37cd013a",
+      "quote": "PRINTABLES does not serve as data storage and the Operator does not guarantee to the User that the User Content will not be damaged, modified or deleted."
+    },
+    {
+      "url": "https://www.printables.com/model/1216949",
+      "date": "2026-11-25",
+      "proved": "the model page describes one object as 1.04 GB of data",
+      "capture": "sha256:67b32c5f4f32e672625d291d10345ccad19e111c58a50cb0215c4b4ba09b2851",
+      "quote": "- 1.04 GB of data!"
+    },
+    {
+      "url": "https://help.prusa3d.com/article/prusa-account-creation_1939",
+      "date": "2026-11-25",
+      "proved": "the signup offers social accounts or an email and password",
+      "capture": "sha256:c4a97fd8892abbe51e945c425d7b038755d7d247922c9f1fa0adeae9ba5503d2",
+      "quote": "you can choose to register or log in with your Google, Apple, or Facebook account. You can also choose \"Create an account\" at the bottom to use an email or password for registration"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-11T07:23:03.223Z",
+  "verified_at": "2026-11-25T19:55:15.334Z",
   "notes": "No published account quota and no published upload cap. Verified live object: a single 1,036,822,737 B (1.037 GB) STL served from files.printables.com. Also verified a model holding 29 files totalling 404.3 MB, and one holding six ZIPs of 62.5/167.5/208.5/65.0/98.8/118.6 MB. 'Other files' accepts ZIP, so arbitrary payloads ride inside an archive; and a single model accepts 1335+ files (forum report of a user hitting UI limits, not a storage limit).",
   "history": [],
   "extras": {

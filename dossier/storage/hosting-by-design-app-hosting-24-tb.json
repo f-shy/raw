@@ -15,7 +15,7 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://hostingby.design/app-hosting/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The app-hosting table lists storage, outgoing data, uplink port and price per tier; it states no per-object cap."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
@@ -23,18 +23,15 @@
     "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
   },
   "egress": {
-    "terms": "Shared tiers metered (1TB->3TB, 2TB->6TB, 4TB->10TB, 8TB->25TB out). 18/24/28 TB dedicated tiers list \"Unlimited\" outgoing. \"Unlimited incoming data\" on all.",
+    "terms": "Outgoing data by tier: 1 TB plan 3 TB, 2 TB plan 6 TB, 4 TB plan 10 TB, 8 TB plan 25 TB; the 18 TB, 24 TB and 28 TB dedicated-disk tiers list Unlimited. Uplink port is 10Gbit+ on every tier except the 28 TB tier, which lists 50Gbit.",
     "metered": true
   },
   "interface": [
-    "s3",
-    "rsync",
-    "ssh",
-    "rclone"
+    "ssh"
   ],
-  "interface_detail": "SSH included, app installer (Plex/Sonarr/rTorrent etc.), 10 Gbit+ uplink",
-  "tooling": "SSH/rsync/rclone; no S3",
-  "chaining": "Mount over SSHFS; 10 Gbit uplink is the best burst of the cheap set",
+  "interface_detail": "SSH access to the slot",
+  "tooling": "SSH access to the slot",
+  "chaining": "The dedicated-disk tiers list Unlimited outgoing data; the fair-use policy states no strict limit on data traffic.",
   "limits": [],
   "limits_note": "Metered egress below 18 TB; ~$2.42/TB only achievable at the 24 TB dedicated tier",
   "identity_cost": {
@@ -69,10 +66,45 @@
       "proved": "the 1 TB shared plan lists 3 TB outgoing data, a 10Gbit+ uplink and a €6.59 price",
       "capture": "sha256:3578acd77cd806538f8a75e098c259fc4b493f6bf1f1c84e1f4d8a4c43d58533",
       "quote": "1TB HDD Storage 3TB 10Gbit+ €6.59"
+    },
+    {
+      "url": "https://hostingby.design/app-hosting/",
+      "date": "2026-11-25",
+      "proved": "the 24 TB dedicated-disk plan lists unlimited outgoing data, a 10Gbit+ uplink and €49.95",
+      "capture": "sha256:6de913005fe756cf6396f161ca507017be0bab873f826f147515ceee72504ca8",
+      "quote": "24TB HDD (Dedicated Disk) Unlimited 10Gbit+ €49.95"
+    },
+    {
+      "url": "https://hostingby.design/app-hosting/",
+      "date": "2026-11-25",
+      "proved": "the table row carries no per-object cap",
+      "capture": "sha256:6de913005fe756cf6396f161ca507017be0bab873f826f147515ceee72504ca8",
+      "quote": "24TB HDD (Dedicated Disk) Unlimited 10Gbit+ €49.95"
+    },
+    {
+      "url": "https://hostingby.design/app-hosting/",
+      "date": "2026-11-25",
+      "proved": "the 28 TB tier lists Unlimited outgoing data and a 50Gbit uplink",
+      "capture": "sha256:6de913005fe756cf6396f161ca507017be0bab873f826f147515ceee72504ca8",
+      "quote": "28TB HDD (Dedicated disk) Unlimited 50Gbit €59.95"
+    },
+    {
+      "url": "https://docs.hostingby.design/vps-hosting/fair-use-policy",
+      "date": "2026-11-25",
+      "proved": "the fair-use policy sets no strict traffic limit",
+      "capture": "sha256:47598c54507ce8d553de444f93957796b3f8da774cc81cd9edfbb1f0f00f6a6e",
+      "quote": "While there is no strict limit on data traffic, users are encouraged to operate within reasonable usage patterns."
+    },
+    {
+      "url": "https://docs.hostingby.design/application-hosting/getting-started/how-do-i-connect",
+      "date": "2026-11-25",
+      "proved": "the slot is accessed over SSH",
+      "capture": "sha256:46ce0c0ccebc9c9aa5f631d538bc56f034fbce971d095f78e55712fe142bf82f",
+      "quote": "In order to connect to your slot at HostingByDesign, you'll need to access your slot via SSH."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-10T00:50:20.510Z",
+  "verified_at": "2026-11-25T12:15:44.284Z",
   "price_per_tb_month": "24TB: €49.95 -> €2.08/TB/mo (~$2.39). 28TB: €59.95 -> €2.14/TB. 18TB: €39.95 -> €2.22/TB. 4TB: €10.95 -> €2.74/TB. 1TB: €6.59 -> €6.59/TB",
   "notes": "1 / 2 / 4 / 8 TB shared; 18 / 24 / 28 TB dedicated disk",
   "history": [],

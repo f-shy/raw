@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u14-rerun",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/firezone $.binding_note: Supports only that the Gateway runs in the user's infrastructure. Page does not say there is no published byte meter or no public listener, nor that the Gateway answers only authenticated Clients and not the internet; those parts are inference.\n- egress/fly-io $.limits[0].value: Page lists a Free plan: $1 credit with no card, and $5 of usage every month once a card is added, covering data transfer. So 'no free allowance' contradicts it. $0.02/GB outbound in North America and Europe and $2/month dedicated IPv4 are correct.\n- egress/fnat $.limits[0].value: Page lists 20~50G traffic on the free plan but states no period; 'per month' is not on the page (free plan is shown as ¥0/月, and the FAQ says traffic is unlimited).",
+ "scope": {
+  "rids": [
+   "egress/euserv-vs2-free",
+   "egress/feige-fgnwct",
+   "egress/firezone",
+   "egress/floodguard",
+   "egress/fly-io",
+   "egress/fnat"
+  ]
+ },
+ "origin": "audit u55 of 20261125-0233-verify-egress-af27/u14 failed: 3 of 11 unsupported",
+ "created": "2026-11-25T16:37:37Z"
+}

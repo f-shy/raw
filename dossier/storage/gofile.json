@@ -8,32 +8,33 @@
     "stated": "Free accounts are capped at 10,000 stored contents — uploads past the cap fail with `error-limits`.",
     "unit": "objects",
     "metered_on": "object-count",
-    "source_url": "https://gofile.io/premium",
+    "source_url": "https://gofile.io/api",
     "read_on": "2026-10-21",
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://gofile.io/premium",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The API reference, FAQ and Premium page state no per-file size limit; the free-account limit stated is a count of 10,000 stored contents."
   },
   "retention": {
     "stated": "Content is kept for 10 days of inactivity, and stays longer as long as it keeps being downloaded.",
     "days": null,
-    "source_url": "https://gofile.io/premium",
-    "notes": "Extracted from published terms."
+    "source_url": "https://gofile.io/faq",
+    "notes": "Content past its storage period may be moved to cold storage instead of deleted; importing it back requires Premium."
   },
   "egress": {
-    "terms": "100 GB traffic / 30 days",
-    "metered": false
+    "terms": "Free traffic may be counted by IP address, so on a shared IP other people's downloads can count toward the usage shown. Bandwidth is not throttled; over the allowance some download functionality is restricted.",
+    "metered": true,
+    "free_allowance": "100 GB per 30 days"
   },
   "interface": [
     "rest",
     "rclone"
   ],
-  "interface_detail": "rest",
+  "interface_detail": "rest; rclone (the FAQ names an official rclone implementation)",
   "tooling": "REST API at api.gofile.io (documented, CORS, per-endpoint rate limits); rclone backend 'gofile' (Tier 1) but its docs warn 'if you wish to connect rclone to Gofile you will need a premium account'; guest account creation is a single unauthenticated POST",
-  "chaining": "Unlimited guest accounts created by API call (no email, no human-verification step) x 10,000 files each. Probe-verified; each guest account also brings its own 100 GB/30-day traffic bucket, so fetch load can be sharded by account.",
+  "chaining": "An upload without a token creates a guest account and returns a guestToken to reuse; the API reference says to create one account and reuse its token, not one per upload. Each free account is capped at 10,000 stored contents. A separate traffic allowance per guest account is not stated.",
   "limits": [
     {
       "kind": "retention-clamped",
@@ -112,10 +113,101 @@
       "proved": "the page states content is kept for 10 days of inactivity and stays longer while it keeps being downloaded",
       "capture": "sha256:98b208baa451ae772fcc8a5d5030008fae04fa1d8a9510c6bcdbd8744835612a",
       "quote": "Content is kept for <strong class=\"font-semibold text-slate-200\">10 days</strong> of inactivity, and stays longer as long as it keeps being downloaded."
+    },
+    {
+      "url": "https://gofile.io/api",
+      "date": "2026-11-25",
+      "proved": "guest accounts are created without a token; the page advises one account reused, not one per upload",
+      "capture": "sha256:ac9aa0eb4b4c7d32b4b297a1de09ca31a48d6556d8cd549a53b544af091d83a4",
+      "quote": "Create **one** account and reuse its token — do not mint an account per upload. (Uploading without a token also auto-creates a guest account; see Uploading.)"
+    },
+    {
+      "url": "https://gofile.io/faq",
+      "date": "2026-11-25",
+      "proved": "free traffic may be counted per IP address, not per account",
+      "capture": "sha256:bcf53f25fbf9b540c33a6a6b133fc9831b6360ad119451ab35288808059f379d",
+      "quote": "**Important note for free accounts:** free traffic may be counted by IP address. On a shared IP (school, office, VPN), other people’s downloads on the same IP can count toward the usage you see."
+    },
+    {
+      "url": "https://gofile.io/premium",
+      "date": "2026-11-25",
+      "proved": "the Free plan lists 100 GB of traffic per 30 days",
+      "capture": "sha256:88056ef8a6bebf9334b7cece8791b49d9aa4a4d32bd388fe99a52e1aadca79ae",
+      "quote": "* 100 GB traffic / 30 days"
+    },
+    {
+      "url": "https://gofile.io/premium",
+      "date": "2026-11-25",
+      "proved": "free traffic has a 30-day quota",
+      "capture": "sha256:88056ef8a6bebf9334b7cece8791b49d9aa4a4d32bd388fe99a52e1aadca79ae",
+      "quote": "* 100 GB traffic / 30 days"
+    },
+    {
+      "url": "https://gofile.io/faq",
+      "date": "2026-11-25",
+      "proved": "the vendor FAQ names an official rclone implementation",
+      "capture": "sha256:bcf53f25fbf9b540c33a6a6b133fc9831b6360ad119451ab35288808059f379d",
+      "quote": "For synchronization today, rclone has an official Gofile implementation."
+    },
+    {
+      "url": "https://gofile.io/api",
+      "date": "2026-11-25",
+      "proved": "the upload section states a content-count cap and no byte cap for free accounts",
+      "capture": "sha256:ac9aa0eb4b4c7d32b4b297a1de09ca31a48d6556d8cd549a53b544af091d83a4",
+      "quote": "Free accounts are capped at 10,000 stored contents — uploads past the cap fail with `error-limits`. Premium limits scale with the plan."
+    },
+    {
+      "url": "https://gofile.io/faq",
+      "date": "2026-11-25",
+      "proved": "expired content may go to cold storage",
+      "capture": "sha256:bcf53f25fbf9b540c33a6a6b133fc9831b6360ad119451ab35288808059f379d",
+      "quote": "Instead of being deleted, content past its storage period may be moved to cold storage for preservation."
+    },
+    {
+      "url": "https://gofile.io/faq",
+      "date": "2026-11-25",
+      "proved": "the 10-day inactivity rule is on the FAQ",
+      "capture": "sha256:bcf53f25fbf9b540c33a6a6b133fc9831b6360ad119451ab35288808059f379d",
+      "quote": "Content is kept for **10 days** of inactivity, and stays longer as long as it keeps being downloaded."
+    },
+    {
+      "url": "https://gofile.io/api",
+      "date": "2026-11-25",
+      "proved": "the 10,000-content cap sentence is on the API page",
+      "capture": "sha256:ac9aa0eb4b4c7d32b4b297a1de09ca31a48d6556d8cd549a53b544af091d83a4",
+      "quote": "Free accounts are capped at 10,000 stored contents — uploads past the cap fail with `error-limits`. Premium limits scale with the plan."
+    },
+    {
+      "url": "https://gofile.io/api",
+      "date": "2026-11-25",
+      "proved": "the free-account cap is 10,000 stored contents, unchanged",
+      "capture": "sha256:ac9aa0eb4b4c7d32b4b297a1de09ca31a48d6556d8cd549a53b544af091d83a4",
+      "quote": "Free accounts are capped at 10,000 stored contents — uploads past the cap fail with `error-limits`. Premium limits scale with the plan."
+    },
+    {
+      "url": "https://gofile.io/faq",
+      "date": "2026-11-25",
+      "proved": "the 10-day inactivity rule is unchanged",
+      "capture": "sha256:bcf53f25fbf9b540c33a6a6b133fc9831b6360ad119451ab35288808059f379d",
+      "quote": "Content is kept for **10 days** of inactivity, and stays longer as long as it keeps being downloaded."
+    },
+    {
+      "url": "https://gofile.io/premium",
+      "date": "2026-11-25",
+      "proved": "the Free plan needs no account",
+      "capture": "sha256:88056ef8a6bebf9334b7cece8791b49d9aa4a4d32bd388fe99a52e1aadca79ae",
+      "quote": "No account required"
+    },
+    {
+      "url": "https://gofile.io/api",
+      "date": "2026-11-25",
+      "proved": "a JSON REST API exists",
+      "capture": "sha256:ac9aa0eb4b4c7d32b4b297a1de09ca31a48d6556d8cd549a53b544af091d83a4",
+      "quote": "All endpoints live under `https://api.gofile.io` (uploads excepted — see Uploading), speak JSON in and out, and are CORS-enabled, so browser-based integrations work too."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T02:59:10.169Z",
+  "verified_at": "2026-11-25T12:15:41.802Z",
   "notes": "No storage figure at all on the free tier. Free accounts get temporary storage with a 10,000-content cap per account ('Free accounts are capped at 10,000 stored contents'); free traffic allowance is '100 GB traffic / 30 days'.",
   "history": [],
   "extras": {

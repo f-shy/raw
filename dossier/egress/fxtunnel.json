@@ -6,7 +6,7 @@
   "category": "tunnel",
   "tier": "free",
   "free_tier": {
-    "stated": "Free / 1 active tunnel / Any subdomain / 0 reserved subdomains / 0 own domains / 1 access key / HTTP Inspector / TCP - on paid plans / UDP - on paid plans",
+    "stated": "Free / 3 active tunnels / Any subdomain / 1 access key / HTTP Inspector / TCP - on paid plans / UDP - on paid plans",
     "unit": "unlimited",
     "metered_on": "none",
     "source_url": "https://fxtun.dev/pricing",
@@ -46,12 +46,17 @@
     },
     {
       "kind": "per-object-cap",
-      "value": "1 active tunnel and 1 access key on Free",
+      "value": "3 active tunnels and 1 access key on Free",
+      "source": "https://fxtun.dev/pricing"
+    },
+    {
+      "kind": "write-gated",
+      "value": "TCP and UDP tunnels are on paid plans only; the cheapest paid plan, Base, costs 210 ₽/month",
       "source": "https://fxtun.dev/pricing"
     }
   ],
   "limits_note": "",
-  "binding": "none",
+  "binding": "write-gated",
   "binding_note": "Volume is not the blocker: the page promises no traffic limit on every plan. What fails at the first byte of a UDP workload is protocol support, because TCP and UDP are listed as paid-only. Payment is in RUB through YuKassa, which is an access constraint the English blog does not mention.",
   "identity_cost": {
     "kind": "email",
@@ -63,18 +68,34 @@
   "confidence_note": "Tunnel parameters, pricing and protocol support are documented in vendor product manuals.",
   "evidence": [
     {
-      "url": "https://fxtun.dev/pricing",
-      "date": "2026-10-23",
-      "proved": "Free plan: 1 active tunnel, HTTP Inspector, TCP and UDP on paid plans only; all plans have no request or traffic limit. The read redirected to fxtun.ru/pricing, updated September 2026."
-    },
-    {
       "url": "https://fxtun.dev/blog/free-ngrok-alternatives-2026/",
       "date": "2026-10-23",
       "proved": "The English blog claims the free tier has no limits on traffic, connections or agents and that the tool supports HTTP, TCP and UDP, which conflicts with the live pricing page."
+    },
+    {
+      "url": "https://fxtun.dev/pricing",
+      "date": "2026-11-25",
+      "proved": "the Free column lists 3 active tunnels",
+      "capture": "sha256:b49742c4400aaf1cdc390900fa1e5181e1d0279a21cccac08ec36aedcdc1a098",
+      "quote": "| Активные туннели | 3 | 5 | 15 | 50 |"
+    },
+    {
+      "url": "https://fxtun.dev/pricing",
+      "date": "2026-11-25",
+      "proved": "TCP and UDP tunnels are available only on paid plans starting at Base",
+      "capture": "sha256:b49742c4400aaf1cdc390900fa1e5181e1d0279a21cccac08ec36aedcdc1a098",
+      "quote": "HTTP- и HTTPS-туннели на любом тарифе, TCP и UDP — на платных от Base позволяют пробрасывать веб-приложения, SSH-серверы, игровые серверы и IoT-устройства."
+    },
+    {
+      "url": "https://fxtun.dev/pricing",
+      "date": "2026-11-25",
+      "proved": "the page states no request or traffic limit",
+      "capture": "sha256:b49742c4400aaf1cdc390900fa1e5181e1d0279a21cccac08ec36aedcdc1a098",
+      "quote": "Нет ограничений на количество запросов и объём трафика."
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:42.068Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Conflict recorded and unresolved: the English blog at fxtun.dev says the free tier includes TCP and UDP and that the free tier has no limits; the live pricing page (fxtun.dev/pricing redirecting to fxtun.ru/pricing, updated September 2026) puts TCP and UDP on paid plans and gives Free a single HTTP tunnel. A search-index copy of an English version of fxtun.dev/pricing says three active HTTP and TCP tunnels with UDP on paid plans, a third variant. The live page is treated as current. Billing is in RUB via YuKassa on the page read.",

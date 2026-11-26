@@ -115,10 +115,31 @@
       "proved": "the host answered and its listing hash stayed e715d3d0 with no failures",
       "capture": "sha256:066086389b0c8e37c33c99193675dc5873c358f661995d2b332e216d8ba8df6e",
       "quote": "\"checked_at\": \"2026-11-19T03:34:19.997Z\"...\"listing_sha256\": \"e715d3d0\"...\"consecutive_failures\": 0"
+    },
+    {
+      "url": "probe:https://p.591meta.com/",
+      "date": "2026-11-25",
+      "proved": "a fresh anonymous probe of p.591meta.com answered the settings, session and mount-list requests at this timestamp",
+      "capture": "sha256:4d7ebb4fde1bea08f50fc3a4087cd2cfac605f1664dc421d6716ba7431bbea7a",
+      "quote": "\"probed_at\": \"2026-11-25T02:34:35.444Z\""
+    },
+    {
+      "url": "probe:https://p.591meta.com/",
+      "date": "2026-11-25",
+      "proved": "the fresh probe completed the anonymous settings, session and mount-list requests at p.591meta.com",
+      "capture": "sha256:4d7ebb4fde1bea08f50fc3a4087cd2cfac605f1664dc421d6716ba7431bbea7a",
+      "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://p.591meta.com/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing of p.591meta.com hashed to the recorded value, so the listing is unchanged",
+      "capture": "sha256:4d7ebb4fde1bea08f50fc3a4087cd2cfac605f1664dc421d6716ba7431bbea7a",
+      "quote": "\"listing_sha256\": \"e715d3d0\""
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:07.052Z",
+  "verified_at": "2026-11-25T19:55:33.832Z",
   "binding": "per-ip-shaping",
   "notes": "One of five hostnames serving an identical 26-entry collection of iOS IPA packages. The file repository serves as an informational index for a commercial signing service.",
   "history": [],
@@ -135,7 +156,7 @@
     "listing_sha256": "e715d3d0",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-19T03:34:19.997Z",
+    "last_verified_alive": "2026-11-25T02:34:35.444Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "listing_hash_method": "sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters"

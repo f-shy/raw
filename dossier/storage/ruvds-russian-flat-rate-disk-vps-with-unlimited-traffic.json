@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://ruvds.com/ru/huge-disk/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Подключив услугу “Большой диск”, вы больше не будете ограничены в размерах хранимых вами данных."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://ruvds.com/ru/huge-disk/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: the СХД tariff page read in full states no retention period for stored data"
   },
   "egress": {
     "terms": "Unlimited. Every СХД configuration lists its channel (up to 100 Mbit/s on the entry tiers) with no traffic meter, and the service is sold as a VPS so the rail is the VPS's own port. No per-GB charge exists.",
@@ -81,10 +81,38 @@
       "proved": "the СХД Start and Standard monthly prices are unchanged",
       "capture": "sha256:53a66765a6474193e6421139b9f85837406dbddbdd84643ea9448f2184825f8b",
       "quote": "СХД Старт ... 1 023 ₽ ... в месяц ... СХД Стандарт ... 1 899 ₽ ... в месяц"
+    },
+    {
+      "url": "https://ruvds.com/ru/huge-disk/",
+      "date": "2026-11-25",
+      "proved": "the tariff page states no limit on the size of stored data",
+      "capture": "sha256:53a66765a6474193e6421139b9f85837406dbddbdd84643ea9448f2184825f8b",
+      "quote": "Подключив услугу “Большой диск”, вы больше не будете ограничены в размерах хранимых вами данных."
+    },
+    {
+      "url": "https://ruvds.com/ru/huge-disk/",
+      "date": "2026-11-25",
+      "proved": "the tariff page describes a VPS disk of 1 to 18 TB",
+      "capture": "sha256:53a66765a6474193e6421139b9f85837406dbddbdd84643ea9448f2184825f8b",
+      "quote": "“Большой диск” — услуга, позволяющая получить полноценное хранилище (СХД) размером от 1 до 18 Терабайт со всем привычным функционалом VPS-сервера."
+    },
+    {
+      "url": "https://ruvds.com/ru/huge-disk/",
+      "date": "2026-11-25",
+      "proved": "traffic on these tariffs is unlimited",
+      "capture": "sha256:53a66765a6474193e6421139b9f85837406dbddbdd84643ea9448f2184825f8b",
+      "quote": "Нет, трафик безлимитный."
+    },
+    {
+      "url": "https://ruvds.com/ru/huge-disk/",
+      "date": "2026-11-25",
+      "proved": "server count is unlimited, with at most 5 created per day",
+      "capture": "sha256:53a66765a6474193e6421139b9f85837406dbddbdd84643ea9448f2184825f8b",
+      "quote": "Число серверов не ограничено, но нельзя создать более 5 за одни сутки."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:38.526Z",
+  "verified_at": "2026-11-25T19:55:20.740Z",
   "price_per_tb_month": "$11.50/TB/mo at 2 TB ($23.00/mo) and 4 TB ($46.00/mo); $12.39/TB/mo at 1 TB ($12.39/mo). At 20 TB: ~$11.50/TB/mo if two 10 TB-class configs are assembled ($230/mo), derived not quoted. Unlimited traffic, $0 egress.",
   "notes": "СХД Старт 1,023 ₽/mo for 1,024 GB; СХД Стандарт 1,899 ₽/mo for 2,048 GB; СХД Премиум 3,798 ₽/mo for 4,096 GB. Line advertised «от 1 до 18 Терабайт». Landing headline: «всего 500₽ за 1 Тб/мес».",
   "history": [],

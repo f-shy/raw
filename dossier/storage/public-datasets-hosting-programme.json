@@ -15,24 +15,24 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://docs.cloud.google.com/storage/docs/public-datasets",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Cloud Storage provides a variety of public datasets that can be accessed by the community and integrated into their applications."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://docs.cloud.google.com/storage/docs/public-datasets",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Google pays for the hosting of these datasets, providing public access to the data via tools such as the Google Cloud console and Google Cloud CLI."
   },
   "egress": {
-    "terms": "Free public access to hosted datasets; anonymous API links work without auth.",
+    "terms": "The public datasets are already hosted and available for users to access for free.",
     "metered": false
   },
   "interface": [
     "s3",
     "rclone"
   ],
-  "interface_detail": "s3",
+  "interface_detail": "The public datasets are already hosted and available for users to access for free. You can access public data with tools such as the Google Cloud console and Google Cloud CLI, or with a Cloud Storage API link.",
   "tooling": "GCS API / gcloud storage / rclone 'gcs'.",
-  "chaining": "Not applicable - this is Google's own catalogue, not an open intake.",
+  "chaining": "The page gives a contact route for questions about listing a public dataset.",
   "limits": [
     {
       "kind": "write-gated",
@@ -73,10 +73,45 @@
       "proved": "the page gives the listing contact route",
       "capture": "sha256:ac9c6ca2c603b4dc92768f2a8d90c236a490fce76baa392948dafd38b5aac56a",
       "quote": "listing a public dataset on Cloud Storage, please contact us"
+    },
+    {
+      "url": "https://docs.cloud.google.com/storage/docs/public-datasets",
+      "date": "2026-11-25",
+      "proved": "the documentation describes the hosted public datasets",
+      "capture": "sha256:f0688ed36c0e5787b18fc4b958dd5570bc005fd00149d04c7258831d8e0d23ca",
+      "quote": "Cloud Storage provides a variety of public datasets that can be accessed by the community and integrated into their applications."
+    },
+    {
+      "url": "https://docs.cloud.google.com/storage/docs/public-datasets",
+      "date": "2026-11-25",
+      "proved": "the documentation states Google pays for hosting the listed datasets",
+      "capture": "sha256:f0688ed36c0e5787b18fc4b958dd5570bc005fd00149d04c7258831d8e0d23ca",
+      "quote": "Google pays for the hosting of these datasets, providing public access to the data via tools such as the Google Cloud console and Google Cloud CLI."
+    },
+    {
+      "url": "https://docs.cloud.google.com/storage/docs/public-datasets",
+      "date": "2026-11-25",
+      "proved": "the documentation states the hosted datasets are free to access",
+      "capture": "sha256:f0688ed36c0e5787b18fc4b958dd5570bc005fd00149d04c7258831d8e0d23ca",
+      "quote": "The public datasets are already hosted and available for users to access for free."
+    },
+    {
+      "url": "https://docs.cloud.google.com/storage/docs/public-datasets",
+      "date": "2026-11-25",
+      "proved": "the documentation names the console, CLI and API link as access paths",
+      "capture": "sha256:f0688ed36c0e5787b18fc4b958dd5570bc005fd00149d04c7258831d8e0d23ca",
+      "quote": "The public datasets are already hosted and available for users to access for free. You can access public data with tools such as the Google Cloud console and Google Cloud CLI, or with a Cloud Storage API link."
+    },
+    {
+      "url": "https://docs.cloud.google.com/storage/docs/public-datasets",
+      "date": "2026-11-25",
+      "proved": "the documentation names a contact route for listing questions",
+      "capture": "sha256:f0688ed36c0e5787b18fc4b958dd5570bc005fd00149d04c7258831d8e0d23ca",
+      "quote": "If you have any questions about listing a public dataset on Cloud Storage, please contact us at gcp-public-data@google.com."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T07:23:03.225Z",
+  "verified_at": "2026-11-25T19:55:16.879Z",
   "notes": "No published quota - Google 'pays for the hosting of these datasets'. Existing hosted sets (Sentinel-2, Landsat, ARCO-ERA5, NEXRAD) run to petabytes.",
   "history": [],
   "extras": {

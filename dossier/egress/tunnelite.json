@@ -38,9 +38,15 @@
   "interface_detail": "CLI client.",
   "tooling": ".NET client plus self-hosted SignalR server.",
   "chaining": "Needs a VM for anything beyond HTTP.",
-  "limits": [],
+  "limits": [
+    {
+      "kind": "write-gated",
+      "value": "raw TCP is gated to self-hosted servers; the managed server at the default URL carries http and https only",
+      "source": "https://github.com/cristipufu/tunnelite"
+    }
+  ],
   "limits_note": "",
-  "binding": "none",
+  "binding": "write-gated",
   "binding_note": "Managed tier supports HTTP and WebSocket only; TCP port forwarding requires self-hosted deployments.",
   "identity_cost": {
     "kind": "email",
@@ -55,10 +61,17 @@
       "url": "https://github.com/cristipufu/tunnelite",
       "date": "2026-10-23",
       "proved": "managed tier is HTTP(S), WS/WSS and SSE; 'If you need TCP tunneling, you'll have to host the server yourself.'"
+    },
+    {
+      "url": "https://github.com/cristipufu/tunnelite",
+      "date": "2026-11-25",
+      "proved": "raw TCP is available on self-hosted servers only; the default managed server takes web traffic",
+      "capture": "sha256:0c320d00e03f4379c61dc8917a38fdf46b273b7be1d1f3192a5a067e611e8651",
+      "quote": "Use `http://` or `https://` for web applications, or `tcp://host:port` for raw TCP (self-hosted servers only)."
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:49.306Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Recorded to separate the managed product from the self-hostable server, since the aggregator lists it as TCP/HTTP/WS.",

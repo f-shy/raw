@@ -105,10 +105,24 @@
       "proved": "a live 2026-11-20 probe of the anonymous AList listing endpoint answered HTTP 200 with 546 bytes",
       "capture": "sha256:483a76bd860f32b6e89c77b5b6995a7e466cf125bac2b1eb57ace21e5ace51c4",
       "quote": "\"probed_at\": \"2026-11-20T04:00:34.104Z\""
+    },
+    {
+      "url": "probe:https://pan.xyyh.xyz/",
+      "date": "2026-11-25",
+      "proved": "the anonymous settings and mount-list requests answered at this instant",
+      "capture": "sha256:c47054159e2ef701793a5897e895c02222b54e4c6bf0b27219636e7d988c42f5",
+      "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://pan.xyyh.xyz/",
+      "date": "2026-11-25",
+      "proved": "the root listing hash is b78ce46f, changed from the recorded 9e6193c6",
+      "capture": "sha256:c47054159e2ef701793a5897e895c02222b54e4c6bf0b27219636e7d988c42f5",
+      "quote": "\"listing_sha256\": \"b78ce46f\""
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-20T04:19:05.278Z",
+  "verified_at": "2026-11-25T21:46:10.686Z",
   "binding": "write-gated",
   "notes": "Answered as an AList API on one run and not on another, and listed 2 root entries once. Its zero-byte oracle returned neither of the two defined messages.",
   "history": [],
@@ -122,10 +136,10 @@
     "write_content_bypass": null,
     "permission_bitmask": "2",
     "base_path": "/",
-    "listing_sha256": "9e6193c6",
+    "listing_sha256": "b78ce46f",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-20T04:00:34.104Z",
+    "last_verified_alive": "2026-11-25T02:34:41.005Z",
     "last_verified_dead": null,
     "consecutive_failures": 0
   },

@@ -23,17 +23,20 @@
     "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
   },
   "egress": {
-    "terms": "Metered per slice: 'Each storage VPS slice adds 1TB SATA storage, 2GB memory, 2TB transfer'. A 2:1 ratio. At 10 slices = 10 TB storage and only 20 TB/mo transfer. Below the 30 TB/mo serving requirement. Overage rate not published on the page.",
+    "terms": "Each slice adds 2TB transfer next to 1TB SATA storage, a 2:1 ratio; 10 slices carry 20TB transfer. The page states no transfer period and no overage rate.",
     "metered": true,
-    "free_allowance": "20 TB per month"
+    "free_allowance": "2TB per slice; 20TB at 10 slices; period unstated on the page"
   },
   "interface": [
     "sftp",
-    "nfs"
+    "scp",
+    "rsync",
+    "ssh",
+    "ftps"
   ],
-  "interface_detail": "full root; run MinIO/SFTP/NFS yourself",
+  "interface_detail": "root SSH access in a Linux CLI environment; transfer by rsync over SSH, SFTP, SCP or FTP over TLS",
   "tooling": "unrestricted",
-  "chaining": "MinIO + Cloudflare; or rsync target",
+  "chaining": "Backup and archive target over rsync over SSH, SFTP, SCP or FTP over TLS; storage slices can be added at any time.",
   "limits": [
     {
       "kind": "per-ip-shaping",
@@ -88,10 +91,45 @@
       "proved": "the free tier statement is unchanged: Linux CLI, static networking, a 10Gbps shared port and 1TB to 32TB of storage",
       "capture": "sha256:fe6d8e0e945ba884f6370caccce3255647d27a3d81ded647b85e64f17c4a49d7",
       "quote": "Storage optimized VPS gives you a Linux CLI environment, static networking, 10Gbps shared port access, and a simple path from 1TB to 32TB of storage capacity."
+    },
+    {
+      "url": "https://www.interserver.net/vps/storage.html",
+      "date": "2026-11-25",
+      "proved": "the page names rsync over SSH, SFTP, SCP and FTP over TLS as transfer methods",
+      "capture": "sha256:fdded16799f2e14e2ff691c577f4baa492e517e4c90112d3d3e0b8acd11bd9af",
+      "quote": "Transfer data with rsync over SSH, SFTP, SCP, FTP over TLS, or a custom LiteSpeed and PHP workflow."
+    },
+    {
+      "url": "https://www.interserver.net/vps/storage.html",
+      "date": "2026-11-25",
+      "proved": "the plan includes root SSH access",
+      "capture": "sha256:fdded16799f2e14e2ff691c577f4baa492e517e4c90112d3d3e0b8acd11bd9af",
+      "quote": "Root SSH access is pre-installed for command-line administration."
+    },
+    {
+      "url": "https://www.interserver.net/vps/storage.html",
+      "date": "2026-11-25",
+      "proved": "the page names the transfer methods for backup targets",
+      "capture": "sha256:fdded16799f2e14e2ff691c577f4baa492e517e4c90112d3d3e0b8acd11bd9af",
+      "quote": "Transfer data with rsync over SSH, SFTP, SCP, FTP over TLS, or a custom LiteSpeed and PHP workflow."
+    },
+    {
+      "url": "https://www.interserver.net/vps/storage.html",
+      "date": "2026-11-25",
+      "proved": "each slice adds 2TB transfer",
+      "capture": "sha256:fdded16799f2e14e2ff691c577f4baa492e517e4c90112d3d3e0b8acd11bd9af",
+      "quote": "Each storage VPS slice adds 1TB SATA storage, 2GB memory, 2TB transfer, and a predictable $3 monthly cost."
+    },
+    {
+      "url": "https://www.interserver.net/vps/storage.html",
+      "date": "2026-11-25",
+      "proved": "Linux CLI, static networking, a 10Gbps shared port and 1TB to 32TB of storage",
+      "capture": "sha256:fdded16799f2e14e2ff691c577f4baa492e517e4c90112d3d3e0b8acd11bd9af",
+      "quote": "Storage optimized VPS gives you a Linux CLI environment, static networking, 10Gbps shared port access, and a simple path from 1TB to 32TB of storage capacity."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T02:59:09.843Z",
+  "verified_at": "2026-11-25T12:15:46.509Z",
   "price_per_tb_month": "$3.00/TB/mo flat at 1, 5, 10, 20 TB — genuinely linear, no tier discount. Caveat: 2 TB transfer per TB stored does not cover 30 TB/mo serving at 20 TB stored (40 TB included, so it does at 20 TB; it fails at 10 TB stored where only 20 TB is included).",
   "notes": "Each storage VPS slice adds 1TB SATA storage, 2GB memory, 2TB transfer, and a predictable $3 monthly cost.",
   "history": [],

@@ -6,10 +6,10 @@
   "category": "udp port forward (hosted, multi-protocol)",
   "tier": "free",
   "free_tier": {
-    "stated": "1 HTTP/TCP/UDP Tunnel, 1 GB Bandwidth / month, 30 min Tunnel Timeout",
+    "stated": "1 tunnel of any type; 1 GB of bandwidth per 30 days; TCP, UDP, TLS and proxy tunnels stop after 30 minutes per start, while HTTP, File Server and MCP Gateway tunnels have no time limit.",
     "unit": "GB",
     "metered_on": "downloaded-bytes",
-    "source_url": "https://localtonet.com/",
+    "source_url": "https://localtonet.com/pricing",
     "read_on": "2026-10-23",
     "notes": ""
   },
@@ -26,11 +26,11 @@
     "notes": ""
   },
   "egress": {
-    "terms": "1 GB bandwidth per month on the free plan; paid tunnels are sold as unlimited bandwidth; ingress: udp",
+    "terms": "1 GB of bandwidth per 30 days on the free plan; paid tunnels have unlimited bandwidth that is never billed.",
     "metered": true,
-    "free_allowance": "1 GB bandwidth per month on the free plan; paid tunnels are sold as unlimited bandwidth",
+    "free_allowance": "1 GB of bandwidth per 30 days on the free plan.",
     "price_per_tb": null,
-    "source_url": "https://localtonet.com/"
+    "source_url": "https://localtonet.com/pricing"
   },
   "interface": [
     "cli"
@@ -41,24 +41,24 @@
   "limits": [
     {
       "kind": "volume-quota",
-      "value": "1 GB bandwidth per month",
-      "source": "https://localtonet.com/"
+      "value": "1 GB per 30 days",
+      "source": "https://localtonet.com/pricing"
     },
     {
       "kind": "retention-clamped",
-      "value": "30 min tunnel timeout on the free plan",
-      "source": "https://localtonet.com/"
+      "value": "30 minutes per start for TCP, UDP, TLS and proxy tunnels; HTTP, File Server and MCP Gateway tunnels have no time limit",
+      "source": "https://localtonet.com/pricing"
     }
   ],
   "limits_note": "",
   "binding": "volume-quota",
-  "binding_note": "1 GB is 0.0009 TiB; the 30-minute timeout would kill a WireGuard endpoint anyway, so two limits fail before the month is out.",
+  "binding_note": "The free grant is 1 GB per 30 days; TCP, UDP, TLS and proxy tunnels also stop after 30 minutes per start, which a restart clears, so the quota is the limit a restart does not clear.",
   "identity_cost": {
     "kind": "email",
     "detail": "an account and an AuthToken per client: 'Select the AuthToken you entered in the Localtonet App' https://localtonet.com/documents/udp",
     "country": "None"
   },
-  "reliability_note": "free tunnels are dropped every 30 minutes and the public port can change on restart",
+  "reliability_note": "TCP, UDP, TLS and proxy tunnels stop after 30 minutes per start; the server port is not reserved on the Free plan, so it can change when the tunnel starts again.",
   "confidence": "documented",
   "confidence_note": "The two failing numbers are on the vendor's own pricing block and in its own plan comparison; the community reply repeats the 30-minute figure.",
   "evidence": [
@@ -76,10 +76,94 @@
       "url": "https://localtonet.com/blog/introducing-pay-as-you-go-pricing-for-localtonet",
       "date": "2026-10-23",
       "proved": "vendor table: free plan 'Tunnel Server Port: May change on restart', paid 'Reserved'"
+    },
+    {
+      "url": "https://localtonet.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the free plan's tunnel count, allowance, timeout and the tunnelled types without one",
+      "capture": "sha256:64193fb662ceb7f2b26ea51505b9295d652eb192f54ee7343188c91e30744653",
+      "quote": "The free plan allows one tunnel and 1 GB of bandwidth per 30 days. TCP, UDP, TLS and proxy tunnels stop after 30 minutes and can be started again. HTTP, File Server and MCP Gateway tunnels have no time limit."
+    },
+    {
+      "url": "https://localtonet.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the free plan's own description on the pricing page",
+      "capture": "sha256:64193fb662ceb7f2b26ea51505b9295d652eb192f54ee7343188c91e30744653",
+      "quote": "The free plan allows one tunnel and 1 GB of bandwidth per 30 days. TCP, UDP, TLS and proxy tunnels stop after 30 minutes and can be started again. HTTP, File Server and MCP Gateway tunnels have no time limit."
+    },
+    {
+      "url": "https://localtonet.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the free allowance period and the paid plan's unbilled bandwidth",
+      "capture": "sha256:64193fb662ceb7f2b26ea51505b9295d652eb192f54ee7343188c91e30744653",
+      "quote": "The free plan allows one tunnel and 1 GB of bandwidth per 30 days. TCP, UDP, TLS and proxy tunnels stop after 30 minutes and can be started again. HTTP, File Server and MCP Gateway tunnels have no time limit."
+    },
+    {
+      "url": "https://localtonet.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the free plan's allowance and the paid plan's unbilled bandwidth",
+      "capture": "sha256:64193fb662ceb7f2b26ea51505b9295d652eb192f54ee7343188c91e30744653",
+      "quote": "The free plan allows one tunnel and 1 GB of bandwidth per 30 days. TCP, UDP, TLS and proxy tunnels stop after 30 minutes and can be started again. HTTP, File Server and MCP Gateway tunnels have no time limit."
+    },
+    {
+      "url": "https://localtonet.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the free allowance period",
+      "capture": "sha256:64193fb662ceb7f2b26ea51505b9295d652eb192f54ee7343188c91e30744653",
+      "quote": "The free plan allows one tunnel and 1 GB of bandwidth per 30 days. TCP, UDP, TLS and proxy tunnels stop after 30 minutes and can be started again. HTTP, File Server and MCP Gateway tunnels have no time limit."
+    },
+    {
+      "url": "https://localtonet.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the timeout applies only to some tunnel types",
+      "capture": "sha256:64193fb662ceb7f2b26ea51505b9295d652eb192f54ee7343188c91e30744653",
+      "quote": "The free plan allows one tunnel and 1 GB of bandwidth per 30 days. TCP, UDP, TLS and proxy tunnels stop after 30 minutes and can be started again. HTTP, File Server and MCP Gateway tunnels have no time limit."
+    },
+    {
+      "url": "https://localtonet.com/documents/udp",
+      "date": "2026-11-25",
+      "proved": "an unreserved free port changes when the tunnel starts again",
+      "capture": "sha256:87bec25d457c94c6654cb56855786335a0e08457bd10909c86b7af103e7944d6",
+      "quote": "The server port is not reserved on the Free plan, so it can change when the tunnel starts again."
+    },
+    {
+      "url": "https://localtonet.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the free allowance and the timeout",
+      "capture": "sha256:64193fb662ceb7f2b26ea51505b9295d652eb192f54ee7343188c91e30744653",
+      "quote": "The free plan allows one tunnel and 1 GB of bandwidth per 30 days. TCP, UDP, TLS and proxy tunnels stop after 30 minutes and can be started again. HTTP, File Server and MCP Gateway tunnels have no time limit."
+    },
+    {
+      "url": "https://localtonet.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the free plan's tunnel count, allowance and timeout",
+      "capture": "sha256:64193fb662ceb7f2b26ea51505b9295d652eb192f54ee7343188c91e30744653",
+      "quote": "The free plan allows one tunnel and 1 GB of bandwidth per 30 days. TCP, UDP, TLS and proxy tunnels stop after 30 minutes and can be started again. HTTP, File Server and MCP Gateway tunnels have no time limit."
+    },
+    {
+      "url": "https://localtonet.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the free allowance period and the limited tunnel types",
+      "capture": "sha256:64193fb662ceb7f2b26ea51505b9295d652eb192f54ee7343188c91e30744653",
+      "quote": "The free plan allows one tunnel and 1 GB of bandwidth per 30 days. TCP, UDP, TLS and proxy tunnels stop after 30 minutes and can be started again. HTTP, File Server and MCP Gateway tunnels have no time limit."
+    },
+    {
+      "url": "https://localtonet.com/documents/udp",
+      "date": "2026-11-25",
+      "proved": "the free port changes when the tunnel starts again",
+      "capture": "sha256:87bec25d457c94c6654cb56855786335a0e08457bd10909c86b7af103e7944d6",
+      "quote": "The server port is not reserved on the Free plan, so it can change when the tunnel starts again."
+    },
+    {
+      "url": "https://localtonet.com/documents/udp",
+      "date": "2026-11-25",
+      "proved": "the free plan carries UDP tunnels",
+      "capture": "sha256:87bec25d457c94c6654cb56855786335a0e08457bd10909c86b7af103e7944d6",
+      "quote": "UDP tunnels count as TCP/UDP tunnels for the Free session limit: they stop after 30 minutes."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T17:26:44.696Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "UDP is a first-class free protocol, which is why it was worth reading. Both the quota and the port stability disqualify it.",
@@ -88,7 +172,7 @@
     "wg_detail": "the free plan's port is not fixed: the vendor's own comparison table gives the free plan 'Tunnel Server Port | May change on restart' and reserves a stable port for the paid plan",
     "ingress": "udp",
     "volume_tib_month": 0.000909,
-    "volume_stated": "1 GB bandwidth per month on the free plan; paid tunnels are sold as unlimited bandwidth",
+    "volume_stated": "1 GB bandwidth per 30 days on the free plan; paid tunnels have unlimited bandwidth that is never billed",
     "bytes_transit": "yes",
     "transit_note": "the Localtonet relay carries the datagrams",
     "promoted_from": ".tmp/egress/udp-forward"

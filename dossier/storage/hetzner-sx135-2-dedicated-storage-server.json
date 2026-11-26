@@ -13,31 +13,31 @@
     "notes": "The Dedicated Storage Server SX135 gives you ample room to grow with its SATA HDDs; they’re all hotswap capable, meaning you can swap out the drives without downtime."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "unverified: no per-object cap stated in the provider documentation",
     "source_url": "https://docs.hetzner.com/robot/dedicated-server/server-lines/sx-server/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: no per-object cap stated in the provider documentation"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "unverified: no retention clause stated in the provider documentation",
     "source_url": "https://docs.hetzner.com/robot/dedicated-server/server-lines/sx-server/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: no retention clause stated in the provider documentation"
   },
   "egress": {
-    "terms": "Same unlimited clause. SX135 supports the 10G uplink add-on. If you take it, the unlimited policy stops applying and egress over 20 TB is €1.00/TB. On the default 1 Gbit port it stays unlimited.",
-    "metered": true,
+    "terms": "Traffic usage is unlimited and free of charge. The 10G uplink add-on is excluded: usage over 20TB is charged € 1.00, excl. VAT/ TB.",
+    "metered": false,
     "price_per_tb": "€1.00/TB"
   },
   "interface": [
     "unknown"
   ],
-  "interface_detail": "full root",
+  "interface_detail": "Full root access",
   "tooling": "unrestricted",
   "chaining": "as SX65",
   "limits": [],
   "limits_note": "€144 setup. 10G uplink add-on converts traffic to metered. Do not take it if egress is the deciding term.",
   "identity_cost": {
     "kind": "email",
-    "detail": "email",
+    "detail": "a valid email address; personal or business contact information; a billing address; phone number optional for advanced verification",
     "country": null
   },
   "reliability_note": "Scales the SX65 down in €/TB. At 128 TB the per-TB rate is worse than SX65-2 but the absolute egress headroom (1 Gbit = ~330 TB/mo theoretical) is unchanged.",
@@ -72,10 +72,59 @@
       "proved": "the page describes the SX135 SATA HDDs as hotswap capable",
       "capture": "sha256:36c3f4a73a27e28b958704fd4b0ca129a364ab9e70b28963d80e3bbef8a5905a",
       "quote": "The Dedicated Storage Server SX135 gives you ample room to grow with its SATA HDDs; they’re all hotswap capable, meaning you can swap out the drives without downtime."
+    },
+    {
+      "url": "https://www.hetzner.com/dedicated-rootserver/sx135/",
+      "date": "2026-11-25",
+      "proved": "the SX135 page states full root access",
+      "capture": "sha256:b5b490396d49b0bc12d14c08bec4a152b2657b3812a93c49f6d96389c7e8eadd",
+      "quote": "Full root access"
+    },
+    {
+      "url": "https://www.hetzner.com/dedicated-rootserver/sx135/",
+      "date": "2026-11-25",
+      "proved": "the default SX135 traffic policy is unlimited and free",
+      "capture": "sha256:b5b490396d49b0bc12d14c08bec4a152b2657b3812a93c49f6d96389c7e8eadd",
+      "quote": "Traffic usage is unlimited and free of charge."
+    },
+    {
+      "url": "https://www.hetzner.com/dedicated-rootserver/sx135/",
+      "date": "2026-11-25",
+      "proved": "the add-on exception charges usage over 20TB at EUR 1.00 per TB",
+      "capture": "sha256:b5b490396d49b0bc12d14c08bec4a152b2657b3812a93c49f6d96389c7e8eadd",
+      "quote": "Please note that our unlimited traffic policy does not apply to servers that have the 10G uplink addon. In this special case, we will charge the usage over 20TB with € 1.00, excl. VAT/ TB"
+    },
+    {
+      "url": "https://www.hetzner.com/dedicated-rootserver/sx135/",
+      "date": "2026-11-25",
+      "proved": "the product page lists server features; it carries no retention clause",
+      "capture": "sha256:b5b490396d49b0bc12d14c08bec4a152b2657b3812a93c49f6d96389c7e8eadd",
+      "quote": "Full root access"
+    },
+    {
+      "url": "https://www.hetzner.com/dedicated-rootserver/sx135/",
+      "date": "2026-11-25",
+      "proved": "the product page lists server features; it carries no per-object clause",
+      "capture": "sha256:b5b490396d49b0bc12d14c08bec4a152b2657b3812a93c49f6d96389c7e8eadd",
+      "quote": "Full root access"
+    },
+    {
+      "url": "https://docs.hetzner.com/general/billing-and-account-management/account-getting-started/",
+      "date": "2026-11-25",
+      "proved": "the account requirements are email, contact information and a billing address; phone is optional",
+      "capture": "sha256:d3e5aa5349963c39e4f56aeb9f2c5f0308880968904d946c8e7ea5b8c5b8ae18",
+      "quote": "To create an account, you need:\n\n- a valid email address\n- personal or business contact information\n- a billing address\n- optionally, a phone number for advanced verification"
+    },
+    {
+      "url": "https://www.hetzner.com/dedicated-rootserver/sx135/",
+      "date": "2026-11-25",
+      "proved": "the default traffic policy is unlimited and free",
+      "capture": "sha256:b5b490396d49b0bc12d14c08bec4a152b2657b3812a93c49f6d96389c7e8eadd",
+      "quote": "Traffic usage is unlimited and free of charge."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T06:09:35.562Z",
+  "verified_at": "2026-11-25T13:25:55.250Z",
   "price_per_tb_month": "€2.24/TB/mo at 128 TB raw (€287.30 ÷ 128); €2.56/TB at 112 TB RAID-6",
   "notes": "8× 16 TB SATA = 128 TB raw; 112 TB usable at RAID-6",
   "history": [],

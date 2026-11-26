@@ -16,12 +16,12 @@
     "stated": "15 GB per file",
     "bytes": 15000000000,
     "source_url": "https://rumble.support/help/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Third-party documentation reports 15 GB per file; the help centre's upload article states no file-size limit and caps videos played during a livestream at 1 GB."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://rumble.support/help/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "There's two video types that cannot be deleted, and those are the ones submitted under these licenses:"
   },
   "egress": {
     "terms": "Free. Rumble serves its own CDN, no egress billing.",
@@ -41,8 +41,8 @@
     },
     {
       "kind": "per-object-cap",
-      "value": "15 GB/file",
-      "source": "https://rumble.support/help/"
+      "value": "1 GB for video played during a livestream",
+      "source": "https://rumble.support/help/can-i-stream-to-multiple-rumble-channels-or-rumble-accounts-at-the-same-time"
     }
   ],
   "limits_note": "15 GB/file is mid-tier. Upload is web-form only. This is the automation blocker, since yt-dlp solves retrieval but nothing solves programmatic upload.",
@@ -95,10 +95,24 @@
       "proved": "the upload article still carries its three-step heading",
       "capture": "sha256:024eda21a5811dc3ac082489d228b98906caf9fef834da4b626ecd8f8b093bde",
       "quote": "How to upload a video in 3 steps"
+    },
+    {
+      "url": "https://rumble.support/help/can-i-stream-to-multiple-rumble-channels-or-rumble-accounts-at-the-same-time",
+      "date": "2026-11-25",
+      "proved": "the Studio help page answers the large-video upload question with a 1 GB cap",
+      "capture": "sha256:56a8e65a70c6efb686f1f2df45d5bdd733bdc6da9d2eebe549eb9002f58e7531",
+      "quote": "I want to upload a large video file and play it during my livestream. What is the file size limit for video uploads?\n\nYou can upload video files that are 1 GB or smaller."
+    },
+    {
+      "url": "https://rumble.support/help/delete-videos",
+      "date": "2026-11-25",
+      "proved": "two video types cannot be deleted, by licence",
+      "capture": "sha256:16cd30ce4b53942d6e4232b1fe12c974cea966c3c3f69d58e35f1367e4cec867",
+      "quote": "There's two video types that cannot be deleted, and those are the ones submitted under these licenses:"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T03:34:15.636Z",
+  "verified_at": "2026-11-25T19:55:20.739Z",
   "notes": "unverified: https://rumble.support/help/how-to-upload-a-video answered HTTP 200 on 2026-11-11 through the environment proxy; its text carries a three-step upload heading, an image, a link reading https://rumble.com/upload and a licence note, and states no file-size or duration limit.",
   "history": [],
   "extras": {

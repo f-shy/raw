@@ -16,7 +16,7 @@
     "stated": "maximum file size of 5GB per digital product",
     "bytes": 5000000000,
     "source_url": "https://payhip.com/features/sell-digital-downloads",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Each uploaded file can be up to 5GB in size; larger files can be split into multiple smaller files uploaded to the same product listing."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
@@ -24,7 +24,7 @@
     "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
   },
   "egress": {
-    "terms": "No bandwidth limit stated (their words: 'no storage or bandwidth limits'). Free plan is 'Free Forever' with a 5% transaction fee. No monthly fee, so an unpriced/cheap product costs ~nothing.",
+    "terms": "No, we have no storage or bandwidth limits. We only have a 5GB per file limit.",
     "metered": false
   },
   "interface": [
@@ -33,7 +33,7 @@
   ],
   "interface_detail": "Web upload. REST API + webhooks on paid plans; the digital-product upload itself is form-based.",
   "tooling": "curl/browser; no first-class CLI.",
-  "chaining": "5 GB/file x unlimited files per product x unlimited products = unbounded account. Every listing is a shard with its own 5 GB ceiling. The cleanest 'shard into 5 GB pieces' target found.",
+  "chaining": "Each uploaded file can be up to 5GB; larger files can be split into multiple smaller files and uploaded separately to the same product listing.",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -107,10 +107,59 @@
       "proved": "the features page is readable on 2026-11-19 and states the no-limit offer and 5GB per-file ceiling",
       "capture": "sha256:fff6c848f54abc7e0023b692c923815208a3b3f57be15fa5dfa4fa2fb621c5c5",
       "quote": "No, we have no storage or bandwidth limits. We only have a 5GB per file limit."
+    },
+    {
+      "url": "https://help.payhip.com/article/59-adding-a-digital-product",
+      "date": "2026-11-25",
+      "proved": "the help centre states the 5GB per-file ceiling and splitting files within one product listing",
+      "capture": "sha256:224760bc18b896ee11226c7bc712973df19c1b9d838e22c59871f8aa4b374eec",
+      "quote": "Yes, each uploaded file can be up to 5GB in size. If your file exceeds this limit, you can split it into multiple smaller files and upload them separately to the same product listing."
+    },
+    {
+      "url": "https://help.payhip.com/article/59-adding-a-digital-product",
+      "date": "2026-11-25",
+      "proved": "the help centre confirms the 5GB per-file ceiling",
+      "capture": "sha256:224760bc18b896ee11226c7bc712973df19c1b9d838e22c59871f8aa4b374eec",
+      "quote": "Yes, each uploaded file can be up to 5GB in size. If your file exceeds this limit, you can split it into multiple smaller files and upload them separately to the same product listing."
+    },
+    {
+      "url": "https://help.payhip.com/article/59-adding-a-digital-product",
+      "date": "2026-11-25",
+      "proved": "the help centre documents splitting larger files across uploads in one product listing",
+      "capture": "sha256:224760bc18b896ee11226c7bc712973df19c1b9d838e22c59871f8aa4b374eec",
+      "quote": "Yes, each uploaded file can be up to 5GB in size. If your file exceeds this limit, you can split it into multiple smaller files and upload them separately to the same product listing."
+    },
+    {
+      "url": "https://help.payhip.com/article/59-adding-a-digital-product",
+      "date": "2026-11-25",
+      "proved": "the help centre confirms the same-listing split path",
+      "capture": "sha256:224760bc18b896ee11226c7bc712973df19c1b9d838e22c59871f8aa4b374eec",
+      "quote": "Yes, each uploaded file can be up to 5GB in size. If your file exceeds this limit, you can split it into multiple smaller files and upload them separately to the same product listing."
+    },
+    {
+      "url": "https://payhip.com/features/sell-digital-downloads",
+      "date": "2026-11-25",
+      "proved": "the features page states there is no bandwidth limit",
+      "capture": "sha256:fff6c848f54abc7e0023b692c923815208a3b3f57be15fa5dfa4fa2fb621c5c5",
+      "quote": "No, we have no storage or bandwidth limits. We only have a 5GB per file limit."
+    },
+    {
+      "url": "https://payhip.com/features/sell-digital-downloads",
+      "date": "2026-11-25",
+      "proved": "the features page confirms no bandwidth limit",
+      "capture": "sha256:fff6c848f54abc7e0023b692c923815208a3b3f57be15fa5dfa4fa2fb621c5c5",
+      "quote": "No, we have no storage or bandwidth limits. We only have a 5GB per file limit."
+    },
+    {
+      "url": "https://payhip.com/auth/register",
+      "date": "2026-11-25",
+      "proved": "the free-account form asks for a name, email address and password",
+      "capture": "sha256:affc6ea12fd4a8939f6df812b295485fc410a2854fb3f5176e6a2f8cf20d241c",
+      "quote": "Setup a free Payhip account to create a store. ... First Name ... Last Name ... Email Address ... Password"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:14:36.639Z",
+  "verified_at": "2026-11-25T19:55:14.040Z",
   "notes": "The features page was read on 2026-11-19 and states no storage or bandwidth limit with a 5GB per-file ceiling.",
   "history": [],
   "extras": {

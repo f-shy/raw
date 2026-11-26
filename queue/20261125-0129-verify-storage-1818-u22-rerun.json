@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u22-rerun",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/fastly-fast-forward $.per_object_cap.notes: Page states free/discounted services and an application; it never says Fastly absorbs bandwidth or that the origin is supplied by the applicant. No per-object cap is stated (absence only).\n- storage/fastly-fast-forward $.retention.notes: Page states no retention period, but also nothing about duration depending on continued acceptance.\n- storage/fastly-fast-forward $.per_object_cap.notes: Page states free/discounted services and an application; it never says Fastly absorbs bandwidth or that the origin is supplied by the applicant. No per-object cap is stated (absence only).\n- storage/fastly-fast-forward $.retention.notes: Page states no retention period, but also nothing about duration depending on continued acceptance.\n- storage/filen-pro-x $.per_object_cap.notes: 'Unlimited uploads' does not state absence of a per-object size cap; capture lists FAQ question titles only, no answers; terms/KB claims are not in this capture.\n- storage/filen-pro-x $.per_object_cap.notes: This is retention, not per-object size; terms capture states no file-size cap but nothing on the KB sign-in claim, which no capture shows.",
+ "scope": {
+  "rids": [
+   "storage/fastly-fast-forward",
+   "storage/fedora-copr",
+   "storage/feral-hosting-radon",
+   "storage/fil-one",
+   "storage/file-kiwi",
+   "storage/filen-pro-x"
+  ]
+ },
+ "origin": "audit u88 of 20261125-0129-verify-storage-1818/u22 failed: 6 of 22 unsupported",
+ "created": "2026-11-25T07:46:19Z"
+}

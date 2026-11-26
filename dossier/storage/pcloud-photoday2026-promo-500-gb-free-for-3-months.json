@@ -13,18 +13,18 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "Upload files of any size with unrestricted transfer speeds.",
     "source_url": "https://www.pcloud.com/promo?code=3MONTHS500GB",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Upload files of any size with unrestricted transfer speeds."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "For the occasion, we are giving away 500 GB free for 3 months.",
     "source_url": "https://www.pcloud.com/promo?code=3MONTHS500GB",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "For the occasion, we are giving away 500 GB free for 3 months."
   },
   "egress": {
-    "terms": "Same as pCloud paid. Unrestricted transfer speeds, no per-GB meter.",
-    "metered": false
+    "terms": "Every pCloud plan includes a specified amount of shared link traffic that resets on a monthly basis (regardless of whether you have a monthly, annual, or Lifetime subscription):",
+    "metered": true
   },
   "interface": [
     "rest",
@@ -72,10 +72,59 @@
       "proved": "pCloud's first-party post dates the 500 GB for 3 months giveaway to World Photography Day",
       "capture": "sha256:deea14997d0736e64e033fc214c489a925066ed201c2f33447a10f3b32ee70a1",
       "quote": "For the occasion, we are giving away 500 GB free for 3 months."
+    },
+    {
+      "url": "https://www.pcloud.com/cloud-storage-pricing-plans.html",
+      "date": "2026-11-25",
+      "proved": "the first-party pricing page states uploads of any size",
+      "capture": "sha256:dc4ba6bb8849a336ce132df8564d6c42185fc768e398831508a514975742e6bd",
+      "quote": "- Upload files of any size with unrestricted transfer speeds."
+    },
+    {
+      "url": "https://www.pcloud.com/cloud-storage-pricing-plans.html",
+      "date": "2026-11-25",
+      "proved": "the pricing page confirms uploads of any size",
+      "capture": "sha256:dc4ba6bb8849a336ce132df8564d6c42185fc768e398831508a514975742e6bd",
+      "quote": "- Upload files of any size with unrestricted transfer speeds."
+    },
+    {
+      "url": "https://blog.pcloud.com/pcloud-home-for-your-memories",
+      "date": "2026-11-25",
+      "proved": "pCloud's first-party post states the grant runs for 3 months",
+      "capture": "sha256:deea14997d0736e64e033fc214c489a925066ed201c2f33447a10f3b32ee70a1",
+      "quote": "For the occasion, we are giving away 500 GB free for 3 months."
+    },
+    {
+      "url": "https://blog.pcloud.com/pcloud-home-for-your-memories",
+      "date": "2026-11-25",
+      "proved": "the post confirms the 3-month grant",
+      "capture": "sha256:deea14997d0736e64e033fc214c489a925066ed201c2f33447a10f3b32ee70a1",
+      "quote": "For the occasion, we are giving away 500 GB free for 3 months."
+    },
+    {
+      "url": "https://help.pcloud.com/article/shared-link-traffic",
+      "date": "2026-11-25",
+      "proved": "the help centre states a monthly shared-link traffic allowance on every plan",
+      "capture": "sha256:c10f0ae136eb7768ccc107f76282d82ba625bb9a1b49ac1be6614c07ca1d7c14",
+      "quote": "Every pCloud plan includes a specified amount of shared link traffic that resets on a monthly basis (regardless of whether you have a monthly, annual, or Lifetime subscription):"
+    },
+    {
+      "url": "https://help.pcloud.com/article/shared-link-traffic",
+      "date": "2026-11-25",
+      "proved": "every pCloud plan has a monthly metered shared-link allowance",
+      "capture": "sha256:c10f0ae136eb7768ccc107f76282d82ba625bb9a1b49ac1be6614c07ca1d7c14",
+      "quote": "Every pCloud plan includes a specified amount of shared link traffic that resets on a monthly basis (regardless of whether you have a monthly, annual, or Lifetime subscription):"
+    },
+    {
+      "url": "https://help.pcloud.com/article/shared-link-traffic",
+      "date": "2026-11-25",
+      "proved": "the help centre confirms monthly metered shared-link traffic",
+      "capture": "sha256:c10f0ae136eb7768ccc107f76282d82ba625bb9a1b49ac1be6614c07ca1d7c14",
+      "quote": "Every pCloud plan includes a specified amount of shared link traffic that resets on a monthly basis (regardless of whether you have a monthly, annual, or Lifetime subscription):"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-19T21:14:38.526Z",
+  "verified_at": "2026-11-25T19:55:14.041Z",
   "notes": "500 GB free for 3 months, no card, via promo code `PhotoDay2026` on a fresh signup. Base free tier is 10 GB.",
   "history": [],
   "extras": {

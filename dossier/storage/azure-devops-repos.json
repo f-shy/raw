@@ -20,7 +20,7 @@
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://learn.microsoft.com/en-us/azure/devops/repos/git/limits",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The Git limits page states repository, push and path limits but no retention period for stored repositories; retention is unverified."
   },
   "egress": {
     "terms": "Unmetered. Clone/fetch over HTTPS from dev.azure.com has no egress meter - the billing FAQ enumerates every chargeable meter (extra Basic users, Basic+Test Plans, parallel jobs, Artifacts >2 GB, GHAS) and data transfer is not among them.",
@@ -109,10 +109,24 @@
       "proved": "the Git object-count ceiling was removed",
       "capture": "sha256:377c6d66fd247da1c35016ba181f58a5755b4330deb92dc604da91a8c9d1c904",
       "quote": "The hard limit on the number of Git objects in a repository has been removed."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/devops/repos/git/limits",
+      "date": "2026-11-25",
+      "proved": "the Git limits page enumerates resource limits and states no retention period",
+      "capture": "sha256:003f88a6206e7aca00169999b17800248e822da5d30def7111e8e5db7e4ff8a3",
+      "quote": "We impose resource limits on Git repositories in Azure Repos to ensure reliability and availability for all customers."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/devops/repos/git/limits",
+      "date": "2026-11-25",
+      "proved": "the 100 MB non-LFS file limit on the Git limits page is unchanged",
+      "capture": "sha256:003f88a6206e7aca00169999b17800248e822da5d30def7111e8e5db7e4ff8a3",
+      "quote": "Files should be no larger than 100 MB."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-10T00:50:09.752Z",
+  "verified_at": "2026-11-25T03:33:12.197Z",
   "notes": "Unlimited private Git repositories free per organization; each repository may be up to 250 GB; storage is NOT a billed meter - the Azure DevOps free tier bills only users, parallel jobs and Artifacts storage. Git LFS is free and does not count toward the 5 GB push limit.",
   "history": [],
   "extras": {

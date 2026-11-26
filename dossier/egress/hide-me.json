@@ -81,10 +81,24 @@
       "url": "https://hide.me/en/pricing",
       "date": "2026-10-23",
       "proved": "Indexed price rows: 1 month $11.99, 24 months plus 4 extra at $2.50 per month billed $69.99 every 28 months, 12 months plus 2 extra at $3.93 per month billed $54.99. The rendered page served FAQ text only."
+    },
+    {
+      "url": "https://hide.me/en/help/how-do-i-activate-dynamic-port-forwarding/",
+      "date": "2026-11-25",
+      "proved": "static port forwarding is refused; dynamic forwarding is Premium only",
+      "capture": "sha256:4a84ce4ce9ad8c0ab877bccd62014099628cc2fae0c4bbbd81c647318f6bb6a9",
+      "quote": "Due to this, we refrain from permitting static port forwarding across our VPN server network."
+    },
+    {
+      "url": "https://hide.me/en/help/what-is-upnp-port-forwarding-and-how-can-i-enable-it/",
+      "date": "2026-11-25",
+      "proved": "the mapping is application-requested UPnP",
+      "capture": "sha256:b63c823b5cf46962624b49f5da5a7b01cf88e9ea0436c4b54cc3bf701754606f",
+      "quote": "Once the application maps a port, it can be contacted from the public Internet as though it is running on the router."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:43.031Z",
   "price_per_tb_month": "USD 11.99 per month; USD 2.50 per month on 28 months (69.99); USD 3.93 per month on 14 months (54.99)",
   "history": [],
   "notes": "Candidates for why a paid VPN would refuse static forwarding: (1) abuse economics, since a static port is a persistent host; (2) technical design, where the network is UPnP-only and has no reservation table; (3) a marketing split, where static ingress is sold as a separate static IP product. The forum thread that surfaced first told users to buy a static IP, which supports the third reading, and the help page's own wording supports the second. Both can hold at once, and neither yields a free stable port.",

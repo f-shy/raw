@@ -16,12 +16,12 @@
     "stated": "Generic 5 GiB",
     "bytes": 5368709120,
     "source_url": "https://salsa.debian.org/help/instance_configuration",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The size-limits table caps a CI job artifact at 750 MiB and a Pages file at 300 MiB and shows '-' for Maximum push size; no numeric push-size limit is published."
   },
   "retention": {
     "stated": "per-object-cap: 5 GiB per Generic package file; 750 MiB per CI artifact; 300 MiB Pages. retention: indefinite for packages and repos (no pruning policy published on this page)",
     "source_url": "https://salsa.debian.org/help/instance_configuration",
-    "notes": "Extracted from published terms."
+    "notes": "The instance-configuration page publishes size caps and rate limits but no retention period; the signup page gates new accounts on manual review."
   },
   "egress": {
     "terms": "Free. Debian-hosted infrastructure with no billing, no per-GB meter, and package/registry downloads served straight from the instance. No Cloudflare dependency to worry about.",
@@ -33,7 +33,7 @@
   ],
   "interface_detail": "git",
   "tooling": "Full GitLab: `git` over SSH/HTTPS, GitLab Generic Package API (`PUT /projects/:id/packages/generic/:package_name/:version/:file_name`), CI runners, `glab`/`lab` CLIs, `python-gitlab`. Max push size is '-' (unlimited) which is the interesting cell - the per-object cap is on the *registry*, not on git.",
-  "chaining": "Unlimited projects per account x 5 GiB per Generic-package file x unlimited files per package version x unlimited versions. Plus unlimited-size git pushes as a second surface. The binding limit is account creation, not storage.",
+  "chaining": "New user registrations are manually reviewed, so account creation is the gate before any storage is used.",
   "limits": [
     {
       "kind": "write-gated",
@@ -96,10 +96,38 @@
       "proved": "new accounts are still manually reviewed because of high spam-registration volume",
       "capture": "sha256:e585567eb5cff045d60abb103f7a0659a3c495212aeb0d4ba88b25660edec0ed",
       "quote": "New user registrations are manually reviewed"
+    },
+    {
+      "url": "https://salsa.debian.org/help/instance_configuration",
+      "date": "2026-11-25",
+      "proved": "the size-limits table gives 750 MiB for artifacts and 300 MiB for Pages and shows a dash for maximum push size",
+      "capture": "sha256:0f8a07e24b18566eb0c593c446622bdf61d801b77c8cc4ff3c22b1f49f38d565",
+      "quote": "| Maximum push size | - |\n| Maximum export size | - |\n| Maximum import size | 50 MiB |\n| Maximum diff patch size | 200 KiB |\n| Maximum job artifact size | 750 MiB |\n| Maximum page size | 300 MiB |"
+    },
+    {
+      "url": "https://salsa.debian.org/help/instance_configuration",
+      "date": "2026-11-25",
+      "proved": "the package-registry table still caps a Generic package file at 5 GiB",
+      "capture": "sha256:0f8a07e24b18566eb0c593c446622bdf61d801b77c8cc4ff3c22b1f49f38d565",
+      "quote": "| Generic | 5 GiB | 5 GiB | 5 GiB |"
+    },
+    {
+      "url": "https://salsa.debian.org/users/sign_up",
+      "date": "2026-11-25",
+      "proved": "the signup page gates new accounts on manual review and states no retention period",
+      "capture": "sha256:e585567eb5cff045d60abb103f7a0659a3c495212aeb0d4ba88b25660edec0ed",
+      "quote": "New user registrations are manually reviewed due to the high volume of spam registrations."
+    },
+    {
+      "url": "https://salsa.debian.org/users/sign_up",
+      "date": "2026-11-25",
+      "proved": "manual review of new registrations gates account creation",
+      "capture": "sha256:e585567eb5cff045d60abb103f7a0659a3c495212aeb0d4ba88b25660edec0ed",
+      "quote": "New user registrations are manually reviewed due to the high volume of spam registrations."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:13:26.681Z",
+  "verified_at": "2026-11-25T09:54:58.645Z",
   "notes": "No published total-storage quota, but a fully published per-object table on the instance-configuration page. Package registry per-file caps: Generic 5 GiB, Conan 3 GiB, Maven 3 GiB, PyPI 3 GiB, Terraform 1 GiB, npm/NuGet 500 MiB, Helm 5 MiB. Core GitLab: max push size '-' (unlimited), max attachment 20 MiB, job artifact 750 MiB, pages 300 MiB, snippet 50 MiB, import remote file 10 GiB, download file 5 GiB.",
   "history": [],
   "extras": {

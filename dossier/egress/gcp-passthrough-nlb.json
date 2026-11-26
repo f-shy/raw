@@ -67,10 +67,17 @@
       "url": "https://cloud.google.com/load-balancing/docs/network",
       "date": "2026-10-23",
       "proved": "These backends must be in the same region and project but can be in different VPC networks."
+    },
+    {
+      "url": "https://cloud.google.com/load-balancing/docs/network",
+      "date": "2026-11-25",
+      "proved": "backends must be in the same region and project as the load balancer",
+      "capture": "sha256:2bf060d0e2774b3c46edb73c39a97dff1275a4822b4d467141828d0c6822350b",
+      "quote": "These backends must be in the\nsame region and project but can be in different VPC networks."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:42.068Z",
   "price_per_tb_month": "unverified",
   "history": [],
   "notes": "UDP is documented and the address can be Premium Tier, which is anycast to the nearest region. It still adds no reachability a GCP VM's own external IP does not already provide, and it is regional rather than global for L4. Hybrid NEGs can point at on-premises hosts through Cloud VPN or Interconnect, which is a route but not a cheap one.",

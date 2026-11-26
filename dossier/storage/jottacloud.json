@@ -13,17 +13,17 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "Jottacloud reserves the right to conduct virus checks and may block certain files from being uploaded.",
     "source_url": "https://jottacloud.com/en/pricing",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Jottacloud reserves the right to conduct virus checks and may block certain files from being uploaded."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "**Files are kept in the trash can for 30 days** before they are automatically deleted.",
     "source_url": "https://jottacloud.com/en/pricing",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Deleted files can be restored or permanently removed from the Trash. Note that deleted files remain in the Trash for 30 days before they are automatically erased."
   },
   "egress": {
-    "terms": "No egress charge. 'No bandwidth limitation' is listed on Home 1 TB, and the Unlimited plan's only stated constraint is upload throttling, not download metering.",
+    "terms": "Download speed and other use of the service is not changed, and you can still store as much data as you need in your account.",
     "metered": false
   },
   "interface": [
@@ -31,9 +31,9 @@
     "rclone",
     "cli"
   ],
-  "interface_detail": "rest",
+  "interface_detail": "The command-line client (CLI) is capable of running on most devices with Windows, OS X and linux systems such as desktops, servers, NAS devices, and even Raspberry Pi.",
   "tooling": "Tier 2 rclone backend (md5, ModTime R/W, case-insensitive, metadata RWU). One of the few Tier-2 providers that is also a real commercial backup service. Duplicati lists Jottacloud as a natively supported provider. Official CLI plus rclone+restic documented by HN commenters.",
-  "chaining": "The only candidate here whose free-tier ceiling is 'unlimited' at a flat price, so it is the single account that can absorb a whole 20 TB archive without sharding. At the cost of upload speed past 5 TB. Pairs naturally as the durable tier under rclone crypt.",
+  "chaining": "We do not limit the storage space you can use on the Jottacloud Personal subscription.",
   "limits": [
     {
       "kind": "per-ip-shaping",
@@ -106,10 +106,108 @@
       "proved": "upload speed is gradually reduced after 5 TB",
       "capture": "sha256:dc898362961859b8494f6add836011bdb27b60ed635e9b5957111e0e0e39677b",
       "quote": "* Upload speed gradually reduced after 5 TB"
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/1372744-jottacloud-terms-conditions",
+      "date": "2026-11-25",
+      "proved": "the terms allow individual files to be blocked after virus checks",
+      "capture": "sha256:a083bc22b7ead7f34a10b6afbb67192f2d8d513196e6a842281f50d899d0915c",
+      "quote": "Jottacloud reserves the right to conduct virus checks and may block certain files from being uploaded."
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/1372744-jottacloud-terms-conditions",
+      "date": "2026-11-25",
+      "proved": "the terms permit blocking individual files after virus checks",
+      "capture": "sha256:a083bc22b7ead7f34a10b6afbb67192f2d8d513196e6a842281f50d899d0915c",
+      "quote": "Jottacloud reserves the right to conduct virus checks and may block certain files from being uploaded."
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/1378198-trash",
+      "date": "2026-11-25",
+      "proved": "deleted files stay in the trash for 30 days before automatic deletion",
+      "capture": "sha256:94774d6bda6358668c576a2825d8abed99d096af3dabf3d3e16b8b0bdc551b28",
+      "quote": "**Files are kept in the trash can for 30 days** before they are automatically deleted."
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/1562159-our-apps",
+      "date": "2026-11-25",
+      "proved": "the web app holds deleted files in the trash for 30 days before erasure",
+      "capture": "sha256:609ff7146aeeb339502784d4346372f1df745ee4e69572307606e26d64802310",
+      "quote": "Deleted files can be restored or permanently removed from the Trash. Note that deleted files remain in the Trash for 30 days before they are automatically erased."
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/3271114-reduced-upload-speed",
+      "date": "2026-11-25",
+      "proved": "the upload throttle does not change download speed or storage",
+      "capture": "sha256:96b9a9c40c90eb1d2aa988a733d635fba04fdb9b8f861ece83a20e9d4773deb1",
+      "quote": "Download speed and other use of the service is not changed, and you can still store as much data as you need in your account."
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/1359756-what-and-how-much-data-can-i-store-on-the-personal-subscription",
+      "date": "2026-11-25",
+      "proved": "the Personal subscription has no stated storage-space limit",
+      "capture": "sha256:d58744edbba2e814d09e15fb9adfe051c47d303a49112298d8619bfd78589381",
+      "quote": "We do not limit the storage space you can use on the Jottacloud Personal subscription."
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/1562159-our-apps",
+      "date": "2026-11-25",
+      "proved": "Jottacloud documents its own CLI",
+      "capture": "sha256:609ff7146aeeb339502784d4346372f1df745ee4e69572307606e26d64802310",
+      "quote": "The command-line client (CLI) is capable of running on most devices with Windows, OS X and linux systems such as desktops, servers, NAS devices, and even Raspberry Pi."
+    },
+    {
+      "url": "https://jottacloud.com/en/pricing",
+      "date": "2026-11-25",
+      "proved": "the free plan is 5 GB for one user",
+      "capture": "sha256:dc898362961859b8494f6add836011bdb27b60ed635e9b5957111e0e0e39677b",
+      "quote": "#### 5 GB\n\n  Free\n\n  1 user\n\n  ✔ 5 GB storage"
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/1372744-jottacloud-terms-conditions",
+      "date": "2026-11-25",
+      "proved": "the terms permit virus checks and blocking of individual files",
+      "capture": "sha256:a083bc22b7ead7f34a10b6afbb67192f2d8d513196e6a842281f50d899d0915c",
+      "quote": "Jottacloud reserves the right to conduct virus checks and may block certain files from being uploaded."
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/1378198-trash",
+      "date": "2026-11-25",
+      "proved": "deleted files are held in the trash for 30 days",
+      "capture": "sha256:94774d6bda6358668c576a2825d8abed99d096af3dabf3d3e16b8b0bdc551b28",
+      "quote": "**Files are kept in the trash can for 30 days** before they are automatically deleted."
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/1562159-our-apps",
+      "date": "2026-11-25",
+      "proved": "the web app keeps deleted files in the trash for 30 days",
+      "capture": "sha256:609ff7146aeeb339502784d4346372f1df745ee4e69572307606e26d64802310",
+      "quote": "Deleted files can be restored or permanently removed from the Trash. Note that deleted files remain in the Trash for 30 days before they are automatically erased."
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/3271114-reduced-upload-speed",
+      "date": "2026-11-25",
+      "proved": "download speed is unaffected by the upload throttle",
+      "capture": "sha256:96b9a9c40c90eb1d2aa988a733d635fba04fdb9b8f861ece83a20e9d4773deb1",
+      "quote": "Download speed and other use of the service is not changed, and you can still store as much data as you need in your account."
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/1359756-what-and-how-much-data-can-i-store-on-the-personal-subscription",
+      "date": "2026-11-25",
+      "proved": "the Personal subscription does not state a storage-space limit",
+      "capture": "sha256:d58744edbba2e814d09e15fb9adfe051c47d303a49112298d8619bfd78589381",
+      "quote": "We do not limit the storage space you can use on the Jottacloud Personal subscription."
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/1562159-our-apps",
+      "date": "2026-11-25",
+      "proved": "Jottacloud offers a command-line client",
+      "capture": "sha256:609ff7146aeeb339502784d4346372f1df745ee4e69572307606e26d64802310",
+      "quote": "The command-line client (CLI) is capable of running on most devices with Windows, OS X and linux systems such as desktops, servers, NAS devices, and even Raspberry Pi."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:22.253Z",
+  "verified_at": "2026-11-25T19:55:10.654Z",
   "price_per_tb_month": "$1.30/TB/mo at 10 TB, $0.65/TB/mo at 20 TB, $0.43/TB/mo at 30 TB (flat $12.99/mo 'Unlimited', throttled above 5 TB)",
   "notes": "Unlimited* NOK 129 / month, 1 user, unlimited storage, with upload speed gradually reduced after 5 TB.",
   "history": [],

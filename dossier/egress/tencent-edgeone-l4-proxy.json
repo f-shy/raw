@@ -77,10 +77,24 @@
       "url": "https://edgeone.ai/pricing",
       "date": "2026-10-23",
       "proved": "Free Plan $0 / month, No Credit Card, Unmetered Security Traffic, traffic column 50 GB / 500 GB / 3 TB, and an L4 Proxy line marked Paid Value-Added"
+    },
+    {
+      "url": "https://edgeone.ai/document/54506",
+      "date": "2026-11-25",
+      "proved": "the L4 proxy needs the Enterprise Edition package",
+      "capture": "sha256:3e5b8bf5b648ef86c0a928637f4d1953ff64a80a71f87458700a96d251a587de",
+      "quote": "The L4 proxy is only available with the Enterprise Edition package."
+    },
+    {
+      "url": "https://edgeone.ai/pricing",
+      "date": "2026-11-25",
+      "proved": "the plan traffic column is 50 GB, 500 GB and 3 TB",
+      "capture": "sha256:74bacc70536f67f8db0dc4baef92c6f56128a72b60eac6c6aef34b656d67823c",
+      "quote": "Traffic\n\n50 GB\n\n500 GB\n\n3 TB"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:48.837Z",
   "price_per_tb_month": "unpublished (Enterprise Edition)",
   "history": [],
   "notes": "The free plan's 'Unmetered Security Traffic' is attack-side language, not clean-traffic allowance: the same page's traffic row is 50 GB and the L4 row is paid. The L4 row could mean a paid add-on available on any plan, Enterprise only, or a mis-extracted table. The L4 overview note settles it as Enterprise only.",

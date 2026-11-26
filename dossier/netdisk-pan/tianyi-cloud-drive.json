@@ -5,7 +5,7 @@
   "url": "https://cloud.189.cn",
   "category": "carrier cloud",
   "free_tier": {
-    "stated": "60 GB free per the Wikipedia table, with carrier promotions routinely granting 4 TB, 10 TB or 12 TB. Free uploads are capped at 2 GB a day, Gold at 200 GB, Platinum unlimited",
+    "stated": "60G free capacity with a 2G single-file upload limit",
     "unit": "GiB",
     "metered_on": "stored-bytes",
     "source_url": "https://zh.wikipedia.org/zh-cn/中国大陆网盘列表",
@@ -53,7 +53,7 @@
   ],
   "identity_cost": {
     "kind": "country-phone",
-    "detail": "+86 only. OpenList labels the interface 逆向接口 and the web login a slider human-verification step, so even a scripted login is closed",
+    "detail": "unverified: the driver page names a phone number as the username and offers cookie login and a client driver; the sign-up gate and any country restriction are not published",
     "country": "86"
   },
   "reliability_note": "The TV-client OAuth path is the one that survives; the desktop-client path has been repeatedly broken by client-version checks. Promotional terabytes evaporate when the line lapses, TV clients are being pulled from app stores, and the 10 TB migration programme closed on 2026-09-27",
@@ -154,10 +154,24 @@
       "proved": "the web portal answers 200 with a script-driven shell",
       "capture": "sha256:c69ad07c49d34fd8e155ddae2b0e2762bd62ec3e97a57e56ad85967349320151",
       "quote": "doesn't work properly without JavaScript enabled"
+    },
+    {
+      "url": "https://zh.wikipedia.org/zh-cn/中国大陆网盘列表",
+      "date": "2026-11-25",
+      "proved": "the table gives 60G free capacity and a 2G upload limit; the article calls the 2G a single-file limit",
+      "capture": "sha256:87cfd4212b0eaf2bb73b16353c13f114920639a0b2df7d9e3a6465f3bf0ce870",
+      "quote": "| 电信天翼云盘 | 60G | 2G |  | 有 | 无 | 是 | 否 | ... 支持最高2G的单个文件上传，支持分享文件"
+    },
+    {
+      "url": "https://openlistteam.github.io/docs/zh/guide/drivers/189.html",
+      "date": "2026-11-25",
+      "proved": "the driver names a phone number as the username and offers cookie login and the client driver beside the slider check",
+      "capture": "sha256:42eedb25435b9367748f5d3f22a60b9db3eee480cc3ea90e1c73164bc479e4d9",
+      "quote": "用于登录的电话号码 ... Web 端登录已更换为滑动验证码，**不再支持 OCR 与手动输入**，若需要验证码请使用 `添加 Cookie 进行登录` 或使用 `天翼云盘客户端` 驱动"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-11-04T00:20:53.783Z",
+  "verified_at": "2026-11-25T14:57:25.807Z",
   "history": [],
   "binding": "per-ip-shaping",
   "binding_note": "Promotional allocations provide substantial nominal capacity but are restricted by a 2 GB daily upload limit, requiring approximately 5.5 years to transfer 4 TB. Registration requires domestic mobile identity verification.",

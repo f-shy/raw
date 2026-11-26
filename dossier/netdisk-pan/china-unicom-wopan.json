@@ -22,11 +22,11 @@
     "source_url": "https://forum.naixi.net/thread-5251-1-1.html"
   },
   "egress": {
-    "terms": "Advertised 不限速 on the homepage. One poster measured cross-carrier throughput through OpenList and WebDAV at their full 100 Mbit/s up and 500 Mbit/s down, so unlike Tianyi it is not throttled cross-carrier",
+    "terms": "Advertised 不限速 in the homepage title; no throughput figure is published",
     "metered": false,
     "free_allowance": null,
     "price_per_tb": null,
-    "source_url": "https://linux.do/t/topic/2455477"
+    "source_url": "https://pan.wo.cn/"
   },
   "interface": [
     "rest",
@@ -118,10 +118,17 @@
       "proved": "the Go SDK is built from a refresh token",
       "capture": "sha256:0a8b329f16a63ca53007239e588d64fc4f1e30951a2b20f7513513a9bc25dba4",
       "quote": "w := wopan.DefaultWithRefreshToken(\"91d4b946-xxxx-4909-bac1-d9914e45f2de\")"
+    },
+    {
+      "url": "probe:https://pan.wo.cn/",
+      "date": "2026-11-25",
+      "proved": "the vendor homepage title advertises 不限速",
+      "capture": "sha256:5fbfb45185c22097ce8eb029042f53e86e062fcef9ace4b09bac2753c097d4e1",
+      "quote": "<title>联通云盘-开启美好时光|不限速</title>"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-04T00:20:53.783Z",
+  "verified_at": "2026-11-25T15:23:48.016Z",
   "history": [],
   "binding": "per-object-cap",
   "binding_note": "Free storage provides 60 GB, with larger quota grants tied to time-limited mobile contract promotions. The per-file upload cap is unpublished, making total account capacity the binding limit.",

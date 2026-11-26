@@ -15,25 +15,24 @@
   "per_object_cap": {
     "stated": "200 MB per file",
     "bytes": 200000000,
-    "source_url": "https://knowledge.workspace.google.com/admin/storage/google-workspace-storage-faq-for-admins",
-    "notes": "extracted from the quota or limits prose"
+    "source_url": "https://developers.google.com/workspace/chat/upload-media-attachments",
+    "notes": "The upload guide also says some file types are not supported and cannot be uploaded."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
-    "source_url": "https://knowledge.workspace.google.com/admin/storage/google-workspace-storage-faq-for-admins",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "stated": "Admin-controlled: a Vault retention rule for Chat can discard messages after a retention period of 1 to 36,500 days, or keep them indefinitely.",
+    "source_url": "https://knowledge.workspace.google.com/vault/retention/retain-google-chat-messages-with-vault",
+    "notes": "Chat auto-deletion for 1:1, group and space messages accepts 30 to 36500 days. Supported editions for auto-deletion: Frontline Plus; Business Plus; Enterprise Standard and Enterprise Plus; Education Standard and Education Plus; Enterprise Essentials and Enterprise Essentials Plus. Vault retention rules (1 to 36,500 days) are a separate control."
   },
   "egress": {
-    "terms": "Not metered. Downloaded through Chat API media.download (3,000 attachment reads/min/project), supports Range requests. No per-GB charge in the docs.",
+    "terms": "media.download is limited to 3,000 attachment reads per 60 seconds per project; it supports the Range header for partial downloads. The Chat API pages read state no per-GB egress price and no byte quota.",
     "metered": true
   },
   "interface": [
-    "rest",
-    "rclone"
+    "rest"
   ],
   "interface_detail": "rest",
-  "tooling": "Official Chat API with service-account (app) auth; media.upload for write, GET /v1/media/{name}?alt=media for read with Range. No dedicated rclone backend exists. This is a build-it-yourself REST store; google-api-* client libs cover both directions.",
-  "chaining": "Unlimited messages x 200 MB per attachment. 20 attachments per interactive message on web, but the API path is per-media-upload, so the binding constraint is the 600 uploads/min/project rate, and projects are multiplicative (30-project default quota per user). Storage is free because Chat attachments are quota-exempt. This is the strongest multiplier in the Google stack.",
+  "tooling": "REST over HTTPS: media download is GET https://chat.googleapis.com/v1/media/{resourceName=**}; the upload guide calls media.upload, then creates a message that attaches the file. No rclone backend is named on the pages read.",
+  "chaining": "Writes are bounded by 600 media.upload calls per 60 seconds per project. The limits page states no per-day request limit while the per-minute quotas are respected. Whether quotas multiply across projects is not stated on the pages read.",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -44,7 +43,7 @@
   "limits_note": "200 MB per file hard cap; some file types blocked; 600 media.upload/min/project and 3,000 media.download/min/project; requires a Google Workspace account + Cloud project + Chat API enabled (personal @gmail.com accounts are not a supported developer surface; Chat API auth doc requires Workspace). Chat API quotas are per-minute only. The docs state 'no limit to the number of requests you can make per day' if you stay under them.",
   "identity_cost": {
     "kind": "institution",
-    "detail": "derived from the record's prose, not from an identity field, and no signup was executed: nt. 20 attachments per interactive message on web, but the API path is per-media-upload, so the binding constraint is the 600 uploads/min/project rate, and projects are multiplicativ",
+    "detail": "The upload guide's prerequisite is a Business or Enterprise Google Workspace account with access to Google Chat. Payment details were not seen; no sign-up was entered.",
     "country": null
   },
   "reliability_note": "Messages/attachments live in a space. Deleting or archiving the space, or removing the app from it, can orphan the data; no documented retention guarantee. Blocked MIME types must be avoided.",
@@ -84,10 +83,101 @@
       "proved": "the upload limit is 200 MB per file",
       "capture": "sha256:388de259a3d01e4a2dfc24bb8ade4088d971cb2f65f950fae594d9331c1ac870",
       "quote": "- You can upload file sizes up to 200 MB."
+    },
+    {
+      "url": "https://developers.google.com/workspace/chat/api/reference/rest/v1/media/download",
+      "date": "2026-11-25",
+      "proved": "media download is an HTTPS REST method; the page names no rclone backend",
+      "capture": "sha256:363420189fea66ae7cbd9d10385d15bbb4aa91f2bfc85d968acf47b9f4b21544",
+      "quote": "`GET https://chat.googleapis.com/v1/media/{resourceName=**}`"
+    },
+    {
+      "url": "https://developers.google.com/workspace/chat/api/reference/rest/v1/media/download",
+      "date": "2026-11-25",
+      "proved": "the REST download endpoint",
+      "capture": "sha256:363420189fea66ae7cbd9d10385d15bbb4aa91f2bfc85d968acf47b9f4b21544",
+      "quote": "`GET https://chat.googleapis.com/v1/media/{resourceName=**}`"
+    },
+    {
+      "url": "https://developers.google.com/workspace/chat/limits",
+      "date": "2026-11-25",
+      "proved": "attachment reads, including media.download, are limited to 3000 per minute",
+      "capture": "sha256:e4bd85042c312a2c07d673b49afbc71084efb07c783db8a8c018b2a6d1ed91ce",
+      "quote": "| Attachment reads per minute | `spaces.messages.attachments.get` `media.download` | 3000 |"
+    },
+    {
+      "url": "https://developers.google.com/workspace/chat/api/reference/rest/v1/media/download",
+      "date": "2026-11-25",
+      "proved": "media.download supports Range requests",
+      "capture": "sha256:363420189fea66ae7cbd9d10385d15bbb4aa91f2bfc85d968acf47b9f4b21544",
+      "quote": "To download only part of a file, use the `Range` header with a [byte range](https://www.rfc-editor.org/rfc/rfc9110.html#name-byte-ranges)."
+    },
+    {
+      "url": "https://developers.google.com/workspace/chat/limits",
+      "date": "2026-11-25",
+      "proved": "attachment uploads are limited to 600 per minute",
+      "capture": "sha256:e4bd85042c312a2c07d673b49afbc71084efb07c783db8a8c018b2a6d1ed91ce",
+      "quote": "| Attachment writes per minute | `media.upload` | 600 |"
+    },
+    {
+      "url": "https://knowledge.workspace.google.com/vault/retention/retain-google-chat-messages-with-vault",
+      "date": "2026-11-25",
+      "proved": "a Vault Chat retention rule takes 1 to 36,500 days",
+      "capture": "sha256:17bfdf890716bf6d68be684b41626ef3faed3aa6a6c8e975fc00031a8f1cadc0",
+      "quote": "To discard messages after a set time, choose **Retention period** and enter the number of days, from 1 to 36,500."
+    },
+    {
+      "url": "https://knowledge.workspace.google.com/vault/retention/retain-google-chat-messages-with-vault",
+      "date": "2026-11-25",
+      "proved": "the retention range is on the Vault page",
+      "capture": "sha256:17bfdf890716bf6d68be684b41626ef3faed3aa6a6c8e975fc00031a8f1cadc0",
+      "quote": "To discard messages after a set time, choose **Retention period** and enter the number of days, from 1 to 36,500."
+    },
+    {
+      "url": "https://knowledge.workspace.google.com/admin/chat/automatically-delete-chat-messages-for-your-organization",
+      "date": "2026-11-25",
+      "proved": "Chat auto-deletion for space messages takes 30 to 36500 days",
+      "capture": "sha256:9824ac46dc38fdadb54efb0f7c5bfe3b6c25c29a9669bfc434a31bfaffd05bfd",
+      "quote": "5. For **Number of days while message stays visible in space messages**, enter a number between 30 and 36500."
+    },
+    {
+      "url": "https://developers.google.com/workspace/chat/upload-media-attachments",
+      "date": "2026-11-25",
+      "proved": "the 200 MB per-file limit is on the upload guide",
+      "capture": "sha256:388de259a3d01e4a2dfc24bb8ade4088d971cb2f65f950fae594d9331c1ac870",
+      "quote": "- You can upload file sizes up to 200 MB."
+    },
+    {
+      "url": "https://developers.google.com/workspace/chat/upload-media-attachments",
+      "date": "2026-11-25",
+      "proved": "the cap is 200 MB per file; the guide's next bullet limits file types",
+      "capture": "sha256:388de259a3d01e4a2dfc24bb8ade4088d971cb2f65f950fae594d9331c1ac870",
+      "quote": "- You can upload file sizes up to 200 MB."
+    },
+    {
+      "url": "https://developers.google.com/workspace/chat/upload-media-attachments",
+      "date": "2026-11-25",
+      "proved": "a Business or Enterprise Workspace account is the stated prerequisite",
+      "capture": "sha256:388de259a3d01e4a2dfc24bb8ade4088d971cb2f65f950fae594d9331c1ac870",
+      "quote": "A Business or Enterprise [Google Workspace](https://support.google.com/a/answer/6043576) account with access to [Google Chat](https://workspace.google.com/products/chat/)."
+    },
+    {
+      "url": "https://knowledge.workspace.google.com/admin/storage/google-workspace-storage-faq-for-admins",
+      "date": "2026-11-25",
+      "proved": "listed under content that doesn't count toward storage",
+      "capture": "sha256:572a4d45f1b7c3883a8f26e6325438338977e1cca0cb33a03539e92dd69d1fb1",
+      "quote": "- Google Chat messages and attachments"
+    },
+    {
+      "url": "https://developers.google.com/workspace/chat/upload-media-attachments",
+      "date": "2026-11-25",
+      "proved": "the per-file cap is 200 MB",
+      "capture": "sha256:388de259a3d01e4a2dfc24bb8ade4088d971cb2f65f950fae594d9331c1ac870",
+      "quote": "- You can upload file sizes up to 200 MB."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:17.324Z",
+  "verified_at": "2026-11-25T12:15:41.802Z",
   "notes": "Per-record unlimited: 200 MB per attachment, and Chat messages AND attachments explicitly do NOT count toward Google storage quota. 600 attachment uploads/min/project x 200 MB = ~120 GB/min theoretical ingest.",
   "history": [],
   "extras": {

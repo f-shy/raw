@@ -16,12 +16,12 @@
     "stated": "50 MB per asset",
     "bytes": 50000000,
     "source_url": "https://hygraph.com/pricing",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Hobby: 50 MB per asset upload size (maximum); the comparison table lists 200 MB per asset for the next plan, Growth."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "The plan comparison lists a version retention period of '-' for Hobby, 14 days for Growth and up to 365 days for the third plan.",
     "source_url": "https://hygraph.com/pricing",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Plan columns are in the order Hobby, Growth, third plan; the Growth card lists '14-day version retention'.."
   },
   "egress": {
     "terms": "100 GB asset traffic/month on Hobby, served from a global CDN (media.graphassets.com) with image transforms.",
@@ -62,10 +62,31 @@
       "proved": "the Hobby plan offers unlimited asset storage with a 50 MB per-asset cap",
       "capture": "sha256:9f6d3a8ca4f33fc8aca5363c3f0f44784c5f9d4869c9eb3c830df2cde53be673",
       "quote": "- Unlimited asset storage\n- 50MB per asset upload size (maximum)"
+    },
+    {
+      "url": "https://hygraph.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the Hobby plan caps an asset upload at 50 MB",
+      "capture": "sha256:9f6d3a8ca4f33fc8aca5363c3f0f44784c5f9d4869c9eb3c830df2cde53be673",
+      "quote": "- Unlimited asset storage\n- 50MB per asset upload size (maximum)"
+    },
+    {
+      "url": "https://hygraph.com/pricing",
+      "date": "2026-11-25",
+      "proved": "Hobby has no version retention period listed; Growth 14 days; third plan up to 365 days",
+      "capture": "sha256:9f6d3a8ca4f33fc8aca5363c3f0f44784c5f9d4869c9eb3c830df2cde53be673",
+      "quote": "Version retention period\n\n-\n\n14 days\n\nUp to 365 days"
+    },
+    {
+      "url": "https://hygraph.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the Growth plan card lists 14-day version retention",
+      "capture": "sha256:9f6d3a8ca4f33fc8aca5363c3f0f44784c5f9d4869c9eb3c830df2cde53be673",
+      "quote": "- 14-day version retention"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:13:58.579Z",
+  "verified_at": "2026-11-25T12:15:44.836Z",
   "notes": "Unlimited asset storage on Hobby (free) with a 50 MB per-asset cap; 100 GB asset traffic/month",
   "history": [],
   "extras": {

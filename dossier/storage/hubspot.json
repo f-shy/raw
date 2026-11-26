@@ -16,12 +16,12 @@
     "stated": "20 MB per file",
     "bytes": 20000000,
     "source_url": "https://knowledge.hubspot.com/files/supported-file-types",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Files tool: 20 MB per file for accounts with only HubSpot's free tools, 2 GB per file with a paid subscription; a file of 1 GB or more may cause upload issues. The page states no total storage limit and no limit on the number of files in the files tool."
   },
   "retention": {
-    "stated": "Request-rate: 100 req / 10 s / app and 250,000 / day per account on Free ('Privately distributed apps, Free and Starter, 100/app, 250,000/account'). Retention: none documented. Files persist until deleted.",
-    "source_url": "https://knowledge.hubspot.com/files/supported-file-types",
-    "notes": "Extracted from published terms."
+    "stated": "Deleted files stay in the files trash for 30 days and are then permanently deleted.",
+    "source_url": "https://knowledge.hubspot.com/files/archive-delete-restore-files",
+    "notes": "A deleted file can be restored from the files trash within 30 days of deletion; a restore fails when a file with the same name exists."
   },
   "egress": {
     "terms": "Free, Cloudflare-fronted. `hubfs` files are served publicly with `Accept-Ranges: bytes`, `Access-Control-Allow-Origin: *`, `Cache-Control: s-maxage=2592000`.",
@@ -37,8 +37,8 @@
   "limits": [
     {
       "kind": "request-rate",
-      "value": "5 calls/day",
-      "source": "https://knowledge.hubspot.com/files/supported-file-types"
+      "value": "100 requests per 10 seconds per app and 250,000 requests per day per account (Free and Starter, privately distributed apps)",
+      "source": "https://developers.hubspot.com/docs/developer-tooling/platform/usage-guidelines"
     },
     {
       "kind": "per-object-cap",
@@ -82,10 +82,66 @@
       "proved": "the free-tools per-file limit is 20 MB",
       "capture": "sha256:1b9b35a89d04eb7a82feca4017586e834a341b3adfc5d022c68c68c77d6981c9",
       "quote": "Files up to 20 MB for accounts with only access to HubSpot’s free tools."
+    },
+    {
+      "url": "https://knowledge.hubspot.com/files/supported-file-types",
+      "date": "2026-11-25",
+      "proved": "the free-tools per-file limit is 20 MB",
+      "capture": "sha256:1b9b35a89d04eb7a82feca4017586e834a341b3adfc5d022c68c68c77d6981c9",
+      "quote": "Files up to 20 MB for accounts with only access to HubSpot’s free tools."
+    },
+    {
+      "url": "https://knowledge.hubspot.com/files/archive-delete-restore-files",
+      "date": "2026-11-25",
+      "proved": "a deleted file is permanently deleted after 30 days",
+      "capture": "sha256:c2177ed16ca5d547548447ee0744851502a46ea3720dbe3d56c78421efca2a24",
+      "quote": "Deleted files will be permanently deleted after 30 days and cannot be restored."
+    },
+    {
+      "url": "https://knowledge.hubspot.com/files/archive-delete-restore-files",
+      "date": "2026-11-25",
+      "proved": "restore is possible within 30 days of deletion",
+      "capture": "sha256:c2177ed16ca5d547548447ee0744851502a46ea3720dbe3d56c78421efca2a24",
+      "quote": "You can restore files within 30 days of deletion."
+    },
+    {
+      "url": "https://knowledge.hubspot.com/files/archive-delete-restore-files",
+      "date": "2026-11-25",
+      "proved": "the retention statement is on the archive, delete or restore page",
+      "capture": "sha256:c2177ed16ca5d547548447ee0744851502a46ea3720dbe3d56c78421efca2a24",
+      "quote": "Deleted files will be permanently deleted after 30 days and cannot be restored."
+    },
+    {
+      "url": "https://developers.hubspot.com/docs/developer-tooling/platform/usage-guidelines",
+      "date": "2026-11-25",
+      "proved": "Free and Starter privately distributed apps get 100 per 10 seconds per app and 250,000 per day per account",
+      "capture": "sha256:5f1f90e8afae4dbdf1d032311343b8b9b50c355a0f84414c9628996532996b15",
+      "quote": "| Privately distributed apps | (Any Hub)  Free and Starter | 100 / app | 250,000 / account |"
+    },
+    {
+      "url": "https://developers.hubspot.com/docs/developer-tooling/platform/usage-guidelines",
+      "date": "2026-11-25",
+      "proved": "the request-rate row is stated on the usage guidelines page",
+      "capture": "sha256:5f1f90e8afae4dbdf1d032311343b8b9b50c355a0f84414c9628996532996b15",
+      "quote": "| Privately distributed apps | (Any Hub)  Free and Starter | 100 / app | 250,000 / account |"
+    },
+    {
+      "url": "https://knowledge.hubspot.com/files/archive-delete-restore-files",
+      "date": "2026-11-25",
+      "proved": "deleted files are permanently deleted after 30 days",
+      "capture": "sha256:c2177ed16ca5d547548447ee0744851502a46ea3720dbe3d56c78421efca2a24",
+      "quote": "Deleted files will be permanently deleted after 30 days and cannot be restored."
+    },
+    {
+      "url": "https://developers.hubspot.com/docs/developer-tooling/platform/usage-guidelines",
+      "date": "2026-11-25",
+      "proved": "the request-rate row for Free and Starter",
+      "capture": "sha256:5f1f90e8afae4dbdf1d032311343b8b9b50c355a0f84414c9628996532996b15",
+      "quote": "| Privately distributed apps | (Any Hub)  Free and Starter | 100 / app | 250,000 / account |"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:13:58.579Z",
+  "verified_at": "2026-11-25T12:15:44.835Z",
   "notes": "Per-file 20 MB on free accounts, 2 GB on paid. No published account total: 'Generally, there is no limit on how many files you can upload.' HubSpot's own catalog does not state a storage figure.",
   "history": [],
   "extras": {

@@ -15,20 +15,20 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.webtropia.com/en/amd-storage-server.html",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "No per-object cap is stated on the product page; the offer is raw dedicated disks (2 x 240 GB SSD or 4 x 22 TB)."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.webtropia.com/en/amd-storage-server.html",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "No retention term is stated on the product page; the disks are dedicated, and full root access allows the renter to manage files."
   },
   "egress": {
-    "terms": "NOT STATED on the product page. What is published is bandwidth shape only: 'Peak Bandwidth 1.000 MBit / Guaranteed bandwidth 300 MBit'. No traffic volume, no unlimited claim, no overage rate. This is the one number that decides whether the €1.25/TB headline is real.",
-    "metered": true,
-    "price_per_tb": "€1.25/TB"
+    "terms": "Dedicated servers include unlimited traffic on a 1,000 Mbit connection with a guaranteed 300 Mbit.",
+    "metered": false,
+    "price_per_tb": "unverified: no per-TB traffic charge is listed for dedicated servers"
   },
   "interface": [
-    "unknown"
+    "ssh"
   ],
   "interface_detail": "full root",
   "tooling": "unrestricted",
@@ -72,10 +72,31 @@
       "proved": "the page states the monthly price the basis names",
       "capture": "sha256:74c8288c1a52c06fbd3e4665a9ea445caca4c743a1324e4b2fe8b45c6848e50a",
       "quote": "Storage Server RYZ5-20 120,99 €"
+    },
+    {
+      "url": "https://www.webtropia.com/en/amd-storage-server.html",
+      "date": "2026-11-25",
+      "proved": "the product page offers full root access",
+      "capture": "sha256:74c8288c1a52c06fbd3e4665a9ea445caca4c743a1324e4b2fe8b45c6848e50a",
+      "quote": "With root access, adjustments can be made that would not be possible with shared hardware"
+    },
+    {
+      "url": "https://www.webtropia.com/en/amd-storage-server.html",
+      "date": "2026-11-25",
+      "proved": "the product is raw dedicated disks",
+      "capture": "sha256:74c8288c1a52c06fbd3e4665a9ea445caca4c743a1324e4b2fe8b45c6848e50a",
+      "quote": "2 x 240 GB SSD or 4 x 22 TB"
+    },
+    {
+      "url": "https://www.webtropia.com/en/technology/connection.html",
+      "date": "2026-11-25",
+      "proved": "dedicated-server traffic is unlimited, with a 300 Mbit guarantee and no overage column",
+      "capture": "sha256:a5b7bf116d45a58c704ac420d5d1f9f1c8aa3bf970f3f3cbfcfd5918ce789735",
+      "quote": "| DEDICATED SERVER | 1,000 Mbit | 300 Mbit | Unlimited | - |"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:35.598Z",
+  "verified_at": "2026-11-25T13:25:54.293Z",
   "price_per_tb_month": "EUR 1.37 per TB per month (EUR 120.99 per month for 88 TB raw on the RYZ5-20)",
   "notes": "4× 22 TB = 88 TB raw (RYZ5-12: 4× 14 TB = 56 TB, €79.99)",
   "history": [],

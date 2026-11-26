@@ -60,7 +60,7 @@
   "binding_note": "Monthly bandwidth allowance is 1 GB (approximately 0.0009 TiB) and port mappings expire after 30 days.",
   "identity_cost": {
     "kind": "national-id",
-    "detail": "The registration page could not be read: the broker returned HTTP 522 for reg.html, so the gate is not established. The vendor sells from a mainland company address and answers support over QQ and WeChat, both of which are phone-bound.",
+    "detail": "unverified: the registration page could not be read on 2026-11-25: https://www.luyouxia.com/register.html answers HTTP 404, and https://www.luyouxia.com/reg.html redirects to the homepage, so the gate is not established.",
     "country": "None"
   },
   "reliability_note": "Trial mappings are deleted after 30 days, and the vendor's own matrix marks the trial tier as having no SLA and no rapid failover.",
@@ -71,10 +71,45 @@
       "url": "https://www.luyouxia.com/price",
       "date": "2026-10-23",
       "proved": "trial edition is 0 yuan/year, 1 Mbps, 2 routes, 1 G/month, TCP and HTTP only, cleared after 30 days"
+    },
+    {
+      "url": "https://www.luyouxia.com/register.html",
+      "date": "2026-11-25",
+      "proved": "the registration page answers HTTP 404",
+      "capture": "sha256:6d1808687a0bcd10c0e8c5b6f4e7e3cf52187366391a6c175d99c4d7b540dd91",
+      "quote": "404 NOT FOUND"
+    },
+    {
+      "url": "https://www.luyouxia.com/price",
+      "date": "2026-11-25",
+      "proved": "the trial edition includes 1 GB of traffic a month",
+      "capture": "sha256:9268a19544fbb21525b3e16f9555a73d765fd49ee3e9ca86123bf17fa4dfa26e",
+      "quote": "每月1G流量"
+    },
+    {
+      "url": "https://www.luyouxia.com/price",
+      "date": "2026-11-25",
+      "proved": "the trial edition is shaped to 1 Mbps",
+      "capture": "sha256:9268a19544fbb21525b3e16f9555a73d765fd49ee3e9ca86123bf17fa4dfa26e",
+      "quote": "1Mbps"
+    },
+    {
+      "url": "https://www.luyouxia.com/price",
+      "date": "2026-11-25",
+      "proved": "trial mappings are cleared after 30 days",
+      "capture": "sha256:9268a19544fbb21525b3e16f9555a73d765fd49ee3e9ca86123bf17fa4dfa26e",
+      "quote": "超过30天自动清除"
+    },
+    {
+      "url": "https://www.luyouxia.com/price",
+      "date": "2026-11-25",
+      "proved": "the trial edition carries TCP and HTTP only",
+      "capture": "sha256:9268a19544fbb21525b3e16f9555a73d765fd49ee3e9ca86123bf17fa4dfa26e",
+      "quote": "TCP、HTTP"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T17:26:44.697Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The price table is script-built: the reader returned navigation chrome and the numbers came from the raw HTML, which is why the protocol row is quotable at all. No UDP on the trial tier; whether a paid tier adds UDP is not stated on the page read.",

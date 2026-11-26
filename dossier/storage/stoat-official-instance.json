@@ -16,21 +16,21 @@
     "stated": "20 MB per file",
     "bytes": 20000000,
     "source_url": "https://api.stoat.chat/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Custom emojis, a 20MB file upload limit and a server-specific profile picture with no subscription required."
   },
   "retention": {
     "stated": "| Critically different from Discord: attachment URLs are UNSIGNED and permanent",
     "source_url": "https://api.stoat.chat/",
-    "notes": "Extracted from published terms."
+    "notes": "Although we have no plans to stop issuing redirects at the old endpoints, we cannot provide any guarantees that they will be available indefinitely."
   },
   "egress": {
-    "terms": "Free and unmetered via cdn.stoatusercontent.com on Cloudflare. CDN responses specify `Cache-Control: public, max-age=2073600`, providing 24 days of edge caching.",
+    "terms": "\"autumn\":{\"enabled\":true,\"url\":\"https://cdn.stoatusercontent.com\"}",
     "metered": false
   },
   "interface": [
     "rest"
   ],
-  "interface_detail": "rest",
+  "interface_detail": "To upload a file, pick the desired tag then send a **POST** to `{endpoint}/{tag}` along with a `multipart/form-data` body with one field `file` that contains the file you wish to upload.",
   "tooling": "Autumn file service: `POST {autumn}/attachments` with multipart `file` and `X-Bot-Token`/`X-Session-Token`. Documented at stoatchat/stoatchat `docs/docs/developers/api/uploading-files.md`. Bots are first-class; 5 bots per account.",
   "chaining": "100 servers per account x 200 channels per server (from the live `/` limits object) = 20,000 channels, each with unlimited messages. Servers are capped at 100 for existing accounts / 50 for new ones.",
   "limits": [
@@ -83,10 +83,66 @@
       "proved": "the live API limits object sets the attachment upload limit to 20,000,000 bytes",
       "capture": "sha256:65fe3e27a3d38b4b0a09439e2129c302c12ce515f37d995d4cc80855ef3f1324",
       "quote": "\"attachments\":20000000"
+    },
+    {
+      "url": "https://stoat.chat",
+      "date": "2026-11-25",
+      "proved": "the homepage states a 20MB file upload limit",
+      "capture": "sha256:1304fa983b41413a2f131382a34e6172ea20898a5c704158d3bb3877d2f2fe41",
+      "quote": "Custom emojis, a 20MB file upload limit and a server-specific profile picture with no subscription required."
+    },
+    {
+      "url": "https://stoat.chat/updates/api-new-cdn",
+      "date": "2026-11-25",
+      "proved": "the CDN update states that old-endpoint redirects have no indefinite availability guarantee",
+      "capture": "sha256:605acad2c12c667db0d8f9c5d1930d561607240afae08bf7bf79d492e26189e8",
+      "quote": "Although we have no plans to stop issuing redirects at the old endpoints, we cannot provide any guarantees that they will be available indefinitely."
+    },
+    {
+      "url": "https://developers.stoat.chat/developers/api/uploading-files/",
+      "date": "2026-11-25",
+      "proved": "the upload docs specify a POST to an endpoint tag with a multipart file field",
+      "capture": "sha256:321ac952e9b03f23d0d79efd4595c71e330fbbef58512ed6582f3bebd8b0d3a0",
+      "quote": "To upload a file, pick the desired tag then send a **POST** to `{endpoint}/{tag}` along with a `multipart/form-data` body with one field `file` that contains the file you wish to upload."
+    },
+    {
+      "url": "https://api.stoat.chat/",
+      "date": "2026-11-25",
+      "proved": "the live API root names the enabled autumn CDN endpoint",
+      "capture": "sha256:bb5e207ce4ec4446c1b39ee2ded3c2974b622cfd2aa143656eb543511fd9f34a",
+      "quote": "\"autumn\":{\"enabled\":true,\"url\":\"https://cdn.stoatusercontent.com\"}"
+    },
+    {
+      "url": "https://api.stoat.chat/",
+      "date": "2026-11-25",
+      "proved": "the live API root sets attachments to 20000000 bytes",
+      "capture": "sha256:bb5e207ce4ec4446c1b39ee2ded3c2974b622cfd2aa143656eb543511fd9f34a",
+      "quote": "\"attachments\":20000000"
+    },
+    {
+      "url": "https://stoat.chat/updates/api-new-cdn",
+      "date": "2026-11-25",
+      "proved": "the CDN update states the redirect availability caveat",
+      "capture": "sha256:605acad2c12c667db0d8f9c5d1930d561607240afae08bf7bf79d492e26189e8",
+      "quote": "Although we have no plans to stop issuing redirects at the old endpoints, we cannot provide any guarantees that they will be available indefinitely."
+    },
+    {
+      "url": "https://developers.stoat.chat/developers/api/uploading-files/",
+      "date": "2026-11-25",
+      "proved": "the upload docs specify the POST upload endpoint",
+      "capture": "sha256:321ac952e9b03f23d0d79efd4595c71e330fbbef58512ed6582f3bebd8b0d3a0",
+      "quote": "To upload a file, pick the desired tag then send a **POST** to `{endpoint}/{tag}` along with a `multipart/form-data` body with one field `file` that contains the file you wish to upload."
+    },
+    {
+      "url": "https://api.stoat.chat/",
+      "date": "2026-11-25",
+      "proved": "the live API root names the CDN endpoint",
+      "capture": "sha256:bb5e207ce4ec4446c1b39ee2ded3c2974b622cfd2aa143656eb543511fd9f34a",
+      "quote": "\"autumn\":{\"enabled\":true,\"url\":\"https://cdn.stoatusercontent.com\"}"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:32.478Z",
+  "verified_at": "2026-11-25T19:55:22.268Z",
   "notes": "20,000,000 bytes (20 MB) per attachment as the server-enforced default, no paid tier to raise it, and no documented total storage cap.",
   "history": [],
   "extras": {

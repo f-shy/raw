@@ -15,15 +15,15 @@
   "per_object_cap": {
     "stated": "Projects are limited to 10,100 files and 450 MB; a larger project is refused before anything is published.",
     "source_url": "https://surge.sh/docs/cli/publishing",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Projects are limited to 10,100 files and 450 MB; a larger project is refused before anything is published."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://surge.sh/docs/cli/publishing",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Every publish creates a new revision (Surge keeps the last 100)."
   },
   "egress": {
-    "terms": "No bandwidth quota or metering is documented anywhere on the free plan; every project is served from all 10 of Surge's own edge nodes ('Every project. Free or paid. Serves from all of them').",
+    "terms": "Every project—Free or Pro—serves from all of them.",
     "metered": false
   },
   "interface": [
@@ -32,7 +32,7 @@
   ],
   "interface_detail": "rest",
   "tooling": "Official `surge` CLI (npm, ~free) and a documented raw REST deploy API: PUT /:domain with Basic auth, Content-Type: application/gzip, a gzipped tarball body plus file-count and project-size headers. That is directly scriptable, no CLI needed.",
-  "chaining": "Allows unlimited projects per account with each project capped at 450 MB. Free accounts register via command-line without payment credentials. Sharding divides data across independent project directories.",
+  "chaining": "There's no cap on how many projects or domains you publish, but how often you publish is rate limited.",
   "limits": [
     {
       "kind": "per-ip-shaping",
@@ -100,10 +100,87 @@
       "proved": "the rate-limit table gives 240 requests per 15 minutes per IP address",
       "capture": "sha256:260e6c40050150810b3d753c280d8a404b66e287bf1de9a8f0a24b43dfd2dfca",
       "quote": "| Limit | Per 15 minutes | Per 24 hours |\n|-------|----------------|--------------|\n| Each domain | 30 | 200 |\n| Each account | 60 | 500 |\n| Each IP address | 240 | — |"
+    },
+    {
+      "url": "https://surge.sh/docs/cli/publishing",
+      "date": "2026-11-25",
+      "proved": "the publishing docs state the per-project file count and size limit",
+      "capture": "sha256:260e6c40050150810b3d753c280d8a404b66e287bf1de9a8f0a24b43dfd2dfca",
+      "quote": "Projects are limited to 10,100 files and 450 MB; a larger project is refused before anything is published."
+    },
+    {
+      "url": "https://surge.sh/docs/cli/publishing",
+      "date": "2026-11-25",
+      "proved": "the publishing docs still state the 10,100-file and 450 MB project limit",
+      "capture": "sha256:260e6c40050150810b3d753c280d8a404b66e287bf1de9a8f0a24b43dfd2dfca",
+      "quote": "Projects are limited to 10,100 files and 450 MB; a larger project is refused before anything is published."
+    },
+    {
+      "url": "https://surge.sh/docs/cli/publishing",
+      "date": "2026-11-25",
+      "proved": "the publishing docs state that the last 100 revisions are kept",
+      "capture": "sha256:260e6c40050150810b3d753c280d8a404b66e287bf1de9a8f0a24b43dfd2dfca",
+      "quote": "Every publish creates a new revision (Surge keeps the last 100)"
+    },
+    {
+      "url": "https://surge.sh/docs/cli/publishing",
+      "date": "2026-11-25",
+      "proved": "the publishing docs still state that the last 100 revisions are kept",
+      "capture": "sha256:260e6c40050150810b3d753c280d8a404b66e287bf1de9a8f0a24b43dfd2dfca",
+      "quote": "Every publish creates a new revision (Surge keeps the last 100)"
+    },
+    {
+      "url": "https://surge.sh/docs/platform/cdn",
+      "date": "2026-11-25",
+      "proved": "the CDN page states that free projects serve from all ten listed nodes",
+      "capture": "sha256:22aeabf65b8473b72324e4770e61a9e63abefd40063fe9ab134524fd4f23b7d5",
+      "quote": "Every project—Free or Pro—serves from all of them."
+    },
+    {
+      "url": "https://surge.sh/docs/platform/cdn",
+      "date": "2026-11-25",
+      "proved": "the CDN page still states that free projects serve from all nodes",
+      "capture": "sha256:22aeabf65b8473b72324e4770e61a9e63abefd40063fe9ab134524fd4f23b7d5",
+      "quote": "Every project—Free or Pro—serves from all of them."
+    },
+    {
+      "url": "https://surge.sh/docs/api/deploys",
+      "date": "2026-11-25",
+      "proved": "the deploy API is a documented HTTP PUT endpoint",
+      "capture": "sha256:082a0d1e9992e404657109b0e3631e26a0485d98c38eeb56159c7814b64648ba",
+      "quote": "A deploy is a single PUT to the project's domain, with the project packed as a gzipped tarball in the request body."
+    },
+    {
+      "url": "https://surge.sh/docs/cli/publishing",
+      "date": "2026-11-25",
+      "proved": "the publishing docs document the surge command-line interface",
+      "capture": "sha256:260e6c40050150810b3d753c280d8a404b66e287bf1de9a8f0a24b43dfd2dfca",
+      "quote": "surge <path> <domain>"
+    },
+    {
+      "url": "https://surge.sh/docs/cli/publishing",
+      "date": "2026-11-25",
+      "proved": "the publishing docs state no project or domain count cap but a publish rate limit",
+      "capture": "sha256:260e6c40050150810b3d753c280d8a404b66e287bf1de9a8f0a24b43dfd2dfca",
+      "quote": "There's no cap on how many projects or domains you publish, but how often you publish is rate limited."
+    },
+    {
+      "url": "https://surge.sh/docs/cli/publishing",
+      "date": "2026-11-25",
+      "proved": "the publishing docs still state no count cap with a rate limit",
+      "capture": "sha256:260e6c40050150810b3d753c280d8a404b66e287bf1de9a8f0a24b43dfd2dfca",
+      "quote": "There's no cap on how many projects or domains you publish, but how often you publish is rate limited."
+    },
+    {
+      "url": "https://surge.sh/docs/platform/plans",
+      "date": "2026-11-25",
+      "proved": "the plans page states unlimited projects and domains on the free plan with rate limits",
+      "capture": "sha256:b00cde60d35e90b5760286b523f35f3f316ee3755a640945512f56b5e881c0c9",
+      "quote": "Unlimited projects and domains, with publishing under rate limits that apply to every plan"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:33.171Z",
+  "verified_at": "2026-11-25T19:55:23.061Z",
   "notes": "Free plan: unlimited projects and unlimited publishes; each project capped at 450 MB and 10,100 files. No account-level byte quota.",
   "history": [],
   "extras": {

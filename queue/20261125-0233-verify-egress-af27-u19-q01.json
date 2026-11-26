@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u19-q01",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "https://www.livecycle.io/ redirects (301) to https://ai.livecycle.io/ and neither could be read through the broker (504/502, timeouts). Does the product still offer shareable HTTPS URLs from a Docker extension?",
+ "why": "the record's egress verdict rests on a page that now redirects; the redirect target may describe a different product",
+ "scope": {
+  "rids": [
+   "egress/livecycle"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u19",
+ "created": "2026-11-25T15:23:44Z"
+}

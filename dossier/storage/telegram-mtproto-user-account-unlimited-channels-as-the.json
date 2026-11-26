@@ -16,12 +16,12 @@
     "stated": "up to 2 GB in size each",
     "bytes": 2000000000,
     "source_url": "https://telegram.org/faq",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Send and receive files of any type, up to 2 GB in size each (or 4 GB with [Premium](https://telegram.org/faq_premium)), access them instantly on your other devices."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://telegram.org/faq",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "You can change the exact period after which your inactive account will self-destruct in Settings."
   },
   "egress": {
     "terms": "Free and unmetered. Telegram charges nothing for downloads and imposes no transfer quota; the only egress cost is Telegram's own speed shaping. Downloads are free even for files uploaded by Premium users: 'any user can download large 2+ GB files uploaded by premium users'.",
@@ -96,10 +96,38 @@
       "proved": "the files API page names FLOOD_PREMIUM_WAIT_X as the upload-speed throttle for non-Premium accounts",
       "capture": "sha256:e6b90e145db66ab96f44e360309d59c7defd60bd985809a5a9583e16c40b9067",
       "quote": "FLOOD_PREMIUM_WAIT_X: Indicates that upload speed is limited because the current account does not have a [Premium](/api/premium.md) subscription, and that the query must be automatically repeated by the client after X seconds."
+    },
+    {
+      "url": "https://telegram.org/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ states a 2 GB per-file limit, 4 GB with Premium",
+      "capture": "sha256:db52c8ab9f1c97f8c3e07bd0bfdcad3b97224fa5ab080ee3807d1312a614ad63",
+      "quote": "Send and receive files of any type, up to 2 GB in size each (or 4 GB with [Premium](https://telegram.org/faq_premium)), access them instantly on your other devices."
+    },
+    {
+      "url": "https://telegram.org/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ states the inactivity period can be changed in Settings",
+      "capture": "sha256:db52c8ab9f1c97f8c3e07bd0bfdcad3b97224fa5ab080ee3807d1312a614ad63",
+      "quote": "You can change the exact period after which your inactive account will self-destruct in Settings."
+    },
+    {
+      "url": "https://telegram.org/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ states inactivity deletion and a configurable period",
+      "capture": "sha256:db52c8ab9f1c97f8c3e07bd0bfdcad3b97224fa5ab080ee3807d1312a614ad63",
+      "quote": "If you stop using Telegram and don't come online for at least 18 months, your account will be deleted along with all messages, media, contacts and every other piece of data you store in the Telegram cloud. You can change the exact period after which your inactive account will self-destruct in Settings."
+    },
+    {
+      "url": "https://telegram.org/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ states an unlimited number of files up to 2 GB each",
+      "capture": "sha256:db52c8ab9f1c97f8c3e07bd0bfdcad3b97224fa5ab080ee3807d1312a614ad63",
+      "quote": "share an unlimited number of photos, videos and files (doc, zip, mp3, etc.) of up to **2 GB** *each* — or **4 GB** each with [Telegram Premium](https://telegram.org/faq_premium#q-what-is-telegram-premium)."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:33.174Z",
+  "verified_at": "2026-11-25T19:55:23.965Z",
   "notes": "No total storage cap, quoted from Telegram: 'you can ... share an unlimited number of photos, videos and files (doc, zip, mp3, etc.) of up to 2 GB each'. Per-file 2 GB free, 4 GB with Premium. Per-account volume is effectively unbounded because you can hold up to 500 channels/supergroups (1000 with Premium) and create up to 50 channels per day, and each channel is a separate unbounded blob store.",
   "history": [],
   "extras": {

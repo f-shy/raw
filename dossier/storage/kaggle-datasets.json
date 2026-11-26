@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.kaggle.com/docs/datasets#technical-specifications",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "- A max of 50 top-level files (if you have more, use a directory structure and upload an archive)"
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.kaggle.com/docs/datasets#technical-specifications",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: the datasets documentation states no retention period"
   },
   "egress": {
     "terms": "Free and CDN-backed: the download endpoint 302s to a signed storage.googleapis.com URL (Google Cloud Storage), which is Fastly/Google-fronted. No egress quota documented, no per-GB charge, no auth needed for public datasets.",
@@ -31,9 +31,9 @@
     "rclone",
     "cli"
   ],
-  "interface_detail": "rest",
+  "interface_detail": "This is a command-line interface tool for interacting via commands in a terminal or shell script",
   "tooling": "Kagglehub (pip install kagglehub, official, github.com/Kaggle/kagglehub). Resolves public datasets with NO credentials; kaggle-api CLI (`kaggle datasets download -d owner/slug`); plain HTTPS + curl/wget against /api/v1/datasets/download/<owner>/<slug>; rclone can front the signed GCS URL with an HTTP remote.",
-  "chaining": "200 GB x unlimited public datasets x unlimited free accounts. Live proof of the unlimited-public side: one account holds 23 public datasets totalling 1,197.7 GB with a largest single dataset of 163.0 GB (API-verified). I.e. 6x over the 200 GB 'private quota' figure, so the private quota demonstrably does not apply to public datasets. Multiply again by Kaggle Organizations (a dataset can be owned by an org the account belongs to) and by the free quota-request program for >200 GB single datasets.",
+  "chaining": "As outlined above, in addition to uploading files from your local machine, you can also create Datasets from various data sources including GitHub, remote URLs (any public file hosted on the web), and Notebook output files.",
   "limits": [],
   "limits_note": "200 GB/dataset; 50 top-level files per dataset (use a directory tree or a ZIP. Kaggle unzips archives server-side and the unzipped size counts); each new version adds a full copy so versioned datasets consume quota per version and old versions cannot be deleted (documented user complaint, unresolved); dynamic rate limiting on the API (HTTP 429). Dataset ingestion of a >100 GB upload via the web UI/API is flaky. Kaggle staff recommend creating from a remote URL or GCS bucket instead.",
   "identity_cost": {
@@ -81,10 +81,38 @@
       "proved": "the Technical Specifications section states 200GB per dataset, 200GB max private datasets and a max of 50 top-level files",
       "capture": "sha256:fec2c7c446b40c4b66769a3661a8088e6fcfdf0c8b7f51d973e191074e55d794",
       "quote": "- 200GB per dataset limit\n\n  - 200GB max private datasets (if you exceed this, either make your datasets public or delete unused datasets)\n\n  - A max of 50 top-level files (if you have more, use a directory structure and upload an archive)"
+    },
+    {
+      "url": "https://www.kaggle.com/docs/datasets",
+      "date": "2026-11-25",
+      "proved": "the technical specifications cap datasets at 50 top-level files",
+      "capture": "sha256:fec2c7c446b40c4b66769a3661a8088e6fcfdf0c8b7f51d973e191074e55d794",
+      "quote": "- A max of 50 top-level files (if you have more, use a directory structure and upload an archive)"
+    },
+    {
+      "url": "https://www.kaggle.com/docs/datasets",
+      "date": "2026-11-25",
+      "proved": "datasets can be created from GitHub, remote URLs and Notebook output files",
+      "capture": "sha256:fec2c7c446b40c4b66769a3661a8088e6fcfdf0c8b7f51d973e191074e55d794",
+      "quote": "As outlined above, in addition to uploading files from your local machine, you can also create Datasets from various data sources including GitHub, remote URLs (any public file hosted on the web), and Notebook output files."
+    },
+    {
+      "url": "https://www.kaggle.com/docs/api",
+      "date": "2026-11-25",
+      "proved": "the Kaggle CLI is a command-line interface for terminal or shell-script use",
+      "capture": "sha256:39e0bf9036ec194507156f4c5dc6ac9ee2eabc41b03effbceeae193f716e7c7c",
+      "quote": "This is a command-line interface tool for interacting via commands in a terminal or shell script"
+    },
+    {
+      "url": "probe:https://www.kaggle.com/api/v1/datasets/download/rounakbanik/pokemon",
+      "date": "2026-11-25",
+      "proved": "the public dataset download endpoint answered HTTP 302",
+      "capture": "sha256:d28c0faf47553224dfa33e882df43e3cde1c91e02920fc55643ff2848e3acba3",
+      "quote": "\"status\": 302"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-10T00:50:22.849Z",
+  "verified_at": "2026-11-25T21:21:12.713Z",
   "notes": "200GB per dataset limit; 200GB max private datasets (if you exceed this, either make your datasets public or delete unused datasets); a max of 50 top-level files.",
   "history": [],
   "extras": {

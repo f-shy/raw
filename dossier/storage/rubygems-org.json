@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://guides.rubygems.org/rubygems-org-rate-limits/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The gem push route /api/v1/gems has a 500 MiB request limit."
   },
   "retention": {
     "stated": "No published per-gem byte cap in published documentation or acceptable-use terms. Published version strings and gem package names are permanent.",
     "source_url": "https://guides.rubygems.org/rubygems-org-rate-limits/",
-    "notes": "Extracted from published terms."
+    "notes": "Uploaded gems may be hosted indefinitely under the terms."
   },
   "egress": {
     "terms": "Free and unmetered, Cloudflare-fronted. Probe: GET https://rubygems.org/downloads/rails-7.0.0.gem -> 200, Server: cloudflare, Cache-Control: max-age=31536000, Access-Control-Allow-Origin: *, Accept-Ranges: bytes.",
@@ -75,10 +75,31 @@
       "proved": "the rate-limits guide states a 400 requests per hour limit on gem push",
       "capture": "sha256:b438592f00e6a8bfc0f8cac6cd7dc51f69fe02de6eaf74044d042c9ced1f1637",
       "quote": "400 requests/1 hour"
+    },
+    {
+      "url": "https://github.com/rubygems/rubygems.org/pull/7051",
+      "date": "2026-11-25",
+      "proved": "the gem push route has a 500 MiB request limit",
+      "capture": "sha256:cdc6ac5d7eecd7dca1164d5553ffdb258f9ecee802aa5ff80545ad473ca772f8",
+      "quote": "/api/v1/gems[.json|.yaml]        → 500 MiB request limit"
+    },
+    {
+      "url": "https://rubygems.org/policies/terms-of-service",
+      "date": "2026-11-25",
+      "proved": "the terms allow uploaded gems to be hosted indefinitely",
+      "capture": "sha256:5958391c24272a6adbeb11c04ea613cb4d3ccedee96a4be2bb884193cf53a4b4",
+      "quote": "we may host gems that you upload indefinitely pursuant to Section 3(c) above."
+    },
+    {
+      "url": "https://rubygems.org/policies/acceptable-use",
+      "date": "2026-11-25",
+      "proved": "gem owners cannot delete their gems unilaterally",
+      "capture": "sha256:d140062aac01bdb0af2a5c32463334939ba117202b75208c92962dfd0e321d19",
+      "quote": "In line with our goal of a reliable immutable registry, we do not permit gem owners to delete their gems unilaterally."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:30.562Z",
+  "verified_at": "2026-11-25T19:55:20.739Z",
   "notes": "No documented per-gem size limit and no documented total quota. This is itself the finding: RubyGems publishes its rate limits and its acceptable-use policy but NOT a byte limit. Per-gem size is exposed per version via the API; large gems (e.g. binaries) do get 413'd in practice.",
   "history": [],
   "extras": {

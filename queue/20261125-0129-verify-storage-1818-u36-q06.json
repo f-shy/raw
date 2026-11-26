@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u36-q06",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Does KTH state an egress allowance for file downloads, and does an anonymous GET of a presigned S3 link succeed?",
+ "why": "the file-content endpoint answered 302 to a presigned S3 URL with X-Amz-Expires=60, and a HEAD to that URL answered 403; no first-party page states a download quota",
+ "scope": {
+  "rids": [
+   "storage/kth-data-repository"
+  ]
+ },
+ "origin": "20261125-0129-verify-storage-1818/u36",
+ "created": "2026-11-25T21:21:12Z"
+}

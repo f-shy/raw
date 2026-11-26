@@ -1,0 +1,15 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u48-q02",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Which limits[].kind fits a prerequisite such as 'a public IPv4 address at the user's end'? The vocabulary has no capability kind, so netassist-tb and netassist-tunnelbroker have binding 'none' and empty limits[].",
+ "why": "the stated gate of both records cannot be written as a limits[] row without forcing a wrong kind",
+ "scope": {
+  "rids": [
+   "egress/netassist-tb",
+   "egress/netassist-tunnelbroker"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u48",
+ "created": "2026-11-25T15:43:51Z"
+}

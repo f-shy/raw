@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.ncbi.nlm.nih.gov/geo/info/faq.html",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: no per-object size limit is stated in the GEO FAQ; submitter-supplied raw data are loaded to SRA"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "Although the maximum allowable limit is four years, this date may be brought forward or pushed back at any time",
     "source_url": "https://www.ncbi.nlm.nih.gov/geo/info/faq.html",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: no retention period for released records is stated; the maximum private-hold limit is four years"
   },
   "egress": {
     "terms": "Free and anonymous.",
@@ -32,7 +32,7 @@
   ],
   "interface_detail": "rest",
   "tooling": "GEO FTP/HTTPS plus the GEOmetadb / GEOquery R packages.",
-  "chaining": "Not a volume play. The interesting property is private-retention: records may stay private for up to four years before release, with reviewer tokens for anonymous read-only access.",
+  "chaining": "Reviewer token allows collaborators or reviewers confidential, read-only access to private data before manuscript publication.",
   "limits": [
     {
       "kind": "write-gated",
@@ -80,10 +80,31 @@
       "proved": "the archived first-party FAQ states a four-year maximum private-hold limit",
       "capture": "sha256:f546427672973836007aeb2a8bc3109a72b588f40b4730f746a2836e5f6874ea",
       "quote": "Although the maximum allowable limit is four years, this date may be brought forward or pushed back at any time"
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/geo/info/faq.html",
+      "date": "2026-11-25",
+      "proved": "the maximum private-hold limit is four years and the date can change",
+      "capture": "sha256:bf35ccb036fbdd28c4fca36ecde7fc89a1a81bc3975618d911e7080eafed3852",
+      "quote": "Although the maximum allowable limit is four years, this date may be brought forward or pushed back at any time"
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/geo/info/faq.html",
+      "date": "2026-11-25",
+      "proved": "GEO loads submitter-supplied raw data into SRA",
+      "capture": "sha256:bf35ccb036fbdd28c4fca36ecde7fc89a1a81bc3975618d911e7080eafed3852",
+      "quote": "Submitter-supplied raw data are loaded to NCBI's [Sequence Read Archive](https://www.ncbi.nlm.nih.gov/sra/) (SRA) database."
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/geo/info/faq.html",
+      "date": "2026-11-25",
+      "proved": "a reviewer token gives read-only access to private records before publication",
+      "capture": "sha256:bf35ccb036fbdd28c4fca36ecde7fc89a1a81bc3975618d911e7080eafed3852",
+      "quote": "Submitters also have the opportunity to create a reviewer token that allows collaborators or reviewers confidential, read-only access to private data before manuscript publication."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:36.640Z",
+  "verified_at": "2026-11-25T21:21:15.500Z",
   "notes": "Although the maximum allowable limit is four years, this date may be brought forward or pushed back at any time.",
   "history": [],
   "extras": {

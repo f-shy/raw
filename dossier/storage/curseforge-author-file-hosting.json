@@ -5,7 +5,7 @@
   "url": "https://www.curseforge.com",
   "category": "media",
   "free_tier": {
-    "stated": "No published total quota and no published per-file number that could be verified on 2026-10-21 - the author docs, the ideas board and the support KB were all behind SSO or Cloudflare. What IS verifiable is the observed size distribution: live file listings show modpacks at 89.1, 101.6 and 468.1 MB, and a single mod file at 66.7 MB. The one hard number surfaced is a *media* cap of 2 MB for images ('Why is it only 2MB??' - author complaint, still open, 'Future consideration'), and a forum report of a 350 MB mod upload being rejected without an external-URL option.",
+    "stated": "unverified: no published total storage quota; the submission article caps project files below 2GB",
     "unit": "MB",
     "metered_on": "unstated",
     "source_url": "https://support.curseforge.com/en/support/solutions/articles/9000197241-file-size-limits",
@@ -15,25 +15,23 @@
   "per_object_cap": {
     "stated": "Files must also be below 2GB in size at the most.",
     "source_url": "https://support.curseforge.com/en/support/solutions/articles/9000197241-file-size-limits",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "the submission article states that project files must be below 2GB and must be uploaded as .zip archives for most games"
   },
   "retention": {
-    "stated": "retention: indefinite for approved files; 'Files updates in order to increase visibility is not allowed' and files must carry a changelog",
+    "stated": "unverified: no published file-retention period; submitted files are labelled Under Review until moderators approve or reject them",
     "source_url": "https://support.curseforge.com/en/support/solutions/articles/9000197241-file-size-limits",
-    "notes": "Extracted from published terms."
+    "notes": "unverified: no file-retention period is published; the moderation policy forbids visibility-only file updates"
   },
   "egress": {
     "terms": "Free and CDN'd via CloudFront in front of S3: edge.forgecdn.net and mediafilez.forgecdn.net return 'X-Cache: Miss from cloudfront' and 'Server: AmazonS3'. No billing. Hotlink-protected - a guessed object path returns 403 from S3 rather than bytes, so URLs must come from the API.",
     "metered": false
   },
   "interface": [
-    "rest",
-    "sftp",
-    "rclone"
+    "rest"
   ],
   "interface_detail": "rest",
   "tooling": "Official upload API with `X-API-TOKEN` and multipart `metadata` + `file` (third-party implementations exist, e.g. TeamDman/SuperFactoryManager and BreakBB/DisenchantBuddy shell out to it); `cfwidget` mirrors file metadata (id, filesize, uploaded_at) publicly. No SFTP, no rclone.",
-  "chaining": "Unlimited projects per author account, unlimited files per project, unlimited versions. But every project and file enters a moderation queue ('your project is still awaiting moderator approval'), and the moderation policy explicitly forbids 'multiple similar and/or low effort projects in an attempt to game the system'. The provider therefore polices project count and not only request rate.",
+  "chaining": "unverified: no published count of projects, files or versions per account; the moderation policy forbids multiple similar or low-effort projects",
   "limits": [
     {
       "kind": "write-gated",
@@ -118,10 +116,87 @@
       "proved": "the support article states uploaded files enter a moderator review queue",
       "capture": "sha256:6f388d52269e9c383cda4cf0a38a192e5665131511e58c886a6ac95f19866b55",
       "quote": "At this point your file will be labelled \"Under Review\" and it is off to the moderators to review and approve it."
+    },
+    {
+      "url": "https://support.curseforge.com/en/support/solutions/articles/9000197241-file-size-limits",
+      "date": "2026-11-25",
+      "proved": "the first-party submission article states a below-2GB per-file ceiling",
+      "capture": "sha256:6f388d52269e9c383cda4cf0a38a192e5665131511e58c886a6ac95f19866b55",
+      "quote": "Files must also be below 2GB in size at the most."
+    },
+    {
+      "url": "https://support.curseforge.com/en/support/solutions/articles/9000197241-file-size-limits",
+      "date": "2026-11-25",
+      "proved": "the submission article supplies the previously unverified per-file number",
+      "capture": "sha256:6f388d52269e9c383cda4cf0a38a192e5665131511e58c886a6ac95f19866b55",
+      "quote": "Files must also be below 2GB in size at the most."
+    },
+    {
+      "url": "https://support.curseforge.com/en/support/solutions/articles/9000197241-file-size-limits",
+      "date": "2026-11-25",
+      "proved": "the submission article describes moderator review but states no retention period",
+      "capture": "sha256:6f388d52269e9c383cda4cf0a38a192e5665131511e58c886a6ac95f19866b55",
+      "quote": "At this point your file will be labelled \"Under Review\" and it is off to the moderators to review and approve it. They may send it back to you requesting changes. They may also reject it."
+    },
+    {
+      "url": "https://support.curseforge.com/en/support/solutions/articles/9000197279-moderation-policies",
+      "date": "2026-11-25",
+      "proved": "the moderation policy restricts visibility-only updates and states no retention period",
+      "capture": "sha256:9c9ec5103021aeb009bf260176f045343cd4b31c45ce17e77178a9049fd199a6",
+      "quote": "Additionally - Files updates in order to increase visibility is not allowed."
+    },
+    {
+      "url": "https://support.curseforge.com/en/support/solutions/articles/9000197279-moderation-policies",
+      "date": "2026-11-25",
+      "proved": "the moderation policy forbids low-effort project duplication",
+      "capture": "sha256:9c9ec5103021aeb009bf260176f045343cd4b31c45ce17e77178a9049fd199a6",
+      "quote": "It is not allowed to upload multiple similar and/or low effort projects in an attempt to game the system."
+    },
+    {
+      "url": "https://support.curseforge.com/support/solutions/articles/9000197321-curseforge-upload-api",
+      "date": "2026-11-25",
+      "proved": "the documented upload interface is a token-authenticated HTTP API",
+      "capture": "sha256:81d42d437929e802ccd5a133bded0843f2d8c1d8282caba370d72b886457ed80",
+      "quote": "To authenticate with the API, you must provide your generated token using the `X-Api-Token` header, or the `token` query string parameter."
+    },
+    {
+      "url": "https://support.curseforge.com/support/solutions/articles/9000197321-curseforge-upload-api",
+      "date": "2026-11-25",
+      "proved": "the upload API uses multipart metadata and file fields at a REST endpoint",
+      "capture": "sha256:81d42d437929e802ccd5a133bded0843f2d8c1d8282caba370d72b886457ed80",
+      "quote": "To upload a file, issue a POST multipart/form-data request to `/api/projects/{projectId}/upload-file`, containing two fields: `metadata` and `file`, which must be the actual file."
+    },
+    {
+      "url": "https://support.curseforge.com/en/support/solutions/articles/9000197241-file-size-limits",
+      "date": "2026-11-25",
+      "proved": "the submission article still states the below-2GB project-file ceiling",
+      "capture": "sha256:6f388d52269e9c383cda4cf0a38a192e5665131511e58c886a6ac95f19866b55",
+      "quote": "Files must also be below 2GB in size at the most."
+    },
+    {
+      "url": "https://support.curseforge.com/en/support/solutions/articles/9000197241-file-size-limits",
+      "date": "2026-11-25",
+      "proved": "the submission article still describes the moderator review gate",
+      "capture": "sha256:6f388d52269e9c383cda4cf0a38a192e5665131511e58c886a6ac95f19866b55",
+      "quote": "At this point your file will be labelled \"Under Review\" and it is off to the moderators to review and approve it."
+    },
+    {
+      "url": "https://support.curseforge.com/en/support/solutions/articles/9000197279-moderation-policies",
+      "date": "2026-11-25",
+      "proved": "the moderation policy still forbids low-effort project duplication",
+      "capture": "sha256:9c9ec5103021aeb009bf260176f045343cd4b31c45ce17e77178a9049fd199a6",
+      "quote": "It is not allowed to upload multiple similar and/or low effort projects in an attempt to game the system."
+    },
+    {
+      "url": "https://support.curseforge.com/support/solutions/articles/9000197321-curseforge-upload-api",
+      "date": "2026-11-25",
+      "proved": "the first-party article still documents a token-authenticated REST interface",
+      "capture": "sha256:81d42d437929e802ccd5a133bded0843f2d8c1d8282caba370d72b886457ed80",
+      "quote": "To authenticate with the API, you must provide your generated token using the `X-Api-Token` header, or the `token` query string parameter."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:58.760Z",
+  "verified_at": "2026-11-25T04:14:18.948Z",
   "notes": "No published total quota and no published per-file number that could be verified on 2026-10-21 - the author docs, the ideas board and the support KB were all behind SSO or Cloudflare. What IS verifiable is the observed size distribution: live file listings show modpacks at 89.1, 101.6 and 468.1 MB, and a single mod file at 66.7 MB. The one hard number surfaced is a *media* cap of 2 MB for images ('Why is it only 2MB??' - author complaint, still open, 'Future consideration'), and a forum report of a 350 MB mod upload being rejected without an external-URL option.",
   "history": [],
   "extras": {

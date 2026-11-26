@@ -74,13 +74,13 @@ waiting to happen, and `render.py --check` refuses one.
 | [`debrid`](docs/debrid/README.md) | 526 | 316 | 108 | 50 | 52 | 467 | 19 |
 | [`dev-services`](docs/dev-services/README.md) | 98 | 84 | 10 | 2 | 2 | 98 | 1 |
 | [`domains-dns`](docs/domains-dns/README.md) | 43 | 27 | 14 | 1 | 1 | 43 | 6 |
-| [`egress`](docs/egress/README.md) | 458 | 62 | 168 | 204 | 24 | 379 | 20 |
+| [`egress`](docs/egress/README.md) | 458 | 61 | 166 | 203 | 28 | 380 | 20 |
 | [`email`](docs/email/README.md) | 47 | 31 | 12 | 3 | 1 | 46 | 5 |
 | [`inference`](docs/inference/README.md) | 365 | 104 | 230 | 18 | 13 | 358 | 11 |
 | [`ip-proxy`](docs/ip-proxy/README.md) | 87 | 23 | 49 | 9 | 6 | 80 | 10 |
-| [`netdisk-pan`](docs/netdisk-pan/README.md) | 104 | 51 | 4 | 34 | 15 | 59 | 22 |
+| [`netdisk-pan`](docs/netdisk-pan/README.md) | 104 | 51 | 3 | 34 | 16 | 59 | 22 |
 | [`storage`](docs/storage/README.md) | 1720 | 381 | 135 | 1062 | 142 | 211 | 29 |
-| **all** | 5353 | 1872 | 1532 | 1580 | 369 | 3449 | 227 |
+| **all** | 5353 | 1871 | 1529 | 1579 | 374 | 3450 | 227 |
 <!-- generated:end -->
 
 ---

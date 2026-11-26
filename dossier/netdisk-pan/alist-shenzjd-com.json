@@ -138,10 +138,38 @@
       "proved": "a 2026-11-20 probe of the home page answered 200 with 69,408 bytes of text/html; no AList API listing was returned",
       "capture": "sha256:039bd613b9468c1a74d042fddd578781f67fa57939c8a9f565a7f6574afc9873",
       "quote": "\"status\": 200,"
+    },
+    {
+      "url": "probe:https://alist.shenzjd.com/api/public/settings",
+      "date": "2026-11-25",
+      "proved": "a fresh anonymous probe of the AList public settings endpoint of alist.shenzjd.com answered at this instant (HTTP 200, JSON, no challenge)",
+      "capture": "sha256:5ff5d73af331e64f67ade5ed0c1b0b3bdad46050aa43e3d04b22b61a0e851a41",
+      "quote": "\"probed_at\": \"2026-11-25T04:07:31.090Z\""
+    },
+    {
+      "url": "probe:https://alist.shenzjd.com/",
+      "date": "2026-11-25",
+      "proved": "a fourth consecutive anonymous liveness probe found no AList API or mount list at this host",
+      "capture": "sha256:d54bd4b883ce016a5fb8c1365a9e38fb68ac2b62c534f56b60b905e895bb7945",
+      "quote": "\"consecutive_failures\": 4"
+    },
+    {
+      "url": "probe:https://alist.shenzjd.com/",
+      "date": "2026-11-25",
+      "proved": "the fresh probe found no anonymous settings, session or mount list, so the host stays dead",
+      "capture": "sha256:d54bd4b883ce016a5fb8c1365a9e38fb68ac2b62c534f56b60b905e895bb7945",
+      "quote": "\"alive\": false"
+    },
+    {
+      "url": "probe:https://alist.shenzjd.com/api/public/settings",
+      "date": "2026-11-25",
+      "proved": "the API path of the dead host now redirects to an unrelated panhub page rather than serving an AList API",
+      "capture": "sha256:5ff5d73af331e64f67ade5ed0c1b0b3bdad46050aa43e3d04b22b61a0e851a41",
+      "quote": "\"final_url\": \"https://panhub.shenzjd.com/\""
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-11-20T04:19:05.173Z",
+  "verified_at": "2026-11-25T04:14:27.571Z",
   "binding": "write-gated",
   "notes": "3 root entries on AList v4.2.6; advertises write:true on one mount and denies the oracle. Re-probed 2026-11-20: the home page answered 200 with 69,408 bytes of text/html, but the AList API still returned no listing, so the host stays dead and last_verified_alive stays at the last live observation (2026-11-11).",
   "history": [],
@@ -160,7 +188,7 @@
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
     "last_verified_alive": "2026-11-11T00:20:01.882Z",
     "last_verified_dead": "2026-11-19T03:32:53.747Z",
-    "consecutive_failures": 3,
+    "consecutive_failures": 4,
     "listing_hash_method": "sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters",
     "death": {
       "on": "2026-11-19",

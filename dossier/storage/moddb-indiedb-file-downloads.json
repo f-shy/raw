@@ -13,18 +13,18 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "file size is therefore ~296 MB",
-    "bytes": 296000000,
+    "stated": "A user report on a live file listing states an 8gb limit on file size on moddb.",
+    "bytes": 8442728905,
     "source_url": "https://www.moddb.com/downloads",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "A user report on a live file listing states an 8gb limit on file size on moddb."
   },
   "retention": {
-    "stated": "per-object-cap: verified at least 8,442,728,905 bytes on a live file listing; the widely-cited 8192 MB figure is third-party (TWC wiki, marked TBC by its own author) and is contradicted by the 7.86 GB file, so treat ~8 GB as observed-not-documented. retention: indefinite; files stay downloadable for years",
+    "stated": "unverified: no retention period stated on the first-party file page",
     "source_url": "https://www.moddb.com/downloads",
-    "notes": "Extracted from published terms."
+    "notes": "unverified: no retention period stated on the first-party file page"
   },
   "egress": {
-    "terms": "Free, no billing, and the site is Cloudflare-fronted (Server: cloudflare on the live origin). Files are served from the site itself rather than a separate CDN hostname; the mirror endpoint (/downloads/mirror/<id>/<n>/<hash>) is the byte path and is behind the same edge.",
+    "terms": "Downloads use /downloads/mirror/ links on the site.",
     "metered": false
   },
   "interface": [
@@ -37,7 +37,7 @@
   "limits": [
     {
       "kind": "per-object-cap",
-      "value": "file size is therefore ~296 MB",
+      "value": "8gb limit on file size on moddb (user report)",
       "source": "https://www.moddb.com/downloads"
     }
   ],
@@ -89,10 +89,31 @@
       "proved": "a user report on the listing states an 8 GB file-size limit",
       "capture": "sha256:2a408d4c07d027aa56e8b4d96e72a265cc296c618181dda0d7d511e487152a9e",
       "quote": "Because this mod is over 16gb large, and you have an 8gb limit on file size on moddb."
+    },
+    {
+      "url": "https://www.moddb.com/downloads/objects3",
+      "date": "2026-11-25",
+      "proved": "a user report on the first-party file listing states an 8gb file-size limit",
+      "capture": "sha256:4240d859d0d1daf41e6ba41d5cdff1ebcab258b190c5b32cea868602a577e075",
+      "quote": "Because this mod is over 16gb large, and you have an 8gb limit on file size on moddb."
+    },
+    {
+      "url": "https://www.moddb.com/downloads/objects3",
+      "date": "2026-11-25",
+      "proved": "the file page gives an Added date and no retention period",
+      "capture": "sha256:4240d859d0d1daf41e6ba41d5cdff1ebcab258b190c5b32cea868602a577e075",
+      "quote": "##### Added\n\nAug 22nd, 2025"
+    },
+    {
+      "url": "https://www.moddb.com/downloads/start/295621",
+      "date": "2026-11-25",
+      "proved": "the download start page links to a /downloads/mirror/ path for the byte download",
+      "capture": "sha256:c86d5639086ea22c6b30187d9581756979bf046b352c4abb88d7e57d40234d16",
+      "quote": "<p>Wait for the download to begin, if it doesn't click the link to <a href=\"/downloads/mirror/295621/134/7d9d51616a91eeb7e2c975a173a3db1d\">download objects.7z</a> or try another <a href=\"/downloads/start/295621/all\">mirror</a>.</p>"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:01.148Z",
+  "verified_at": "2026-11-25T21:21:14.518Z",
   "notes": "No published total quota, but a large installed base with published aggregate stats: the downloads index reports 149,920 files totalling 43,307.57 GB and 387,395,913 downloads. Mean file size is therefore ~296 MB, and the tail is much larger - a live listing for `objects3` shows '7.86gb (8,442,728,905 bytes)' on a single file. So 8 GB-class single objects are published and served today.",
   "history": [],
   "extras": {

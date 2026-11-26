@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u06-rerun",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/hdx-humanitarian-data-exchange $.retention.stated: Cited page has no retention statement either way; absence in published terms not shown by this evidence (quote is about file size).\n- storage/frontproxy $.interface: Page states HTTP(S) proxy support; does not support interface \"unknown\" (the cited quote is about bandwidth).\n- storage/hdx-humanitarian-data-exchange $.chaining: Linking is supported, but page does not mention CKAN resource_create, stable/content-addressable URLs, or serving-tier suitability.\n- storage/filecoin-onchain-cloud $.interface: Page describes SDK and on-chain contracts; no REST interface stated.\n- storage/google-play-books-partner-center $.limits: 2 GB supported; \"write-gated review\" is not stated on this page.\n- storage/google-play-books-partner-center $.retention.notes: Guidelines page has no retention term, but claim also names the automated content-fetching help page, which was not read; no quote shows the absence.",
+ "scope": {
+  "rids": [
+   "storage/fex-net",
+   "storage/filecoin-onchain-cloud",
+   "storage/frontproxy",
+   "storage/google-play-books-partner-center",
+   "storage/hdx-humanitarian-data-exchange",
+   "storage/hearthis-at-free-tier"
+  ]
+ },
+ "origin": "audit u72 of 20261125-0129-verify-storage-1818/u06 failed: 6 of 30 unsupported",
+ "created": "2026-11-25T07:46:17Z"
+}

@@ -15,33 +15,32 @@
   "per_object_cap": {
     "stated": "5 GB per file",
     "bytes": 5000000000,
-    "source_url": "https://docs.gitlab.com/user/storage_usage_quotas/",
-    "notes": "extracted from the quota or limits prose"
+    "source_url": "https://docs.gitlab.com/user/gitlab_com/",
+    "notes": "Maximum file size on GitLab.com by package format: Conan 5 GB, Generic 5 GB, Helm 5 MB, Machine learning model 10 GB (uploads are capped at 5 GB), Maven 5 GB, npm 5 GB, NuGet 5 GB, PyPI 5 GB, Terraform 1 GB."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://docs.gitlab.com/user/storage_usage_quotas/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The packages cleanup policy is disabled by default. When enabled it deletes older duplicate package assets and runs about every 12 hours, keeping the set number of most recently uploaded duplicates; the default setting keeps every asset. A rule can also delete generic packages not downloaded for 1 to 3650 days."
   },
   "egress": {
-    "terms": "Free and unmetered for downloads; no egress line item anywhere in GitLab pricing. Served through Cloudflare (probe returned Server: cloudflare).",
+    "terms": "unverified: no egress charge or volume quota is stated on the pages read. Anonymous pulls: anyone on the internet can pull a package from a public project.",
     "metered": false
   },
   "interface": [
-    "rest",
-    "rclone"
+    "rest"
   ],
   "interface_detail": "rest",
   "tooling": "Full REST API: PUT /api/v4/projects/:id/packages/generic/:package_name/:version/:file_name and GET the same path for download. Package clients can target the GitLab registry URL directly. No rclone backend, but generic-package PUT and GET functions as a standard HTTP blob API. Deploy tokens with write_package_registry scope provide scoped push credentials.",
-  "chaining": "GitLab Free permits unlimited projects per account with project creation limited to 200 per day per user. Generic packages allow up to 5 GB per file, and package registry storage is accounted separately from repository git limits.",
+  "chaining": "Package registry storage is not included in the project storage limit, which covers the project's repository and LFS (10 GiB for a Free tier namespace project). The number of projects per account and any project creation rate: unverified, not stated on the pages read.",
   "limits": [
     {
       "kind": "per-object-cap",
       "value": "5 GB per file",
-      "source": "https://docs.gitlab.com/user/storage_usage_quotas/"
+      "source": "https://docs.gitlab.com/user/gitlab_com/"
     }
   ],
-  "limits_note": "5 GB per file (generic). Package registry rate limits apply to the Packages API. Authenticated API traffic 2,000 req/min per user; unauthenticated 60 req/hr per IP. Project creation 200/day/user. No per-project package storage cap documented.",
+  "limits_note": "5 GB per file for a generic package on GitLab.com; per-format maximums are in per_object_cap.notes. Packages API request rates and project creation rate: unverified, not stated on the pages read.",
   "identity_cost": {
     "kind": "institution",
     "detail": "derived from the record's prose, not from an identity field, and no signup was executed: ceilings: Generic 5 GB, npm 5 GB, Maven 5 GB, NuGet 5 GB, PyPI 5 GB, Conan 5 GB, Terraform 1 GB, ML model 10 GB (uploads capped at 5 GB), Helm 5 MB. Package registry is a real fea",
@@ -96,10 +95,45 @@
       "proved": "the GitLab.com maximum file size for a generic package is 5 GB",
       "capture": "sha256:f7809a7fec95052d845307fbe5d0f3a240751780a9f354afc7195428119dfe02",
       "quote": "for a package uploaded to the [GitLab package registry](https://docs.gitlab.com/user/packages/package_registry/) varies by format:\n\n| Package type | GitLab.com |\n| --- | --- |\n| Conan | 5 GB |\n| Generic | 5 GB |"
+    },
+    {
+      "url": "https://docs.gitlab.com/user/packages/generic_packages/",
+      "date": "2026-11-25",
+      "proved": "the generic package upload is a REST path under /projects/:id/packages/generic",
+      "capture": "sha256:536a233ec4ed194584de8a60b5d0fb20769e501f727c73e55b7cfd723400a52c",
+      "quote": "PUT /projects/:id/packages/generic/:package_name/:package_version/:file_name"
+    },
+    {
+      "url": "https://docs.gitlab.com/user/storage_usage_quotas/",
+      "date": "2026-11-25",
+      "proved": "the package registry is outside the repository and LFS storage limit",
+      "capture": "sha256:c31fa88d40120be518fbe9f17f5155d6812a549ba671ca04939f01cc78377e71",
+      "quote": "GitLab projects have a storage limit for their Git repository and Large File Storage (LFS). Only the project’s repository and LFS are included in the storage limit. The container registry, package registry, and build artifacts are not included in the limit."
+    },
+    {
+      "url": "https://docs.gitlab.com/user/packages/package_registry/reduce_package_registry_storage/",
+      "date": "2026-11-25",
+      "proved": "the cleanup policy runs about every 12 hours",
+      "capture": "sha256:dd51bd1b3750550f6cf7a1b4ea70cf30ebcb467217f0d0fd8bb52f250f4fbd28",
+      "quote": "The cleanup policy runs about every 12 hours."
+    },
+    {
+      "url": "https://docs.gitlab.com/user/packages/package_registry/",
+      "date": "2026-11-25",
+      "proved": "a public project's packages can be pulled by anyone",
+      "capture": "sha256:8daf055f9f9a556da4bb202ff42e0d939d7cccde44360fe3420d34786f5e9b6b",
+      "quote": "| Public | Pull a package | None. Anyone on the internet can perform this action. |"
+    },
+    {
+      "url": "https://docs.gitlab.com/user/gitlab_com/",
+      "date": "2026-11-25",
+      "proved": "the maximum generic package file size on GitLab.com is 5 GB",
+      "capture": "sha256:68f43c79110ad21fc9f3aeb8e6336cc2b463e9f9868ec094f2325dc676a4d44d",
+      "quote": "| Generic | 5 GB |"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-10T00:50:17.323Z",
+  "verified_at": "2026-11-25T12:15:41.026Z",
   "notes": "Explicitly EXCLUDED from the project storage quota. GitLab docs, verbatim: 'GitLab projects have a storage limit for their Git repository and Large File Storage (LFS). Only the project's repository and LFS are included in the storage limit. The container registry, package registry, and build artifacts are not included in the limit.' The 10 GiB figure (pricing page: 'Storage 10 GiB') therefore applies only to git+LFS; package bytes are unquota'd. Per-file ceilings: Generic 5 GB, npm 5 GB, Maven 5 GB, NuGet 5 GB, PyPI 5 GB, Conan 5 GB, Terraform 1 GB, ML model 10 GB (uploads capped at 5 GB), Helm 5 MB.",
   "history": [],
   "extras": {

@@ -16,20 +16,20 @@
     "stated": "100MiB per file",
     "bytes": 104857600,
     "source_url": "https://24242.io/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "100MiB per file."
   },
   "retention": {
     "stated": "Files are deleted if not accessed for 60 days.",
     "days": 60,
     "source_url": "https://24242.io/",
-    "notes": "Extracted from published terms."
+    "notes": "Files are deleted if not accessed for 60 days; the 60 days run from last access."
   },
   "egress": {
     "terms": "free, unauthenticated GET by SHA-256; served from a public host with no metering published",
     "metered": false
   },
   "interface": [
-    "unknown"
+    "rest"
   ],
   "interface_detail": "BUD-01 HTTP: PUT /upload (NIP-98 auth header), GET /<sha256>, HEAD /upload for BUD-06 pre-flight, /mirror for BUD-06",
   "tooling": "any Blossom client (nostr.build, ditto, Amethyst); `nak` for key generation; plain curl once you can sign a NIP-98 event",
@@ -110,10 +110,31 @@
       "proved": "the free and unrestricted policy is still stated",
       "capture": "sha256:ec4efbdbda84182472172f40e8683d4af6e638030aa927e32ceedb61fccbca65",
       "quote": "Free and unrestricted... with no warranties... for now."
+    },
+    {
+      "url": "https://24242.io/",
+      "date": "2026-11-25",
+      "proved": "a server can pull a blob from another Blossom server by URL",
+      "capture": "sha256:ec4efbdbda84182472172f40e8683d4af6e638030aa927e32ceedb61fccbca65",
+      "quote": "BUD-06 /mirror will only accept a URL from another blossom server."
+    },
+    {
+      "url": "https://24242.io/",
+      "date": "2026-11-25",
+      "proved": "files are deleted after 60 days without access",
+      "capture": "sha256:ec4efbdbda84182472172f40e8683d4af6e638030aa927e32ceedb61fccbca65",
+      "quote": "Files are deleted if not accessed for 60 days."
+    },
+    {
+      "url": "https://24242.io/",
+      "date": "2026-11-25",
+      "proved": "the maximum file size is 100MiB",
+      "capture": "sha256:ec4efbdbda84182472172f40e8683d4af6e638030aa927e32ceedb61fccbca65",
+      "quote": "Max file size: 100MiB"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:57.315Z",
+  "verified_at": "2026-11-25T13:25:54.290Z",
   "notes": "No account, no quota, no total cap stated. 'Free and unrestricted.. with no warranties.. for now.' Per-file 100 MiB. First person to upload an object owns it (SHA-256 addressed).",
   "history": [],
   "extras": {

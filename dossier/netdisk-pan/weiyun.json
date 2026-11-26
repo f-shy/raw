@@ -109,10 +109,24 @@
       "proved": "the login panel offers a WeChat app QR scan, with QQ login as the other option",
       "capture": "sha256:0007e348281b815b87ee86a7579eb56f1992cd80308fdca1a9790a06f1fdedac",
       "quote": "请使用微信App扫码登录"
+    },
+    {
+      "url": "https://www.weiyun.com/vip",
+      "date": "2026-11-25",
+      "proved": "the member-centre page gives a 5GB free quota and 180 days to clear excess capacity",
+      "capture": "sha256:678ccc77ce0738a8ee0fb45fb84aa2eee60cf597d80a215089cccc23214909fc",
+      "quote": "答案：会员服务到期后，存储空间将恢复到免费账号的5GB存储空间。若您的已用容量超出可用额度，需要在180天内升级存储空间或对容量超额部分进行清理。"
+    },
+    {
+      "url": "https://www.weiyun.com/",
+      "date": "2026-11-25",
+      "proved": "the login panel offers a WeChat app QR scan and QQ login",
+      "capture": "sha256:0007e348281b815b87ee86a7579eb56f1992cd80308fdca1a9790a06f1fdedac",
+      "quote": "请使用微信App扫码登录 ... QQ登录"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-11-04T00:21:07.067Z",
+  "verified_at": "2026-11-25T14:57:25.808Z",
   "history": [],
   "binding": "per-object-cap",
   "binding_note": "The free account is 5 GB, and the share path is closed to an unauthenticated caller even for metadata. Either number closes it; the quota is the one a reader can check without an account.",

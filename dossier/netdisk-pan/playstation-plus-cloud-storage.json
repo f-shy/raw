@@ -46,7 +46,7 @@
     }
   ],
   "identity_cost": {
-    "kind": "email",
+    "kind": "card",
     "detail": "a PSN account and a paid subscription",
     "country": null
   },
@@ -88,10 +88,31 @@
       "proved": "100 GB cloud storage is in the Essential, Extra and Premium plans",
       "capture": "sha256:c5dfcb4a339011dbc092b6930d425ab1a18a0e10aefd6d433f2b2a49c7809b46",
       "quote": "| 100GB Cloud Storage | x | x | x |"
+    },
+    {
+      "url": "https://www.playstation.com/en-us/support/subscriptions/playstation-plus-support/",
+      "date": "2026-11-25",
+      "proved": "PlayStation Plus requires a paid subscription, so registration costs a payment method",
+      "capture": "sha256:c5dfcb4a339011dbc092b6930d425ab1a18a0e10aefd6d433f2b2a49c7809b46",
+      "quote": "PlayStation®Plus is a paid subscription service from PlayStation that gives players access to games, online multiplayer, and exclusive content."
+    },
+    {
+      "url": "https://www.playstation.com/en-us/support/subscriptions/ps5-ps-plus-cloud-storage/",
+      "date": "2026-11-25",
+      "proved": "100 GB for each console generation and a 1000-file PS4 save cap are unchanged",
+      "capture": "sha256:121f233668dde557ad1e4c5f847c952d049edc14840f7908abe8ac9c5618d938",
+      "quote": "You can save up to 100 GB of PS5 saved data and 100 GB of PS4 saved data. The number of PS4 saved data files you can store is limited to 1000."
+    },
+    {
+      "url": "https://www.playstation.com/en-us/support/subscriptions/playstation-plus-support/",
+      "date": "2026-11-25",
+      "proved": "cloud storage is still a paid PlayStation Plus benefit, so it stays fails-egress",
+      "capture": "sha256:c5dfcb4a339011dbc092b6930d425ab1a18a0e10aefd6d433f2b2a49c7809b46",
+      "quote": "| 100GB Cloud Storage | x | x | x |"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-11-04T00:20:56.364Z",
+  "verified_at": "2026-11-25T04:14:26.912Z",
   "history": [],
   "price_per_tb_month": "Bundled with PS Plus Essential at about USD 79.99/yr; 100 GB is not purchasable separately",
   "binding": "write-gated",

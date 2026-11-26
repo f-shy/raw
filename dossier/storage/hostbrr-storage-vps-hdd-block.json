@@ -15,26 +15,23 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://my.hostbrr.com/order/forms/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Each Premium StorageBrr tier lists configurable HDD block storage with 500 GB included; the page states no per-object cap and no step size for the configuration."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://my.hostbrr.com/order/forms/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "No retention period is stated. The terms page states unpaid services are terminated three days past the due date and active data and backups are destroyed."
   },
   "egress": {
     "terms": "Metered: 3,000 GB on the 1 GB plan, 5,000 GB on the 2 GB, 10,000 GB on the 4 GB, 15,000 GB on the 6 GB, 20,000 GB on the 8 GB. @ 1 Gbps. No published overage rate.",
     "metered": true
   },
   "interface": [
-    "s3",
-    "webdav",
-    "sftp",
-    "rclone"
+    "unknown"
   ],
-  "interface_detail": "sftp, s3 (via DirectAdmin Storagebox line), webdav",
-  "tooling": "rclone SFTP/WebDAV, DirectAdmin Storagebox",
-  "chaining": "Falkenstein DE. The HDD block is a separate attachable volume, so it grows with a slider at checkout.",
+  "interface_detail": "unverified: the order page lists no access protocol for the HDD block",
+  "tooling": "unverified: the order page names no client tool for the HDD block",
+  "chaining": "Hosted in Falkenstein, Germany. NVMe cached HDD block storage is configurable on each tier. The page does not state root-level access to the block.",
   "limits": [],
   "limits_note": "Per-object-cap: none. Block storage is 'NVMe cached HDD .. RAID6'. Not for latency-sensitive work. The provider says so explicitly.",
   "identity_cost": {
@@ -74,10 +71,45 @@
       "proved": "each Premium StorageBrr tier lists a configurable HDD block with 500 GB included",
       "capture": "sha256:a210479ad7e3e11f96b7bb5e9f08db64d6c3f3630b48f9f43bfe22d41d271726",
       "quote": "Configurable HDD Block Storage (500 GB Included)"
+    },
+    {
+      "url": "https://my.hostbrr.com/order/forms/",
+      "date": "2026-11-25",
+      "proved": "the forms page states budget HDD storage from $2.5 per TB",
+      "capture": "sha256:1077aa7f041da4385c8b79e3475252e3fbe021d526db7e703a02a4cb04a04145",
+      "quote": "Large storage servers with NVMe cached HDDs in RAID6. Our budget storage starts at just $2.5 per TB of HDD storage and our Hybrid Storage Servers with NVMe boot drive starts at just $3.75 per TB of storage!"
+    },
+    {
+      "url": "https://my.hostbrr.com/order/main/packages/storage/?group_id=26",
+      "date": "2026-11-25",
+      "proved": "the HDD block is configurable with 500 GB included",
+      "capture": "sha256:1eefb369aa1ce5b50f95e55d9e5eb4c1d4bdb7a888b8143cbe89ecea28df5779",
+      "quote": "Configurable HDD Block Storage (500 GB Included)"
+    },
+    {
+      "url": "https://my.hostbrr.com/order/main/packages/storage/?group_id=26",
+      "date": "2026-11-25",
+      "proved": "location is Falkenstein, Germany and the HDD block is additional NVMe cached storage",
+      "capture": "sha256:1eefb369aa1ce5b50f95e55d9e5eb4c1d4bdb7a888b8143cbe89ecea28df5779",
+      "quote": "Our Premium Storage VPS is powered by AMD Ryzen 9 7950XD, DDR5 ECC RAM and NVMe Gen4 SSDs as primary drives with additional NVMe cached HDD block storage. Hosted in Falkenstein, Germany."
+    },
+    {
+      "url": "https://my.hostbrr.com/order/main/packages/storage/?group_id=26",
+      "date": "2026-11-25",
+      "proved": "the tier table lists a configurable HDD block and names no access protocol",
+      "capture": "sha256:1eefb369aa1ce5b50f95e55d9e5eb4c1d4bdb7a888b8143cbe89ecea28df5779",
+      "quote": "Configurable HDD Block Storage (500 GB Included)"
+    },
+    {
+      "url": "https://hostbrr.com/terms.html",
+      "date": "2026-11-25",
+      "proved": "unpaid services are terminated three days past the due date and active data and backups are destroyed",
+      "capture": "sha256:28e32272e884efd2c4f9f51a82a9ad6fca3cbaf4e26581e2adba7813f1990ad4",
+      "quote": "All configuration, container structures, active data, and backups will be destroyed."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-10T00:50:20.508Z",
+  "verified_at": "2026-11-25T12:15:44.283Z",
   "price_per_tb_month": "$5.00/TB/mo at the 1 TB block rate ($2.50/500 GB add-on, per LowEndSpirit thread 6258: 'additional can be added for $2.5/month per 500 GB'). At 5 TB: Premium StorageBrr 2GB base ($7) + 4.5 TB of block at $5/TB ($22.50) = $29.50/mo = $5.90/TB all-in. At 20 TB the block dominates: $7 + $97.50 = $104.…",
   "notes": "Premium StorageBrr 1/2/4/6/8 GB RAM with 500 GB HDD block included, configurable upward. Budget line quoted at '$2.5 per TB of HDD storage' and hybrid at '$3.75 per TB' on the order forms page.",
   "history": [],

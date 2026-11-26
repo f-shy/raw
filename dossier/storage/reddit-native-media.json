@@ -13,17 +13,17 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "Maximum upload size: 20 MB.",
     "source_url": "https://help.postpone.app/platforms/reddit/media-limits",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The developer docs state a maximum upload size of 20 MB."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "Devvit does not currently provide an API to delete a media asset after it has been uploaded with `media.upload()`.",
     "source_url": "https://help.postpone.app/platforms/reddit/media-limits",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "To stop showing uploaded media, remove the app's references to the asset and update or delete the Reddit content that embeds it."
   },
   "egress": {
-    "terms": "free, direct image URLs on Fastly (probe headers show 'Fastly-Restarts' and a versioned S3-style origin); no auth on i.redd.it GETs",
+    "terms": "media.upload() returns a Reddit CDN URL for use in rich text or UI.",
     "metered": false
   },
   "interface": [
@@ -71,10 +71,80 @@
       "proved": "Reddit accepts videos up to 1 GB and .mp4 or .mov files work most reliably",
       "capture": "sha256:ff21472d904aaf1f3db3953061aaa3ca1c2a5fd4119985bbded8dd5d9f2da9bb",
       "quote": "Reddit accepts videos up to 1 GB, and .mp4 or .mov files work most reliably."
+    },
+    {
+      "url": "https://developers.reddit.com/docs/capabilities/server/media-uploads",
+      "date": "2026-11-25",
+      "proved": "the first-party developer docs state the maximum upload size",
+      "capture": "sha256:f159df05edb2318841a57acef386b47e5b890323e553187b47b1c029bdc8a23f",
+      "quote": "- Maximum upload size: 20 MB."
+    },
+    {
+      "url": "https://developers.reddit.com/docs/capabilities/server/media-uploads",
+      "date": "2026-11-25",
+      "proved": "the first-party developer docs state a 20 MB upload cap under notes and limits",
+      "capture": "sha256:f159df05edb2318841a57acef386b47e5b890323e553187b47b1c029bdc8a23f",
+      "quote": "- Maximum upload size: 20 MB."
+    },
+    {
+      "url": "https://developers.reddit.com/docs/capabilities/server/media-uploads",
+      "date": "2026-11-25",
+      "proved": "the first-party developer docs state that uploaded media has no delete API",
+      "capture": "sha256:f159df05edb2318841a57acef386b47e5b890323e553187b47b1c029bdc8a23f",
+      "quote": "Devvit does not currently provide an API to delete a media asset after it has been uploaded with `media.upload()`."
+    },
+    {
+      "url": "https://developers.reddit.com/docs/capabilities/server/media-uploads",
+      "date": "2026-11-25",
+      "proved": "the first-party developer docs state how uploaded media stops being shown",
+      "capture": "sha256:f159df05edb2318841a57acef386b47e5b890323e553187b47b1c029bdc8a23f",
+      "quote": "If your app needs to stop showing uploaded media, remove your app's references to the asset and update or delete the Reddit content that embeds it."
+    },
+    {
+      "url": "https://developers.reddit.com/docs/capabilities/server/media-uploads",
+      "date": "2026-11-25",
+      "proved": "the first-party developer docs state that uploaded media is served from a Reddit CDN URL",
+      "capture": "sha256:f159df05edb2318841a57acef386b47e5b890323e553187b47b1c029bdc8a23f",
+      "quote": "- `mediaUrl`: Reddit CDN URL (use this in rich text or UI)."
+    },
+    {
+      "url": "https://developers.reddit.com/docs/capabilities/server/media-uploads",
+      "date": "2026-11-25",
+      "proved": "the first-party developer docs still state the 20 MB upload cap",
+      "capture": "sha256:f159df05edb2318841a57acef386b47e5b890323e553187b47b1c029bdc8a23f",
+      "quote": "- Maximum upload size: 20 MB."
+    },
+    {
+      "url": "https://developers.reddit.com/docs/capabilities/server/media-uploads",
+      "date": "2026-11-25",
+      "proved": "the first-party developer docs still state that uploaded media has no delete API",
+      "capture": "sha256:f159df05edb2318841a57acef386b47e5b890323e553187b47b1c029bdc8a23f",
+      "quote": "Devvit does not currently provide an API to delete a media asset after it has been uploaded with `media.upload()`."
+    },
+    {
+      "url": "https://developers.reddit.com/docs/capabilities/server/media-uploads",
+      "date": "2026-11-25",
+      "proved": "the first-party developer docs still tie media removal to the embedding content",
+      "capture": "sha256:f159df05edb2318841a57acef386b47e5b890323e553187b47b1c029bdc8a23f",
+      "quote": "If your app needs to stop showing uploaded media, remove your app's references to the asset and update or delete the Reddit content that embeds it."
+    },
+    {
+      "url": "https://developers.reddit.com/docs/capabilities/server/media-uploads",
+      "date": "2026-11-25",
+      "proved": "the first-party developer docs still state the Reddit CDN URL form",
+      "capture": "sha256:f159df05edb2318841a57acef386b47e5b890323e553187b47b1c029bdc8a23f",
+      "quote": "- `mediaUrl`: Reddit CDN URL (use this in rich text or UI)."
+    },
+    {
+      "url": "https://www.reddit.com/dev/api/",
+      "date": "2026-11-25",
+      "proved": "the first-party API documentation lists post-kind form fields including image and video",
+      "capture": "sha256:ebb5bc4316bc6535b29cb5db822ef30c8f575f7f9e44ed219c4159d1717ea5cf",
+      "quote": "| kind | one of (`link`, `self`, `image`, `video`, `videogif`) |"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T07:23:05.684Z",
+  "verified_at": "2026-11-25T19:55:17.919Z",
   "notes": "Reddit accepts videos up to 1 GB, and .mp4 or .mov files work most reliably.",
   "history": [],
   "extras": {

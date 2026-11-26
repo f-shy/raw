@@ -26,7 +26,7 @@
     "notes": ""
   },
   "egress": {
-    "terms": "No byte allowance. Limits are per request and per connection: 128 MB per request and response body, 1 GB per direction per WebSocket connection, 3 tunnels per IP.; ingress: http-only",
+    "terms": "5 GB of transfer per IP per day; 64 MB per request and response body, 1 GB per direction per WebSocket connection, 3 tunnels per IP; ingress: http-only",
     "metered": false,
     "free_allowance": "none published",
     "price_per_tb": null,
@@ -46,21 +46,26 @@
     },
     {
       "kind": "per-object-cap",
-      "value": "128 MB request and response body; 1 GB per direction per WebSocket",
+      "value": "64 MB request and response body; 1 GB per direction per WebSocket",
       "source": "https://tunnl.gg/"
     },
     {
       "kind": "per-object-cap",
       "value": "about 2.37 MiB (2,486,272 bytes) per request on the free anonymous tier",
       "source": "probe:https://amber-mountain-1194d880.tunnl.gg/"
+    },
+    {
+      "kind": "volume-quota",
+      "value": "5 GB per IP per day, resetting at 00:00 UTC",
+      "source": "https://tunnl.gg/"
     }
   ],
   "limits_note": "",
-  "binding": "request-rate",
-  "binding_note": "1 TiB/month is 3.24 Mbit/s sustained, which the byte path could carry, but the 50 requests/s per tunnel and 128 MB body caps define what the service is for. Only port 80 is forwarded, so a UDP datagram has no path at all.",
+  "binding": "volume-quota",
+  "binding_note": "5 GB per IP per day binds first, far below 1 TiB a day. Only port 80 is forwarded, so a UDP datagram has no path at all.",
   "identity_cost": {
     "kind": "anonymous",
-    "detail": "Any SSH key works; there is no account, sign-up or key registration. The subdomain is derived from the public key with HMAC-SHA256.",
+    "detail": "Random URLs need no account. Stable URLs need an SSH key registered to a free account that signs in by email.",
     "country": "None"
   },
   "reliability_note": "TLS terminates at the edge, so it is not end-to-end encrypted; a phishing interstitial appears for first-time visitors; the server is MIT and self-hostable. A harness measured a 908 ms median latency and both 4 MiB transfers stopping at exactly 2,486,272 bytes, a per-request cap of about 2.37 MiB on the free anonymous tier.",
@@ -83,10 +88,38 @@
       "proved": "both 4 MiB transfers stopped at exactly 2,486,272 bytes on the free anonymous tier",
       "capture": "sha256:d9a4448eae1c50e6b5c21e5805559775d026004936c60f84b1b2b08670a30998",
       "quote": "EXACT same byte count (2,486,272 B"
+    },
+    {
+      "url": "https://tunnl.gg/",
+      "date": "2026-11-25",
+      "proved": "the free tier carries 5 GB of transfer per IP per day",
+      "capture": "sha256:d2c698b905ab704884ebc4635f37ef079a268f7b80fb7a70f6b501108cbacf38",
+      "quote": "| Daily transfer | 5 GB per IP, resetting at 00:00 UTC; stable URLs count against both the IP and the SSH key |"
+    },
+    {
+      "url": "https://tunnl.gg/",
+      "date": "2026-11-25",
+      "proved": "the body cap is 64 MB",
+      "capture": "sha256:d2c698b905ab704884ebc4635f37ef079a268f7b80fb7a70f6b501108cbacf38",
+      "quote": "| Request and response body | 64 MB each |"
+    },
+    {
+      "url": "https://tunnl.gg/",
+      "date": "2026-11-25",
+      "proved": "random URLs are anonymous, stable URLs need an account",
+      "capture": "sha256:d2c698b905ab704884ebc4635f37ef079a268f7b80fb7a70f6b501108cbacf38",
+      "quote": "Stable URLs need an account so that every persistent URL has an accountable owner. Random URLs stay fully anonymous."
+    },
+    {
+      "url": "https://tunnl.gg/",
+      "date": "2026-11-25",
+      "proved": "the 50/s per tunnel rate is unchanged",
+      "capture": "sha256:d2c698b905ab704884ebc4635f37ef079a268f7b80fb7a70f6b501108cbacf38",
+      "quote": "| Requests per tunnel | 50/s, bursts up to 400 (across all visitors) |"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-11-05T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:51.889Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "SSH-based reverse tunneling service. Provides stable public hostnames derived from client SSH keys without requiring account registration.",
@@ -95,7 +128,7 @@
     "wg_detail": "Only port 80 is forwarded over SSH and served as HTTPS: ssh -t -R 80:localhost:3000 proxy.tunnl.gg. There is no UDP or raw TCP listener.",
     "ingress": "http-only",
     "volume_tib_month": null,
-    "volume_stated": "No byte allowance. Limits are per request and per connection: 128 MB per request and response body, 1 GB per direction per WebSocket connection, 3 tunnels per IP.",
+    "volume_stated": "5 GB of transfer per IP per day; 64 MB per request and response body, 1 GB per direction per WebSocket connection, 3 tunnels per IP.",
     "bytes_transit": "yes",
     "transit_note": "The tunnl.gg edge terminates TLS and forwards down the SSH connection.",
     "promoted_from": ".tmp/egress/new-startups"

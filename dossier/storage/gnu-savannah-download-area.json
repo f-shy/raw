@@ -15,15 +15,15 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://savannah.gnu.org/register/requirements.php",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The Download Area page states no per-file size limit; uploads are made with scp or rsync into /releases/GROUP_NAME/."
   },
   "retention": {
     "stated": "Our intent is to provide a permanent home for all versions of your project. We do reserve the right, however, to discontinue hosting a project.",
     "source_url": "https://savannah.gnu.org/register/requirements.php",
-    "notes": "Extracted from published terms."
+    "notes": "In order to preserve history and complete transparency, projects that contain anything substantive are not removed."
   },
   "egress": {
-    "terms": "Free and mirrored: `download.savannah.{gnu,nongnu}.org` redirect to a world-wide mirror ring. Verified live: a GET 302s to a national mirror (fosszone.csd.auth.gr) which serves 200 with real bytes. No metering, no billing.",
+    "terms": "Files at download.savannah.nongnu.org/releases/GROUP_NAME/ are multiplexed between all mirrors, and an upload can take up to 24 hours to appear on all mirrors. unverified: no egress charge or volume quota is stated on the page.",
     "metered": false
   },
   "interface": [
@@ -33,7 +33,7 @@
   ],
   "interface_detail": "scp",
   "tooling": "SSH public-key auth only. Upload via scp (the -O flag is mandatory, see limits) or rsync to download.savannah.nongnu.org releases directory. Removal via restricted SSH commands ssh host rm or rmdir. Gnulib build-aux gnupload script is supported. Read side is plain anonymous HTTP from the mirror ring.",
-  "chaining": "One Savannah group per project, unlimited files per group, unlimited versions retained forever. Accounts are free; the gate is that a human evaluates the package ('Evaluate and approve non-gnu packages submitted for hosting'), so cardinality is bounded by reviewer throughput, not by quota. For GNU packages ftp.gnu.org/alpha.gnu.org is a second surface with an automated signed-upload path.",
+  "chaining": "Each non-GNU package submitted for hosting is evaluated and approved by Savannah administrators. Limits on files, versions or groups: unverified, not stated on the pages read.",
   "limits": [],
   "limits_note": "per-object-cap: none published. Structural caps that matter more: (1) SFTP IS DISABLED - announced 2023-11, 'we've found a vulnerability in our SFTP setup, and couldn't fix it otherwise than completely disabling SFTP. This affects uploading files to the *download* host'. Because OpenSSH >= 9.0 makes scp use SFTP by default, `scp -O` is required or every upload fails. (2) GPG-signing is expected (the docs tell you to upload foo.tar.gz + foo.tar.gz.sig) though not enforced: 'unlike ftp.gnu.org, Savannah doesn't enforce using GPG signatures for releases'. (3) Write access requires a registered SSH key on the account.",
   "identity_cost": {
@@ -130,10 +130,59 @@
       "proved": "the archived first-party requirements page states the permanence intent",
       "capture": "sha256:2741040125e43085fffff2acf04671600ca58c8598fdc4c17176ce94bafbfb47",
       "quote": "Our intent is to provide a permanent home for all versions of your project. We do reserve the right, however, to discontinue hosting a project."
+    },
+    {
+      "url": "https://savannah.gnu.org/maintenance/DownloadArea/",
+      "date": "2026-11-25",
+      "proved": "uploads use scp",
+      "capture": "sha256:9a8a33b68bcfdf5f226d0ea2b6b6e087c97a82c54c7f34fc4517d351784ba378",
+      "quote": "On Savannah, you can use scp to upload your GPG signed files."
+    },
+    {
+      "url": "https://savannah.gnu.org/maintenance/DownloadArea/",
+      "date": "2026-11-25",
+      "proved": "uploads can use rsync",
+      "capture": "sha256:9a8a33b68bcfdf5f226d0ea2b6b6e087c97a82c54c7f34fc4517d351784ba378",
+      "quote": "> Alternatively, you can [use rsync](https://savannah.gnu.org/maintenance/DownloadArea/#rsync)."
+    },
+    {
+      "url": "https://savannah.gnu.org/maintenance/DownloadArea/",
+      "date": "2026-11-25",
+      "proved": "removal uses ssh rm and ssh rmdir",
+      "capture": "sha256:9a8a33b68bcfdf5f226d0ea2b6b6e087c97a82c54c7f34fc4517d351784ba378",
+      "quote": "For removing wrongly uploaded files and directories, use `ssh rm` and `ssh rmdir`."
+    },
+    {
+      "url": "https://savannah.gnu.org/maintenance/DownloadArea/",
+      "date": "2026-11-25",
+      "proved": "downloads are multiplexed between mirrors; uploads take up to 24 hours to appear",
+      "capture": "sha256:9a8a33b68bcfdf5f226d0ea2b6b6e087c97a82c54c7f34fc4517d351784ba378",
+      "quote": "This is multiplexed between all mirrors, hopefully picking a nearby and up-to-date one. Please expect a delay of up to 24 hours for an upload on Savannah to appear on all mirrors."
+    },
+    {
+      "url": "https://savannah.gnu.org/maintenance/HowToBecomeASavannahHacker/",
+      "date": "2026-11-25",
+      "proved": "non-GNU packages are evaluated and approved before hosting",
+      "capture": "sha256:b3383e330177e24735dc2dfd7e8b319ba165690fa6a22b686627bff9a30abf89",
+      "quote": "1. Evaluate and approve non-gnu packages submitted for hosting."
+    },
+    {
+      "url": "https://web.archive.org/web/20251221133733/https://savannah.gnu.org/register/requirements.php",
+      "date": "2026-11-25",
+      "proved": "substantive projects are not removed",
+      "capture": "sha256:2741040125e43085fffff2acf04671600ca58c8598fdc4c17176ce94bafbfb47",
+      "quote": "In order to preserve history and complete transparency, we will not remove projects that contain anything substantive."
+    },
+    {
+      "url": "https://web.archive.org/web/20251221133733/https://savannah.gnu.org/register/requirements.php",
+      "date": "2026-11-25",
+      "proved": "permanence intent and the right to discontinue hosting",
+      "capture": "sha256:2741040125e43085fffff2acf04671600ca58c8598fdc4c17176ce94bafbfb47",
+      "quote": "Our intent is to provide a permanent home for all versions of your project. We do reserve the right, however, to discontinue hosting a project."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:13:29.379Z",
+  "verified_at": "2026-11-25T12:15:41.027Z",
   "notes": "In order to preserve history and complete transparency, we will not remove projects that contain anything substantive.",
   "history": [],
   "extras": {

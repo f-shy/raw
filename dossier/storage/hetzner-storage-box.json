@@ -5,7 +5,7 @@
   "url": "https://www.hetzner.com/storage/storage-box/",
   "category": "storage VPS / managed file storage (not object storage)",
   "free_tier": {
-    "stated": "1 TB (BX11) / 5 TB (BX21) / 10 TB (BX31) / 20 TB (BX41); no per-file cap published, 100 sub-accounts, 10 snapshots",
+    "stated": "1 TB (BX11) / 5 TB (BX21) / 10 TB (BX31) / 20 TB (BX41); 100 sub-accounts; 10/20/30/40 snapshots for BX11/BX21/BX31/BX41",
     "unit": "TB",
     "metered_on": "unstated",
     "source_url": "https://www.hetzner.com/storage/storage-box/",
@@ -18,13 +18,13 @@
     "notes": "extracted from the quota or limits prose"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
-    "source_url": "https://www.hetzner.com/storage/storage-box/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "stated": "After a resource is deleted on Hetzner Console, it cannot be recovered or restored; Storage Boxes are cancelled by deleting them there.",
+    "source_url": "https://docs.hetzner.com/general/billing-and-account-management/cancellation/cancellations-hetzner-console/",
+    "notes": "Manual snapshots are kept until the user deletes them; automatic snapshots are deleted oldest-first once the slot limit is reached."
   },
   "egress": {
-    "terms": "Verbatim, plan table: \"Traffic | - Unlimited\". Unlimited outbound, no cap tier, no overage SKU exists for this product.",
-    "metered": true
+    "terms": "Each Storage Box comes with unlimited traffic.",
+    "metered": false
   },
   "interface": [
     "s3-compatible",
@@ -40,7 +40,7 @@
   ],
   "interface_detail": "SFTP, FTP/FTPS, SCP, rsync-over-SSH, WebDAV, Samba/CIFS, HTTPS; BorgBackup and Restic native",
   "tooling": "rclone (explicitly listed), restic, borg, rsync; no S3 API",
-  "chaining": "Mounts directly to AList/OpenList via WebDAV or SFTP, or to a Hetzner Cloud VM which then fronts S3/HTTP behind Cloudflare. The forum-documented pattern for turning unmetered Storage Box traffic into a served HTTP origin.",
+  "chaining": "Up to 100 sub-accounts per Storage Box, each limited to its own sub-directory; all sub-accounts use the storage space of the one Storage Box, so they do not add capacity.",
   "limits": [
     {
       "kind": "per-ip-shaping",
@@ -58,7 +58,7 @@
       "source": "https://www.hetzner.com/storage/storage-box/"
     }
   ],
-  "limits_note": "10 concurrent connections (hard, product page); 10 snapshots; RAID on one host and explicitly 'data is not mirrored onto other servers'. Single-site durability, not object-store 11-nines.",
+  "limits_note": "Up to 10 simultaneous connections per Storage Box account; snapshot slots are 10/20/30/40 for BX11/BX21/BX31/BX41; files sit on RAID disks of a single host server and the data is not mirrored onto other servers.",
   "identity_cost": {
     "kind": "card",
     "detail": "card",
@@ -113,12 +113,75 @@
       "proved": "the BX21 tier page states the 10-connection cap",
       "capture": "sha256:301ea47265089a467bc77c19afaa197bde498b08215b5bf1fac7d82085f68afa",
       "quote": "10 concurrent connections"
+    },
+    {
+      "url": "https://www.hetzner.com/storage/storage-box/",
+      "date": "2026-11-25",
+      "proved": "snapshots are 10, 20, 30 and 40 by plan",
+      "capture": "sha256:7286f7e28f162c99bb1b48bdf493629a19efa2f671323a344b1db405d5412b83",
+      "quote": "| Snapshots Using the snapshot function, you can create an image of your Storage Box and, if necessary, restore your Storage Box from this snapshot. Number of snapshots included in each Storage Box product. | 10 | 20 | 30 | 40 |"
+    },
+    {
+      "url": "https://www.hetzner.com/storage/storage-box/",
+      "date": "2026-11-25",
+      "proved": "the data is not mirrored onto other servers",
+      "capture": "sha256:7286f7e28f162c99bb1b48bdf493629a19efa2f671323a344b1db405d5412b83",
+      "quote": "The data is not mirrored onto other servers."
+    },
+    {
+      "url": "https://docs.hetzner.com/general/billing-and-account-management/cancellation/cancellations-hetzner-console/",
+      "date": "2026-11-25",
+      "proved": "deleting a Console resource is not reversible",
+      "capture": "sha256:993f4a6b8219d2cb8f5c27fc964bd0c5e2f02a84e76fc46298c41ae45e46e386",
+      "quote": "- After you delete a resource on Hetzner Console, we cannot recover or restore it."
+    },
+    {
+      "url": "https://docs.hetzner.com/general/billing-and-account-management/cancellation/cancellations-hetzner-console/",
+      "date": "2026-11-25",
+      "proved": "the statement is on the cancellation page, not the product page",
+      "capture": "sha256:993f4a6b8219d2cb8f5c27fc964bd0c5e2f02a84e76fc46298c41ae45e46e386",
+      "quote": "- After you delete a resource on Hetzner Console, we cannot recover or restore it."
+    },
+    {
+      "url": "https://docs.hetzner.com/storage/storage-box/snapshots/",
+      "date": "2026-11-25",
+      "proved": "manual snapshots are kept until deleted by the user",
+      "capture": "sha256:7bc2ed8c7b8308faf6f6d4e25901c349a6123202e011c45af3c4c03f88c6b576",
+      "quote": "They are saved until you decide to delete them. Manual snapshots are never deleted automatically."
+    },
+    {
+      "url": "https://docs.hetzner.com/storage/storage-box/general/",
+      "date": "2026-11-25",
+      "proved": "sub-accounts share the box's capacity",
+      "capture": "sha256:086437ab935f960103785ae9a1400c1dd9a3afde0f7d578d7dab265e17d909e9",
+      "quote": "Note that all sub accounts use the storage space of your Storage Box."
+    },
+    {
+      "url": "https://docs.hetzner.com/storage/storage-box/general/",
+      "date": "2026-11-25",
+      "proved": "traffic is unlimited",
+      "capture": "sha256:086437ab935f960103785ae9a1400c1dd9a3afde0f7d578d7dab265e17d909e9",
+      "quote": "Each Storage Box comes with unlimited traffic."
+    },
+    {
+      "url": "https://docs.hetzner.com/storage/storage-box/general/",
+      "date": "2026-11-25",
+      "proved": "traffic is unlimited, so it is not metered",
+      "capture": "sha256:086437ab935f960103785ae9a1400c1dd9a3afde0f7d578d7dab265e17d909e9",
+      "quote": "Each Storage Box comes with unlimited traffic."
+    },
+    {
+      "url": "https://www.hetzner.com/storage/storage-box/",
+      "date": "2026-11-25",
+      "proved": "the plan table states unlimited traffic",
+      "capture": "sha256:7286f7e28f162c99bb1b48bdf493629a19efa2f671323a344b1db405d5412b83",
+      "quote": "| Traffic | Unlimited |  |  |  |"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T06:09:35.561Z",
+  "verified_at": "2026-11-25T12:15:42.698Z",
   "price_per_tb_month": "$2.28/TB at 20 TB (EUR 40.60 = $45.61); $2.45/TB at 5 TB (EUR 10.90 = $12.24); $3.59/TB at 1 TB (EUR 3.20 = $3.59). Cheapest genuine unlimited-egress storage found.",
-  "notes": "1 TB (BX11) / 5 TB (BX21) / 10 TB (BX31) / 20 TB (BX41); no per-file cap published, 100 sub-accounts, 10 snapshots",
+  "notes": "1 TB (BX11) / 5 TB (BX21) / 10 TB (BX31) / 20 TB (BX41); 100 sub-accounts; 10/20/30/40 snapshots for BX11/BX21/BX31/BX41",
   "history": [],
   "extras": {
     "seed_source": "storage-research",

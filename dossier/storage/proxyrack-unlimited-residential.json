@@ -15,23 +15,23 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://help.proxyrack.com/en/articles/10961190-what-are-unlimited-residential-proxies",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The published limit is a thread count equal to the number of threads purchased."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://help.proxyrack.com/en/articles/10961190-what-are-unlimited-residential-proxies",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Proxies use random or sticky ports: they rotate on each request or remain static for a set time and then rotate."
   },
   "egress": {
-    "terms": "unmetered - 'With this service you can use as much data as you would like, so you will not need to worry about any data limits' and 'Uncapped data - No GB limit'",
+    "terms": "Unmetered bandwidth & data transfer.",
     "metered": false
   },
   "interface": [
     "rclone"
   ],
-  "interface_detail": "HTTP/HTTPS/SOCKS5/UDP forward proxy; rotating or sticky ports (10/20/30 min); country/city/ISP targeting",
+  "interface_detail": "All plans support HTTP, HTTPS, SOCKS5, and UDP protocols, and each comes with its own proxy pool.",
   "tooling": "any HTTP client with proxy support - curl -x, requests, rclone --http-proxy, aria2",
-  "chaining": "this is the only flat-rate egress product found in the entire research: $150/month buys an unmetered HTTP egress path, so 1 TiB/day costs $5/TB of egress regardless of volume. It is a forward proxy, not a CDN - nothing is cached and every byte is re-fetched from origin through a stranger's home connection.",
+  "chaining": "Pay per thread, unmetered bandwidth.",
   "limits": [
     {
       "kind": "per-ip-shaping",
@@ -87,10 +87,45 @@
       "proved": "the help article states the thread limit equals the purchased thread count",
       "capture": "sha256:c37f278977d49351aa7b035d49fbc7ad589b1ca2de05d6efa3e7fee3f10480d1",
       "quote": "the thread limit is equal to the number of threads you purchase"
+    },
+    {
+      "url": "https://help.proxyrack.com/en/articles/10961190-what-are-unlimited-residential-proxies",
+      "date": "2026-11-25",
+      "proved": "the help article states the thread limit equals purchased threads",
+      "capture": "sha256:dead9f8d1f8951650731af325df98fb97d2e764b0eb194286d2a070d558907e9",
+      "quote": "Yes, the thread limit is equal to the number of threads you purchase."
+    },
+    {
+      "url": "https://help.proxyrack.com/en/articles/10961190-what-are-unlimited-residential-proxies",
+      "date": "2026-11-25",
+      "proved": "the help article describes random and sticky port rotation",
+      "capture": "sha256:dead9f8d1f8951650731af325df98fb97d2e764b0eb194286d2a070d558907e9",
+      "quote": "Unlimited Residential proxies provide access to both random and sticky ports. This means that you can either have your proxies rotate on each request or remain static for a set amount of time and then rotate."
+    },
+    {
+      "url": "https://www.proxyrack.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the pricing page lists unmetered bandwidth and data transfer on every plan",
+      "capture": "sha256:fca2b52ad71b39b5169c2e1f7715a810fe4f7b65a0ab4e6f5b8d8a09e189af46",
+      "quote": "- Unmetered bandwidth & data transfer"
+    },
+    {
+      "url": "https://www.proxyrack.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the pricing page states the supported protocols",
+      "capture": "sha256:fca2b52ad71b39b5169c2e1f7715a810fe4f7b65a0ab4e6f5b8d8a09e189af46",
+      "quote": "All plans support HTTP, HTTPS, SOCKS5, and UDP protocols, and each comes with its own proxy pool."
+    },
+    {
+      "url": "https://www.proxyrack.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the pricing page states the thread-based billing and unmetered bandwidth",
+      "capture": "sha256:fca2b52ad71b39b5169c2e1f7715a810fe4f7b65a0ab4e6f5b8d8a09e189af46",
+      "quote": "Pay per thread, unmetered bandwidth"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T07:23:03.225Z",
+  "verified_at": "2026-11-25T19:55:16.879Z",
   "price_per_tb_month": "n/a (egress only): $150/mo flat = $5/TB at 1 TiB/day",
   "notes": "unmetered bytes; the limit is concurrency. 100 threads = $150/mo ($1.50/thread); 500 = $750/mo; 1,000 = $1,250/mo ($1.25); 2,000 = $2,000/mo ($1.00); 5,000 = $4,500/mo ($0.90)",
   "history": [],

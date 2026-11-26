@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "10 GB per file on the Free Creator plan",
     "source_url": "https://streamruby.com/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The plan table's maximum upload file size row gives 10 GB, 20 GB and 20 GB."
   },
   "retention": {
     "stated": "Free videos are removed after 60 days without views or downloads.",
     "source_url": "https://streamruby.com/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "On Free Creator, videos are removed after 60 consecutive days without views or downloads; this inactivity policy is separate from changes to the storage allowance."
   },
   "egress": {
     "terms": "Unlimited bandwidth",
@@ -31,7 +31,7 @@
   ],
   "interface_detail": "rest",
   "tooling": "XFileSharing-style api.html + PolyUploader (github.com/spel987/PolyUploader) lists StreamRuby; XFS '?op=api' key pattern applies",
-  "chaining": "The quota scales with views rather than accounts, i.e. 250 GB + 250 GB per 1.5k monthly views. A view-inflation loop (or simply many free accounts) turns this into an unbounded pool; each account independently starts at 250 GB.",
+  "chaining": "Start with 250 GB free and unlock another 250 GB for every 1,500 monthly views. Your allowance adjusts monthly with your views.",
   "limits": [],
   "limits_note": "20,000 MB (20 GB) per file per the official plan table; video-only (HLS transcode); 60-day deletion when unviewed for free tier",
   "identity_cost": {
@@ -106,10 +106,66 @@
       "proved": "the Free Creator plan card on the homepage lists unlimited bandwidth",
       "capture": "sha256:7fa5d5a14bc2fe2dd1efc857b40a6e312389dbc14234303942400fd053c3077b",
       "quote": "Unlimited bandwidth"
+    },
+    {
+      "url": "https://streamruby.com/premium",
+      "date": "2026-11-25",
+      "proved": "the plan table states a 10 GB maximum upload file size in the first plan column and 20 GB in the other two",
+      "capture": "sha256:74b1f6214ecef6a8195cfed51ae5cd7514ab2efd2af8575e430ec7e1b33bf189",
+      "quote": "| Maximum upload file size | 10 GB | 20 GB | 20 GB |"
+    },
+    {
+      "url": "https://streamruby.com/premium",
+      "date": "2026-11-25",
+      "proved": "the plan table still states the maximum upload file sizes",
+      "capture": "sha256:74b1f6214ecef6a8195cfed51ae5cd7514ab2efd2af8575e430ec7e1b33bf189",
+      "quote": "| Maximum upload file size | 10 GB | 20 GB | 20 GB |"
+    },
+    {
+      "url": "https://streamruby.com/",
+      "date": "2026-11-25",
+      "proved": "the homepage FAQ states the 60-day inactivity removal and separates it from allowance changes",
+      "capture": "sha256:a9e5d4bc6b5130d9cd6a05056d03045f3d88a8cda003967cc355e096bc08c048",
+      "quote": "On Free Creator, videos are removed after 60 consecutive days without views or downloads. This inactivity policy is separate from changes to your storage allowance."
+    },
+    {
+      "url": "https://streamruby.com/",
+      "date": "2026-11-25",
+      "proved": "the FAQ still states the 60-day inactivity removal",
+      "capture": "sha256:a9e5d4bc6b5130d9cd6a05056d03045f3d88a8cda003967cc355e096bc08c048",
+      "quote": "On Free Creator, videos are removed after 60 consecutive days without views or downloads. This inactivity policy is separate from changes to your storage allowance."
+    },
+    {
+      "url": "https://streamruby.com/",
+      "date": "2026-11-25",
+      "proved": "the homepage states unlimited bandwidth",
+      "capture": "sha256:a9e5d4bc6b5130d9cd6a05056d03045f3d88a8cda003967cc355e096bc08c048",
+      "quote": "Unlimited bandwidth"
+    },
+    {
+      "url": "https://streamruby.com/api.html",
+      "date": "2026-11-25",
+      "proved": "the API documentation gives HTTP GET endpoints on streamruby.com",
+      "capture": "sha256:5814b1ecfaf11abd0e938c166cc0ee4a48d855cd394d3e5a5f828804891c998c",
+      "quote": "GET https://streamruby.com/api/account/info?key=45dd5cy578znbgobv"
+    },
+    {
+      "url": "https://streamruby.com/",
+      "date": "2026-11-25",
+      "proved": "the homepage states the view-based monthly storage allowance",
+      "capture": "sha256:a9e5d4bc6b5130d9cd6a05056d03045f3d88a8cda003967cc355e096bc08c048",
+      "quote": "Start with 250 GB free and unlock another 250 GB for every 1,500 monthly views. Your allowance adjusts monthly with your views."
+    },
+    {
+      "url": "https://streamruby.com/",
+      "date": "2026-11-25",
+      "proved": "the homepage states a 250 GB starting allowance that grows by 250 GB per 1,500 monthly views",
+      "capture": "sha256:a9e5d4bc6b5130d9cd6a05056d03045f3d88a8cda003967cc355e096bc08c048",
+      "quote": "Start with 250 GB free and unlock another 250 GB for every 1,500 monthly views. Your allowance adjusts monthly with your views."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T03:34:16.743Z",
+  "verified_at": "2026-11-25T19:55:23.058Z",
   "notes": "250 GB free storage, grows +250 GB per 1,500 monthly views; 'no upper limit'; unlimited bandwidth; no credit card",
   "history": [],
   "extras": {

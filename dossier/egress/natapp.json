@@ -48,19 +48,14 @@
       "kind": "per-ip-shaping",
       "value": "1 Mbps",
       "source": "https://natapp.cn/"
-    },
-    {
-      "kind": "request-rate",
-      "value": "random port is reassigned at intervals",
-      "source": "https://natapp.cn/"
     }
   ],
-  "limits_note": "",
+  "limits_note": "the free tunnel's random domain and TCP/UDP port are force-changed at irregular intervals",
   "binding": "volume-quota",
   "binding_note": "2 GB per month fails 1 TiB by a factor of about 550, and the 1 Mbps cap would fail it too: 1 Mbps sustained is roughly 0.32 TB per month.",
   "identity_cost": {
-    "kind": "email",
-    "detail": "Registration with a Chinese phone number is the normal path; the free tier is labelled 'registered users'.",
+    "kind": "any-phone",
+    "detail": "Registration takes a mobile phone number as the account name, a password, an email address for notifications, a nickname and an SMS verification code.",
     "country": "None"
   },
   "reliability_note": "Random public port is reassigned at intervals, so any fixed endpoint stops resolving.",
@@ -71,10 +66,31 @@
       "url": "https://natapp.cn/",
       "date": "2026-10-23",
       "proved": "free tunnel is 1 Mbps, 2 GB per month, random port, force-changed at intervals"
+    },
+    {
+      "url": "https://natapp.cn/",
+      "date": "2026-11-25",
+      "proved": "the free tunnel is permanently free at 1M bandwidth and 2 GB of traffic a month over http, tcp and udp, with a random domain or port force-changed at irregular intervals",
+      "capture": "sha256:84f1489e3c9c741dbafc8c0db35b0a4a44064b3f8b3ae87c2cee29a7f304e139",
+      "quote": "免费隧道(注册用户)\n\n永久免费\n\n1M带宽 流量2G/月\n\n提供http,tcp,udp全隧道穿透\n\n随机域名/随机TCP,UDP端口\n\n不定时强制更换域名/端口"
+    },
+    {
+      "url": "https://natapp.cn/",
+      "date": "2026-11-25",
+      "proved": "the free tunnel's random domain and TCP/UDP port are force-changed at irregular intervals",
+      "capture": "sha256:84f1489e3c9c741dbafc8c0db35b0a4a44064b3f8b3ae87c2cee29a7f304e139",
+      "quote": "随机域名/随机TCP,UDP端口\n\n不定时强制更换域名/端口"
+    },
+    {
+      "url": "https://natapp.cn/register",
+      "date": "2026-11-25",
+      "proved": "registration needs a mobile phone number as the account, a password, an email address, a nickname and an SMS code",
+      "capture": "sha256:51cb8ac042fb8b8654d89192959ff8992517d6199416b7232cec08549fd6f254",
+      "quote": "您首先需要注册一个账号(手机号)成为NATAPP用户。当您注册时，您需要至少向我们提供您准备使用的账号(手机号)、密码、电子邮箱地址（接收通知）,昵称，我们将通过发送短信验证码。"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T19:55:31.196Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The port-insecurity sentence is the interesting part for UDP: a WG endpoint written into a conf file goes stale without notice. The nodeloc roundup separately warns each free tunnel lasts only 3 days, which contradicts the vendor's 'permanently free' label; the vendor says the tunnel persists but the address changes.",

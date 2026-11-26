@@ -1,0 +1,21 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u98-rerun",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/drime-secure-cloud-storage-10-tb-lifetime $.egress.metered: Page lists Unlimited Bandwidth as Included on all plans; nothing says transfer is metered. metered=true contradicts the source.\n- storage/drime-secure-cloud-storage-10-tb-lifetime $.free_tier.stated: Capture (re-read fresh, same hash) holds only verified-buyer reviews; no '$476.99', '$1,299.00' or '63% off', and the review is about the 6TB plan, not 10TB.\n- storage/drime-secure-cloud-storage-10-tb-lifetime $.egress.metered: Page lists Unlimited Bandwidth Included on all plans; nothing says transfer is metered. metered=true contradicts the source.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/docker-hub $.retention.notes: Fair-use text is in the page, but it nowhere advises removing stale images; a fresh read has the same hash.\n- storage/fandom $.retention.notes: Page states no expiry and says files are for wiki use not file stores, but never says files are expected to remain available.\n- storage/drime-secure-cloud-storage-10-tb-lifetime $.retention.stated: 30/90/120 days file history is on the page, but \"at full storage files stay in place and nothing is deleted\" is not stated; the help page says only that uploads stop at 100%, and old versions are removed oldest first.",
+ "scope": {
+  "rids": [
+   "storage/discourse-hosted-free-plan",
+   "storage/docker-hub",
+   "storage/drime-secure-cloud-storage-10-tb-lifetime",
+   "storage/ena-webin",
+   "storage/eveo-object-storage-s3-the-only-zero-egress-s3-endpoint",
+   "storage/fandom"
+  ]
+ },
+ "origin": "audit u123 of 20261125-0129-verify-storage-1818/u98 failed: 3 of 30 unsupported",
+ "created": "2026-11-25T11:42:56Z",
+ "queue_files": [
+  "queue/20261125-0129-verify-storage-1818-u21-rerun.json"
+ ]
+}

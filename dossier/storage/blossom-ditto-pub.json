@@ -5,7 +5,7 @@
   "url": "https://blossom.ditto.pub",
   "category": "content-addressed blob server",
   "free_tier": {
-    "stated": "No quota stated. The first-party page now publishes only a live blob count (2,057,354 blobs) and the Blossom endpoint list; the former max upload size, max media size and storage-used figures are no longer published (unverified: no longer stated on the first-party page).",
+    "stated": "No quota stated. The first-party page publishes a live blob count (2,113,101 blobs) and the Blossom endpoint list; no upload-size, media-size or storage-used figure is published.",
     "unit": "GB",
     "metered_on": "stored-bytes",
     "source_url": "https://blossom.ditto.pub/",
@@ -16,19 +16,19 @@
     "stated": "unverified: the 2 GB upload cap is no longer stated on the first-party page, which now lists only protocol endpoints and a blob count",
     "bytes": 2000000000,
     "source_url": "https://blossom.ditto.pub/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "No upload-size limit is stated on the server page; it publishes a blob count and the Blossom endpoint list."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://blossom.ditto.pub/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "No retention period is stated; the endpoint list includes DELETE/<sha256> (BUD-12) for deleting a blob."
   },
   "egress": {
-    "terms": "free, unauthenticated GET by SHA-256",
+    "terms": "unverified: no GET price or authentication term is stated on the first-party server page.",
     "metered": false
   },
   "interface": [
-    "unknown"
+    "rest"
   ],
   "interface_detail": "Blossom / BUD-01 over HTTPS",
   "tooling": "Blossom clients, nostr SDKs, curl",
@@ -80,10 +80,38 @@
       "proved": "the current page does not state an upload size cap",
       "capture": "sha256:10ee98f5bb786bf6a05da61ecb15a0b81482e6ab5612c757186927214fc8fa03",
       "quote": "**2,057,354** blobs"
+    },
+    {
+      "url": "https://blossom.ditto.pub/",
+      "date": "2026-11-25",
+      "proved": "the first-party page documents SHA-256 addressed blobs, a GET fetch endpoint and a PUT upload endpoint requiring a Nostr auth token, with no GET price term",
+      "capture": "sha256:aeb27747d4c3d045caf3281544dffb42db029212fcd6f0864cba79610cc35e26",
+      "quote": "This is a [Blossom](https://github.com/hzrd149/blossom) server: it stores blobs addressed by their SHA-256 hash, for Nostr clients. ... - `GET/<sha256>`Fetch a blob (BUD-01) ... - `PUT/upload`Upload a blob, with a Nostr auth token (BUD-02)"
+    },
+    {
+      "url": "https://blossom.ditto.pub/",
+      "date": "2026-11-25",
+      "proved": "the blob server documents a SHA-256 GET fetch and a PUT upload that needs a Nostr auth token",
+      "capture": "sha256:aeb27747d4c3d045caf3281544dffb42db029212fcd6f0864cba79610cc35e26",
+      "quote": "`GET/<sha256>`Fetch a blob (BUD-01) - `PUT/upload`Upload a blob, with a Nostr auth token (BUD-02)"
+    },
+    {
+      "url": "https://blossom.ditto.pub/",
+      "date": "2026-11-25",
+      "proved": "the page publishes a live blob count and protocol endpoints, with no upload-size figure",
+      "capture": "sha256:aeb27747d4c3d045caf3281544dffb42db029212fcd6f0864cba79610cc35e26",
+      "quote": "**2,113,101** blobs ... - `PUT/mirror`Copy a blob from another server (BUD-04)"
+    },
+    {
+      "url": "https://blossom.ditto.pub/",
+      "date": "2026-11-25",
+      "proved": "the server page lists a blob deletion endpoint and states no retention period",
+      "capture": "sha256:aeb27747d4c3d045caf3281544dffb42db029212fcd6f0864cba79610cc35e26",
+      "quote": "- `DELETE/<sha256>`Delete your blob (BUD-12)"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:58.115Z",
+  "verified_at": "2026-11-25T09:54:53.001Z",
   "notes": "No quota. Live server stats: 1,375,309 total blobs, 781.96 GB storage used, 8,684 uploads/24 h. Max upload size 2 GB, max media size 1 GB, accepted types `*`.",
   "history": [],
   "extras": {

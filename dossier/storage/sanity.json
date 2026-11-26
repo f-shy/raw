@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.sanity.io/pricing",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Media Library maximum file size: up to 5 TB."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.sanity.io/pricing",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Existing assets will continue to be served."
   },
   "egress": {
     "terms": "100 GB/month CDN bandwidth included per project, hard cap on Free (no overage purchase). Assets served from cdn.sanity.io with on-the-fly transforms.",
@@ -80,10 +80,31 @@
       "proved": "Sanity's answers page still states no maximum limit on projects per account",
       "capture": "sha256:5cb2d765dbdc0bd5900b904120b00389941e4c151b786c40eb93f04de162611b",
       "quote": "no maximum limit"
+    },
+    {
+      "url": "https://www.sanity.io/docs/media-library/limits-and-usage",
+      "date": "2026-11-25",
+      "proved": "Media Library documents a maximum file size of 5 TB",
+      "capture": "sha256:53da1da760ae36645656068c7c81030ff328df7e0cc1e294af4c1319218e4941",
+      "quote": "- Maximum file size: up to 5 TB"
+    },
+    {
+      "url": "https://www.sanity.io/docs/platform-management/plans-and-payments",
+      "date": "2026-11-25",
+      "proved": "assets already uploaded keep being served when the asset quota is reached",
+      "capture": "sha256:92ccd49ed838224f2f60c6939275a0bcf6651d1053deae7d27ba610efca2cc55",
+      "quote": "Existing assets will continue to be served."
+    },
+    {
+      "url": "https://www.sanity.io/docs/media-library/limits-and-usage",
+      "date": "2026-11-25",
+      "proved": "the original uploaded file is downloadable from Media Library",
+      "capture": "sha256:53da1da760ae36645656068c7c81030ff328df7e0cc1e294af4c1319218e4941",
+      "quote": "You can download the original file you uploaded and its static renditions from the library."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:15:20.587Z",
+  "verified_at": "2026-11-25T19:55:20.740Z",
   "notes": "100 GB assets + 100 GB bandwidth/month per project; no maximum number of projects per account",
   "history": [],
   "extras": {

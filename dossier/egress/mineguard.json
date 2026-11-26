@@ -41,7 +41,7 @@
   "limits": [
     {
       "kind": "volume-quota",
-      "value": "1 TB per month",
+      "value": "1 TB of traffic on the Free plan",
       "source": "https://mineguard.pro/en/pricing"
     },
     {
@@ -52,7 +52,7 @@
   ],
   "limits_note": "",
   "binding": "volume-quota",
-  "binding_note": "The free plan's 1 TB is a real monthly byte counter and the vendor states the consequence: on exceeding the traffic limit the service is suspended within a few hours, after a warning that lets the customer buy more traffic or move up a plan.",
+  "binding_note": "The vendor states the consequence of exceeding the traffic limit: 'When the traffic limit is exceeded, the service is suspended after a few hours.'",
   "identity_cost": {
     "kind": "email",
     "detail": "A panel account. The signup form was not opened and no page read names the required fields; payment on paid tiers runs through FreeKassa by card or SBP.",
@@ -76,10 +76,45 @@
       "url": "https://mineguard.pro/",
       "date": "2026-10-23",
       "proved": "Front page states 1 TB of traffic free and describes Java and Bedrock protection as the product"
+    },
+    {
+      "url": "https://mineguard.pro/en/pricing",
+      "date": "2026-11-25",
+      "proved": "the Free plan card lists 1 TB of traffic",
+      "capture": "sha256:8e0282555ca5bc1fd1fe0e2f84e51fb24929825b16dfe771c087e359cc20ee09",
+      "quote": "- 1 TB traffic"
+    },
+    {
+      "url": "https://mineguard.pro/en/pricing",
+      "date": "2026-11-25",
+      "proved": "exceeding the traffic limit suspends the service after a few hours, after notice, with top-up or upgrade options",
+      "capture": "sha256:8e0282555ca5bc1fd1fe0e2f84e51fb24929825b16dfe771c087e359cc20ee09",
+      "quote": "When the traffic limit is exceeded, the service is suspended after a few hours. You'll be notified in advance and can top up your balance, purchase additional traffic, or upgrade to a plan with more bandwidth."
+    },
+    {
+      "url": "https://mineguard.pro/en/pricing",
+      "date": "2026-11-25",
+      "proved": "the Free plan card lists its network, traffic, protection and Java connection features",
+      "capture": "sha256:8e0282555ca5bc1fd1fe0e2f84e51fb24929825b16dfe771c087e359cc20ee09",
+      "quote": "- 1 network, 3 domains\n- 1 TB traffic\n- Basic L3/L4 protection\n- Portless connection (Java)\n- BungeeCord/Velocity support"
+    },
+    {
+      "url": "https://mineguard.pro/en/pricing",
+      "date": "2026-11-25",
+      "proved": "the plan table gives the traffic allowance per plan: 1 TB on Free through 150 TB on Professional",
+      "capture": "sha256:8e0282555ca5bc1fd1fe0e2f84e51fb24929825b16dfe771c087e359cc20ee09",
+      "quote": "| Traffic | 1 TB | 3 TB | 5 TB | 30 TB | 150 TB |"
+    },
+    {
+      "url": "https://mineguard.pro/en/pricing",
+      "date": "2026-11-25",
+      "proved": "exceeding the traffic limit suspends service after a few hours, with top-up or upgrade options",
+      "capture": "sha256:8e0282555ca5bc1fd1fe0e2f84e51fb24929825b16dfe771c087e359cc20ee09",
+      "quote": "When the traffic limit is exceeded, the service is suspended after a few hours. You'll be notified in advance and can top up your balance, purchase additional traffic, or upgrade to a plan with more bandwidth."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T19:55:30.546Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "1 TB is read as 10^12 bytes, which is 0.909 TiB; the page says TB throughout and never TiB. A genuine 1 TB/month free tier, the same headline number as TCPShield, but the free path is Java only and the Bedrock tunnel is a paid line item. Russian-facing product; the English pages are complete and were used so quotes stay ASCII.",

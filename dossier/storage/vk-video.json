@@ -16,19 +16,19 @@
     "stated": "256 GB per single upload",
     "bytes": 256000000000,
     "source_url": "https://vk.com/press/new-video",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The first-party press page states a 256 GB per-file upload size for video files."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://vk.com/press/new-video",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The press page and the video-upload developer docs publish no retention period."
   },
   "egress": {
     "terms": "Free to viewers. Playback is served from VK's own streaming CDN, no per-GB charge to the uploader.",
     "metered": false
   },
   "interface": [
-    "unknown"
+    "rest"
   ],
   "interface_detail": "wrapper-only",
   "tooling": "yt-dlp VK extractor (yt_dlp/extractor/vk.py) for retrieval; VK API video.save / video upload for pushing files",
@@ -71,10 +71,45 @@
       "proved": "VK Video supports uploads of files up to 256 GB",
       "capture": "sha256:463be48fa3b1f0bfbf381cf32edc07d6a7a69867576ea7b6ac530b588208387a",
       "quote": "Видеоролики высокого качества занимают больше места, поэтому Видео ВКонтакте теперь поддерживает загрузку «тяжёлых» файлов размером до 256 Гбайт."
+    },
+    {
+      "url": "https://dev.vk.com/ru/api/upload/video-in-profile",
+      "date": "2026-11-25",
+      "proved": "uploads go through the video.save API call followed by an HTTP multipart POST to the returned upload_url",
+      "capture": "sha256:1148b896c0d38cf83db3cfd4f6a4c005ee365997edce35ac8716095a5800a1b5",
+      "quote": "Чтобы получить адрес для загрузки видеофайла, вызовите метод `video.save`."
+    },
+    {
+      "url": "https://vk.com/press/new-video",
+      "date": "2026-11-25",
+      "proved": "the press page gives the upload cap but states no retention period",
+      "capture": "sha256:463be48fa3b1f0bfbf381cf32edc07d6a7a69867576ea7b6ac530b588208387a",
+      "quote": "Видеоролики высокого качества занимают больше места, поэтому Видео ВКонтакте теперь поддерживает загрузку «тяжёлых» файлов размером до 256 Гбайт."
+    },
+    {
+      "url": "https://vk.com/press/new-video",
+      "date": "2026-11-25",
+      "proved": "the per-object cap is 256 GB for a single video upload",
+      "capture": "sha256:463be48fa3b1f0bfbf381cf32edc07d6a7a69867576ea7b6ac530b588208387a",
+      "quote": "Видеоролики высокого качества занимают больше места, поэтому Видео ВКонтакте теперь поддерживает загрузку «тяжёлых» файлов размером до 256 Гбайт."
+    },
+    {
+      "url": "https://vk.com/press/new-video",
+      "date": "2026-11-25",
+      "proved": "the first-party press page still states the 256 GB single-upload cap",
+      "capture": "sha256:463be48fa3b1f0bfbf381cf32edc07d6a7a69867576ea7b6ac530b588208387a",
+      "quote": "Видеоролики высокого качества занимают больше места, поэтому Видео ВКонтакте теперь поддерживает загрузку «тяжёлых» файлов размером до 256 Гбайт."
+    },
+    {
+      "url": "https://dev.vk.com/ru/api/upload/video-in-profile",
+      "date": "2026-11-25",
+      "proved": "video uploads use the documented video.save API and multipart upload_url",
+      "capture": "sha256:1148b896c0d38cf83db3cfd4f6a4c005ee365997edce35ac8716095a5800a1b5",
+      "quote": "Чтобы получить адрес для загрузки видеофайла, вызовите метод `video.save`."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:15:22.711Z",
+  "verified_at": "2026-11-25T03:33:10.194Z",
   "notes": "up to 256 GB per single uploaded file; no per-account total published on the page read",
   "history": [],
   "extras": {

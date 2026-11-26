@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0233-verify-netdisk-pan-6b92-u19-q03",
+ "kind": "verify",
+ "topic": "1yunpan outage notice and check-in cap",
+ "question": "Is the front-page outage notice gone, and is the check-in cap 500 GB or 505 GB?",
+ "why": "The front page captured on 2026-11-25 carries no outage notice and the config sets upload.temporarily_disabled to false, while the earlier notice row remains in the record; the homepage says up to 500GB and the config says checkin_storage_limit_gb 505.",
+ "scope": {
+  "rids": [
+   "netdisk-pan/1yunpan"
+  ]
+ },
+ "origin": "20261125-0233-verify-netdisk-pan-6b92/u19",
+ "created": "2026-11-25T15:23:47Z"
+}

@@ -6,10 +6,10 @@
   "category": "zero-trust access platform (community edition plus paid cloud)",
   "tier": "paid",
   "free_tier": {
-    "stated": "No price is published: the pricing page is a 'Get Pricing' form and states 'Pay only for what you use: active users and protected resources.' A free Enterprise trial is offered.",
+    "stated": "A free 14-day trial of Teleport Enterprise is offered; no free plan is stated.",
     "unit": "none",
     "metered_on": "none",
-    "source_url": "https://goteleport.com/",
+    "source_url": "https://goteleport.com/signup/",
     "read_on": "2026-10-23",
     "notes": ""
   },
@@ -43,8 +43,8 @@
   "binding": "none",
   "binding_note": "No hosted free endpoint: the community edition's capacity is whoever hosts it, and the cloud is paid. Application access is TCP/HTTP, no UDP.",
   "identity_cost": {
-    "kind": "card",
-    "detail": "the cloud product is priced per resource; the community edition is free software that needs a host.",
+    "kind": "email",
+    "detail": "the pricing page states usage-based pricing on active users and protected resources",
     "country": "None"
   },
   "reliability_note": "n/a",
@@ -69,10 +69,38 @@
       "proved": "the sign-up page offers a free 14-day trial of the Enterprise edition",
       "capture": "sha256:b7086f1c5fbc3c2ca81e36987cb168b5c732b59dc48d53c6cd17f563a5feaddd",
       "quote": "Free, 14-day trial of Teleport Enterprise"
+    },
+    {
+      "url": "https://goteleport.com/signup/",
+      "date": "2026-11-25",
+      "proved": "the sign-up page offers a free 14-day Enterprise trial",
+      "capture": "sha256:b7086f1c5fbc3c2ca81e36987cb168b5c732b59dc48d53c6cd17f563a5feaddd",
+      "quote": "Free, 14-day trial of Teleport Enterprise"
+    },
+    {
+      "url": "https://goteleport.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "pricing is by active users and protected resources",
+      "capture": "sha256:1c7aac8eb8546b02cf259069d4d4326e34fa54a406127a69445aa346a0373c40",
+      "quote": "Transparent Pricing. Pay only for what you use: active users and protected resources."
+    },
+    {
+      "url": "https://goteleport.com/signup/",
+      "date": "2026-11-25",
+      "proved": "the trial is requested through an activation link; no card is stated",
+      "capture": "sha256:b7086f1c5fbc3c2ca81e36987cb168b5c732b59dc48d53c6cd17f563a5feaddd",
+      "quote": "By requesting an activation link, you agree to our Privacy Policy."
+    },
+    {
+      "url": "https://goteleport.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the pricing page publishes a usage-based model and no free plan",
+      "capture": "sha256:1c7aac8eb8546b02cf259069d4d4326e34fa54a406127a69445aa346a0373c40",
+      "quote": "Transparent Pricing. Pay only for what you use: active users and protected resources."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-04T06:52:58.388Z",
+  "verified_at": "2026-11-25T15:43:51.888Z",
   "price_per_tb_month": "paid cloud",
   "history": [],
   "notes": "Recorded from the aggregator's sentence plus an empty pricing read; the verdict rests on the cloud being a paid product.",

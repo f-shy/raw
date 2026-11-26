@@ -16,12 +16,12 @@
     "stated": "4 GB per file",
     "bytes": 4000000000,
     "source_url": "https://faq.dailymotion.com/hc/en-us/articles/115009030568-Upload-policies-technical-specifications",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "the upload policy table caps standard uploads at 4 GB per file and Premium or Edge uploads at 64 GB per file"
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://faq.dailymotion.com/hc/en-us/articles/115009030568-Upload-policies-technical-specifications",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: the upload policies page states size, duration, volume and suspension limits but no file retention period"
   },
   "egress": {
     "terms": "Free, ad-supported CDN playback. No egress meter on standard accounts.",
@@ -45,7 +45,7 @@
       "source": "https://faq.dailymotion.com/hc/en-us/articles/115009030568-Upload-policies-technical-specifications"
     }
   ],
-  "limits_note": "4 GB per file is small for bulk. 15 videos/24h and 10 h/24h are enforced by suspension of upload privileges for 24 hours, which makes it a bad target for automated batch loading.",
+  "limits_note": "upload privileges may be suspended for 24 hours when the 15 videos per 24 hours or 10 hours of content per 24 hours limits are reached; the standard file cap is 4 GB",
   "identity_cost": {
     "kind": "email",
     "detail": "no identity_cost field and no identity statement in the source record; defaulted to email and flagged, not evidence",
@@ -78,10 +78,45 @@
       "proved": "the upload policy table caps a standard-creator upload at 4 GB per file (64 GB for Premium/Edge), with 15 videos and 10 hours per 24 hours",
       "capture": "sha256:df942625918b51652b7304c8e348453b0c8acd235dab528bf6a317ec34e17d56",
       "quote": "4 GB per file maximum"
+    },
+    {
+      "url": "https://faq.dailymotion.com/hc/en-us/articles/115009030568-Upload-policies-technical-specifications",
+      "date": "2026-11-25",
+      "proved": "the upload policy table gives the standard and Premium or Edge per-file ceilings",
+      "capture": "sha256:9ad44c54a5004bf0100b4aaf3906373cdab0904d12cf015ed57653e780152be9",
+      "quote": "| **Video size** | 4 GB per file maximum | 64 GB |"
+    },
+    {
+      "url": "https://faq.dailymotion.com/hc/en-us/articles/115009030568-Upload-policies-technical-specifications",
+      "date": "2026-11-25",
+      "proved": "the upload policies page states upload limits but publishes no retention period",
+      "capture": "sha256:9ad44c54a5004bf0100b4aaf3906373cdab0904d12cf015ed57653e780152be9",
+      "quote": "| **Video size** | 4 GB per file maximum | 64 GB |"
+    },
+    {
+      "url": "https://faq.dailymotion.com/hc/en-us/articles/115009030568-Upload-policies-technical-specifications",
+      "date": "2026-11-25",
+      "proved": "the upload policies page states a 24-hour suspension for exceeding the stated volume limits",
+      "capture": "sha256:9ad44c54a5004bf0100b4aaf3906373cdab0904d12cf015ed57653e780152be9",
+      "quote": "If you reach one of these limits, your upload privileges may be suspended for 24 hours and an error message will be displayed on your upload interface."
+    },
+    {
+      "url": "https://faq.dailymotion.com/hc/en-us/articles/115009030568-Upload-policies-technical-specifications",
+      "date": "2026-11-25",
+      "proved": "the upload policy table still gives the standard 4 GB and Premium or Edge 64 GB ceilings",
+      "capture": "sha256:9ad44c54a5004bf0100b4aaf3906373cdab0904d12cf015ed57653e780152be9",
+      "quote": "| **Video size** | 4 GB per file maximum | 64 GB |"
+    },
+    {
+      "url": "https://faq.dailymotion.com/hc/en-us/articles/115009030568-Upload-policies-technical-specifications",
+      "date": "2026-11-25",
+      "proved": "the upload policies page still states a 24-hour suspension on limit breach",
+      "capture": "sha256:9ad44c54a5004bf0100b4aaf3906373cdab0904d12cf015ed57653e780152be9",
+      "quote": "If you reach one of these limits, your upload privileges may be suspended for 24 hours and an error message will be displayed on your upload interface."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:13:26.680Z",
+  "verified_at": "2026-11-25T04:14:18.949Z",
   "notes": "No total storage cap stated. Per-account upload policy: 4 GB per file, 2 hours per file, 15 videos per 24 hours, 10 hours of content per 24 hours (standard creators). Premium/Edge lifts to 64 GB/file and unlimited duration.",
   "history": [],
   "extras": {

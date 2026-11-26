@@ -13,24 +13,24 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "100 GB cap",
-    "bytes": 100000000000,
-    "source_url": "https://anyflip.com/pricing/",
-    "notes": "extracted from the quota or limits prose"
+    "stated": "150 MB maximum PDF file size",
+    "bytes": 150000000,
+    "source_url": "https://anyflip.com/faq/",
+    "notes": "The FAQ states a 150 MB maximum PDF file size; the total storage quota is a separate pricing figure."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
-    "source_url": "https://anyflip.com/pricing/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "stated": "AnyFlip Cloud hosts publications forever, and the account may be used forever.",
+    "source_url": "https://anyflip.com/faq/",
+    "notes": "The FAQ states that publications are hosted forever and the account may be used forever."
   },
   "egress": {
     "terms": "No egress metering documented; free plan caps \"Daily Opens\" at 30,000/day and readers can download the PDF; flipbooks are served from online.anyflip.com with a per-page HTML reader. Free tier embeds an AnyFlip watermark in the embed.",
     "metered": false
   },
   "interface": [
-    "unknown"
+    "browser"
   ],
-  "interface_detail": "wrapper-only",
+  "interface_detail": "Website Quick Upload after login; the installed desktop software is documented separately.",
   "tooling": "No public API; upload is the web form at anyflip.com/quick-upload/ (POST without a session 302s to /login.php). Flipbook pages are static per-page HTML at online.anyflip.com/<a>/<b>/files/basic-html/pageN.html so a downloader can be written, but there is no upload client.",
   "chaining": "Multiple free accounts provide 100 GB each. Upload rate is the primary constraint: 5 uploads per day at 150 MB yields 750 MB per day per account.",
   "limits": [
@@ -41,8 +41,8 @@
     },
     {
       "kind": "per-object-cap",
-      "value": "100 GB cap",
-      "source": "https://anyflip.com/pricing/"
+      "value": "150 MB maximum PDF size",
+      "source": "https://anyflip.com/faq/"
     }
   ],
   "limits_note": "150 MB per PDF; 5 uploads/day free (60/day Pro); 30,000 daily opens; 100 GB cap; watermark on free embeds; download of the source PDF is plan-gated in practice.",
@@ -81,10 +81,52 @@
       "proved": "the free plan allows 5 uploads per day",
       "capture": "sha256:fe291709dca964fb101db7807cd6bc74e875c21f8ef600697859bb54a6332b72",
       "quote": "| Uploads / Day | 5 | 60 | 100 | Unlimited |"
+    },
+    {
+      "url": "https://anyflip.com/manual/online-conversion-sign-in.html",
+      "date": "2026-11-25",
+      "proved": "the online upload flow starts on the AnyFlip website navigation menu",
+      "capture": "sha256:1c219a8f8250fed66f3eac0768233cbb8f4ed51cb46ead296bc445f3a8c28e35",
+      "quote": "Visit AnyFlip website (<a href=\"//anyflip.com/\" target=\"_blank\"><b>http://anyflip.com/</b></a>) and on the navigation menu, click \"login\" (or \"Upload\")."
+    },
+    {
+      "url": "https://anyflip.com/manual/online-conversion-upload-pdf.html",
+      "date": "2026-11-25",
+      "proved": "the website upload flow uses Quick Upload after login",
+      "capture": "sha256:7551c59f804e0f3a5789887e4599a439b15df232a6931d60a3788ac05f51d84e",
+      "quote": "You can click the Quick Upload button on the Navigation Bar as you log in."
+    },
+    {
+      "url": "https://anyflip.com/faq/",
+      "date": "2026-11-25",
+      "proved": "the FAQ states permanent hosting for publications",
+      "capture": "sha256:80c5749a6adc1e27f871be413c48d6ba1e9f38a09af6b5c30f725c21c9daeac5",
+      "quote": "The AnyFlip Cloud will host your publications forever, You may use this account FOREVER!."
+    },
+    {
+      "url": "https://anyflip.com/faq/",
+      "date": "2026-11-25",
+      "proved": "the per-file PDF cap is 150 MB",
+      "capture": "sha256:80c5749a6adc1e27f871be413c48d6ba1e9f38a09af6b5c30f725c21c9daeac5",
+      "quote": "The max PDF file size is 150 MB."
+    },
+    {
+      "url": "https://anyflip.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the free plan includes 100G of storage",
+      "capture": "sha256:fe291709dca964fb101db7807cd6bc74e875c21f8ef600697859bb54a6332b72",
+      "quote": "| Storage | 100G | 500G | Unlimited | Unlimited |"
+    },
+    {
+      "url": "https://anyflip.com/faq/",
+      "date": "2026-11-25",
+      "proved": "the FAQ states no publication-count cap",
+      "capture": "sha256:80c5749a6adc1e27f871be413c48d6ba1e9f38a09af6b5c30f725c21c9daeac5",
+      "quote": "There is no limit on the publications you may have."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:58.115Z",
+  "verified_at": "2026-11-25T13:25:54.291Z",
   "notes": "FREE plan: 100 GB storage, unlimited number of publications, 5 uploads/day, 150 MB max PDF.",
   "history": [],
   "extras": {

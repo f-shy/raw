@@ -21,7 +21,7 @@
   "retention": {
     "stated": "per-object-cap: 10 MB for the .torrent file only; no cap on the dataset it describes. retention: entries are permanent in practice; the PDF describes a network designed for durability across node failure",
     "source_url": "https://academictorrents.com/docs/uploading.html",
-    "notes": "Extracted from published terms."
+    "notes": "The uploading docs publish no retention period; the index does not host the data, so survival depends on donor seeds or a Backup URL."
   },
   "egress": {
     "terms": "Free, and structurally so - it is BitTorrent, so egress is other peers' bandwidth. Also offers an HTTP fallback: 'Backup URLs (also called WebSeeds)' are injected into the .torrent so the swarm can be skipped entirely. Their own docs note most free hosts (Google Drive, Dropbox) do NOT work as webseeds because they lack RANGE support, while archive.org and Zenodo (single-file only) do.",
@@ -142,10 +142,31 @@
       "proved": "an institution address adds features but signup needs only a username, email and password",
       "capture": "sha256:becdb5be4e7140404c9955768d82be6b90d0dde46199861d910ce68345a2a2fa",
       "quote": "Use an educational institution address to enable more features."
+    },
+    {
+      "url": "https://academictorrents.com/docs/uploading.html",
+      "date": "2026-11-25",
+      "proved": "the index does not host data; no retention period is published",
+      "capture": "sha256:b1b5cb086a8f3d7209ba916fb7ee080e81ea42c756cb354fbdf49625150b3316",
+      "quote": "It’s important to note that we don’t directly host your data. However, we manage a network of donated servers."
+    },
+    {
+      "url": "https://academictorrents.com/docs/uploading.html",
+      "date": "2026-11-25",
+      "proved": "the first-party docs still state that data is hosted by donor servers",
+      "capture": "sha256:b1b5cb086a8f3d7209ba916fb7ee080e81ea42c756cb354fbdf49625150b3316",
+      "quote": "It’s important to note that we don’t directly host your data. However, we manage a network of donated servers."
+    },
+    {
+      "url": "https://academictorrents.com/docs/api.html",
+      "date": "2026-11-25",
+      "proved": "a first-party REST API endpoint is documented",
+      "capture": "sha256:f989ab2c9e5f20a2aaea907253a98d033e49bd143f852cb18569c9ddf6f9a8a1",
+      "quote": "Base API url: [https://academictorrents.com/apiv2/](https://academictorrents.com/apiv2/)"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:57.315Z",
+  "verified_at": "2026-11-25T03:33:10.196Z",
   "notes": "NO BYTE QUOTA ON THE INDEX, because the index is all they host: 'It's important to note that we don't directly host your data. However, we manage a network of donated servers. When you upload a torrent file to our site, hosting nodes (seeds) register with the tracker to provide download locations for the data.' The catalogue is 419.44 TB across the network but that is other people's disk. The only hard number is on the torrent *file* itself: a 10 MB per-torrent limit, stated by the maintainer ('each of them is beneath the 10MB size limit') and defended against a request to raise it.",
   "history": [],
   "extras": {

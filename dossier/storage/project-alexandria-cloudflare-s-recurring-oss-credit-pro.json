@@ -13,17 +13,17 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "R2 object size: 5 TiB per object; maximum upload size 5 GiB (single-part) / 4.995 TiB (multi-part).",
     "source_url": "https://www.cloudflare.com/lp/project-alexandria/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The published R2 limits give 5 TiB per object and a 5 GiB single-part / 4.995 TiB multi-part maximum upload size."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.cloudflare.com/lp/project-alexandria/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Standard storage minimum duration: None. Infrequent Access storage minimum duration: 30 days."
   },
   "egress": {
-    "terms": "R2 egress is free to the internet; Workers/Pages requests are included in the credit.",
+    "terms": "There are no charges for egress bandwidth for any storage class.",
     "metered": false
   },
   "interface": [
@@ -34,7 +34,7 @@
   ],
   "interface_detail": "s3",
   "tooling": "R2 is S3-compatible (rclone 's3' with Cloudflare provider, aws CLI, wrangler). Pages via git/wrangler deploy.",
-  "chaining": "Annual renewal is the whole point: unlike the one-shot startup credits, this is stated as 'recurring annual credits'. A maintainer with several OSS projects can plausibly hold several grants; credits are per project, non-transferable.",
+  "chaining": "Apply to receive recurring annual credits with Project Alexandria.",
   "limits": [],
   "limits_note": "Must 'maintain an open source project with a recognized OSS license' and 'operate solely on a non-profit basis'. Requires a payment method on file. Acceptance and amount are at Cloudflare's sole discretion; programme can be discontinued at any time.",
   "identity_cost": {
@@ -76,10 +76,38 @@
       "proved": "the programme page is readable on 2026-11-19 and confirms recurring annual credits",
       "capture": "sha256:069c5553b8284cd0b79a13ec77a9c13a9c8b11cffb6f512dd5e9ee9d10282beb",
       "quote": "Apply to receive recurring annual credits with Project Alexandria."
+    },
+    {
+      "url": "https://developers.cloudflare.com/r2/platform/limits/",
+      "date": "2026-11-25",
+      "proved": "the R2 limits table states the object size and maximum upload size",
+      "capture": "sha256:a0d42be005b02f43822e7495e6c444b60ca77d3a923d726c3e07f9e340d572f5",
+      "quote": "| Object size | 5 TiB per object | 2 |\n| Maximum upload size | 5 GiB (single-part) / 4.995 TiB (multi-part) 3 |"
+    },
+    {
+      "url": "https://developers.cloudflare.com/r2/pricing/",
+      "date": "2026-11-25",
+      "proved": "the R2 pricing table states minimum storage duration by class",
+      "capture": "sha256:07b6fefe97c7af33057b34c7ab919b6ccda227555a08ed1d414d9c71598bbc16",
+      "quote": "| Standard storage | None |\n| Infrequent Access storage | 30 days |"
+    },
+    {
+      "url": "https://developers.cloudflare.com/r2/pricing/",
+      "date": "2026-11-25",
+      "proved": "R2 pricing states there is no egress bandwidth charge",
+      "capture": "sha256:07b6fefe97c7af33057b34c7ab919b6ccda227555a08ed1d414d9c71598bbc16",
+      "quote": "There are no charges for egress bandwidth for any storage class."
+    },
+    {
+      "url": "https://www.cloudflare.com/lp/project-alexandria/",
+      "date": "2026-11-25",
+      "proved": "the programme page states credits recur annually",
+      "capture": "sha256:069c5553b8284cd0b79a13ec77a9c13a9c8b11cffb6f512dd5e9ee9d10282beb",
+      "quote": "Apply to receive recurring annual credits with Project Alexandria."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:38.525Z",
+  "verified_at": "2026-11-25T19:55:16.879Z",
   "notes": "The first-party programme page was read successfully on 2026-11-19; it states recurring annual credits that include increased R2 storage for builds and artifacts, increased Workers and Pages requests, and requires a recognized OSS license and non-profit operation.",
   "history": [],
   "extras": {

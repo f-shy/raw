@@ -76,10 +76,24 @@
       "url": "https://arvor.is/",
       "date": "2026-10-23",
       "proved": "The stack is described as Cloudflare Spectrum powered with a hostname-aware L7 engine, which is a TCP-with-SNI shape rather than a per-customer UDP IP"
+    },
+    {
+      "url": "https://arvor.is/",
+      "date": "2026-11-25",
+      "proved": "free plan bandwidth to backend is fair use with no byte figure",
+      "capture": "sha256:a4816a527b329dae6873a1a77922bc530eff07c4dfa22eeae3ccd68d2fa36dda",
+      "quote": "| Bandwidth to backend / mo | Fair use | Unlimited | Unlimited | Unlimited |"
+    },
+    {
+      "url": "https://arvor.is/",
+      "date": "2026-11-25",
+      "proved": "the free plan caps at 15 players",
+      "capture": "sha256:a4816a527b329dae6873a1a77922bc530eff07c4dfa22eeae3ccd68d2fa36dda",
+      "quote": "| Players cap | 15 | 60 | 150 | 500 |"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:52.382Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Budget brand of papyrus.vip with Cloudflare Spectrum protection. Product documentation describes hostname-routed Minecraft Java over TCP; no Bedrock or generic UDP line item is listed in published plan tables.",

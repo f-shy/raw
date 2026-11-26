@@ -49,8 +49,8 @@
   "binding": "per-ip-shaping",
   "binding_note": "the only limit the vendor page states is the 500 Mbps port speed; the transfer quota behind the fair use wording is unverified, so what fails first at 1 TiB a month cannot be named",
   "identity_cost": {
-    "kind": "email",
-    "detail": "unverified: the sign-up and order pages were not read; the vendor states that cryptocurrencies are accepted at checkout",
+    "kind": "any-phone",
+    "detail": "First Name *, Last Name *, Email Address *, Phone Number *, Country *, Address *, City * and Postcode * are required at sign-up; a security question and a CAPTCHA are also required.",
     "country": "None"
   },
   "reliability_note": "unverified: no suspension, throttle or data-loss behaviour is stated on the pages read",
@@ -105,10 +105,31 @@
       "capture": "sha256:74bc0c9f4a39840d49c51bd05031d6549233c8f27b14de0ded1301a1bb3b9287",
       "quote": "Unmetered (limited by port speed and fair use)",
       "proved": "a third-party index lists the plan's transfer as unmetered, limited by port speed and fair use"
+    },
+    {
+      "url": "https://www.bacloud.com/en/register",
+      "date": "2026-11-25",
+      "proved": "registration requires a phone number as well as an email address",
+      "capture": "sha256:43a12dba3fd5f50f54f4c079ee8bb2cad62ba60d3e7828772a030c13426cd448",
+      "quote": "Phone Number ... Email Address *"
+    },
+    {
+      "url": "https://www.bacloud.com/en/register",
+      "date": "2026-11-25",
+      "proved": "the registration form requires names, email, phone and country",
+      "capture": "sha256:43a12dba3fd5f50f54f4c079ee8bb2cad62ba60d3e7828772a030c13426cd448",
+      "quote": "First Name ... Email Address * ... Phone Number ... Country *"
+    },
+    {
+      "url": "https://www.bacloud.com/en/linux-vps-hosting",
+      "date": "2026-11-25",
+      "proved": "the Linux OpenVZ 1 plan still lists EUR 3.38 a month, a three-month minimum and a 500 Mbps port",
+      "capture": "sha256:33c7672c7e596ec1a25d67d618aa11b4c7a1330482489033214f226fb7bb24b7",
+      "quote": "Linux OpenVZ 1 ... Minimum order ... 3 months ... 500 Mbps* ... 3.38€"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-03T07:36:43.376Z",
+  "verified_at": "2026-11-25T09:55:01.928Z",
   "price_per_tb_month": "EUR 3.38 a month; transfer allowance not published on the vendor page",
   "history": [],
   "notes": "The plan is OpenVZ 7 container virtualization with TUN/TAP stated by the vendor. The vendor page read lists no transfer figure, and the index value is third-party.",

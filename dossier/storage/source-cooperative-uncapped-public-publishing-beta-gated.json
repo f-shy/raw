@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://docs.source.coop/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The docs home says trusted organizations and individuals can publish data of any kind at any scale; it states no per-object size cap."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://docs.source.coop/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The docs home says all hosted data is available to the public and can be accessed by anyone; it publishes no retention interval."
   },
   "egress": {
     "terms": "Free public reads through the data proxy at data.source.coop - live probe returned HTTP 200 with Cloudflare in front (CF-RAY present), so reads are CDN-covered.",
@@ -69,10 +69,45 @@
       "proved": "the docs home states the beta status, public availability, and beta-tester requirement",
       "capture": "sha256:a8223ae91eac1a1db98c6435caf20fbbfaf2d714f5caa5a23c15776e64cbd5dd",
       "quote": "Source is currently in beta, but all data hosted in Source is available to the public and can be accessed by anyone. If you would like to publish data to Source, please apply to be a beta tester."
+    },
+    {
+      "url": "https://docs.source.coop/",
+      "date": "2026-11-25",
+      "proved": "the docs home describes publication at any scale and states no per-object size cap",
+      "capture": "sha256:fd5c675293afcfb2870b70d79d33f5d16ecdd3b2a2ff0212678e5e28daa741f6",
+      "quote": "allows trusted organizations and individuals to publish data of any kind at any scale without needing to build or maintain their own infrastructure."
+    },
+    {
+      "url": "https://docs.source.coop/",
+      "date": "2026-11-25",
+      "proved": "the docs home still states publication at any scale",
+      "capture": "sha256:fd5c675293afcfb2870b70d79d33f5d16ecdd3b2a2ff0212678e5e28daa741f6",
+      "quote": "allows trusted organizations and individuals to publish data of any kind at any scale without needing to build or maintain their own infrastructure."
+    },
+    {
+      "url": "https://docs.source.coop/",
+      "date": "2026-11-25",
+      "proved": "the docs home states public availability of hosted data and gives no retention interval",
+      "capture": "sha256:fd5c675293afcfb2870b70d79d33f5d16ecdd3b2a2ff0212678e5e28daa741f6",
+      "quote": "Source is currently in beta, but all data hosted in Source is available to the public and can be accessed by anyone."
+    },
+    {
+      "url": "https://docs.source.coop/",
+      "date": "2026-11-25",
+      "proved": "the beta and public-availability statement in the limits note is unchanged",
+      "capture": "sha256:fd5c675293afcfb2870b70d79d33f5d16ecdd3b2a2ff0212678e5e28daa741f6",
+      "quote": "Source is currently in beta, but all data hosted in Source is available to the public and can be accessed by anyone."
+    },
+    {
+      "url": "https://docs.source.coop/data-proxy",
+      "date": "2026-11-25",
+      "proved": "the data proxy is documented as S3-compatible and unauthenticated for reads",
+      "capture": "sha256:d9c3defe66691a4fe79bd2223e453fdec3bebbf8c4a8c7e3f0fdf6c4abbf7bb9",
+      "quote": "The Source Data Proxy provides S3-compatible access to all data hosted on Source Cooperative. You can access data through the proxy without authentication, making it easy to programmatically download datasets using standard AWS CLI commands."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T08:05:39.937Z",
+  "verified_at": "2026-11-25T19:55:21.394Z",
   "notes": "No published byte cap: 'allowing trusted organizations and individuals to publish data of any kind at any scale'. Case study: Earth Genome publishes 60+ TB. Platform total reported at just over 5 PB.",
   "history": [],
   "extras": {

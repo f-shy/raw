@@ -1,0 +1,21 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u46-rerun",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/webhook-relay $.binding_note: The page states the 150-webhook quota and 0 bidirectional tunnels, but does not state that the request quota binds first for webhook forwarding or that a TCP tunnel needs a paid plan.\n- egress/ip4market $.verdict: The page presents phone-based Telegram sign-in as straightforward; it does not establish an unreachable identity requirement.\n- egress/webhook-relay $.identity_cost.kind: The page does not state that email is the signup identity; it only says no card is required and that an account is created.\n- egress/webhook-relay $.identity_cost.detail: The claimed sentence 'Access tokens authenticate Webhook Relay agents, CLI commands and management API requests.' does not appear on the page.\n- egress/ip4market $.free_tier.stated: The cited terms page does not contain the indexed 'Lichnaya set IPv6 /48 v odni ruki' text; that sentence is on the start page, not this source.\n- egress/ip4market $.free_tier.stated: The cited start page does not contain the two service-rule statements; those are on ?page=termsofservice, not this source.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/inlets $.free_tier.stated: The claimed value text ('Used to be ; now focused on a polished commercial offering...') does not appear in the capture; capture shows paid licensing/pricing.\n- egress/inlets $.egress.terms: The claimed value text is not stated in the capture; capture supports license requirement but not the exact phrased allowance/ingress terms.\n- egress/ip4market $.free_tier.stated: The quote supports free 6in4 tunnel and /48 subnet from terms, but the claimed value also asserts 'personal IPv6 /48 in one pair of hands' from the start page, which is not in this cited capture.\n- egress/sshreach-me $.free_tier.stated: The claimed value 'Paid SSH-based option...' is not stated on the homepage capture.\n- egress/sshreach-me $.egress.terms: No allowance/ingress terms stated in capture; claimed value text not supported.\n- egress/sshreach-me $.binding: Binding is not stated on the homepage capture; 'none' is not evidenced by this quote.\n- egress/webhook-relay $.identity_cost.detail: Capture supports GitHub/Google OAuth options, but does not show email/password registration or access-token authentication claims included in the value.\n- egress/webhook-relay $.egress.terms: Claim states pricing page renders testimonials and no plan table; capture clearly contains a Free Starter plan table with quota.",
+ "scope": {
+  "rids": [
+   "egress/iis-pub-frp",
+   "egress/inlets",
+   "egress/ip4market",
+   "egress/sshreach-me",
+   "egress/tamago-hkt-nat",
+   "egress/webhook-relay"
+  ]
+ },
+ "origin": "audit u77 of 20261125-0233-verify-egress-af27/u46 failed: 8 of 26 unsupported",
+ "created": "2026-11-25T16:37:39Z",
+ "queue_files": [
+  "queue/20261125-0233-verify-egress-af27-u02-rerun.json"
+ ]
+}

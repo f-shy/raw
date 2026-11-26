@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://docs.databricks.com/aws/en/getting-started/free-edition-limitations",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "No per-object cap is published for default storage on the free-edition, limitations or default-storage pages; the limitations page lists compute quotas only."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
-    "source_url": "https://docs.databricks.com/aws/en/getting-started/free-edition-limitations",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "source_url": "https://docs.databricks.com/aws/en/storage/default-storage",
+    "notes": "A deleted managed table or volume on default storage keeps its data files for a 7-day recovery window; an asynchronous process purges them up to about 30 days after the delete."
   },
   "egress": {
     "terms": "Not addressed in the Free Edition docs. Outbound internet is 'restricted to a limited set of trusted domains', which throttles external egress to non-approved hosts.",
@@ -31,11 +31,11 @@
     "rclone",
     "cli"
   ],
-  "interface_detail": "rest",
+  "interface_detail": "REST: the Databricks Files API for external clients accessing Unity Catalog volumes on default storage, and ODBC/JDBC drivers for BI tools accessing Unity Catalog tables; the SQL statement execution API and Databricks CLI are not named on this page.",
   "tooling": "Unity Catalog volumes via SQL (`CREATE CATALOG ..`) or the Databricks CLI / REST API; no rclone backend. File access requires serverless, Unity-Catalog-enabled compute. 'All interactions with default storage require serverless, Unity Catalog-enabled compute'.",
-  "chaining": "One workspace per signup; the docs do not cap workspaces. Storage is uncapped in the docs but *only reachable through compute*, so the real multiplier is compute quota resets ('your workspace's compute resources will be shut down and unavailable for the rest of the day' on quota exhaustion; data is retained).",
+  "chaining": "One workspace and one metastore per account; the Free Edition administrative limits set the account-level ceiling.",
   "limits": [],
-  "limits_note": "Per-object-cap: not documented for default storage. Unverified. request-rate: per-account serverless quotas ('Max of 5 concurrent job tasks per account', one SQL warehouse capped at 2X-Small). This is the binding constraint and it is compute, not storage. retention: 'While your compute will be unavailable, your data and settings will not be deleted'; deleting a managed table/volume keeps files 'to allow for a 7-day recovery window' then purges within 48 hours.",
+  "limits_note": "per-object-cap: not published for default storage. request-rate: per-account serverless quotas (one SQL warehouse at 2X-Small; max of 5 concurrent job tasks per account) bind compute, not storage; data and settings are not deleted when the compute quota is exceeded.",
   "identity_cost": {
     "kind": "email",
     "detail": "derived from the record's prose, not from an identity field, and no signup was executed: thout a documented quota but also without a storage-native API — you cannot `PUT` arbitrary bytes without spinning compute, and compute is throttled to 'the rest of the day'. Custom",
@@ -85,10 +85,66 @@
       "proved": "the first-party limitations page states authentication is email OTP or consumer sign-in, not an institution gate",
       "capture": "sha256:19ecf3409d4dfec641c26889e3aade6305d0df8a123648dd94c173066efd5b96",
       "quote": "Authentication is limited to email OTP, Sign in with Google, and Sign in with Microsoft. No SSO or SCIM support."
+    },
+    {
+      "url": "https://docs.databricks.com/aws/en/getting-started/free-edition-limitations",
+      "date": "2026-11-25",
+      "proved": "the limitations resource table caps compute resources and states no per-object cap for default storage",
+      "capture": "sha256:19ecf3409d4dfec641c26889e3aade6305d0df8a123648dd94c173066efd5b96",
+      "quote": "One SQL warehouse, limited to a `2X-Small` cluster size."
+    },
+    {
+      "url": "https://docs.databricks.com/aws/en/storage/default-storage",
+      "date": "2026-11-25",
+      "proved": "deleted managed tables and volumes have a 7-day recovery window and purge up to about 30 days after the delete",
+      "capture": "sha256:4c6ec79d2bf97824ba6fcce08f91ea13176dcd3ac737d5dcf600728cf51ae078",
+      "quote": "When you delete a managed table or volume that uses default storage, the data files are retained to allow for a 7-day recovery window. After the recovery window ends, an asynchronous process permanently deletes (purges) the data files, up to about 30 days after the delete."
+    },
+    {
+      "url": "https://docs.databricks.com/aws/en/storage/default-storage",
+      "date": "2026-11-25",
+      "proved": "the default-storage page is the source of the stated deletion and purge rule",
+      "capture": "sha256:4c6ec79d2bf97824ba6fcce08f91ea13176dcd3ac737d5dcf600728cf51ae078",
+      "quote": "When you delete a managed table or volume that uses default storage, the data files are retained to allow for a 7-day recovery window. After the recovery window ends, an asynchronous process permanently deletes (purges) the data files, up to about 30 days after the delete."
+    },
+    {
+      "url": "https://docs.databricks.com/aws/en/storage/default-storage",
+      "date": "2026-11-25",
+      "proved": "the page names the Files API for volumes and ODBC/JDBC for BI tables as the external access surfaces",
+      "capture": "sha256:4c6ec79d2bf97824ba6fcce08f91ea13176dcd3ac737d5dcf600728cf51ae078",
+      "quote": "BI tools such as Power BI and Tableau can access Unity Catalog tables on default storage using ODBC and JDBC drivers. External clients can also access Unity Catalog volumes on default storage using the Files API."
+    },
+    {
+      "url": "https://docs.databricks.com/aws/en/getting-started/free-edition-limitations",
+      "date": "2026-11-25",
+      "proved": "the limitations page caps each account at one workspace and one metastore",
+      "capture": "sha256:19ecf3409d4dfec641c26889e3aade6305d0df8a123648dd94c173066efd5b96",
+      "quote": "One workspace and one metastore per account."
+    },
+    {
+      "url": "https://docs.databricks.com/aws/en/getting-started/free-edition-limitations",
+      "date": "2026-11-25",
+      "proved": "compute quotas shut down compute for the rest of the day while data and settings survive",
+      "capture": "sha256:19ecf3409d4dfec641c26889e3aade6305d0df8a123648dd94c173066efd5b96",
+      "quote": "If you exceed your quota, your workspace's compute resources will be shut down and unavailable for the rest of the day (and in extreme cases, the rest of the month). While your compute will be unavailable, your data and settings will not be deleted."
+    },
+    {
+      "url": "https://docs.databricks.com/aws/en/getting-started/free-edition-limitations",
+      "date": "2026-11-25",
+      "proved": "outbound internet access is restricted to trusted domains, so egress to other hosts is not available",
+      "capture": "sha256:19ecf3409d4dfec641c26889e3aade6305d0df8a123648dd94c173066efd5b96",
+      "quote": "Additionally, outbound internet access is restricted to a limited set of trusted domains."
+    },
+    {
+      "url": "https://docs.databricks.com/aws/en/getting-started/free-edition",
+      "date": "2026-11-25",
+      "proved": "the free-edition page still bundles default storage with serverless compute",
+      "capture": "sha256:c1125b81fcbad4e0109431d276de18e193c6e76bff4b4796d93b9f7eefbb35c7",
+      "quote": "Your new workspace includes serverless compute and default storage, so you can immediately start exploring and building on Databricks."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-19T21:13:29.380Z",
+  "verified_at": "2026-11-25T09:54:58.644Z",
   "notes": "No published byte quota. Free Edition ships 'serverless compute and default storage, so you can immediately start exploring and building'. Default storage is 'a fully managed object storage platform' and in serverless workspaces you can 'create additional catalogs in either default storage or in your own cloud object storage'. Quotas are documented for compute, jobs, pipelines, model serving and apps. Never for bytes.",
   "history": [],
   "extras": {

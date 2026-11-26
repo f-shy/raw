@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://mypikpak.com/en-US/help-center/file_management/space/insufficient_cloud_storage_space",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: the storage help page states 6 GB free and 10 TB Premium; no per-file size limit is stated there."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
-    "source_url": "https://mypikpak.com/en-US/help-center/file_management/space/insufficient_cloud_storage_space",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "stated": "If you are a non-Premium user and have no login activity for 12 consecutive months, PikPak may initiate the account deletion process.",
+    "source_url": "https://mypikpak.com/en-US/faq",
+    "notes": "If you are a non-Premium user and have no login activity for 12 consecutive months, PikPak may initiate the account deletion process."
   },
   "egress": {
     "terms": "Metered twice over. Free accounts have a daily downstream quota; every account, free or paid, has a monthly Basic Transfer Quota, and 'Connected Apps share 25% of this daily allowance — up to 5 GB per day for all Connected Apps combined'. Downstream counts playback and previews, not just downloads.",
@@ -32,7 +32,7 @@
   ],
   "interface_detail": "rest",
   "tooling": "Tier 1 rclone backend since v1.62, read-only for uploads? No. Backend supports read and write per rclone's table (ModTime R, hash md5). This is the crucial detail: rclone is classified as a 'Connected App', so it inherits the 5 GB/day cap.",
-  "chaining": "Paid accounts offer up to 10 TB storage. Transfer limits restrict downloads to 5 GB per day via connected applications and 20 GB per day general downstream. Multiple accounts scale storage capacity while egress remains bound to individual daily quotas.",
+  "chaining": "Free PikPak accounts have a daily downstream limit of 20 GB, resetting at 0:00 Singapore Time. Connected Apps share 25% of this daily allowance — up to 5 GB per day for all Connected Apps combined.",
   "limits": [
     {
       "kind": "per-ip-shaping",
@@ -108,10 +108,66 @@
       "proved": "the help centre still states 6 GB free and 10 TB on Premium",
       "capture": "sha256:910871a0b7f303e43a9dc5a23a8fda1b78879b508fbe866db5d604a0652bff3a",
       "quote": "Free accounts include 6 GB of storage, and Premium includes 10 TB."
+    },
+    {
+      "url": "https://mypikpak.com/en-US/faq",
+      "date": "2026-11-25",
+      "proved": "a free account can be deleted after 12 consecutive months without login",
+      "capture": "sha256:a707e17c6aa38d4ee7dbe6d64b0688191f0852c5c2bfd5c15f49635a00b6e17a",
+      "quote": "If you are a non-Premium user and have no login activity for 12 consecutive months, PikPak may initiate the account deletion process."
+    },
+    {
+      "url": "https://mypikpak.com/en-US/faq",
+      "date": "2026-11-25",
+      "proved": "free-account retention is bounded by the inactivity deletion rule",
+      "capture": "sha256:a707e17c6aa38d4ee7dbe6d64b0688191f0852c5c2bfd5c15f49635a00b6e17a",
+      "quote": "If you are a non-Premium user and have no login activity for 12 consecutive months, PikPak may initiate the account deletion process."
+    },
+    {
+      "url": "https://mypikpak.com/en-US/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ states the retention rule",
+      "capture": "sha256:a707e17c6aa38d4ee7dbe6d64b0688191f0852c5c2bfd5c15f49635a00b6e17a",
+      "quote": "If you are a non-Premium user and have no login activity for 12 consecutive months, PikPak may initiate the account deletion process."
+    },
+    {
+      "url": "https://mypikpak.com/en-US/help-center/file_management/space/insufficient_cloud_storage_space",
+      "date": "2026-11-25",
+      "proved": "the storage page states account quotas but no per-file size clause",
+      "capture": "sha256:910871a0b7f303e43a9dc5a23a8fda1b78879b508fbe866db5d604a0652bff3a",
+      "quote": "Free accounts include 6 GB of storage, and Premium includes 10 TB."
+    },
+    {
+      "url": "https://mypikpak.com/en-US/help-center/file_management/space/insufficient_cloud_storage_space",
+      "date": "2026-11-25",
+      "proved": "the headline storage quotas are unchanged",
+      "capture": "sha256:910871a0b7f303e43a9dc5a23a8fda1b78879b508fbe866db5d604a0652bff3a",
+      "quote": "Free accounts include 6 GB of storage, and Premium includes 10 TB."
+    },
+    {
+      "url": "https://mypikpak.com/en-US/connect-apps-faq",
+      "date": "2026-11-25",
+      "proved": "the free daily downstream quota and the Connected Apps share are stated",
+      "capture": "sha256:35a31147eb0859ef38ed2b3656d053e1f3165e2bce65162907def6e067815f41",
+      "quote": "Free PikPak accounts have a daily downstream limit of 20 GB, resetting at 0:00 Singapore Time. Connected Apps share 25% of this daily allowance — up to 5 GB per day for all Connected Apps combined."
+    },
+    {
+      "url": "https://mypikpak.com/en-US/connect-apps-faq",
+      "date": "2026-11-25",
+      "proved": "Connected Apps share a 5 GB per day downstream allowance",
+      "capture": "sha256:35a31147eb0859ef38ed2b3656d053e1f3165e2bce65162907def6e067815f41",
+      "quote": "Free PikPak accounts have a daily downstream limit of 20 GB, resetting at 0:00 Singapore Time. Connected Apps share 25% of this daily allowance — up to 5 GB per day for all Connected Apps combined."
+    },
+    {
+      "url": "https://mypikpak.com/en-US/help-center/transfer_quota/transfer_quota_basics/why-limit",
+      "date": "2026-11-25",
+      "proved": "playback and previews consume downstream quota",
+      "capture": "sha256:77a30ded6ed93ef8ed20caa548cfee25ac41e4b435d2f9adabb3619b410c23c9",
+      "quote": "Downstream quota covers all data delivered from PikPak to your device or Connected Apps, including online playback, previews, and file downloads. It is not limited to files you download manually."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:38.524Z",
+  "verified_at": "2026-11-25T19:55:15.332Z",
   "price_per_tb_month": "$0.50/TB/mo on US Premium ($4.99/mo for 10 TB); $1.00/TB/mo on Global Premium ($9.99/mo) — but capped at 5 GB/day of egress through rclone, which dominates the economics",
   "notes": "6 GB free. Premium includes 10 TB base storage (expandable for purchase). No free route to >=500 GB: the free tier is 6 GB flat.",
   "history": [],

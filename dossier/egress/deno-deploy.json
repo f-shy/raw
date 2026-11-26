@@ -72,10 +72,24 @@
       "url": "https://docs.deno.com/deploy/classic/api/runtime-sockets/",
       "date": "2026-10-23",
       "proved": "Deploy Classic supported outbound TCP sockets and is \"Sunsetting on July 20, 2026\""
+    },
+    {
+      "url": "https://deno.com/deploy/pricing",
+      "date": "2026-11-25",
+      "proved": "the free plan allows 20 GiB of egress per month and inbound data is not counted",
+      "capture": "sha256:8e1f5b0bd159fd8b2c1e9ac44de3c986d7be5253fa964b9f1b63507e7e2671c4",
+      "quote": "Egress BandwidthMonthly limit on data egress across all your deployments. Inbound request data does not count against this number. | 20GiB"
+    },
+    {
+      "url": "https://deno.com/deploy/pricing",
+      "date": "2026-11-25",
+      "proved": "the free plan meters 1M inbound HTTP requests per month",
+      "capture": "sha256:8e1f5b0bd159fd8b2c1e9ac44de3c986d7be5253fa964b9f1b63507e7e2671c4",
+      "quote": "Requests/monthAllowed inbound HTTP requests to your deployments per month | 1M"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:41.180Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Deploy Classic was shut down on 2026-07-20, before this read; the current Deno Deploy is the record. Outbound sockets existed for clients, never an inbound port.",

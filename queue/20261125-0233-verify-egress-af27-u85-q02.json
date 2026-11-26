@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u85-q02",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "scripts/rq capture of https://cloud.google.com/vpc/network-pricing stores only the Cloud Domains TLD price table (sha256:4d0c103fc798fd338aee02a6949a4d095f87a569c81fd5400d0c8449ae57bba1); the same URL fetched with broker.sh contains the internet egress table. Should the extractor be fixed, or should https://cloud.google.com/vpc/pricing stay the canonical capture for the egress table?",
+ "why": "the network-pricing capture cannot be cited for egress; egress/google-cloud-free-trial named it as limits[0].source, and this unit moved that source to the Free Tier page",
+ "scope": {
+  "rids": [
+   "egress/google-cloud-free-trial"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u85",
+ "created": "2026-11-25T19:55:29Z"
+}

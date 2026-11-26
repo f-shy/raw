@@ -13,17 +13,17 @@
     "notes": "Start free with 20 GB. Upgrade when you need more space, more members or more power. Cancel anytime."
   },
   "per_object_cap": {
-    "stated": "Unlimited File Size",
+    "stated": "Maximum file size: Unlimited",
     "source_url": "https://www.stacksocial.com/sales/drime-secure-cloud-storage-lifetime-subscription-advanced-plan-10tb",
-    "notes": "the StackSocial page lists the file size as unlimited"
+    "notes": "Unlimited"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "Restore deleted files 30 days",
     "source_url": "https://www.stacksocial.com/sales/drime-secure-cloud-storage-lifetime-subscription-advanced-plan-10tb",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "30 days file history; 90 days file history; 120 days file history"
   },
   "egress": {
-    "terms": "Subscription page lists 'Unlimited Bandwidth' as a feature of every paid tier. No metered-egress clause found on the pricing page.",
+    "terms": "Unlimited Bandwidth Included",
     "metered": true
   },
   "interface": [
@@ -32,7 +32,7 @@
   ],
   "interface_detail": "Native rclone Tier 1 backend (rclone/rclone backend/drime, integration_tests: Passing, data_integrity: High), plus REST API + webhooks and a documented developer portal",
   "tooling": "rclone native, first-class; API token auth",
-  "chaining": "best-in-lane chaining among the lifetime vendors: real API, real backend, so it can sit under AList/OpenList",
+  "chaining": "Mount, sync and script Drime storage with rclone",
   "limits": [
     {
       "kind": "write-gated",
@@ -102,10 +102,59 @@
       "proved": "the partner landing states a 6 TB lifetime price of $169 and a 10 TB lifetime price of $299, paid once",
       "capture": "sha256:81052b85171773dafe7388eda6917be159ebce17d32dd0d5f4f826c4fea5b8a5",
       "quote": "Prices go up soon. Get up to 39% off Advanced Lifetime now: 6 TB for $169 or 10 TB for $299, paid once."
+    },
+    {
+      "url": "https://drime.cloud/pricing",
+      "date": "2026-11-25",
+      "proved": "the plan comparison lists a 30 day deleted-file restore window",
+      "capture": "sha256:93bb749cc20e3f3d378c188edcd74bf92d6d956bf4c48881e5249953002feede",
+      "quote": "Restore deleted files\n\n30 days\n\n30 days\n\n30 days\n\n30 days\n\n30 days"
+    },
+    {
+      "url": "https://drime.cloud/pricing",
+      "date": "2026-11-25",
+      "proved": "the plan list states 30, 90 and 120 day file history windows",
+      "capture": "sha256:93bb749cc20e3f3d378c188edcd74bf92d6d956bf4c48881e5249953002feede",
+      "quote": "**✓ **30 days file history...**✓ **90 days file history...**✓ **120 days file history"
+    },
+    {
+      "url": "https://drime.cloud/pricing",
+      "date": "2026-11-25",
+      "proved": "the plan comparison lists maximum file size as Unlimited",
+      "capture": "sha256:93bb749cc20e3f3d378c188edcd74bf92d6d956bf4c48881e5249953002feede",
+      "quote": "Maximum file size\n\nUnlimited\n\nUnlimited\n\nUnlimited\n\nUnlimited\n\nUnlimited"
+    },
+    {
+      "url": "https://drime.cloud/pricing",
+      "date": "2026-11-25",
+      "proved": "maximum file size is Unlimited in the plan comparison",
+      "capture": "sha256:93bb749cc20e3f3d378c188edcd74bf92d6d956bf4c48881e5249953002feede",
+      "quote": "Maximum file size\n\nUnlimited\n\nUnlimited\n\nUnlimited\n\nUnlimited\n\nUnlimited"
+    },
+    {
+      "url": "https://drime.cloud/pricing",
+      "date": "2026-11-25",
+      "proved": "the plan comparison lists Unlimited Bandwidth as included",
+      "capture": "sha256:93bb749cc20e3f3d378c188edcd74bf92d6d956bf4c48881e5249953002feede",
+      "quote": "Unlimited Bandwidth\n\nIncluded\n\nIncluded\n\nIncluded\n\nIncluded\n\nIncluded"
+    },
+    {
+      "url": "https://drime.cloud/developer",
+      "date": "2026-11-25",
+      "proved": "the developer page describes rclone scripting of Drime storage",
+      "capture": "sha256:8135c5aaaaf3dbb6f120f54c83a8473ed9bbb32f7fba11c82953c5b6ea782343",
+      "quote": "Advanced users can mount, sync and script their Drime storage with rclone, using the official Drime backend at rclone.org/drime."
+    },
+    {
+      "url": "https://drime.cloud/developer",
+      "date": "2026-11-25",
+      "proved": "the developer page names a REST API and rclone compatibility",
+      "capture": "sha256:8135c5aaaaf3dbb6f120f54c83a8473ed9bbb32f7fba11c82953c5b6ea782343",
+      "quote": "A REST API, an embeddable signing widget, webhooks for Sign events and rclone compatibility."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:14.095Z",
+  "verified_at": "2026-11-25T19:55:26.263Z",
   "price_per_tb_month": "USD 47.699/TB one-time at 10 TB (USD 476.99)",
   "notes": "Prices go up soon. Get up to 39% off Advanced Lifetime now: 6 TB for $169 or 10 TB for $299, paid once.",
   "history": [],

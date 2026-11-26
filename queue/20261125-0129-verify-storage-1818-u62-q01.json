@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u62-q01",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Walrus per_object_cap.stated is 1 GiB from a measured write while first-party docs give a maximum blob size of approximately 13.6 GiB and public endpoints a default 10 MiB request limit; which cap should bind the record?",
+ "why": "The first-party pages and the recorded measurement name different object sizes.",
+ "scope": {
+  "rids": [
+   "storage/walrus-testnet-public-publishers"
+  ]
+ },
+ "origin": "20261125-0129-verify-storage-1818/u62",
+ "created": "2026-11-25T19:55:25Z"
+}

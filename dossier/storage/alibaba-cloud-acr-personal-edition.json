@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.alibabacloud.com/help/en/acr/product-overview/billing-description",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: the Personal Edition billing and specification pages publish no per-object cap; the specification table lists OCI artifact hosting as No for Personal Edition."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.alibabacloud.com/help/en/acr/product-overview/billing-description",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: the Personal Edition billing and specification pages state no retention period for images or artifacts."
   },
   "egress": {
     "terms": "Push and pull are billed as free for Personal Edition ('Image pull and push: free'); there is no per-GB egress line item for this edition. Enterprise Edition is the opposite. Images live in your OSS bucket and 'If you enable public network access and pull artifacts over the Internet, you are charged for outbound traffic over the Internet from OSS.'.",
@@ -32,7 +32,7 @@
   ],
   "interface_detail": "oci",
   "tooling": "docker/skopeo/ORAS; no dedicated rclone backend, but ORAS pushes arbitrary files as OCI artifacts.",
-  "chaining": "3 namespaces x 300 public repos, x N Alibaba accounts. Because there is no byte quota, the repo count is the real ceiling, and each repo can hold many tags. Caveat: since 2024-09-04 each new Personal Edition instance is bound to one region with a dedicated endpoint, and 'Frequent image pulls trigger a TOOMANYREQUESTS error because the shared resource rate limit is reached'. Keep concurrency under 10.",
+  "chaining": "3 namespaces x 300 public repositories, x N Alibaba accounts; the specification table lists no OCI artifact hosting on Personal Edition, and password-free pull is unavailable for instances created on or after September 4, 2024.",
   "limits": [
     {
       "kind": "write-gated",
@@ -78,10 +78,52 @@
       "proved": "the 300 public-repository quota is unchanged",
       "capture": "sha256:f25f21ac9da69c2cb593c002f95b85ee527e454e2b0150eb2d1dc91714a68974",
       "quote": "Public repository quota | 300"
+    },
+    {
+      "url": "https://www.alibabacloud.com/help/en/acr/product-overview/billing-description",
+      "date": "2026-11-25",
+      "proved": "the specification table lists no OCI artifact hosting on Personal Edition",
+      "capture": "sha256:f25f21ac9da69c2cb593c002f95b85ee527e454e2b0150eb2d1dc91714a68974",
+      "quote": "|  | OCI artifact | No | Yes | Yes |"
+    },
+    {
+      "url": "https://www.alibabacloud.com/help/en/acr/product-overview/billing-description",
+      "date": "2026-11-25",
+      "proved": "the billing page describes the Personal Edition without a retention term",
+      "capture": "sha256:f25f21ac9da69c2cb593c002f95b85ee527e454e2b0150eb2d1dc91714a68974",
+      "quote": "Personal Edition is designed for individual developers. It is in public preview and is free of charge:"
+    },
+    {
+      "url": "https://www.alibabacloud.com/help/en/acr/product-overview/billing-description",
+      "date": "2026-11-25",
+      "proved": "the specification table states password-free pull is unavailable on post-2024 Personal Edition instances",
+      "capture": "sha256:f25f21ac9da69c2cb593c002f95b85ee527e454e2b0150eb2d1dc91714a68974",
+      "quote": "|  | Password-free pull | Instances created before September 4, 2024: Yes. Instances created on or after September 4, 2024: No | Yes | Yes |"
+    },
+    {
+      "url": "https://www.alibabacloud.com/help/en/acr/product-overview/billing-description",
+      "date": "2026-11-25",
+      "proved": "Personal Edition remains free of charge in public preview",
+      "capture": "sha256:f25f21ac9da69c2cb593c002f95b85ee527e454e2b0150eb2d1dc91714a68974",
+      "quote": "Personal Edition is designed for individual developers. It is in public preview and is free of charge:"
+    },
+    {
+      "url": "https://www.alibabacloud.com/help/en/acr/product-overview/billing-description",
+      "date": "2026-11-25",
+      "proved": "image pull and push are free on Personal Edition",
+      "capture": "sha256:f25f21ac9da69c2cb593c002f95b85ee527e454e2b0150eb2d1dc91714a68974",
+      "quote": "- Image pull and push: free"
+    },
+    {
+      "url": "https://www.alibabacloud.com/help/en/acr/user-guide/individual-edition-instance-independent-domain-name-capacity-limit",
+      "date": "2026-11-25",
+      "proved": "new Personal Edition instances cannot use public endpoints to pull images",
+      "capture": "sha256:e05d405bcdf21e127648cf343c8ba431527964c2c34e05c6066db047eb31b4e5",
+      "quote": "Public endpoints cannot be used to pull images."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:57.317Z",
+  "verified_at": "2026-11-25T03:33:11.121Z",
   "notes": "Free of charge with count-based quotas and NO published byte quota: 'Personal Edition is designed for individual developers. It is in public preview and is free of charge: Image pull and push: free'. Quotas table: 'Namespace quota 3 | Public repository quota 300 | Concurrent build quota 1 | Distribution performance (pull QPS) Not guaranteed'. No storage-size limit appears anywhere in the billing or specification page. Billing is per-namespace and per-repo count, not per GB.",
   "history": [],
   "extras": {

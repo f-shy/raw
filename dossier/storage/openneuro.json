@@ -15,13 +15,13 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://docs.openneuro.org/faq.html",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: the FAQ and data retention policy publish no per-object size cap"
   },
   "retention": {
     "stated": "per-object-cap: none published; the real cap is a transient staging worker ('files are stored on a worker with relatively limited storage space'), so very large datasets must be uploaded in batches with ~24 h waits between snapshots. Retention: permanent, every version gets its own DOI; 36-month grace before forced CC0 release",
     "days": 1080,
     "source_url": "https://docs.openneuro.org/faq.html",
-    "notes": "Extracted from published terms."
+    "notes": "OpenNeuro reservces the right to delete draft data following a 28-day grace period."
   },
   "egress": {
     "terms": "Free and anonymous. Objects live on Amazon S3 (`s3.amazonaws.com/openneuro.org`), public-read, ranged, CORS-open. No auth, no egress meter.",
@@ -80,10 +80,31 @@
       "proved": "datasets become CC0 after a 36-month grace period",
       "capture": "sha256:cc3731730acdf72d75c504165018ccaa3d6e9b95569e2749d3bb8bebfbd09125",
       "quote": "You agree that this dataset will become publicly available under a Creative Commons CC0 license after a grace period of 36 months counted from the first successful version of the dataset."
+    },
+    {
+      "url": "https://docs.openneuro.org/policy/data_retention.html",
+      "date": "2026-11-25",
+      "proved": "draft data may be deleted after a 28-day grace period",
+      "capture": "sha256:d8ad06657a4000b399d9a962af582d6a86b919c78ca8e0152fd0a895c99461a3",
+      "quote": "OpenNeuro reservces the right to delete draft data following a 28-day grace period."
+    },
+    {
+      "url": "https://docs.openneuro.org/policy/data_retention.html",
+      "date": "2026-11-25",
+      "proved": "large files are stored in the git-annex",
+      "capture": "sha256:d8ad06657a4000b399d9a962af582d6a86b919c78ca8e0152fd0a895c99461a3",
+      "quote": "OpenNeuro datasets are stored as git/git-annex repositories on Google Cloud storage media. Small files are included as git objects, while large files are added to the annex."
+    },
+    {
+      "url": "https://docs.openneuro.org/faq.html",
+      "date": "2026-11-25",
+      "proved": "a command-line upload tool is offered",
+      "capture": "sha256:cc3731730acdf72d75c504165018ccaa3d6e9b95569e2749d3bb8bebfbd09125",
+      "quote": "We offer two options for uploading data onto OpenNeuro. The first is to upload via the web interface. The second is to upload via our [command-line utility tool](https://docs.openneuro.org/packages/openneuro-cli.html)."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:14:36.638Z",
+  "verified_at": "2026-11-25T19:55:13.344Z",
   "notes": "Free, no published per-dataset or per-account cap. 'Is this service free to use? Yes!' A 6.4 TB dataset has been deposited (staged incrementally).",
   "history": [],
   "extras": {

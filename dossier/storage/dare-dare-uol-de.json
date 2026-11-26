@@ -6,21 +6,21 @@
   "category": "academic repository / Dataverse 6.12.1",
   "free_tier": {
     "stated": "No quota defined for this collection",
-    "unit": "unlimited",
+    "unit": "none",
     "metered_on": "unstated",
     "source_url": "https://dare.uol.de/api/dataverses/:root/storage/quota?showInherited=true",
     "read_on": "2026-11-09",
-    "notes": "No quota defined for this collection"
+    "notes": "The quota endpoint returns \"No quota defined for this collection\": no numeric quota, unit or metering basis is published."
   },
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://dare.uol.de/api/dataverses/:root/storage/quota?showInherited=true",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "No per-object size cap is stated on the homepage, the signup form or the root quota endpoint; the quota endpoint reports no quota defined for the root collection."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://dare.uol.de/api/dataverses/:root/storage/quota?showInherited=true",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "No retention period is stated on the homepage, the signup form or the root quota endpoint; the homepage says the Dataverse serves teaching and demonstrations purposes only."
   },
   "egress": {
     "terms": "Cloudflare-fronted, 1.69 s to version API.",
@@ -110,10 +110,45 @@
       "proved": "the homepage still states that uploads are not possible with a default account",
       "capture": "sha256:6ee781d9bb9b68b365e049e586fdc6eb6a56af84adfb9c0fe7eec6680f1c580c",
       "quote": "it is not possible to upload data with your default account"
+    },
+    {
+      "url": "https://dare.uol.de/api/dataverses/:root/storage/quota?showInherited=true",
+      "date": "2026-11-25",
+      "proved": "the root collection quota endpoint reports no quota defined and publishes no per-object size cap",
+      "capture": "sha256:efe1d6d0ca8d34e2bbe8dc6e91e89278c883c280bcb82383c6fd389ddd67136b",
+      "quote": "{\"status\":\"OK\",\"data\":{\"message\":\"No quota defined for this collection\"}}"
+    },
+    {
+      "url": "https://dare.uol.de",
+      "date": "2026-11-25",
+      "proved": "the homepage states the teaching and demonstration purpose and no retention period",
+      "capture": "sha256:2634eed47fb512b2cb3142d49f8dea690f6aea89057ae25319c521c416385e96",
+      "quote": "This Dataverse serves teaching and demonstrations purposes only. Please do not upload any real data!"
+    },
+    {
+      "url": "https://dare.uol.de/api/dataverses/:root/storage/quota?showInherited=true",
+      "date": "2026-11-25",
+      "proved": "the quota endpoint reports no defined quota, so no unit is denominated; it does not claim unlimited storage",
+      "capture": "sha256:efe1d6d0ca8d34e2bbe8dc6e91e89278c883c280bcb82383c6fd389ddd67136b",
+      "quote": "{\"status\":\"OK\",\"data\":{\"message\":\"No quota defined for this collection\"}}"
+    },
+    {
+      "url": "https://dare.uol.de/api/dataverses/:root/storage/quota?showInherited=true",
+      "date": "2026-11-25",
+      "proved": "the endpoint returns the exact message No quota defined for this collection",
+      "capture": "sha256:efe1d6d0ca8d34e2bbe8dc6e91e89278c883c280bcb82383c6fd389ddd67136b",
+      "quote": "{\"status\":\"OK\",\"data\":{\"message\":\"No quota defined for this collection\"}}"
+    },
+    {
+      "url": "https://dare.uol.de/api/dataverses/:root/storage/quota?showInherited=true",
+      "date": "2026-11-25",
+      "proved": "the root collection quota endpoint still reports no quota defined",
+      "capture": "sha256:efe1d6d0ca8d34e2bbe8dc6e91e89278c883c280bcb82383c6fd389ddd67136b",
+      "quote": "{\"status\":\"OK\",\"data\":{\"message\":\"No quota defined for this collection\"}}"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:13:26.680Z",
+  "verified_at": "2026-11-25T09:54:58.643Z",
   "notes": "No quota defined for this collection",
   "history": [],
   "extras": {

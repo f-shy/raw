@@ -55,16 +55,23 @@
   },
   "reliability_note": "lab sessions are time-boxed and reset, so nothing installed survives",
   "confidence": "documented",
-  "confidence_note": "Educational lab environments provide self-contained sandbox exercises without public inbound or outbound network endpoints.",
+  "confidence_note": "the page describes free labs and training with email-only registration and states no credit or transfer allowance; whether a lab session exposes a public address is not stated",
   "evidence": [
     {
       "url": "https://aws.amazon.com/education/awseducate/",
       "date": "2026-10-23",
       "proved": "'Learners as young as 13 can register for AWS Educate with just an email address, gaining access to free hands-on labs', 'No credit card needed', and 'AWS Educate offers an extensive library of free, self-paced online training'"
+    },
+    {
+      "url": "https://aws.amazon.com/education/awseducate/",
+      "date": "2026-11-25",
+      "proved": "registration needs an email address; the offer is free hands-on labs",
+      "capture": "sha256:e67dca18668caaef5345bc5eee30f542d76c2db95315c0d01a30bf43a9e115e7",
+      "quote": "Learners as young as 13 can register for AWS Educate with just an email address, gaining access to free hands-on labs to learn and practice cloud skills in real-time."
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:54.995Z",
   "price_per_tb_month": "USD 0, no credit",
   "history": [],
   "notes": "The only programme in this lane with no card and no institution, and it buys no capacity: the page describes training and labs, names no credit and no instance. Read as an absence rather than a number, which is why it is recorded at all: a reader who sees 'no credit card needed' will otherwise spend the session finding out. Candidates considered: the AWS Free Tier, which is the account route and needs a card, recorded separately.",

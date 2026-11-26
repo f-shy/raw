@@ -16,19 +16,19 @@
     "stated": "400 MB per file",
     "bytes": 400000000,
     "source_url": "https://sites.google.com/castbox.fm/castbox-help-center/podcasters/getting-started/2-start-a-podcast-hosted-on-castbox-for-free",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "the maximum file size is 400M, from a help article labelled Updated:7 years ago"
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://sites.google.com/castbox.fm/castbox-help-center/podcasters/getting-started/2-start-a-podcast-hosted-on-castbox-for-free",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "No retention period is stated in the publisher's help articles; a published channel page carries no retention clause."
   },
   "egress": {
-    "terms": "Not published; no egress charge surfaced in any Castbox creator doc.",
+    "terms": "No egress charge appears in the first-party creator help articles; the publisher presents itself as a free podcast app.",
     "metered": false
   },
   "interface": [
-    "unknown"
+    "browser"
   ],
   "interface_detail": "wrapper-only",
   "tooling": "Creator Studio web dashboard only; no API. Castbox is primarily a player, so its hosting is a sideline.",
@@ -64,10 +64,59 @@
       "url": "probe:unspecified",
       "date": "2026-10-21",
       "proved": "probe: GET castbox.fm/rss/3678725 -> 302 -> castbox.fm/404.html (no public enclosure path found)"
+    },
+    {
+      "url": "https://helpcenter.castbox.fm/portal/en/kb/articles/starting-a-podcast",
+      "date": "2026-11-25",
+      "proved": "the help center documents a web-only Creator Studio upload path",
+      "capture": "sha256:d96fa34540c7fa21fbd145de32e9f43e2b81d2b4cfddc6c70f31052b515e6d95",
+      "quote": "Go to Creator Studio on our desktop site and sign in. Please note that you will need to sign up a Castbox account if you haven’t got one."
+    },
+    {
+      "url": "https://helpcenter.castbox.fm/portal/en/kb/articles/file-types-when-uploading",
+      "date": "2026-11-25",
+      "proved": "the current help-center article states a 400M maximum file size",
+      "capture": "sha256:5231399ce78fa3d8664405d1ff0d0dfbb4f660aa7647af74d2166687fee3806c",
+      "quote": "In addition, the maximum file size is 400M."
+    },
+    {
+      "url": "https://castbox.fm",
+      "date": "2026-11-25",
+      "proved": "the first-party site presents Castbox as a podcast app and states no retention period",
+      "capture": "sha256:8d23c8dbf500e89dbf1a5bc9e03736316facd7b62ca888d257fac455dabf580b",
+      "quote": "Castbox is the best free podcast app with over 259 million volumes of content on Android, Apple iPhone, Amazon Alexa, Google Home, Carplay and Android Auto."
+    },
+    {
+      "url": "https://castbox.fm",
+      "date": "2026-11-25",
+      "proved": "the first-party site describes a free podcast app without an egress charge",
+      "capture": "sha256:8d23c8dbf500e89dbf1a5bc9e03736316facd7b62ca888d257fac455dabf580b",
+      "quote": "Castbox is the best free podcast app with over 259 million volumes of content on Android, Apple iPhone, Amazon Alexa, Google Home, Carplay and Android Auto."
+    },
+    {
+      "url": "https://helpcenter.castbox.fm/portal/en/kb/articles/starting-a-podcast",
+      "date": "2026-11-25",
+      "proved": "the help center documents a browser drag-and-drop upload path",
+      "capture": "sha256:d96fa34540c7fa21fbd145de32e9f43e2b81d2b4cfddc6c70f31052b515e6d95",
+      "quote": "Select or drag and drop the audio file you’d like to upload."
+    },
+    {
+      "url": "https://helpcenter.castbox.fm/portal/en/kb/articles/file-types-when-uploading",
+      "date": "2026-11-25",
+      "proved": "the file-size article carries its own update date",
+      "capture": "sha256:5231399ce78fa3d8664405d1ff0d0dfbb4f660aa7647af74d2166687fee3806c",
+      "quote": "Updated:7 years ago"
+    },
+    {
+      "url": "https://castbox.fm",
+      "date": "2026-11-25",
+      "proved": "the first-party site presents a free podcast app and states no retention period or charge",
+      "capture": "sha256:8d23c8dbf500e89dbf1a5bc9e03736316facd7b62ca888d257fac455dabf580b",
+      "quote": "Castbox is the best free podcast app with over 259 million volumes of content on Android, Apple iPhone, Amazon Alexa, Google Home, Carplay and Android Auto."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-21T00:00:00.000Z",
+  "verified_at": "2026-11-25T01:53:16.159Z",
   "notes": "'There is no limit on uploading storage (total) for a channel.' Per-file cap 400 MB, from a help page last updated 7 years ago ('Updated: 7 years ago'). The 400 MB figure is stale and should be treated as unverified.",
   "history": [],
   "extras": {

@@ -55,7 +55,7 @@
   "binding_note": "250 GB is 0.227 TiB, about a quarter of the target, and UDP is behind the paid plan as well.",
   "identity_cost": {
     "kind": "email",
-    "detail": "an account at cloudpub.ru/auth/sign-up",
+    "detail": "an account at cloudpub.ru/auth/sign-up: the form has fields for display name, username, email, a phone number with a confirm button, and password",
     "country": "None"
   },
   "reliability_note": "Client software is distributed as a signed binary from cloudpub.ru. Free-tier traffic is metered.",
@@ -71,10 +71,31 @@
       "url": "https://cloudpub.ru/",
       "date": "2026-10-23",
       "proved": "'Eleven protocols out of the box' including TCP and UDP, and 'free tier forever'"
+    },
+    {
+      "url": "https://cloudpub.ru/auth/sign-up",
+      "date": "2026-11-25",
+      "proved": "the sign-up form has a phone number field",
+      "capture": "sha256:4a5d359d4ab164e0ab5e2f23aa941e0809f7e86b0dd02c49493af0723102fcb2",
+      "quote": "Номер телефона"
+    },
+    {
+      "url": "https://cloudpub.ru/plans",
+      "date": "2026-11-25",
+      "proved": "the free column carries 250 GB of traffic per month",
+      "capture": "sha256:e3f4355712273572a7390b82539800d4d7dc89bd2eefc926fe8e543a4613fa22",
+      "quote": "250 ГБ трафика в месяц"
+    },
+    {
+      "url": "https://cloudpub.ru/plans",
+      "date": "2026-11-25",
+      "proved": "TCP, UDP and SSH publishing appears in the PRO column group",
+      "capture": "sha256:e3f4355712273572a7390b82539800d4d7dc89bd2eefc926fe8e543a4613fa22",
+      "quote": "Публикация TCP, UDP и SSH сервисов"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:40.713Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Russian tunneling provider supporting TCP, HTTP and UDP forwarding. Free plan provides 250 GB of transfer and excludes UDP.",

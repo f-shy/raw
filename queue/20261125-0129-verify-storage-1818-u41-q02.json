@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u41-q02",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Is the 5 TiB per-file limit enforced on the Nautilus Ceph S3 pools, and should the per-object cap bytes and binding use it instead of the CephFS 16 TB limit?",
+ "why": "the storage documentation gives a 16 TB per-file limit for CephFS and a separate 5 TiB per-file limit for the S3-compatible interface",
+ "scope": {
+  "rids": [
+   "storage/national-research-platform-free-ceph-s3-to-any-namespace"
+  ]
+ },
+ "origin": "20261125-0129-verify-storage-1818/u41",
+ "created": "2026-11-25T21:21:15Z"
+}

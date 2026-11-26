@@ -19,9 +19,9 @@
     "notes": "the SharePoint limits page states a 250 GB file upload limit for each individual file in Teams Files, SharePoint document libraries and OneDrive folders"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "When a subscription is canceled, all associated data will be deleted.",
     "source_url": "https://www.microsoft.com/en-us/microsoft-365/business/nonprofit-plans-and-pricing",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "When a subscription is canceled, all associated data will be deleted."
   },
   "egress": {
     "terms": "No egress meter on OneDrive/SharePoint downloads. Microsoft does not bill data transfer out for M365 storage. Put Cloudflare in front and it is fully covered.",
@@ -99,10 +99,38 @@
       "proved": "the page states a 250 GB file upload limit for each individual file and gives no byte figure",
       "capture": "sha256:1e87f940623bfbb4fe8a4ea806c51be6e10e6bc98ce27a34cee6a130ae2aecf8",
       "quote": "250 GB - File upload limit.</strong> Applies to each individual file uploaded to Microsoft Teams Files tab, SharePoint document libraries, OneDrive folders, and Viva Engage conversations."
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/microsoft-365/business/nonprofit-plans-and-pricing",
+      "date": "2026-11-25",
+      "proved": "cancellation deletes all associated data",
+      "capture": "sha256:44dd2b671d3cf80b5eae4c68ab8b9b0e69ffced3ae1def081bcddea3c71f68a6",
+      "quote": "When a subscription is canceled, all associated data will be deleted."
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/microsoft-365/business/nonprofit-plans-and-pricing",
+      "date": "2026-11-25",
+      "proved": "the cancellation clause is the stated retention condition",
+      "capture": "sha256:44dd2b671d3cf80b5eae4c68ab8b9b0e69ffced3ae1def081bcddea3c71f68a6",
+      "quote": "When a subscription is canceled, all associated data will be deleted."
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/microsoft-365/business/nonprofit-plans-and-pricing",
+      "date": "2026-11-25",
+      "proved": "the nonprofit pricing page states deletion on cancellation",
+      "capture": "sha256:44dd2b671d3cf80b5eae4c68ab8b9b0e69ffced3ae1def081bcddea3c71f68a6",
+      "quote": "When a subscription is canceled, all associated data will be deleted."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits",
+      "date": "2026-11-25",
+      "proved": "the SharePoint limits page states the 250 GB individual file upload limit",
+      "capture": "sha256:4c40027e8128264441896b474698bb6f49a6197ac2ad7f10f55b9473cb377fad",
+      "quote": "250 GB - File upload limit. Applies to each individual file uploaded to Microsoft Teams Files tab, SharePoint document libraries, OneDrive folders, and Viva Engage conversations."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-11T03:13:18.220Z",
+  "verified_at": "2026-11-25T19:55:26.265Z",
   "notes": "Microsoft 365 Business Basic (Nonprofit Staff Pricing) is a 'Grant — Free up to 300 users', and every seat carries '1 TB of cloud storage per user' (OneDrive). 300 x 1 TB = 300 TB of pooled tenant storage at zero cost. SharePoint on top: total org storage '1 TB + 10GB per license purchased', max 25 TB per site collection.",
   "history": [],
   "extras": {

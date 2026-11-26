@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://peertube.cif.su/api/v1/config",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "video.file publishes extensions but no size.max; the 8388608-byte size.max belongs to video.image."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://peertube.cif.su/api/v1/config",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: no video retention period is published in the instance config"
   },
   "egress": {
     "terms": "Free. Instance serves HTTP + WebTorrent/HLS; no egress meter. Peers can also seed via BitTorrent, offloading the host.",
@@ -100,10 +100,31 @@
       "proved": "signup is still allowed without approval or email verification",
       "capture": "sha256:89efcf3da41b704947fe2821b0c5618462beef96c9856c0fdef388b798d08cae",
       "quote": "\"signup\":{\"allowed\":true,\"allowedForCurrentIP\":true,\"minimumAge\":16,\"requiresApproval\":false,\"requiresEmailVerification\":false}"
+    },
+    {
+      "url": "https://peertube.cif.su/api/v1/config",
+      "date": "2026-11-25",
+      "proved": "the instance config puts the 8388608-byte size.max on video.image and gives video.file only an extensions list",
+      "capture": "sha256:8f73e9b6a0642573981c0fa9138f730aaada38a32d495f4224d1f3e5e4133b6b",
+      "quote": "\"video\":{\"image\":{\"extensions\":[\".png\",\".jpg\",\".jpeg\",\".webp\"],\"size\":{\"max\":8388608}},\"file\":{\"extensions\":[\".webm\" ... \".flac\",\".aac\",\".m4a\",\".m4b\",\".ac3\"]}}"
+    },
+    {
+      "url": "https://peertube.cif.su/api/v1/config",
+      "date": "2026-11-25",
+      "proved": "the config confirms no size.max in video.file and the image size.max",
+      "capture": "sha256:8f73e9b6a0642573981c0fa9138f730aaada38a32d495f4224d1f3e5e4133b6b",
+      "quote": "\"video\":{\"image\":{\"extensions\":[\".png\",\".jpg\",\".jpeg\",\".webp\"],\"size\":{\"max\":8388608}},\"file\":{\"extensions\":[\".webm\" ... \".flac\",\".aac\",\".m4a\",\".m4b\",\".ac3\"]}}"
+    },
+    {
+      "url": "https://peertube.cif.su/api/v1/config",
+      "date": "2026-11-25",
+      "proved": "the only expiration in the config is for user exports, not for stored videos",
+      "capture": "sha256:8f73e9b6a0642573981c0fa9138f730aaada38a32d495f4224d1f3e5e4133b6b",
+      "quote": "\"export\":{\"users\":{\"enabled\":true,\"exportExpiration\":172800000,\"maxUserVideoQuota\":107374182400}}"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:38.524Z",
+  "verified_at": "2026-11-25T19:55:14.042Z",
   "notes": "Unlimited total quota (`user.videoQuota: -1`), 5 GiB per day (`videoQuotaDaily: 5368709120`). Registration open, no approval, no email verification.",
   "history": [],
   "extras": {

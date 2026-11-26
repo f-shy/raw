@@ -16,12 +16,12 @@
     "stated": "48.8 TiB ceiling",
     "bytes": 53656167435468,
     "source_url": "https://supr.naiss.se/round/2026medium/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "unverified: the round table gives Arrhenius Disk an Upper Limit of 50 000 GiB; no per-object cap is stated"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "There is no backup of Arrhenius Disk.",
     "source_url": "https://supr.naiss.se/round/2026medium/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: no retention period is stated; there is no backup of Arrhenius Disk."
   },
   "egress": {
     "terms": "Free national e-infrastructure; no egress meter documented.",
@@ -79,10 +79,24 @@
       "proved": "the resource table's Upper Limit, Default Storage and Available columns carry 50 000, 250 and 4 000 000 GiB for Arrhenius Disk",
       "capture": "sha256:68d368b9685b6bb1f2e22bca9ee47baa27991ebd1c2f1c5ff268cd3f2fc0b329",
       "quote": "Upper Limit Default Storage Available ... Arrhenius Disk NAISS 50 000 250 4 000 000 GiB"
+    },
+    {
+      "url": "https://supr.naiss.se/round/2026medium/",
+      "date": "2026-11-25",
+      "proved": "the round table lists an Upper Limit of 50 000 GiB for Arrhenius Disk",
+      "capture": "sha256:6c7bb4a590796f8821237cf4a7a9dd95f70d03670887bd819e5f92cce0032735",
+      "quote": "[Arrhenius Disk](https://supr.naiss.se/resource/arrhenius-disk/) NAISS 50 000 250 4 000 000 GiB"
+    },
+    {
+      "url": "https://supr.naiss.se/resource/arrhenius-disk/",
+      "date": "2026-11-25",
+      "proved": "the resource page states that Arrhenius Disk has no backup",
+      "capture": "sha256:3ae8cd0cccb6ffb8942514e8ba75179c90030ee5eeaedb3bdf33bfd5abd9d8de",
+      "quote": "There is no backup of Arrhenius Disk."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T06:50:27.989Z",
+  "verified_at": "2026-11-25T21:21:15.499Z",
   "notes": "Arrhenius Disk: Upper Limit 50 000 GiB, Default Storage 250 GiB, Available 4 000 000 GiB.",
   "history": [],
   "extras": {

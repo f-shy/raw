@@ -18,9 +18,9 @@
     "notes": "the education service description lists a 15 GB file upload limit in its Office 365 A1 / A3 / A5 limits table"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "For SharePoint, the retention time is 93 days.",
     "source_url": "https://learn.microsoft.com/en-us/office365/servicedescriptions/office-365-platform-service-description/office-365-education",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "OneDrive is built on top of the SharePoint file platform. Deleted items are retained in recycle bins for a certain period of time. For SharePoint, the retention time is 93 days."
   },
   "egress": {
     "terms": "Not metered. Microsoft 365 is a subscription service with no per-GB egress meter; Microsoft support states 'if the user has the related license, there is no charge for uploading and downloading files'. SharePoint/OneDrive downloads are direct HTTPS URLs.",
@@ -92,10 +92,38 @@
       "proved": "an eligible education email address is required to get Office 365 A1 free",
       "capture": "sha256:af6d99b292ca0fef911f716aee7c0a2d5bae1ee8040399c220cc0a4336066e93",
       "quote": "Educators and students with an eligible education email address can get Office 365 A1 for free."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/compliance/assurance/assurance-sharepoint-onedrive-data-resiliency",
+      "date": "2026-11-25",
+      "proved": "deleted SharePoint items are retained in recycle bins for 93 days",
+      "capture": "sha256:5fdad7d0d054158c3e0018c294d30d7b89a2cf33cf6de40dd2e032f7b41ba5c1",
+      "quote": "Deleted items are retained in recycle bins for a certain period of time. For SharePoint, the retention time is 93 days."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/compliance/assurance/assurance-sharepoint-onedrive-data-resiliency",
+      "date": "2026-11-25",
+      "proved": "the retention statement covers the SharePoint platform on which OneDrive is built",
+      "capture": "sha256:5fdad7d0d054158c3e0018c294d30d7b89a2cf33cf6de40dd2e032f7b41ba5c1",
+      "quote": "Within Microsoft 365, OneDrive is built on top of the SharePoint file platform...Deleted items are retained in recycle bins for a certain period of time. For SharePoint, the retention time is 93 days."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/compliance/assurance/assurance-sharepoint-onedrive-data-resiliency",
+      "date": "2026-11-25",
+      "proved": "the data resiliency page states the SharePoint recycle bin retention time",
+      "capture": "sha256:5fdad7d0d054158c3e0018c294d30d7b89a2cf33cf6de40dd2e032f7b41ba5c1",
+      "quote": "Within Microsoft 365, OneDrive is built on top of the SharePoint file platform...Deleted items are retained in recycle bins for a certain period of time. For SharePoint, the retention time is 93 days."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/office365/servicedescriptions/office-365-platform-service-description/office-365-education",
+      "date": "2026-11-25",
+      "proved": "the education service description states the 15 GB file upload limit",
+      "capture": "sha256:187f5a73d49813c67cb978565b1b437bae59fe16d17f7ceb14e8261d4b75c672",
+      "quote": "File upload limit | 15 GB"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-10T00:50:25.163Z",
+  "verified_at": "2026-11-25T19:55:26.265Z",
   "notes": "100 TB (102,400 GB) free pooled storage per education tenant, spanning OneDrive + SharePoint + Exchange; pooled capacity = 100 TB base + per-license contributions. Office 365 A1 licenses contribute 0 GB but consume from the pool.",
   "history": [],
   "extras": {

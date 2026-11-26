@@ -124,10 +124,45 @@
       "proved": "five fresh probes of this host returned the recorded listing hash e715d3d0 on three runs and a different hash c4cccc22 on two runs within minutes, so the listing flaps while the recorded value still recurs",
       "capture": "sha256:79c9e8128cde5d5ed281009413f9b93038ab7b921de0980150f782752b480c05",
       "quote": "\"listing_sha256\": \"e715d3d0\""
+    },
+    {
+      "url": "probe:https://ppp.591meta.com/",
+      "date": "2026-11-25",
+      "proved": "a fresh anonymous probe of ppp.591meta.com answered the settings, guest session and mount-list requests at this timestamp",
+      "capture": "sha256:2e92b3daf58e75130c94380db855b1458cb6a3d28b24977ccb1a02c23945b926",
+      "quote": "\"probed_at\": \"2026-11-25T02:34:41.754Z\""
+    },
+    {
+      "url": "probe:https://ppp.591meta.com/",
+      "date": "2026-11-25",
+      "proved": "the fresh probe completed the anonymous settings, guest session and root mount list, so the new liveness timestamp stands",
+      "capture": "sha256:2e92b3daf58e75130c94380db855b1458cb6a3d28b24977ccb1a02c23945b926",
+      "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://ppp.591meta.com/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing hashed to c4cccc22, not the stored e715d3d0",
+      "capture": "sha256:2e92b3daf58e75130c94380db855b1458cb6a3d28b24977ccb1a02c23945b926",
+      "quote": "\"listing_sha256\": \"c4cccc22\""
+    },
+    {
+      "url": "probe:https://ppp.591meta.com/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing returned 26 entries",
+      "capture": "sha256:2e92b3daf58e75130c94380db855b1458cb6a3d28b24977ccb1a02c23945b926",
+      "quote": "\"entry_count\": 26"
+    },
+    {
+      "url": "probe:https://ppp.591meta.com/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous mount list gives this listing hash",
+      "capture": "sha256:2e92b3daf58e75130c94380db855b1458cb6a3d28b24977ccb1a02c23945b926",
+      "quote": "\"listing_sha256\": \"c4cccc22\""
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:08.143Z",
+  "verified_at": "2026-11-25T19:55:35.335Z",
   "binding": "per-ip-shaping",
   "notes": "Additional hostname on the 591meta infrastructure. Responded to API calls and returned the same 26 package entries.",
   "history": [],
@@ -141,10 +176,10 @@
     "write_content_bypass": null,
     "permission_bitmask": null,
     "base_path": "/",
-    "listing_sha256": "e715d3d0",
+    "listing_sha256": "c4cccc22",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-19T03:42:32.679Z",
+    "last_verified_alive": "2026-11-25T02:34:41.754Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "listing_hash_method": "sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters"

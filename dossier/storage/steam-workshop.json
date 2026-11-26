@@ -15,7 +15,7 @@
   "per_object_cap": {
     "stated": "The maximum size varies depending on what the developers set it as.",
     "source_url": "https://arma3.com/workshop101",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The Steam Cloud feature is used to store the preview images associated to workshop items. The Steam Cloud Quota can be configured with the following steps:"
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
@@ -23,19 +23,19 @@
     "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
   },
   "egress": {
-    "terms": "Free and CDN-served by Valve's content network. Same infrastructure as game downloads, genuinely unmetered.",
+    "terms": "items listed in the Workshop are automatically available to subscribe to (if free) or to purchase (if paid) and then are automatically downloaded via the Steam client",
     "metered": false
   },
   "interface": [
     "rest"
   ],
-  "interface_detail": "rest",
+  "interface_detail": "The process to share and consume User Generated Content is by using the [ISteamUGC](https://partner.steamgames.com/doc/api/ISteamUGC) API which can be found in the [Steamworks SDK](https://partner.steamgames.com/doc/sdk).",
   "tooling": "`ISteamUGC` (CreateItem + SetItemContent + SubmitItemUpdate) via the Steamworks SDK, so uploads need a Steam client with the game installed. Downloads are scriptable anonymously: `steamcmd +login anonymous +workshop_download_item <appid> <publishedfileid>`. Third-party downloaders (polocaz/ws-downloader, workshopfetch.com) exist for the read path.",
-  "chaining": "One Steam account x every Workshop-enabled game it owns x unlimited items per game. This is the multiplier: 'unlimited items per published file ID' inside an app whose developer set no cap.",
+  "chaining": "Yes. A separate application for editing or publishing tools can be configured with base application's workshop to accept content from that editing application.",
   "limits": [
     {
       "kind": "write-gated",
-      "value": "review images go through a separate Steam Cloud quota",
+      "value": "The Steam Cloud feature is used to store the preview images associated to workshop items. The Steam Cloud Quota can be configured with the following steps:",
       "source": "https://arma3.com/workshop101"
     }
   ],
@@ -82,10 +82,80 @@
       "proved": "a Steam community answer states that the maximum item size is set by each game's developer",
       "capture": "sha256:646bcf275017d83f285e42a7e46913dd0d1df62b7ac99fdd07e5a4e2393c1af9",
       "quote": "The maximum size varies depending on what the developers set it as."
+    },
+    {
+      "url": "https://partner.steamgames.com/doc/features/workshop/implementation",
+      "date": "2026-11-25",
+      "proved": "the implementation guide states that workshop preview images use a configurable Steam Cloud quota",
+      "capture": "sha256:a2807c9aa12eb03edb6e21ef2f912a24a5dda47c467311bebcc72a912fb4a064",
+      "quote": "The Steam Cloud feature is used to store the preview images associated to workshop items. The Steam Cloud Quota can be configured with the following steps:"
+    },
+    {
+      "url": "https://partner.steamgames.com/doc/features/workshop/implementation",
+      "date": "2026-11-25",
+      "proved": "the guide states that preview images go through a configurable Steam Cloud quota",
+      "capture": "sha256:a2807c9aa12eb03edb6e21ef2f912a24a5dda47c467311bebcc72a912fb4a064",
+      "quote": "The Steam Cloud feature is used to store the preview images associated to workshop items. The Steam Cloud Quota can be configured with the following steps:"
+    },
+    {
+      "url": "https://partner.steamgames.com/doc/features/workshop/implementation",
+      "date": "2026-11-25",
+      "proved": "the FAQ describes a separate application publishing into a base application's workshop",
+      "capture": "sha256:a2807c9aa12eb03edb6e21ef2f912a24a5dda47c467311bebcc72a912fb4a064",
+      "quote": "Yes. A separate application for editing or publishing tools can be configured with base application's workshop to accept content from that editing application."
+    },
+    {
+      "url": "https://partner.steamgames.com/doc/features/workshop",
+      "date": "2026-11-25",
+      "proved": "the overview states that workshop items are downloaded through the Steam client",
+      "capture": "sha256:d2cff5c953259597d8fb0ce50b395c2309ec94daf2dc69fa16fd9aac519bb345",
+      "quote": "items listed in the Workshop are automatically available to subscribe to (if free) or to purchase (if paid) and then are automatically downloaded via the Steam client"
+    },
+    {
+      "url": "https://partner.steamgames.com/doc/features/workshop/implementation",
+      "date": "2026-11-25",
+      "proved": "the implementation guide names ISteamUGC in the Steamworks SDK as the content API",
+      "capture": "sha256:a2807c9aa12eb03edb6e21ef2f912a24a5dda47c467311bebcc72a912fb4a064",
+      "quote": "The process to share and consume User Generated Content is by using the [ISteamUGC](https://partner.steamgames.com/doc/api/ISteamUGC) API which can be found in the [Steamworks SDK](https://partner.steamgames.com/doc/sdk)."
+    },
+    {
+      "url": "https://partner.steamgames.com/doc/features/workshop/implementation",
+      "date": "2026-11-25",
+      "proved": "the guide states the preview-image quota",
+      "capture": "sha256:a2807c9aa12eb03edb6e21ef2f912a24a5dda47c467311bebcc72a912fb4a064",
+      "quote": "The Steam Cloud feature is used to store the preview images associated to workshop items. The Steam Cloud Quota can be configured with the following steps:"
+    },
+    {
+      "url": "https://partner.steamgames.com/doc/features/workshop/implementation",
+      "date": "2026-11-25",
+      "proved": "the guide states that item deletion cannot be undone",
+      "capture": "sha256:a2807c9aa12eb03edb6e21ef2f912a24a5dda47c467311bebcc72a912fb4a064",
+      "quote": "To delete a Workshop item, you can call [ISteamUGC::DeleteItem](https://partner.steamgames.com/doc/api/ISteamUGC#DeleteItem). Please note that this does not prompt the user and cannot be undone."
+    },
+    {
+      "url": "https://partner.steamgames.com/doc/features/workshop/implementation",
+      "date": "2026-11-25",
+      "proved": "the FAQ describes cross-application publishing",
+      "capture": "sha256:a2807c9aa12eb03edb6e21ef2f912a24a5dda47c467311bebcc72a912fb4a064",
+      "quote": "Yes. A separate application for editing or publishing tools can be configured with base application's workshop to accept content from that editing application."
+    },
+    {
+      "url": "https://partner.steamgames.com/doc/features/workshop",
+      "date": "2026-11-25",
+      "proved": "the overview states automatic download through the Steam client",
+      "capture": "sha256:d2cff5c953259597d8fb0ce50b395c2309ec94daf2dc69fa16fd9aac519bb345",
+      "quote": "items listed in the Workshop are automatically available to subscribe to (if free) or to purchase (if paid) and then are automatically downloaded via the Steam client"
+    },
+    {
+      "url": "https://partner.steamgames.com/doc/features/workshop/implementation",
+      "date": "2026-11-25",
+      "proved": "the guide names ISteamUGC in the Steamworks SDK",
+      "capture": "sha256:a2807c9aa12eb03edb6e21ef2f912a24a5dda47c467311bebcc72a912fb4a064",
+      "quote": "The process to share and consume User Generated Content is by using the [ISteamUGC](https://partner.steamgames.com/doc/api/ISteamUGC) API which can be found in the [Steamworks SDK](https://partner.steamgames.com/doc/sdk)."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:32.477Z",
+  "verified_at": "2026-11-25T19:55:22.267Z",
   "notes": "Per-item size is set by the game developer, not by Valve, and some games are explicitly unlimited. Arma 3: 'Arma 3 Workshop now support items of unlimited size.' Others are tiny: House Flipper raised its cap from 12 MB to 20 MB in a patch. So the quota is per-app, and the number of published items per account is not documented as capped.",
   "history": [],
   "extras": {

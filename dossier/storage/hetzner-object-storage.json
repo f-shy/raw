@@ -15,8 +15,8 @@
   "per_object_cap": {
     "stated": "5 TB max per object",
     "bytes": 5000000000000,
-    "source_url": "https://www.hetzner.com/storage/object-storage/",
-    "notes": "extracted from the quota or limits prose"
+    "source_url": "https://docs.hetzner.com/storage/object-storage/overview/",
+    "notes": "The Limits list of the docs overview also states up to 5 GB per object in a single PUT operation and up to 5 GB per object part in a multi-part upload."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
@@ -41,7 +41,7 @@
     {
       "kind": "per-object-cap",
       "value": "5 TB max per object",
-      "source": "https://www.hetzner.com/storage/object-storage/"
+      "source": "https://docs.hetzner.com/storage/object-storage/overview/"
     },
     {
       "kind": "request-rate",
@@ -212,10 +212,59 @@
       "proved": "the page states the base price, the included storage and the included egress",
       "capture": "sha256:3c7dfbdccd4f9816c39e123d8a66f5634328d560f0d3e90c467a9894a1b5853f",
       "quote": "This base price includes 1 TB of storage (up to 744 TB-hours) and 1 TB of egress traffic."
+    },
+    {
+      "url": "https://docs.hetzner.com/storage/object-storage/overview/",
+      "date": "2026-11-25",
+      "proved": "the 5 TB per-object limit is in the docs overview Limits list",
+      "capture": "sha256:15eabf26181806275b1779b8a7658fcc0e4073391b5a34d9f4db4590a4bd141c",
+      "quote": "- Up to 5 TB per object"
+    },
+    {
+      "url": "https://docs.hetzner.com/storage/object-storage/overview/",
+      "date": "2026-11-25",
+      "proved": "the docs state the single-PUT limit",
+      "capture": "sha256:15eabf26181806275b1779b8a7658fcc0e4073391b5a34d9f4db4590a4bd141c",
+      "quote": "- Up to 5 GB per object in a single PUT operation"
+    },
+    {
+      "url": "https://docs.hetzner.com/storage/object-storage/overview/",
+      "date": "2026-11-25",
+      "proved": "the per-object cap is 5 TB",
+      "capture": "sha256:15eabf26181806275b1779b8a7658fcc0e4073391b5a34d9f4db4590a4bd141c",
+      "quote": "- Up to 5 TB per object"
+    },
+    {
+      "url": "https://www.hetzner.com/storage/object-storage/",
+      "date": "2026-11-25",
+      "proved": "the base price includes 1 TB of egress",
+      "capture": "sha256:89827e39938c80866afeafe51c9f24d411d09665c8cf038c4425d83e68906403",
+      "quote": "This base price includes 1 TB of storage (up to 744 TB-hours) and 1 TB of egress traffic."
+    },
+    {
+      "url": "https://docs.hetzner.com/storage/object-storage/getting-started/migrate-providers/",
+      "date": "2026-11-25",
+      "proved": "the docs give Rclone and AWS CLI commands for the S3-compatible API",
+      "capture": "sha256:151127d315a921147cdb14464f2a13db850539d756ea0da8500bd804abde60ae",
+      "quote": "This getting started explains each step with example commands for the MinIO AIStor Client, Rclone, S3cmd, and the AWS CLI."
+    },
+    {
+      "url": "https://www.hetzner.com/storage/object-storage/",
+      "date": "2026-11-25",
+      "proved": "internal traffic within eu-central is free of charge",
+      "capture": "sha256:89827e39938c80866afeafe51c9f24d411d09665c8cf038c4425d83e68906403",
+      "quote": "Internal traffic within the eu-central network zone."
+    },
+    {
+      "url": "https://docs.hetzner.com/cloud/general/locations/",
+      "date": "2026-11-25",
+      "proved": "Cloud location fsn1 is in the eu-central network zone, the zone of the Object Storage FSN1 location",
+      "capture": "sha256:32761bd8ae3ad5ab47e38a6251f24964c17e86570bbe6a8a1a6162323e95c54e",
+      "quote": "| DE Falkenstein `fsn1` | US Ashburn, VA `ash` | US Hillsboro, OR `hil` | SG Singapore `sin` |"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-11T06:09:35.560Z",
+  "verified_at": "2026-11-25T12:15:42.697Z",
   "price_per_tb_month": "EUR 6.49 a month base price, billed at EUR 0.0104 an hour for every hour at least one bucket exists, including 1 TB of storage (up to 744 TB-hours) and 1 TB of egress; storage beyond it EUR 0.0087 per TB-hour, about EUR 6.47 per TB in a 744-hour month; egress beyond it EUR 1.0000 per TB; prices exclude VAT",
   "notes": "Up to 100 buckets, each up to 100 TB / 50 million objects; 5 TB max per object; regions FSN1/HEL1/NBG1",
   "history": [],

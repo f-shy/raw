@@ -35,8 +35,8 @@
   "interface": [
     "unknown"
   ],
-  "interface_detail": "not applicable",
-  "tooling": "none: gogoc is no longer packaged",
+  "interface_detail": "no interface is published: the domain answers HTTP 200 with a 0-byte body",
+  "tooling": "the gogoc client port was deleted from FreeBSD ports on 2022-04-30; other package trees were not checked",
   "chaining": "not applicable",
   "limits": [],
   "limits_note": "",
@@ -47,7 +47,7 @@
     "detail": "not applicable: no signup exists",
     "country": "None"
   },
-  "reliability_note": "closed in 2016; the domain serves an empty response.",
+  "reliability_note": "gogoNET announced on 2016-04-14 that Freenet6 would stop accepting new users and its future operation was unknown",
   "confidence": "reported",
   "confidence_note": "Service termination was announced in 2016. Provider domain returns HTTP 200 with an empty body.",
   "evidence": [
@@ -65,10 +65,45 @@
       "url": "https://www.freshports.org/net/gogoc/",
       "date": "2026-10-23",
       "proved": "the gogoc port was deleted on 2022-04-30 because 'Services were discontinued in 2016'"
+    },
+    {
+      "url": "probe:http://freenet6.net/",
+      "date": "2026-11-25",
+      "proved": "the domain returns an empty body",
+      "capture": "sha256:d5d9c396c7e5f40e8c6fc832391a1c640f5edd5484fc2b7416a2e148eaf6598b",
+      "quote": "\"bytes\": 0"
+    },
+    {
+      "url": "https://www.freshports.org/net/gogoc/",
+      "date": "2026-11-25",
+      "proved": "the gogoc port was deleted from FreeBSD ports on 2022-04-30",
+      "capture": "sha256:2ae36b083cecb3536d44324c90f49fa288eb0836deba3bc02114aaf1c8d5cf34",
+      "quote": "port deleted on 2022-04-30"
+    },
+    {
+      "url": "https://mail.lacnic.net/pipermail/lacnog/2016-April/004464.html",
+      "date": "2026-11-25",
+      "proved": "the 2016-04-14 announcement that Freenet6 stops accepting new users",
+      "capture": "sha256:35ad04c18d9de6517f55096611088444d9a784d46cb65d7d4610185cc7ce9d98",
+      "quote": "The Freenet6 service will also stop accepting new users and it is unknown how long it will continue to operate for existing users."
+    },
+    {
+      "url": "https://www.freshports.org/net/gogoc/",
+      "date": "2026-11-25",
+      "proved": "FreeBSD ports records the gogo6 services as discontinued in 2016",
+      "capture": "sha256:2ae36b083cecb3536d44324c90f49fa288eb0836deba3bc02114aaf1c8d5cf34",
+      "quote": "REASON: Has expired: Services were discontinued in 2016"
+    },
+    {
+      "url": "https://www.freshports.org/net/gogoc/",
+      "date": "2026-11-25",
+      "proved": "services were discontinued in 2016",
+      "capture": "sha256:2ae36b083cecb3536d44324c90f49fa288eb0836deba3bc02114aaf1c8d5cf34",
+      "quote": "REASON: Has expired: Services were discontinued in 2016"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:44.599Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Kept as the canonical dead entry: any list of brokers that still names Freenet6 or gogo6 is stale, and the client it required (gogoc, formerly Gateway6) is gone from the package trees.",

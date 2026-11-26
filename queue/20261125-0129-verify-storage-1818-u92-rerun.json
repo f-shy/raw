@@ -1,0 +1,21 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u92-rerun",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/moddb $.chaining: no 'unlimited files/pages/free accounts' in capture; quote covers only the Files tab\n- storage/rutube $.limits_note: 5 simultaneous uploads, 25 GB, 300 min, formats are in the page; 're-encode on ingest' is not stated\n- storage/nlnet-restack-fund-the-grant-an-unaffiliated-individual $.chaining: evidence capture (propose page) has no 'In principle anyone can apply', second-grant or fund-list text; quote is about email validation\n- storage/moddb $.limits_note: 4,096mb cap and 12h non-resumable are stated; 'indefinite retention', 'no total-account cap' and staff deletion are not in the capture\n- storage/redcircle-core-plan $.limits_note: pinned evidence (RSS guide) supports only the periodic refresh; 200MB/250MB/10GB/Pro-only video are in capture 68979ed9 and 1 podcast on Core in f0742d5b, not in this one\n- storage/nostr-download $.interface: nostr.download/tos states no interface or REST API; quote is the file size cap\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/moddb $.chaining: Page supports URL mirroring only; it does not mention Files/Addons/Mods as three upload surfaces or Addons as mod hosting.\n- storage/moddb $.chaining: Quote is about the 2800 MB browser limit; the claim value (three upload surfaces, URL mirror) is not shown by it, and the page never names Files/Addons/Mods.\n- storage/moddb $.free_tier.stated: Page supports ~2800 MB browser and 4000mb+ by URL, but says nothing of Files/Addons/Mods tabs on a free account or absence of a total cap.\n- storage/nlnet-restack-fund $.chaining: Scope quote is present, but this page does not say Restack is explicitly open to individuals or that no fiscal sponsor is needed (eligibility is on a separate page).\n- storage/nlnet-restack-fund-the-grant-an-unaffiliated-individual $.chaining: Individuals eligible is supported, but 'Follow-up funding can be applied for' is not on the page (only scale-up of grants).\n- storage/nlnet-restack-fund-the-grant-an-unaffiliated-individual $.chaining: Quote shows grant range, not the chaining value; the 'follow-up funding can be applied for' part is not on the page.\n- storage/nostr-download $.limits_note: BUD-01 is a protocol spec; it says nothing of a 10 GB cap or 7-day deletion (those are on nostr.download/tos).\n- storage/nostr-download $.limits[1].value: BUD-01 does not state a 7-day deletion of never-downloaded files (that is on nostr.download/tos).\n- storage/redcircle-core-plan $.limits_note: Audio/video caps and video Pro/Enterprise-only are supported; 'RSS feeds refresh periodically' is not in either RedCircle capture (no mention of RSS). 'Core hosts one podcast' is not on this page.\n- storage/redcircle-core-plan $.limits_note: One podcast is supported; the audio/video caps and 'RSS feeds refresh periodically' are not on this page.",
+ "scope": {
+  "rids": [
+   "storage/moddb",
+   "storage/nlnet-restack-fund",
+   "storage/nlnet-restack-fund-the-grant-an-unaffiliated-individual",
+   "storage/nostr-download",
+   "storage/redcircle-core-plan",
+   "storage/rutube"
+  ]
+ },
+ "origin": "audit u117 of 20261125-0129-verify-storage-1818/u92 failed: 10 of 23 unsupported",
+ "created": "2026-11-25T11:42:55Z",
+ "queue_files": [
+  "queue/20261125-0129-verify-storage-1818-u08-rerun.json"
+ ]
+}

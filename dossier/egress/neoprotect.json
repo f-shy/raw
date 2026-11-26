@@ -38,21 +38,10 @@
   "interface_detail": "Self-serve panel at panel.neoprotect.net; API keys are a plan-based feature.",
   "tooling": "DNS record in the panel, no client or plugin to install",
   "chaining": "Point a domain at the shield and keep the origin hidden; no tunnel or agent, so it needs a public origin rather than composing with a private VM.",
-  "limits": [
-    {
-      "kind": "write-gated",
-      "value": "the free Basic shield is '1 GameShield, Minecraft Java'; Bedrock / Geyser protection is listed only on the plan-based tier",
-      "source": "https://neoprotect.net/gameshield"
-    },
-    {
-      "kind": "write-gated",
-      "value": "the default RakNet port 19132 requires at least the Neo plan and a Discord ticket",
-      "source": "https://docs.neoprotect.net/gameshield/bedrock/"
-    }
-  ],
-  "limits_note": "",
+  "limits": [],
+  "limits_note": "the free Basic plan is '1 GameShield, Minecraft Java'; 'Bedrock / Geyser protection' is listed only on the plan-based tier",
   "binding": "none",
-  "binding_note": "The free Basic shield carries no UDP port at all, so no byte allowance is ever reached: the gate is the plan tier. Bedrock is the paid product, and the vendor's own docs put it behind a paid plan plus a ticket for port 19132.",
+  "binding_note": "Bedrock protection requires a paid plan, and the default RakNet port 19132 requires at least the Neo plan, so the plan tier is the constraint.",
   "identity_cost": {
     "kind": "email",
     "detail": "An account at panel.neoprotect.net. The register form was not opened, so the required fields are unread.",
@@ -76,10 +65,38 @@
       "url": "https://neoprotect.net/gameshield",
       "date": "2026-10-23",
       "proved": "Plan limits and exact pricing are shown in the order process on the panel"
+    },
+    {
+      "url": "https://neoprotect.net/gameshield",
+      "date": "2026-11-25",
+      "proved": "no plan limit or price is published on the page; both are shown at order time",
+      "capture": "sha256:c97eede7328cefabd70eff6b896d8427fedba619fa08b4b403cda8c9ff753b61",
+      "quote": "Plan limits and exact pricing are shown in the order process on our panel."
+    },
+    {
+      "url": "https://neoprotect.net/gameshield",
+      "date": "2026-11-25",
+      "proved": "the free Basic plan lists one Minecraft Java shield; Bedrock and Geyser protection are listed only on the plan-based tier",
+      "capture": "sha256:c97eede7328cefabd70eff6b896d8427fedba619fa08b4b403cda8c9ff753b61",
+      "quote": "- 1 GameShield, Minecraft Java ... - Bedrock / Geyser protection"
+    },
+    {
+      "url": "https://docs.neoprotect.net/gameshield/bedrock/",
+      "date": "2026-11-25",
+      "proved": "Bedrock protection requires a paid plan and the default RakNet port 19132 requires at least the Neo plan",
+      "capture": "sha256:43f16b7a3e16412860f1c03c417b469973045d7c85cd3820ab07b6d6e329aa51",
+      "quote": "Protecting Bedrock players requires a paid plan. Requesting the default RakNet port (19132) requires at least the **Neo** plan."
+    },
+    {
+      "url": "https://neoprotect.net/gameshield",
+      "date": "2026-11-25",
+      "proved": "the Basic shield is permanently free and the other tiers are plan-based",
+      "capture": "sha256:c97eede7328cefabd70eff6b896d8427fedba619fa08b4b403cda8c9ff753b61",
+      "quote": "A permanently free Basic shield, then plan-based tiers that add bandwidth, domains, backends and advanced protection."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T19:55:31.197Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "DDoS protection proxy for Minecraft. Free tier supports Java edition over TCP and DNS routing. UDP forwarding on port 19132 and WebRTC requires paid plans.",

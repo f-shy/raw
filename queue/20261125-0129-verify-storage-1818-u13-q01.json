@@ -1,0 +1,16 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u13-q01",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Do AUSSDA Dataverse and Azure DevOps Repos (Git and Git LFS) publish any retention period for deposited repositories or LFS objects?",
+ "why": "The first-party quota endpoint, Git limits page and LFS guide read on 2026-11-25 state no retention term; the admin settings endpoint that could hold a per-file cap answered HTTP 403.",
+ "scope": {
+  "rids": [
+   "storage/aussda-dataverse",
+   "storage/azure-devops-repos",
+   "storage/azure-devops-repos-git-lfs"
+  ]
+ },
+ "origin": "20261125-0129-verify-storage-1818/u13",
+ "created": "2026-11-25T03:33:12Z"
+}

@@ -16,12 +16,12 @@
     "stated": "250 MB per file",
     "bytes": 250000000,
     "source_url": "https://www.larksuite.com/hc/en-US/articles/497171699982-overview-of-lark-plans",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The Starter plan table states a 250 MB single-file upload limit for Docs."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.larksuite.com/hc/en-US/articles/497171699982-overview-of-lark-plans",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: the plans overview page states storage and upload limits but states no retention period"
   },
   "egress": {
     "terms": "Downloads served from Lark CDN (ByteDance edge) at no metered charge; download via OpenAPI media download returns a signed URL, no per-GB line item anywhere in the plan table",
@@ -80,10 +80,38 @@
       "proved": "the plan table row confirms the 250 MB single-file upload limit on Starter",
       "capture": "sha256:5e09ee97bddaf9c1b2063abe98ee5ccde1d815a211a6599649af8856cff4adec",
       "quote": "| Single file upload limit for Docs | 250 MB | 250 MB | 50 GB | 100 GB |"
+    },
+    {
+      "url": "https://www.larksuite.com/hc/en-US/articles/497171699982-overview-of-lark-plans",
+      "date": "2026-11-25",
+      "proved": "the plan table states 100 GB total storage on Starter",
+      "capture": "sha256:5e09ee97bddaf9c1b2063abe98ee5ccde1d815a211a6599649af8856cff4adec",
+      "quote": "| Total storage space | 100 GB | 5 TB | 15 TB | 15 TB + 30 GB x purchased seats |"
+    },
+    {
+      "url": "https://www.larksuite.com/hc/en-US/articles/497171699982-overview-of-lark-plans",
+      "date": "2026-11-25",
+      "proved": "the plan table states a 250 MB single-file upload limit for Docs on Starter",
+      "capture": "sha256:5e09ee97bddaf9c1b2063abe98ee5ccde1d815a211a6599649af8856cff4adec",
+      "quote": "| Single file upload limit for Docs | 250 MB | 250 MB | 50 GB | 100 GB |"
+    },
+    {
+      "url": "https://www.larksuite.com/hc/en-US/articles/497171699982-overview-of-lark-plans",
+      "date": "2026-11-25",
+      "proved": "the plan table states the 250 MB single-file upload limit for Docs on Starter",
+      "capture": "sha256:5e09ee97bddaf9c1b2063abe98ee5ccde1d815a211a6599649af8856cff4adec",
+      "quote": "| Single file upload limit for Docs | 250 MB | 250 MB | 50 GB | 100 GB |"
+    },
+    {
+      "url": "https://www.larksuite.com/hc/en-US/articles/497171699982-overview-of-lark-plans",
+      "date": "2026-11-25",
+      "proved": "the plans overview states storage limits; no retention period is stated on the page",
+      "capture": "sha256:5e09ee97bddaf9c1b2063abe98ee5ccde1d815a211a6599649af8856cff4adec",
+      "quote": "| Total storage space | 100 GB | 5 TB | 15 TB | 15 TB + 30 GB x purchased seats |"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:00.433Z",
+  "verified_at": "2026-11-25T21:21:13.742Z",
   "notes": "100 GB total storage per organization on Starter (Free); 250 MB single-file limit for Docs uploads on Starter",
   "history": [],
   "extras": {

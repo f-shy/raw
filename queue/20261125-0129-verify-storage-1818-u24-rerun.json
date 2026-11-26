@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u24-rerun",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/ghproxy-mirrors-free-anonymous-github-raw-release-proxy $.per_object_cap.stated: Page says only how release/archive/file links are served; it states no per-object cap or absence of one.\n- storage/gemfury-public-plan $.identity_cost.detail: Email and password login is stated; 'a card is not required on free accounts' is not on the page.\n- storage/gemfury-public-plan $.retention.days: Page states deletion one month after cancellation; it does not state that no retention days apply (null).\n- storage/gbif-ipt-via-a-data-hosting-centre-free-email-account-bu $.per_object_cap.stated: Page describes DHC accounts; says nothing on per-object caps.\n- storage/gbif-ipt-via-a-data-hosting-centre-free-email-account-bu $.per_object_cap.notes: Page says nothing on a size cap or that the data directory is provisioned by the centre.\n- storage/gcore-free-cdn $.free_tier.stated: Capture supports 1 TB/month and no trial; 1 billion requests, EUR 0/month and overage prices are not in it.\n- storage/gbif-ipt-via-a-data-hosting-centre-free-email-account-bu $.per_object_cap.notes: Page says nothing on a size cap or that the data directory is provisioned by the centre.",
+ "scope": {
+  "rids": [
+   "storage/gbif-ipt-via-a-data-hosting-centre-free-email-account-bu",
+   "storage/gcore-free-cdn",
+   "storage/gemfury-public-plan",
+   "storage/gemini-notebook-source-corpus",
+   "storage/ghost-5-mb-on-free-trial-starter-100-mb-publisher-self-h",
+   "storage/ghproxy-mirrors-free-anonymous-github-raw-release-proxy"
+  ]
+ },
+ "origin": "audit u101 of 20261125-0129-verify-storage-1818/u24 failed: 7 of 30 unsupported",
+ "created": "2026-11-25T11:42:53Z"
+}

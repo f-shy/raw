@@ -15,15 +15,15 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://mercatus.tfaforms.net/5099527",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The application limits the proposal to 1500 words and accepts supplementary attachments but states no data-object size cap."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://mercatus.tfaforms.net/5099527",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "No data-retention period is stated for submitted material; the form reserves the right to destroy materials."
   },
   "egress": {
-    "terms": "n/a - cash.",
+    "terms": "unverified: no storage egress term is stated in the grant application; funding is project specific.",
     "metered": false
   },
   "interface": [
@@ -31,7 +31,7 @@
   ],
   "interface_detail": "n/a",
   "tooling": "n/a",
-  "chaining": "Dedicated tranches (Africa/Caribbean, India, UK Dynamism, Ukraine, Archaeology, Travel for Career Development, US Science Policy) each have their own budget, so a project can be aimed at the tranche where it fits best.",
+  "chaining": "Dedicated tranches are listed for Africa and the Caribbean, Archaeology, India, Travel for Career Development, U.K. Dynamism, Ukraine and U.S. Science Policy.",
   "limits": [
     {
       "kind": "write-gated",
@@ -103,10 +103,52 @@
       "proved": "the application form sets the age floor at 13",
       "capture": "sha256:1090e47d04cc52f908571e66f696906c1bcd2b956fc56495610b88858c703b37",
       "quote": "To be eligible for an EV grant, all applicants must be 13 years of age or older."
+    },
+    {
+      "url": "https://mercatus.tfaforms.net/5099527",
+      "date": "2026-11-25",
+      "proved": "the application form limits the proposal to 1500 words, allows attachments and lists accepted file types",
+      "capture": "sha256:b51982563cb73c0e1e8a152c26d96cf656e17fe73b67752aca66af33a827f334",
+      "quote": "The proposal should be no longer than 1500 words. You may also attach supplementary materials, but we will read the proposal first and it must stand on its own. Please note the acceptable file types (no PDF’s)."
+    },
+    {
+      "url": "https://mercatus.tfaforms.net/5099527",
+      "date": "2026-11-25",
+      "proved": "the application form reserves the right to destroy submitted materials without stating a retention period",
+      "capture": "sha256:b51982563cb73c0e1e8a152c26d96cf656e17fe73b67752aca66af33a827f334",
+      "quote": "Please note that we have the right to destroy your materials and also to send them to outside referees, as well as to discuss them internally."
+    },
+    {
+      "url": "https://mercatus.tfaforms.net/5099527",
+      "date": "2026-11-25",
+      "proved": "the application form states there is no typical grant range and considers both large and small grants",
+      "capture": "sha256:b51982563cb73c0e1e8a152c26d96cf656e17fe73b67752aca66af33a827f334",
+      "quote": "There is NO typical grant range or average award amount – funding is project specific. ... We encourage you to think big, but we also will consider very small grants if they might change the trajectory of your life."
+    },
+    {
+      "url": "https://www.mercatus.org/emergent-ventures",
+      "date": "2026-11-25",
+      "proved": "the grant page lists dedicated tranches with separate budgets",
+      "capture": "sha256:5cbeeed5439563134b6645e9359a12446d08a45d723c4fcb7a06bbd4da31e8ef",
+      "quote": "- Africa and the Caribbean ... - Archaeology ... - India ... - Travel for Career Development ... - U.K. Dynamism ... - Ukraine ... - U.S. Science Policy"
+    },
+    {
+      "url": "https://www.mercatus.org/emergent-ventures",
+      "date": "2026-11-25",
+      "proved": "the grant page states the AI-written application rule and the one-application rule",
+      "capture": "sha256:5cbeeed5439563134b6645e9359a12446d08a45d723c4fcb7a06bbd4da31e8ef",
+      "quote": "Emergent Ventures no longer accepts AI-written applications. We will test all submissions and reject those using AI for anything other than proofreading. ... Please submit only one application per applicant and project."
+    },
+    {
+      "url": "https://mercatus.tfaforms.net/5099527",
+      "date": "2026-11-25",
+      "proved": "the application form shows both an email address field and a phone number field",
+      "capture": "sha256:b51982563cb73c0e1e8a152c26d96cf656e17fe73b67752aca66af33a827f334",
+      "quote": "Email Address ... Phone Number"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:14.096Z",
+  "verified_at": "2026-11-25T09:54:53.003Z",
   "notes": "To be eligible for an EV grant, all applicants must be 13 years of age or older.",
   "history": [],
   "extras": {

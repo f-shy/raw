@@ -192,10 +192,17 @@
       "proved": "the second fresh probe reproduced the new hash",
       "capture": "sha256:db08ae17c6b5a2cab27b24b828386c4bfd17cc63caa98b6f5403276056288405",
       "quote": "\"listing_sha256\": \"4e972413\""
+    },
+    {
+      "url": "probe:https://pan.timero.xyz/",
+      "date": "2026-11-25",
+      "proved": "the anonymous settings and mount-list requests answered at this instant",
+      "capture": "sha256:4bf82ecc9972d63b402c4747f817625f878cc640741b9bcca765619f300b2d35",
+      "quote": "\"alive\": true"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:07.761Z",
+  "verified_at": "2026-11-25T21:46:10.686Z",
   "binding": "per-ip-shaping",
   "notes": "anonymous POST /api/fs/list on / returned code 200 with 1724 root entries (listing sha256 780159e3)",
   "history": [],
@@ -212,7 +219,7 @@
     "listing_sha256": "4e972413",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-19T03:36:59.774Z",
+    "last_verified_alive": "2026-11-25T02:34:39.902Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "aliases": [

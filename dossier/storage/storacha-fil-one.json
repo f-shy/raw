@@ -13,13 +13,13 @@
     "notes": "the offer existed; the rejection records why it is unusable here"
   },
   "per_object_cap": {
-    "stated": "not recorded; the provider was rejected before its per-object cap mattered",
+    "stated": "5 TB per object, with a 5 GB single-PUT limit and multipart above 5 GB",
     "bytes": null,
     "source_url": "https://www.fil.one/pricing",
     "notes": "not applicable: a rejected offer has no per-object cap to shard"
   },
   "retention": {
-    "stated": "not recorded; the rejection did not turn on retention",
+    "stated": "No minimum storage duration: there are no tiers to move between and no minimum storage duration.",
     "days": null,
     "source_url": "https://www.fil.one/pricing",
     "notes": "Binding failure documented in record details."
@@ -29,11 +29,12 @@
     "metered": false
   },
   "interface": [
-    "unknown"
+    "s3-compatible",
+    "rest"
   ],
   "interface_detail": "not documented",
   "tooling": "not documented",
-  "chaining": "rejected: it composes with nothing because it does not hold bytes here",
+  "chaining": "An S3-compatible origin behind a CDN: the standard setup puts a CDN in front of the Fil One bucket and uses Fil One as the CDN origin.",
   "limits": [],
   "limits_note": "the finding is the failure, not a constraint with a number",
   "identity_cost": {
@@ -63,10 +64,59 @@
       "proved": "the free offer is a 30-day trial of 1 TB storage and 2 TB egress with no card",
       "capture": "sha256:cb29291eb5c86b092ba095aaa2198f1669502dd053daccd260870c4a3f84f89f",
       "quote": "1 TB of storage and 2 TB of egress for 30 days, with no credit card required."
+    },
+    {
+      "url": "https://www.fil.one/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing FAQ states there is no minimum storage duration",
+      "capture": "sha256:3fd77e3f49a4fd1e4d37fc308948534e4611e5c08a8a83f8023f9b4b04c83ec4",
+      "quote": "There are no tiers to move between and no minimum storage duration."
+    },
+    {
+      "url": "https://www.fil.one/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page names a CDN in front of the bucket as the standard setup",
+      "capture": "sha256:3fd77e3f49a4fd1e4d37fc308948534e4611e5c08a8a83f8023f9b4b04c83ec4",
+      "quote": "For those, the standard setup is to put a CDN in front of the Fil One bucket, using Fil One as the CDN origin."
+    },
+    {
+      "url": "https://docs.filone.com/",
+      "date": "2026-11-25",
+      "proved": "the first-party documentation names the service S3-compatible object storage",
+      "capture": "sha256:0b808cce7c967e9359a16a4a630b79cf6d9919c8e09de2b042ca78b7dba72839",
+      "quote": "Fil One is an S3-compatible object storage platform designed for teams that need reliable, cost-effective storage, with Object Lock for write-once retention."
+    },
+    {
+      "url": "https://docs.filone.com/reference/s3-compatibility",
+      "date": "2026-11-25",
+      "proved": "the S3 compatibility reference states a 5 TB maximum object size and multipart above 5 GB",
+      "capture": "sha256:b41ff2fe0315c11bad620464596fee4ec4e0509b528bab28c3aadeccaeff390c",
+      "quote": "Max object size: 5 TB (use multipart for objects > 5 GB)."
+    },
+    {
+      "url": "https://www.fil.one/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing FAQ is unchanged on duration and describes a CDN in front of the bucket",
+      "capture": "sha256:3fd77e3f49a4fd1e4d37fc308948534e4611e5c08a8a83f8023f9b4b04c83ec4",
+      "quote": "There are no tiers to move between and no minimum storage duration."
+    },
+    {
+      "url": "https://docs.filone.com/reference/s3-compatibility",
+      "date": "2026-11-25",
+      "proved": "the compatibility reference is live and states the object cap",
+      "capture": "sha256:b41ff2fe0315c11bad620464596fee4ec4e0509b528bab28c3aadeccaeff390c",
+      "quote": "Max object size: 5 TB (use multipart for objects > 5 GB)."
+    },
+    {
+      "url": "https://www.fil.one/pricing",
+      "date": "2026-11-25",
+      "proved": "the trial is unchanged at 1 TB storage and 2 TB egress for 30 days",
+      "capture": "sha256:3fd77e3f49a4fd1e4d37fc308948534e4611e5c08a8a83f8023f9b4b04c83ec4",
+      "quote": "1 TB of storage and 2 TB of egress for 30 days, with no credit card required."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-04T01:24:43.354Z",
+  "verified_at": "2026-11-25T01:53:16.160Z",
   "notes": "1 TB free but for 30 days only, with 2 TB of egress in the trial: '1 TB free for 30 days · No credit card required ... The 30-day trial includes 2 TB of egress.' After that it is $5.99/TB/mo",
   "history": [],
   "extras": {

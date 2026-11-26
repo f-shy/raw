@@ -16,12 +16,12 @@
     "stated": "5 TB per object",
     "bytes": 5000000000000,
     "source_url": "https://contabo.com/en/object-storage/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "the object-storage page states a maximum object size of 5 TB and no object size minimum"
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://docs.contabo.com/docs/storage/object-storage/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "no minimum storage duration or default expiry is stated; expiration is an optional user-configured S3 lifecycle rule that irreversibly deletes objects"
   },
   "egress": {
     "terms": "Data transfer is free and unlimited.",
@@ -127,10 +127,31 @@
       "proved": "data transfer is free and unlimited",
       "capture": "sha256:b9c21baa6040814736b259183d61519e8469b7edfe3fcba5028a11c5b8568cf4",
       "quote": "Data transfer is free and unlimited."
+    },
+    {
+      "url": "https://contabo.com/en/object-storage/",
+      "date": "2026-11-25",
+      "proved": "the first-party page states a 5 TB per-object ceiling",
+      "capture": "sha256:b9c21baa6040814736b259183d61519e8469b7edfe3fcba5028a11c5b8568cf4",
+      "quote": "Our infrastructure supports large file storage up to 5 TB per object."
+    },
+    {
+      "url": "https://docs.contabo.com/docs/storage/object-storage/",
+      "date": "2026-11-25",
+      "proved": "object expiry is opt-in through lifecycle rules, not a default retention clock",
+      "capture": "sha256:b0dc2b1736def615c1ae375804d319885952fb716eb59b8ff311f7615a6a9253",
+      "quote": "Lifecycle rules support expiration only; storage-class transitions are not documented, and expiration deletes objects irreversibly."
+    },
+    {
+      "url": "https://contabo.com/en/object-storage/",
+      "date": "2026-11-25",
+      "proved": "the object-storage page still states free and unlimited data transfer",
+      "capture": "sha256:b9c21baa6040814736b259183d61519e8469b7edfe3fcba5028a11c5b8568cf4",
+      "quote": "Data transfer is free and unlimited."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:12.224Z",
+  "verified_at": "2026-11-25T04:14:17.956Z",
   "price_per_tb_month": "€9.96/TB/mo (€2.49 per 250 GB × 4) ≈ $11.55 — flat at 1, 5, 10 and 20 TB, no volume discount. Free egress is real but does not rescue a 5× storage premium.",
   "notes": "250 GB increments, up to 25 TB, 5 TB max object size",
   "history": [],

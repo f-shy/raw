@@ -38,9 +38,15 @@
   "interface_detail": "Vendor apps and a web checkout.",
   "tooling": "vendor apps; the aggregator says provisioning is API-driven.",
   "chaining": "Could carry client egress only; gives nothing inbound.",
-  "limits": [],
+  "limits": [
+    {
+      "kind": "write-gated",
+      "value": "no free plan: the cheapest entry is the $4.99 one-time pay-as-you-go balance, which meters 4¢/GB of data",
+      "source": "https://upvpn.app/pricing"
+    }
+  ],
   "limits_note": "",
-  "binding": "none",
+  "binding": "write-gated",
   "binding_note": "No free tier, so the first failure is the invoice, not a datum. The metered plan prices 1 TiB at roughly USD 41 in data charges alone.",
   "identity_cost": {
     "kind": "card",
@@ -55,10 +61,31 @@
       "url": "https://upvpn.app/pricing",
       "date": "2026-10-23",
       "proved": "USD 4.99 pay-as-you-go with 5 cents base, 4 cents/GB, 2 cents/hr; USD 39.99/year unlimited"
+    },
+    {
+      "url": "https://upvpn.app/pricing",
+      "date": "2026-11-25",
+      "proved": "pay as you go costs $4.99 one-time",
+      "capture": "sha256:e5a9bb4e0f2e10ba53ef6503da3f30ac0371811b6e642439e1114fc16322fda6",
+      "quote": "$4.99/one-time"
+    },
+    {
+      "url": "https://upvpn.app/pricing",
+      "date": "2026-11-25",
+      "proved": "pay as you go costs $4.99 one-time; no plan is free",
+      "capture": "sha256:e5a9bb4e0f2e10ba53ef6503da3f30ac0371811b6e642439e1114fc16322fda6",
+      "quote": "$4.99/one-time"
+    },
+    {
+      "url": "https://upvpn.app/pricing",
+      "date": "2026-11-25",
+      "proved": "the Yearly plan is $39.99 per year",
+      "capture": "sha256:e5a9bb4e0f2e10ba53ef6503da3f30ac0371811b6e642439e1114fc16322fda6",
+      "quote": "$39.99/year"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:49.813Z",
   "price_per_tb_month": "USD 39.99/year",
   "history": [],
   "notes": "Consumer VPN service providing outbound WireGuard connections for internet access. Does not provide inbound port forwarding or reverse tunneling.",

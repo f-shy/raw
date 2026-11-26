@@ -117,10 +117,17 @@
       "proved": "the /api/public/settings request answered HTTP 200 in this run",
       "capture": "sha256:1d49c5010861ef510e479ac51fc4b3b6aa57608b9b363d91acf751e1aede146e",
       "quote": "\"status\": 200"
+    },
+    {
+      "url": "probe:https://pan.jinnan.top/",
+      "date": "2026-11-25",
+      "proved": "the anonymous settings and mount-list requests answered at this instant",
+      "capture": "sha256:d01852121b4851b0e5b274dbd7f20ab473936a124a2da3bd01931f228f266009",
+      "quote": "\"alive\": true"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:07.760Z",
+  "verified_at": "2026-11-25T21:46:10.684Z",
   "binding": "write-gated",
   "notes": "The cleanest illustration of the write-flag lie: its root listing contains a directory named 05 游客上传, every mount advertises write:true, and every PUT returns permission denied inside an HTTP 200. The operator intended guest upload and the permission never reached the guest role.",
   "history": [],
@@ -137,7 +144,7 @@
     "listing_sha256": "5b758cf9",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-19T03:36:47.301Z",
+    "last_verified_alive": "2026-11-25T02:34:38.482Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "aliases": [

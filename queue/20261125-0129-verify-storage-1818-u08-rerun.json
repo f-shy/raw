@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u08-rerun",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/moddb $.chaining: no 'unlimited files/pages/free accounts' in capture; quote covers only the Files tab\n- storage/rutube $.limits_note: 5 simultaneous uploads, 25 GB, 300 min, formats are in the page; 're-encode on ingest' is not stated\n- storage/nlnet-restack-fund-the-grant-an-unaffiliated-individual $.chaining: evidence capture (propose page) has no 'In principle anyone can apply', second-grant or fund-list text; quote is about email validation\n- storage/moddb $.limits_note: 4,096mb cap and 12h non-resumable are stated; 'indefinite retention', 'no total-account cap' and staff deletion are not in the capture\n- storage/redcircle-core-plan $.limits_note: pinned evidence (RSS guide) supports only the periodic refresh; 200MB/250MB/10GB/Pro-only video are in capture 68979ed9 and 1 podcast on Core in f0742d5b, not in this one\n- storage/nostr-download $.interface: nostr.download/tos states no interface or REST API; quote is the file size cap",
+ "scope": {
+  "rids": [
+   "storage/moddb",
+   "storage/nlnet-restack-fund",
+   "storage/nlnet-restack-fund-the-grant-an-unaffiliated-individual",
+   "storage/nostr-download",
+   "storage/redcircle-core-plan",
+   "storage/rutube"
+  ]
+ },
+ "origin": "audit u74 of 20261125-0129-verify-storage-1818/u08 failed: 6 of 30 unsupported",
+ "created": "2026-11-25T07:46:17Z"
+}

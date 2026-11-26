@@ -15,13 +15,13 @@
   "per_object_cap": {
     "stated": "5 TiB per object",
     "source_url": "https://techdocs.akamai.com/cloud-computing/docs/object-storage-product-limits",
-    "notes": "Maximum Object Size under the multipart upload limits of the first-party quotas and limits page",
+    "notes": "* **Maximum Object Size**. 5 TiB",
     "bytes": 5497558138880
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "Cancelling Object Storage deletes all objects and buckets from your account.",
     "source_url": "https://www.akamai.com/products/object-storage",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Cancelling Object Storage deletes all objects and buckets from your account."
   },
   "egress": {
     "terms": "enabling Object Storage adds 1 TB a month of transfer allowance, prorated by active hours, to the account's global network transfer pool and none to region-specific pools such as Jakarta and São Paulo; all outbound transfer from Object Storage is metered, over public IPv4 and IPv6, even to other services in the same data center; inbound transfer is free; transfer beyond the pools is billed at the end of the billing period at the rate of the service region",
@@ -198,10 +198,38 @@
       "proved": "outbound transfer beyond the allowance is billed per GB, so egress is metered",
       "capture": "sha256:f6c919544b47b268b27e532cdf49607514086fd4fe86b307fa66c8610f713d7b",
       "quote": "Any outbound network transfer overages are billed at the rate $0.005/GB for all data centers except for Jakarta ($0.015/GB) and São Paulo ($0.007/GB)."
+    },
+    {
+      "url": "https://techdocs.akamai.com/cloud-computing/docs/cancel-object-storage",
+      "date": "2026-11-25",
+      "proved": "the cancellation page states all objects and buckets are deleted on cancellation",
+      "capture": "sha256:6a0805398aa9a76eae51aa9f93a676cc3ecbf8b81c332a614a730c53c8444504",
+      "quote": "Cancelling Object Storage deletes all objects and buckets from your account."
+    },
+    {
+      "url": "https://techdocs.akamai.com/cloud-computing/docs/object-storage-product-limits",
+      "date": "2026-11-25",
+      "proved": "the first-party quotas and limits page states a 5 TiB maximum object size",
+      "capture": "sha256:ac2870a5dcaac5cd73c479b598ee5009e280196d14c60b1ff19979fc027b6601",
+      "quote": "* **Maximum Object Size**. 5 TiB"
+    },
+    {
+      "url": "https://techdocs.akamai.com/cloud-computing/docs/cancel-object-storage",
+      "date": "2026-11-25",
+      "proved": "all objects and buckets are deleted when Object Storage is cancelled",
+      "capture": "sha256:6a0805398aa9a76eae51aa9f93a676cc3ecbf8b81c332a614a730c53c8444504",
+      "quote": "Cancelling Object Storage deletes all objects and buckets from your account."
+    },
+    {
+      "url": "https://techdocs.akamai.com/cloud-computing/docs/object-storage-product-limits",
+      "date": "2026-11-25",
+      "proved": "the maximum object size is 5 TiB",
+      "capture": "sha256:ac2870a5dcaac5cd73c479b598ee5009e280196d14c60b1ff19979fc027b6601",
+      "quote": "* **Maximum Object Size**. 5 TiB"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:08.439Z",
+  "verified_at": "2026-11-25T21:21:19.437Z",
   "price_per_tb_month": "USD 5 a month flat, prorated, including 250 GB of storage and 1 TB of outbound transfer added to the account's global transfer pool; storage beyond 250 GB USD 0.02 per GB a month (about USD 20 per TB), and overages may vary by data center; outbound overage USD 0.005 per GB (about USD 5 per TB), USD 0.015 per GB in Jakarta and USD 0.007 per GB in São Paulo",
   "notes": "Scales 250 GB → 5 PB per bucket, 10 billion objects, 20K RPS. Entry plan $5/mo = 250 GB + 1 TB outbound included.",
   "history": [],

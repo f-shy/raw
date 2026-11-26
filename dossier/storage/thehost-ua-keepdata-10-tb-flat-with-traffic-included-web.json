@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-file-size limit: KeepData has no limits on individual file sizes, allowing you to upload files of any size.",
     "source_url": "https://www.thehost.ua/en/hosting/cloud-storage",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "KeepData has no limits on individual file sizes, allowing you to upload files of any size."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.thehost.ua/en/hosting/cloud-storage",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Automatic deletion rules can be set for specific folders based on free space parameters."
   },
   "egress": {
     "terms": "Included and unmetered. The traffic row reads simply «Traffic», with access speed «10 Gbit/s», and there is no meter, overage rate or traffic pack anywhere on the page. This is a dedicated-rail storage product, not metered object storage.",
@@ -44,7 +44,7 @@
       "source": "https://www.thehost.ua/en/hosting/cloud-storage"
     }
   ],
-  "limits_note": "Not S3. No bucket API, no presigned URLs, so CDN/CF fronting has to go through WebDAV or an rclone `serve` layer. Inode ceilings matter for a 20 TiB corpus of small files: 1,000 K inodes at 10 TB is 1 M files, which a dataset archive of many small parquet/JSON shards will exhaust long before 10 TB. Per-file size not published on the pricing page.",
+  "limits_note": "KeepData has no limits on individual file sizes, allowing you to upload files of any size.",
   "identity_cost": {
     "kind": "card",
     "detail": "card",
@@ -96,10 +96,38 @@
       "proved": "the 10 Gbit/s access speed is still stated",
       "capture": "sha256:f1554c312f201ac1ac90d070892e72601fe6b31a89a857d8e7bf2bcd6c9969a5",
       "quote": "Access speed10 Gbit/s"
+    },
+    {
+      "url": "https://www.thehost.ua/en/hosting/cloud-storage",
+      "date": "2026-11-25",
+      "proved": "the FAQ states no individual file size limit",
+      "capture": "sha256:2c06fcc139b73cab89bbceb654ea43143dbb04a32ae824535fe7f5406cba8f10",
+      "quote": "KeepData has no limits on individual file sizes, allowing you to upload files of any size."
+    },
+    {
+      "url": "https://www.thehost.ua/en/hosting/cloud-storage",
+      "date": "2026-11-25",
+      "proved": "automatic deletion can be configured per folder by free space parameters",
+      "capture": "sha256:2c06fcc139b73cab89bbceb654ea43143dbb04a32ae824535fe7f5406cba8f10",
+      "quote": "In the control panel, in the “Auto Data Deletion” section, you can set up rules for automatic deletion of files from specific folders based on free space parameters in the storage."
+    },
+    {
+      "url": "https://www.thehost.ua/en/hosting/cloud-storage",
+      "date": "2026-11-25",
+      "proved": "the access protocols named are SFTP, FTP, FTPS and WebDAV",
+      "capture": "sha256:2c06fcc139b73cab89bbceb654ea43143dbb04a32ae824535fe7f5406cba8f10",
+      "quote": "including SFTP, FTP, FTPS and even organizing a network drive using the WebDav protocol"
+    },
+    {
+      "url": "https://www.thehost.ua/en/hosting/cloud-storage",
+      "date": "2026-11-25",
+      "proved": "the access speed row states 10 Gbit/s",
+      "capture": "sha256:2c06fcc139b73cab89bbceb654ea43143dbb04a32ae824535fe7f5406cba8f10",
+      "quote": "Access speed10 Gbit/s"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:15:20.586Z",
+  "verified_at": "2026-11-25T19:55:24.769Z",
   "price_per_tb_month": "$5.95/TB/mo at 10 TB ($59.48/mo) and identically at 50 TB ($297.48/mo) — flat rate, unmetered traffic, no volume discount at either end. Tier ladder is 25 GB / 100 GB / 500 GB / 1 TB / 10 TB / 50 TB, so there is NO 5 TB SKU: 5 TB means buying 5× the 1 TB plan ($64.15/mo = $12.83/TB/mo, poor) or 1× …",
   "notes": "25 GB / 100 GB / 500 GB / 1 TB / 10 TB / 50 TB. 10 TB = $59.48/mo, or $642.34/yr (10 % discount), or $1,141.90 for 2 years (20 %). Also sold in UAH and EUR on the same table (2,499 ₴ / €49.98 / $59.48 per month for 10 TB). Inodes: 1,000 K at 10 TB. 7-day free trial on every tier.",
   "history": [],

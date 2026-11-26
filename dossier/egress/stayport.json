@@ -71,10 +71,17 @@
       "url": "https://stayport.io/",
       "date": "2026-10-23",
       "proved": "outbound port 25 blocked by default and unblocked on request; reception works out of the box"
+    },
+    {
+      "url": "https://stayport.io/",
+      "date": "2026-11-25",
+      "proved": "the home page is replaced by a closed notice with no sign-ups or orders",
+      "capture": "sha256:210d2fe1b098f773b3c4838b53efdba5890f923c63629ac38036c9a8af44afc6",
+      "quote": "Stayport isn't taking new sign-ups or orders at the moment."
     }
   ],
-  "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verdict": "dead",
+  "verified_at": "2026-11-25T15:43:47.898Z",
   "price_per_tb_month": "INR 599 per month billed annually for IPv4 (INR 7188 per year); INR 149 per month for the IPv6-only plan",
   "history": [],
   "notes": "Provides dedicated IPv4 addresses priced in Indian Rupees (INR) with manual onboarding, routed through a Bangalore datacenter edge.",
@@ -86,6 +93,10 @@
     "volume_stated": "\"There's a fair-use allowance generous enough for game servers, web apps and personal use. Stayport isn't built for bulk transfer or proxying - if you plan to push very large volumes, talk to us first.\" No figure is given.",
     "bytes_transit": "yes",
     "transit_note": "Traffic enters at the vendor's Bangalore edge and is routed down the tunnel; only inbound traffic touches them (\"Your browsing, streaming and downloads never touch us.\").",
-    "promoted_from": ".tmp/egress/hosted-wg"
+    "promoted_from": ".tmp/egress/hosted-wg",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "registration-closed"
+    }
   }
 }

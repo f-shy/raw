@@ -77,10 +77,24 @@
       "url": "https://sidecar.network/llms.txt",
       "date": "2026-10-23",
       "proved": "device-code onboarding without email or a browser; REST API for peers; verify call returns externally_reachable and the assigned addresses"
+    },
+    {
+      "url": "https://sidecar.network/pricing",
+      "date": "2026-11-25",
+      "proved": "the Free card caps throughput at 2 Mbps sustained",
+      "capture": "sha256:7e0d3482067f80e83e3ce28837a3bc45a6c35c7316a462f485efd7a0d3b12cfc",
+      "quote": "2 Mbps sustained"
+    },
+    {
+      "url": "https://sidecar.network/pricing",
+      "date": "2026-11-25",
+      "proved": "bytes are not capped; only speed is",
+      "capture": "sha256:a14c471896545461b3f956df385a5761001026b9c762542406fd16182af94ccc",
+      "quote": "Our tiers are speed-limited, not data-capped."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:47.896Z",
   "price_per_tb_month": "USD 0 for the free tier (3 peers, IPv6 only, 2 Mbps); paid from USD 0.99 per month, IPv4 tiers priced only by their USD 29 setup and USD 3 provisioning fees on the page read",
   "history": [],
   "notes": "The surprising row: genuinely unlimited bytes at USD 0, with no email, and the free tier still cannot carry 1 TiB/month because of the 2 Mbps ceiling. The 2 Mbps is a per-peer rate, not a per-account cap: the pricing page attaches the rate to each peer (\"each peer gets its own rate limit at the plan's throughput tier\"), so a single service on one address gets 2 Mbps. Unlimited data is real and only speed is sold: two independent sentences on the same page say so, and a published customer claim reports 14 TB in a month. The free tier is IPv6-only: the FAQ names Free among the IPv6-only plans. Monthly prices for the IPv4 tiers (Pulse and up) are not in the page HTML, so the paid IPv4 path is priced only by its setup fees here.",

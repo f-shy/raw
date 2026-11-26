@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u09-rerun",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/syncthing-community-relay-pool $.tooling: Page says nothing of strelaysrv tooling or a relay selection mechanism; it only links to the Syncthing Relay Server page.\n- storage/shuttleworth-foundation-fellowship-individual-no-organis $.limits[0].value: Page states an age-of-majority condition; no 5-minute video or CV requirement appears.\n- storage/shuttleworth-foundation-fellowship-individual-no-organis $.interface: Quote is about geography and language; page names no interface (browser or otherwise).\n- storage/spreaker-free-plan $.free_tier.stated: Quoted page is the audio storage format; the free-plan value is not on it.\n- storage/spreaker-free-plan $.chaining: Announcement supports one podcast with unlimited episodes only; 'N accounts' and the implicit storage ceiling are not on the page.\n- storage/substack-file-embeds $.egress.metered: Page says readers can download the embed; it says nothing about egress metering.\n- storage/skool-native-video-hosting $.tooling: Page does not mention an API, skool-api.cristiantala.com, playwright, Browserless or files:uploadImage.\n- storage/shuttleworth-foundation-fellowship-individual-no-organis $.chaining: Geography/English supported; 'no organisation required' and the open source / open data / open access requirement are not on the captured page.\n- storage/skool-native-video-hosting $.interface_detail: Page does not say 'wrapper-only'; it documents native upload plus third-party embeds.\n- storage/substack-file-embeds $.egress.terms: Page says nothing of substackcdn.com, cost of egress, or auth for public posts.\n- storage/syncthing-community-relay-pool $.interface_detail: Capture shows the relay:// URL format but not port 22067 or a JSON pool endpoint.\n- storage/substack-file-embeds $.chaining: Quote supports drag-drop embeds only; 700 MB, unlimited posts/publications, 'largest per-file limit' and 20 TiB ~29,000 PDFs are not on the page.",
+ "scope": {
+  "rids": [
+   "storage/shuttleworth-foundation-fellowship-individual-no-organis",
+   "storage/skool-native-video-hosting",
+   "storage/spreaker-free-plan",
+   "storage/substack-file-embeds",
+   "storage/syncthing-community-relay-pool",
+   "storage/time4vps-storage-vps-1-tb"
+  ]
+ },
+ "origin": "audit u75 of 20261125-0129-verify-storage-1818/u09 failed: 12 of 30 unsupported",
+ "created": "2026-11-25T07:46:18Z"
+}

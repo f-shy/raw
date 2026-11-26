@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.kaggle.com/docs/notebooks",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Up to 20 GBs of output from a Notebook may be saved to disk in /kaggle/working. This data is saved automatically and you can then reuse that data in any future Notebook"
   },
   "retention": {
-    "stated": "| Outputs persist indefinitely and are downloadable years later; the flaky part is the commit step (a timed-out run loses the output).",
+    "stated": "A Notebook version is a snapshot of your work including your compiled code, log files, output files, data sources, and more.",
     "source_url": "https://www.kaggle.com/docs/notebooks",
-    "notes": "Extracted from published terms."
+    "notes": "Additional scratchpad disk space (outside /kaggle/working) that will not be saved outside of the current session"
   },
   "egress": {
     "terms": "Free download of notebook output files from the version's Output tab, same GCS-backed delivery.",
@@ -30,9 +30,9 @@
     "rest",
     "cli"
   ],
-  "interface_detail": "rest",
+  "interface_detail": "This is a command-line interface tool for interacting via commands in a terminal or shell script",
   "tooling": "kaggle CLI (`kaggle kernels output <owner>/<kernel> -p ./dir`) and kagglehub. The notebook executes on managed GPU and TPU compute, writing files directly on the host without local upload transfer.",
-  "chaining": "20 GB per notebook version. Notebook versions, notebooks and accounts each carry no stated limit. The reachable total therefore scales with versions and notebooks per account, and a second account carries a second allowance. The whole write path is server-side (the data is produced or fetched inside the notebook, so there is no client uplink bottleneck). This is the standard community alternative route around the 200 GB private quota: a Kaggle forum answer describes it as 'create a new notebook from your dataset and copy files to /kaggle/working'.",
+  "chaining": "By chaining Notebooks as data sources in this way, it’s possible to build pipelines and generate more and better content than you could in a single notebook alone.",
   "limits": [],
   "limits_note": "20 GB per version is hard; 9 h / 12 h session limits per run; output is only persisted on commit ('Save & Run All'), not on interactive save; GPU/TPU hours are rationed (~30 h/week) but CPU-only runs are not the constraint for pure storage.",
   "identity_cost": {
@@ -60,10 +60,45 @@
       "proved": "up to 20 GBs of output from a Notebook may be saved to /kaggle/working and reused in any future Notebook",
       "capture": "sha256:d6b4c75f3be7b69d55afcd46bd6749550a7a61d5114d84f5c89c68ba8102d25a",
       "quote": "Up to 20 GBs of output from a Notebook may be saved to disk in /kaggle/working. This data is saved automatically and you can then reuse that data in any future Notebook"
+    },
+    {
+      "url": "https://www.kaggle.com/docs/notebooks",
+      "date": "2026-11-25",
+      "proved": "notebook output of up to 20 GB is saved automatically in /kaggle/working and reusable later",
+      "capture": "sha256:d6b4c75f3be7b69d55afcd46bd6749550a7a61d5114d84f5c89c68ba8102d25a",
+      "quote": "Up to 20 GBs of output from a Notebook may be saved to disk in /kaggle/working. This data is saved automatically and you can then reuse that data in any future Notebook"
+    },
+    {
+      "url": "https://www.kaggle.com/docs/notebooks",
+      "date": "2026-11-25",
+      "proved": "a notebook version snapshots code, logs, output files and data sources",
+      "capture": "sha256:d6b4c75f3be7b69d55afcd46bd6749550a7a61d5114d84f5c89c68ba8102d25a",
+      "quote": "A Notebook version is a snapshot of your work including your compiled code, log files, output files, data sources, and more."
+    },
+    {
+      "url": "https://www.kaggle.com/docs/notebooks",
+      "date": "2026-11-25",
+      "proved": "scratch space outside /kaggle/working is not saved beyond the current session",
+      "capture": "sha256:d6b4c75f3be7b69d55afcd46bd6749550a7a61d5114d84f5c89c68ba8102d25a",
+      "quote": "Additional scratchpad disk space (outside /kaggle/working) that will not be saved outside of the current session"
+    },
+    {
+      "url": "https://www.kaggle.com/docs/notebooks",
+      "date": "2026-11-25",
+      "proved": "notebooks can be chained as data sources to build pipelines",
+      "capture": "sha256:d6b4c75f3be7b69d55afcd46bd6749550a7a61d5114d84f5c89c68ba8102d25a",
+      "quote": "By chaining Notebooks as data sources in this way, it’s possible to build pipelines and generate more and better content than you could in a single notebook alone."
+    },
+    {
+      "url": "https://www.kaggle.com/docs/api",
+      "date": "2026-11-25",
+      "proved": "the Kaggle CLI is a command-line interface for terminal or shell-script use",
+      "capture": "sha256:39e0bf9036ec194507156f4c5dc6ac9ee2eabc41b03effbceeae193f716e7c7c",
+      "quote": "This is a command-line interface tool for interacting via commands in a terminal or shell script"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:22.850Z",
+  "verified_at": "2026-11-25T21:21:12.714Z",
   "notes": "Up to 20 GBs of output from a Notebook may be saved to disk in /kaggle/working. This data is saved automatically and you can then reuse that data in any future Notebook",
   "history": [],
   "extras": {

@@ -129,10 +129,45 @@
       "proved": "the host answered every request of this probe, so the failure count stayed at zero",
       "capture": "sha256:accc248bab6c79ba7701345bb6328cae00eabd06249cfc7d03bf96fde7c3eb2d",
       "quote": "\"consecutive_failures\": 0"
+    },
+    {
+      "url": "probe:https://alist.qsesvick.top/api/public/settings",
+      "date": "2026-11-25",
+      "proved": "a fresh anonymous probe of the AList public settings endpoint of alist.qsesvick.top answered at this instant (HTTP 200, JSON, no challenge)",
+      "capture": "sha256:f6c0f5eee0f1161e2ad2221de83c6c34e8d740ed74876132d1b9489305c85555",
+      "quote": "\"probed_at\": \"2026-11-25T04:07:28.035Z\""
+    },
+    {
+      "url": "probe:https://alist.qsesvick.top/api/public/settings",
+      "date": "2026-11-25",
+      "proved": "the settings endpoint of alist.qsesvick.top answered HTTP 200 to an anonymous request",
+      "capture": "sha256:f6c0f5eee0f1161e2ad2221de83c6c34e8d740ed74876132d1b9489305c85555",
+      "quote": "\"status\": 200"
+    },
+    {
+      "url": "probe:https://alist.qsesvick.top/",
+      "date": "2026-11-25",
+      "proved": "the anonymous root listing of this host hashed to 7a909707 in the fresh probe, not the previously recorded ec8bc9ba",
+      "capture": "sha256:f6c75fb7dafecb65ee7fb4ed8f4418e1ba681460bba3a55abdd957c39a1aa789",
+      "quote": "\"listing_sha256\": \"7a909707\""
+    },
+    {
+      "url": "probe:https://alist.qsesvick.top/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing returned six entries, one more than the five previously recorded",
+      "capture": "sha256:f6c75fb7dafecb65ee7fb4ed8f4418e1ba681460bba3a55abdd957c39a1aa789",
+      "quote": "\"entry_count\": 6"
+    },
+    {
+      "url": "probe:https://alist.qsesvick.top/",
+      "date": "2026-11-25",
+      "proved": "the fresh probe answered the anonymous session, settings and mount list, so the fresh listing hash stands",
+      "capture": "sha256:f6c75fb7dafecb65ee7fb4ed8f4418e1ba681460bba3a55abdd957c39a1aa789",
+      "quote": "\"alive\": true"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:06.658Z",
+  "verified_at": "2026-11-25T04:14:27.572Z",
   "binding": "per-ip-shaping",
   "notes": "One of three hostnames on the 20237737 operator's corpus, and the one the community index publishes as its WebDAV endpoint. 5 root entries; the WebDAV endpoint answers PROPFIND with 207 to the published guest credential.",
   "history": [],
@@ -146,10 +181,10 @@
     "write_content_bypass": false,
     "permission_bitmask": "1280",
     "base_path": "/",
-    "listing_sha256": "ec8bc9ba",
+    "listing_sha256": "7a909707",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-19T03:31:03.163Z",
+    "last_verified_alive": "2026-11-25T04:07:28.035Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "listing_hash_method": "sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters"

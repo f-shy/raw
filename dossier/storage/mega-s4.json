@@ -20,7 +20,7 @@
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://mega.io/objectstorage",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "5x free egress, no API charges and no minimum storage period."
   },
   "egress": {
     "terms": "Vendor terms state: '5x free egress, no API charges and no minimum storage period.' Documentation specifies that MEGA S4 allows up to 5x the average monthly stored data as free egress.",
@@ -100,10 +100,24 @@
       "proved": "the page states the service grows with no upper limit",
       "capture": "sha256:5c85afe545e831793d950dc6c3eea690a10ff0f845d23c85e43cadd33a1cda66",
       "quote": "Grow from gigabytes to petabytes, with no upper limit."
+    },
+    {
+      "url": "https://mega.io/objectstorage",
+      "date": "2026-11-25",
+      "proved": "the object storage page states there is no minimum storage period",
+      "capture": "sha256:b8945b17f2d1ccbe83fb1ea2bd1d498f821fdddfc35e9a62c2117f66fddb2b72",
+      "quote": "5x free egress, no API charges and no minimum storage period."
+    },
+    {
+      "url": "https://mega.io/objectstorage",
+      "date": "2026-11-25",
+      "proved": "the page names S3 compatibility, Rclone and a CLI endpoint",
+      "capture": "sha256:b8945b17f2d1ccbe83fb1ea2bd1d498f821fdddfc35e9a62c2117f66fddb2b72",
+      "quote": "MEGA S4 is S3-compatible, so it connects directly with the tools you already use, including Rclone, Synology Hyper Backup, Acronis, TrueNAS, Cyberduck and more. ... CLI — works with MEGA S4 via S3-compatible endpoint"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-10T00:50:25.162Z",
+  "verified_at": "2026-11-25T19:55:11.734Z",
   "price_per_tb_month": "$4.94/TB at 5 TB (EUR 22.00 = $24.71); $4.18/TB at 20 TB (EUR 74.50 = $83.69)",
   "notes": "No upper limit. Base 3 TB included from EUR 15/mo; EUR 3.50 per additional TB.",
   "history": [],

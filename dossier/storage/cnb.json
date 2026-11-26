@@ -16,12 +16,12 @@
     "stated": "64 GB per attachment upload",
     "bytes": 64000000000,
     "source_url": "https://cnb.cool/wmde/attachments",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "the official attachments plugin states a 64 GB ceiling per uploaded file"
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://docs.cnb.cool/zh/pricing.html",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: no attachment retention or deletion period is stated on the pricing or attachment-plugin pages read"
   },
   "egress": {
     "terms": "Pricing table specifies 仓库存储 and 对象存储 by GiB-month without a separate egress traffic row. Public release-attachment downloads run through the cnb.cool CDN.",
@@ -81,10 +81,31 @@
       "proved": "an attachment upload is capped at 64GB",
       "capture": "sha256:b08b86ea1bbeb5d83d483934c5fb35c67994626033a2074bdaedaebfb41ab87a",
       "quote": "支持 commit 和 release 上传或下载附件，目前暂支持 64GB 以内的文件上传。"
+    },
+    {
+      "url": "https://cnb.cool/wmde/attachments",
+      "date": "2026-11-25",
+      "proved": "the provider's attachment plugin caps a single file upload at 64GB",
+      "capture": "sha256:b08b86ea1bbeb5d83d483934c5fb35c67994626033a2074bdaedaebfb41ab87a",
+      "quote": "支持 commit 和 release 上传或下载附件，目前暂支持 64GB 以内的文件上传。"
+    },
+    {
+      "url": "https://docs.cnb.cool/zh/pricing.html",
+      "date": "2026-11-25",
+      "proved": "the pricing page describes the object-storage allowance but states no retention period",
+      "capture": "sha256:b99d2bb60fa5744f2c4267651d73e0b00e0279d93cb86fe538884a8a2f2e1865",
+      "quote": "**对象存储：** 制品、LFS 对象、图片及附件占用的存储空间，免费额度 `100GiB`。"
+    },
+    {
+      "url": "https://cnb.cool/wmde/attachments",
+      "date": "2026-11-25",
+      "proved": "the attachment plugin still states a 64GB single-file ceiling",
+      "capture": "sha256:b08b86ea1bbeb5d83d483934c5fb35c67994626033a2074bdaedaebfb41ab87a",
+      "quote": "支持 commit 和 release 上传或下载附件，目前暂支持 64GB 以内的文件上传。"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:12.223Z",
+  "verified_at": "2026-11-25T04:14:17.955Z",
   "notes": "Per top-level org, free tier per month: '仓库存储 100 GiB' + '对象存储 100 GiB' (object storage covers '制品、LFS 对象、图片及附件'), plus 160 build-CPU core-hours and 1600 dev-CPU core-hours. Over-quota is metered at ¥1/GiB/month, and storage is billed on daily average minus the free allowance. So staying under 100+100 GiB per org is genuinely free.",
   "history": [],
   "extras": {

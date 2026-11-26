@@ -20,13 +20,13 @@
     "notes": ""
   },
   "retention": {
-    "stated": "not applicable: a live tunnel, not stored bytes",
+    "stated": "the server runs for a chosen duration of 1 to 4 hours; the duration can be extended up to 3 times",
     "days": null,
     "source_url": "https://www.guildbit.com/",
     "notes": ""
   },
   "egress": {
-    "terms": "'Free servers are currently limited to 15 slots.' No bandwidth figure is published.; ingress: none",
+    "terms": "'Free servers are currently limited to 15 slots.' No bandwidth figure is published.",
     "metered": false,
     "free_allowance": "none published",
     "price_per_tb": null,
@@ -66,10 +66,31 @@
       "url": "https://www.guildbit.com/",
       "date": "2026-10-23",
       "proved": "'Free servers are currently limited to 15 slots'"
+    },
+    {
+      "url": "https://www.guildbit.com/",
+      "date": "2026-11-25",
+      "proved": "free servers are still limited to 15 slots and no byte allowance is published",
+      "capture": "sha256:1a79e2d5429c37283f0f725592e3dc8365c735f4af28216668b48ddb1d700e84",
+      "quote": "Free servers are currently limited to 15 slots"
+    },
+    {
+      "url": "https://www.guildbit.com/how-it-works",
+      "date": "2026-11-25",
+      "proved": "a server runs for a chosen duration of 1 to 4 hours and can be extended up to 3 times",
+      "capture": "sha256:0fd71c8873824aead6f5bbb063065b7dd7862da98ae3b6ae570a648b8f8bc229",
+      "quote": "Choose a duration for the server. From 1 to 4 hours. ... You may also extend the server duration up to 3 times!"
+    },
+    {
+      "url": "https://www.guildbit.com/",
+      "date": "2026-11-25",
+      "proved": "free servers are still limited to 15 slots, the published ceiling",
+      "capture": "sha256:1a79e2d5429c37283f0f725592e3dc8365c735f4af28216668b48ddb1d700e84",
+      "quote": "Free servers are currently limited to 15 slots"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T19:55:29.662Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Free hosted Mumble voice server provider. Provides managed Mumble voice servers on shared infrastructure rather than arbitrary UDP port forwarding.",

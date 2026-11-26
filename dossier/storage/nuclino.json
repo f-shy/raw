@@ -21,7 +21,7 @@
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.nuclino.com/pricing",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Emptying the trash deletes the contained items and collections permanently without the possibility of restoring them."
   },
   "egress": {
     "terms": "No egress pricing published; attachments served from app.nuclino.com. Not metered anywhere on the pricing page.",
@@ -91,10 +91,31 @@
       "proved": "an uploaded file is capped at 10 MB",
       "capture": "sha256:0bd76544b4c427ad0805f3136b6f05858a5a063d4580e842888e49c8573b64ff",
       "quote": "| `413` | The request body exceeds the maximum size of 100 KB, or an uploaded file exceeds the maximum size of 10 MB (`code`: `FILE_TOO_LARGE`). |"
+    },
+    {
+      "url": "https://help.nuclino.com/50920595-empty-the-trash",
+      "date": "2026-11-25",
+      "proved": "permanent deletion happens when the trash is emptied",
+      "capture": "sha256:9cba406e570a08c032e0f49fdad1bd9c1c684bad87202300e6ceaf5da0bd560e",
+      "quote": "Emptying the trash deletes the contained items and collections permanently without the possibility of restoring them."
+    },
+    {
+      "url": "https://www.nuclino.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the Free plan lists 50 items, 3 canvases and 2 GB total storage",
+      "capture": "sha256:ff5b4cdff63752c456901eeb4d265753cc05e8b2a2ef87e7214711e9693a613c",
+      "quote": "## Free\n\n/user/month\n\nThe basic version of Nuclino.\n\n[GET STARTED](https://app.nuclino.com/signup)\n\n- Up to 50 items\n- Up to 3 canvases\n- 2GB total storage"
+    },
+    {
+      "url": "https://help.nuclino.com/0a1bea6c-response-format-and-errors",
+      "date": "2026-11-25",
+      "proved": "the API caps an uploaded file at 10 MB",
+      "capture": "sha256:0bd76544b4c427ad0805f3136b6f05858a5a063d4580e842888e49c8573b64ff",
+      "quote": "| `413` | The request body exceeds the maximum size of 100 KB, or an uploaded file exceeds the maximum size of 10 MB (`code`: `FILE_TOO_LARGE`). |"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:27.599Z",
+  "verified_at": "2026-11-25T21:21:16.189Z",
   "notes": "Free plan: up to 50 items, up to 3 canvases, 2GB total storage.",
   "history": [],
   "extras": {

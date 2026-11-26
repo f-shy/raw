@@ -21,7 +21,7 @@
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://misskey.gg/api/meta",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Files uploaded to Drive can be downloaded at any time."
   },
   "egress": {
     "terms": "Free. Media is served from a plain path on the instance domain (observed scheme: https://sss.<instance>/sss/<shard>/<uuid>) with `Cache-Control: max-age=31536000, immutable`. No egress meter, no bandwidth charge, no signed URL.",
@@ -81,10 +81,24 @@
       "url": "probe:https://misskey.gg/api/meta",
       "date": "2026-10-22",
       "proved": "POST /api/meta {detail:true} 2026-10-22: 200, 3,228 B; policies.driveCapacityMb 1,024,000, policies.maxFileSizeMb 1024, top-level maxFileSize 262,144,000, emailRequiredForSignup true"
+    },
+    {
+      "url": "https://misskey-hub.net/en/docs/for-users/features/drive/",
+      "date": "2026-11-25",
+      "proved": "the official Drive documentation says uploaded files can be downloaded at any time",
+      "capture": "sha256:13dba6883a125f1e25f16c066cc0adbbd9647dee2e61c8fd0f93bdf4960ebf1a",
+      "quote": "Not only can files uploaded to Drive be downloaded at any time, but they can also be reused by selecting \"Attach Files from Drive\" when creating notes."
+    },
+    {
+      "url": "https://misskey-hub.net/en/docs/for-users/features/drive/",
+      "date": "2026-11-25",
+      "proved": "the official Drive documentation states that uploaded files can be downloaded at any time",
+      "capture": "sha256:13dba6883a125f1e25f16c066cc0adbbd9647dee2e61c8fd0f93bdf4960ebf1a",
+      "quote": "Not only can files uploaded to Drive be downloaded at any time, but they can also be reused by selecting \"Attach Files from Drive\" when creating notes."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T19:55:26.954Z",
   "notes": "1024000 MB = 1 TiB drive capacity PER USER, with a 250 MiB per-object cap: maxFileSizeMb reads 1024 (1 GiB) and the top-level maxFileSize of 262,144,000 bytes is enforced, so a 1 TiB drive at 250 MiB per object needs 4,096 uploads. This is the single largest per-user quota located on a live, registration-open fediverse instance.",
   "history": [],
   "extras": {

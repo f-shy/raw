@@ -20,7 +20,7 @@
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://web.archive.org/web/20260214235234id_/https://www.strato.de/cloud-speicher/valentinsaktion/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "HiDrive macht von Ihren Dateien regelmäßig automatische Backups, wenn Sie das möchten. Sie können selber einstellen, wie oft und wie lange sie gespeichert werden sollen und ob Sie das komplette Backup oder nur einzelne Dateien einspielen wollen."
   },
   "egress": {
     "terms": "No traffic meter appears on the HiDrive plan page; the plan is sold on capacity only. Unverified whether egress is genuinely unmetered. Strato does not publish a traffic line for HiDrive, which in the German market usually means no byte meter.",
@@ -36,7 +36,7 @@
     "ssh",
     "rclone"
   ],
-  "interface_detail": "rest",
+  "interface_detail": "Zugriffsmöglichkeiten sind SFTP, WebDAV, SMB, rsync, SCP und Git.",
   "tooling": "Features a first-class rclone 'hidrive' backend (added v1.59, Tier 1) along with WebDAV, SMB/CIFS, SFTP/FTPS, and rsync over SSH.",
   "chaining": "One promo contract per customer per year, but the promo is ANNUAL and structural. LowEndTalk users state 'They do this every year' (Feb 2024, Feb 2025, Feb 2026 all ran a 1 TB-for-a-year campaign). So the repeatability is temporal, not per-account: N years x 1 TB with a cancel-before-renewal ritual, or N household members x 1 TB.",
   "limits": [
@@ -89,10 +89,45 @@
       "proved": "the current HiDrive plan page now lists 1 TB for 12 months at EUR 0.50, not the archived EUR 0 promo",
       "capture": "sha256:b9ce578b15c37c52e6a3d2dc1d2186c96f641a681b03c3bf39d44759df8c2c5d",
       "quote": "HIDRIVE\n\n### Basic\n\n1 TB\n\n- **0,50 €**\n- für 12 Monate\n- - danach 5 €/Mon."
+    },
+    {
+      "url": "https://www.strato.de/cloud-speicher/hidrive/",
+      "date": "2026-11-25",
+      "proved": "the HiDrive plan page states user-configurable automatic backup frequency and duration",
+      "capture": "sha256:b9ce578b15c37c52e6a3d2dc1d2186c96f641a681b03c3bf39d44759df8c2c5d",
+      "quote": "HiDrive macht von Ihren Dateien regelmäßig automatische Backups, wenn Sie das möchten. Sie können selber einstellen, wie oft und wie lange sie gespeichert werden sollen und ob Sie das komplette Backup oder nur einzelne Dateien einspielen wollen."
+    },
+    {
+      "url": "https://www.strato.de/cloud-speicher/",
+      "date": "2026-11-25",
+      "proved": "the HiDrive page lists the SFTP, WebDAV, SMB, rsync, SCP and Git access methods",
+      "capture": "sha256:673257bf09a345216142fd6ebb58fe569c00991dfcb3374484f0adf895ab4741",
+      "quote": "Zugriffsmöglichkeiten sind SFTP, WebDAV, SMB, rsync, SCP und Git."
+    },
+    {
+      "url": "https://www.strato.de/cloud-speicher/",
+      "date": "2026-11-25",
+      "proved": "the HiDrive page states no file-size limit",
+      "capture": "sha256:673257bf09a345216142fd6ebb58fe569c00991dfcb3374484f0adf895ab4741",
+      "quote": "Große Dateien online in der Cloud zu speichern ist mit HiDrive einfach: Es gibt keine Begrenzung der Dateigrößen. Der Speicherplatz, der Ihnen zur Verfügung steht, ist lediglich durch das gebuchte Produkt begrenzt."
+    },
+    {
+      "url": "https://www.strato.de/cloud-speicher/hidrive/",
+      "date": "2026-11-25",
+      "proved": "the plan page states configurable backup duration",
+      "capture": "sha256:b9ce578b15c37c52e6a3d2dc1d2186c96f641a681b03c3bf39d44759df8c2c5d",
+      "quote": "HiDrive macht von Ihren Dateien regelmäßig automatische Backups, wenn Sie das möchten. Sie können selber einstellen, wie oft und wie lange sie gespeichert werden sollen und ob Sie das komplette Backup oder nur einzelne Dateien einspielen wollen."
+    },
+    {
+      "url": "https://www.strato.de/cloud-speicher/",
+      "date": "2026-11-25",
+      "proved": "the HiDrive page lists the access protocols",
+      "capture": "sha256:673257bf09a345216142fd6ebb58fe569c00991dfcb3374484f0adf895ab4741",
+      "quote": "Zugriffsmöglichkeiten sind SFTP, WebDAV, SMB, rsync, SCP und Git."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-19T21:15:23.337Z",
+  "verified_at": "2026-11-25T19:55:22.269Z",
   "notes": "1 TB, 12 months, €0 (setup €0). Regular price after the free year is €5/month. Captured promo page states verbatim: 'HIDRIVE Basic | 1 TB | 12 Monate | 0 € | danach 5 €/Mon.' STATUS CAVEAT: the 2026 round closed on 15.02.26 ('Nur bis 15.02.26') and the live valentinsaktion URL now 301s away, so this is NOT orderable today — it is recorded as an annual recurring window (Feb), which is what makes it the slot's only repeatable >=1 TB free allocation.",
   "history": [],
   "extras": {

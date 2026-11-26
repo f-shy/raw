@@ -60,10 +60,17 @@
       "url": "https://github.com/anderspitman/awesome-tunneling",
       "date": "2026-10-23",
       "proved": "'No public ports, only in-SSH connectivity' (third party)"
+    },
+    {
+      "url": "https://ssh-j.com/",
+      "date": "2026-11-25",
+      "proved": "published hosts are reached through the jump host by username; the page describes no public port",
+      "capture": "sha256:c1b129605d4d5feb9595bd8f315446fee728450706d572c3681874df42a9e63f",
+      "quote": "Published hosts are bound to the username. Other usernames can't access them."
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:47.897Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "A free anonymous jump host is useful for reaching out, not for being reached.",

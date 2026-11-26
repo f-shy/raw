@@ -6,7 +6,7 @@
   "category": "http tunnel (domain now serves unrelated content)",
   "tier": "dead",
   "free_tier": {
-    "stated": "No offer: the domain returns a gambling-site page instead of the tunnel service.",
+    "stated": "No offer: the domain returns an unrelated blog post instead of the tunnel service.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://tabserve.dev/",
@@ -53,12 +53,28 @@
   "evidence": [
     {
       "url": "https://tabserve.dev/",
-      "date": "2026-10-23",
-      "proved": "the page served is Indonesian gambling copy (JAWA138), not a tunnel product"
+      "date": "2026-11-25",
+      "proved": "the tabserve.dev root serves an unrelated blog post, not a tunnel product",
+      "capture": "sha256:b7e8b8b59cbc74decb51927ec6eac19ab589d8edbf24e294270e48bd9dcb73ef",
+      "quote": "# [The Bureaucracy of the Acacia Tree](https://abydosarchive.org/2019/04/23/the-bureaucracy-of-the-acacia-tree/)"
+    },
+    {
+      "url": "https://tabserve.dev/",
+      "date": "2026-11-25",
+      "proved": "the tabserve.dev root serves an unrelated blog post",
+      "capture": "sha256:b7e8b8b59cbc74decb51927ec6eac19ab589d8edbf24e294270e48bd9dcb73ef",
+      "quote": "# [The Bureaucracy of the Acacia Tree](https://abydosarchive.org/2019/04/23/the-bureaucracy-of-the-acacia-tree/)"
+    },
+    {
+      "url": "https://tabserve.dev/",
+      "date": "2026-11-25",
+      "proved": "no tunnel service is served; the verdict stays dead",
+      "capture": "sha256:b7e8b8b59cbc74decb51927ec6eac19ab589d8edbf24e294270e48bd9dcb73ef",
+      "quote": "# [The Bureaucracy of the Acacia Tree](https://abydosarchive.org/2019/04/23/the-bureaucracy-of-the-acacia-tree/)"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:48.362Z",
   "price_per_tb_month": "n/a",
   "history": [],
   "notes": "Service domain tabserve.dev is inactive.",

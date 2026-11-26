@@ -41,19 +41,19 @@
   "limits": [
     {
       "kind": "volume-quota",
-      "value": "daily check-in grant, amount unpublished",
-      "source": "https://www.nodeseek.com/post-570663-1"
+      "value": "daily check-in grant of 1000~4000 GB, per a third-party post",
+      "source": "https://blog.rimrose.work/posts/locyanfrp/locyanfrp/"
     }
   ],
   "limits_note": "",
   "binding": "volume-quota",
   "binding_note": "The only metering described is a daily check-in grant of unknown size, so the quota is what would fail first.",
   "identity_cost": {
-    "kind": "email",
-    "detail": "Panel registration per the roundup; real-name requirements not stated.",
+    "kind": "national-id",
+    "detail": "Two-level real-name verification is reported; the document or provider used is not stated in the sources read.",
     "country": "None"
   },
-  "reliability_note": "On 2026-11-03 the name www.locyanfrp.cn answered with a CNAME to www.locyanfrp.cn.a1.inithh.com and DNS status 3 (NXDOMAIN) at a public DNS-over-HTTPS resolver, so the site name resolves to no address.",
+  "reliability_note": "The name www.locyanfrp.cn had no DNS answer on 2026-11-25.",
   "confidence": "unverified",
   "confidence_note": "Provider endpoint returned HTTP 530 on 2026-10-23, indicating origin connectivity failures.",
   "evidence": [
@@ -101,10 +101,59 @@
       "proved": "the Wayback Machine copy of the apex dated 2026-05-15 is a CDN not-found page, so the domain was not bound to a site on that date",
       "capture": "sha256:58dbf2699dcb0d0d2732b5f7b54e443ee2ffcbf9ddde9cc08ba160540d52b441",
       "quote": "Sorry, Please confirm that this domain name has been bound to your website."
+    },
+    {
+      "url": "probe:https://www.locyanfrp.cn/",
+      "date": "2026-11-25",
+      "proved": "the first-party name still had no DNS answer on 2026-11-25",
+      "capture": "sha256:6676f5134fdd5aebe858d397106f63ea64fea4b85796e0d6e6c379ee46ecf364",
+      "quote": "\"error\": \"dns\""
+    },
+    {
+      "url": "https://blog.rimrose.work/posts/locyanfrp/locyanfrp/",
+      "date": "2026-11-25",
+      "proved": "a third-party user report states the size of the daily check-in grant",
+      "capture": "sha256:1512c279be394ddfad9fff4dc1a9b7b9a435a8b832448bfe6ce4110b7c5279d8",
+      "quote": "每天签到 1000~4000GB 流量"
+    },
+    {
+      "url": "https://blog.rimrose.work/posts/locyanfrp/locyanfrp/",
+      "date": "2026-11-25",
+      "proved": "the post that states the check-in amount is the source named by the updated limit",
+      "capture": "sha256:1512c279be394ddfad9fff4dc1a9b7b9a435a8b832448bfe6ce4110b7c5279d8",
+      "quote": "每天签到 1000~4000GB 流量"
+    },
+    {
+      "url": "https://blog.rimrose.work/posts/locyanfrp/locyanfrp/",
+      "date": "2026-11-25",
+      "proved": "a third-party user report says two levels of real-name verification are needed",
+      "capture": "sha256:1512c279be394ddfad9fff4dc1a9b7b9a435a8b832448bfe6ce4110b7c5279d8",
+      "quote": "通过两级实名认证就能用了（实测我只通过二级认证会无法使用）"
+    },
+    {
+      "url": "https://blog.rimrose.work/posts/locyanfrp/locyanfrp/",
+      "date": "2026-11-25",
+      "proved": "a third-party user report describes the verification gate",
+      "capture": "sha256:1512c279be394ddfad9fff4dc1a9b7b9a435a8b832448bfe6ce4110b7c5279d8",
+      "quote": "通过两级实名认证就能用了（实测我只通过二级认证会无法使用）"
+    },
+    {
+      "url": "https://blog.rimrose.work/posts/locyanfrp/locyanfrp/",
+      "date": "2026-11-25",
+      "proved": "a third-party user report states the check-in grant and the real-name gate",
+      "capture": "sha256:1512c279be394ddfad9fff4dc1a9b7b9a435a8b832448bfe6ce4110b7c5279d8",
+      "quote": "每天签到 1000~4000GB 流量 ... 通过两级实名认证就能用了（实测我只通过二级认证会无法使用）"
+    },
+    {
+      "url": "https://www.locyan.cn/archives/le-qing-ying-she-locyanfrp-v3-geng-xin-ji-hua",
+      "date": "2026-11-25",
+      "proved": "the team site describes a free V3 service and a migration address",
+      "capture": "sha256:ea17b87d21fa56ea450301c94b284d09426a87f0ed3bd22607c12825e97b7ed3",
+      "quote": "V3 迁移网址：https://migrate.locyanfrp.cn ... 以上功能都由我们这一款**完全公益免费**的内网穿透提供"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-11-03T10:32:54.108Z",
+  "verified_at": "2026-11-25T09:55:01.929Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Recorded because the roundup ranks it, but the site did not answer today. HTTP 530 is Cloudflare reporting an origin DNS or connection failure, which usually means the backend is down rather than the page being blocked. Do not treat this as settled death without a second look.",

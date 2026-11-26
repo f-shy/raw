@@ -15,15 +15,15 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.strato.de/cloud-speicher/hidrive-business/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Große Dateien online in der Cloud zu speichern, ist mit HiDrive kein Problem: Es gibt keine Begrenzung der Dateigrößen. Der Speicherplatz, der Ihnen zur Verfügung steht, ist lediglich durch den gebuchten Tarif begrenzt."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.strato.de/cloud-speicher/hidrive-business/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Von Ihren Daten werden automatisch und regelmäßig Backups erstellt. Dabei werden sogenannte Versionsstände (Snapshots) gespeichert, so dass Ihre Daten jederzeit wiederhergestellt werden können. Den zeitlichen Abstand dazu können Sie jederzeit in Ihrem HiDrive im Webbrowser anpassen."
   },
   "egress": {
-    "terms": "Im Business Essential und Standard Tarif sind die Zugriffsmöglichkeiten WebDAV und SMB inklusive. Wenn Sie sich den Advanced oder Premium Tarif gesichert haben, sind alle genannten Zugriffsmöglichkeiten inklusive.",
+    "terms": "HiDrive Business gibt es in verschiedenen Speichergrößen, ohne Limitierung von Bandbreite und Dateigröße.",
     "metered": false
   },
   "interface": [
@@ -35,7 +35,7 @@
     "git",
     "rclone"
   ],
-  "interface_detail": "WebDAV, SMB (lower tiers); + SFTP/SCP/rsync/Git (Advanced/Premium). rclone hidrive backend exists",
+  "interface_detail": "WebDAV, SMB, (S)FTP/FTPS, rsync, SCP, Git",
   "tooling": "rclone `hidrive` backend",
   "chaining": "rclone mount → Cloudflare",
   "limits": [],
@@ -91,10 +91,66 @@
       "proved": "the access page states that WebDAV and SMB are included on Essential and Standard and all listed protocols on Advanced and Premium",
       "capture": "sha256:810f07d5fe553551a8f4d29bbaaac1d045430188962e034fa06ff7c588518f59",
       "quote": "Im Business Essential und Standard Tarif sind die Zugriffsmöglichkeiten WebDAV und SMB inklusive. Wenn Sie sich den Advanced oder Premium Tarif gesichert haben, sind alle genannten Zugriffsmöglichkeiten inklusive."
+    },
+    {
+      "url": "https://www.strato.de/cloud-speicher/hidrive-business/",
+      "date": "2026-11-25",
+      "proved": "the Business page states no file-size limit and capacity set by the booked tariff",
+      "capture": "sha256:db89265248dfb1282255468c4a003b4b7ca837ad401dfb64176def28aa322b90",
+      "quote": "Große Dateien online in der Cloud zu speichern, ist mit HiDrive kein Problem: Es gibt keine Begrenzung der Dateigrößen. Der Speicherplatz, der Ihnen zur Verfügung steht, ist lediglich durch den gebuchten Tarif begrenzt."
+    },
+    {
+      "url": "https://www.strato.de/cloud-speicher/hidrive-business/",
+      "date": "2026-11-25",
+      "proved": "the Business page states automatic snapshot backups and a user-adjustable interval",
+      "capture": "sha256:db89265248dfb1282255468c4a003b4b7ca837ad401dfb64176def28aa322b90",
+      "quote": "Von Ihren Daten werden automatisch und regelmäßig Backups erstellt. Dabei werden sogenannte Versionsstände (Snapshots) gespeichert, so dass Ihre Daten jederzeit wiederhergestellt werden können. Den zeitlichen Abstand dazu können Sie jederzeit in Ihrem HiDrive im Webbrowser anpassen."
+    },
+    {
+      "url": "https://www.strato.de/cloud-speicher/hidrive-business/",
+      "date": "2026-11-25",
+      "proved": "the Business FAQ states no bandwidth and no file-size limitation",
+      "capture": "sha256:db89265248dfb1282255468c4a003b4b7ca837ad401dfb64176def28aa322b90",
+      "quote": "HiDrive Business gibt es in verschiedenen Speichergrößen, ohne Limitierung von Bandbreite und Dateigröße."
+    },
+    {
+      "url": "https://www.strato.de/cloud-speicher/hidrive-business/",
+      "date": "2026-11-25",
+      "proved": "the Business feature table lists the Advanced and Premium protocol set",
+      "capture": "sha256:db89265248dfb1282255468c4a003b4b7ca837ad401dfb64176def28aa322b90",
+      "quote": "WebDAV, SMB, (S)FTP/FTPS, rsync, SCP, Git"
+    },
+    {
+      "url": "https://www.strato.de/cloud-speicher/hidrive-business/",
+      "date": "2026-11-25",
+      "proved": "the Business page states no file-size limit",
+      "capture": "sha256:db89265248dfb1282255468c4a003b4b7ca837ad401dfb64176def28aa322b90",
+      "quote": "Große Dateien online in der Cloud zu speichern, ist mit HiDrive kein Problem: Es gibt keine Begrenzung der Dateigrößen. Der Speicherplatz, der Ihnen zur Verfügung steht, ist lediglich durch den gebuchten Tarif begrenzt."
+    },
+    {
+      "url": "https://www.strato.de/cloud-speicher/hidrive-business/",
+      "date": "2026-11-25",
+      "proved": "the Business page states snapshot backups and adjustable interval",
+      "capture": "sha256:db89265248dfb1282255468c4a003b4b7ca837ad401dfb64176def28aa322b90",
+      "quote": "Von Ihren Daten werden automatisch und regelmäßig Backups erstellt. Dabei werden sogenannte Versionsstände (Snapshots) gespeichert, so dass Ihre Daten jederzeit wiederhergestellt werden können. Den zeitlichen Abstand dazu können Sie jederzeit in Ihrem HiDrive im Webbrowser anpassen."
+    },
+    {
+      "url": "https://www.strato.de/cloud-speicher/hidrive-business/",
+      "date": "2026-11-25",
+      "proved": "the Business FAQ states no bandwidth limitation",
+      "capture": "sha256:db89265248dfb1282255468c4a003b4b7ca837ad401dfb64176def28aa322b90",
+      "quote": "HiDrive Business gibt es in verschiedenen Speichergrößen, ohne Limitierung von Bandbreite und Dateigröße."
+    },
+    {
+      "url": "https://www.strato.de/cloud-speicher/hidrive-business/",
+      "date": "2026-11-25",
+      "proved": "the Business feature table lists the protocol set",
+      "capture": "sha256:db89265248dfb1282255468c4a003b4b7ca837ad401dfb64176def28aa322b90",
+      "quote": "WebDAV, SMB, (S)FTP/FTPS, rsync, SCP, Git"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T03:34:16.343Z",
+  "verified_at": "2026-11-25T19:55:22.269Z",
   "price_per_tb_month": "10 TB €90 ÷ 10 = €9.00/TB/mo. 5 TB €55 ÷ 5 = €11.00/TB. 3 TB €30 ÷ 3 = €10.00/TB. 1 TB €17.50/TB. ≈$10.44/TB at best. 4.4× Hetzner BX41 for the same capacity.",
   "notes": "1 / 3 / 5 / 10 TB",
   "history": [],

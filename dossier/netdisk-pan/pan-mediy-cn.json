@@ -117,10 +117,17 @@
       "proved": "the /api/public/settings request answered HTTP 200 in this run",
       "capture": "sha256:aa0d7abf661c6c367efb59bfceef698c3f1b8c2d4c5077ca7efea2d1d78edbc0",
       "quote": "\"status\": 200"
+    },
+    {
+      "url": "probe:https://pan.mediy.cn/",
+      "date": "2026-11-25",
+      "proved": "the anonymous settings and mount-list requests answered at this instant",
+      "capture": "sha256:05808d255528fefca8404bf59d84af8ee6bb4fcaf078cf7b11d577f407738ab6",
+      "quote": "\"alive\": true"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:07.760Z",
+  "verified_at": "2026-11-25T21:46:10.684Z",
   "binding": "write-gated",
   "notes": "Contains 7 root entries. Advertised write permissions are denied on execution. Responded as an active API endpoint on 2026-10-22 and intermittently failed to respond on separate test queries.",
   "history": [],
@@ -137,7 +144,7 @@
     "listing_sha256": "89803c56",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-19T03:36:51.233Z",
+    "last_verified_alive": "2026-11-25T02:34:39.637Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "aliases": [

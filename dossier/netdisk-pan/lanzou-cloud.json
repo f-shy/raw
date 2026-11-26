@@ -5,11 +5,11 @@
   "url": "https://www.lanzou.com",
   "category": "consumer-pan",
   "free_tier": {
-    "stated": "Unlimited total storage on the free tier: '拥有无限制的总存储空间'. The per-file cap is on the per-object field",
+    "stated": "Unlimited total storage: '拥有无限制的总存储空间'",
     "unit": "unlimited",
     "metered_on": "stored-bytes",
     "source_url": "https://www.lanzou.com/",
-    "read_on": "2026-10-21"
+    "read_on": "2026-11-25"
   },
   "per_object_cap": {
     "stated": "100 MB per file on the free tier: '不限空间大小，不限下载速度，只是限制文件大小，最大不超过100M/个文件'",
@@ -22,7 +22,7 @@
     "source_url": "https://www.lanzou.com/"
   },
   "egress": {
-    "terms": "Free and explicitly unmetered: '下载不限速度，不限流量，不限次数，免登录下载'. The free product is ad-funded and the FAQ states 我们对下载速度不做任何限制",
+    "terms": "Free and explicitly unmetered: '下载不限速度，不限流量，不限次数，免登录下载'",
     "metered": false,
     "free_allowance": "unlimited",
     "price_per_tb": null,
@@ -120,10 +120,31 @@
       "proved": "downloads are stated as unlimited in speed, volume and count, with no login",
       "capture": "sha256:5b05f639888fc838d484db8cbd6c9eab5b1697c8de56482ddb0f69de4e20a18d",
       "quote": "下载不限速度，不限流量，不限次数，免登录下载！"
+    },
+    {
+      "url": "https://www.lanzou.com/",
+      "date": "2026-11-25",
+      "proved": "the vendor page states unlimited total storage",
+      "capture": "sha256:5b05f639888fc838d484db8cbd6c9eab5b1697c8de56482ddb0f69de4e20a18d",
+      "quote": "拥有无限制的总存储空间，支持个性化定制。"
+    },
+    {
+      "url": "https://www.lanzou.com/",
+      "date": "2026-11-25",
+      "proved": "the vendor page states downloads are unthrottled, unmetered, uncounted and login-free",
+      "capture": "sha256:5b05f639888fc838d484db8cbd6c9eab5b1697c8de56482ddb0f69de4e20a18d",
+      "quote": "下载不限速度，不限流量，不限次数，免登录下载！"
+    },
+    {
+      "url": "https://www.lanzou.com/q/zh/wt.htm",
+      "date": "2026-11-25",
+      "proved": "the FAQ states there is no download speed limit",
+      "capture": "sha256:7e8a90a2f237da17ff49a17e0c044cd5018e88a2b8103daf8b8a6ab0f4281d02",
+      "quote": "我们对下载速度不做任何限制。"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-04T00:21:07.070Z",
+  "verified_at": "2026-11-25T15:23:48.018Z",
   "history": [],
   "binding": "per-object-cap",
   "binding_note": "The total is genuinely unlimited and the egress is genuinely free, so nothing about capacity or traffic binds. 100 MB per object over a 10 TiB working set is 105,000 objects, which makes the file count the problem before the bytes.",

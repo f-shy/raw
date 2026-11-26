@@ -110,10 +110,45 @@
       "proved": "the WebDAV endpoint answers a SabreDAV NotAuthenticated error, so it is a live auth-gated WebDAV server",
       "capture": "sha256:60fb26fe83b9e3679787fd7a4ff5928c72e054b69eb2f29b53566343cb4c61ce",
       "quote": "Sabre\\DAV\\Exception\\NotAuthenticated"
+    },
+    {
+      "url": "https://wiki.ploud.fr/doku.php?id=services%3Aploud_storage",
+      "date": "2026-11-25",
+      "proved": "the operator still documents a dedicated 500 GB or 1 TB space and a WebDAV URL",
+      "capture": "sha256:23153a6b99e58e63495610616e994ba7b33bfa4df16c97a31f5fbf4c9d4b708e",
+      "quote": "Vous disposez d'un espace de 500 Go ou 1 To qui vous est dédié."
+    },
+    {
+      "url": "https://storage.ploud.fr",
+      "date": "2026-11-25",
+      "proved": "the login page still sets a 7-day public-link expiry default",
+      "capture": "sha256:ca8f5f5073df0d13cfa2faf9e3599c63535fa18db6b40bbab324c397105b9b53",
+      "quote": "var oc_appconfig={\"core\":{\"defaultExpireDateEnabled\":true,\"defaultExpireDate\":7,\"defaultExpireDateEnforced\":false,\"enforcePasswordForPublicLink\":false,\"enableLinkPasswordByDefault\":true,\"sharingDisabledForUser\":false,\"resharingAllowed\":false,\"remoteShareAllowed\":false,\"federatedCloudShareDoc\":\"https:\\/\\/docs.nextcloud.com\\/server\\/31\\/go.php?to=user-sharing-federated\",\"allowGroupSharing\":false,\"defaultInternalExpireDateEnabled\":false,\"defaultInternalExpireDateEnforced\":null}};"
+    },
+    {
+      "url": "https://www.ploud.fr/js/off/ploud-off.js",
+      "date": "2026-11-25",
+      "proved": "signup still posts the form; the form validates a required telephone field and a reCAPTCHA token",
+      "capture": "sha256:6d87d41f8f437e2a4682b676c5ffc8f402fc4e3e7d446dd918100126e56da7dc",
+      "quote": "$.ajax({ url: 'php/create_userv2.php', type: 'POST',  data: formData, async: true,"
+    },
+    {
+      "url": "probe:https://storage.ploud.fr/status.php",
+      "date": "2026-11-25",
+      "proved": "the server still answers the installed Nextcloud 31.0.6.2 status JSON",
+      "capture": "sha256:039272e421cd1c62d07164a8fb7fe40c692b900adcb8d302052b2e8c705541ef",
+      "quote": "\"version\":\"31.0.6.2\""
+    },
+    {
+      "url": "probe:https://storage.ploud.fr/remote.php/dav/",
+      "date": "2026-11-25",
+      "proved": "the WebDAV path answers 401 to an anonymous caller",
+      "capture": "sha256:bb4b38f8d2db00e3f27ad1a9090146a8fb12373479173a57cc4ae30f4a130769",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-04T00:20:59.760Z",
+  "verified_at": "2026-11-25T04:14:26.912Z",
   "history": [],
   "binding": "write-gated",
   "binding_note": "1 TB free with a working WebDAV endpoint clears the capacity and protocol filters. What binds is the signup: a phone number and an address are collected, and the form is a single-sponsor instance's only gate, so an account that survives is a favour rather than a contract.",

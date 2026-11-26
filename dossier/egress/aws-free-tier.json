@@ -26,9 +26,9 @@
     "notes": ""
   },
   "egress": {
-    "terms": "$100 of credit at $0.09 per GB is 1.01 TiB, or $200 for 2.02 TiB, plus 100 GB a month free; across 6 months that is 0.26 to 0.43 TiB a month; ingress: udp",
+    "terms": "100 GB a month of data transfer out to the internet is free, aggregated across all AWS Services and Regions (except China and GovCloud)",
     "metered": true,
-    "free_allowance": "$100 of credit at $0.09 per GB is 1.01 TiB, or $200 for 2.02 TiB, plus 100 GB a month free; across 6 months that is 0.26 to 0.43 TiB a month",
+    "free_allowance": "100 GB a month of data transfer out to the internet, aggregated across all AWS Services and Regions (except China and GovCloud)",
     "price_per_tb": null,
     "source_url": "https://aws.amazon.com/free/"
   },
@@ -42,8 +42,8 @@
   "limits": [
     {
       "kind": "volume-quota",
-      "value": "$100 to $200 of egress at $0.09 per GB is 1.01 to 2.02 TiB, plus 100 GB a month free",
-      "source": "https://aws.amazon.com/ec2/pricing/on-demand/"
+      "value": "$100 in credits at account creation and up to $100 more earned, up to $200 over 6 months; a dollar amount, not a byte count",
+      "source": "https://aws.amazon.com/free/"
     },
     {
       "kind": "retention-clamped",
@@ -77,10 +77,31 @@
       "url": "https://b0.p.awsstatic.com/pricing/2.0/meteredUnitMaps/datatransfer/USD/current/datatransfer.json",
       "date": "2026-10-23",
       "proved": "the price feed the EC2 page renders: us-east-1 'DataTransfer External Outbound Next 10 TB' price 0.0900000000 and 'DataTransfer External Inbound' price 0.0000000000, published 2026-09-16"
+    },
+    {
+      "url": "https://aws.amazon.com/free/",
+      "date": "2026-11-25",
+      "proved": "the credit is $100 up front, up to $200 over 6 months; the page states no byte figure and no data-transfer rate",
+      "capture": "sha256:efe50e26f77a55bfa95991cb579bcc5a3680202b29105c51b557258e4539335a",
+      "quote": "When you create a new AWS Free Tier account, you get $100 in credits immediately. As you explore key services, you can earn up to $100 more. That's up to $200 over 6 months"
+    },
+    {
+      "url": "https://aws.amazon.com/ec2/pricing/on-demand/",
+      "date": "2026-11-25",
+      "proved": "100 GB a month of data transfer out to the internet is free",
+      "capture": "sha256:1f8b073d6e2a8eacbe8f52c8a83484b1ce7ec0918817b8dd1caa0e79b7bdd582",
+      "quote": "AWS customers receive 100 GB of free data transfer out to the internet free each month, aggregated across all AWS Services and Regions (except China and GovCloud)."
+    },
+    {
+      "url": "https://aws.amazon.com/free/",
+      "date": "2026-11-25",
+      "proved": "the account closes at 6 months or when the credits run out",
+      "capture": "sha256:efe50e26f77a55bfa95991cb579bcc5a3680202b29105c51b557258e4539335a",
+      "quote": "The account closes on its own 6 months after you open it or when your credits run out, whichever comes first."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:54.995Z",
   "price_per_tb_month": "USD 100 to 200 of credit",
   "history": [],
   "notes": "Arithmetic: $100 over $0.09 a GB is 1,111 GB = 1.01 TiB, and $200 is 2,222 GB = 2.02 TiB. Spread across the 6 months the account lives, $100 is $16.67 a month, or 185 GB, plus the 100 GB free each month, so 285 GB = 0.28 TiB a month; with the full $200 it is 0.43 TiB. The old 12-month Free Tier with 100 GB a month egress for a year is gone from this page; what replaced it is a credit that a reader has to earn half of. The always-free line, which the page describes as '30+ AWS services are always free within monthly usage limits', does not include a t3.micro with a public IPv4.",

@@ -26,7 +26,7 @@
     "notes": ""
   },
   "egress": {
-    "terms": "Unmetered in the sense that nothing is capped: USD 0.025 per accelerator-hour plus DT-Premium of USD 0.015/GB for the first 10 TB from United States and Canada or Europe. 1 TiB/month is 1,099.5 GB at USD 0.015, about USD 16.49, plus USD 18 of fixed fee.; ingress: tcp+udp",
+    "terms": "USD 0.025 per accelerator-hour plus DT-Premium per GB on top of standard Data Transfer rates; DT-Premium is USD 0.015/GB from United States & Canada or Europe & Israel to United States, Mexico, Canada or Europe edge locations; no byte cap is stated on the page",
     "metered": false,
     "free_allowance": "none published",
     "price_per_tb": null,
@@ -42,18 +42,18 @@
   "limits": [
     {
       "kind": "volume-quota",
-      "value": "no free allowance; USD 0.015/GB DT-Premium in United States and Canada and in Europe, higher in other regions",
+      "value": "DT-Premium from United States & Canada is $0.015/GB to United States, Mexico, Canada and Europe edge locations and up to $0.105/GB to others, on top of standard Data Transfer rates",
       "source": "https://aws.amazon.com/global-accelerator/pricing/"
     },
     {
       "kind": "request-rate",
-      "value": "USD 0.025 per accelerator-hour whether enabled or disabled",
+      "value": "USD 0.025 per accelerator-hour for each provisioned accelerator, enabled or disabled",
       "source": "https://aws.amazon.com/global-accelerator/pricing/"
     }
   ],
   "limits_note": "",
   "binding": "none",
-  "binding_note": "No byte cap exists: cost is linear in GB. At 1 TiB/month the bill is about USD 34 and nothing throttles. The real ceiling is that the endpoint must be an AWS resource, so this is ingress to AWS rather than to a machine already running elsewhere.",
+  "binding_note": "No byte cap is stated: cost is linear in GB, a fixed USD 0.025 per accelerator-hour plus DT-Premium per GB, on top of standard Data Transfer rates. The endpoint must be an AWS resource (Network Load Balancer, Application Load Balancer, EC2 instance or Elastic IP address).",
   "identity_cost": {
     "kind": "card",
     "detail": "An AWS account with a payment method; there is no free-tier accelerator.",
@@ -77,10 +77,31 @@
       "url": "https://aws.amazon.com/global-accelerator/pricing/",
       "date": "2026-10-23",
       "proved": "We are charged $0.025 per accelerator-hour, and DT-Premium is $0.015/GB for the first 10 TB from United States & Canada and Europe"
+    },
+    {
+      "url": "https://aws.amazon.com/global-accelerator/pricing/",
+      "date": "2026-11-25",
+      "proved": "every provisioned accelerator, enabled or disabled, pays a fixed hourly fee plus DT-Premium on top of standard Data Transfer rates",
+      "capture": "sha256:9243e6f32e208dfe794ddaae822de4c483d8949e6429cee8b231c36f6a91a9bb",
+      "quote": "For every accelerator that is provisioned (both enabled and disabled), you are charged a fixed hourly fee and an incremental charge over your standard Data Transfer rates"
+    },
+    {
+      "url": "https://aws.amazon.com/global-accelerator/pricing/",
+      "date": "2026-11-25",
+      "proved": "DT-Premium per GB by destination for a United States & Canada source",
+      "capture": "sha256:9243e6f32e208dfe794ddaae822de4c483d8949e6429cee8b231c36f6a91a9bb",
+      "quote": "| Source: United States & Canada | $0.015 /GB | $0.015 /GB | $0.035 /GB | $0.035 /GB | $0.035 /GB | $0.105 /GB | $0.035 /GB | $0.040 /GB | $0.079 /GB |"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints.html",
+      "date": "2026-11-25",
+      "proved": "standard-accelerator endpoints are AWS resources",
+      "capture": "sha256:58e3f757c38e1d9cb8fdad9506486b72e185f9b141dfd159a03285a12f1a3d4d",
+      "quote": "Endpoints for standard accelerators in AWS Global Accelerator can be Network Load Balancers, Application Load Balancers, Amazon EC2 instances, or Elastic IP addresses."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:54.996Z",
   "price_per_tb_month": "USD 18 per month plus USD 0.015 per GB",
   "history": [],
   "notes": "The cleanest documented UDP anycast in the lane and the only one with a published per-GB rate, but the endpoint list is AWS-only, so a free VM on Oracle or GCP cannot be the origin. Compared with Gcore (EUR 17/month flat) it is cheaper at low volume and has no rule model, but it buys reachability into AWS, which the VM already had.",

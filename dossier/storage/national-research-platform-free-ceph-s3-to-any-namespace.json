@@ -13,19 +13,19 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "per-object-cap: CephFS has 'a per-file size limit of 16 TB",
+    "stated": "There is a per-file size limit of 16 TB in CephFS. Ceph provides an S3-compatible protocol interface (with a per-file size limit of 5 TiB).",
     "bytes": 16000000000000,
     "source_url": "https://nrp.ai/documentation/userdocs/storage/ceph-s3/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The 16 TB limit is for CephFS files; the S3-compatible interface has a per-file size limit of 5 TiB."
   },
   "retention": {
-    "stated": "Retention: 'Any storage volume that was not accessed for 6 months can be purged without notification'. This is the hard floor on it as an archive.",
+    "stated": "Any volume that was not accessed for 6 months can be purged without notification.",
     "days": 180,
     "source_url": "https://nrp.ai/documentation/userdocs/storage/ceph-s3/",
-    "notes": "Extracted from published terms."
+    "notes": "unverified: no retention period beyond the 6-month purge rule is stated on the policies page"
   },
   "egress": {
-    "terms": "Free and unmetered ('free for our users'), served from university-hosted Ceph RGW pods across west/central/east.",
+    "terms": "It uses our own storage, which is free for our users and is not part of Amazon or any commercial cloud.",
     "metered": false
   },
   "interface": [
@@ -84,10 +84,31 @@
       "proved": "the Ceph S3 cluster is the provider's own storage and is free for its users",
       "capture": "sha256:944599bb35d80308cbf00de74b237db44cf8b5b57d67d1ffb1cfbedcf67bd6c1",
       "quote": "The Nautilus Ceph storage cluster can be accessed via S3 protocol. It uses our own storage, which is free for our users and is not part of Amazon or any commercial cloud."
+    },
+    {
+      "url": "https://nrp.ai/documentation/userdocs/storage/intro/",
+      "date": "2026-11-25",
+      "proved": "CephFS files are capped at 16 TB and the S3-compatible interface at 5 TiB per file",
+      "capture": "sha256:bd1a8fe0d062fb7445ca4a2d498c61e95f6123d40d6b2ffde1fd4e72c3458e08",
+      "quote": "There is a per-file size limit of 16 TB in CephFS. ... Ceph provides an S3-compatible protocol interface (with a per-file size limit of 5 TiB)."
+    },
+    {
+      "url": "https://nrp.ai/documentation/userdocs/start/policies/",
+      "date": "2026-11-25",
+      "proved": "an unaccessed volume can be purged after 6 months without notification",
+      "capture": "sha256:55ad7cf678f4ba1338861d922385eac61171a0c4098308bd4a00596a9b83f798",
+      "quote": "Any volume that was **not accessed for 6 months can be purged without notification**."
+    },
+    {
+      "url": "https://nrp.ai/documentation/userdocs/storage/ceph-s3/",
+      "date": "2026-11-25",
+      "proved": "the Nautilus Ceph storage is the provider's own and free for its users",
+      "capture": "sha256:ecd3c50bb186c2b8376441f1ddf23b0e9a53e0361f7ef79254b0627b94e4a52c",
+      "quote": "It uses our own storage, which is free for our users and is not part of Amazon or any commercial cloud."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T06:50:27.989Z",
+  "verified_at": "2026-11-25T21:21:15.500Z",
   "notes": "No published byte quota. The docs are explicit that the storage is donated: 'The Nautilus Ceph storage cluster can be accessed via S3 protocol. It uses our own storage, which is free for our users and is not part of Amazon or any commercial cloud.' Quota is whatever the namespace is granted by admins; CephFS carries a documented 16 TB per-file cap.",
   "history": [],
   "extras": {

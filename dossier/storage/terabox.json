@@ -16,13 +16,13 @@
     "stated": "4 GB/file",
     "bytes": 4000000000,
     "source_url": "https://www.terabox.com/cloud-storage-pricing-plans",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "1024 GB (limited-time), up to 20 files, up to 4GB."
   },
   "retention": {
-    "stated": "~4 GB/file free; ~7-day share-link life; one concurrent download; first-party web login carries a jsToken automated-traffic filter layer",
+    "stated": "Share links can be set for 7 days, 30 days or permanent validity.",
     "days": 7,
     "source_url": "https://www.terabox.com/cloud-storage-pricing-plans",
-    "notes": "Extracted from published terms."
+    "notes": "You can choose an expiry period: 7 days, 30 days or permanent validity."
   },
   "egress": {
     "terms": "Direct share links, no per-GB fee; free accounts throttled (~2-5 GB/day measured by third parties) and one download at a time",
@@ -42,7 +42,7 @@
       "source": "https://www.terabox.com/cloud-storage-pricing-plans"
     }
   ],
-  "limits_note": "~4 GB/file free; ~7-day share-link life; one concurrent download; first-party web login carries a jsToken automated-traffic filter layer",
+  "limits_note": "Share links can be set for 7 days, 30 days or permanent validity.",
   "identity_cost": {
     "kind": "institution",
     "detail": "derived from the record's prose, not from an identity field, and no signup was executed: ng the surrounding table text) jsToken automated-traffic filter on the web API + Cloudflare in front; the account API answers errno -6 'user not login' / 400141 'need verify' to unauthenticated call",
@@ -99,10 +99,31 @@
       "proved": "the login page offers phone or email alongside Google sign-in",
       "capture": "sha256:d79c1e7ce55bde2fabdde5b107e07fb9ce8e0522a25d40c82ef3a2be64788c6e",
       "quote": "Phone or Email"
+    },
+    {
+      "url": "https://www.terabox.com/cloud-storage-pricing-plans",
+      "date": "2026-11-25",
+      "proved": "the free plan column lists 1024 GB, up to 20 files and up to 4GB",
+      "capture": "sha256:fdd9ada1c9ac231b3214ede769721216e34ee07830156a0e2fea5016f44b9641",
+      "quote": "1024 GB (limited-time)\n\nup to 20 files\n\nup to 4GB"
+    },
+    {
+      "url": "https://blog.terabox.com/how-long-do-terabox-links-last/",
+      "date": "2026-11-25",
+      "proved": "the share-link expiry period is selectable as 7 days, 30 days or permanent validity",
+      "capture": "sha256:fa7a6af322e399a3e53e05dd65cc507288e1997e602d03634512647af39c1a96",
+      "quote": "For example, if you want to make the link available for **7 days**, you can easily choose that time period. Or you can even decide to keep it active for **30 days** or set it up as **a** **permanent validity link**."
+    },
+    {
+      "url": "https://blog.terabox.com/how-long-do-terabox-links-last/",
+      "date": "2026-11-25",
+      "proved": "the share-link expiry period is chosen by the user from 7 days, 30 days or permanent validity",
+      "capture": "sha256:fa7a6af322e399a3e53e05dd65cc507288e1997e602d03634512647af39c1a96",
+      "quote": "For example, if you want to make the link available for **7 days**, you can easily choose that time period. Or you can even decide to keep it active for **30 days** or set it up as **a** **permanent validity link**."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:15:20.586Z",
+  "verified_at": "2026-11-25T19:55:24.769Z",
   "notes": "1024 GB free ('Network disk capacity limited to 1024GB' on the free column; '1TB Free Cloud Storage for Basic & 2TB Storage for Pro'); Premium/Pro 2048 GB",
   "history": [],
   "extras": {

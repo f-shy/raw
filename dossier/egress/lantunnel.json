@@ -55,10 +55,17 @@
       "url": "https://lantunnel.app/",
       "date": "2026-10-23",
       "proved": "'Normal Client access does not require router port forwarding on your LAN or a public URL for each service. If you host a Gateway yourself, that Gateway needs a reachable public IP'"
+    },
+    {
+      "url": "https://lantunnel.app/",
+      "date": "2026-11-25",
+      "proved": "direct paths are still not guaranteed, matching the binding note",
+      "capture": "sha256:f81728fb37347e91e03607df447fb41510be886722e28e5688285658a7ea3278",
+      "quote": "Direct connectivity is not guaranteed."
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:44.013Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The hosted control plane does not carry public ingress; that would need a Gateway run locally.",

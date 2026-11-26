@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u33-rerun",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/webarena-suitepro-trial $.identity_cost.kind: The page states a paper application form sent to an address. It does not state an institution, affiliation, tenant or project-membership requirement, which is what identity_cost.kind=institution means.\n- egress/wiregress $.verdict: fails-quota needs a free allowance too small to serve; this page lists no free tier or trial at all, only paid plans from $15/month. paid-only is the term for an offer that was never free. The quoted $29 price does not establish a quota failure.\n- egress/xserver-vps-free $.egress.terms: The page supports the 0-yen monthly price, the unlimited-transfer row, the abuse-detection note and the 1-day manual renewal, but it nowhere states TCP or UDP ingress. A fresh read of the site's function page mentions only a packet filter that restricts ports; no TCP/UDP ingress claim appears. The a",
+ "scope": {
+  "rids": [
+   "egress/waiwang-men",
+   "egress/webarena-suitepro-trial",
+   "egress/wiregress",
+   "egress/xserver-vps-free",
+   "egress/zeabur",
+   "egress/zerops"
+  ]
+ },
+ "origin": "audit u74 of 20261125-0233-verify-egress-af27/u33 failed: 3 of 29 unsupported",
+ "created": "2026-11-25T16:37:39Z"
+}

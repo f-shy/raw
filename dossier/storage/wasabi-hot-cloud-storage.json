@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://wasabi.com/pricing",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "5 TB is the largest file size supported by the S3 protocol."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://wasabi.com/pricing",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Minimum storage duration: 90 days on Pay as You Go and 30 days on Reserved Capacity Storage."
   },
   "egress": {
     "terms": "no egress or API request fee on Pay as You Go or Reserved Capacity Storage, under the free egress policy: monthly egress up to the active storage volume fits the policy, monthly egress above it does not, and use above the policy on a regular basis may lead Wasabi to limit or suspend the service",
@@ -180,10 +180,45 @@
       "proved": "the upgrade page states a credit card is required to become a paid subscriber",
       "capture": "sha256:0c57f82584a97c5cef97da4e4cd970aa6453ea7e1259f9b3ff1bed638f34b3ab",
       "quote": "In summary, you will never be charged for any type of usage during the trial period, but the trial period ends when you submit a credit card and become a paid subscriber."
+    },
+    {
+      "url": "https://wasabi.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing table states a 90-day and a 30-day minimum storage duration",
+      "capture": "sha256:7c80b45579da69df1114c7d9c9d9a44ee1833e4b93faf2fe13b2ceebd22e8181",
+      "quote": "| Minimum storage duration | 90 days | 30 days |"
+    },
+    {
+      "url": "https://docs.wasabi.com/docs/getting-started-with-wasabi-ball-transfer-appliance",
+      "date": "2026-11-25",
+      "proved": "the first-party S3 file-size ceiling is 5 TB",
+      "capture": "sha256:729d85e20a38e54e0ff6efa058493449ebebab7f8bbcd5bcdce48d0335bb65d6",
+      "quote": "5 TB is the largest file size supported by the S3 protocol."
+    },
+    {
+      "url": "https://wasabi.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the minimum storage duration is 90 days on Pay as You Go and 30 days on RCS",
+      "capture": "sha256:7c80b45579da69df1114c7d9c9d9a44ee1833e4b93faf2fe13b2ceebd22e8181",
+      "quote": "| Minimum storage duration | 90 days | 30 days |"
+    },
+    {
+      "url": "https://docs.wasabi.com/docs/getting-started-with-wasabi-ball-transfer-appliance",
+      "date": "2026-11-25",
+      "proved": "the S3 protocol file-size ceiling is 5 TB",
+      "capture": "sha256:729d85e20a38e54e0ff6efa058493449ebebab7f8bbcd5bcdce48d0335bb65d6",
+      "quote": "5 TB is the largest file size supported by the S3 protocol."
+    },
+    {
+      "url": "https://wasabi.com/pricing/faq",
+      "date": "2026-11-25",
+      "proved": "the free egress policy covers monthly egress up to the active storage volume",
+      "capture": "sha256:29e7011551e06ea9d40f2f3102982e0ad533420100f53974e641c958af416c4c",
+      "quote": "If your monthly egress data transfer is less than or equal to your active storage volume, then your storage use case is a good fit for Wasabi’s free egress policy"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:35.597Z",
+  "verified_at": "2026-11-25T19:55:25.447Z",
   "price_per_tb_month": "USD 7.99 per TB per month on Pay as You Go, billed per GB per day for actual usage, with a minimum monthly charge tied to 1 TB of active storage per account and a 90-day minimum storage duration; Reserved Capacity Storage is a fixed-rate block from 25 TB on a 1-, 3- or 5-year term, with discounts set by capacity and term and a 30-day minimum storage duration",
   "notes": "1 TB minimum monthly charge; RCS 25 TB+ blocks",
   "history": [],

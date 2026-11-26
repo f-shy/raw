@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-file cap, retention, or rate limit published",
     "source_url": "https://opendatalab.com/docs/datasets/上传数据集.html",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "unverified: the dataset upload documentation lists file, folder and archive uploads but states no per-file size cap"
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://opendatalab.com/docs/datasets/上传数据集.html",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: the dataset upload and creation documentation states no retention period for uploaded data"
   },
   "egress": {
     "terms": "Free for public datasets; anonymous downloads. No egress line found. Served from Chinese CDN endpoints.",
@@ -65,10 +65,31 @@
       "url": "https://opendatalab.com/api/v1/datasets?per=3",
       "date": "2026-10-21",
       "proved": "probe: GET -> 404 (18 bytes); /api/v2/... -> connection timeout at 25 s"
+    },
+    {
+      "url": "https://opendatalab.com/docs/datasets/上传数据集.html",
+      "date": "2026-11-25",
+      "proved": "uploaded archives are automatically extracted",
+      "capture": "sha256:d735a41bc12b1e39e893928dab00ec0d03b5dece754f99f595c8c875ad1c94a0",
+      "quote": "如果您选择\"压缩包\"，系统将会在上传后自动解压您的文件。"
+    },
+    {
+      "url": "https://opendatalab.com/docs/datasets/数据集创建流程.html",
+      "date": "2026-11-25",
+      "proved": "public datasets require license information before publication",
+      "capture": "sha256:7a3bbb4a13f7b93fbf49a28f06e38f2c87bfa598825f20dc336cbafba3cb00c8",
+      "quote": "在设置tab中，可以将数据集进行公开，公开数据集需具备license信息。"
+    },
+    {
+      "url": "https://opendatalab.com/docs/datasets/上传数据集.html",
+      "date": "2026-11-25",
+      "proved": "uploads use the named CLI parameters",
+      "capture": "sha256:d735a41bc12b1e39e893928dab00ec0d03b5dece754f99f595c8c875ad1c94a0",
+      "quote": "在CLI命令行上传文件、使用 `upload-file` 参数上传文件、使用 `upload-folder` 参数上传文件夹"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-21T00:00:00.000Z",
+  "verified_at": "2026-11-25T19:55:13.344Z",
   "notes": "Not published. What is documented is capability rather than quota: the dataset center accepts file, folder, or archive uploads and auto-extracts archives server-side; public datasets require a license field before they can be published (so publishing is a two-step publish flow, not a raw PUT). OpenDataLab is the org behind the WanJuan corpus and mirrors COCO and similar multi-hundred-GB sets, so its scale class is genuinely multi-TB on the read side.",
   "history": [],
   "extras": {

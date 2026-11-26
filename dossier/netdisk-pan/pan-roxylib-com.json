@@ -117,10 +117,17 @@
       "proved": "the /api/public/settings request answered HTTP 200 in this run",
       "capture": "sha256:4f47c8e14773d85f229178223de93aadc2cbb763911ba3c9543a79e8f0ac459b",
       "quote": "\"status\": 200"
+    },
+    {
+      "url": "probe:https://pan.roxylib.com/",
+      "date": "2026-11-25",
+      "proved": "the anonymous settings and mount-list requests answered at this instant",
+      "capture": "sha256:070268791b6e27b899e4ab9025b987e4f5c4135aa1e606c4b9bd1544fbc32075",
+      "quote": "\"alive\": true"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:07.761Z",
+  "verified_at": "2026-11-25T21:46:10.685Z",
   "binding": "write-gated",
   "notes": "1 root entry on OpenList v4.2.3. The smallest listing in the population, and it still advertises write:true and denies the oracle.",
   "history": [],
@@ -137,7 +144,7 @@
     "listing_sha256": "4e4fd534",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-19T03:36:57.285Z",
+    "last_verified_alive": "2026-11-25T02:34:39.845Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "listing_hash_method": "sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters"

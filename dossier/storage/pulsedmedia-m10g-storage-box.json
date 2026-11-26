@@ -15,15 +15,15 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://pulsedmedia.com/storage-boxes.php",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The wiki lists SFTP, FTP/FTPS, SCP, rsync, WebDAV, HTTP/HTTPS and SSHFS access, with no artificial protocol restrictions and no per-object size cap."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://pulsedmedia.com/storage-boxes.php",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The 7-day period is a temporary 25% storage-quota overage allowance, not a data retention term."
   },
   "egress": {
-    "terms": "\"Internet egress: Unlimited@100Mbps (~30TB/Month / ~1TB/Day)\" + \"Burst egress: 10Gbps 500GiB/month\" + \"DC internal: Unlimited at 10Gbps\" + \"Ingress: Unlimited at 10Gbps\". This is the honest form of unmetered: the cap is a 100 Mbit/s port, not a byte counter, and the vendor states the implied monthly figure (~30 TB). The 10 Gbps burst allowance IS a real 500 GiB/month counter.",
+    "terms": "Internet egress: Unlimited at 100 Mbps (~30 TB/month, ~1 TB/day). Burst egress: 10 Gbps, 500 GiB per 30 days. DC internal: Unlimited at 10 Gbps. Ingress: Unlimited at 10 Gbps.",
     "metered": false,
     "free_allowance": "30TB per month"
   },
@@ -39,7 +39,7 @@
   ],
   "interface_detail": "SFTP, SCP, FTP(S), rsync, WebDAV, HTTP(S), SSHFS, SSH, Docker rootless, BorgBackup, Restic, rclone",
   "tooling": "rclone as a plain SFTP/WebDAV destination; Borg and Restic preinstalled; full rclone serve s3 / MinIO possible via docker rootless",
-  "chaining": "Pools cleanly behind AList/OpenList (WebDAV) or rclone serve s3, then Cloudflare. Same-datacenter transfers to a PulsedMedia seedbox run 70-75 MB/s, so the hot/cold split (hot on seedbox NVMe, cold here) is a native pattern.",
+  "chaining": "rclone mounts this storage box as a folder on a seedbox with its cache on the seedbox's fast disk.",
   "limits": [
     {
       "kind": "per-ip-shaping",
@@ -83,10 +83,66 @@
       "proved": "the page headline states 4 TB to 32 TB storage boxes, unlimited bandwidth at 100Mbps with 10Gbps burst, RAID5 or RAID0, in Finland",
       "capture": "sha256:c11c2b370152934540aebe1287b3120b28d4ca97b887ff4a5128e3fc683a75f7",
       "quote": "Storage boxes from 4 TB to 32 TB with SFTP, SSH, and Docker rootless. Unlimited bandwidth at 100Mbps plus 10Gbps burst. RAID5 or RAID0. Own hardware in Finland."
+    },
+    {
+      "url": "https://wiki.pulsedmedia.com/wiki/Storage_Boxes",
+      "date": "2026-11-25",
+      "proved": "the first-party wiki lists the access protocols and states no artificial protocol restrictions",
+      "capture": "sha256:a5e683b20cbfc46e5c2e686c16cc974c5cf650bb5d7f7fca8851597462ad0a51",
+      "quote": "accessible over SFTP, FTP/FTPS, SCP, rsync, WebDAV, HTTP/HTTPS, and SSHFS. No artificial protocol restrictions."
+    },
+    {
+      "url": "https://pulsedmedia.com/storage-boxes.php",
+      "date": "2026-11-25",
+      "proved": "the 7-day figure is the window for temporary quota overage",
+      "capture": "sha256:998b31f2be66836d103ab7ab44790d986a466dc9ab365db7edd02f67526a0f2a",
+      "quote": "You may go beyond your storage limit by 25% for up to 7 days!"
+    },
+    {
+      "url": "https://pulsedmedia.com/storage-boxes.php",
+      "date": "2026-11-25",
+      "proved": "the plan page states the current egress, burst, DC internal and ingress terms",
+      "capture": "sha256:998b31f2be66836d103ab7ab44790d986a466dc9ab365db7edd02f67526a0f2a",
+      "quote": "- **Internet egress**: Unlimited at 100 Mbps (~30 TB/month, ~1 TB/day)\n    - **Burst egress**: 10 Gbps, 500 GiB per 30 days\n    - **DC internal**: Unlimited at 10 Gbps\n    - **Ingress**: Unlimited at 10 Gbps"
+    },
+    {
+      "url": "https://pulsedmedia.com/storage-boxes.php",
+      "date": "2026-11-25",
+      "proved": "the first-party page documents an rclone mount with the cache on the seedbox",
+      "capture": "sha256:998b31f2be66836d103ab7ab44790d986a466dc9ab365db7edd02f67526a0f2a",
+      "quote": "rclone mounts this storage box as a folder with its cache on the seedbox's fast disk"
+    },
+    {
+      "url": "https://wiki.pulsedmedia.com/wiki/Storage_Boxes",
+      "date": "2026-11-25",
+      "proved": "the first-party wiki still lists the access protocols without an object-size cap",
+      "capture": "sha256:a5e683b20cbfc46e5c2e686c16cc974c5cf650bb5d7f7fca8851597462ad0a51",
+      "quote": "accessible over SFTP, FTP/FTPS, SCP, rsync, WebDAV, HTTP/HTTPS, and SSHFS. No artificial protocol restrictions."
+    },
+    {
+      "url": "https://pulsedmedia.com/storage-boxes.php",
+      "date": "2026-11-25",
+      "proved": "the 7-day figure is still tied to quota overage",
+      "capture": "sha256:998b31f2be66836d103ab7ab44790d986a466dc9ab365db7edd02f67526a0f2a",
+      "quote": "You may go beyond your storage limit by 25% for up to 7 days!"
+    },
+    {
+      "url": "https://pulsedmedia.com/storage-boxes.php",
+      "date": "2026-11-25",
+      "proved": "the plan page still states the egress, burst, DC internal and ingress terms",
+      "capture": "sha256:998b31f2be66836d103ab7ab44790d986a466dc9ab365db7edd02f67526a0f2a",
+      "quote": "- **Internet egress**: Unlimited at 100 Mbps (~30 TB/month, ~1 TB/day)\n    - **Burst egress**: 10 Gbps, 500 GiB per 30 days\n    - **DC internal**: Unlimited at 10 Gbps\n    - **Ingress**: Unlimited at 10 Gbps"
+    },
+    {
+      "url": "https://pulsedmedia.com/storage-boxes.php",
+      "date": "2026-11-25",
+      "proved": "the first-party page still documents the rclone mount pattern",
+      "capture": "sha256:998b31f2be66836d103ab7ab44790d986a466dc9ab365db7edd02f67526a0f2a",
+      "quote": "rclone mounts this storage box as a folder with its cache on the seedbox's fast disk"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-11T07:23:05.682Z",
+  "verified_at": "2026-11-25T19:55:17.917Z",
   "price_per_tb_month": "€1.69/TB/mo at the 16 TB tier (€26.99/16). 5 TB workload: buy the 8 TB tier = €1.87/TB/mo. 20 TB workload: buy the 32 TB tier = €2.00/TB/mo. ~$1.83 / $2.02 / $2.16 at 1.08 USD/EUR. Black Friday flash (8 TB, recurring, 15 units) = €1.02/TB/mo.",
   "notes": "4 / 8 / 16 / 32 TB tiers. 16 TB = €26.99/month, monthly billing. 32 TB = €63.99/month.",
   "history": [

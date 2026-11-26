@@ -13,15 +13,15 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "16 GiB max upload file size in the per-user php.ini.",
     "source_url": "https://pulsedmedia.com/free-seedbox.php",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The 16 GiB ceiling is the web upload setting in the per-user php.ini; the same settings give a 512 MiB memory limit and a 90-second max execution time."
   },
   "retention": {
     "stated": "Retention: 30-day trial only. The binding clause.",
     "days": 30,
     "source_url": "https://pulsedmedia.com/free-seedbox.php",
-    "notes": "Extracted from published terms."
+    "notes": "The free trial terminates after 30 days."
   },
   "egress": {
     "terms": "Included in the 200 GiB torrent traffic allowance; no per-GB charge stated.",
@@ -29,12 +29,16 @@
   },
   "interface": [
     "sftp",
-    "ssh",
-    "rclone"
+    "ftp",
+    "ftps",
+    "scp",
+    "rsync",
+    "webdav",
+    "ssh"
   ],
-  "interface_detail": "sftp",
+  "interface_detail": "SFTP, FTP/FTPS, SCP, rsync, WebDAV, HTTPS direct download, and SSHFS — mount your seedbox as a local drive. All work out of the box on every plan.",
   "tooling": "RTorrent + ruTorrent/Deluge/qBittorrent web UI, SSH, SFTP, Docker rootless, Jellyfin media stack, WireGuard/OpenVPN. SFTP is the storage transport. Usable by rclone's `sftp` backend.",
-  "chaining": "Real but weak: 50 GiB x N accounts, and each trial is 30 days, so the chain has to be re-established monthly. Not a storage tier; a way to test throughput before buying the EUR 1.99/mo 230 GiB plan.",
+  "chaining": "One seedbox per user; the trial is active for 30 days.",
   "limits": [
     {
       "kind": "per-ip-shaping",
@@ -77,10 +81,45 @@
       "proved": "the trial is listed Available: 0 while the paid 230 GiB plan is Available: 13",
       "capture": "sha256:fdf96e7487338f204e22b1def6e59e0e674d8cb53a21159152b9b5810581e5ab",
       "quote": "M1000 SSD 230G Seedbox ... Available: 13 ... Free Seedbox Trial 30 Days ... Available: 0"
+    },
+    {
+      "url": "https://wiki.pulsedmedia.com/wiki/PM_Software_Stack",
+      "date": "2026-11-25",
+      "proved": "the first-party software stack page states the web upload ceiling in the per-user php.ini",
+      "capture": "sha256:2f331edb89f0c9f32de2b842d83a626261b49ce4018990fe52279a87bbb75998",
+      "quote": "Each user gets a per-user `php.ini` at `~/.lighttpd/php.ini` with settings optimized for seedbox use: 512 MiB memory limit, 16 GiB max upload file size, 50 max simultaneous uploads, 90-second max execution time."
+    },
+    {
+      "url": "https://pulsedmedia.com/free-seedbox.php",
+      "date": "2026-11-25",
+      "proved": "the free trial card states it terminates after 30 days",
+      "capture": "sha256:6a736a46bfda2d8a49ddb431a9d107d6ee76d57f7180de4eb6f0a966915fb54b",
+      "quote": "- **Terminates after 30 Days**"
+    },
+    {
+      "url": "https://pulsedmedia.com/free-seedbox.php",
+      "date": "2026-11-25",
+      "proved": "the free trial page states one seedbox per user and a 30-day active period",
+      "capture": "sha256:6a736a46bfda2d8a49ddb431a9d107d6ee76d57f7180de4eb6f0a966915fb54b",
+      "quote": "Active for 30 days, fully featured. **Only 1 Seedbox per user!**"
+    },
+    {
+      "url": "https://pulsedmedia.com/seedbox-all-features.php",
+      "date": "2026-11-25",
+      "proved": "the first-party feature page lists the file-transfer protocols available on every plan",
+      "capture": "sha256:069664a39585ff6bc554bbd27eb9dadd0d5d383f6ed0287bac1ced1984ca956a",
+      "quote": "SFTP, FTP/FTPS, SCP, rsync, WebDAV, HTTPS direct download, and SSHFS — mount your seedbox as a local drive. All work out of the box on every plan."
+    },
+    {
+      "url": "https://pulsedmedia.com/free-seedbox.php",
+      "date": "2026-11-25",
+      "proved": "the free trial card states the torrent traffic allowance",
+      "capture": "sha256:6a736a46bfda2d8a49ddb431a9d107d6ee76d57f7180de4eb6f0a966915fb54b",
+      "quote": "- **200 GiB** Torrent traffic"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-19T21:14:38.527Z",
+  "verified_at": "2026-11-25T19:55:16.879Z",
   "notes": "50 GiB storage, 250 MB RAM, 200 GiB torrent traffic, 1 Gbps, for 30 days, free. 'Free Seedbox Trial 30 Days — FREE!!!! Free like Free Speech! — 50 GiB Storage'.",
   "history": [],
   "extras": {

@@ -124,10 +124,31 @@
       "proved": "the host answered every request of this probe, so the failure count stayed at zero",
       "capture": "sha256:e8fc1a8e260340809ea36acfc9f0e73a49d5be042e2b5bfe8b4ba6906d8dbd40",
       "quote": "\"consecutive_failures\": 0"
+    },
+    {
+      "url": "probe:https://cloud.zsxwz.com/api/public/settings",
+      "date": "2026-11-25",
+      "proved": "a fresh anonymous probe of the AList public settings endpoint of cloud.zsxwz.com answered at this instant (HTTP 200, JSON, no challenge)",
+      "capture": "sha256:2a7ae5c3cca9ec5f0dc7a30611f1f94fba01d3627fb02bdf0fb173a58fbf98f9",
+      "quote": "\"probed_at\": \"2026-11-25T04:07:34.250Z\""
+    },
+    {
+      "url": "probe:https://cloud.zsxwz.com/api/public/settings",
+      "date": "2026-11-25",
+      "proved": "the settings endpoint of cloud.zsxwz.com answered HTTP 200 to an anonymous request",
+      "capture": "sha256:2a7ae5c3cca9ec5f0dc7a30611f1f94fba01d3627fb02bdf0fb173a58fbf98f9",
+      "quote": "\"status\": 200"
+    },
+    {
+      "url": "probe:https://cloud.zsxwz.com/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing hashed to the recorded value, so the listing is unchanged",
+      "capture": "sha256:30784795e5b24921b045e63a8a221e0153a0040506d492a9b7caa9948ec282b2",
+      "quote": "\"listing_sha256\": \"cae07434\""
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:06.659Z",
+  "verified_at": "2026-11-25T04:14:27.572Z",
   "binding": "write-gated",
   "notes": "2 root entries on AList v4.1.7, built 2025-11. Small, alive, read-only.",
   "history": [],
@@ -144,7 +165,7 @@
     "listing_sha256": "cae07434",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-19T03:31:49.279Z",
+    "last_verified_alive": "2026-11-25T04:07:34.250Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "aliases": [

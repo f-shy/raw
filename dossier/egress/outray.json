@@ -47,7 +47,7 @@
   ],
   "limits_note": "",
   "binding": "volume-quota",
-  "binding_note": "2 GB is 0.0018 TiB and the next tier is 25 GB, so no purchasable step reaches one TiB either.",
+  "binding_note": "2 GB a month on Free, 25 GB on Ray, 100 GB on Beam and 1 TB on the largest tier, which is below 1 TiB, so no purchasable step reaches 1 TiB a month.",
   "identity_cost": {
     "kind": "email",
     "detail": "'Get Started Free' leads to https://outray.dev/signup",
@@ -66,10 +66,17 @@
       "url": "https://outray.dev/",
       "date": "2026-10-23",
       "proved": "'an open-source alternative to ngrok', npm install -g outray"
+    },
+    {
+      "url": "https://outray.dev/pricing",
+      "date": "2026-11-25",
+      "proved": "monthly bandwidth is 2 GB on Free, 25 GB on Ray, 100 GB on Beam and 1 TB on the largest tier",
+      "capture": "sha256:1a77bd70e2e1c326fe1258a08fe7224a057263fb8dc5279aaa4bb7b24e96d810",
+      "quote": "| Monthly bandwidth | 2 GB | 25 GB | 100 GB | 1 TB |"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:46.065Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Read only to price the free tier. The UDP capability is asserted in the page metadata ('Supports HTTP, TCP, and UDP protocols') and was not observed in a setup page.",

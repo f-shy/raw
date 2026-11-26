@@ -5,7 +5,7 @@
   "url": "https://modal.com",
   "category": "iaas",
   "free_tier": {
-    "stated": "Volumes: 'Volumes include up to 1 TiB free' on the Starter plan, then $0.09/GiB/mo (per PricingSaaS capture of the Jun 2026 pricing change). Starter also includes $30/mo of compute.",
+    "stated": "Volumes include up to 1 TiB free.",
     "unit": "TiB",
     "metered_on": "unstated",
     "source_url": "https://modal.com/pricing",
@@ -15,13 +15,13 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://modal.com/pricing",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "there’s no file size limit for individual files in a volume"
   },
   "retention": {
     "stated": "500,000 inodes per Volume; 1 TiB free per workspace; volumes snapshot once/day for billing (deleted data can bill up to 4 days); $30/mo compute is the real ceiling. Serving costs CPU-seconds, so throughput is bounded by the credit, not the disk.",
     "days": 4,
     "source_url": "https://modal.com/pricing",
-    "notes": "Extracted from published terms."
+    "notes": "We calculate usage by snapshotting your total storage once a day. When you delete data, you may still be billed for that storage for up to four days, to reflect our underlying processing costs."
   },
   "egress": {
     "terms": "1 TiB/billing cycle included on Starter, then $0.04/GiB. Metered but with a 1 TiB monthly floor. Explicitly: 'Reads from and writes to Modal Volumes do not count as network egress.'.",
@@ -32,7 +32,7 @@
     "rest",
     "cli"
   ],
-  "interface_detail": "rest",
+  "interface_detail": "Volumes come with a fully-featured filesystem interface for easy integration into your favorite ML tools and frameworks.",
   "tooling": "`modal` Python SDK + `modal volume put/get/ls` CLI; volumes mount as a POSIX filesystem inside containers. Anyone who needs S3 semantics writes a tiny FastAPI shim on a web endpoint.",
   "chaining": "1 TiB free volume per workspace x N free workspaces (Starter allows 3 users/workspace, workspaces themselves are free) => multi-TiB at zero cost. Each TiB is fully read-write and persists with no session attached.",
   "limits": [
@@ -85,10 +85,45 @@
       "proved": "egress beyond the included allowance is billed at $0.04 per GiB; the Starter row lists 1 TiB included",
       "capture": "sha256:c403454f3cb0ee2db740e076b82c1a916d8bf14382c46b64cfd06acee0403954",
       "quote": "Egress beyond the included amount is billed at $0.04 per GiB."
+    },
+    {
+      "url": "https://modal.com/docs/guide/volumes",
+      "date": "2026-11-25",
+      "proved": "storage is snapshotted daily and deleted data can bill for up to four days",
+      "capture": "sha256:9e93677cd8824e83170c2fa0c9b845f774f059d064053c106dece322ccff285b",
+      "quote": "We calculate usage by snapshotting your total storage once a day. When you delete data, you may still be billed for that storage for up to four days, to reflect our underlying processing costs."
+    },
+    {
+      "url": "https://modal.com/docs/guide/volumes",
+      "date": "2026-11-25",
+      "proved": "the Volumes guide states no per-file size limit",
+      "capture": "sha256:9e93677cd8824e83170c2fa0c9b845f774f059d064053c106dece322ccff285b",
+      "quote": "there’s no file size limit for individual files in a volume"
+    },
+    {
+      "url": "https://modal.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the Starter pricing page states 1 TiB of free Volume storage",
+      "capture": "sha256:cf1c29c5334210e414aa44310e5c6f0714390e2b486cf45fa98b6384d32c9a02",
+      "quote": "Volumes include up to 1 TiB free."
+    },
+    {
+      "url": "https://modal.com/docs/guide/network-egress-billing",
+      "date": "2026-11-25",
+      "proved": "Starter includes 1 TiB of egress per cycle, charges $0.04 per GiB beyond it, and excludes Volume reads and writes",
+      "capture": "sha256:c403454f3cb0ee2db740e076b82c1a916d8bf14382c46b64cfd06acee0403954",
+      "quote": "| Starter    | 1 TiB                      | $0.04 per GiB     | ... Reads from and writes to Modal [Volumes](/docs/guide/volumes) do not count as network egress."
+    },
+    {
+      "url": "https://modal.com/docs/guide/volumes",
+      "date": "2026-11-25",
+      "proved": "the Volumes guide describes a filesystem interface",
+      "capture": "sha256:9e93677cd8824e83170c2fa0c9b845f774f059d064053c106dece322ccff285b",
+      "quote": "Volumes come with a fully-featured filesystem interface for easy integration into your favorite ML tools and frameworks."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:13:58.578Z",
+  "verified_at": "2026-11-25T19:55:11.736Z",
   "notes": "Volumes: 'Volumes include up to 1 TiB free' on the Starter plan, then $0.09/GiB/mo (per PricingSaaS capture of the Jun 2026 pricing change). Starter also includes $30/mo of compute.",
   "history": [],
   "extras": {

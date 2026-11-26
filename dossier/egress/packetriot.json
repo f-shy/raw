@@ -52,7 +52,7 @@
   ],
   "limits_note": "",
   "binding": "volume-quota",
-  "binding_note": "Both the 1 GB quota and the removal of port allocations fail on the first day; the paid Basic tier reaches 1 TB, which is 0.909 TiB and still under the target.",
+  "binding_note": "Both the 1 GB quota and the removal of port allocations fail on the first day; the paid Basic tier gives 1 TB a month, below 1 TiB, and Pro gives 2 TB a month.",
   "identity_cost": {
     "kind": "email",
     "detail": "an account; the free tier is one tunnel",
@@ -66,10 +66,17 @@
       "url": "https://packetriot.com/pricing",
       "date": "2026-10-23",
       "proved": "free tier: 1 tunnel, 1 GB monthly, and 'Port allocations are no longer available on the free-tier'; Basic USD 5/month gives 1 TB"
+    },
+    {
+      "url": "https://packetriot.com/pricing",
+      "date": "2026-11-25",
+      "proved": "monthly bandwidth is 1 GB on Free, 1 TB on Basic, 2 TB on Pro and 4 TB on Team",
+      "capture": "sha256:b3f526631db68dfe536c6e116fccb524481d92f3ed8fcc1b077accdd9a310f6e",
+      "quote": "| Bandwidth (Monthly) | 1 GB | 1 TB | 2 TB | 4 TB |  |"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:46.065Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Recorded as a dead end with its reason, because 'no port on free' is a specific and reusable fact.",

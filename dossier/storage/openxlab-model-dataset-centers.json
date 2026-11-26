@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://openxlab.org.cn/docs/intro.html",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: no per-file size cap is published on the platform introduction or dataset upload pages"
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://openxlab.org.cn/docs/intro.html",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: no retention period for datasets or models is published on the platform introduction page"
   },
   "egress": {
     "terms": "No egress meter found; public models and datasets are anonymously downloadable. Reads are CDN-served. Unverified at the header level because model-detail pages timed out from this network.",
@@ -66,10 +66,31 @@
       "proved": "the captured page is a VuePress application shell with an empty app container",
       "capture": "sha256:fdf6f8796584a9250e0b358d57d8f02b064118f8b6d3d24f07547ccd966f0d09",
       "quote": "<div id=\"app\" data-server-rendered=\"true\"><div class=\"theme-container\"><!----></div>"
+    },
+    {
+      "url": "https://openxlab.org.cn/docs/intro.html",
+      "date": "2026-11-25",
+      "proved": "the model center provides large-file storage through the command-line tools",
+      "capture": "sha256:b109066813c83c25a3669e149d12cf91912afc9e74834249074f930c1baf743b",
+      "quote": "基于平台内的命令行工具，便于 AI 开发者上传和发布模型文件，搭建对象存储体系，提供大文件存储能力，快速上传下载功能，便于 AI 开发者进行模型存储。"
+    },
+    {
+      "url": "https://openxlab.org.cn/docs/intro.html",
+      "date": "2026-11-25",
+      "proved": "the dataset center supports private upload, management and publication",
+      "capture": "sha256:b109066813c83c25a3669e149d12cf91912afc9e74834249074f930c1baf743b",
+      "quote": "支持多元数据管理，数据中心提供公开数据集的展示、检索和下载等，同时提供私有数据集的上传、管理和发布功能，支持用户自建数据集的开放共享。"
+    },
+    {
+      "url": "https://openxlab.org.cn/docs/intro.html",
+      "date": "2026-11-25",
+      "proved": "platform command-line tools upload and publish model files",
+      "capture": "sha256:b109066813c83c25a3669e149d12cf91912afc9e74834249074f930c1baf743b",
+      "quote": "基于平台内的命令行工具，便于 AI 开发者上传和发布模型文件，搭建对象存储体系，提供大文件存储能力，快速上传下载功能，便于 AI 开发者进行模型存储。"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T07:22:59.176Z",
+  "verified_at": "2026-11-25T19:55:13.343Z",
   "notes": "unverified: GET https://openxlab.org.cn/docs/intro.html returned a VuePress application shell with an empty app container and no introduction text, so the object-storage statement could not be re-read.",
   "history": [],
   "extras": {

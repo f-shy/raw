@@ -131,10 +131,45 @@
       "proved": "the pricing page still offers a free 10 GB start with no payment",
       "capture": "sha256:b9b3843e5014aa3d776b93c963f47e09c06beb916764a922b69862ca4cb11722",
       "quote": "**$0 forever.** No payment required."
+    },
+    {
+      "url": "https://quixicloud.com/",
+      "date": "2026-11-25",
+      "proved": "the annual per-file limits are unchanged up to 20 GB on the 6 TB plan",
+      "capture": "sha256:993b8f2437d0a14ddaf14a333580e6eaad01e343323a835c6d51d40b336ba260",
+      "quote": "Single-file upload limits range from 2GB on monthly plans to 5GB (100GB plan), 10GB (500GB plan), 15GB (2TB plan), and 20GB (6TB plan) on annual tiers."
+    },
+    {
+      "url": "https://quixicloud.com/",
+      "date": "2026-11-25",
+      "proved": "the 2 TB annual price is still USD 33.99",
+      "capture": "sha256:993b8f2437d0a14ddaf14a333580e6eaad01e343323a835c6d51d40b336ba260",
+      "quote": "$33.99 / year"
+    },
+    {
+      "url": "https://quixicloud.com/",
+      "date": "2026-11-25",
+      "proved": "the free 10 GB tier still needs no payment",
+      "capture": "sha256:993b8f2437d0a14ddaf14a333580e6eaad01e343323a835c6d51d40b336ba260",
+      "quote": "**$0 forever.** No payment required."
+    },
+    {
+      "url": "https://quixicloud.in/",
+      "date": "2026-11-25",
+      "proved": "the Indian signup still offers 10 GB with no card",
+      "capture": "sha256:9d6a2be68e0eb768b23375498b93731479d7cf84b71ec1773da419dfaf450e9b",
+      "quote": "Sign up and get 10GB instantly — no credit card required."
+    },
+    {
+      "url": "probe:https://drive.quixicloud.com/dav/",
+      "date": "2026-11-25",
+      "proved": "the DAV endpoint is still live and auth-gated behind a cloudreve realm",
+      "capture": "sha256:1ad5c0e8d3bcd6dc660f4ac92f5d7579d7a0fa897b96bb3d177845360b9ced89",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-04T00:20:59.761Z",
+  "verified_at": "2026-11-25T04:14:26.913Z",
   "history": [],
   "price_per_tb_month": "USD 1.42/TB/month on the 2 TB plan at USD 33.99/yr, and USD 1.56/TB/month on 6 TB at USD 112.49/yr",
   "binding": "per-object-cap",

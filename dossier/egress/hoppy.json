@@ -81,10 +81,31 @@
       "url": "https://hoppy.network/docs/frequently-asked-questions/",
       "date": "2026-10-23",
       "proved": "'Do you block ports on the tunnels? Nope'; over-limit shaping to 64-256 kbps; the limit counts bytes in plus bytes out"
+    },
+    {
+      "url": "https://hoppy.network/docs/frequently-asked-questions/",
+      "date": "2026-11-25",
+      "proved": "the data limit counts bytes in plus out",
+      "capture": "sha256:c7d33578003d675564417f87fff434fcde0819d469162e12a1761cf203bbd392",
+      "quote": "We calculate the limit using the sum of bytes transferred in and bytes transferred out, as reported by the WireGuard tunnel."
+    },
+    {
+      "url": "https://hoppy.network/docs/frequently-asked-questions/",
+      "date": "2026-11-25",
+      "proved": "over-quota shaping to 64-256 kbps",
+      "capture": "sha256:c7d33578003d675564417f87fff434fcde0819d469162e12a1761cf203bbd392",
+      "quote": "The network speed of the specific interface will be rate-limited to anywhere between `64 kbps` and `256 kbps`."
+    },
+    {
+      "url": "https://hoppy.network/pricing/",
+      "date": "2026-11-25",
+      "proved": "STANDARD carries 1 TB monthly data; the page lists no free plan",
+      "capture": "sha256:9307167891ce9613595f31266d6c06913631027f872c8d8b79a098a1a58fd67e",
+      "quote": "**1 TB** Monthly data"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:43.031Z",
   "price_per_tb_month": "USD 8 per month",
   "history": [
     "history/2026-10-23T004500Z/duplicate-egress-records-merged.md"

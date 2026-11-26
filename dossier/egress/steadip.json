@@ -71,10 +71,24 @@
       "url": "https://steadip.com/tcp-udp-tunnel",
       "date": "2026-10-23",
       "proved": "Managed FRP gateway with TCP and UDP options, available to verified users; examples include SSH, game and voice services and UDP telemetry."
+    },
+    {
+      "url": "https://steadip.com/",
+      "date": "2026-11-25",
+      "proved": "the steadip.com homepage now presents a video game, with no tunnel product",
+      "capture": "sha256:c5b3375261ccee3ae8dab0a4d6987eb6df6dd593f7e3de835b9f0be2f749031e",
+      "quote": "A DARK FANTASY TACTICAL DEFENSE GAME"
+    },
+    {
+      "url": "probe:https://steadip.com/tcp-udp-tunnel",
+      "date": "2026-11-25",
+      "proved": "the TCP/UDP tunnel page the record cites answers HTTP 404",
+      "capture": "sha256:1007b5e650aea260f97b66282bf2dc6f7bb260f1b0085440eec179b4304ae61a",
+      "quote": "\"status\": 404"
     }
   ],
-  "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verdict": "dead",
+  "verified_at": "2026-11-25T15:43:48.363Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "SteadIP requires paid subscription verification before activating TCP and UDP port forwarding.",
@@ -86,6 +100,10 @@
     "volume_stated": "No byte allowance is published for either tier. The free tier is described as random subdomains over HTTP/HTTPS.",
     "bytes_transit": "yes",
     "transit_note": "A SteadIP-managed FRP gateway receives public traffic and forwards it down the outbound tunnel.",
-    "promoted_from": ".tmp/egress/new-startups"
+    "promoted_from": ".tmp/egress/new-startups",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

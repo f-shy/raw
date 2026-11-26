@@ -16,12 +16,12 @@
     "stated": "500 MiB per file",
     "bytes": 524288000,
     "source_url": "https://docs.discord.food/topics/cloud-uploads",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Reservation path accepts up to 500 MiB per upload; the per-message file size limit still applies when the attachment is sent."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://docs.discord.food/topics/cloud-uploads",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Unused reservations are removed with a DELETE that returns 204; no file retention period is stated."
   },
   "egress": {
     "terms": "Free, unmetered, served from cdn.discordapp.com.",
@@ -66,10 +66,31 @@
       "proved": "the reference states the reservation path accepts a file of up to 500 MiB",
       "capture": "sha256:b8f6befb00015a7e087e2cf68b9af6a8cf79697227fe709cbfb89e4ab548220f",
       "quote": "This allows you to upload up a file up to **500 MiB** directly to Google Cloud."
+    },
+    {
+      "url": "https://docs.discord.food/topics/cloud-uploads",
+      "date": "2026-11-25",
+      "proved": "The 500 MiB reservation ceiling and the message-time file limit are both stated.",
+      "capture": "sha256:0bb170fa3a4613b7ed230b25fc57e34559ba7cce9a8194e2a1ad067410bc124c",
+      "quote": "This allows you to upload up a file up to **500 MiB** directly to Google Cloud. Note that [file size limits](https://docs.discord.food/reference#uploading-files) will still apply when sending the attachment in a message."
+    },
+    {
+      "url": "https://docs.discord.food/topics/cloud-uploads",
+      "date": "2026-11-25",
+      "proved": "An unused cloud-upload reservation can be explicitly deleted.",
+      "capture": "sha256:0bb170fa3a4613b7ed230b25fc57e34559ba7cce9a8194e2a1ad067410bc124c",
+      "quote": "Deletes an attachment from Discord's GCP storage bucket. Returns a 204 empty response on success."
+    },
+    {
+      "url": "https://docs.discord.food/topics/cloud-uploads",
+      "date": "2026-11-25",
+      "proved": "The 500 MiB reservation ceiling and message-time limit are unchanged.",
+      "capture": "sha256:0bb170fa3a4613b7ed230b25fc57e34559ba7cce9a8194e2a1ad067410bc124c",
+      "quote": "This allows you to upload up a file up to **500 MiB** directly to Google Cloud. Note that [file size limits](https://docs.discord.food/reference#uploading-files) will still apply when sending the attachment in a message."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:13.390Z",
+  "verified_at": "2026-11-25T04:14:20.835Z",
   "notes": "Reserve an upload slot with `POST /channels/{id}/attachments` and PUT the body straight into Discord's Google Cloud Storage bucket. The reservation path accepts up to 500 MiB per file, independent of the 20 MiB message-time limit. Note the file still hits the per-message limit when you actually send it, so 500 MiB only helps if the channel/boost tier allows it.",
   "history": [],
   "extras": {

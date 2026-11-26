@@ -16,13 +16,13 @@
     "stated": "250GiB on send.skylerszijjarto.com",
     "bytes": 268435456000,
     "source_url": "https://github.com/timvisee/send-instances/blob/master/README.md",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Size limit 250GiB on send.skylerszijjarto.com; DL limit 10,000."
   },
   "retention": {
     "stated": "30 days on send.cyberjake.xyz",
     "days": 30,
     "source_url": "https://github.com/timvisee/send-instances/blob/master/README.md",
-    "notes": "Extracted from published terms."
+    "notes": "30 days time limit on send.cyberjake.xyz; DL limit 100."
   },
   "egress": {
     "terms": "unmetered; direct file URLs on the instance host, no egress pricing.",
@@ -92,10 +92,38 @@
       "proved": "the page is the public instance table",
       "capture": "sha256:d44d2aea7e75b1a2c27348a38c07df92b1d81a124d81f27ad9c26527f897cb92",
       "quote": "This page holds a list of public [Send](https://github.com/timvisee/send) instances."
+    },
+    {
+      "url": "https://github.com/timvisee/send-instances/blob/master/README.md",
+      "date": "2026-11-25",
+      "proved": "the instance table gives 250GiB size and 10,000 downloads for send.skylerszijjarto.com",
+      "capture": "sha256:914fd168a16fe6d98341b9acb4317521f8cc2d24eef54e63a875cfa65b21737e",
+      "quote": "| [https://send.skylerszijjarto.com](https://send.skylerszijjarto.com/) | 250GiB | 7 days | 10,000 |"
+    },
+    {
+      "url": "https://github.com/timvisee/send-instances/blob/master/README.md",
+      "date": "2026-11-25",
+      "proved": "the instance table gives 30 days time and 100 downloads for send.cyberjake.xyz",
+      "capture": "sha256:914fd168a16fe6d98341b9acb4317521f8cc2d24eef54e63a875cfa65b21737e",
+      "quote": "| [https://send.cyberjake.xyz](https://send.cyberjake.xyz/) | 10GiB | 30 days | 100 |"
+    },
+    {
+      "url": "https://github.com/timvisee/send-instances/blob/master/README.md",
+      "date": "2026-11-25",
+      "proved": "the instance table gives 10GiB size, 30 days time and 100 downloads for send.cyberjake.xyz",
+      "capture": "sha256:914fd168a16fe6d98341b9acb4317521f8cc2d24eef54e63a875cfa65b21737e",
+      "quote": "| [https://send.cyberjake.xyz](https://send.cyberjake.xyz/) | 10GiB | 30 days | 100 |"
+    },
+    {
+      "url": "https://github.com/timvisee/send-instances/blob/master/README.md",
+      "date": "2026-11-25",
+      "proved": "the documented command-line client is ffsend with the --host URL flag",
+      "capture": "sha256:914fd168a16fe6d98341b9acb4317521f8cc2d24eef54e63a875cfa65b21737e",
+      "quote": "To use a specific instance from the command line with [ffsend](https://github.com/timvisee/ffsend), provide the `--host URL` flag while uploading."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:34.758Z",
+  "verified_at": "2026-11-25T19:55:24.770Z",
   "notes": "Per-instance. Public table (read live) includes send.cyberjake.xyz at 10 GiB / 30 days / 100 downloads and send.adminforge.de at 8 GiB / 7 days / 1,000 downloads. The listed send.skylerszijjarto.com at 250 GiB / 7 days / 10,000 downloads and send.hostnetwork.xyz at 2.5 GiB / 999,999 downloads are the two outliers.",
   "history": [],
   "extras": {

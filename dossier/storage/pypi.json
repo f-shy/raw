@@ -13,15 +13,15 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "100 MB per file",
+    "stated": "By default, PyPI limits the size of individual files to 100.0 MB (200.0 MB for projects owned by an organization).",
     "bytes": 100000000,
     "source_url": "https://docs.pypi.org/project-management/storage-limits/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The storage-limits page states a 100.0 MB default per individual file and a 200.0 MB default for projects owned by an organization."
   },
   "retention": {
     "stated": "| Deletion is permanent and irreversible ('cannot be undone without administrative intervention')",
     "source_url": "https://docs.pypi.org/project-management/storage-limits/",
-    "notes": "Extracted from published terms."
+    "notes": "Deleting releases and files is permanent and cannot be undone without administrative intervention."
   },
   "egress": {
     "terms": "Free and unmetered. files.pythonhosted.org probe: Server: cloudflare, Cache-Control: 'max-age=365000000, immutable, public', Access-Control-Allow-Origin: *, no auth.",
@@ -33,7 +33,7 @@
   ],
   "interface_detail": "rest",
   "tooling": "Legacy upload API POST /legacy/ (twine), JSON API GET /pypi/<name>/json for metadata, direct file GET from files.pythonhosted.org. Orgs/teams exist. Named wrapper class: pypi/* tools, twine, and warehouse itself. No rclone backend.",
-  "chaining": "UNBOUNDED via projects: unlimited projects x 10 GB each (raisable to 40 GB. Uv and ruff were both granted 40 GB). 10 TiB = 1,024 projects at default 10 GB. Project creation is rate limited to 20/hour and 40/hour per IP, which is the binding constraint, not bytes.",
+  "chaining": "Projects owned by an organization get higher defaults of 200.0 MB per file and 20.0 GB per project; a project that leaves an organization goes back to the personal defaults.",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -92,10 +92,59 @@
       "proved": "the default limits are 100.0 MB for an individual file and 10.0 GB for the whole project",
       "capture": "sha256:de97d56c9f2d1f0f9118d16f721f6dfcc4b70e7905ee48a72bb3f5711859b514",
       "quote": "<p>The current default limits are <strong>100.0 MB</strong> for individual files and <strong>10.0 GB</strong>\nfor the entire project."
+    },
+    {
+      "url": "https://docs.pypi.org/project-management/storage-limits/",
+      "date": "2026-11-25",
+      "proved": "the first-party page gives the personal and organization per-file defaults",
+      "capture": "sha256:a201f41b760da070ca96c080eae3c2897215afea51253bc907dd0850c3f987f4",
+      "quote": "By default, PyPI limits the size of individual files to **100.0 MB** (**200.0 MB** for projects owned by an organization)."
+    },
+    {
+      "url": "https://docs.pypi.org/project-management/storage-limits/",
+      "date": "2026-11-25",
+      "proved": "the first-party page states that deletion is permanent",
+      "capture": "sha256:a201f41b760da070ca96c080eae3c2897215afea51253bc907dd0850c3f987f4",
+      "quote": "Deleting releases and files from your project is permanent and cannot be undone without administrative intervention."
+    },
+    {
+      "url": "https://docs.pypi.org/project-management/storage-limits/",
+      "date": "2026-11-25",
+      "proved": "the first-party page states the current per-file defaults",
+      "capture": "sha256:a201f41b760da070ca96c080eae3c2897215afea51253bc907dd0850c3f987f4",
+      "quote": "By default, PyPI limits the size of individual files to **100.0 MB** (**200.0 MB** for projects owned by an organization)."
+    },
+    {
+      "url": "https://docs.pypi.org/project-management/storage-limits/",
+      "date": "2026-11-25",
+      "proved": "the first-party page documents the higher organization defaults",
+      "capture": "sha256:a201f41b760da070ca96c080eae3c2897215afea51253bc907dd0850c3f987f4",
+      "quote": "Projects owned by an [organization](https://docs.pypi.org/organization-accounts/) get higher defaults: **200.0 MB** for individual files and **20.0 GB** for the entire project. A project that leaves an organization goes back to the personal defaults"
+    },
+    {
+      "url": "https://docs.pypi.org/project-management/storage-limits/",
+      "date": "2026-11-25",
+      "proved": "the first-party page still states the per-file default",
+      "capture": "sha256:a201f41b760da070ca96c080eae3c2897215afea51253bc907dd0850c3f987f4",
+      "quote": "By default, PyPI limits the size of individual files to **100.0 MB** (**200.0 MB** for projects owned by an organization)."
+    },
+    {
+      "url": "https://docs.pypi.org/project-management/storage-limits/",
+      "date": "2026-11-25",
+      "proved": "the first-party page still states permanent deletion",
+      "capture": "sha256:a201f41b760da070ca96c080eae3c2897215afea51253bc907dd0850c3f987f4",
+      "quote": "Deleting releases and files from your project is permanent and cannot be undone without administrative intervention."
+    },
+    {
+      "url": "https://docs.pypi.org/project-management/storage-limits/",
+      "date": "2026-11-25",
+      "proved": "the first-party page still states the higher organization defaults",
+      "capture": "sha256:a201f41b760da070ca96c080eae3c2897215afea51253bc907dd0850c3f987f4",
+      "quote": "Projects owned by an [organization](https://docs.pypi.org/organization-accounts/) get higher defaults: **200.0 MB** for individual files and **20.0 GB** for the entire project. A project that leaves an organization goes back to the personal defaults"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-11T07:23:05.683Z",
+  "verified_at": "2026-11-25T19:55:17.918Z",
   "notes": "100 MB per file, 10 GB per project. Both are *defaults*, both are raisable by filing a GitHub issue. Unlimited number of projects. Verified in warehouse source: MAX_FILESIZE = 100 * ONE_MIB, MAX_PROJECT_SIZE = 10 * ONE_GIB, UPLOAD_LIMIT_CAP = 1 GiB.",
   "history": [],
   "extras": {

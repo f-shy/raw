@@ -119,10 +119,31 @@
       "proved": "the host answered every request of this probe, so the failure count stayed at zero",
       "capture": "sha256:ad2083eb8a0ca854cecad0c45291ac01efa5ba3a5325e1efaa1e26e0bea3a17a",
       "quote": "\"consecutive_failures\": 0"
+    },
+    {
+      "url": "probe:https://alist.tianmoy.cn/api/public/settings",
+      "date": "2026-11-25",
+      "proved": "a fresh anonymous probe of the AList public settings endpoint of alist.tianmoy.cn answered at this instant (HTTP 200, JSON, no challenge)",
+      "capture": "sha256:9459e0e6e8ef666442186dc987f5a1cb51e1c23ddc0033b9bca6596d51a64da2",
+      "quote": "\"probed_at\": \"2026-11-25T04:07:32.799Z\""
+    },
+    {
+      "url": "probe:https://alist.tianmoy.cn/api/public/settings",
+      "date": "2026-11-25",
+      "proved": "the settings endpoint of alist.tianmoy.cn answered HTTP 200 to an anonymous request",
+      "capture": "sha256:9459e0e6e8ef666442186dc987f5a1cb51e1c23ddc0033b9bca6596d51a64da2",
+      "quote": "\"status\": 200"
+    },
+    {
+      "url": "probe:https://alist.tianmoy.cn/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing hashed to the recorded value, so the listing is unchanged",
+      "capture": "sha256:c50462e77d860586257a0e8c54e4b3b8c383e1c572eb1f048545abb292fd9eb5",
+      "quote": "\"listing_sha256\": \"fcd1bca6\""
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:06.658Z",
+  "verified_at": "2026-11-25T04:14:27.572Z",
   "binding": "write-gated",
   "notes": "3 root entries on AList v4.2.6. It flaps between answering as an AList API and answering 200 with no API at all, and between listing and not listing, across runs minutes apart.",
   "history": [],
@@ -139,7 +160,7 @@
     "listing_sha256": "fcd1bca6",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-19T03:31:20.741Z",
+    "last_verified_alive": "2026-11-25T04:07:32.799Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "listing_hash_method": "sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters"

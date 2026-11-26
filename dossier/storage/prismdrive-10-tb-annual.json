@@ -15,24 +15,24 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://prismdrive.com/pricing/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "There are no file type limitations. You can upload any type of file."
   },
   "retention": {
     "stated": "No published file-size cap; 30-day trash | This is the same lifetime-deal family pattern as PolarBackup (BRIEF DEAD-ENDS precedent: 'a lifetime-deal cloud backup brand whose users report loss of data and service')",
     "days": 30,
     "source_url": "https://prismdrive.com/pricing/",
-    "notes": "Extracted from published terms."
+    "notes": "Deleted files are moved to trash and can be recovered for 30 days."
   },
   "egress": {
     "terms": "'Unlimited Shared Traffic' listed on every paid tier. Verbatim.",
     "metered": false
   },
   "interface": [
-    "rclone"
+    "browser"
   ],
-  "interface_detail": "Web/API; rclone support unverified",
+  "interface_detail": "File access is limited to the web browser or app; FTP and SFTP are not offered.",
   "tooling": "unknown",
-  "chaining": "unknown",
+  "chaining": "Files can be shared with users without a Prism Drive account.",
   "limits": [],
   "limits_note": "No published file-size cap; 30-day trash",
   "identity_cost": {
@@ -67,10 +67,45 @@
       "proved": "the 10 TB annual plan card states its included storage as 10 TB, so the offer's unit is TB",
       "capture": "sha256:3203043604c2296ac9425471eca0729d439549aa7c22c7972b1fc8a532470654",
       "quote": "10 TB Storage"
+    },
+    {
+      "url": "https://prismdrive.com/contact-us/",
+      "date": "2026-11-25",
+      "proved": "the FAQ states deleted files are recoverable from trash for 30 days",
+      "capture": "sha256:0806e6cf11ccab274b326cceedd1244e146d469bd6e1035b561e1729fc963e05",
+      "quote": "Deleted files will be moved to your trash. You can recover files from the trash for 30 days."
+    },
+    {
+      "url": "https://prismdrive.com/contact-us/",
+      "date": "2026-11-25",
+      "proved": "the FAQ states there is no file type limitation",
+      "capture": "sha256:0806e6cf11ccab274b326cceedd1244e146d469bd6e1035b561e1729fc963e05",
+      "quote": "There are no file type limitations. You can upload any type of file."
+    },
+    {
+      "url": "https://prismdrive.com/contact-us/",
+      "date": "2026-11-25",
+      "proved": "the FAQ states file access is through the web browser or app, with no FTP or SFTP",
+      "capture": "sha256:0806e6cf11ccab274b326cceedd1244e146d469bd6e1035b561e1729fc963e05",
+      "quote": "No. We do not offer FTP or SFTP support. File access is limited to the web browser or app."
+    },
+    {
+      "url": "https://prismdrive.com/contact-us/",
+      "date": "2026-11-25",
+      "proved": "the FAQ states files can be shared with people without an account",
+      "capture": "sha256:0806e6cf11ccab274b326cceedd1244e146d469bd6e1035b561e1729fc963e05",
+      "quote": "Yes. You can share your files with other users, as well as those that do not have a Prism Drive account."
+    },
+    {
+      "url": "https://prismdrive.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the paid tier cards list Unlimited Shared Traffic",
+      "capture": "sha256:530381ac3ae0c3c234786a2c84dc844ff4079026d081f2c9992974884c91d23e",
+      "quote": "- Unlimited Shared Traffic"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T12:21:49.723Z",
+  "verified_at": "2026-11-25T19:55:16.876Z",
   "price_per_tb_month": "$2.075/TB/mo at 10 TB annual ($249/12). Cheapest-looking USD number after Blomp, but confidence is low: unverifiable interface, lifetime-deal lineage, JS-gated pricing.",
   "notes": "10 TB; $249/yr. Ladder: 2 TB $79/yr, 5 TB $149/yr, 10 TB $249/yr.",
   "history": [],

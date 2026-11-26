@@ -6,7 +6,7 @@
   "category": "http tunnel",
   "tier": "free",
   "free_tier": {
-    "stated": "Simultaneous Tunnels 3 ... Session Duration 24h ... Price FREE",
+    "stated": "Free has no time limit and includes 3 tunnels, 2GB monthly bandwidth, 2,000 daily requests, 24-hour sessions, and custom subdomains.",
     "unit": "mixed",
     "metered_on": "none",
     "source_url": "https://instatunnel.my/pricing",
@@ -26,9 +26,9 @@
     "notes": ""
   },
   "egress": {
-    "terms": "No byte allowance is published. The page compares itself to ngrok with '2x the free tier bandwidth' and gives no figure.; ingress: http-only",
+    "terms": "Free plan: 2GB monthly bandwidth and 2,000 daily requests; ingress: http-only",
     "metered": false,
-    "free_allowance": "none published",
+    "free_allowance": "2GB monthly bandwidth",
     "price_per_tb": null,
     "source_url": "https://instatunnel.my/pricing"
   },
@@ -40,19 +40,19 @@
   "chaining": "Webhook ingress only.",
   "limits": [
     {
-      "kind": "per-ip-shaping",
-      "value": "Bandwidth is unstated, so an unpublished tolerance is what a 1 TiB/month user meets. Before that, the session cap ends the tunnel every 24 hours, and the protocol is HTTPS only.",
+      "kind": "volume-quota",
+      "value": "2GB monthly bandwidth on the free plan; sessions last 24 hours",
       "source": "https://instatunnel.my/pricing"
     },
     {
       "kind": "request-rate",
-      "value": "3 simultaneous tunnels and 24-hour sessions on free",
+      "value": "3 tunnels, 2,000 daily requests and 24-hour sessions on free",
       "source": "https://instatunnel.my/pricing"
     }
   ],
   "limits_note": "",
-  "binding": "per-ip-shaping",
-  "binding_note": "Bandwidth is unstated, so an unpublished tolerance is what a 1 TiB/month user meets. Before that, the session cap ends the tunnel every 24 hours, and the protocol is HTTPS only.",
+  "binding": "volume-quota",
+  "binding_note": "The free plan is capped at 2GB monthly bandwidth, 2,000 daily requests and 24-hour sessions.",
   "identity_cost": {
     "kind": "email",
     "detail": "'Start Free' account; MCP endpoints need Pro.",
@@ -60,16 +60,93 @@
   },
   "reliability_note": "Tunnels expire every 24 hours on free and the URL changes.",
   "confidence": "documented",
-  "confidence_note": "A published byte figure would sharpen the binding; a TCP or UDP tunnel type would change the verdict.",
+  "confidence_note": "The free plan publishes a 2GB monthly bandwidth figure; a TCP or UDP tunnel type would change the verdict.",
   "evidence": [
     {
       "url": "https://instatunnel.my/pricing",
       "date": "2026-10-23",
       "proved": "free column: 3 simultaneous tunnels, 24h sessions, FREE; no bandwidth figure"
+    },
+    {
+      "url": "https://instatunnel.my/pricing",
+      "date": "2026-11-25",
+      "proved": "the free plan publishes a 2GB monthly bandwidth figure",
+      "capture": "sha256:7dbd555be492b241b64df70aed06545b60637677792fcc174f61e3982112ff9b",
+      "quote": "Yes. Free has no time limit and includes 3 tunnels, 2GB monthly bandwidth, 2,000 daily requests, 24-hour sessions, and custom subdomains."
+    },
+    {
+      "url": "https://instatunnel.my/pricing",
+      "date": "2026-11-25",
+      "proved": "free bandwidth and request allowances are published",
+      "capture": "sha256:7dbd555be492b241b64df70aed06545b60637677792fcc174f61e3982112ff9b",
+      "quote": "Yes. Free has no time limit and includes 3 tunnels, 2GB monthly bandwidth, 2,000 daily requests, 24-hour sessions, and custom subdomains."
+    },
+    {
+      "url": "https://instatunnel.my/pricing",
+      "date": "2026-11-25",
+      "proved": "free bandwidth is published",
+      "capture": "sha256:7dbd555be492b241b64df70aed06545b60637677792fcc174f61e3982112ff9b",
+      "quote": "Yes. Free has no time limit and includes 3 tunnels, 2GB monthly bandwidth, 2,000 daily requests, 24-hour sessions, and custom subdomains."
+    },
+    {
+      "url": "https://instatunnel.my/pricing",
+      "date": "2026-11-25",
+      "proved": "the binding limit is a monthly byte allowance",
+      "capture": "sha256:7dbd555be492b241b64df70aed06545b60637677792fcc174f61e3982112ff9b",
+      "quote": "Yes. Free has no time limit and includes 3 tunnels, 2GB monthly bandwidth, 2,000 daily requests, 24-hour sessions, and custom subdomains."
+    },
+    {
+      "url": "https://instatunnel.my/pricing",
+      "date": "2026-11-25",
+      "proved": "allowance and session length",
+      "capture": "sha256:7dbd555be492b241b64df70aed06545b60637677792fcc174f61e3982112ff9b",
+      "quote": "Yes. Free has no time limit and includes 3 tunnels, 2GB monthly bandwidth, 2,000 daily requests, 24-hour sessions, and custom subdomains."
+    },
+    {
+      "url": "https://instatunnel.my/pricing",
+      "date": "2026-11-25",
+      "proved": "binding constraint is the monthly byte allowance",
+      "capture": "sha256:7dbd555be492b241b64df70aed06545b60637677792fcc174f61e3982112ff9b",
+      "quote": "Yes. Free has no time limit and includes 3 tunnels, 2GB monthly bandwidth, 2,000 daily requests, 24-hour sessions, and custom subdomains."
+    },
+    {
+      "url": "https://instatunnel.my/pricing",
+      "date": "2026-11-25",
+      "proved": "the caps that bind",
+      "capture": "sha256:7dbd555be492b241b64df70aed06545b60637677792fcc174f61e3982112ff9b",
+      "quote": "Yes. Free has no time limit and includes 3 tunnels, 2GB monthly bandwidth, 2,000 daily requests, 24-hour sessions, and custom subdomains."
+    },
+    {
+      "url": "https://instatunnel.my/pricing",
+      "date": "2026-11-25",
+      "proved": "tunnel, request and session caps",
+      "capture": "sha256:7dbd555be492b241b64df70aed06545b60637677792fcc174f61e3982112ff9b",
+      "quote": "Yes. Free has no time limit and includes 3 tunnels, 2GB monthly bandwidth, 2,000 daily requests, 24-hour sessions, and custom subdomains."
+    },
+    {
+      "url": "https://instatunnel.my/pricing",
+      "date": "2026-11-25",
+      "proved": "free plan contents",
+      "capture": "sha256:7dbd555be492b241b64df70aed06545b60637677792fcc174f61e3982112ff9b",
+      "quote": "Yes. Free has no time limit and includes 3 tunnels, 2GB monthly bandwidth, 2,000 daily requests, 24-hour sessions, and custom subdomains."
+    },
+    {
+      "url": "https://instatunnel.my/pricing",
+      "date": "2026-11-25",
+      "proved": "byte figure is published",
+      "capture": "sha256:7dbd555be492b241b64df70aed06545b60637677792fcc174f61e3982112ff9b",
+      "quote": "Yes. Free has no time limit and includes 3 tunnels, 2GB monthly bandwidth, 2,000 daily requests, 24-hour sessions, and custom subdomains."
+    },
+    {
+      "url": "https://instatunnel.my/pricing",
+      "date": "2026-11-25",
+      "proved": "no card is asked for on the free plan",
+      "capture": "sha256:7dbd555be492b241b64df70aed06545b60637677792fcc174f61e3982112ff9b",
+      "quote": "- No credit card required"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:43.556Z",
   "price_per_tb_month": "USD 0 (Pro USD 5/month)",
   "history": [],
   "notes": "The 24-hour session beats ngrok's 2 hours, which is the vendor's whole pitch. Still HTTP.",
@@ -78,7 +155,7 @@
     "wg_detail": "",
     "ingress": "http-only",
     "volume_tib_month": null,
-    "volume_stated": "No byte allowance is published. The page compares itself to ngrok with '2x the free tier bandwidth' and gives no figure.",
+    "volume_stated": "2GB monthly bandwidth on the free plan",
     "bytes_transit": "yes",
     "transit_note": "",
     "promoted_from": ".tmp/egress/tunnel-sweep"

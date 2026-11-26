@@ -16,12 +16,12 @@
     "stated": "per file: 100 GB",
     "bytes": 100000000000,
     "source_url": "https://360.yandex.ru/premium-plans/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The maximum uploaded file size rises to 100 GB on the Profi plan."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "Когда подписка закончится, дополнительные возможности будут отключены. Оплаченное место также отключится.",
     "source_url": "https://360.yandex.ru/premium-plans/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Когда подписка закончится, дополнительные возможности будут отключены. Оплаченное место также отключится."
   },
   "egress": {
     "terms": "FREE and explicitly unlimited: the plan comparison table states «Неограниченное скачивание по публичным ссылкам» (unlimited downloading via public links) and «Неограниченный доступ по вашим публичным ссылкам». No per-GB egress line exists anywhere in Yandex 360 consumer pricing. You cannot buy extra traffic because none is metered.",
@@ -119,10 +119,45 @@
       "proved": "Profi plan carries a 3× Disk monthly upload allowance",
       "capture": "sha256:3d9379a4ede3f118f8bb13f5b84ad5cd50a78fb9a7d6ca4feaa25d804b229b8c",
       "quote": "В тарифе «Для профи» лимит увеличен и составляет три объёма от вашего размера диска."
+    },
+    {
+      "url": "https://360.yandex.ru/premium-plans/",
+      "date": "2026-11-25",
+      "proved": "the plan page states that the paid Disk space is switched off when the subscription ends",
+      "capture": "sha256:3d9379a4ede3f118f8bb13f5b84ad5cd50a78fb9a7d6ca4feaa25d804b229b8c",
+      "quote": "Когда подписка закончится, дополнительные возможности будут отключены. Оплаченное место также отключится."
+    },
+    {
+      "url": "https://yandex.ru/support/yandex-360/customers/disk/web/ru/ya-360",
+      "date": "2026-11-25",
+      "proved": "the support page states a 100 GB maximum uploaded file size on the Profi plan",
+      "capture": "sha256:c5cc7967943f645944f7befbdcb4de7b12be4c6c6b09f820277a4e1ddc5b78de",
+      "quote": "- максимальный размер файла для [загрузки на Диск](https://yandex.ru/support/yandex-360/customers/disk/web/ru/uploading.md) увеличится — с 1 до 50 ГБ в тарифах **Для себя** или **Для семьи** и до 100 ГБ в тарифах **Для профи**;"
+    },
+    {
+      "url": "https://360.yandex.ru/premium-plans/",
+      "date": "2026-11-25",
+      "proved": "the paid Disk space is switched off when the subscription ends",
+      "capture": "sha256:3d9379a4ede3f118f8bb13f5b84ad5cd50a78fb9a7d6ca4feaa25d804b229b8c",
+      "quote": "Когда подписка закончится, дополнительные возможности будут отключены. Оплаченное место также отключится."
+    },
+    {
+      "url": "https://yandex.ru/support/yandex-360/customers/disk/web/ru/ya-360",
+      "date": "2026-11-25",
+      "proved": "the Profi plan has a 100 GB maximum uploaded file size",
+      "capture": "sha256:c5cc7967943f645944f7befbdcb4de7b12be4c6c6b09f820277a4e1ddc5b78de",
+      "quote": "- максимальный размер файла для [загрузки на Диск](https://yandex.ru/support/yandex-360/customers/disk/web/ru/uploading.md) увеличится — с 1 до 50 ГБ в тарифах **Для себя** или **Для семьи** и до 100 ГБ в тарифах **Для профи**;"
+    },
+    {
+      "url": "https://yandex.ru/support/yandex-360/customers/disk/web/ru/ya-360",
+      "date": "2026-11-25",
+      "proved": "the support page states files on public links can be downloaded without restrictions",
+      "capture": "sha256:c5cc7967943f645944f7befbdcb4de7b12be4c6c6b09f820277a4e1ddc5b78de",
+      "quote": "- файлы с [публичных ссылок](https://yandex.ru/support/yandex-360/customers/disk/web/ru/share/sharing.md#cant-download) можно будет скачивать без ограничений;"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:15:22.711Z",
+  "verified_at": "2026-11-25T21:21:19.435Z",
   "price_per_tb_month": "RUB sheet (Russian card): $2.00/TB/mo at 3 TB ($5.99/mo); $3.83/TB/mo at 5 TB ($19.17/mo); $7.27/TB/mo at 10 TB ($72.67/mo). USD sheet (foreign card — the real price): $4.17/TB/mo at 3 TB ($12.50/mo); $4.25/TB/mo at 5 TB ($21.25/mo); $3.17/TB/mo at 1 TB. Family variant: $3.03/TB/mo per mem…",
   "notes": "Read through a browser-rendering provider, the premium-plans page rendered a plan table that stops at 2 TB; the «Для профи» tier and its monthly prices are absent.",
   "history": [],

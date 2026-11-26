@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u88-q01",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Which limits[] kind should carry a forced hostname and port reassignment? The free tunnel's random domain and TCP/UDP port are force-changed at irregular intervals, and no kind names an address rotation.",
+ "why": "request-rate, per-ip-shaping and retention-clamped describe something else; the fact is recorded in limits_note.",
+ "scope": {
+  "rids": [
+   "egress/natapp"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u88",
+ "created": "2026-11-25T19:55:31Z"
+}

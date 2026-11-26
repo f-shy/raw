@@ -5,11 +5,11 @@
   "url": "https://disroot.org/en/services/nextcloud",
   "category": "donation-funded Nextcloud, free tier only",
   "free_tier": {
-    "stated": "2 GB of cloud, 1 GB of mail and 500 MB of CryptPad, free. Extra space is sold in annual steps: 5 GB EUR 11/year, 10 GB EUR 20, 15 GB EUR 29, 30 GB EUR 56, 45 GB EUR 83, 60 GB EUR 110, with 21% VAT added for EU residents",
+    "stated": "1 GB for email, 2 GB for the cloud and 500 MB for CryptPad, free with an account",
     "unit": "GiB",
     "metered_on": "stored-bytes",
     "source_url": "https://disroot.org/forms/extra-storage-space",
-    "read_on": "2026-10-21"
+    "read_on": "2026-11-25"
   },
   "per_object_cap": {
     "stated": "Not published",
@@ -47,7 +47,7 @@
     "detail": "a Disroot account. The extra-storage form is a separate human review that asks why the space is needed",
     "country": null
   },
-  "reliability_note": "Donation-funded and rate-conscious. Extra storage is reviewed by hand, so capacity is a request and not a purchase. Ordering is by annual invoice with VAT added for EU residents. The operator's status page reports that the Nextcloud Files feature is disabled after a hardware failure on the storage server while calendars, contacts and chat work, and its 2026-11-02 update says some unreadable disk regions may lead to unrecoverable data",
+  "reliability_note": "The operator's status page states that the Nextcloud Files feature is disabled until a hardware failure on the storage server is solved, while calendars, contacts and chat work. Its 29.10.2026 update says the RAID array rebuild completed after a disk replacement, with one repeated unreadable sector left that complicates file system repair",
   "confidence": "reported",
   "evidence": [
     {
@@ -94,10 +94,52 @@
       "proved": "the status page states the Nextcloud Files feature is disabled",
       "capture": "sha256:b74e3374025cc3095564123843ac7dc1443115f624ec16b7ffca11c2b5869abf",
       "quote": "Nextcloud - Files feature has been disabled until the issue is solved, calendars, contacts, chat etc works as normal"
+    },
+    {
+      "url": "https://disroot.org/en/forms/extra-storage-space",
+      "date": "2026-11-25",
+      "proved": "the form page states the three free allowances",
+      "capture": "sha256:02ee9c1c18e4470472ef0f880fedb71930b0632678b4e52f4bb8f735829d5c1c",
+      "quote": "With your **Disroot** account, you get FREE storage: 1GB for your emails, 2GB for the cloud, 500MB for cryptpad."
+    },
+    {
+      "url": "https://disroot.org/en/forms/extra-storage-space",
+      "date": "2026-11-25",
+      "proved": "the form lists the annual extra-storage steps from 5GB for 11 EUR to 60GB for 110 EUR",
+      "capture": "sha256:02ee9c1c18e4470472ef0f880fedb71930b0632678b4e52f4bb8f735829d5c1c",
+      "quote": "5GB for 11€ annually10GB for 20€ annually15GB for 29€ annually30GB for 56€ annually45GB for 83€ annually60GB for 110€ annually"
+    },
+    {
+      "url": "https://disroot.org/en/forms/extra-storage-space",
+      "date": "2026-11-25",
+      "proved": "European users add 21% VAT to the annual prices",
+      "capture": "sha256:02ee9c1c18e4470472ef0f880fedb71930b0632678b4e52f4bb8f735829d5c1c",
+      "quote": "However, **European users** have to add a **VAT** (Value Added Tax) which is 21% more."
+    },
+    {
+      "url": "https://disroot.org/",
+      "date": "2026-11-25",
+      "proved": "the project states it relies on donations",
+      "capture": "sha256:8f81da045ae6953027603ef617ade982754b71acd19809f2d0ec9ddb32715d83",
+      "quote": "Disroot relies on donations and support from its community and users of services."
+    },
+    {
+      "url": "https://status.disroot.org/",
+      "date": "2026-11-25",
+      "proved": "the status page states the Nextcloud Files feature is disabled while calendars, contacts and chat work",
+      "capture": "sha256:b01a16a01a6ebe5f54142078fbad10ebb94c32de34a4f585b85d7ba6b198c59d",
+      "quote": "Nextcloud - Files feature has been disabled until the issue is solved, calendars, contacts, chat etc works as normal"
+    },
+    {
+      "url": "https://status.disroot.org/",
+      "date": "2026-11-25",
+      "proved": "the 29.10.2026 update reports one repeated unreadable sector complicating file system repair",
+      "capture": "sha256:b01a16a01a6ebe5f54142078fbad10ebb94c32de34a4f585b85d7ba6b198c59d",
+      "quote": "However, we seem to have one confirmed repeated unreadable sector which makes the file system repair a bit tricky."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-04T00:20:59.760Z",
+  "verified_at": "2026-11-25T15:23:48.016Z",
   "history": [],
   "price_per_tb_month": "EUR 110/year for 60 GB, which is EUR 152/TB/year and therefore irrelevant",
   "binding": "write-gated",

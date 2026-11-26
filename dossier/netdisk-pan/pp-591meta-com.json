@@ -171,10 +171,24 @@
       "proved": "the second fresh probe produced a different hash, so the runs disagree",
       "capture": "sha256:14deceb89ca535c7016a15aac44298b2317d1bc713ca3922505184322ffe1e82",
       "quote": "\"listing_sha256\": \"e715d3d0\""
+    },
+    {
+      "url": "probe:https://pp.591meta.com/",
+      "date": "2026-11-25",
+      "proved": "the anonymous settings and mount-list requests answered at this instant",
+      "capture": "sha256:be6fabb0e288d12b9a215c3b2540df3db794758fcd06f64a4148de59c461b9ed",
+      "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://pp.591meta.com/",
+      "date": "2026-11-25",
+      "proved": "the root listing hash is e715d3d0, changed from the recorded c4cccc22",
+      "capture": "sha256:be6fabb0e288d12b9a215c3b2540df3db794758fcd06f64a4148de59c461b9ed",
+      "quote": "\"listing_sha256\": \"e715d3d0\""
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:07.762Z",
+  "verified_at": "2026-11-25T21:46:10.686Z",
   "binding": "per-ip-shaping",
   "notes": "anonymous POST /api/fs/list on / returned code 200 with 26 root entries (listing sha256 e715d3d0)",
   "history": [],
@@ -188,10 +202,10 @@
     "write_content_bypass": null,
     "permission_bitmask": "0",
     "base_path": "/",
-    "listing_sha256": "c4cccc22",
+    "listing_sha256": "e715d3d0",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-19T03:38:21.894Z",
+    "last_verified_alive": "2026-11-25T02:34:41.134Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "listing_hash_method": "sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters"

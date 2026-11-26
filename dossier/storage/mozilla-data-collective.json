@@ -13,18 +13,18 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "150 GB per upload",
+    "stated": "The SDK release notes list 'Increase upload file size limit to 150GB'.",
     "bytes": 150000000000,
     "source_url": "https://mozilla-data-collective.github.io/datacollective-python/upload/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The SDK release notes list 'Increase upload file size limit to 150GB'."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://mozilla-data-collective.github.io/datacollective-python/upload/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: no retention period stated in the SDK upload guide; deleting an unpublished submission deletes every uploaded file and cannot be undone."
   },
   "egress": {
-    "terms": "Free to the consumer; downloads are short-lived presigned URLs, and downloads are limited to 7 per organisation per day (429 beyond that).",
+    "terms": "unverified: no daily download number on the current API reference; downloads use presigned storage URLs.",
     "metered": false
   },
   "interface": [
@@ -37,7 +37,7 @@
   "limits": [
     {
       "kind": "request-rate",
-      "value": "7 downloads/day",
+      "value": "unverified: no daily download number on the current API reference",
       "source": "https://mozilla-data-collective.github.io/datacollective-python/upload/"
     },
     {
@@ -47,7 +47,7 @@
     },
     {
       "kind": "pull-count",
-      "value": "7 downloads/day",
+      "value": "unverified: no daily download number on the current API reference",
       "source": "https://mozilla-data-collective.github.io/datacollective-python/upload/"
     },
     {
@@ -119,10 +119,31 @@
       "proved": "the API reference states a 7-download-per-day organization limit",
       "capture": "sha256:24dc85524373ad18b992c173619381013cd758d825b011362e9146fc6c250b5b",
       "quote": "By Default, Organizations are limited to 7 dataset downloads per day. The limit resets at midnight UTC. When exceeded, the API responds with a 429 error."
+    },
+    {
+      "url": "https://github.com/Mozilla-Data-Collective/datacollective-python/compare/0.4.3...0.4.4",
+      "date": "2026-11-25",
+      "proved": "the SDK release note raises the upload file size limit to 150GB",
+      "capture": "sha256:fea28645703e4a8af1939f2f82524afc390bbd438f08de548eab1b87b0f387d1",
+      "quote": "1. Increase upload file size limit to 150GB"
+    },
+    {
+      "url": "https://mozilla-data-collective.github.io/datacollective-python/upload/",
+      "date": "2026-11-25",
+      "proved": "deleting an unpublished submission deletes every uploaded file irreversibly",
+      "capture": "sha256:21549c4685fe238b14c3f602618053369584be7b8274a5e751ee775827741599",
+      "quote": "A submission that has not been published can be deleted, together with every file uploaded for it. Use this to discard a draft or a submission still under review. The deletion cannot be undone."
+    },
+    {
+      "url": "https://mozilladatacollective.com/api-reference/docs",
+      "date": "2026-11-25",
+      "proved": "dataset downloads are issued as presigned storage URLs",
+      "capture": "sha256:0c075dfbf680a3785a3b9797989d09e8db33da46a50da4ab6cb38d9f1de03621",
+      "quote": "Returns a presigned storage URL."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:01.148Z",
+  "verified_at": "2026-11-25T21:21:14.520Z",
   "notes": "150 GB per uploaded file. Raised from a lower value in the Python SDK on 2026-03-24 ('Increase upload file size limit to 150GB'). No published per-account or total quota anywhere in the provider terms, FAQ, or API reference; the archive in the public catalogue runs to multi-GB objects (one measured dataset is 9,786,006,314 bytes = 9.79 GB as a single .tar.gz). Uploads are multipart with a hard 10,000-part ceiling, so a 1 TB object would need ≥100 MB parts. The SDK enforces this and names the minimum part size rather than failing mid-upload.",
   "history": [],
   "extras": {

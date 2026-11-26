@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u02-rerun",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/webhook-relay $.binding_note: The page states the 150-webhook quota and 0 bidirectional tunnels, but does not state that the request quota binds first for webhook forwarding or that a TCP tunnel needs a paid plan.\n- egress/ip4market $.verdict: The page presents phone-based Telegram sign-in as straightforward; it does not establish an unreachable identity requirement.\n- egress/webhook-relay $.identity_cost.kind: The page does not state that email is the signup identity; it only says no card is required and that an account is created.\n- egress/webhook-relay $.identity_cost.detail: The claimed sentence 'Access tokens authenticate Webhook Relay agents, CLI commands and management API requests.' does not appear on the page.\n- egress/ip4market $.free_tier.stated: The cited terms page does not contain the indexed 'Lichnaya set IPv6 /48 v odni ruki' text; that sentence is on the start page, not this source.\n- egress/ip4market $.free_tier.stated: The cited start page does not contain the two service-rule statements; those are on ?page=termsofservice, not this source.",
+ "scope": {
+  "rids": [
+   "egress/iis-pub-frp",
+   "egress/inlets",
+   "egress/ip4market",
+   "egress/sshreach-me",
+   "egress/tamago-hkt-nat",
+   "egress/webhook-relay"
+  ]
+ },
+ "origin": "audit u36 of 20261125-0233-verify-egress-af27/u02 failed: 6 of 30 unsupported",
+ "created": "2026-11-25T14:25:52Z"
+}

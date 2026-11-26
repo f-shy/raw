@@ -16,15 +16,15 @@
     "stated": "Per-object >2 GB",
     "bytes": 2000000000,
     "source_url": "https://www.clarin.si/repository/xmlui/page/deposit",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "files larger than 2 GB require help-desk handling; the repository states no numeric per-item ceiling beyond that threshold"
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.clarin.si/repository/xmlui/page/deposit",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "submitted items are reviewed before publication; withdrawal is possible on request and the administrative metadata is retained after the data is removed"
   },
   "egress": {
-    "terms": "Free. CC-licensed resources download anonymously with no login; licence-gated resources use e-signature. No egress metering on a national ERIC node.",
+    "terms": "CC-licensed data and open-source tools download without a log-in; licence-gated resources need a signed licence. Deposited resources are distributed free of charge; egress metering is not stated.",
     "metered": false
   },
   "interface": [
@@ -151,10 +151,45 @@
       "proved": "the 2 GB per-object handling threshold and the editorial review are unchanged on the deposit guide",
       "capture": "sha256:5669adf01ccba9541194c8543d314e03f902b74c02430960c78aae3e8320a505",
       "quote": "Uploading files larger than 2 GB requires special handling. Please contact Help Desk about how to upload such files."
+    },
+    {
+      "url": "https://www.clarin.si/repository/xmlui/page/deposit",
+      "date": "2026-11-25",
+      "proved": "the deposit guide states a 2 GB threshold with manual handling above it",
+      "capture": "sha256:5669adf01ccba9541194c8543d314e03f902b74c02430960c78aae3e8320a505",
+      "quote": "Uploading files larger than 2 GB requires special handling. Please contact Help Desk about how to upload such files."
+    },
+    {
+      "url": "https://www.clarin.si/repository/xmlui/page/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ states retained administrative metadata after withdrawal",
+      "capture": "sha256:d92c3bc1e16106d94b761d61bed015170b887ee160485513efeb65f5dea11bce",
+      "quote": "we need to keep a reference that the data was in our repository (because a persistent identifier was issued), so the administrative metadata will be retained indicating that the data itself were removed."
+    },
+    {
+      "url": "https://www.clarin.si/repository/xmlui/page/faq",
+      "date": "2026-11-25",
+      "proved": "openly licensed resources download without log-in and licence-gated ones need a signed licence",
+      "capture": "sha256:d92c3bc1e16106d94b761d61bed015170b887ee160485513efeb65f5dea11bce",
+      "quote": "You can download **data and tools which have a license that allows free sharing** without a log-in. Please read the license prior to downloading the resource. This applies to all data with one of the [Creative Commons licences](http://creativecommons.org/licenses/) and to tools with [open source](http://opensource.org/licenses) licenses."
+    },
+    {
+      "url": "https://www.clarin.si/repository/xmlui/page/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ states deposited resources are distributed for free",
+      "capture": "sha256:d92c3bc1e16106d94b761d61bed015170b887ee160485513efeb65f5dea11bce",
+      "quote": "CLARIN always distributes the deposited resources for free and licences are typically CC"
+    },
+    {
+      "url": "https://www.clarin.si/repository/xmlui/page/deposit",
+      "date": "2026-11-25",
+      "proved": "the deposit guide still states the 2 GB per-object handling threshold",
+      "capture": "sha256:5669adf01ccba9541194c8543d314e03f902b74c02430960c78aae3e8320a505",
+      "quote": "Uploading files larger than 2 GB requires special handling. Please contact Help Desk about how to upload such files."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-01T21:26:42.531Z",
+  "verified_at": "2026-11-25T09:54:57.892Z",
   "notes": "No published per-item byte ceiling; deposit is by the authors themselves and free. Uploading files larger than 2 GB requires special handling via the help desk. I.e. the ceiling is procedural, not numeric.",
   "history": [],
   "extras": {

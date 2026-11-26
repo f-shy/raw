@@ -53,9 +53,9 @@
     "detail": "Presumed, not observed: the indexed copy describes an account-based .exe, and the site never loaded, so the signup fields are unread.",
     "country": "None"
   },
-  "reliability_note": "pcdeploy.net does not resolve: DNS-over-HTTPS answered NXDOMAIN (Status 3) for its A record on 2026-10-30, with the .net zone SOA as the authority, so the .net zone holds no delegation for the name.",
+  "reliability_note": "pcdeploy.net does not resolve: DNS-over-HTTPS answered NXDOMAIN (Status 3) for its A record on 2026-11-25, with the .net zone SOA as the authority, so the .net zone holds no delegation for the name.",
   "confidence": "unverified",
-  "confidence_note": "The death is measured: on 2026-10-30 DNS-over-HTTPS queries for the A record of pcdeploy.net answered NXDOMAIN at two public resolvers (Cloudflare and Google), with the .net zone SOA as the authority, and the .net registry's RDAP service answered HTTP 404 for the domain. The rung stays unverified because the offer text (free use, UDP and TCP forwarding, one server at a time) comes from a search-index copy of the vendor page, and the page itself cannot be read while the domain is unregistered.",
+  "confidence_note": "The death is measured: on 2026-11-25 the .net registry's RDAP service answered HTTP 404 for pcdeploy.net, and DNS-over-HTTPS queries at two public resolvers answered NXDOMAIN for its A record. The rung stays unverified because the offer text comes from a search-index copy of the vendor page, which cannot be read while the domain is unregistered.",
   "evidence": [
     {
       "url": "https://pcdeploy.net/",
@@ -113,10 +113,31 @@
       "proved": "the .net registry RDAP service answered HTTP 404 for pcdeploy.net on 2026-11-03: the registry holds no registration for the name",
       "capture": "sha256:084907c9b18593a85fbfe7208b56d362c913216da271defba3be6279cd887a40",
       "quote": "\"status\": 404"
+    },
+    {
+      "url": "probe:https://8.8.8.8/resolve?name=pcdeploy.net&type=A",
+      "date": "2026-11-25",
+      "proved": "a public resolver answered NXDOMAIN for the A record of pcdeploy.net on 2026-11-25",
+      "capture": "sha256:c0fe88613115919b81b291d62c9e4049d271703063a9589f0cb0bab3b7f4b102",
+      "quote": "\"Status\":3"
+    },
+    {
+      "url": "probe:https://rdap.verisign.com/net/v1/domain/pcdeploy.net",
+      "date": "2026-11-25",
+      "proved": "the registry holds no registration for the name on 2026-11-25",
+      "capture": "sha256:5cba5dfb2bb01f7cf5ee1ab01b724bc618520d54b4a34e66ade9b1578b9aaa31",
+      "quote": "\"status\": 404"
+    },
+    {
+      "url": "probe:https://1.1.1.1/dns-query?name=pcdeploy.net&type=A",
+      "date": "2026-11-25",
+      "proved": "a second public resolver answered NXDOMAIN for the name on 2026-11-25",
+      "capture": "sha256:a5d1e401f9778b5d206e2c336837bd6c51479f1e7c72d316e2c299e95c761162",
+      "quote": "\"Status\":3"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-11-03T10:32:54.109Z",
+  "verified_at": "2026-11-25T09:55:02.691Z",
   "price_per_tb_month": "USD 0 (claimed)",
   "history": [],
   "notes": "Historical proxy tool designed for game server hosting. Service endpoints are inactive.",

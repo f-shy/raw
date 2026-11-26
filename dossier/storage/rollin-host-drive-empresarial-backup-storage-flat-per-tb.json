@@ -5,7 +5,7 @@
   "url": "https://www.rollinhost.com.br/backup-na-nuvem",
   "category": "storage-vps-managed-nas",
   "free_tier": {
-    "stated": "Topázio (1 TB) por R$ 79,90/mês, Esmeralda (5 TB) por R$ 199,90/mês e Diamante (10 TB) por R$ 379,90/mês.",
+    "stated": "Topázio (1 TB) por R$ 99,90/mês, Esmeralda (5 TB) por R$ 219,90/mês e Diamante (10 TB) por R$ 399,90/mês.",
     "unit": "TB",
     "metered_on": "unstated",
     "source_url": "https://www.rollinhost.com.br/backup-na-nuvem",
@@ -15,15 +15,15 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.rollinhost.com.br/backup-na-nuvem",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: no per-object size clause on the backup page"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "Dumps de PostgreSQL, MySQL, MongoDB enviados pro storage com retenção configurável.",
     "source_url": "https://www.rollinhost.com.br/backup-na-nuvem",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Sim, o storage suporta snapshots automáticos — pontos de restauração do conteúdo."
   },
   "egress": {
-    "terms": "Não. Você paga apenas a capacidade contratada (1 TB, 5 TB ou 10 TB). Não há cobrança por upload, download, número de arquivos ou requisições — o preço é fixo e previsível",
+    "terms": "Não. Você paga apenas a capacidade contratada (1 TB, 5 TB ou 10 TB). Não há cobrança por upload, download, número de arquivos ou requisições",
     "metered": false
   },
   "interface": [
@@ -33,7 +33,7 @@
     "smb",
     "rclone"
   ],
-  "interface_detail": "webdav + sftp + samba",
+  "interface_detail": "SFTP, Samba/CIFS e WebDAV",
   "tooling": "SFTP, Samba/CIFS, WebDAV; explicitly documented as working with BorgBackup, Restic, rsync, rclone and Duplicati. Mounts as a network drive on Windows and macOS. Automatic read-only snapshots for ransomware rollback.",
   "chaining": "Three fixed capacities; 20 TB would need sales contact (they say «Precisa de mais de 10 TB? Fale com a gente»). Two 10 TB plans = 20 TB at the same rate if they will sell it.",
   "limits": [
@@ -81,10 +81,59 @@
       "proved": "the page states that only the contracted capacity is charged, with no charge for upload, download, files or requests",
       "capture": "sha256:c164f1b5444ec1ab22370a7fe440198eb6cac2f9c3be59e6efb1e2e0ed89e177",
       "quote": "Não. Você paga apenas a capacidade contratada (1 TB, 5 TB ou 10 TB). Não há cobrança por upload, download, número de arquivos ou requisições — o preço é fixo e previsível"
+    },
+    {
+      "url": "https://www.rollinhost.com.br/backup-na-nuvem",
+      "date": "2026-11-25",
+      "proved": "the page states no charge by upload, download, file count or request and gives no maximum object size",
+      "capture": "sha256:4f45de058eda32a29ed4494dbf6a4d25ae3cee8572d1b4da6b6ff78115955956",
+      "quote": "Não há cobrança por upload, download, número de arquivos ou requisições — o preço é fixo e previsível"
+    },
+    {
+      "url": "https://www.rollinhost.com.br/backup-na-nuvem",
+      "date": "2026-11-25",
+      "proved": "database dumps can be sent to the storage with configurable retention",
+      "capture": "sha256:4f45de058eda32a29ed4494dbf6a4d25ae3cee8572d1b4da6b6ff78115955956",
+      "quote": "Dumps de PostgreSQL, MySQL, MongoDB enviados pro storage com retenção configurável."
+    },
+    {
+      "url": "https://www.rollinhost.com.br/backup-na-nuvem",
+      "date": "2026-11-25",
+      "proved": "automatic snapshots provide restore points",
+      "capture": "sha256:4f45de058eda32a29ed4494dbf6a4d25ae3cee8572d1b4da6b6ff78115955956",
+      "quote": "Sim, o storage suporta snapshots automáticos — pontos de restauração do conteúdo."
+    },
+    {
+      "url": "https://www.rollinhost.com.br/backup-na-nuvem",
+      "date": "2026-11-25",
+      "proved": "only contracted capacity is charged; upload, download, file count and requests carry no charge",
+      "capture": "sha256:4f45de058eda32a29ed4494dbf6a4d25ae3cee8572d1b4da6b6ff78115955956",
+      "quote": "Não. Você paga apenas a capacidade contratada (1 TB, 5 TB ou 10 TB). Não há cobrança por upload, download, número de arquivos ou requisições"
+    },
+    {
+      "url": "https://www.rollinhost.com.br/backup-na-nuvem",
+      "date": "2026-11-25",
+      "proved": "the product is file storage reached by SFTP, Samba/CIFS and WebDAV and is not S3-compatible",
+      "capture": "sha256:4f45de058eda32a29ed4494dbf6a4d25ae3cee8572d1b4da6b6ff78115955956",
+      "quote": "é um storage de arquivos de 1 TB a 10 TB acessado via SFTP, Samba/CIFS e WebDAV (não é object storage S3-compatible)."
+    },
+    {
+      "url": "https://www.rollinhost.com.br/backup-na-nuvem",
+      "date": "2026-11-25",
+      "proved": "the current page quotes three monthly prices for 1 TB, 5 TB and 10 TB",
+      "capture": "sha256:4f45de058eda32a29ed4494dbf6a4d25ae3cee8572d1b4da6b6ff78115955956",
+      "quote": "Topázio (1 TB) por R$ 99,90/mês, Esmeralda (5 TB) por R$ 219,90/mês e Diamante (10 TB) por R$ 399,90/mês."
+    },
+    {
+      "url": "https://www.rollinhost.com.br/backup-na-nuvem",
+      "date": "2026-11-25",
+      "proved": "no charge is made for upload, download, file count or requests",
+      "capture": "sha256:4f45de058eda32a29ed4494dbf6a4d25ae3cee8572d1b4da6b6ff78115955956",
+      "quote": "Não há cobrança por upload, download, número de arquivos ou requisições"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:30.561Z",
+  "verified_at": "2026-11-25T19:55:19.658Z",
   "price_per_tb_month": "$7.56/TB/mo at 10 TB ($75.63/mo); $7.96/TB/mo at 5 TB ($39.80/mo); $15.91/TB/mo at 1 TB ($15.91/mo). At 20 TB: $7.56/TB/mo if the 10 TB plan can be bought twice ($151.26/mo). BRL at 0.199082 USD/BRL. Egress $0.",
   "notes": "Topázio 1 TB R$79.90/mo; Esmeralda 5 TB R$199.90/mo; Diamante 10 TB R$379.90/mo. Monthly cycle, no lock-in («sem fidelidade»), Brazilian NF-e invoice, ceiling 10 TB then sales contact.",
   "history": [],

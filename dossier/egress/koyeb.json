@@ -72,10 +72,24 @@
       "url": "https://www.koyeb.com/docs/run-and-scale/tcp-proxy",
       "date": "2026-10-23",
       "proved": "Proxy port persists across deployments unless disabled; \"TCP Proxy is not compatible with Scale-to-Zero\""
+    },
+    {
+      "url": "https://www.koyeb.com/docs/faqs/pricing",
+      "date": "2026-11-25",
+      "proved": "the 100 GB per month outbound allowance still stands",
+      "capture": "sha256:c22e548df104abb843faa36f3f8f0c30bd5a9ab147e179137b26c9bc32fec481",
+      "quote": "We provide 100GB of outbound bandwidth per month for free, usage after this allowance will cost $0.04 per GB."
+    },
+    {
+      "url": "https://www.koyeb.com/docs/run-and-scale/tcp-proxy",
+      "date": "2026-11-25",
+      "proved": "TCP Proxy and scale-to-zero are still documented as incompatible",
+      "capture": "sha256:f1bbc7f9cd05ce367c47b6d84d37c248d4b1f8bc8a878649162df59b421ed7c0",
+      "quote": "TCP Proxy is not compatible with [Scale-to-Zero](https://www.koyeb.com/docs/run-and-scale/scale-to-zero) at the moment and using them together may lead to unexpected behavior."
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:44.013Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Conflict worth naming: the Free Instance scales to zero after an hour idle, and the TCP Proxy is documented as incompatible with scale-to-zero. A free-tier TCP proxy is therefore expected to work only while something else keeps the service awake.",

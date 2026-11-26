@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u05-rerun",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/layer7-high-cpu-2 $.limits[0].value: The cited aggregator lists only 50 TB for High CPU 2; it does not state 50 TB incl. + up to 300 TB extra a month, and it prints no monthly extra allowance.\n- egress/layer7-high-cpu-2 $.egress.terms: The cited aggregator row states only 50 TB for High CPU 2; it does not state the vendor's 50 TB included plus up to 300 TB extra a month or the absence of an extra-traffic price on the vendor page.\n- egress/hostsailor-minisailor $.interface_detail: The cart lists NVMe storage and a 1 TB bandwidth line but says nothing about root access; the value itself admits the control panel was not read.\n- egress/kainode-vps-pro $.limits[1].value: The cited terms say port 25 is blocked; they state no 100 Mbps port speed. The 100 Mbps port comes from the offer post, not from these terms.\n- egress/hostsailor-minisailor $.chaining: The cart lists one IPv4, a /64 IPv6 and a 1 Gbit port, but no DDoS protection; the post named in the value is not this source.",
+ "scope": {
+  "rids": [
+   "egress/cloudnium-ipv6-1",
+   "egress/h2-nexus-promo-platinum",
+   "egress/hostbrr-nice-epyc",
+   "egress/hostsailor-minisailor",
+   "egress/kainode-vps-pro",
+   "egress/layer7-high-cpu-2"
+  ]
+ },
+ "origin": "audit u39 of 20261125-0233-verify-egress-af27/u05 failed: 5 of 30 unsupported",
+ "created": "2026-11-25T14:25:52Z"
+}

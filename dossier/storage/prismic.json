@@ -13,14 +13,14 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "The maximum image size is 10MB; other file types, including videos, can be up to 100MB.",
     "source_url": "https://prismic.io/pricing",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The media documentation states the 10MB image ceiling and 100MB ceiling for other files."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://prismic.io/pricing",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Deleting an asset removes it from the media library but leaves it accessible at its direct URL; pages using the asset continue."
   },
   "egress": {
     "terms": "100 GB/month built-in CDN bandwidth, hard cap on Free ('100 GB (no overages)'). Served via images.prismic.io with imgix-style transform params.",
@@ -34,7 +34,7 @@
   ],
   "interface_detail": "rest",
   "tooling": "Prismic REST API + GraphQL, `@prismicio/client`, slice-machine CLI; assets public at images.prismic.io/<repo>/<id>.<ext>?w=&auto=format,compress",
-  "chaining": "Unlimited assets per repository, bandwidth-capped. Repositories are the unit; creating additional repos is free and each carries its own 100 GB/mo meter. That is a genuine N x 100 GB bandwidth multiplier, with storage effectively unbounded in each.",
+  "chaining": "The Free plan is $0/month per repository.",
   "limits": [],
   "limits_note": "Per-asset size cap not published on the pricing page (needs verification in the repo settings); 100 GB/month bandwidth hard stop; Free has 1 repository per... verify. Documents unlimited.",
   "identity_cost": {
@@ -62,10 +62,38 @@
       "proved": "the pricing page gives the Free CDN allowance in GB a month",
       "capture": "sha256:4fe7740a02630d6c1279de41cc9ac040df116db8a22a1ec80a73569bf731c172",
       "quote": "100 GB of built-in CDN bandwidth a month"
+    },
+    {
+      "url": "https://prismic.io/docs/media",
+      "date": "2026-11-25",
+      "proved": "the media documentation states the 10MB image and 100MB other-file ceilings",
+      "capture": "sha256:302e22b6181863d96ac2f962548cb6cd974a1ca049da8dd1c38adde5a1fb7132",
+      "quote": "The maximum image size is **10MB**; other file types, including videos, can be up to **100MB**."
+    },
+    {
+      "url": "https://prismic.io/docs/media",
+      "date": "2026-11-25",
+      "proved": "deleted assets remain reachable at their direct URL",
+      "capture": "sha256:302e22b6181863d96ac2f962548cb6cd974a1ca049da8dd1c38adde5a1fb7132",
+      "quote": "Deleting an asset removes it from the media library but leaves it accessible at its direct URL. Pages that use the asset will continue using the asset."
+    },
+    {
+      "url": "https://prismic.io/pricing",
+      "date": "2026-11-25",
+      "proved": "the Free plan lists 100 GB of built-in CDN bandwidth per month",
+      "capture": "sha256:deecda043957e74c12e86f2b6d7552e9e9dd4c32a39429bcf37c0644a6d2d5f1",
+      "quote": "100 GB of built-in CDN bandwidth a month"
+    },
+    {
+      "url": "https://prismic.io/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page states the Free plan price is per repository",
+      "capture": "sha256:deecda043957e74c12e86f2b6d7552e9e9dd4c32a39429bcf37c0644a6d2d5f1",
+      "quote": "$0/month\n\nPer repository"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T07:23:03.224Z",
+  "verified_at": "2026-11-25T19:55:16.879Z",
   "notes": "Unlimited assets + unlimited documents on Free; 100 GB CDN bandwidth/month (no overage)",
   "history": [],
   "extras": {

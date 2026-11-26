@@ -135,10 +135,45 @@
       "proved": "every plan on the offers page carries the Upload up to 20 GB line",
       "capture": "sha256:ca530d4fabc396c1f36fc76cccb340a9ae0763e619b54fa5f93d031ce7f041bb",
       "quote": "Upload up to 20 GB"
+    },
+    {
+      "url": "https://shadow.tech/eu/drive/offers/",
+      "date": "2026-11-25",
+      "proved": "every plan, including 2 TB, still carries the 20 GB upload line",
+      "capture": "sha256:26c43b7b1b6e15e4db83ce436f2f3bb000324b9d05a908ad300e7085f7776c15",
+      "quote": "Upload up to 20 GB"
+    },
+    {
+      "url": "https://shadow.tech/eu/drive/",
+      "date": "2026-11-25",
+      "proved": "the 20 GB free-for-life plan is still offered",
+      "capture": "sha256:4edf5ad86b62a3cb7ffcf4a6b1371b94ed99340361dee229313e84d78cb21cbe",
+      "quote": "Enjoy 20 GB free (for life!)"
+    },
+    {
+      "url": "https://shadow.tech/eu/drive/offers/",
+      "date": "2026-11-25",
+      "proved": "the twelve-country subscription gate is unchanged",
+      "capture": "sha256:fe7efd019ed475eb0d5f1f433ea5d7f266e7833b48a3053c6daf66a37e2ab1fe",
+      "quote": "Shadow Drive is already available in 12 countries: France, UK, Belgium, Switzerland, Luxemburg, Germany, Netherlands, Austria, Italy, Sweden, Denmark and Spain."
+    },
+    {
+      "url": "probe:https://drive.shadow.tech/status.php",
+      "date": "2026-11-25",
+      "proved": "the drive host still answers the Nextcloud 27.1.11.4 status JSON",
+      "capture": "sha256:263ef38322034768118919a7c300d79ba2da5e2dc9b9b1b26ece124593fb3ad4",
+      "quote": "\"version\":\"27.1.11.4\""
+    },
+    {
+      "url": "probe:https://drive.shadow.tech/remote.php/dav/",
+      "date": "2026-11-25",
+      "proved": "the WebDAV endpoint is still live and auth-gated",
+      "capture": "sha256:c6cc1e0e9528f9042d45b38b934b893d509c5e13a1ae6a252bc135ca1877e431",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-04T00:20:59.761Z",
+  "verified_at": "2026-11-25T04:14:26.913Z",
   "history": [],
   "binding": "per-object-cap",
   "binding_note": "The free 20 GB is an order of magnitude under a 500 GB threshold, and the paid tiers carry a 20 GB per-file cap that does not move with the plan. Either number alone stops it; the cap is the one that would still bind at 2 TB.",

@@ -45,7 +45,7 @@
   "binding_note": "Nothing in the free sense binds because there is no free tier. At 1 TiB/month the binding factor is the price: a 1 GB plan at a 550 yen monthly cap is cheap but not zero, and no traffic allowance is published to fail first.",
   "identity_cost": {
     "kind": "email",
-    "detail": "Signup is at signup.kagoya.jp. The pages read do not state what a new account must supply; the card or email requirement is not established here.",
+    "detail": "[translated] Account registration is free of charge. What the registration form asks for is unverified: behind a sign-up.",
     "country": "None"
   },
   "reliability_note": "Daily billing means a machine can be created for one day; nothing on the page suggests a reclamation risk on a paid plan.",
@@ -56,10 +56,31 @@
       "url": "https://www.kagoya.jp/vps/",
       "date": "2026-10-23",
       "proved": "[translated] '1 GB: 20 yen per day, monthly cap 550 yen', and 'all plans have no initial cost', billed per day, month or year."
+    },
+    {
+      "url": "https://www.kagoya.jp/vps/",
+      "date": "2026-11-25",
+      "proved": "account registration is free",
+      "capture": "sha256:25d84fd2cf0d3c824bacd42a5123236e1ea2d62fd179dc01f2a35d7e07ab0376",
+      "quote": "無料でできるアカウント登録を行い、コントロールパネルにログインします。"
+    },
+    {
+      "url": "https://www.kagoya.jp/vps/",
+      "date": "2026-11-25",
+      "proved": "KAGOYA uses fixed-rate pricing, not usage-metered pricing",
+      "capture": "sha256:25d84fd2cf0d3c824bacd42a5123236e1ea2d62fd179dc01f2a35d7e07ab0376",
+      "quote": "しかし、KAGOYA なら定額制の料金を採用しているため、こうした心配は不要です。"
+    },
+    {
+      "url": "https://www.kagoya.jp/vps/",
+      "date": "2026-11-25",
+      "proved": "no initial cost on any plan",
+      "capture": "sha256:25d84fd2cf0d3c824bacd42a5123236e1ea2d62fd179dc01f2a35d7e07ab0376",
+      "quote": "全プランが初期費用無料。"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:43.557Z",
   "price_per_tb_month": "JPY 550 per month cap for the 1 GB plan (JPY 20 per day)",
   "history": [],
   "notes": "The cheapest per-day Japanese VPS found, and the only named candidate whose price is low enough to matter monthly (about USD 3.5 at the cap). It is not free, so it cannot answer the lane's question. Country: Japan. Considered and not read: Xserver VPS paid line, ConoHa VPS.",

@@ -16,12 +16,12 @@
     "stated": "25 MiB max per file",
     "bytes": 26214400,
     "source_url": "https://developers.cloudflare.com/pages/platform/limits/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "the maximum file size for a single Cloudflare Pages site asset is 25 MiB; larger files are directed to R2"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "deployments are kept for 30 days, except the 100 most recent and the current production deployment; a deleted deployment loses its preview URL",
     "source_url": "https://developers.cloudflare.com/pages/platform/limits/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "deployments older than 30 days are deleted unless among the 100 most recent or the current production deployment; they then lose their preview URL and cannot be rolled back"
   },
   "egress": {
     "terms": "Unlimited requests and unlimited bandwidth: 'Static asset requests ... are free and unlimited' (pages/functions/pricing) and 'Unlimited bandwidth ... no extra cost to you' (blog.cloudflare.com/big-ideas-on-pages).",
@@ -157,10 +157,45 @@
       "proved": "account sign-up asks for an email address and a password",
       "capture": "sha256:0165fdf250cc1338d7e7a94dd78c7adc2df6f592133ad72dfcf0651a080c5543",
       "quote": "2. Enter your **Email** and **Password**."
+    },
+    {
+      "url": "https://developers.cloudflare.com/pages/platform/limits/",
+      "date": "2026-11-25",
+      "proved": "the limits page states the per-asset cap",
+      "capture": "sha256:3c12020dbfbc300ab009fabee3e9b61fe62d39a45d5b63f8246312e106e47fac",
+      "quote": "The maximum file size for a single Cloudflare Pages site asset is 25 MiB."
+    },
+    {
+      "url": "https://developers.cloudflare.com/pages/platform/limits/",
+      "date": "2026-11-25",
+      "proved": "the limits page states a 30-day deployment retention with exceptions",
+      "capture": "sha256:3c12020dbfbc300ab009fabee3e9b61fe62d39a45d5b63f8246312e106e47fac",
+      "quote": "Deployments are kept for 30 days. After 30 days, a deployment is deleted unless:"
+    },
+    {
+      "url": "https://developers.cloudflare.com/pages/platform/limits/",
+      "date": "2026-11-25",
+      "proved": "the limits page states deployment retention and its exceptions",
+      "capture": "sha256:3c12020dbfbc300ab009fabee3e9b61fe62d39a45d5b63f8246312e106e47fac",
+      "quote": "Deployments are kept for 30 days. After 30 days, a deployment is deleted unless:"
+    },
+    {
+      "url": "https://developers.cloudflare.com/pages/platform/limits/",
+      "date": "2026-11-25",
+      "proved": "the Free plan file cap is unchanged",
+      "capture": "sha256:3c12020dbfbc300ab009fabee3e9b61fe62d39a45d5b63f8246312e106e47fac",
+      "quote": "Cloudflare Pages sites can contain up to 20,000 files on the Free plan."
+    },
+    {
+      "url": "https://developers.cloudflare.com/pages/functions/pricing/",
+      "date": "2026-11-25",
+      "proved": "static-asset requests stay free and unlimited on both plans",
+      "capture": "sha256:db8e56c8217cf3767723079298ff02fba4488a8f9c6dbbc639a3b3b79d21a489",
+      "quote": "On both free and paid plans, requests to static assets are free and unlimited."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-10T00:50:12.222Z",
+  "verified_at": "2026-11-25T09:54:57.894Z",
   "notes": "20,000 files per site on the Free plan, 25 MiB maximum per file, 100 projects per account: 100 projects x 20,000 files x 25 MiB = 48,828.125 GiB = 47.68 TiB per account. No stated total-bytes cap.",
   "history": [],
   "extras": {

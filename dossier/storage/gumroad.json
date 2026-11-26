@@ -16,23 +16,24 @@
     "stated": "If you price your product at any number greater than $0.99, the largest single file that you can upload to a product is 20 GB in size.",
     "bytes": 20000000000,
     "source_url": "https://gumroad.com/help/article/289-file-size-limits-on-gumroad",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "20 GB per file applies to a product priced above $0.99; a free product is limited to 250 MB. The help article words the threshold both as greater than $0.99 and as higher than $1."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
-    "source_url": "https://gumroad.com/help/article/289-file-size-limits-on-gumroad",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "stated": "The terms state that Gumroad has no obligation to store any of Your Content that you Make Available on the Services.",
+    "source_url": "https://gumroad.com/terms",
+    "notes": "Unpublishing a product does not delete the product or its data. Deleting a product is permanent and cannot be undone."
   },
   "egress": {
     "terms": "CloudFront in front of S3 (confirmed in their open-source repo: CLOUDFRONT_* + FILE_DOWNLOAD_DISTRIBUTION_URL_PROD). No per-download quota published.",
     "metered": false
   },
   "interface": [
-    "rest"
+    "rest",
+    "cli"
   ],
   "interface_detail": "Web + documented REST API (products, product_files); the codebase is open source (antiwork/gumroad), so limits are inspectable.",
   "tooling": "REST API with access token; the repo exposes /attachments/... presigned paths via SignedUrlHelper.",
-  "chaining": "The $0.99 pricing gate is the mechanism: price at $1, get 20 GB/file, unlimited files per product, unlimited products. A $1 product that never sells still costs the seller ~nothing after fees. 20 GB x N files.",
+  "chaining": "Pricing a product above $0.99 raises the largest single file to 20 GB, and a product can hold as many files as you want. A product priced at $0 is limited to 250 MB of files in total.",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -104,10 +105,80 @@
       "proved": "the page states the confirmed value",
       "capture": "sha256:8a6b08707ad916b7b705aa7a310e5aaeda4e663e3c538c5f134ebf5c649cae1b",
       "quote": "Email"
+    },
+    {
+      "url": "https://gumroad.com/terms",
+      "date": "2026-11-25",
+      "proved": "the terms disclaim any obligation to store uploaded content",
+      "capture": "sha256:793c6631b9b3edf2b3191f504ef5b0165d7dcdb748224f3d39171dc0f676815e",
+      "quote": "Unless expressly agreed to by Gumroad in writing elsewhere, Gumroad has no obligation to store any of Your Content that you Make Available on the Services."
+    },
+    {
+      "url": "https://gumroad.com/terms",
+      "date": "2026-11-25",
+      "proved": "the retention statement is on the terms page, not the file-size article",
+      "capture": "sha256:793c6631b9b3edf2b3191f504ef5b0165d7dcdb748224f3d39171dc0f676815e",
+      "quote": "Unless expressly agreed to by Gumroad in writing elsewhere, Gumroad has no obligation to store any of Your Content that you Make Available on the Services."
+    },
+    {
+      "url": "https://gumroad.com/help/article/248-delete-a-product",
+      "date": "2026-11-25",
+      "proved": "the help article states that deletion of a product is permanent",
+      "capture": "sha256:053c275789eccc76ec225eed25daf16244a73aa22aad8490829ed4c45d95824b",
+      "quote": "Deleting a product is permanent and cannot be undone."
+    },
+    {
+      "url": "https://gumroad.com/help/article/248-delete-a-product",
+      "date": "2026-11-25",
+      "proved": "the help article states that unpublishing keeps the product and its data",
+      "capture": "sha256:053c275789eccc76ec225eed25daf16244a73aa22aad8490829ed4c45d95824b",
+      "quote": "Unpublishing does not delete your product or any data associated with it."
+    },
+    {
+      "url": "https://gumroad.com/help/article/289-file-size-limits-on-gumroad",
+      "date": "2026-11-25",
+      "proved": "the article gives the 250 MB free-product and 20 GB priced-product limits",
+      "capture": "sha256:349294412f63d3e28b388836d6f71de1afe2f46e84a321a14ea5b030677619d1",
+      "quote": "Free products have a file size limit of 250 MB. Products priced higher than $1 have a file size limit of 20 GB."
+    },
+    {
+      "url": "https://gumroad.com/help/article/289-file-size-limits-on-gumroad",
+      "date": "2026-11-25",
+      "proved": "the 20 GB per-file ceiling for a product priced above $0.99",
+      "capture": "sha256:349294412f63d3e28b388836d6f71de1afe2f46e84a321a14ea5b030677619d1",
+      "quote": "If you price your product at any number greater than $0.99, the largest single file that you can upload to a product is 20 GB in size."
+    },
+    {
+      "url": "https://gumroad.com/help/article/289-file-size-limits-on-gumroad",
+      "date": "2026-11-25",
+      "proved": "a product can hold as many files as the seller adds",
+      "capture": "sha256:349294412f63d3e28b388836d6f71de1afe2f46e84a321a14ea5b030677619d1",
+      "quote": "Remember, you can add as many files as you want to each product."
+    },
+    {
+      "url": "https://gumroad.com/api",
+      "date": "2026-11-25",
+      "proved": "Gumroad publishes a command-line client over the same API",
+      "capture": "sha256:101c6f6b97b40d31a49495c2bbb5fec9f0a2a1bd75aeeae7ec3db3d5fb29e2c9",
+      "quote": "Prefer a terminal? The Gumroad CLI wraps every endpoint below and is built for humans and AI agents alike."
+    },
+    {
+      "url": "https://gumroad.com/api",
+      "date": "2026-11-25",
+      "proved": "the API is REST with JSON responses",
+      "capture": "sha256:101c6f6b97b40d31a49495c2bbb5fec9f0a2a1bd75aeeae7ec3db3d5fb29e2c9",
+      "quote": "The Gumroad OAuth API is based around REST."
+    },
+    {
+      "url": "https://gumroad.com/help/article/289-file-size-limits-on-gumroad",
+      "date": "2026-11-25",
+      "proved": "the 20 GB per-file ceiling for a priced product is unchanged",
+      "capture": "sha256:349294412f63d3e28b388836d6f71de1afe2f46e84a321a14ea5b030677619d1",
+      "quote": "If you price your product at any number greater than $0.99, the largest single file that you can upload to a product is 20 GB in size."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:18.127Z",
+  "verified_at": "2026-11-25T12:15:42.694Z",
   "notes": "Own help centre: 'If you price your product at any number greater than $0.99, the largest single file that you can upload to a product is 20 GB in size... you can add as many files as you want to each product.' Free/$0 products are capped at 250 MB cumulative.",
   "history": [],
   "extras": {

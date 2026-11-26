@@ -13,25 +13,25 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "unverified: no per-object cap stated in the provider documentation",
     "source_url": "https://www.kimsufi.com/en/ks/ks-5/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: no per-object cap stated in the provider documentation"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "unverified: no retention clause stated in the provider documentation",
     "source_url": "https://www.kimsufi.com/en/ks/ks-5/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: no retention clause stated in the provider documentation"
   },
   "egress": {
-    "terms": "'500Mbps unmetered' is the public port; traffic is unmetered. The shape, not the volume, is the limit.",
+    "terms": "Unlimited traffic is included, so you won’t have to pay extra.",
     "metered": false
   },
   "interface": [
-    "unknown"
+    "ssh"
   ],
-  "interface_detail": "full root",
+  "interface_detail": "Full root access via SSH",
   "tooling": "unrestricted",
-  "chaining": "MinIO / SFTP / NFS",
+  "chaining": "unverified: no chaining mechanism stated by the provider",
   "limits": [
     {
       "kind": "per-ip-shaping",
@@ -77,10 +77,59 @@
       "proved": "the KS-5 CPU is unchanged",
       "capture": "sha256:c987056beb717c57e0416232828915bb32ba9d2768d56095e44198dd6823f515",
       "quote": "**Intel Xeon-E3 1270 v6** 4c/8t -3,8 GHz/4,2 GHz"
+    },
+    {
+      "url": "https://www.kimsufi.com/en/",
+      "date": "2026-11-25",
+      "proved": "the Kimsufi page states SSH root access",
+      "capture": "sha256:871cf449b37a13af62bf7ca9411f621e3b857c3ec539ee5f83e81b55416bd8e0",
+      "quote": "You can then manage your machine via SSH access (Root) or a control panel (cPanel or Plesk)."
+    },
+    {
+      "url": "https://www.kimsufi.com/en/dedicated-server-linux/",
+      "date": "2026-11-25",
+      "proved": "the Linux dedicated server page states full root access via SSH",
+      "capture": "sha256:70138781c1ec9a1934d58fff017cfa5b6ebaea366e20ce7ade042da75a0d160f",
+      "quote": "Full root access via SSH"
+    },
+    {
+      "url": "https://www.kimsufi.com/en/",
+      "date": "2026-11-25",
+      "proved": "the first-party page describes SSH and a control panel, not a chaining mechanism",
+      "capture": "sha256:871cf449b37a13af62bf7ca9411f621e3b857c3ec539ee5f83e81b55416bd8e0",
+      "quote": "You can then manage your machine via SSH access (Root) or a control panel (cPanel or Plesk)."
+    },
+    {
+      "url": "https://www.kimsufi.com/en/",
+      "date": "2026-11-25",
+      "proved": "Kimsufi states unlimited traffic with no extra charge",
+      "capture": "sha256:871cf449b37a13af62bf7ca9411f621e3b857c3ec539ee5f83e81b55416bd8e0",
+      "quote": "Unlimited traffic is included, so you won’t have to pay extra."
+    },
+    {
+      "url": "https://www.kimsufi.com/en/",
+      "date": "2026-11-25",
+      "proved": "the first-party page lists service features; no retention clause is stated",
+      "capture": "sha256:871cf449b37a13af62bf7ca9411f621e3b857c3ec539ee5f83e81b55416bd8e0",
+      "quote": "Full root access and the possibility to install your preferred OS"
+    },
+    {
+      "url": "https://www.kimsufi.com/en/",
+      "date": "2026-11-25",
+      "proved": "the first-party page lists service features; no per-object clause is stated",
+      "capture": "sha256:871cf449b37a13af62bf7ca9411f621e3b857c3ec539ee5f83e81b55416bd8e0",
+      "quote": "Full root access and the possibility to install your preferred OS"
+    },
+    {
+      "url": "https://www.kimsufi.com/en/ks/ks-5/",
+      "date": "2026-11-25",
+      "proved": "the KS-5 public port is 500Mbps unmetered",
+      "capture": "sha256:a28b31ac81a20a495c03c3a824605140118be8a2c53d51e7e4c8a562c3f576e3",
+      "quote": "**500Mbps**unmetered"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:13:59.618Z",
+  "verified_at": "2026-11-25T13:25:55.251Z",
   "price_per_tb_month": "$19.90 ÷ 8 TB = $2.49/TB/mo at the 2×4TB config; ÷ 12 TB (3×4TB) = $1.66/TB; ÷ 4 TB (2×2TB) = $4.98/TB. Unlimited traffic, but 300 Mbps.",
   "notes": "2× 2 TB – 2× 4 TB HDD (configured up to 3× 4 TB)",
   "history": [],

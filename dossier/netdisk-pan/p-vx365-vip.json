@@ -115,10 +115,31 @@
       "proved": "the host answered and its listing hash stayed e715d3d0 with no failures",
       "capture": "sha256:116ff30caba6f34d432055a3d3a3b3f4f34cbc8c3292e4cd63870240e46fcb0a",
       "quote": "\"checked_at\": \"2026-11-19T03:34:22.670Z\"...\"listing_sha256\": \"e715d3d0\"...\"consecutive_failures\": 0"
+    },
+    {
+      "url": "probe:https://p.vx365.vip/",
+      "date": "2026-11-25",
+      "proved": "a fresh anonymous probe of p.vx365.vip answered the settings, session and mount-list requests at this timestamp",
+      "capture": "sha256:7f3d2200cafdb6067b1081511df62313e73d791cfe73ba4e3eca5e58e70c2299",
+      "quote": "\"probed_at\": \"2026-11-25T02:34:35.481Z\""
+    },
+    {
+      "url": "probe:https://p.vx365.vip/",
+      "date": "2026-11-25",
+      "proved": "the fresh probe completed the anonymous settings, session and mount-list requests at p.vx365.vip",
+      "capture": "sha256:7f3d2200cafdb6067b1081511df62313e73d791cfe73ba4e3eca5e58e70c2299",
+      "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://p.vx365.vip/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing of p.vx365.vip hashed to the recorded value, so the listing is unchanged",
+      "capture": "sha256:7f3d2200cafdb6067b1081511df62313e73d791cfe73ba4e3eca5e58e70c2299",
+      "quote": "\"listing_sha256\": \"e715d3d0\""
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:07.052Z",
+  "verified_at": "2026-11-25T19:55:33.832Z",
   "binding": "per-ip-shaping",
   "notes": "Same 26-entry IPA corpus as p.591meta.com, identical listing bytes.",
   "history": [],
@@ -135,7 +156,7 @@
     "listing_sha256": "e715d3d0",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-19T03:34:22.670Z",
+    "last_verified_alive": "2026-11-25T02:34:35.481Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "listing_hash_method": "sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters"

@@ -15,15 +15,15 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://chanzuckerberg.com/rfa/essential-open-source-software-for-science/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The RFA names cloud computing and storage as eligible costs; no object-size limit is stated."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://chanzuckerberg.com/rfa/essential-open-source-software-for-science/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Grants run for two years and storage is an eligible cost; no data-retention period is stated for funded storage."
   },
   "egress": {
-    "terms": "N/A - grant money, you buy the egress.",
+    "terms": "unverified: the RFA states no egress allowance or transfer charge for storage it funds.",
     "metered": false
   },
   "interface": [
@@ -31,7 +31,7 @@
   ],
   "interface_detail": "n/a",
   "tooling": "n/a",
-  "chaining": "The eligibility bridge matters more than the money: 'Grants are not permitted to individuals, only to organizations' but a fiscal sponsor is allowed (NumFOCUS, Code for Science & Society). An individual with an OSS project applies through the sponsor and can then budget multi-year object storage explicitly.",
+  "chaining": "Grants go to organizations, not individuals; an independent project uses a fiscal sponsor secured by the full-proposal deadline.",
   "limits": [
     {
       "kind": "write-gated",
@@ -115,10 +115,45 @@
       "proved": "the RFA requires the sponsor to be secured by the full-proposal deadline",
       "capture": "sha256:64895e3f7ef1a6815ca425f568f2589fc0bb4ee9ecd03017a54f4739f17e03be",
       "quote": "If your application requires a fiscal sponsor, you must secure one by the full proposal application deadline."
+    },
+    {
+      "url": "https://chanzuckerberg.com/rfa/essential-open-source-software-for-science/",
+      "date": "2026-11-25",
+      "proved": "the RFA lists storage as an eligible cost and states no object-size limit or egress figure",
+      "capture": "sha256:64895e3f7ef1a6815ca425f568f2589fc0bb4ee9ecd03017a54f4739f17e03be",
+      "quote": "- Operational needs such as cloud computing, storage, networking, or continuous integration services; and"
+    },
+    {
+      "url": "https://chanzuckerberg.com/rfa/essential-open-source-software-for-science/",
+      "date": "2026-11-25",
+      "proved": "the RFA states a two-year award and storage as an eligible cost",
+      "capture": "sha256:64895e3f7ef1a6815ca425f568f2589fc0bb4ee9ecd03017a54f4739f17e03be",
+      "quote": "All grants, regardless of funder, will be for **two years** and can be used to fund a variety of eligible activities, as listed in the Use of Funds section below. ... - Operational needs such as cloud computing, storage, networking, or continuous integration services; and"
+    },
+    {
+      "url": "https://chanzuckerberg.com/rfa/essential-open-source-software-for-science/",
+      "date": "2026-11-25",
+      "proved": "the RFA requires an organization or a fiscal sponsor secured by the full-proposal deadline",
+      "capture": "sha256:64895e3f7ef1a6815ca425f568f2589fc0bb4ee9ecd03017a54f4739f17e03be",
+      "quote": "Grants are not permitted to individuals, only to organizations. ... it may designate a fiscal sponsor ... If your application requires a fiscal sponsor, you must secure one by the full proposal application deadline."
+    },
+    {
+      "url": "https://chanzuckerberg.com/rfa/essential-open-source-software-for-science/",
+      "date": "2026-11-25",
+      "proved": "the RFA states that application materials are not returned",
+      "capture": "sha256:64895e3f7ef1a6815ca425f568f2589fc0bb4ee9ecd03017a54f4739f17e03be",
+      "quote": "Application materials will not be returned to applicants."
+    },
+    {
+      "url": "https://chanzuckerberg.com/rfa/essential-open-source-software-for-science/",
+      "date": "2026-11-25",
+      "proved": "the RFA states the annual and two-year funding range",
+      "capture": "sha256:64895e3f7ef1a6815ca425f568f2589fc0bb4ee9ecd03017a54f4739f17e03be",
+      "quote": "Applications can request funding between $50,000 USD and $200,000 USD total costs per year for two years ... overall amount requested between $100,000 USD and $400,000 USD total costs for the two-year duration of the grant"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:58.758Z",
+  "verified_at": "2026-11-25T09:54:53.001Z",
   "notes": "No byte quota - $100,000-$400,000 total over two years, from which cloud/storage is a claimable line item.",
   "history": [],
   "extras": {

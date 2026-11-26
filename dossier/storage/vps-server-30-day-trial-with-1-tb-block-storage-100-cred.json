@@ -15,13 +15,13 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.vpsserver.com/free-vps-server/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: no per-object size cap stated on the trial page"
   },
   "retention": {
     "stated": "30 days, then auto-converts to paid at standard rates",
     "days": 30,
     "source_url": "https://www.vpsserver.com/free-vps-server/",
-    "notes": "Extracted from published terms."
+    "notes": "The free trial gives a virtual private server at no cost for 30 days."
   },
   "egress": {
     "terms": "Includes 5 TB outbound transfer (1 TB in Asia and Australia), followed by metered overage rates.",
@@ -78,10 +78,38 @@
       "proved": "the free trial lasts 30 days",
       "capture": "sha256:d065de33443125c87bb3a2e487384e482d56794e4b7450dd9f26966ac8073bf7",
       "quote": "Our free VPS hosting gives customers an accessible virtual private server at no cost for 30 days."
+    },
+    {
+      "url": "https://www.vpsserver.com/free-vps-server/",
+      "date": "2026-11-25",
+      "proved": "the trial supplies a server at no cost for 30 days",
+      "capture": "sha256:d065de33443125c87bb3a2e487384e482d56794e4b7450dd9f26966ac8073bf7",
+      "quote": "Our free VPS hosting gives customers an accessible virtual private server at no cost for 30 days."
+    },
+    {
+      "url": "https://www.vpsserver.com/free-vps-server/",
+      "date": "2026-11-25",
+      "proved": "the trial page states a block-volume allowance, not an object-size limit",
+      "capture": "sha256:d065de33443125c87bb3a2e487384e482d56794e4b7450dd9f26966ac8073bf7",
+      "quote": "1 TB of cloud block storage"
+    },
+    {
+      "url": "https://www.vpsserver.com/free-vps-server/",
+      "date": "2026-11-25",
+      "proved": "the trial lasts 30 days",
+      "capture": "sha256:d065de33443125c87bb3a2e487384e482d56794e4b7450dd9f26966ac8073bf7",
+      "quote": "Our free VPS hosting gives customers an accessible virtual private server at no cost for 30 days."
+    },
+    {
+      "url": "https://www.vpsserver.com/free-vps-server/",
+      "date": "2026-11-25",
+      "proved": "the trial page gives a volume allowance and no per-object cap",
+      "capture": "sha256:d065de33443125c87bb3a2e487384e482d56794e4b7450dd9f26966ac8073bf7",
+      "quote": "1 TB of cloud block storage"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-19T21:15:23.338Z",
+  "verified_at": "2026-11-25T19:55:25.446Z",
   "notes": "1 TB of cloud block storage plus one cloud server worth up to $100, 30 days, 20+ locations.",
   "history": [],
   "extras": {

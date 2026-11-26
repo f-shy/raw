@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "http://agbigdata.aiijournal.com/EN/Y2025/V7/I2/193",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "At ScienceDB, we do not impose restrictions on the type, format, size or subject area of a data file to be uploaded."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "http://agbigdata.aiijournal.com/EN/Y2025/V7/I2/193",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "ScienceDB provides permanent access to all data accepted for publishing on this site, unless the data violates relevant rules or regulations."
   },
   "egress": {
     "terms": "Free, anonymous for public datasets. DOI resolution works (302 to the dataset page).",
@@ -99,10 +99,38 @@
       "proved": "first-party help confirms browser and FTP upload paths",
       "capture": "sha256:593cb0a7216266ebd8a86fc73e099fd63ddf1f743ad734ce186ff80f80b7d916",
       "quote": "You can upload data files online either with a web browser or an FTP client"
+    },
+    {
+      "url": "https://www.scidb.cn/en/help",
+      "date": "2026-11-25",
+      "proved": "no per-file format or size restriction is stated on the upload instructions",
+      "capture": "sha256:5789f6ba52272ad5675b341564cc59b5dd2cf0b51982dabe8ba150e9f3219196",
+      "quote": "At ScienceDB, we do not impose restrictions on the type, format, size or subject area of a data file to be uploaded."
+    },
+    {
+      "url": "https://www.scidb.cn/en/faq",
+      "date": "2026-11-25",
+      "proved": "accepted published data receives permanent access",
+      "capture": "sha256:3fc3548ab687af40b2489d54861707c7138d747a9c78181d61a73db5cc3eeef3",
+      "quote": "ScienceDB provides permanent access to all data accepted for publishing on this site, unless the data violates relevant rules or regulations."
+    },
+    {
+      "url": "https://www.scidb.cn/en/help",
+      "date": "2026-11-25",
+      "proved": "FTP is an available upload path",
+      "capture": "sha256:5789f6ba52272ad5675b341564cc59b5dd2cf0b51982dabe8ba150e9f3219196",
+      "quote": "You can upload data files online either with a web browser or an FTP client, dependent on the size of your data files, which is selectable on the data submission webpage."
+    },
+    {
+      "url": "https://www.scidb.cn/en/faq",
+      "date": "2026-11-25",
+      "proved": "older published versions stay open for public access and download",
+      "capture": "sha256:3fc3548ab687af40b2489d54861707c7138d747a9c78181d61a73db5cc3eeef3",
+      "quote": "After a new version is published, the old version will still be open for public access and download."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:15:20.588Z",
+  "verified_at": "2026-11-25T19:55:20.741Z",
   "notes": "No data-volume limit. A 2025 peer-reviewed comparison of Zenodo and ScienceDB in Journal of Agricultural Big Data states it plainly: for ScienceDB the 数据大小 row reads '没有数据量的限制，用户可以上传任意大小的数据集' (no limit on data volume; users may upload datasets of any size), against Zenodo's 'max 50 GB, can be raised to 200 GB in one step'. Datasets above 2,000 files or above 1 TB are merely flagged 'restricted' pending an email. A negotiable ceiling, not a hard one.",
   "history": [],
   "extras": {

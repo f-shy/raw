@@ -13,9 +13,9 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "max. size per file: 10GB",
     "source_url": "https://www.mg-rast.org/legal.html",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "max. size per file: 10GB; larger files were not tested"
   },
   "retention": {
     "stated": "We reserve the right to delete non-public data sets after 120 days.",
@@ -27,11 +27,13 @@
     "metered": false
   },
   "interface": [
-    "rest"
+    "rest",
+    "cli",
+    "browser"
   ],
   "interface_detail": "rest",
   "tooling": "Documented REST API (api.mg-rast.org/api.html) for submission and retrieval; web upload; standard metagenome formats (FASTA/FASTQ) with automatic phylogenetic/functional annotation.",
-  "chaining": "Unlimited public datasets per account; no published aggregate cap, so the unit is the dataset.",
+  "chaining": "max. project size: 200 metagenomes",
   "limits": [
     {
       "kind": "retention-clamped",
@@ -91,10 +93,45 @@
       "proved": "the legal page states a right to delete non-public data sets after 120 days",
       "capture": "sha256:fff22b242347a7a40270699a647e04ea1ddccc0b789ebcba20af49c0d850e3f4",
       "quote": "We reserve the right to delete non-public data sets after 120 days."
+    },
+    {
+      "url": "https://help.mg-rast.org/api.html",
+      "date": "2026-11-25",
+      "proved": "the submission SOP states a tested per-file size of 10GB",
+      "capture": "sha256:76f9435df4d66106ce41d39249da71d0125857fffdc4536cd3531157fd4864ac",
+      "quote": "- max. size per file: 10GB"
+    },
+    {
+      "url": "https://help.mg-rast.org/api.html",
+      "date": "2026-11-25",
+      "proved": "the SOP gives a tested file size and says larger files were not tested",
+      "capture": "sha256:76f9435df4d66106ce41d39249da71d0125857fffdc4536cd3531157fd4864ac",
+      "quote": "- max. size per file: 10GB...While there is no reason to assume the software will not work with larger numbers of files or larger files, we did not test for that."
+    },
+    {
+      "url": "https://help.mg-rast.org/api.html",
+      "date": "2026-11-25",
+      "proved": "the submission SOP states a tested project size of 200 metagenomes",
+      "capture": "sha256:76f9435df4d66106ce41d39249da71d0125857fffdc4536cd3531157fd4864ac",
+      "quote": "- max. project size: 200 metagenomes"
+    },
+    {
+      "url": "https://help.mg-rast.org/api.html",
+      "date": "2026-11-25",
+      "proved": "MG-RAST names web, command line and RESTful API interfaces",
+      "capture": "sha256:76f9435df4d66106ce41d39249da71d0125857fffdc4536cd3531157fd4864ac",
+      "quote": "There are three interfaces for uploading and publishing data, the Web interface, intended for most users, command line scripts, intended for programmers, and the native RESTful API, recommended for experienced programmers."
+    },
+    {
+      "url": "https://www.mg-rast.org/legal.html",
+      "date": "2026-11-25",
+      "proved": "the legal page states the non-public deletion right",
+      "capture": "sha256:fff22b242347a7a40270699a647e04ea1ddccc0b789ebcba20af49c0d850e3f4",
+      "quote": "We reserve the right to delete non-public data sets after 120 days."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:01.147Z",
+  "verified_at": "2026-11-25T19:55:26.264Z",
   "notes": "https://www.mg-rast.org/legal.html states no per-account byte or sequence quota on 2026-11-09",
   "history": [],
   "extras": {

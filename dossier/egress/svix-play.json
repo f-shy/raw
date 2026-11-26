@@ -61,10 +61,24 @@
       "url": "https://www.svix.com/play/",
       "date": "2026-10-23",
       "proved": "'free Svix Play webhook tester & debugger'; 'Use the Svix CLI for a free and secure public URL that relays webhooks'"
+    },
+    {
+      "url": "https://www.svix.com/play/",
+      "date": "2026-11-25",
+      "proved": "no account is needed",
+      "capture": "sha256:33db565b8f217cbd5266a46c974ed89723aed08a5ef7e03a1603cc2da65477fc",
+      "quote": "Free forever, no signup required!"
+    },
+    {
+      "url": "https://www.svix.com/play/",
+      "date": "2026-11-25",
+      "proved": "the free tester is still offered",
+      "capture": "sha256:33db565b8f217cbd5266a46c974ed89723aed08a5ef7e03a1603cc2da65477fc",
+      "quote": "Easily inspect, test, and debug incoming webhooks with the free Svix Play webhook tester & debugger."
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:48.362Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Free and accountless, which is why it is recorded rather than skipped, but it carries HTTP POST bodies only.",

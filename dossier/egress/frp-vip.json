@@ -66,10 +66,24 @@
       "url": "https://frp.vip/",
       "date": "2026-10-23",
       "proved": "free tier is 1 Mbps, 1 port, unlimited traffic claim, one per customer"
+    },
+    {
+      "url": "https://frp.vip/",
+      "date": "2026-11-25",
+      "proved": "the free plan is a 1 Mbps line; this speed limit, not the one-per-customer note, is the shaping that binds",
+      "capture": "sha256:0c089f93af4c7776c79ece8b428fe6e3c375da764731cde12e3467439671ac07",
+      "quote": "1Mbps"
+    },
+    {
+      "url": "https://frp.vip/",
+      "date": "2026-11-25",
+      "proved": "the free plan is a free trial limited to one purchase",
+      "capture": "sha256:0c089f93af4c7776c79ece8b428fe6e3c375da764731cde12e3467439671ac07",
+      "quote": "- 备注免费体验，限购一个"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:44.599Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The 'unlimited traffic' label is attached to a 1 Mbps pipe, which is the recurring pattern: unlimited bytes at a rate that cannot deliver them. 1 Mbps is 328 GB per month at full duty.",

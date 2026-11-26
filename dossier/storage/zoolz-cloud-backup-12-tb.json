@@ -18,9 +18,9 @@
     "notes": "the 12 TB plan lists 'Unlimited File Size'."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "Store all your business documents, images, and media files without additional costs, and ZoolzBackup will store them forever.",
     "source_url": "https://zoolz.com/pricing/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Home account users have limited control over file versions, with Zoolz automatically retaining the ten (10) latest versions and deleting older ones. Deleted files remain in the cloud indefinitely unless manually removed"
   },
   "egress": {
     "terms": "Not published as a fee; cold-tier retrieval is the practical cost and is not quantified on the pricing page",
@@ -101,10 +101,59 @@
       "proved": "the 14-day trial form asks for those six fields and shows no card field",
       "capture": "sha256:37b1fe23e1b2832feea0be951f7ec5123a5e6b8e38ac89d71cf1d8252ef21445",
       "quote": "To start your FREE 14-day trial, please fill in the form: ... Full Name ... Email Address ... Password ... Company Name ... Country ... License Key"
+    },
+    {
+      "url": "https://wiki.zoolz.com/how-can-i-set-the-file-retention/",
+      "date": "2026-11-25",
+      "proved": "the Zoolz retention page states a ten-version limit and indefinite retention of deleted files on home accounts",
+      "capture": "sha256:5afb4997164ee2dc56c482e3ba3080dd662823b8c68910af661669f932f5784a",
+      "quote": "Home account users have limited control over file versions, with Zoolz automatically retaining the ten (10) latest versions and deleting older ones. Deleted files remain in the cloud indefinitely unless manually removed"
+    },
+    {
+      "url": "https://zoolz.com/cold-storage/",
+      "date": "2026-11-25",
+      "proved": "the cold-storage page says ZoolzBackup stores archived files forever",
+      "capture": "sha256:d55d0d0f14286e68f0a011b3a4791984fbfdb8e1b20e8c51cdf20915afebfb48",
+      "quote": "Store all your business documents, images, and media files without additional costs, and ZoolzBackup will store them forever."
+    },
+    {
+      "url": "https://zoolz.com/industries/media-companies/",
+      "date": "2026-11-25",
+      "proved": "the first-party page states restores carry no additional cost",
+      "capture": "sha256:1e82152407ed1d4bdc35133140c7167aae49de05d08bffd21256deb61dd383fd",
+      "quote": "**Zero Restore Costs**: Retrieve files at no additional cost, perfect for long-term media archiving."
+    },
+    {
+      "url": "https://wiki.zoolz.com/how-can-i-set-the-file-retention/",
+      "date": "2026-11-25",
+      "proved": "deleted files remain in the cloud indefinitely on home accounts",
+      "capture": "sha256:5afb4997164ee2dc56c482e3ba3080dd662823b8c68910af661669f932f5784a",
+      "quote": "Home account users have limited control over file versions, with Zoolz automatically retaining the ten (10) latest versions and deleting older ones. Deleted files remain in the cloud indefinitely unless manually removed"
+    },
+    {
+      "url": "https://zoolz.com/cold-storage/",
+      "date": "2026-11-25",
+      "proved": "the cold-storage page states files are stored forever",
+      "capture": "sha256:d55d0d0f14286e68f0a011b3a4791984fbfdb8e1b20e8c51cdf20915afebfb48",
+      "quote": "Store all your business documents, images, and media files without additional costs, and ZoolzBackup will store them forever."
+    },
+    {
+      "url": "https://zoolz.com/industries/media-companies/",
+      "date": "2026-11-25",
+      "proved": "restores are at no additional cost, so retrieval is not metered as a fee",
+      "capture": "sha256:1e82152407ed1d4bdc35133140c7167aae49de05d08bffd21256deb61dd383fd",
+      "quote": "**Zero Restore Costs**: Retrieve files at no additional cost, perfect for long-term media archiving."
+    },
+    {
+      "url": "https://zoolz.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the 12 TB plan lists unlimited file size",
+      "capture": "sha256:2d13b4d550ffe7dd64e07eafc00b9ef670a3f7b78bdc41a6d44ab3775571bf9f",
+      "quote": "Unlimited File Size"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:36.121Z",
+  "verified_at": "2026-11-25T21:21:19.436Z",
   "price_per_tb_month": "$2.78/TB at 12 TB ($399.99/yr = $33.33/mo); $2.86/TB at 7 TB ($239.99/yr); $2.67/TB at 2.5 TB ($79.99/yr). Cold tier only.",
   "notes": "2.5 TB (2 TB cold + 500 GB hot) $79.99/yr; 7 TB (6+1) $239.99/yr; 12 TB (10 cold + 2 hot) $399.99/yr",
   "history": [],

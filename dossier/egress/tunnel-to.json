@@ -71,10 +71,24 @@
       "url": "https://news.ycombinator.com/item?id=48309288",
       "date": "2026-05-28",
       "proved": "Launch post: lightweight relay-based tunnel service, CLI-first, public relay nodes in North America and Europe, no account required for basic usage."
+    },
+    {
+      "url": "https://tunnel.to/pricing",
+      "date": "2026-11-25",
+      "proved": "Registered Free includes 5 GB bandwidth per month",
+      "capture": "sha256:e1bf63dff68e4755892c8218d3ca64b2aeda94d2a386c8d7fec7a0f5a7199a42",
+      "quote": "* 5 GB bandwidth / month"
+    },
+    {
+      "url": "https://tunnel.to/pricing",
+      "date": "2026-11-25",
+      "proved": "Anonymous includes 512 MiB per tunnel",
+      "capture": "sha256:e1bf63dff68e4755892c8218d3ca64b2aeda94d2a386c8d7fec7a0f5a7199a42",
+      "quote": "* 512 MiB per tunnel"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:48.838Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Launched 2026-05-28 on Hacker News and listed on Product Hunt. HTTP-only by construction, so it cannot pass the UDP ingress test regardless of quota.",

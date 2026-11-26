@@ -129,10 +129,31 @@
       "proved": "the host answered every request of this probe, so the failure count stayed at zero",
       "capture": "sha256:ff69a298c29b1c8515e4d05f9c410be112c06e2876bf696d82d2f5826fc44960",
       "quote": "\"consecutive_failures\": 0"
+    },
+    {
+      "url": "probe:https://alist-cdn.20237737.xyz/api/public/settings",
+      "date": "2026-11-25",
+      "proved": "a fresh anonymous probe of the AList public settings endpoint of alist-cdn.20237737.xyz answered at this instant (HTTP 200, JSON, no challenge)",
+      "capture": "sha256:98a2590513b848b7f971f4d3ca96726600149f98cdd98181a2e58d4a6eb987e8",
+      "quote": "\"probed_at\": \"2026-11-25T04:07:26.933Z\""
+    },
+    {
+      "url": "probe:https://alist-cdn.20237737.xyz/api/public/settings",
+      "date": "2026-11-25",
+      "proved": "the settings endpoint of alist-cdn.20237737.xyz answered HTTP 200 to an anonymous request",
+      "capture": "sha256:98a2590513b848b7f971f4d3ca96726600149f98cdd98181a2e58d4a6eb987e8",
+      "quote": "\"status\": 200"
+    },
+    {
+      "url": "probe:https://alist-cdn.20237737.xyz/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing hashed to the recorded value, so the listing is unchanged",
+      "capture": "sha256:ae424c287609cfa28027e0489258934bca8addd8494fd640d9fd65a3a38a373a",
+      "quote": "\"listing_sha256\": \"1c50d65f\""
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:06.658Z",
+  "verified_at": "2026-11-25T04:14:27.572Z",
   "binding": "per-ip-shaping",
   "notes": "Edge-fronted hostname for instance 20237737. It advertised write permission while rejecting zero-byte test uploads, and failed to answer API requests on one of two verification runs on 2026-10-22.",
   "history": [],
@@ -149,7 +170,7 @@
     "listing_sha256": "1c50d65f",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-19T03:30:59.644Z",
+    "last_verified_alive": "2026-11-25T04:07:26.933Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "aliases": [

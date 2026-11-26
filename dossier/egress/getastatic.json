@@ -5,8 +5,8 @@
   "url": "https://getastatic.com/pricing",
   "category": "static IPv4 with open ports (paid)",
   "free_tier": {
-    "stated": "none; USD 2/month for 100 GB and 20 Mbit/s on a dedicated US IPv4",
-    "unit": "GB",
+    "stated": "none; USD 4/month for 1 TB and 50 Mbps on a dedicated US IPv4 (Plus plan)",
+    "unit": "TB",
     "metered_on": "downloaded-bytes",
     "source_url": "https://getastatic.com/pricing",
     "read_on": "2026-10-22",
@@ -24,21 +24,26 @@
     "source_url": "https://getastatic.com/pricing"
   },
   "egress": {
-    "terms": "100 GB included and 20 Mbit/s on the USD 2 tier",
+    "terms": "1 TB monthly bandwidth and 50 Mbps on the USD 4 Plus plan",
     "metered": true,
-    "free_allowance": "100 GB/month on the USD 2 tier",
+    "free_allowance": "1 TB/month on the USD 4 Plus plan",
     "price_per_tb": null,
     "source_url": "https://getastatic.com/pricing"
   },
   "interface": [
-    "ssh"
+    "cli"
   ],
-  "tooling": "OpenSSH",
+  "tooling": "any WireGuard client, or AmneziaWG for networks that block WireGuard",
   "chaining": "the paid answer to a static address with open ports, which no free provider offers; it composes with an origin and stops at its quota.",
   "limits": [
     {
+      "kind": "volume-quota",
+      "value": "1 TB monthly bandwidth on Plus (2 TB on Pro, 5 TB on Ultra, unlimited on the $15/mo Unlimited plan)",
+      "source": "https://getastatic.com/pricing"
+    },
+    {
       "kind": "per-ip-shaping",
-      "value": "20 Mbit/s",
+      "value": "50 Mbps on Plus (100 Mbps Pro, 1 Gbps Ultra)",
       "source": "https://getastatic.com/pricing"
     }
   ],
@@ -51,23 +56,41 @@
   "confidence": "documented",
   "evidence": [
     {
-      "url": "https://getastatic.com/pricing",
-      "date": "2026-10-22",
-      "proved": "USD 2/month for a dedicated US IPv4 with 100 GB and 20 Mbit/s"
-    },
-    {
-      "url": "https://getastatic.com/pricing",
-      "date": "2026-10-23",
-      "proved": "'Every plan is a WireGuard VPN with your own dedicated static public IPv4 in the US, not shared with other users'; Plus $2/mo 5 ports 100 GB, Pro $4/mo unlimited ports 1 TB, Ultra $10/mo 5 TB"
-    },
-    {
       "url": "https://getastatic.com/wireguard-port-forwarding-without-vps",
       "date": "2026-10-23",
       "proved": "'Connect your device with WireGuard and open the TCP or UDP ports you need from the dashboard'"
+    },
+    {
+      "url": "https://getastatic.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the entry plan Plus costs $4/mo with 5 open ports, 50 Mbps and 1 TB bandwidth",
+      "capture": "sha256:a3d5e6fa32333a19c68807fc6ed2fe1fcf97819e398d7aeed0987431fb5b36f3",
+      "quote": "| Plus | $4/mo | $36/yr | 1 | 5 | 50 Mbps | 1 TB |"
+    },
+    {
+      "url": "https://getastatic.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the service is a WireGuard VPN, not an SSH tunnel",
+      "capture": "sha256:a3d5e6fa32333a19c68807fc6ed2fe1fcf97819e398d7aeed0987431fb5b36f3",
+      "quote": "Every plan is a WireGuard VPN with your own dedicated static public IPv4 in the US, not shared with other users."
+    },
+    {
+      "url": "https://getastatic.com/pricing",
+      "date": "2026-11-25",
+      "proved": "WireGuard and AmneziaWG are the client protocols on every plan",
+      "capture": "sha256:a3d5e6fa32333a19c68807fc6ed2fe1fcf97819e398d7aeed0987431fb5b36f3",
+      "quote": "AmneziaWG on every plan, for networks that block WireGuard."
+    },
+    {
+      "url": "https://getastatic.com/pricing",
+      "date": "2026-11-25",
+      "proved": "payment is by card or cryptocurrency",
+      "capture": "sha256:a3d5e6fa32333a19c68807fc6ed2fe1fcf97819e398d7aeed0987431fb5b36f3",
+      "quote": "Pay by card through Stripe, or with cryptocurrency: Monero, Litecoin, Bitcoin Cash, Tether, Polygon, Toncoin, Bitcoin, Ethereum."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:42.069Z",
   "notes": "2026-10-23: this is a WireGuard VPN with open ports, not an SSH tunnel. 'Every plan is a WireGuard VPN with your own dedicated static public IPv4 in the US'; 'Connect your device with WireGuard and open the TCP or UDP ports you need from the dashboard'. The plan table is the fact the record is missing: Plus USD 2/mo gives 5 ports, 100 GB and 20 Mbps; Pro USD 4/mo gives unlimited ports, 1 TB and 100 Mbps; Ultra USD 10/mo gives 5 TB. So the record's 100 GB is the entry tier, not the ceiling, and UDP is available on every tier.",
   "history": [],
   "extras": {
@@ -80,6 +103,6 @@
   "interface_detail": "a forwarded port on a dedicated IPv4",
   "stale": false,
   "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding_note": "the monthly byte allowance in egress.free_allowance is what runs out, and no kind in the six-value vocabulary names a byte volume over a period counted per account. per-ip-shaping is the closest, because it is the only kind that bounds a volume, and its subject here is the account rather than the caller's address",
-  "limits_note": "the allowance is a byte volume over a period, which none of the six kinds names; the number is in egress.free_allowance and binding names per-ip-shaping as the nearest kind"
+  "binding_note": "The monthly bandwidth allowance (1 TB on the Plus plan) is what runs out first; the 50 Mbps rate caps throughput at about 16 TB a month, above it.",
+  "limits_note": "The allowance is the volume-quota row; the rate is the per-ip-shaping row."
 }

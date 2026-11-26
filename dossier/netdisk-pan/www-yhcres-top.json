@@ -145,10 +145,31 @@
       "proved": "the root listing hashed to the recorded 296e8611 on both runs and the host answered every request",
       "capture": "sha256:92ffc27f8b73e911752b77300c698ba17f29011814eec0e3fb8db6bdb351dc9a",
       "quote": "\"listing_sha256\": \"296e8611\"...\"consecutive_failures\": 0"
+    },
+    {
+      "url": "probe:https://www.yhcres.top/",
+      "date": "2026-11-25",
+      "proved": "a fresh anonymous probe of www.yhcres.top answered the settings, guest session and mount-list requests at this timestamp",
+      "capture": "sha256:f3846125b7bd8b2637ae86dbccc0400b91f41682b6bf19864d00cd68c2c90850",
+      "quote": "\"probed_at\": \"2026-11-25T02:34:43.781Z\""
+    },
+    {
+      "url": "probe:https://www.yhcres.top/",
+      "date": "2026-11-25",
+      "proved": "the fresh probe completed the anonymous settings, guest session and root mount list, so the new liveness timestamp stands",
+      "capture": "sha256:f3846125b7bd8b2637ae86dbccc0400b91f41682b6bf19864d00cd68c2c90850",
+      "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://www.yhcres.top/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing hashed to the stored value, so the listing is unchanged",
+      "capture": "sha256:f3846125b7bd8b2637ae86dbccc0400b91f41682b6bf19864d00cd68c2c90850",
+      "quote": "\"listing_sha256\": \"296e8611\""
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:08.145Z",
+  "verified_at": "2026-11-25T19:55:35.337Z",
   "binding": "write-gated",
   "notes": "anonymous POST /api/fs/list on / returned code 200 with 13 root entries (listing sha256 296e8611)",
   "history": [],
@@ -165,7 +186,7 @@
     "listing_sha256": "296e8611",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-19T03:43:00.527Z",
+    "last_verified_alive": "2026-11-25T02:34:43.781Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "aliases": [

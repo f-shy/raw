@@ -6,7 +6,7 @@
   "category": "hosted tcp and http tunnel (developer service)",
   "tier": "free",
   "free_tier": {
-    "stated": "Free with an account; the Dev tunnels limits table sets 5 GB of bandwidth per user, reset monthly.",
+    "stated": "5 GB of bandwidth per user, reset monthly, per the Dev tunnels limits table.",
     "unit": "GB",
     "metered_on": "downloaded-bytes",
     "source_url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits",
@@ -81,10 +81,45 @@
       "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits",
       "date": "2026-10-23",
       "proved": "'## Dev tunnels limits'; 'Bandwidth | 5 GB per user'; 'Tunnels | 10 per user'; 'Data transfer rate | Up to 20 MB/s per tunnel'; 'The limits reset monthly'"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits",
+      "date": "2026-11-25",
+      "proved": "the Dev tunnels limits table sets 5 GB of bandwidth per user and states that the limits reset monthly",
+      "capture": "sha256:7e714da2937316679396c33dc4a8a4b84776bad23b7833e4b56ae136bed1b198",
+      "quote": "The limits reset monthly.\n\n| Resource | Limit |\n| --- | --- |\n| Bandwidth | 5 GB per user |"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits",
+      "date": "2026-11-25",
+      "proved": "5 GB of bandwidth per user, reset monthly, is the byte allowance that binds before the other rows",
+      "capture": "sha256:7e714da2937316679396c33dc4a8a4b84776bad23b7833e4b56ae136bed1b198",
+      "quote": "The limits reset monthly.\n\n| Resource | Limit |\n| --- | --- |\n| Bandwidth | 5 GB per user |"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits",
+      "date": "2026-11-25",
+      "proved": "the table caps HTTP requests at 1500 per minute per port",
+      "capture": "sha256:7e714da2937316679396c33dc4a8a4b84776bad23b7833e4b56ae136bed1b198",
+      "quote": "| HTTP request rate | 1500/min per port |"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits",
+      "date": "2026-11-25",
+      "proved": "the table caps the data transfer rate at 20 MB/s per tunnel",
+      "capture": "sha256:7e714da2937316679396c33dc4a8a4b84776bad23b7833e4b56ae136bed1b198",
+      "quote": "| Data transfer rate | Up to 20 MB/s per tunnel |"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/developer/dev-tunnels/faq",
+      "date": "2026-11-25",
+      "proved": "anonymous users cannot create dev tunnels; an Entra ID, Microsoft or GitHub account is required",
+      "capture": "sha256:e6b42ac0e4a10fd6e1fb36a66b2dd5c0d6c86a1fb4dae4d0fadf7896666a2bdd",
+      "quote": "No, anonymous users can't create dev tunnels. All creation of dev tunnels requires either a Microsoft Entra ID, Microsoft, or GitHub account."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T19:55:30.546Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Corrected in the sweep's last pass: the overview and the FAQ state no quota, and the limits table does. 5 GB/month makes this a development endpoint, not an ingress path. The 20 MB/s ceiling is per tunnel and would allow 1 TiB in about 15 hours, so the monthly byte quota is what binds.",

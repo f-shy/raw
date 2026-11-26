@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u15-rerun",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/blossom-server-fleet $.per_object_cap.notes: blossom.oslim.dev capture shows Max file size as an em dash, not 100 MB; 100 MB for oslim is not stated.\n- storage/blossom-server-fleet $.limits_note: Cited quote (no expiry) does not support the claim. 'chunk-sized, not object-sized' and '100 MiB on most servers' are not stated by any source read; only 24242.io 250 /list hits, 100MiB and nostr.build 20 MiB free are.\n- storage/bunny-net-edge-storage $.limits_note: Per-IP 100, 500 RPS, 8 MB POST and 1 Gbps are on the page; 'geo-replication multiplies price linearly (2 regions = 2x)' is not on the limits page and the pricing page shows Standard tier 3 regions = $0.025/GB (2.5x), not linear.\n- storage/bunny-net-edge-storage $.tooling: S3, HTTP, FTP, 100 conns, 500 RPS, 1 Gbps and parallel connections are on the page; 'rclone bunny backend' is not.\n- storage/blossom-servers $.retention.notes: No expiry / no file-count limit supported. But page says uploads 'are not deleted the moment a plan expires', not 'a lapsed plan does not delete uploads'; the claim overstates.\n- storage/blossom-server-fleet $.free_tier.stated: oslim capture says Cost: paid, max file size and storage per user are dashes; claim says 100 MB, 8 GB per pubkey, 'free'.\n- storage/buzzheavier $.egress.terms: Bandwidth 'None. Go wild.' is stated. Cloudflare/Turnstile/hx gate and 2024 hotlinking FAQ are not in the help capture.\n- storage/buzzheavier $.free_tier.stated: Help says file size is unlimited ('Upload whatever size you want'), not total storage; free files expire. 'Storage explicitly unlimited' is not stated.\n- storage/blossom-server-fleet $.chaining: Cited quote is irrelevant. No source read states oslim's 8 GB per pubkey or that a HEAD counts as access for 24242.io's 60-day rule.",
+ "scope": {
+  "rids": [
+   "storage/blossom-server-fleet",
+   "storage/blossom-servers",
+   "storage/bulknews-free-usenet-trial",
+   "storage/bunny-net-edge-storage",
+   "storage/buzzheavier",
+   "storage/cachefly-object-storage"
+  ]
+ },
+ "origin": "audit u81 of 20261125-0129-verify-storage-1818/u15 failed: 9 of 30 unsupported",
+ "created": "2026-11-25T07:46:18Z"
+}

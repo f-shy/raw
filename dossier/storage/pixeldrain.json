@@ -15,17 +15,17 @@
   "per_object_cap": {
     "stated": "Max file size: 10 GB per file (free), 100 GB per file (pro)",
     "source_url": "https://pixeldrain.com/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Max file size\n\n10 GB per file\n\n100 GB per file"
   },
   "retention": {
-    "stated": "Files expire 60 days after last download; a download only counts if >10% of the file was transferred in one request, and the timer only updates once per 24h",
+    "stated": "Files will be removed if they have not been accessed for 60 days. When a file is downloaded the expiry time is reset to 60 days from the current day. This only happens when someone downloads more than 10% of the whole file in a single request.",
     "days": 60,
     "source_url": "https://pixeldrain.com/",
-    "notes": "Extracted from published terms."
+    "notes": "Files will be removed if they have not been accessed for 60 days. When a file is downloaded the expiry time is reset to 60 days from the current day. This only happens when someone downloads more than 10% of the whole file in a single request."
   },
   "egress": {
-    "terms": "Free egress capped at 6 GB/day per IP address (sliding 24h window, IP-bound even when logged in); over the cap the speed drops to 1 MiB/s and max 3 concurrent downloads. Pro: 4 TB per 30 days. Prepaid: EUR 1/TB metered. So free egress is metered, not unusable. 6 GB/day x N IPs.",
-    "metered": false,
+    "terms": "The free download limit is only tracked per *IP address*. This means that if you are sharing an IP address with other people, like through a VPN, company network or a CGNAT network then the download limit is also shared. For free downloads it makes no difference if you’re logged in to an account or not.",
+    "metered": true,
     "price_per_tb": "EUR 1/TB"
   },
   "interface": [
@@ -34,7 +34,7 @@
   ],
   "interface_detail": "rest",
   "tooling": "Full REST API at /api with HTTP Basic (api key as password). rclone has no official backend; the API is simple enough that wrappers abound (Atlas electron/downloads/hosts/pixeldrain.js). PUT https://pixeldrain.com/api/file/ with -u :APIKEY.",
-  "chaining": "API keys are free and per-account, but the real multiplier is IP: the 6 GB/day download cap is per IP, so egress scales with egress IPs (proxies/CF Workers) not accounts. Storage itself is 'No limit' on free, which is the interesting half.",
+  "chaining": "The free download limit is only tracked per *IP address*. This means that if you are sharing an IP address with other people, like through a VPN, company network or a CGNAT network then the download limit is also shared. For free downloads it makes no difference if you’re logged in to an account or not.",
   "limits": [
     {
       "kind": "per-ip-shaping",
@@ -123,10 +123,101 @@
       "proved": "the pricing table still states the 6 GB/day free egress cap and EUR 1/TB prepaid egress",
       "capture": "sha256:f744b87fae35585f28ae0a96da73fe93a0352b9071ee9b24e91003c953ae6f47",
       "quote": "Egress transfer limit ... 6 GB per day ... 4 TB per 30 days ... €1 per TB transferred"
+    },
+    {
+      "url": "https://pixeldrain.com",
+      "date": "2026-11-25",
+      "proved": "the plan table states a 10 GB per file free cap and a 100 GB per file Pro cap",
+      "capture": "sha256:f744b87fae35585f28ae0a96da73fe93a0352b9071ee9b24e91003c953ae6f47",
+      "quote": "Max file size\n\n10 GB per file\n\n100 GB per file"
+    },
+    {
+      "url": "https://pixeldrain.com",
+      "date": "2026-11-25",
+      "proved": "the plan table states the file-size caps",
+      "capture": "sha256:f744b87fae35585f28ae0a96da73fe93a0352b9071ee9b24e91003c953ae6f47",
+      "quote": "Max file size\n\n10 GB per file\n\n100 GB per file"
+    },
+    {
+      "url": "https://pixeldrain.com/about",
+      "date": "2026-11-25",
+      "proved": "file expiry runs from last access and a qualifying download resets it to 60 days",
+      "capture": "sha256:ede88e50e9ccf7048cdb761cbe78e00ed6830103b1e32e49347be329a0567831",
+      "quote": "Files will be removed if they have not been accessed for 60 days. When a file is downloaded the expiry time is reset to 60 days from the current day. This only happens when someone downloads more than 10% of the whole file in a single request."
+    },
+    {
+      "url": "https://pixeldrain.com/about",
+      "date": "2026-11-25",
+      "proved": "the expiry clock and the qualifying-download condition are stated",
+      "capture": "sha256:ede88e50e9ccf7048cdb761cbe78e00ed6830103b1e32e49347be329a0567831",
+      "quote": "Files will be removed if they have not been accessed for 60 days. When a file is downloaded the expiry time is reset to 60 days from the current day. This only happens when someone downloads more than 10% of the whole file in a single request."
+    },
+    {
+      "url": "https://pixeldrain.com/about",
+      "date": "2026-11-25",
+      "proved": "files expire after 60 days without access",
+      "capture": "sha256:ede88e50e9ccf7048cdb761cbe78e00ed6830103b1e32e49347be329a0567831",
+      "quote": "Files will be removed if they have not been accessed for 60 days. When a file is downloaded the expiry time is reset to 60 days from the current day. This only happens when someone downloads more than 10% of the whole file in a single request."
+    },
+    {
+      "url": "https://pixeldrain.com/about",
+      "date": "2026-11-25",
+      "proved": "the retention-clamped limit is 60 days",
+      "capture": "sha256:ede88e50e9ccf7048cdb761cbe78e00ed6830103b1e32e49347be329a0567831",
+      "quote": "Files will be removed if they have not been accessed for 60 days. When a file is downloaded the expiry time is reset to 60 days from the current day. This only happens when someone downloads more than 10% of the whole file in a single request."
+    },
+    {
+      "url": "https://pixeldrain.com/about",
+      "date": "2026-11-25",
+      "proved": "the free download limit is per IP and account-independent",
+      "capture": "sha256:ede88e50e9ccf7048cdb761cbe78e00ed6830103b1e32e49347be329a0567831",
+      "quote": "The free download limit is only tracked per *IP address*. This means that if you are sharing an IP address with other people, like through a VPN, company network or a CGNAT network then the download limit is also shared. For free downloads it makes no difference if you’re logged in to an account or not."
+    },
+    {
+      "url": "https://pixeldrain.com",
+      "date": "2026-11-25",
+      "proved": "a daily egress limit is published",
+      "capture": "sha256:f744b87fae35585f28ae0a96da73fe93a0352b9071ee9b24e91003c953ae6f47",
+      "quote": "Egress transfer limit\n\n6 GB per day"
+    },
+    {
+      "url": "https://pixeldrain.com",
+      "date": "2026-11-25",
+      "proved": "the free egress cap is 6 GB per day",
+      "capture": "sha256:f744b87fae35585f28ae0a96da73fe93a0352b9071ee9b24e91003c953ae6f47",
+      "quote": "Egress transfer limit\n\n6 GB per day"
+    },
+    {
+      "url": "https://pixeldrain.com",
+      "date": "2026-11-25",
+      "proved": "prepaid egress is priced per transferred TB",
+      "capture": "sha256:f744b87fae35585f28ae0a96da73fe93a0352b9071ee9b24e91003c953ae6f47",
+      "quote": "€1 per TB transferred"
+    },
+    {
+      "url": "https://pixeldrain.com/about",
+      "date": "2026-11-25",
+      "proved": "the free limit follows the IP address, not the account",
+      "capture": "sha256:ede88e50e9ccf7048cdb761cbe78e00ed6830103b1e32e49347be329a0567831",
+      "quote": "The free download limit is only tracked per *IP address*. This means that if you are sharing an IP address with other people, like through a VPN, company network or a CGNAT network then the download limit is also shared. For free downloads it makes no difference if you’re logged in to an account or not."
+    },
+    {
+      "url": "https://docs.pixeldrain.com/filesystem/",
+      "date": "2026-11-25",
+      "proved": "rclone support is documented for the filesystem",
+      "capture": "sha256:b0e35f3ff0dfc70d8954013e6399b4b3103f0c20a7e76ea6f54c94fb16f261c5",
+      "quote": "Rclone has built in support for the pixeldrain filesystem starting with version 1.68."
+    },
+    {
+      "url": "https://docs.pixeldrain.com/filesystem/",
+      "date": "2026-11-25",
+      "proved": "a REST API is documented as public",
+      "capture": "sha256:b0e35f3ff0dfc70d8954013e6399b4b3103f0c20a7e76ea6f54c94fb16f261c5",
+      "quote": "There is a public filesystem REST API, but it is not documented currently."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:38.525Z",
+  "verified_at": "2026-11-25T19:55:15.332Z",
   "notes": "Free plan: storage 'No limit' for regular uploads (2 TB limit only on the paid filesystem product). Pro: no limit, with a 100 GB per-file ceiling; Prepaid: EUR 4 per TB per month storage and EUR 1 per TB egress, and files expire after 60 days.",
   "history": [],
   "extras": {

@@ -16,12 +16,12 @@
     "stated": "Individual files must be less than 15 GB in size.",
     "bytes": 15000000000,
     "source_url": "https://wiki.pangaea.de/wiki/Binary_objects",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Individual files must be less than 15 GB in size."
   },
   "retention": {
     "stated": "per-object-cap: 'Individual files must be less than 15 GB in size.' Retention: permanent (WDS member, DOI per dataset)",
     "source_url": "https://wiki.pangaea.de/wiki/Binary_objects",
-    "notes": "Extracted from published terms."
+    "notes": "PANGAEA guarantees long-term availability of its content for at least 10 years (~75% is actually older than that)."
   },
   "egress": {
     "terms": "Free, anonymous, direct HTTPS with `Accept-Ranges: bytes` and `Access-Control-Allow-Origin: *`. Originals served from download.pangaea.de.",
@@ -90,10 +90,31 @@
       "proved": "PANGAEA is still free of charge",
       "capture": "sha256:2b35573676c777decf9a578890fec267d50fd8abe5639a4a15d98a80142c3266",
       "quote": "Check Costs. PANGAEA can be used free of charge. Nevertheless, we appreciate any possible financial support"
+    },
+    {
+      "url": "https://wiki.pangaea.de/wiki/Binary_objects",
+      "date": "2026-11-25",
+      "proved": "the PANGAEA binary objects page states a 15 GB per-file cap",
+      "capture": "sha256:be00948db0d3361f0dcbca64e66b603f5d0baea9f9230354e4653583dd24973f",
+      "quote": "Individual files must be less than 15 GB in size."
+    },
+    {
+      "url": "https://wiki.pangaea.de/wiki/Data_submission",
+      "date": "2026-11-25",
+      "proved": "the PANGAEA data submission page states long-term availability for at least 10 years",
+      "capture": "sha256:f05a46d00b787246aad7d667986676904ef7be4ddba28ed294dbb2d658d1063f",
+      "quote": "PANGAEA guarantees long-term availability of its content for at least 10 years (~75% is actually older than that)."
+    },
+    {
+      "url": "https://wiki.pangaea.de/wiki/Binary_objects",
+      "date": "2026-11-25",
+      "proved": "the PANGAEA binary objects page states the 15 GB per-file cap",
+      "capture": "sha256:be00948db0d3361f0dcbca64e66b603f5d0baea9f9230354e4653583dd24973f",
+      "quote": "Individual files must be less than 15 GB in size."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:37.735Z",
+  "verified_at": "2026-11-25T21:21:16.851Z",
   "notes": "Free to publish ('PANGAEA can be used free of charge'; a voluntary 500 EUR contribution is appreciated, not required). No total-volume cap found; the stated cap is per file.",
   "history": [],
   "extras": {

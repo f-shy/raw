@@ -16,12 +16,12 @@
     "stated": "20 MB/asset",
     "bytes": 20000000,
     "source_url": "https://create.roblox.com/docs/en-us/cloud/guides/usage-assets.md",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "For each call, you can only create or update one asset with the file size up to 20 MB with the following limits:"
   },
   "retention": {
-    "stated": "20 MB/asset for models, images, decals, animation; video 3.75 GB but capped at 20/day and 5 min; audio hard-capped monthly; all uploads land in moderation; assets are permanently tied to a creator account.",
+    "stated": "An asset that you upload belongs to the user or group in the `creationContext` of your request, so it's available in Studio like any other asset that creator owns:",
     "source_url": "https://create.roblox.com/docs/en-us/cloud/guides/usage-assets.md",
-    "notes": "Extracted from published terms."
+    "notes": "Managing asset versions, such as rolling back to a specified previous version."
   },
   "egress": {
     "terms": "Free. Asset delivery is served by Roblox's own CDN (assetdelivery.roblox.com / rbxcdn), never metered to the uploader.",
@@ -84,10 +84,38 @@
       "proved": "the limits table caps audio uploads at 100 per month for ID-verified accounts",
       "capture": "sha256:4baa7ebb68ce120324fc96eecb33b769c3a99696fb0c5e52be4d6b9e499f7911",
       "quote": "Up to 100 uploads per month if you're ID-verified."
+    },
+    {
+      "url": "https://create.roblox.com/docs/en-us/cloud/guides/usage-assets.md",
+      "date": "2026-11-25",
+      "proved": "the usage guide limits a call to one asset of up to 20 MB",
+      "capture": "sha256:b75f749a2ac09b4545584dd925dc4168807937835c6ffcb4c89690e5e03a57c7",
+      "quote": "For each call, you can only create or update one asset with the file size up to 20 MB with the following limits:"
+    },
+    {
+      "url": "https://create.roblox.com/docs/en-us/cloud/guides/usage-assets.md",
+      "date": "2026-11-25",
+      "proved": "the video row allows up to 3.75 GB and 20 uploads a day for ID-verified users aged 13+",
+      "capture": "sha256:b75f749a2ac09b4545584dd925dc4168807937835c6ffcb4c89690e5e03a57c7",
+      "quote": "Up to 3.75 GB.Up to 20 uploads per day if you're 13+ and ID-verified."
+    },
+    {
+      "url": "https://create.roblox.com/docs/en-us/cloud/guides/usage-assets.md",
+      "date": "2026-11-25",
+      "proved": "uploaded assets belong to the user or group named in the request",
+      "capture": "sha256:b75f749a2ac09b4545584dd925dc4168807937835c6ffcb4c89690e5e03a57c7",
+      "quote": "An asset that you upload belongs to the user or group in the `creationContext` of your request, so it's available in Studio like any other asset that creator owns:"
+    },
+    {
+      "url": "https://create.roblox.com/docs/en-us/cloud/guides/usage-assets.md",
+      "date": "2026-11-25",
+      "proved": "the API supports rolling back to a previous asset version",
+      "capture": "sha256:b75f749a2ac09b4545584dd925dc4168807937835c6ffcb4c89690e5e03a57c7",
+      "quote": "Managing asset versions, such as rolling back to a specified previous version."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:30.560Z",
+  "verified_at": "2026-11-25T19:55:19.658Z",
   "notes": "Per-asset caps only, no aggregate quota: 20 MB for most asset types; Video up to 3.75 GB each, up to 20 video uploads/day for ID-verified 13+ accounts (5 min duration, 4096x2160 max). Audio: 100 uploads/month if ID-verified, 10/month if not.",
   "history": [],
   "extras": {

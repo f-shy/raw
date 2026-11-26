@@ -60,16 +60,30 @@
   },
   "reliability_note": "single operator, single London site (Telehouse Docklands); no published uptime",
   "confidence": "documented",
-  "confidence_note": "Free tier bandwidth is limited to 1 GB monthly with randomly assigned public ports.",
+  "confidence_note": "The page lists 512 MB bandwidth on the Free plan, with a random public port.",
   "evidence": [
     {
       "url": "https://www.tunnelthat.xyz/",
       "date": "2026-10-23",
       "proved": "free plan is 1 active tunnel, 512 MB bandwidth, random public port; 'TCP + UDP Full protocol support'"
+    },
+    {
+      "url": "https://www.tunnelthat.xyz/",
+      "date": "2026-11-25",
+      "proved": "the Free plan lists 512 MB of bandwidth",
+      "capture": "sha256:e2a60001735d0423c48c7420946b6373fc94d5913a3c856a3e7fdf2d9c6f1c32",
+      "quote": "512 MB bandwidth"
+    },
+    {
+      "url": "https://www.tunnelthat.xyz/",
+      "date": "2026-11-25",
+      "proved": "the signup asks for a sign-in and no card",
+      "capture": "sha256:e2a60001735d0423c48c7420946b6373fc94d5913a3c856a3e7fdf2d9c6f1c32",
+      "quote": "Sign in and create your free tunnel. No card details and no trial countdown."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:49.307Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "UDP support is real and the marketing is explicit, but the free tier is a demo allowance. A paid Starter tier at 5 GB/month is still 0.005 TiB.",

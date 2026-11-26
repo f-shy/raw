@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u45-q01",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "egress/bgptunnel extras.wg_path is 'none' while the vendor home page now names Wireguard tunnels; which wg_path value applies?",
+ "why": "the vendor page names WireGuard but the sign-up requires an owned ASN, so the path may not be reachable without one",
+ "scope": {
+  "rids": [
+   "egress/bgptunnel"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u45",
+ "created": "2026-11-25T15:23:44Z"
+}

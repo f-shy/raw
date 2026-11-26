@@ -41,7 +41,7 @@
   "limits": [
     {
       "kind": "write-gated",
-      "value": "DDoS protection for individual IPs is sold through a contract; no self-serve signup and no published price",
+      "value": "The page describes self-service onboarding through a portal for the Application Security platform; it publishes no price and no signup path for DDoS Protection for Individual IPs",
       "source": "https://www.imperva.com/products/ddos-protection/"
     }
   ],
@@ -50,7 +50,7 @@
   "binding_note": "No byte count is published, so no byte count can fail first. The sales contract is the gate at any volume, including 1 TiB/month.",
   "identity_cost": {
     "kind": "institution",
-    "detail": "A contract with Imperva; the page has no signup path, only a sales route.",
+    "detail": "The page offers self-service onboarding for the platform; what an individual-IP account requires is unverified: not stated on the page.",
     "country": "None"
   },
   "reliability_note": "no reliability event recorded",
@@ -66,10 +66,31 @@
       "url": "https://www.imperva.com/products/ddos-protection/",
       "date": "2026-10-23",
       "proved": "Utilizing advanced Anycast routing and real-time capacity management, traffic is dynamically optimized across the most efficient paths"
+    },
+    {
+      "url": "https://www.imperva.com/products/ddos-protection/",
+      "date": "2026-11-25",
+      "proved": "the page claims self-service onboarding; the old 'no self-serve' wording is not on the page",
+      "capture": "sha256:e12a30ca7c2bb6223037b77e7906bc8b57021cc18bbe15c8f6e75f424648b267",
+      "quote": "Imperva’s Application Security platform offers seamless self-onboarding and management, allowing users to easily configure and adjust DDoS protection settings through a self-service portal."
+    },
+    {
+      "url": "https://www.imperva.com/products/ddos-protection/",
+      "date": "2026-11-25",
+      "proved": "self-service onboarding is stated; account requirements are not",
+      "capture": "sha256:e12a30ca7c2bb6223037b77e7906bc8b57021cc18bbe15c8f6e75f424648b267",
+      "quote": "Imperva’s Application Security platform offers seamless self-onboarding and management, allowing users to easily configure and adjust DDoS protection settings through a self-service portal."
+    },
+    {
+      "url": "https://www.imperva.com/products/ddos-protection/",
+      "date": "2026-11-25",
+      "proved": "the individual-IP product is named; the page gives no volume, rate or port detail",
+      "capture": "sha256:e12a30ca7c2bb6223037b77e7906bc8b57021cc18bbe15c8f6e75f424648b267",
+      "quote": "We also offer DDoS Protection for Individual IPs."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:43.555Z",
   "price_per_tb_month": "unpublished (sales contract)",
   "history": [],
   "notes": "Listed by the brief as an L4 forwarding candidate. The evidence supports 'protects an IP you point at Imperva', not 'forwards port X UDP to origin IP:port', and those are different products. No price, no trial, no self-serve path was found.",

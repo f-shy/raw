@@ -92,10 +92,38 @@
       "proved": "a free 8 GB account is still offered with no payment method",
       "capture": "sha256:663ee99fcab45d717f8585644e289f35e5d2cd1b3504c8fad78a4477a53659bb",
       "quote": "It`s a good way to find out if Nextcloud fits your need is to take a free account. No payment method required, just try it."
+    },
+    {
+      "url": "https://tab.digital/en/nextcloud-one",
+      "date": "2026-11-25",
+      "proved": "the free 8 GB plan and the paid 128 GB tier are unchanged",
+      "capture": "sha256:a0815a4b586c829ec8e906dbf33cb188c1054375654d7df97de49106f5776540",
+      "quote": "Free 8GB [Subscribe 128GB (7,44 EUR per/month)]"
+    },
+    {
+      "url": "https://tab.digital/en/nextcloud-one",
+      "date": "2026-11-25",
+      "proved": "the free tier still lists unlimited share transfer",
+      "capture": "sha256:a0815a4b586c829ec8e906dbf33cb188c1054375654d7df97de49106f5776540",
+      "quote": "Share transfer unlimited"
+    },
+    {
+      "url": "https://cloud.tab.digital/pricing",
+      "date": "2026-11-25",
+      "proved": "the free account still needs no payment method",
+      "capture": "sha256:663ee99fcab45d717f8585644e289f35e5d2cd1b3504c8fad78a4477a53659bb",
+      "quote": "It`s a good way to find out if Nextcloud fits your need is to take a free account. No payment method required, just try it."
+    },
+    {
+      "url": "https://tab.digital/en/keep-today-pricing",
+      "date": "2026-11-25",
+      "proved": "the July 2026 price change did not end the free 8 GB plan",
+      "capture": "sha256:2d248e135b9b1177e1654bd3509791512fdde40213f40060a28f433810e1e0c1",
+      "quote": "<strong>A:</strong> No. The free 8 GB plan remains available."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-04T00:20:59.762Z",
+  "verified_at": "2026-11-25T04:14:26.914Z",
   "history": [],
   "binding": "write-gated",
   "binding_note": "8 GB free is 1.6% of a 500 GB threshold, so the quota closes it first in practice. The gate worth naming is that the free tier is a single user with no quota controls, so it cannot even be sharded internally.",

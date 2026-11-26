@@ -13,28 +13,27 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "2 GiB per file",
+    "stated": "Each file included in a release must be under 2 GiB",
     "bytes": 2147483648,
     "source_url": "https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases",
     "notes": "Each release asset must be under 2 GiB. The Git LFS per-file maximum for the plan is 2 GB on Free and Pro, 4 GB on Team and 5 GB on Enterprise Cloud."
   },
   "retention": {
-    "stated": "no expiry is stated for release assets, and the documentation states no limit on the total size of a release",
+    "stated": "Release assets cannot be modified or deleted",
     "source_url": "https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases",
-    "notes": "Extracted from published terms."
+    "notes": "All files attached to the release (such as binaries and archives) are protected from modification or deletion"
   },
   "egress": {
-    "terms": "Free and unmetered. Docs: 'We don't limit the total size of the binary files in the release or the bandwidth used to deliver them.' Served 302 -> release-assets.githubusercontent.com with no auth.",
+    "terms": "No limit on the total size of the binary files in the release or the bandwidth used to deliver them",
     "metered": false
   },
   "interface": [
     "rest",
-    "rclone",
     "cli"
   ],
   "interface_detail": "rest",
   "tooling": "REST POST /repos/{owner}/{repo}/releases + upload asset endpoint (Accept: application/octet-stream); gh CLI 'gh release upload'; rclone has no release backend, but plain curl/Python is a complete client. Proxy/wrapper repos: iBug/cf-github-releases (21 stars, Cloudflare Workers download site), kdrag0n/github-releases-proxy (8 stars), watermint/toolbox has a github-release-asset-upload command (87 stars).",
-  "chaining": "UNBOUNDED: unlimited free repos (GitHub Free = unlimited public and unlimited private repos) x unlimited releases per repo x 1000 assets per release x <2 GiB per asset. 10 repos x 50 releases x 1000 assets x 2 GiB = 1 PiB nominal; the real constraint is API/upload time, not space. Also chain with Cloudflare in front (cf-github-releases) for a clean CDN domain.",
+  "chaining": "Up to 1000 release assets may be associated with a single release. Each file included in a release must be under 2 GiB. There is no limit on the total size of a release, nor bandwidth usage.",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -125,10 +124,59 @@
       "proved": "an anonymous ranged GET of a release asset answers 302 to release-assets.githubusercontent.com then 206 with Content-Range bytes 0-1023/18079593, no credentials",
       "capture": "sha256:6fc7d6a7449fd288f22a59bcaccc02e2a96cb2dedf790b58689f2db3f30e59af",
       "quote": "\"status\": 206"
+    },
+    {
+      "url": "https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases",
+      "date": "2026-11-25",
+      "proved": "immutable releases protect attached files from modification or deletion",
+      "capture": "sha256:fa837d3ff996055fcf3ac2992e4bba3c8b6f20c50732de0d292447198259f735",
+      "quote": "**Release assets cannot be modified or deleted**: All files attached to the release (such as binaries and archives) are protected from modification or deletion."
+    },
+    {
+      "url": "https://docs.github.com/en/code-security/concepts/supply-chain-security/immutable-releases",
+      "date": "2026-11-25",
+      "proved": "the immutable release protection covers binaries and archives",
+      "capture": "sha256:fa837d3ff996055fcf3ac2992e4bba3c8b6f20c50732de0d292447198259f735",
+      "quote": "**Release assets cannot be modified or deleted**: All files attached to the release (such as binaries and archives) are protected from modification or deletion."
+    },
+    {
+      "url": "https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases",
+      "date": "2026-11-25",
+      "proved": "the release documentation gives the 2 GiB per-file ceiling",
+      "capture": "sha256:422579c390d76156b65ddf5b5f771de58638f91b1c5fc3c624b7153572cc32c1",
+      "quote": "Up to 1000 release assets may be associated with a single release. Each file included in a release must be under 2 GiB. There is no limit on the total size of a release, nor bandwidth usage."
+    },
+    {
+      "url": "https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github",
+      "date": "2026-11-25",
+      "proved": "the large-files documentation states no size or bandwidth limit for release binaries",
+      "capture": "sha256:56573364b951253995b5c60a350131476e331f151b925b3e78a8b77f204cdfd4",
+      "quote": "We don't limit the total size of the binary files in the release or the bandwidth used to deliver them."
+    },
+    {
+      "url": "https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository",
+      "date": "2026-11-25",
+      "proved": "release management is available through the REST API and the gh CLI",
+      "capture": "sha256:419a41c0dcefe661c8753c5f60355ac1744659ea894c0d2088e87ef8b439977c",
+      "quote": "REST API endpoints for releases...gh release delete TAG -y"
+    },
+    {
+      "url": "https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases",
+      "date": "2026-11-25",
+      "proved": "the release documentation states the asset count, per-file ceiling and no total-size limit",
+      "capture": "sha256:422579c390d76156b65ddf5b5f771de58638f91b1c5fc3c624b7153572cc32c1",
+      "quote": "Up to 1000 release assets may be associated with a single release. Each file included in a release must be under 2 GiB. There is no limit on the total size of a release, nor bandwidth usage."
+    },
+    {
+      "url": "https://docs.github.com/en/repositories/releasing-projects-on-github/about-releases",
+      "date": "2026-11-25",
+      "proved": "the release quota text remains as the record states",
+      "capture": "sha256:422579c390d76156b65ddf5b5f771de58638f91b1c5fc3c624b7153572cc32c1",
+      "quote": "Up to 1000 release assets may be associated with a single release. Each file included in a release must be under 2 GiB. There is no limit on the total size of a release, nor bandwidth usage."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-01T18:05:04.790Z",
+  "verified_at": "2026-11-25T19:55:26.264Z",
   "notes": "No total quota. Docs verbatim: 'Up to 1000 release assets may be associated with a single release. Each file included in a release must be under 2 GiB. There is no limit on the total size of a release, nor bandwidth usage.' Per-file ceiling is the Git LFS max for the plan: GitHub Free 2 GB, Pro 2 GB, Team 4 GB, Enterprise Cloud 5 GB.",
   "history": [],
   "extras": {

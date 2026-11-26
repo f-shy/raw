@@ -26,7 +26,7 @@
     "notes": ""
   },
   "egress": {
-    "terms": "1 GB of outbound data transfer from North America to all region destinations (excluding China and Australia) per month; ingress: udp",
+    "terms": "1 GB of outbound data transfer from North America to all region destinations (excluding China and Australia) per month",
     "metered": true,
     "free_allowance": "1 GB of outbound data transfer from North America to all region destinations (excluding China and Australia) per month",
     "price_per_tb": null,
@@ -76,10 +76,24 @@
       "url": "https://cloud.google.com/free/docs/free-cloud-features",
       "date": "2026-10-23",
       "proved": "'The Free Tier has no end date, but Google reserves the right to change the offering, including changing or eliminating usage limits, with 30 days advance notice.'"
+    },
+    {
+      "url": "https://cloud.google.com/free/docs/free-cloud-features",
+      "date": "2026-11-25",
+      "proved": "the Compute Engine Free Tier still allows 1 GB a month of outbound transfer from North America",
+      "capture": "sha256:fb586488a217a0ff0238444a87a475f4707979c7264530c727094822a4e15d70",
+      "quote": "1 GB of outbound data transfer from North America to all region destinations (excluding China and Australia) per month."
+    },
+    {
+      "url": "https://cloud.google.com/free/docs/free-cloud-features",
+      "date": "2026-11-25",
+      "proved": "the egress free allowance is unchanged: 1 GB a month of outbound transfer from North America",
+      "capture": "sha256:fb586488a217a0ff0238444a87a475f4707979c7264530c727094822a4e15d70",
+      "quote": "1 GB of outbound data transfer from North America to all region destinations (excluding China and Australia) per month."
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T19:55:29.662Z",
   "price_per_tb_month": "USD 0 for the instance; about USD 3.65 a month for the external IPv4 at USD 0.005 an hour",
   "history": [],
   "notes": "The 1 GB figure is stated on the Free Tier page, not inferred, and it is the Compute Engine line rather than the Cloud Storage or Cloud Run line, which are also 1 GB and 100 GB respectively. No reclamation rule for an idle e2-micro appears on the page: unlike Oracle's Always Free, the instance is not taken back for being idle. The address charge is an inference from two documented facts, the USD 0.005 an hour line and the absence of an address line in the Free Tier table.",

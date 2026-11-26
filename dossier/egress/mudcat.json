@@ -81,10 +81,17 @@
       "url": "https://mudcat.io/",
       "date": "2026-10-23",
       "proved": "'Yes, it can be used free of charge. However, in the case of free users there are restrictions on usage time, transmission speed, amount of transmitted data and so on'; no figure is published"
+    },
+    {
+      "url": "https://www.mudcat.io/",
+      "date": "2026-11-25",
+      "proved": "the vendor states the service was terminated on 2026-02-15 and downloads and support are gone",
+      "capture": "sha256:b96e002919c62910281be255f0a463929c0a7f2f9d24f147c45d0101afaca251",
+      "quote": "This service has been terminated (EOL) as of February 15, 2026. Downloads and technical support are no longer available, and existing connection services will be gradually discontinued."
     }
   ],
-  "verdict": "fails-quota",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verdict": "dead",
+  "verified_at": "2026-11-25T19:55:31.196Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Operated by Mudfish Networks, the same company as the Mudfish VPN. The alpha status is the important fact: the free tier works today with no stated cap, and the caps are promised but unwritten. Version 0.0.3 and a 2024 forum thread mean this is not a 2026 launch, only a 2026-live one. A second lane read the same pages on 2026-10-23 and graded the row fails-quota because no published figure can show 1 TiB inside the volume cap. The conservative verdict is kept: the 8-hour lease and an unpublished byte cap both defeat the test, and neither can be designed against.",
@@ -96,6 +103,10 @@
     "volume_stated": "The vendor states restrictions on usage time, transmission speed, and amount of transmission data, with no numbers published. The support forum answers the same question with: At this moment, no restriction because it is under alpha status.",
     "bytes_transit": "yes",
     "transit_note": "A Mudfish-operated remote access node forwards the datagrams.",
-    "promoted_from": ".tmp/egress/new-startups"
+    "promoted_from": ".tmp/egress/new-startups",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

@@ -16,16 +16,16 @@
     "stated": "5,120 MB per file",
     "bytes": 5120000000,
     "source_url": "https://upzur.com/premium",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Registered: 5120 Mb per file"
   },
   "retention": {
     "stated": "Free registered account: 1,953 GB (1.9 TB) storage, 5,120 MB per file, download volume Unlimited, files deleted 120 days after last download",
     "days": 120,
     "source_url": "https://upzur.com/premium",
-    "notes": "Extracted from published terms."
+    "notes": "Registered: 120 days after last download"
   },
   "egress": {
-    "terms": "'Download volume: Unlimited' for both Free and Registered rows. No egress meter at all; anonymous (unregistered) upload is 200 MB/file with 5-day retention.",
+    "terms": "Free, Registered and Premium: Download volume Unlimited",
     "metered": false
   },
   "interface": [
@@ -84,10 +84,31 @@
       "proved": "registered files are deleted 120 days after last download, unchanged",
       "capture": "sha256:d9c48b190969f734426b8e5b72fb80e877844a9e5957e356d522d79fb8777492",
       "quote": "| **When are your files deleted?** | 5 days after last download | 120 days after last download | Never |"
+    },
+    {
+      "url": "https://upzur.com/premium",
+      "date": "2026-11-25",
+      "proved": "the registered tier allows 5120 Mb per file",
+      "capture": "sha256:d9c48b190969f734426b8e5b72fb80e877844a9e5957e356d522d79fb8777492",
+      "quote": "| **Max upload file size** | 200 Mb | 5120 Mb | Unlimited |"
+    },
+    {
+      "url": "https://upzur.com/premium",
+      "date": "2026-11-25",
+      "proved": "registered files are deleted 120 days after last download",
+      "capture": "sha256:d9c48b190969f734426b8e5b72fb80e877844a9e5957e356d522d79fb8777492",
+      "quote": "| **When are your files deleted?** | 5 days after last download | 120 days after last download | Never |"
+    },
+    {
+      "url": "https://upzur.com/premium",
+      "date": "2026-11-25",
+      "proved": "the first-party table lists Unlimited download volume in all three tiers",
+      "capture": "sha256:d9c48b190969f734426b8e5b72fb80e877844a9e5957e356d522d79fb8777492",
+      "quote": "| **Download volume** | Unlimited | Unlimited | Unlimited |"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:15:20.587Z",
+  "verified_at": "2026-11-25T21:21:18.733Z",
   "notes": "Free registered account: 1,953 GB (1.9 TB) storage, 5,120 MB per file, download volume Unlimited, files deleted 120 days after last download",
   "history": [],
   "extras": {

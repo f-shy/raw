@@ -13,13 +13,14 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
-    "source_url": "https://internxt.com/pricing",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "stated": "10GB per file on StackSocial plans (free plans 100MB, Essential 10GB, Premium 50GB, Ultimate 100GB)",
+    "source_url": "https://help.internxt.com/en/articles/6534031-what-are-the-upload-limits-for-internxt-drive",
+    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap",
+    "bytes": 10000000000
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
-    "source_url": "https://internxt.com/pricing",
+    "stated": "10 TB Lifetime Storage: pay once and keep your storage permanently, with no renewal fees. The page states no file-expiry or inactivity-deletion clause.",
+    "source_url": "https://www.stacksocial.com/sales/internxt-cloud-storage-lifetime-subscription-10tb-plan",
     "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
   },
   "egress": {
@@ -27,14 +28,11 @@
     "metered": false
   },
   "interface": [
-    "s3",
-    "webdav",
-    "rclone",
-    "cli"
+    "browser"
   ],
-  "interface_detail": "Rclone. But CONDITIONAL. Vendor: 'Internxt now supports Rclone in two ways: via our object storage subscription, WebDAV, and natively. Rclone support is available for Ultimate plans.' WebDAV requires the Internxt CLI as a bridge, and rclone issue #7610 / internxt/cli#248 document that the WebDAV layer omits COPY and PROPPATCH, which breaks backup software.",
-  "tooling": "CLI + WebDAV bridge + native rclone on Ultimate only. No S3.",
-  "chaining": "WebDAV implementation lacks support for the COPY HTTP method, requiring file move and copy operations to transfer through local clients.",
+  "interface_detail": "The StackSocial plan does not include CLI, WebDAV or Rclone, which Internxt sells separately. Native rclone and WebDAV via the Internxt CLI require an Ultimate annual or lifetime plan; the S3-compatible object storage is a separate subscription.",
+  "tooling": "Apps for Windows, macOS, Linux, Android and iOS plus a web app. CLI, WebDAV and native rclone are not part of the StackSocial plan.",
+  "chaining": "StackSocial codes are not stackable. Storage stacks by buying a lifetime plan directly from Internxt with the same login.",
   "limits": [
     {
       "kind": "write-gated",
@@ -42,10 +40,10 @@
       "source": "https://internxt.com/pricing"
     }
   ],
-  "limits_note": "Constraint type: write-gated (CLI bridge) + request-rate. StackSocial fine print: 'This is available to new users ONLY. Codes are NOT stackable' on the 10 TB and 100 TB SKUs. Directly contradicting the on-site stacking claim. VERIFY WHICH APPLIES.",
+  "limits_note": "StackSocial codes are not stackable and the StackSocial offer is for new users only. Internxt's own lifetime plans are stackable; buying a lifetime plan directly from Internxt with the same login as a StackSocial account stacks the storage. Both statements apply, to different purchase routes.",
   "identity_cost": {
-    "kind": "card",
-    "detail": "card",
+    "kind": "email",
+    "detail": "Account signup asks for a name and an email address with no identity or email verification. The StackSocial checkout fields are unverified: behind a purchase.",
     "country": null
   },
   "reliability_note": "Documented file-loss pattern, not a single incident: a GitHub controlled test uploaded 198 files and lost some; Trustpilot reviewers report 'Files disappear from time to time' and 'stored files are [gone]'; a 1-year user reported all images and videos gone with support unresponsive. Desktop sync described as non-functional by lifetime holders.",
@@ -121,10 +119,94 @@
       "proved": "the StackSocial 10 TB lifetime deal is now $249.97, down from the $359.99 recorded in the last check",
       "capture": "sha256:ab6405f1ca7307e30858fbfcabca80dd4210dbf0923450aeccff84734f397e1b",
       "quote": "Deal Price$249.97\nSuggested Price\n$2,900.00\n91% Off"
+    },
+    {
+      "url": "https://www.stacksocial.com/sales/internxt-cloud-storage-lifetime-subscription-10tb-plan",
+      "date": "2026-11-25",
+      "proved": "the StackSocial plan gives apps for five platforms and a web app",
+      "capture": "sha256:ad72c66e7f5f24575ab4e97d16e8dc186862e2bb85eb25e127d80c369a565170",
+      "quote": "Works on Every Platform: Apps for Windows, macOS, Linux, Android, and iOS, plus a web app. All synced."
+    },
+    {
+      "url": "https://help.internxt.com/en/articles/13469439-what-features-does-my-stacksocial-lifetime-include-can-i-upgrade-it",
+      "date": "2026-11-25",
+      "proved": "StackSocial plans exclude CLI, WebDAV and Rclone",
+      "capture": "sha256:ca82dfa7d987681c3a08c90970ca02a6ffaac0db82687ab513c818c03faa2012",
+      "quote": "Stacksocial plans do not include other products or features, such as but not limited to: Internxt Mail, Meet, CLI, WebDAV, Rclone, NAS"
+    },
+    {
+      "url": "https://blog.internxt.com/rclone/",
+      "date": "2026-11-25",
+      "proved": "native rclone requires an Ultimate annual or lifetime plan",
+      "capture": "sha256:ce6d5946c6ef6088dd069d8d45a3d40a1307d1dcb05c85ab48b014be50049d02",
+      "quote": "Internxt **Ultimate** annual and lifetime plans are required to access rclone"
+    },
+    {
+      "url": "https://help.internxt.com/en/articles/13469439-what-features-does-my-stacksocial-lifetime-include-can-i-upgrade-it",
+      "date": "2026-11-25",
+      "proved": "StackSocial plans are for new users only and their codes are not stackable",
+      "capture": "sha256:ca82dfa7d987681c3a08c90970ca02a6ffaac0db82687ab513c818c03faa2012",
+      "quote": "These are available to new users only. Stacksocial **codes are not stackable.**"
+    },
+    {
+      "url": "https://help.internxt.com/en/articles/13469439-what-features-does-my-stacksocial-lifetime-include-can-i-upgrade-it",
+      "date": "2026-11-25",
+      "proved": "a lifetime plan bought directly with the same login stacks onto a StackSocial account",
+      "capture": "sha256:ca82dfa7d987681c3a08c90970ca02a6ffaac0db82687ab513c818c03faa2012",
+      "quote": "This will stack the additional storage to your account, and will also add the extra features of the plan you bought."
+    },
+    {
+      "url": "https://help.internxt.com/en/articles/13469439-what-features-does-my-stacksocial-lifetime-include-can-i-upgrade-it",
+      "date": "2026-11-25",
+      "proved": "a directly bought lifetime plan stacks onto the account",
+      "capture": "sha256:ca82dfa7d987681c3a08c90970ca02a6ffaac0db82687ab513c818c03faa2012",
+      "quote": "This will stack the additional storage to your account, and will also add the extra features of the plan you bought."
+    },
+    {
+      "url": "https://help.internxt.com/en/articles/6534031-what-are-the-upload-limits-for-internxt-drive",
+      "date": "2026-11-25",
+      "proved": "the StackSocial upload limit is 10GB per file",
+      "capture": "sha256:052b21597d80086d5a222f25bb5e4b552f779037fa53f3f5296c46085872d954",
+      "quote": "Stacksocial: 10GB per file"
+    },
+    {
+      "url": "https://help.internxt.com/en/articles/6534031-what-are-the-upload-limits-for-internxt-drive",
+      "date": "2026-11-25",
+      "proved": "the per-file limit is stated on this help page",
+      "capture": "sha256:052b21597d80086d5a222f25bb5e4b552f779037fa53f3f5296c46085872d954",
+      "quote": "Stacksocial: 10GB per file"
+    },
+    {
+      "url": "https://www.stacksocial.com/sales/internxt-cloud-storage-lifetime-subscription-10tb-plan",
+      "date": "2026-11-25",
+      "proved": "the 10 TB StackSocial plan is a one-time payment with no renewal fees",
+      "capture": "sha256:ad72c66e7f5f24575ab4e97d16e8dc186862e2bb85eb25e127d80c369a565170",
+      "quote": "10 TB Lifetime Storage: Pay once and keep your storage permanently — no renewal fees, ever."
+    },
+    {
+      "url": "https://www.stacksocial.com/sales/internxt-cloud-storage-lifetime-subscription-10tb-plan",
+      "date": "2026-11-25",
+      "proved": "the retention statement is on the StackSocial page",
+      "capture": "sha256:ad72c66e7f5f24575ab4e97d16e8dc186862e2bb85eb25e127d80c369a565170",
+      "quote": "10 TB Lifetime Storage: Pay once and keep your storage permanently — no renewal fees, ever."
+    },
+    {
+      "url": "https://internxt.com/pricing",
+      "date": "2026-11-25",
+      "proved": "account signup needs a name and an email address and no verification",
+      "capture": "sha256:35ba783a0bc18310809ee71a4bef15fb0592b54c2060cd7dfcf1e5318a273e8d",
+      "quote": "To sign up, simply enter a name and email address. No identity nor email verification is required to start using Internxt's services."
+    },
+    {
+      "url": "https://www.stacksocial.com/sales/internxt-cloud-storage-lifetime-subscription-10tb-plan",
+      "date": "2026-11-25",
+      "proved": "lifetime one-time payment with no renewal fees",
+      "capture": "sha256:ad72c66e7f5f24575ab4e97d16e8dc186862e2bb85eb25e127d80c369a565170",
+      "quote": "10 TB Lifetime Storage: Pay once and keep your storage permanently — no renewal fees, ever."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:13:59.618Z",
+  "verified_at": "2026-11-25T12:15:46.509Z",
   "price_per_tb_month": "One-time $27.00/TB at 10 TB ($269.97); $10.00/TB at 100 TB ($999.99). Amortised over 5 years: $0.45/TB/mo at 10 TB, $0.17/TB/mo at 100 TB — nominally the cheapest number in this lane, and the least trustworthy.",
   "notes": "1 TB / 2 TB / 5 TB on internxt.com; StackSocial carries 5 TB $229.99, 10 TB $269.97-$359.99, 100 TB $999.99. Vendor states plans are stackable: 'you can add up to 100 TB of storage to your Internxt lifetime membership'.",
   "history": [],

@@ -6,7 +6,7 @@
   "category": "mesh vpn software with community relays",
   "tier": "free",
   "free_tier": {
-    "stated": "A simple, secure, decentralized SD-WAN solution for intranet penetration, implemented using Rust and the Tokio framework",
+    "stated": "A simple, secure, decentralized networking solution",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://easytier.cn/en/",
@@ -55,10 +55,24 @@
       "url": "https://easytier.cn/en/",
       "date": "2026-10-23",
       "proved": "'Supports UDP, IPv6 traversal'; 'WireGuard encryption'; 'Supports TCP / UDP / WS / WSS / WG / QUIC / FakeTCP'"
+    },
+    {
+      "url": "https://easytier.cn/en/",
+      "date": "2026-11-25",
+      "proved": "the page's own description; it states no allowance and no price",
+      "capture": "sha256:f61ca043fc83eb0420ba9acc6485750b3f40a4effef5f613e413488c9458a084",
+      "quote": "A simple, secure, decentralized networking solution"
+    },
+    {
+      "url": "https://easytier.cn/en/",
+      "date": "2026-11-25",
+      "proved": "the page describes software with no allowance and no price",
+      "capture": "sha256:f61ca043fc83eb0420ba9acc6485750b3f40a4effef5f613e413488c9458a084",
+      "quote": "A simple, secure, decentralized networking solution"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:41.181Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Strong transport list (WG, QUIC, UDP) but every path needs a host at each end and a relay that somebody else is paying for.",

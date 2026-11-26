@@ -19,21 +19,23 @@
     "notes": "not applicable: a rejected offer has no per-object cap to shard"
   },
   "retention": {
-    "stated": "not recorded; the rejection did not turn on retention",
+    "stated": "TACC has formally committed to preserving the data with landing pages and corresponding DOIs indefinitely; DDR does not delete data or conduct deaccessions.",
     "days": null,
     "source_url": "https://www.designsafe-ci.org/user-guide/curating/policies/",
     "notes": "Binding failure documented in record details."
   },
   "egress": {
-    "terms": "not assessed; the provider was rejected before its egress mattered",
+    "terms": "No transfer charge is stated on the Data Depot pages; downloads can go through the browser, Globus, Cyberduck or the TAPIS API.",
     "metered": false
   },
   "interface": [
-    "unknown"
+    "browser",
+    "cli",
+    "rest"
   ],
   "interface_detail": "not documented",
   "tooling": "not documented",
-  "chaining": "rejected: it composes with nothing because it does not hold bytes here",
+  "chaining": "Data can be moved out through Globus, Cyberduck, scp, rsync or the TAPIS API, and shared with other cyberinfrastructure resources at TACC and other research centers.",
   "limits": [
     {
       "kind": "write-gated",
@@ -118,10 +120,52 @@
       "proved": "registration asks for an institution and limits an account whose institution is not on the trusted list",
       "capture": "sha256:9949560792a5e930fe348ae56513841143f50a5d8b2e2537aaa550a88ce65fe1",
       "quote": "I understand the institution I have entered is not included in our list of trusted institutions. My account will have limited access to TACC resources. I will be ineligible to become a project's principle investigator. I may edit my profile after creation with trusted credentials to remove"
+    },
+    {
+      "url": "https://www.designsafe-ci.org/user-guide/curating/policies/",
+      "date": "2026-11-25",
+      "proved": "the curation policies state indefinite preservation of published data",
+      "capture": "sha256:5735e33e81f95d0d2d23800ee2ff78209d0a2c4ed85ce864bf412c7bd7c5b1e0",
+      "quote": "TACC has formally committed to preserving the data with landing pages and corresponding DOIs indefinitely."
+    },
+    {
+      "url": "https://www.designsafe-ci.org/user-guide/managingdata/datatransfer/",
+      "date": "2026-11-25",
+      "proved": "the transfer guide documents a browser interface and a programmatic TAPIS API",
+      "capture": "sha256:0a81eff486160be27bb76c4fbeb5b94ad4064bfeeb6ab5d36e0377e953b2927b",
+      "quote": "For automated or large-scale data transfers, DesignSafe provides programmatic access through the TAPIS API. This method is particularly useful for:"
+    },
+    {
+      "url": "https://www.designsafe-ci.org/user-guide/managingdata/datatransfer/",
+      "date": "2026-11-25",
+      "proved": "the transfer guide documents multiple export paths and states no transfer charge",
+      "capture": "sha256:0a81eff486160be27bb76c4fbeb5b94ad4064bfeeb6ab5d36e0377e953b2927b",
+      "quote": "Globus supplies high speed, reliable, and asynchronous transfers to DesignSafe. Once set up, Globus will allow you to not only transfer files to and from DesignSafe, but also other cyberinfrastructure resources at TACC and other research centers."
+    },
+    {
+      "url": "https://www.designsafe-ci.org/user-guide/managingdata/datatransfer/",
+      "date": "2026-11-25",
+      "proved": "the transfer guide documents chaining DesignSafe with other research cyberinfrastructure",
+      "capture": "sha256:0a81eff486160be27bb76c4fbeb5b94ad4064bfeeb6ab5d36e0377e953b2927b",
+      "quote": "Globus supplies high speed, reliable, and asynchronous transfers to DesignSafe. Once set up, Globus will allow you to not only transfer files to and from DesignSafe, but also other cyberinfrastructure resources at TACC and other research centers."
+    },
+    {
+      "url": "https://www.designsafe-ci.org/user-guide/curating/policies/",
+      "date": "2026-11-25",
+      "proved": "the policies page states that published data is not deleted",
+      "capture": "sha256:5735e33e81f95d0d2d23800ee2ff78209d0a2c4ed85ce864bf412c7bd7c5b1e0",
+      "quote": "DDR does not conduct re-appraisals or deaccessions, and does not delete data. In cases of tombstones, data is withdrawn from public access but it is not deleted."
+    },
+    {
+      "url": "https://www.designsafe-ci.org/user-guide/managingdata/datatransfer/",
+      "date": "2026-11-25",
+      "proved": "the transfer guide documents browser, CLI, Globus and API access with no stated transfer charge",
+      "capture": "sha256:0a81eff486160be27bb76c4fbeb5b94ad4064bfeeb6ab5d36e0377e953b2927b",
+      "quote": "For automated or large-scale data transfers, DesignSafe provides programmatic access through the TAPIS API. This method is particularly useful for:"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-04T01:24:11.235Z",
+  "verified_at": "2026-11-25T01:53:16.160Z",
   "notes": "Publishing is genuinely uncapped. 'Currently we do not impose restrictions on the size of the datasets that can be published .. Largest published datasets in DDR are ~5 TB'. But it is a c.",
   "history": [],
   "extras": {

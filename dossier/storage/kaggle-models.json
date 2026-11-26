@@ -16,12 +16,12 @@
     "stated": "maximum upload size of public models and datasets is 200GB; private models have a limit of 200GB",
     "bytes": 200000000000,
     "source_url": "https://www.kaggle.com/product-announcements/512322",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Kaggle has also doubled the maximum upload size of public models and datasets from 100GB to 200GB."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.kaggle.com/product-announcements/512322",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: the models documentation and quota announcement state no retention period"
   },
   "egress": {
     "terms": "Free. Files come from Kaggle's Google-hosted CDN (storage.googleapis.com) with no egress meter. Downloads require a Kaggle API token.",
@@ -31,9 +31,9 @@
     "rest",
     "git"
   ],
-  "interface_detail": "rest + git",
+  "interface_detail": "Many developers will need to download models in code outside of Kaggle. There are a few different methods: via the [kagglehub Python library](https://github.com/Kaggle/kagglehub), via our [Kaggle CLI](https://github.com/Kaggle/kaggle-cli), or by calling the API directly.",
   "tooling": "kagglehub and the Kaggle API. Verified live this session: GET /api/v1/models/list?search=bert and ?search=qwen both returned 200 with real model records (ref, title, author, vote counts); GET /api/v1/models/google/bert/get returned 200, 72,158 bytes. Datasets: /api/v1/datasets/list returns 200 JSON with totalBytesNullable per dataset. Note the upload side is narrower than the read side — 'The ability to upload models via the Kaggle API was introduced to a select group of Kaggle accounts starting in version 1.5.18', and kagglehub caps at 50 files per repo and auto-zips beyond that.",
-  "chaining": "Models and datasets are separate quota pools, so the ceiling is 200 GB private models + 200 GB private datasets + 200 GB per public model × N public models + 200 GB per public dataset × N public datasets. Public items are the real multiplier. Each model can carry multiple variations and frameworks, but they share the model's 200 GB.",
+  "chaining": "This tool allows you to copy model versions from one model to another. You can import versions from any public model or private models where you have collaborator access.",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -82,10 +82,31 @@
       "proved": "private models and private datasets have a 200GB limit and the maximum upload size of public models and datasets is 200GB",
       "capture": "sha256:614eb7174cfb21757a2cb3966e3cc9ca3f0f5e461027fb82c48821f15af15bc1",
       "quote": "Users now have a limit of 200GB for private models and 200GB for private datasets.\n\nKaggle has also doubled the maximum upload size of public models and datasets from 100GB to 200GB."
+    },
+    {
+      "url": "https://www.kaggle.com/product-announcements/512322",
+      "date": "2026-11-25",
+      "proved": "the announcement states a 200GB maximum upload size for public models and datasets",
+      "capture": "sha256:fbf91671408a6b7dcb60c94e67880781c54f5f880f58823ac99402f0d6505a4a",
+      "quote": "Kaggle has also doubled the maximum upload size of public models and datasets from 100GB to 200GB."
+    },
+    {
+      "url": "https://www.kaggle.com/docs/models",
+      "date": "2026-11-25",
+      "proved": "model versions can be copied from one model to another",
+      "capture": "sha256:a08795cdbd8d16ef3c2d5d4aadb524b6de2405c1fec6807d8dec662f6a600020",
+      "quote": "This tool allows you to copy model versions from one model to another. You can import versions from any public model or private models where you have collaborator access."
+    },
+    {
+      "url": "https://www.kaggle.com/docs/models",
+      "date": "2026-11-25",
+      "proved": "models are reachable through kagglehub, the Kaggle CLI and the API",
+      "capture": "sha256:a08795cdbd8d16ef3c2d5d4aadb524b6de2405c1fec6807d8dec662f6a600020",
+      "quote": "Many developers will need to download models in code outside of Kaggle. There are a few different methods: via the [kagglehub Python library](https://github.com/Kaggle/kagglehub), via our [Kaggle CLI](https://github.com/Kaggle/kaggle-cli), or by calling the API directly."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:22.849Z",
+  "verified_at": "2026-11-25T21:21:12.713Z",
   "notes": "Users now have a limit of 200GB for private models and 200GB for private datasets.\n\nKaggle has also doubled the maximum upload size of public models and datasets from 100GB to 200GB.",
   "history": [],
   "extras": {

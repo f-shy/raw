@@ -19,21 +19,22 @@
     "notes": "not applicable: a rejected offer has no per-object cap to shard"
   },
   "retention": {
-    "stated": "not recorded; the rejection did not turn on retention",
+    "stated": "As an archive our intention is to store and make materials in perpetuity.",
     "days": null,
     "source_url": "https://archive.org/post/379280/file-size-limit",
     "notes": "Binding failure documented in record details."
   },
   "egress": {
-    "terms": "not assessed; the provider was rejected before its egress mattered",
+    "terms": "No transfer charge is published; uploaded items can be downloaded and taken elsewhere.",
     "metered": false
   },
   "interface": [
-    "unknown"
+    "browser",
+    "cli"
   ],
   "interface_detail": "not documented",
   "tooling": "not documented",
-  "chaining": "rejected: it composes with nothing because it does not hold bytes here",
+  "chaining": "Items can be exported from the user's library and taken elsewhere; bulk or programmatic uploads use the Internet Archive Command-Line Tool.",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -102,10 +103,45 @@
       "proved": "the forum answer gives 10 GB per item",
       "capture": "sha256:bac7e6ef21672c32533dade5bdae52eba0361828018f4cd029099ce407b27097",
       "quote": "Items (pages) should not exceed 10GB whether there is one file or many."
+    },
+    {
+      "url": "https://help.archive.org/help/archive-org-information/",
+      "date": "2026-11-25",
+      "proved": "the Help Center states an intention to store materials in perpetuity",
+      "capture": "sha256:fe9147750a0184115f838677d71f07380a8308305f94c6e515913845a60f9505",
+      "quote": "As an archive our intention is to store and make materials in perpetuity."
+    },
+    {
+      "url": "https://help.archive.org/help/uploading-a-basic-guide/",
+      "date": "2026-11-25",
+      "proved": "the upload guide documents a command-line upload tool alongside the browser path",
+      "capture": "sha256:2af054d55dffcd44c8d0693ae3231334ab0a26da635bddc2219a2aa78c8b5d20",
+      "quote": "We recommend using the **Internet Archive Command-Line Tool** to script your upload."
+    },
+    {
+      "url": "https://help.archive.org/help/archive-org-information/",
+      "date": "2026-11-25",
+      "proved": "the Help Center documents that uploaded items can be downloaded and moved elsewhere",
+      "capture": "sha256:fe9147750a0184115f838677d71f07380a8308305f94c6e515913845a60f9505",
+      "quote": "If you have uploaded things to the Internet Archive, you can find a list of them from the “my library” link on your settings page. From there, you can download the items and take them anywhere."
+    },
+    {
+      "url": "https://help.archive.org/help/archive-org-information/",
+      "date": "2026-11-25",
+      "proved": "the Help Center documents taking uploaded items elsewhere",
+      "capture": "sha256:fe9147750a0184115f838677d71f07380a8308305f94c6e515913845a60f9505",
+      "quote": "If you have uploaded things to the Internet Archive, you can find a list of them from the “my library” link on your settings page. From there, you can download the items and take them anywhere."
+    },
+    {
+      "url": "https://help.archive.org/help/archive-org-information/",
+      "date": "2026-11-25",
+      "proved": "the Help Center states perpetual storage intent and free upload, download and export of items",
+      "capture": "sha256:fe9147750a0184115f838677d71f07380a8308305f94c6e515913845a60f9505",
+      "quote": "As an archive our intention is to store and make materials in perpetuity."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-04T00:31:28.059Z",
+  "verified_at": "2026-11-25T01:53:16.159Z",
   "notes": "1 TB size limit per item page, recommended maximum 1000 files or 500 GB per item (help centre). The forum answer of 7 Jun 2011 that gave 10 GB per item is superseded.",
   "history": [],
   "extras": {

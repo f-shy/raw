@@ -1,0 +1,21 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u47-rerun",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/layer7-high-cpu-2 $.limits[0].value: The cited aggregator lists only 50 TB for High CPU 2; it does not state 50 TB incl. + up to 300 TB extra a month, and it prints no monthly extra allowance.\n- egress/layer7-high-cpu-2 $.egress.terms: The cited aggregator row states only 50 TB for High CPU 2; it does not state the vendor's 50 TB included plus up to 300 TB extra a month or the absence of an extra-traffic price on the vendor page.\n- egress/hostsailor-minisailor $.interface_detail: The cart lists NVMe storage and a 1 TB bandwidth line but says nothing about root access; the value itself admits the control panel was not read.\n- egress/kainode-vps-pro $.limits[1].value: The cited terms say port 25 is blocked; they state no 100 Mbps port speed. The 100 Mbps port comes from the offer post, not from these terms.\n- egress/hostsailor-minisailor $.chaining: The cart lists one IPv4, a /64 IPv6 and a 1 Gbit port, but no DDoS protection; the post named in the value is not this source.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/cloudnium-ipv6-1 $.free_tier.stated: Capture supports 1TB/mo, 1 Gbps, 1 IPv6 for IPv6-1, but does not support 'No free tier', price USD 0.5/month, 300 GB aggregator claim, or full plan specs stated in value.\n- egress/cloudnium-ipv6-1 $.egress.terms: Capture supports vendor 1 TB/month on 1 Gbps uplink; aggregator 300 GB comparison is not supported by this capture.\n- egress/hostbrr-nice-epyc $.free_tier.stated: Capture shows NICE-EPYC Anniversary with 20 TB @ 10 Gbps and Out of Stock, contradicting claim's 2 TB and 'vendor order group does not list it'.\n- egress/hostbrr-nice-epyc $.egress.terms: Capture shows 20 TB @ 10 Gbps for NICE-EPYC Anniversary, not 2 TB; claim also incorrectly says vendor order group does not list the plan.\n- egress/hostsailor-minisailor $.free_tier.stated: Capture supports port/bandwidth/IPs, but does not support 'No free tier', price $17.96/year, SAVE70%, annual-only, RAM/vSwap/core/CPU/storage/location, or coupon expiry claims.\n- egress/hostsailor-minisailor $.egress.terms: Capture supports 1 TB bandwidth and 1 Gbps uplink for the shown plan; it does not support larger-plan bandwidth tiers or overage/post-allowance behavior claims.\n- egress/kainode-vps-pro $.free_tier.stated: Capture shows $7.49/month, 2 vCPU, 4 GB RAM, 40 GB Enterprise SSD, 1 TB Bandwidth. Claim states $4.89 after 30% coupon, 60 GB SSD, 100 Mbps port, one IPv4, Singapore - not supported by this capture.\n- egress/kainode-vps-pro $.egress.terms: Capture supports 1 TB bandwidth for VPS Pro but does not state 100 Mbps port, overage price, or post-allowance throttle behavior.\n- egress/layer7-high-cpu-2 $.free_tier.stated: Quote supports IP/rDNS features only; it does not support 'No free tier', High CPU 2 pricing EUR 4.12/month, 50 TB, 1Gbps port, or Paris location.\n- egress/layer7-high-cpu-2 $.egress.metered: Quote does not support metered egress; capture elsewhere states '50 TB incl. + up to 300 TB extra' but that is not the cited quote.\n- egress/layer7-high-cpu-2 $.egress.free_allowance: Quote does not support 50 TB/month included free allowance; capture elsewhere contains that text but cited quote is unrelated.",
+ "scope": {
+  "rids": [
+   "egress/cloudnium-ipv6-1",
+   "egress/h2-nexus-promo-platinum",
+   "egress/hostbrr-nice-epyc",
+   "egress/hostsailor-minisailor",
+   "egress/kainode-vps-pro",
+   "egress/layer7-high-cpu-2"
+  ]
+ },
+ "origin": "audit u78 of 20261125-0233-verify-egress-af27/u47 failed: 11 of 21 unsupported",
+ "created": "2026-11-25T16:37:39Z",
+ "queue_files": [
+  "queue/20261125-0233-verify-egress-af27-u05-rerun.json"
+ ]
+}

@@ -5,7 +5,7 @@
   "url": "https://www.geonode.com/pricing",
   "category": "residential exit (dead end class)",
   "free_tier": {
-    "stated": "100 MB to 2 GB for 3 to 14 days, gated on a card, KYC or a minimum top-up",
+    "stated": "residential trial is paid: 3 days for USD 5; a 1 TB program gives 1 TB free for 7 days to teams using 500+ GB/month, by application, no credit card",
     "unit": "GB",
     "metered_on": "downloaded-bytes",
     "source_url": "https://www.geonode.com/pricing",
@@ -13,7 +13,7 @@
     "notes": ""
   },
   "per_object_cap": {
-    "stated": "the trial allowance is 100 MB to 2 GB in total",
+    "stated": "unverified: the pricing page states no per-object cap; the trial is a bandwidth allowance",
     "bytes": null,
     "notes": "",
     "source_url": "https://www.geonode.com/pricing"
@@ -25,7 +25,7 @@
     "source_url": "https://www.geonode.com/pricing"
   },
   "egress": {
-    "terms": "metered by the gigabyte once the trial ends; USD 0.80/GB is the cheapest rate seen",
+    "terms": "metered by the gigabyte; residential rates run from USD 0.792/GB (10 GB plan) to USD 0.270/GB at 100 TB",
     "metered": true,
     "free_allowance": null,
     "price_per_tb": null,
@@ -35,31 +35,108 @@
     "rest"
   ],
   "tooling": "none needed beyond curl",
-  "chaining": "a dead capacity lane that stays live only as an identity-rotation tool, at USD 0.80/GB and up.",
+  "chaining": "a metered capacity lane, useful as an identity-rotation tool, at USD 0.270/GB to USD 0.792/GB for residential bandwidth.",
   "limits": [
     {
-      "kind": "per-object-cap",
-      "value": "the trial allowance is 100 MB to 2 GB in total",
+      "kind": "volume-quota",
+      "value": "1 TB free for 7 days (1TB Program, by application); the paid residential trial is 3 days for USD 5",
       "source": "https://www.geonode.com/pricing"
     }
   ],
   "identity_cost": {
     "kind": "card",
-    "detail": "every trial surveyed is bounded by a card, KYC or a minimum top-up",
+    "detail": "the USD 5 residential trial is a paid purchase; the 1 TB program is by application with no credit card",
     "country": null
   },
-  "reliability_note": "every trial surveyed is bounded by a card, KYC or a minimum top-up",
+  "reliability_note": "unverified: only the Geonode pricing page was re-read; other providers' trials were not",
   "confidence": "reported",
   "evidence": [
     {
       "url": "https://www.geonode.com/pricing",
       "date": "2026-10-22",
       "proved": "per-GB residential pricing; the free trial is card-gated"
+    },
+    {
+      "url": "https://www.geonode.com/pricing",
+      "date": "2026-11-25",
+      "proved": "residential trials are a USD 5 3-day trial and a 1 TB 7-day program, not 100 MB to 2 GB",
+      "capture": "sha256:e8326c43b952fc80b9af624ea17aded7ee72e1a61539dab4d006752ac0dc9078",
+      "quote": "**Trial:** 3-day trial for $5. Teams using 500+ GB/month can apply for the 1TB Program — 1 TB free for 7 days, approval in under 24 hours, no credit card:"
+    },
+    {
+      "url": "https://www.geonode.com/pricing",
+      "date": "2026-11-25",
+      "proved": "published residential rates are 0.792 USD/GB at entry and 0.270 USD/GB at 100 TB",
+      "capture": "sha256:e8326c43b952fc80b9af624ea17aded7ee72e1a61539dab4d006752ac0dc9078",
+      "quote": "| Residential proxies | $0.792/GB (10 GB plan); $0.270/GB at 100 TB | per GB |"
+    },
+    {
+      "url": "https://www.geonode.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the grant is a time-boxed bandwidth allowance (1 TB for 7 days), a volume quota; no per-object cap is stated",
+      "capture": "sha256:e8326c43b952fc80b9af624ea17aded7ee72e1a61539dab4d006752ac0dc9078",
+      "quote": "**Trial:** 3-day trial for $5. Teams using 500+ GB/month can apply for the 1TB Program — 1 TB free for 7 days, approval in under 24 hours, no credit card:"
+    },
+    {
+      "url": "https://www.geonode.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the limit is a bandwidth allowance for a fixed time",
+      "capture": "sha256:e8326c43b952fc80b9af624ea17aded7ee72e1a61539dab4d006752ac0dc9078",
+      "quote": "**Trial:** 3-day trial for $5. Teams using 500+ GB/month can apply for the 1TB Program — 1 TB free for 7 days, approval in under 24 hours, no credit card:"
+    },
+    {
+      "url": "https://www.geonode.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the allowance figures",
+      "capture": "sha256:e8326c43b952fc80b9af624ea17aded7ee72e1a61539dab4d006752ac0dc9078",
+      "quote": "**Trial:** 3-day trial for $5. Teams using 500+ GB/month can apply for the 1TB Program — 1 TB free for 7 days, approval in under 24 hours, no credit card:"
+    },
+    {
+      "url": "https://www.geonode.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the grant is described as a bandwidth allowance",
+      "capture": "sha256:e8326c43b952fc80b9af624ea17aded7ee72e1a61539dab4d006752ac0dc9078",
+      "quote": "**Trial:** 3-day trial for $5. Teams using 500+ GB/month can apply for the 1TB Program — 1 TB free for 7 days, approval in under 24 hours, no credit card:"
+    },
+    {
+      "url": "https://www.geonode.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the 3-day trial costs USD 5 and the 1 TB program needs no credit card",
+      "capture": "sha256:e8326c43b952fc80b9af624ea17aded7ee72e1a61539dab4d006752ac0dc9078",
+      "quote": "**Trial:** 3-day trial for $5. Teams using 500+ GB/month can apply for the 1TB Program — 1 TB free for 7 days, approval in under 24 hours, no credit card:"
+    },
+    {
+      "url": "https://www.geonode.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the page read is the Geonode pricing page",
+      "capture": "sha256:e8326c43b952fc80b9af624ea17aded7ee72e1a61539dab4d006752ac0dc9078",
+      "quote": "| Residential proxies | $0.792/GB (10 GB plan); $0.270/GB at 100 TB | per GB |"
+    },
+    {
+      "url": "https://www.geonode.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the residential rates",
+      "capture": "sha256:e8326c43b952fc80b9af624ea17aded7ee72e1a61539dab4d006752ac0dc9078",
+      "quote": "| Residential proxies | $0.792/GB (10 GB plan); $0.270/GB at 100 TB | per GB |"
+    },
+    {
+      "url": "https://www.geonode.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the per-GB rates used",
+      "capture": "sha256:e8326c43b952fc80b9af624ea17aded7ee72e1a61539dab4d006752ac0dc9078",
+      "quote": "| Residential proxies | $0.792/GB (10 GB plan); $0.270/GB at 100 TB | per GB |"
+    },
+    {
+      "url": "https://www.geonode.com/pricing",
+      "date": "2026-11-25",
+      "proved": "residential bandwidth is billed per GB",
+      "capture": "sha256:e8326c43b952fc80b9af624ea17aded7ee72e1a61539dab4d006752ac0dc9078",
+      "quote": "| Residential proxies | $0.792/GB (10 GB plan); $0.270/GB at 100 TB | per GB |"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-22T03:20:00.000Z",
-  "notes": "At USD 0.80/GB one day of the workload is USD 879.61 and a month is USD 26,388. Not a capacity source at any price available, and the search results for 'free proxy trial' are confidently wrong.",
+  "verified_at": "2026-11-25T15:23:44.599Z",
+  "notes": "A workload of 1099.51 GB per day costs USD 870.8 per day at USD 0.792/GB and USD 296.9 per day at USD 0.270/GB (100 TB rate). Not a capacity source at any published price.",
   "history": [],
   "extras": {
     "stale_after_days": 180,
@@ -67,7 +144,7 @@
     "bytes_transit": "yes",
     "transit_note": "the proxy carries the request and the response through the residential peer"
   },
-  "binding": "per-object-cap",
+  "binding": "volume-quota",
   "interface_detail": "an HTTP or SOCKS5 proxy with credentials",
   "stale": false,
   "stale_checked_at": "2026-10-22T00:00:00.000Z"

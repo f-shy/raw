@@ -53,7 +53,7 @@
     "detail": "An account on the hosted service: 'Login with Google, GitHub, or email'; the page shows no card or phone step for the Free plan.",
     "country": "None"
   },
-  "reliability_note": "unverified: sustained availability; a direct probe of https://tunnelapi.in/ ended in a connection timeout, and docs.tunnelapi.in answered with content.",
+  "reliability_note": "unverified: sustained availability; the live HTTPS endpoint returned a transport error on 2026-11-25 and no page was served.",
   "confidence": "unverified",
   "confidence_note": "The pricing numbers are read in a copy of the vendor page archived 2026-06-14 (v2.6.0); the documentation site docs.tunnelapi.in is read live; the live landing page yields only its title.",
   "evidence": [
@@ -117,10 +117,31 @@
       "proved": "the documentation site answered with content on 2026-11-03",
       "capture": "sha256:cac3ae2697a3336b00a5acb62f68c2d9e91aa701748780ba2700f77ce33967de",
       "quote": "Welcome to TunnelAPI - the developer-first platform for secure tunneling, API Gateway, Kubernetes Ingress, and webhook testing."
+    },
+    {
+      "url": "probe:https://tunnelapi.in/",
+      "date": "2026-11-25",
+      "proved": "the live host could not be reached on 2026-11-25",
+      "capture": "sha256:3d21e2ef00e3b41b1f8dd7bf76a5bb51acd7941383638218dc399bd3ba249898",
+      "quote": "\"error\": \"transport\""
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20260720121612/https://tunnelapi.in/?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the Free plan still lists 100 MB of bandwidth a month in the archived vendor copy",
+      "capture": "sha256:68e0256972c18537ab525ea183ba50f39ead6f48d05a3453923b9becf39463cf",
+      "quote": "- ✓ 100 MB Bandwidth/mo"
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20260720121612/https://tunnelapi.in/?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the archived vendor copy still documents the arm CLI tunnel command",
+      "capture": "sha256:68e0256972c18537ab525ea183ba50f39ead6f48d05a3453923b9becf39463cf",
+      "quote": "$arm tunnel 3000 -s myapp"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-03T10:32:52.502Z",
+  "verified_at": "2026-11-25T09:55:02.691Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Hosted tunnel service with an npm CLI. Plans: Free (0 rupees a month), Solo (749 rupees a month, 5 GB bandwidth), Team (2,399 rupees a month, 50 GB bandwidth), Enterprise (custom, unlimited). Free-plan tunnels get a random subdomain on free-tunnelapi.app.",

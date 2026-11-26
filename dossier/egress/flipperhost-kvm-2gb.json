@@ -53,7 +53,7 @@
     "detail": "unverified: the registration page read renders no form fields; the offer post lists credit cards, PayPal, Alipay and Bitcoin among the payment methods, and no card, phone or ID requirement is stated on a page read",
     "country": "None"
   },
-  "reliability_note": "no reliability event recorded",
+  "reliability_note": "Past the plan allowance, excess bandwidth is purchased in blocks with immediate payment.",
   "confidence": "reported",
   "confidence_note": "Every figure is from a third-party offer post and no vendor page confirms the plan. Inbound ports, UDP and IPv6 are not stated on any page read.",
   "evidence": [
@@ -77,10 +77,31 @@
       "capture": "sha256:d52e76558c6f45c0012f66070261d79446e36ca972830a630a16764e3cdf86b1",
       "quote": "They accept 2Checkout, Paypal, Credit Cards (All Types), Alipay, Unionpay, Yandex.Money, Boleto Brasil, WebMoney, QIWI and Bitcoin.",
       "proved": "the payment methods include cards, PayPal, Alipay and Bitcoin"
+    },
+    {
+      "url": "https://www.flipperhost.com/tos.php",
+      "date": "2026-11-25",
+      "proved": "the vendor's terms state that excess bandwidth is bought in blocks",
+      "capture": "sha256:54ae419afbb908c84d87cbd27029c79fc12ce8da4dfc4418725ed38b96b793d3",
+      "quote": "2.3.5 If you surpass your allotted disk/bandwidth usage as set forth in your purchased plan, you agree to purchase the excess in blocks as set forth in our \"plans\" section. Such payment to be immediate and non-disputable."
+    },
+    {
+      "url": "https://lowendbox.com/blog/get-cheap-hosting-in-la-ny-or-atlanta-from-flipperhost-only-29-99-year-for-a-2gb-vps/",
+      "date": "2026-11-25",
+      "proved": "the 2026-10-19 offer post still lists 5 TB monthly transfer at USD 29.99 a year",
+      "capture": "sha256:72a50e58e202655517e53cf4dfe107152115a278f5b07023caa652a5b7b3e22d",
+      "quote": "2 GB KVM VPS2 vCPU Cores35 GB SSD Storage2 GB RAM5 TB Monthly Transfer1Gbps Network PortFull Root Access1 IPv4 Address29.99 USD/Year"
+    },
+    {
+      "url": "https://www.flipperhost.com/billing/store/vps-promotions/flipper-kvm2gb",
+      "date": "2026-11-25",
+      "proved": "the 2 GB KVM promotion is absent from its own order page",
+      "capture": "sha256:35200fd53a5b6a01c7236d4a9551a2151d4242e13a11a4e99bb13f6de47dd72d",
+      "quote": "Basic VPS US  (0 Available)"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-03T07:36:43.137Z",
+  "verified_at": "2026-11-25T09:55:01.928Z",
   "price_per_tb_month": "USD 29.99 per year for 5 TB per month",
   "history": [],
   "notes": "Not free, and a plain one-IPv4 guest: no NAT, no IPv6 and no inbound-port statement was found. Listed so the host has an egress record with its allowance, 5 TB per month, and the unknowns named.",

@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u87-q04",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Did Malai carry UDP? A crate listing for kulfi-utils at lib.rs (third-party hosting of the project README, releases to 2026-02) documents `malai udp <PORT>` and `malai tcp-udp <PORT>`, while the record's extras.wg_detail says no UDP path was announced.",
+ "why": "the listing is a weaker rung than the record's documented first-party page, which now answers HTTP 402 with a pause notice, so it cannot override the field; the project's own repository would settle it",
+ "scope": {
+  "rids": [
+   "egress/malai"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u87",
+ "created": "2026-11-25T19:55:30Z"
+}

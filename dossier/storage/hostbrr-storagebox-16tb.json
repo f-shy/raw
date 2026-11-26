@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://hostbrr.com/storageboxes.html",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The page states no per-file size limit; the stated plan ceiling is 16 TB of storage."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://hostbrr.com/storageboxes.html",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The page states a 7-day money-back guarantee on VPS and Storage plans and names no retention period for stored files. The terms page states unpaid services are terminated three days past the due date and active data and backups are destroyed."
   },
   "egress": {
     "terms": "Bandwidth scales to 5x storage: 16TB plan = 80 TB/mo; 1TB plan = 5 TB/mo. Byte cap, not unmetered. Page footer claims \"10 Gbps Connectivity\".",
@@ -28,16 +28,14 @@
     "free_allowance": "80 TB per month"
   },
   "interface": [
-    "s3",
-    "sftp",
-    "ftps",
-    "ftp",
-    "rsync",
     "ssh",
-    "rclone"
+    "ftp",
+    "ftps",
+    "rsync",
+    "browser"
   ],
-  "interface_detail": "SSH, FTP, FTPS, SFTP, rsync; DirectAdmin panel; Nextcloud 1-click",
-  "tooling": "rsync/rclone over SSH; no S3",
+  "interface_detail": "SSH, FTP, FTPS and rSync; DirectAdmin File Manager in the browser",
+  "tooling": "rsync over SSH, FTP or FTPS, or the DirectAdmin File Manager in the browser",
   "chaining": "rsync target for archive tier; too RAM-poor for Nextcloud-in-front",
   "limits": [
     {
@@ -101,10 +99,45 @@
       "proved": "the page lists 10 Gbps connectivity on every plan",
       "capture": "sha256:7b8100f7fa6982f56bfb97f1ea13561ad63e534ae7ed0d989e500fdc3e4a135a",
       "quote": "10 Gbps Connectivity"
+    },
+    {
+      "url": "https://hostbrr.com/storageboxes.html",
+      "date": "2026-11-25",
+      "proved": "the page states a 7-day money-back guarantee for Storage plans",
+      "capture": "sha256:7b8100f7fa6982f56bfb97f1ea13561ad63e534ae7ed0d989e500fdc3e4a135a",
+      "quote": "Yes. VPS and Storage plans include a 7-day money-back guarantee. Payments made with cryptocurrency are non-refundable due to how blockchain transactions work — see our Terms of Service for full details."
+    },
+    {
+      "url": "https://hostbrr.com/terms.html",
+      "date": "2026-11-25",
+      "proved": "unpaid services are terminated three days past the due date and active data and backups are destroyed",
+      "capture": "sha256:28e32272e884efd2c4f9f51a82a9ad6fca3cbaf4e26581e2adba7813f1990ad4",
+      "quote": "All configuration, container structures, active data, and backups will be destroyed."
+    },
+    {
+      "url": "https://hostbrr.com/storageboxes.html",
+      "date": "2026-11-25",
+      "proved": "the largest plan is 16 TB of storage",
+      "capture": "sha256:7b8100f7fa6982f56bfb97f1ea13561ad63e534ae7ed0d989e500fdc3e4a135a",
+      "quote": "Plans scale up to 16 TB of storage."
+    },
+    {
+      "url": "https://hostbrr.com/storageboxes.html",
+      "date": "2026-11-25",
+      "proved": "access is by browser file manager, FTP, FTPS, SSH and rSync",
+      "capture": "sha256:7b8100f7fa6982f56bfb97f1ea13561ad63e534ae7ed0d989e500fdc3e4a135a",
+      "quote": "You can manage your files directly via the DirectAdmin File Manager in your browser, or connect securely using FTP, FTPS, SSH, and rSync."
+    },
+    {
+      "url": "https://hostbrr.com/storageboxes.html",
+      "date": "2026-11-25",
+      "proved": "the plan ceiling is 16 TB of storage",
+      "capture": "sha256:7b8100f7fa6982f56bfb97f1ea13561ad63e534ae7ed0d989e500fdc3e4a135a",
+      "quote": "Plans scale up to 16 TB of storage."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:20.509Z",
+  "verified_at": "2026-11-25T12:15:44.282Z",
   "price_per_tb_month": "16TB: €32.00 -> €2.00/TB/mo ($2.22). 8TB: €16.50 -> €2.06/TB. 4TB: €8.50 -> €2.13/TB. 1TB: €2.50 -> €2.50/TB",
   "notes": "16 TB on NVMe-cached HDD RAID-60 (500 GB / 1 / 2 / 4 / 8 / 16 TB)",
   "history": [],

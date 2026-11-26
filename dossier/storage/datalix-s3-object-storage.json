@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://datalix.de/s3-kompatibler-objectstorage-mieten",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "No per-object size cap is published; an account is capped at 100 TB and a bucket at 30 million objects."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://datalix.de/s3-kompatibler-objectstorage-mieten",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "No retention period is published; the product page states a prepaid charge per TB and a 100 TB account cap."
   },
   "egress": {
     "terms": "Ingress is free and unlimited; egress includes 10 TB per 1 TB of booked storage. Egress beyond that ratio has no published price.",
@@ -32,9 +32,9 @@
     "rclone",
     "cli"
   ],
-  "interface_detail": "S3 API, IAM-enabled, multi-redundant in Frankfurt",
+  "interface_detail": "S3-compatible API, hosted in the provider's Frankfurt am Main datacentre.",
   "tooling": "Any S3 SDK / rclone / AWS CLI (vendor states full S3 compatibility)",
-  "chaining": "Direct S3 origin; put Cloudflare in front to make even the included 200 TB/month irrelevant.",
+  "chaining": "S3-compatible origin; included egress is 10 TB per 1 TB of booked storage.",
   "limits": [
     {
       "kind": "volume-quota",
@@ -105,10 +105,45 @@
       "proved": "the product page caps an account at 100 TB",
       "capture": "sha256:ce5d6355e38901515a6029faa6bf5d23a5fa021e8623bbe92c908311bc229982",
       "quote": "Bis zu 100 TB pro Account"
+    },
+    {
+      "url": "https://datalix.de/s3-kompatibler-objectstorage-mieten",
+      "date": "2026-11-25",
+      "proved": "the product page caps a bucket at 30 million objects and states no per-object size cap",
+      "capture": "sha256:314efc616ba6da4a4aa7b63811af86c01a48ff5809e748ab5d742f44365b21ce",
+      "quote": "Bis zu 30 Mio. Objekte pro Bucket."
+    },
+    {
+      "url": "https://datalix.de/s3-kompatibler-objectstorage-mieten",
+      "date": "2026-11-25",
+      "proved": "the product page states the per-TB prepaid price and 100 TB account cap and no retention period",
+      "capture": "sha256:314efc616ba6da4a4aa7b63811af86c01a48ff5809e748ab5d742f44365b21ce",
+      "quote": "Sie zahlen nur den gebuchten Speicher. Preis: 3,95 EUR pro TB, bis maximal 100 TB."
+    },
+    {
+      "url": "https://datalix.de/s3-kompatibler-objectstorage-mieten",
+      "date": "2026-11-25",
+      "proved": "the product page states full S3 compatibility and a Frankfurt am Main datacentre",
+      "capture": "sha256:314efc616ba6da4a4aa7b63811af86c01a48ff5809e748ab5d742f44365b21ce",
+      "quote": "Voll S3-kompatibel, gehostet in unserem Rechenzentrum in Frankfurt am Main."
+    },
+    {
+      "url": "https://datalix.de/s3-kompatibler-objectstorage-mieten",
+      "date": "2026-11-25",
+      "proved": "the included egress is a 10:1 ratio to booked storage",
+      "capture": "sha256:314efc616ba6da4a4aa7b63811af86c01a48ff5809e748ab5d742f44365b21ce",
+      "quote": "10 TB Egress pro 1 TB Storage inklusive."
+    },
+    {
+      "url": "https://datalix.de/s3-kompatibler-objectstorage-mieten",
+      "date": "2026-11-25",
+      "proved": "the included egress is still 10 TB per 1 TB of booked storage",
+      "capture": "sha256:314efc616ba6da4a4aa7b63811af86c01a48ff5809e748ab5d742f44365b21ce",
+      "quote": "10 TB Egress pro 1 TB Storage inklusive."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-11T04:53:53.183Z",
+  "verified_at": "2026-11-25T09:54:58.645Z",
   "price_per_tb_month": "EUR 3.95 per TB per month, prepaid, up to 100 TB per account; no volume discount is published.",
   "notes": "EUR 3.95 per TB, prepaid, up to 100 TB per account, 30 million objects per bucket",
   "history": [],

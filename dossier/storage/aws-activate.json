@@ -16,13 +16,13 @@
     "stated": "unverified: the cited AWS Activate page states no S3 per-object cap; the recorded figure is the general S3 single-PUT limit, not an Activate term",
     "bytes": 5368709120,
     "source_url": "https://aws.amazon.com/startups/learn/everything-you-need-to-know-about-aws-activate-credits",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The Activate credit page lists eligible services including S3 but states no Activate-specific per-object cap; the single-PUT figure recorded in this record is the general S3 upload limit, not an Activate term."
   },
   "retention": {
     "stated": "Credits usually expire within 1-2 years depending on the package.",
     "days": 730,
     "source_url": "https://aws.amazon.com/startups/learn/everything-you-need-to-know-about-aws-activate-credits",
-    "notes": "Extracted from published terms."
+    "notes": "Credit lifetime is stated as 1-2 years depending on the package; no data-retention period for stored S3 objects is published."
   },
   "egress": {
     "terms": "S3 egress is metered and billed from the same credit balance. This is an archive-only play unless fronted by Cloudflare (AWS is a Bandwidth Alliance partner).",
@@ -100,10 +100,31 @@
       "proved": "the Activate page lists eligible services but states no S3 object cap",
       "capture": "sha256:293b44fcf2feeff6f419ac954ed0f5908a76b3d2b4107a044025ef1035c1344c",
       "quote": "AWS Activate Credits can be used on over 200 eligible AWS services."
+    },
+    {
+      "url": "https://aws.amazon.com/startups/learn/everything-you-need-to-know-about-aws-activate-credits",
+      "date": "2026-11-25",
+      "proved": "the Activate page names eligible services and states no Activate-specific S3 object cap",
+      "capture": "sha256:293b44fcf2feeff6f419ac954ed0f5908a76b3d2b4107a044025ef1035c1344c",
+      "quote": "AWS Activate Credits can be used on over 200 eligible AWS services."
+    },
+    {
+      "url": "https://aws.amazon.com/startups/learn/everything-you-need-to-know-about-aws-activate-credits",
+      "date": "2026-11-25",
+      "proved": "the Activate page states a credit expiry window, not an object retention period",
+      "capture": "sha256:293b44fcf2feeff6f419ac954ed0f5908a76b3d2b4107a044025ef1035c1344c",
+      "quote": "Credits usually expire within 1-2 years depending on the package."
+    },
+    {
+      "url": "https://aws.amazon.com/startups/learn/everything-you-need-to-know-about-aws-activate-credits",
+      "date": "2026-11-25",
+      "proved": "the Activate page is unchanged in naming eligible services without a per-object cap",
+      "capture": "sha256:293b44fcf2feeff6f419ac954ed0f5908a76b3d2b4107a044025ef1035c1344c",
+      "quote": "AWS Activate Credits can be used on over 200 eligible AWS services."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:09.750Z",
+  "verified_at": "2026-11-25T03:33:12.196Z",
   "notes": "Founders tier: '$1,000 in AWS Activate Credits ... Select startups may qualify for up to $5,000 over time'. Portfolio tier: 'up to $200,000 in AWS Activate Credits' for provider-backed (accelerator/VC) startups. Credits cover 'over 200 eligible AWS services' explicitly including 'Storage: ... Amazon S3'.",
   "history": [],
   "extras": {

@@ -55,10 +55,17 @@
       "url": "https://tunnel.pyjam.as/",
       "date": "2026-10-23",
       "proved": "'curl https://tunnel.pyjam.as/8080 > tunnel.conf && wg-quick up ./tunnel.conf'; 'You can now access ... on https://<unique_slug>.tunnel.pyjam.as/'"
+    },
+    {
+      "url": "https://tunnel.pyjam.as/",
+      "date": "2026-11-25",
+      "proved": "the page offers SSL-terminated HTTP tunnels only",
+      "capture": "sha256:aed0903ae351db2741a4861c787ecca3978fbb2709161d70cdb7971dc92f1340",
+      "quote": "SSL-terminated HTTP tunnels to your local machine"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:48.837Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The most interesting no-account entry in the sweep: a WireGuard config with zero registration, but the far side terminates HTTPS so the WireGuard link carries only HTTP. The same request shape would not forward a raw UDP port.",

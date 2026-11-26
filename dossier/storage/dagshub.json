@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://dagshub.com/pricing",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: neither the pricing page nor the storage feature guide states a per-object size cap"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "Content may be permanently deleted when the account is deleted; no standalone retention period is published",
     "source_url": "https://dagshub.com/pricing",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: no file-retention period is published; the terms state that content may be permanently deleted on account termination"
   },
   "egress": {
     "terms": "Free/unmetered reads from the S3-compatible endpoint (https://dagshub.com/api/v1/repo-buckets/s3/<user>); public repos are readable via the Content API. No egress pricing is published on the Individual plan.",
@@ -37,7 +37,7 @@
   "limits_note": "20 GB free is the binding constraint; private repos limited to 2 collaborators; >100 tracked experiments in private repos needs a paid tier; Team plan is where 1 TB / 2M files starts.",
   "identity_cost": {
     "kind": "email",
-    "detail": "no identity_cost field and no identity statement in the source record; defaulted to email and flagged, not evidence",
+    "detail": "the terms require a legal full name and a valid email address at sign-up",
     "country": null
   },
   "reliability_note": "Small company (not hyperscaler-backed); storage is per-repo and tied to repo lifecycle. Deleting a repo deletes its bucket. No reported data-loss pattern, but no SLA either.",
@@ -65,10 +65,73 @@
       "proved": "the free Individual plan card lists 20GB of DagsHub Storage",
       "capture": "sha256:aa9103ba91b39eae2037c3f4f2a5d5bf5733391b7e5efac29154a9f6673b0daa",
       "quote": "20GB of DagsHub Storage"
+    },
+    {
+      "url": "https://dagshub.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page states an account storage allowance but no per-object size cap",
+      "capture": "sha256:0530613fc5237c5169eb01906721ab986814494e2f8d411562cbf074d68fccfe",
+      "quote": "20GB of DagsHub Storage"
+    },
+    {
+      "url": "https://dagshub.com/terms",
+      "date": "2026-11-25",
+      "proved": "the terms tie permanent deletion to account deletion and state no separate retention period",
+      "capture": "sha256:a5ce9cdaeff08d9a3eb8666dfce63ffa4d9b5e1d7b0406b72707ce440f209ec0",
+      "quote": "Any Content and other information and data entered into the Services may be permanently deleted if you delete the Account."
+    },
+    {
+      "url": "https://dagshub.com/terms",
+      "date": "2026-11-25",
+      "proved": "the terms describe account termination and its effect on access, with no numeric retention period",
+      "capture": "sha256:a5ce9cdaeff08d9a3eb8666dfce63ffa4d9b5e1d7b0406b72707ce440f209ec0",
+      "quote": "You may delete your Account at any time. Upon termination of the Services to you, the Account will be terminated, and from the date of termination, you will no longer be able to access your Account."
+    },
+    {
+      "url": "https://dagshub.com/terms",
+      "date": "2026-11-25",
+      "proved": "the sign-up requirements in the terms are a legal full name and a valid email address",
+      "capture": "sha256:a5ce9cdaeff08d9a3eb8666dfce63ffa4d9b5e1d7b0406b72707ce440f209ec0",
+      "quote": "You must provide your legal full name, a valid email address, and any other information requested to complete the sign-up process."
+    },
+    {
+      "url": "https://dagshub.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the comparison table lists 200GB of managed storage on the Individual plan, conflicting with the 20GB plan card",
+      "capture": "sha256:0530613fc5237c5169eb01906721ab986814494e2f8d411562cbf074d68fccfe",
+      "quote": "| Managed Storage | 200GB | 1TB | Custom |"
+    },
+    {
+      "url": "https://dagshub.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the free Individual plan card still states 20GB of DagsHub Storage",
+      "capture": "sha256:0530613fc5237c5169eb01906721ab986814494e2f8d411562cbf074d68fccfe",
+      "quote": "20GB of DagsHub Storage"
+    },
+    {
+      "url": "https://dagshub.com/docs/feature_guide/dagshub_storage/",
+      "date": "2026-11-25",
+      "proved": "the storage feature guide still documents the S3-compatible bucket interface",
+      "capture": "sha256:91af142cff9317b2a46a0155dbdc82b210b4267fec593585798f005d5a45a566",
+      "quote": "DagsHub automatically configures an S3-Compatible storage bucket with every repository."
+    },
+    {
+      "url": "https://dagshub.com/terms",
+      "date": "2026-11-25",
+      "proved": "the terms still tie permanent deletion to account deletion",
+      "capture": "sha256:a5ce9cdaeff08d9a3eb8666dfce63ffa4d9b5e1d7b0406b72707ce440f209ec0",
+      "quote": "Any Content and other information and data entered into the Services may be permanently deleted if you delete the Account."
+    },
+    {
+      "url": "https://dagshub.com/terms",
+      "date": "2026-11-25",
+      "proved": "the terms still require a legal full name and a valid email address",
+      "capture": "sha256:a5ce9cdaeff08d9a3eb8666dfce63ffa4d9b5e1d7b0406b72707ce440f209ec0",
+      "quote": "You must provide your legal full name, a valid email address, and any other information requested to complete the sign-up process."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T04:53:53.182Z",
+  "verified_at": "2026-11-25T04:14:18.949Z",
   "notes": "20 GB of DagsHub Storage on the free Individual plan (the commonly cited '10 GB' is stale — the live pricing page says 20 GB), with unlimited public repositories and unlimited collaborators on public repos, and unlimited private repos 'for non-commercial use'. Every repo automatically gets BOTH an S3-compatible bucket AND a separate DVC remote.",
   "history": [],
   "extras": {
