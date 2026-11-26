@@ -231,7 +231,7 @@ breaking change.
 | Aquanode | no free tier or free credit is stated on th... | paid-only | documented | not applicable: the unit is a m... | a stopped pod keeps i... | email | `dossier/compute/aquanode.json` |
 | ARC Prize Foundation | '$2M in prizes. 3 tracks. Open source progr... | qualifies-with-caveat | documented | not applicable: the unit is a m... | not applicable: the u... | email | `dossier/compute/arc-prize-foundation.json` |
 | Archal | $20 in free usage, no card: $5 at signup an... | qualifies-with-caveat | documented | not stated | not stated | email | `dossier/compute/archal.json` |
-| ARCHER2 Pump Priming | The ARCHER2 Service was a world-class advan... | fails-identity | documented | not applicable: the unit is a m... | not applicable: the u... | institution | `dossier/compute/archer2-pump-priming.json` |
+| ARCHER2 Pump Priming | The access page describes Pump Priming in t... | fails-identity | documented | not applicable: the unit is a m... | not applicable: the u... | institution | `dossier/compute/archer2-pump-priming.json` |
 | Archil | Free includes 5 file systems of up to 10 GB... | qualifies-with-caveat | documented | not stated | not stated | email | `dossier/compute/archil.json` |
 | Arct Cloud | USD 3.89 per month for cvm.pico in the Cost... | paid-only | documented | not applicable: the unit is a m... | not applicable: the u... | email | `dossier/compute/arct-cloud.json` |
 | ArenaStreaming | No free tier. LXC NAT Basic is Rp10.000,00... | qualifies-with-caveat | documented | not applicable: the unit is a m... | the container persist... | email | `dossier/compute/arenastreaming-lxc-nat-basic.json` |
@@ -405,7 +405,7 @@ breaking change.
 | Cloudflare Workers for Pl... | no free tier published: the Workers for Pla... | paid-only | documented | not stated | not stated | email | `dossier/compute/cloudflare-workers-for-platforms.json` |
 | CloudGPU | no free tier and no signup credit: a prepai... | paid-only | documented | not applicable: the unit is a m... | Destroying an instanc... | email | `dossier/compute/cloudgpu.json` |
 | Clouding.io | A 1 GB cloud server at EUR 0.004/hour cappe... | trial-only | documented | not applicable: the unit is a m... | not applicable: the u... | email | `dossier/compute/clouding-io.json` |
-| Cloudish | Every new Cloudish API key starts with 0.1... | qualifies | documented | not applicable: the metered uni... | A sleeping app's volu... | anonymous | `dossier/compute/cloudish.json` |
+| Cloudish | Every new Cloudish API key starts with 0.1... | qualifies-with-caveat | documented | not applicable: the metered uni... | A sleeping app's volu... | anonymous | `dossier/compute/cloudish.json` |
 | CloudLab | Registering doesn’t cost anything, it’s sim... | fails-identity | documented | not applicable: the unit is a m... | not applicable: the u... | institution | `dossier/compute/cloudlab.json` |
 | Cloudnium LLC | No free tier. IPv6-1 is USD 1.50 a month: 1... | qualifies | documented | not applicable: the unit is a m... | monthly billing; the... | email | `dossier/compute/cloudnium-ipv6-1.json` |
 | CloudRift AI Grant | USD 100 to USD 1,000 in GPU compute credits... | qualifies-with-caveat | documented | not applicable: the unit is a m... | not applicable: the u... | email | `dossier/compute/cloudrift-ai-grant.json` |
@@ -906,7 +906,7 @@ breaking change.
 | mivoCloud | S1 at EUR 5.00/month billed monthly, EUR 14... | paid-only | documented | not applicable: the unit is a m... | not applicable: the u... | email | `dossier/compute/mivocloud.json` |
 | MLPerf | The working group defines the AI model to r... | fails-identity | documented | not applicable: the unit is a m... | not applicable: the u... | institution | `dossier/compute/mlperf.json` |
 | Mobilebox | new workspaces get free credit, with no amo... | qualifies-with-caveat | documented | not applicable: the unit is a c... | a parked phone keeps... | email | `dossier/compute/mobilebox.json` |
-| MobileRun | Free plan at USD 0 a month: 1 concurrent ph... | qualifies | documented | not applicable: the metered uni... | A stopped Android pho... | email | `dossier/compute/mobilerun.json` |
+| MobileRun | Free plan at USD 0 a month: 1 concurrent ph... | qualifies-with-caveat | documented | not applicable: the metered uni... | A stopped Android pho... | email | `dossier/compute/mobilerun.json` |
 | Modal | Starter has no monthly fee and includes $30... | fails-identity | documented | not applicable: the unit is a s... | Volumes persist while... | card | `dossier/compute/modal.json` |
 | Modal for Academics | Stated as 'Unlock up to $10k of credits to... | fails-identity | documented | not applicable: the unit is a c... | not applicable: the g... | institution | `dossier/compute/modal-for-academics.json` |
 | Modelence | a free tier for hobby projects and prototyp... | qualifies-with-caveat | documented | not stated | not stated | email | `dossier/compute/modelence.json` |
@@ -1158,7 +1158,7 @@ breaking change.
 | Sandbox0 | one-time $5 usage credit for eligible new u... | qualifies-with-caveat | documented | not stated | not stated | card | `dossier/compute/sandbox0.json` |
 | Sandboxer | No free tier: plans start at $20 a month, c... | paid-only | documented | not applicable: the unit is a m... | 14 d | card | `dossier/compute/sandboxer.json` |
 | Sandock | Plus is $5/month with 5 sandboxes and 2 GB... | paid-only | documented | not applicable: the unit is a m... | The session timeout i... | card | `dossier/compute/sandock.json` |
-| Sandscale | 100 awake vCPU-hours a month on the Free pl... | qualifies | documented | not applicable: the metered uni... | A persistent workspac... | email | `dossier/compute/sandscale.json` |
+| Sandscale | 100 awake vCPU-hours a month on the Free pl... | qualifies-with-caveat | documented | not applicable: the metered uni... | A persistent workspac... | email | `dossier/compute/sandscale.json` |
 | Sanfengyun | A free cloud server at 1 core, 1G RAM, 5M b... | fails-identity | documented | not applicable: the unit is a m... | not applicable: the u... | national-id | `dossier/compute/sanfengyun.json` |
 | SAP Business Technology | "When using Kyma, the free plan is availabl... | trial-only | documented | not applicable: the unit is a m... | Kyma, the managed Kub... | card | `dossier/compute/sap-business-technology.json` |
 | Sauce Labs | A free 28-day trial includes 60 Automated a... | trial-only | documented | not applicable: the unit is a b... | unverified: the prici... | email | `dossier/compute/sauce-labs.json` |
@@ -1377,13 +1377,13 @@ breaking change.
 | VM6_Networks | UK Xeon S (order product Budget VPS UK 1) a... | paid-only | documented | not applicable: the unit is a m... | not applicable: the u... | email | `dossier/compute/vm6-networks.json` |
 | VNG Cloud | Free trial available for new customers of V... | fails-identity | documented | not applicable: the unit is a m... | not applicable: the u... | institution | `dossier/compute/vng-cloud.json` |
 | VoidRun | No base subscription. Fully usage-based. La... | trial-only | documented | not applicable: the billed unit... | not published for san... | email | `dossier/compute/voidrun.json` |
-| VoidRun | Up to ₹4,600.00 free credits, then pay only... | qualifies-with-caveat | documented | not applicable: the unit is a s... | 7 d | email | `dossier/compute/voidrun-sandboxes.json` |
+| VoidRun | Up to ₹4,600.00 free credits, then pay only... | trial-only | documented | not applicable: the unit is a s... | 7 d | email | `dossier/compute/voidrun-sandboxes.json` |
 | Volcengine (火山引擎) | '免费试用额度仅对完成中国大陆实名认证的账号开放，未完成认证的账号无法触发额度发放逻辑... | fails-identity | documented | one free trial quota per accoun... | Not stated on the art... | national-id | `dossier/compute/volcengine-free-trial.json` |
 | Volcengine VCI Agent Sandbox | VCI 当前免费赠送极速型 ESSD_PL0 类型系统盘 30 GiB 可用存储空间。... | fails-identity | documented | 沙箱环境下，Pod 副本数与 Container 数量均为 1... | 沙箱控制器负责管理 Pod 的整个生命周期... | national-id | `dossier/compute/volcengine-vci-agent-sandbox.json` |
 | VolpaByte | no free tier; the ladder starts at EUR 3.49... | qualifies | documented | not applicable: the unit is a m... | the disk persists whi... | card | `dossier/compute/volpabyte-ryzen-kvm-8gb.json` |
 | Voltage Park | No free tier is listed: on-demand and long-... | paid-only | documented | not stated | not stated | email | `dossier/compute/voltage-park.json` |
 | VoltageGPU | No free tier. Prepaid per-second GPU rental... | paid-only | documented | not applicable: the unit is a m... | not applicable: the u... | email | `dossier/compute/voltagegpu.json` |
-| Voyage AI | The first 200 million tokens for `voyage-4-... | trial-only | documented | not applicable: the unit is a m... | not applicable: the u... | email | `dossier/compute/voyage-ai.json` |
+| Voyage AI | The first 200 million tokens for voyage-4-l... | trial-only | documented | not applicable: the unit is a m... | not applicable: the u... | email | `dossier/compute/voyage-ai.json` |
 | VPS_Panda | KVM-1G at USD 4.50 per month (store: 'Start... | paid-only | documented | not applicable: the unit is a m... | not applicable: the u... | email | `dossier/compute/vps-panda.json` |
 | vps1 | VPS 1 at $7.10 per month on the homepage, u... | paid-only | documented | not applicable: the unit is a m... | not applicable: the u... | any-phone | `dossier/compute/vps1.json` |
 | VPSDime | Linux VPS (order product Linux4GB) at USD 5... | paid-only | documented | not applicable: the unit is a m... | not applicable: the u... | email | `dossier/compute/vpsdime.json` |
@@ -1402,7 +1402,7 @@ breaking change.
 | WarpBuild (GitHub Actions... | No free allowance is published: the FAQ nam... | paid-only | documented | not stated | not stated | email | `dossier/compute/warpbuild.json` |
 | Wasmer | Free forever: 150 GB of bandwidth, a global... | qualifies-with-caveat | documented | not stated | not stated | email | `dossier/compute/wasmer.json` |
 | Watasu Sandboxes | Free base plan: 10 GiB included disk, 1-hou... | paid-only | documented | not applicable: the unit is a m... | 7 d | email | `dossier/compute/watasu-sandboxes.json` |
-| WBX Sandbox | A free welcome credit is granted to a new a... | qualifies | documented | not applicable: the metered uni... | 7 d | email | `dossier/compute/wbx-sandbox.json` |
+| WBX Sandbox | A free welcome credit is granted to a new a... | qualifies-with-caveat | documented | not applicable: the metered uni... | 7 d | email | `dossier/compute/wbx-sandbox.json` |
 | webapp.io | a free trial of hosted test environments th... | qualifies-with-caveat | documented | not stated | not stated | email | `dossier/compute/webapp-io.json` |
 | WebARENA Indigo | no free tier and no setup fee; billing is h... | qualifies | documented | not applicable: the unit is a m... | the instance bills fr... | card | `dossier/compute/webarena-indigo.json` |
 | StackBlitz WebContainers | a free Personal plan with unlimited public... | qualifies-with-caveat | documented | not stated | not stated | email | `dossier/compute/webcontainers.json` |
@@ -1460,7 +1460,7 @@ breaking change.
 | Dory (self-hosted) | No hosted allowance: Dory is a native macOS... | qualifies-with-caveat | documented | not applicable: the unit is a l... | Local Linux machines... | anonymous | `dossier/compute/dory.json` |
 | Drone CI (self-hosted) | free software, no hosted lane: the Open Sou... | qualifies-with-caveat | documented | not applicable: the unit is a m... | not applicable: the u... | anonymous | `dossier/compute/drone-ci.json` |
 | Expanse (self-hosted) | no free tier published | paid-only | documented | not stated | not stated | email | `dossier/compute/expanse.json` |
-| Expanso (self-hosted) | Expanso's FAQ states 'Start with our free t... | paid-only | documented | not applicable: the unit is a m... | not applicable: the u... | institution | `dossier/compute/expanso.json` |
+| Expanso (self-hosted) | The FAQ names a free tier of 5 nodes; the a... | paid-only | documented | not applicable: the unit is a m... | not applicable: the u... | institution | `dossier/compute/expanso.json` |
 | Gensyn (self-hosted) | No consumer-facing capacity. Quoted: 'RL Sw... | fails-quota | documented | not applicable: the unit is a m... | not applicable: the u... | email | `dossier/compute/gensyn.json` |
 | Goose (self-hosted) | not stated: https://goose-docs.ai/ prints n... | qualifies-with-caveat | documented | not applicable: the unit is a m... | not applicable: the u... | anonymous | `dossier/compute/goose.json` |
 | Groundbox (self-hosted) | Free plan: 3,000 CI minutes a month, $5 of... | qualifies-with-caveat | documented | not applicable: the unit is a 2... | On the free plan each... | anonymous | `dossier/compute/groundbox.json` |
