@@ -78,9 +78,30 @@
       "proved": "the home page lists the upload service's features (size cap, expiry, simultaneous uploads) and links My files, galleries and file listings; no API is published there",
       "capture": "sha256:9b3adefc4973c9be88fc26ef9b7b7b8e421a84d47a5aee5af1d8de60fb014061",
       "quote": "Uploading of up to 3 simultaneous files for logged in users"
+    },
+    {
+      "url": "https://www.upload.ee/",
+      "date": "2026-11-25",
+      "proved": "the file cap is still 100 MB",
+      "capture": "sha256:9b3adefc4973c9be88fc26ef9b7b7b8e421a84d47a5aee5af1d8de60fb014061",
+      "quote": "**Maximum filesize 100 megabytes (MB)**"
+    },
+    {
+      "url": "https://www.upload.ee/",
+      "date": "2026-11-25",
+      "proved": "anonymous files still expire after 50 days and registered files after 120",
+      "capture": "sha256:9b3adefc4973c9be88fc26ef9b7b7b8e421a84d47a5aee5af1d8de60fb014061",
+      "quote": "**Anonymous files expire 50 days and registered users' files expire 120 after last download**"
+    },
+    {
+      "url": "https://www.upload.ee/",
+      "date": "2026-11-25",
+      "proved": "the home page lists the upload service features and no API",
+      "capture": "sha256:e38b52ff4b04bf61ddbac35645bcc1297ac112ff72b90a12cd3298df3afdae4f",
+      "quote": "Upload.ee Uploaded files info: * **Maximum filesize 100 megabytes (MB)** * **Waiting time 0 seconds**"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-04T00:23:20.852Z",
+  "verified_at": "2026-11-25T09:46:39.097Z",
   "price_per_tb_month": null
 }

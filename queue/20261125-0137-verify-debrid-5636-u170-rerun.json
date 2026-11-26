@@ -1,0 +1,13 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u170-rerun",
+ "kind": "reconcile",
+ "topic": "debrid",
+ "question": "Settle these disagreements on debrid/nzbking from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.free_tier.notes: proposed \"No quota page exists; the vendor now adds a personal-use and no-scraping condition.\" (evidence https://www.nzbking.com/, capture sha256:0235d94baae0b, quote 'You may use this site only for personal use and at your own risk. Commercial use is prohibited. Do not run scraping scri'); now \"No quota page exists; the claim rests on a 5-request burst rather than a vendor sentence; the vendor page adds a personal-use condition.\". Why it did not apply: weaker rung (documented) than the record (measured) If the record's confidence is `measured`, do not set from a page capture: probe the page with `python scripts/probe/probe.py URL --dump-headers --save-body <ws>/probe/page.body --out <ws>/probe`, register the body with `scripts/rq capture --lane <ws> probe:URL --probe <ws>/probe/page.body`, and set with rung `measured`, quoting a span of the saved body. If the record is documented, a first-party page capture is enough. For a value that changed after the lane read it, read the current value with `scripts/rq show` and set old to that current value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/nzbking $.free_tier.notes: The capture proves only the personal-use and no-scraping sentence. Nothing in it says \"No quota page exists\", and one home-page read cannot establish that no quota page exists anywhere on the site; it also does not show the condition is newly added (\"now adds\").\n- debrid/nzbking $.free_tier.notes: The confirmed value is the same whole field text. The capture proves the personal-use and no-scraping sentence, but it says nothing of \"No quota page exists\" (one home-page read cannot establish absence of a quota page), and it does not show the condition is newly added.",
+ "scope": {
+  "rids": [
+   "debrid/nzbking"
+  ]
+ },
+ "origin": "audit u192 of 20261125-0137-verify-debrid-5636/u170 failed: 2 of 2 unsupported",
+ "created": "2026-11-25T21:29:01Z"
+}

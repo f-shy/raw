@@ -42,13 +42,13 @@
   "limits": [
     {
       "kind": "request-rate",
-      "value": "no number published; the v2 docs justify the rewrite with 'we've been struggling to serve the amount of bandwidth from the server to all the API clients' and close with 'if you alone are the main reason the server CPU sits at 100%, I will hunt you down'. Measured: 10 sequential GETs over about 24 s all 200, and 6 concurrent GETs all 200",
+      "value": "the operator published a temporary rate of 1 request per 2 seconds on 2026-08-12, after a record of 25 million requests in a single day; the v2 docs state 'Size of the response, maximum is 300'. The status page of 2026-09-29 reads 'Now set up new network routing. Let's see how this goes...'",
       "source": "https://knaben.org/api/v2/"
     }
   ],
-  "limits_note": "v2 moved from POST to GET so the edge can cache the responses, which is a bandwidth measure rather than a per-client quota. The 300-result ceiling is the only hard number, and six concurrent requests drew no 429.",
+  "limits_note": "v2 moved from POST to GET so the edge can cache the responses, which is a bandwidth measure. The operator published a temporary 1 request per 2 seconds limit on 2026-08-12 and later reported bandwidth maxed out; the 300-result ceiling remains in the v2 docs.",
   "binding": "request-rate",
-  "binding_note": "The operator names CPU and bandwidth as the failure mode and refuses to publish a number, so voluntary restraint is the only limit; no byte quota exists on this side.",
+  "binding_note": "The operator published a temporary 1 request per 2 seconds limit on 2026-08-12 and names bandwidth as the failure mode; no byte quota exists on this side.",
   "identity_cost": {
     "kind": "anonymous",
     "detail": "No key, no account, no captcha on the GET requests made today.",
@@ -72,10 +72,52 @@
       "url": "https://knaben.org/api/v1/",
       "date": "2026-10-23",
       "proved": "v1 is a POST/GET endpoint with the same fields and the same warning, and states the DB holds 1.7 million documents seen in the last week"
+    },
+    {
+      "url": "https://knaben.org/status/",
+      "date": "2026-11-25",
+      "proved": "a published temporary limit of 1 request per 2 seconds and a 25 million request day",
+      "capture": "sha256:1a9abab0871697375b32776e04414f85494a312440aace5c89031bb7b9c36e65",
+      "quote": "We have seen an intense increase of API traffic the last day, a new record of 25 million requests in a single day. Because of this, there is a temporary 1 request per 2 seconds limit."
+    },
+    {
+      "url": "https://knaben.org/status/",
+      "date": "2026-11-25",
+      "proved": "a published rate limit replaces the earlier undeclared rate",
+      "capture": "sha256:1a9abab0871697375b32776e04414f85494a312440aace5c89031bb7b9c36e65",
+      "quote": "We have seen an intense increase of API traffic the last day, a new record of 25 million requests in a single day. Because of this, there is a temporary 1 request per 2 seconds limit."
+    },
+    {
+      "url": "https://knaben.org/status/",
+      "date": "2026-11-25",
+      "proved": "a published rate limit at this provider",
+      "capture": "sha256:1a9abab0871697375b32776e04414f85494a312440aace5c89031bb7b9c36e65",
+      "quote": "We have seen an intense increase of API traffic the last day, a new record of 25 million requests in a single day. Because of this, there is a temporary 1 request per 2 seconds limit."
+    },
+    {
+      "url": "https://knaben.org/status/",
+      "date": "2026-11-25",
+      "proved": "the operator's published rate limit is unchanged",
+      "capture": "sha256:1a9abab0871697375b32776e04414f85494a312440aace5c89031bb7b9c36e65",
+      "quote": "We have seen an intense increase of API traffic the last day, a new record of 25 million requests in a single day. Because of this, there is a temporary 1 request per 2 seconds limit."
+    },
+    {
+      "url": "https://knaben.org/api/v2/",
+      "date": "2026-11-25",
+      "proved": "the GET endpoints and their parameters are unchanged",
+      "capture": "sha256:131b083a151d2c8e950bbb83d2d6dda98433b69f8db714143a3cfa3a88a3a257",
+      "quote": "Use GET /v2/search or GET /v2/browse with these query parameters."
+    },
+    {
+      "url": "https://api.knaben.org/v2/search?q=ubuntu&s=2",
+      "date": "2026-11-25",
+      "proved": "the anonymous GET still returns hits with no key",
+      "capture": "sha256:c61dcd355f0c800486992db79233065bafcb49b2c00012accc8192d5d77d797b",
+      "quote": "\"total\":{\"relation\":\"eq\",\"value\":61}"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T01:52:28.000Z",
+  "verified_at": "2026-11-25T09:46:50.792Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The best machine-readable torrent feed in the sector that needs nothing: no key, documented parameters, 300 results per call, and a magnet in every hit that carries a hash. Its weakness is exactly the thing the sector asks about: the vendor publishes no rate, only a threat.",

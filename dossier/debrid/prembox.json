@@ -6,7 +6,7 @@
   "category": "multi-hoster (pay-per-package)",
   "tier": "Packages",
   "free_tier": {
-    "stated": "Any registered user gets a free transfer for testing; the size of that transfer is unverified.",
+    "stated": "Registration gives 300 MB of transfer; confirming the e-mail adds 300 MB, for 600 MB total. Files over 99 MB require a purchased package or a promotional code.",
     "unit": "mixed",
     "metered_on": "downloaded-bytes",
     "source_url": "https://prembox.com/",
@@ -14,7 +14,7 @@
     "notes": "Unit is unknown: the amount of the test transfer is not stated on the pages read."
   },
   "per_object_cap": {
-    "stated": "unverified: not stated",
+    "stated": "A 99 MB maximum applies to users who have not bought a package or received a promotional code.",
     "bytes": null,
     "source_url": "https://prembox.com/"
   },
@@ -47,7 +47,7 @@
   "binding_note": "Transfer is sold in packages, so the package volume is the metered limit.",
   "identity_cost": {
     "kind": "email",
-    "detail": "A registration page exists; its fields were not rendered, so the identity requirement is unverified.",
+    "detail": "Registration requires a login, a password, a repeated password and a Cloudflare Turnstile check; the e-mail address field is optional.",
     "country": null
   },
   "reliability_note": "No outage observed on the day read.",
@@ -81,10 +81,59 @@
       "capture": "sha256:2196571373d66db1e28bba265276283be2f26a9aa97799c64465deaa709b2d31",
       "quote": "We started in 2011.",
       "proved": "the service has operated since 2011"
+    },
+    {
+      "url": "https://prembox.com/faq.html",
+      "date": "2026-11-25",
+      "proved": "the registered free allowance is 300 MB, or 600 MB after e-mail activation",
+      "capture": "sha256:153ecb5f8c280afc88903decdd7243195b5ab517b663d37c8e877072221e11d6",
+      "quote": "Yes, each user receives 300 MB to start just for registration. After activating the account, you get an additional 300 MB, for a total of 600 MB."
+    },
+    {
+      "url": "https://prembox.com/",
+      "date": "2026-11-25",
+      "proved": "registration includes a free test transfer and paid packages valid for a year",
+      "capture": "sha256:2196571373d66db1e28bba265276283be2f26a9aa97799c64465deaa709b2d31",
+      "quote": "Any registered user gets a free transfer for testing and the opportunity to buy additional packages valid throughout the year, at very attractive prices."
+    },
+    {
+      "url": "https://prembox.com/faq.html",
+      "date": "2026-11-25",
+      "proved": "the vendor lists JDownloader, FDM, IDM and FlashGet as supported downloaders",
+      "capture": "sha256:153ecb5f8c280afc88903decdd7243195b5ab517b663d37c8e877072221e11d6",
+      "quote": "We support all popular downloaders like JDownloader, FDM, IDM, FlashGet."
+    },
+    {
+      "url": "https://prembox.com/faq.html",
+      "date": "2026-11-25",
+      "proved": "purchased transfer is valid 365 days from top-up",
+      "capture": "sha256:153ecb5f8c280afc88903decdd7243195b5ab517b663d37c8e877072221e11d6",
+      "quote": "The transfer from the transfer packages can be used within 365 days from the moment of top-up, after which the value of the given top-up expires."
+    },
+    {
+      "url": "https://prembox.com/faq.html",
+      "date": "2026-11-25",
+      "proved": "files over 99 MB need a purchased package or a promotional code",
+      "capture": "sha256:153ecb5f8c280afc88903decdd7243195b5ab517b663d37c8e877072221e11d6",
+      "quote": "Larger files are only available to users who have purchased any package or received a promotional code."
+    },
+    {
+      "url": "https://prembox.com/register.html",
+      "date": "2026-11-25",
+      "proved": "registration marks a login as required",
+      "capture": "sha256:3b2cfd0dd9d72862e6efff6bb6a9a2bf312e2c77340c0aa1dc831db11ae8596b",
+      "quote": "<label for=\"usr_login\" class=\"form-label\">Login*</label>"
+    },
+    {
+      "url": "https://prembox.com/register.html",
+      "date": "2026-11-25",
+      "proved": "the e-mail field is not marked as required",
+      "capture": "sha256:3b2cfd0dd9d72862e6efff6bb6a9a2bf312e2c77340c0aa1dc831db11ae8596b",
+      "quote": "<div class=\"mb-3\"><label for=\"usr_email\" class=\"form-label\">E-mail</label><input id=\"usr_email\" type=\"mail\" name=\"usr_email\" class=\"form-control\" placeholder=\"E-mail\">"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-03T07:37:13.292Z",
+  "verified_at": "2026-11-25T09:46:53.122Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "Package prices: unverified, no price page readable. A third-party list says pay-per-package, 40+ hosts. No programmatic path found: Web account; browser plugins and JDownloader integration are listed."

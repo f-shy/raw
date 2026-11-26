@@ -54,7 +54,7 @@
       "source": "https://www.vipernews.com/faq/"
     }
   ],
-  "limits_note": "Periodic plans start at $1.79/mo (VIPER10), $2.69/mo (VIPER50) and $3.59/mo (VIPERUNL) when billed yearly. Block accounts do not expire: 500GB $13.99, 1000GB $23.99 and 2000GB $42.99, each a one-time payment.",
+  "limits_note": "Periodic plans start at $1.79/mo (VIPER10), $2.69/mo (VIPER50) and $2.00/mo (BF26-VIPERUNL) when billed yearly. Block accounts do not expire: 500GB $6.00, 1000GB $10.00 and 2000GB $18.00, each a one-time payment.",
   "binding": "none",
   "binding_note": "The vendor publishes no volume cap; the reported soft ceiling is 5 TB/month, which 1 TiB/month does not reach.",
   "identity_cost": {
@@ -187,10 +187,31 @@
       "proved": "the entry price of USD 1.79 per month is unchanged",
       "capture": "sha256:efff088dacaacf04bfe1771251af9da007064f1cbd9eeca0e79a094e072ff5e9",
       "quote": "Packages from only $1.79/mo."
+    },
+    {
+      "url": "https://www.vipernews.com/usenet/",
+      "date": "2026-11-25",
+      "proved": "the unlimited plan is now listed as BF26-VIPERUNL at $2.00/month",
+      "capture": "sha256:9d1a686c102d6f1dcb2626e83ed58f2084d56f4c7822169a6af837525f756a33",
+      "quote": "BF26-VIPERUNL Unlimited speed No download limit 40 connections 7-day money-back guarantee As low as $2.00/month"
+    },
+    {
+      "url": "https://www.vipernews.com/",
+      "date": "2026-11-25",
+      "proved": "the entry price is still USD 1.79 per month",
+      "capture": "sha256:97e137608d9d62895b76c851d04b5c5ebc3bb1d5e415e61542530f82dc2d6fce",
+      "quote": "Our Usenet newsgroup packages starting at $1.79/mo."
+    },
+    {
+      "url": "https://www.vipernews.com/faq/",
+      "date": "2026-11-25",
+      "proved": "vendor retention is still more than 4,500 days",
+      "capture": "sha256:ffa34d9cf2429b382c0a0fa1e682a74d42faa31a9c29357bdb9c397084efb0fd",
+      "quote": "Our platform currently retains Usenet messages that are more than 4,500 days old."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-03T11:28:57.796Z",
+  "verified_at": "2026-11-25T09:47:07.112Z",
   "price_per_tb_month": "USD 1.79 (entry plan)",
   "notes": "The vendor states 4,500+ days of retention, about 12.3 years; the r/usenet map lists 1,500-day primary and 1,500-day secondary backfill, so the two sources disagree.",
   "extras": {

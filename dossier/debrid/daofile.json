@@ -66,10 +66,24 @@
       "url": "https://daofile.com/?op=payments",
       "date": "2026-10-23",
       "proved": "USD 19.95/30d, 39.95/90d, 89.95/365d, 129.95/999d; '50 GB traffic - Premium traffic refreshes every 3 days'; 'Unlimited speed'"
+    },
+    {
+      "url": "https://daofile.com/?op=payments",
+      "date": "2026-11-25",
+      "proved": "the premium allowance is 50 GB of traffic refreshed every 3 days",
+      "capture": "sha256:4661584e90709a4375504f63a4ee06fc7476524892810a07258c5892bef22cdb",
+      "quote": "50 GB traffic\nPremium traffic refreshes every 3 days."
+    },
+    {
+      "url": "https://daofile.com/?op=payments",
+      "date": "2026-11-25",
+      "proved": "premium has no speed caps from the free download flow",
+      "capture": "sha256:4661584e90709a4375504f63a4ee06fc7476524892810a07258c5892bef22cdb",
+      "quote": "Unlimited speed\nNo speed caps from the free download flow."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T02:20:00.000Z",
+  "verified_at": "2026-11-25T09:46:58.090Z",
   "price_per_tb_month": "USD 43.87 per TiB-month if the allowance is 50 GB per 3 days; USD 14.7 if it is 50 GB per day. The page is ambiguous and the worse reading is recorded.",
   "history": [],
   "notes": "The verdict is taken on the literal reading. A dashboard reading after one purchase confirms the threshold; until then the conservative number stands.",

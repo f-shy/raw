@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u211-q01",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Is the anonymous Newznab API of www.nzbserver.com still reachable by a client that passes the Cloudflare challenge, and is its 50/500 result clamp unchanged?",
+ "why": "a direct probe of caps and search answered HTTP 403 with a Cloudflare challenge on 2026-11-25; the caps, search and NZB bodies were read only through reader providers that rewrote the origin answer",
+ "scope": {
+  "rids": [
+   "debrid/nzbserver-com"
+  ]
+ },
+ "origin": "20261125-0137-verify-debrid-5636/u211",
+ "created": "2026-11-25T22:07:39Z"
+}

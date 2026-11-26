@@ -42,7 +42,7 @@
     "detail": "no account would have helped",
     "country": null
   },
-  "reliability_note": "Death mode: challenge page.",
+  "reliability_note": "unverified: https://pan.t-satoru.top/api/public/settings answered HTTP 403 with a Cloudflare challenge on 2026-11-26; no first-party settings body was read",
   "confidence": "measured",
   "evidence": [
     {
@@ -56,10 +56,17 @@
       "proved": "the endpoint still returns an automated-traffic challenge with HTTP 403, so no listing is obtainable",
       "capture": "sha256:4bdc9b91175a2c2f0da28d89635dccd77345c62eb909992ff83e09d18d2769ff",
       "quote": "cloudflare-challenge:title:just a moment..."
+    },
+    {
+      "url": "probe:https://pan.t-satoru.top/api/public/settings",
+      "date": "2026-11-26",
+      "proved": "the probe recorded HTTP 403 for the settings endpoint",
+      "capture": "sha256:04a6306ef12a9a0eaedba6ddf4a3981cf456e7f79d57dcd6777a918207bed076",
+      "quote": "\"status\": 403"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-11-19T21:12:45.420Z",
+  "verified_at": "2026-11-26T02:15:15.158Z",
   "binding": "retention-clamped",
   "binding_note": "The host is not slow or capped, it is gone; the constraint is that it stopped.",
   "notes": "an instance from the 2024 cohort. challenge page",

@@ -26,7 +26,7 @@
     "notes": ""
   },
   "egress": {
-    "terms": "'Sind Sie Free-User, wird jede Datei die Sie herunterladen im Voraus bezahlt. Das bedeutet, dass Ihr tatsächlich verbrauchter Traffic ignoriert wird. Außerdem gilt für Sie kein Traffic-Rabatt' - a free user pays each file in advance from the balance and gets none of the 33% or 50% host discounts.",
+    "terms": "Sind Sie Free-User, wird jede Datei die Sie herunterladen im Voraus bezahlt. Das bedeutet, dass Ihr tatsächlich verbrauchter Traffic ignoriert wird. Außerdem gilt für Sie kein Traffic-Rabatt von beispielsweise 33 oder 50%.",
     "metered": true,
     "free_allowance": "only what the Free MB balance holds",
     "price_per_tb": null,
@@ -63,7 +63,7 @@
   "binding_note": "There is no free traffic allowance at all - the tier runs on a prepaid balance - so the byte counter is the constraint before any host or concurrency rule.",
   "identity_cost": {
     "kind": "email",
-    "detail": "E-mail registration followed by manual review, which the vendor says takes a few hours and exists because 'gut hundert Forenspammer pro Tag' try to register. A forum account is required for every service.",
+    "detail": "unverified: the registration form was not reached; the login field is labelled \"Benutzername oder E-Mail-Adresse:\"",
     "country": null
   },
   "reliability_note": "A vetting queue stands between a new user and the service; free downloads get no host discount and no refund of unused traffic; the vendor opens registrations only in windows.",
@@ -89,10 +89,24 @@
       "url": "https://high-way.me/pages/tariffs/",
       "date": "2026-10-23",
       "proved": "'Unsere Plattform steht nur überprüften Nutzern zur Verfügung', registrations open, review takes a few hours"
+    },
+    {
+      "url": "https://high-way.me/pages/tariffs/",
+      "date": "2026-11-26",
+      "proved": "the login field is labelled username or e-mail address; no registration form was reached",
+      "capture": "sha256:afc015e63005fa4e8831a51d8f2bd35cd276d3e717d18599faf1be7736e2af23",
+      "quote": "Benutzername oder E-Mail-Adresse:"
+    },
+    {
+      "url": "https://high-way.me/help/counting/",
+      "date": "2026-11-26",
+      "proved": "the counting page states verbatim how a free user is charged and that no traffic discount applies",
+      "capture": "sha256:cff0ec14172053253e7bb381e87813247ecad33d9d2206cf1783c74045f23e7f",
+      "quote": "Sind Sie Free-User, wird jede Datei die Sie herunterladen im Voraus bezahlt. Das bedeutet, dass Ihr tatsächlich verbrauchter Traffic ignoriert wird. Außerdem gilt für Sie kein Traffic-Rabatt von beispielsweise 33 oder 50%."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T01:57:49.000Z",
+  "verified_at": "2026-11-26T01:59:17.122Z",
   "price_per_tb_month": "EUR 0 with no included traffic; consumption is charged to a prepaid Free MB balance",
   "history": [],
   "notes": "Published listings described High-Way's free access as 'limited hoster access and free MB through forum activity', which is correct and is the whole point: the tier has no allowance, only a shop. It is kept as its own record because its honest ceiling is zero bytes rather than a small number.",

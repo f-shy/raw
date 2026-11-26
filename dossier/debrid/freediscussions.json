@@ -54,7 +54,7 @@
   "binding_note": "The high-speed volume is a fixed number of GB, after which the 2 Mbit/s flat volume applies.",
   "identity_cost": {
     "kind": "email",
-    "detail": "unverified: the trial signup form was not opened, so what it asks for (email, phone or card) is behind a sign-up.",
+    "detail": "The FAQ states a minimum age of 18 to sign up and lists PayPal, Credit Card and, in six named countries, Direct Debit as payment methods; the registration form itself was not opened, so its other fields are unverified.",
     "country": null
   },
   "reliability_note": "Backbone and retention are not stated on the vendor page read.",
@@ -95,10 +95,52 @@
       "capture": "sha256:21ad28e1a6ddecd602f2cf8af988ec0914021be2093f90cd885439e5a7f4be2d",
       "quote": "Starter – €13.99/month",
       "proved": "the monthly Starter plan is EUR 13.99"
+    },
+    {
+      "url": "https://freediscussions.com/packages",
+      "date": "2026-11-25",
+      "proved": "every package still carries a free 14-day trial",
+      "capture": "sha256:78c5fac7f6fb28618889375416d28a32259790e310b6531f59a2a61590528762",
+      "quote": "All packages have a free 14-day trial period."
+    },
+    {
+      "url": "https://freediscussions.com/packages",
+      "date": "2026-11-25",
+      "proved": "the monthly flat-rate volume is still 600 GB",
+      "capture": "sha256:78c5fac7f6fb28618889375416d28a32259790e310b6531f59a2a61590528762",
+      "quote": "600 GB"
+    },
+    {
+      "url": "https://freediscussions.com/packages",
+      "date": "2026-11-25",
+      "proved": "the Starter plan still costs EUR 13.99 per month",
+      "capture": "sha256:78c5fac7f6fb28618889375416d28a32259790e310b6531f59a2a61590528762",
+      "quote": "Starter\n13.99 €\nmonthly debiting"
+    },
+    {
+      "url": "https://freediscussions.com/faq",
+      "date": "2026-11-25",
+      "proved": "the service is reached by NNTP with a newsreader",
+      "capture": "sha256:56460d38d7903de6dfbbc9c3aad790416211d835744e19bc876af06696dbd3e3",
+      "quote": "Newsserver: power.freediscussions.com"
+    },
+    {
+      "url": "https://freediscussions.com/faq",
+      "date": "2026-11-25",
+      "proved": "sign-up requires the user to be at least 18; the FAQ also lists the accepted payment methods",
+      "capture": "sha256:56460d38d7903de6dfbbc9c3aad790416211d835744e19bc876af06696dbd3e3",
+      "quote": "You have to be at least 18 years in order to sign up for a FreeDiscussions account."
+    },
+    {
+      "url": "https://freediscussions.com/faq",
+      "date": "2026-11-25",
+      "proved": "payment is by PayPal or credit card worldwide",
+      "capture": "sha256:56460d38d7903de6dfbbc9c3aad790416211d835744e19bc876af06696dbd3e3",
+      "quote": "- **Worldwide**: PayPal, Credit Card"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-03T07:37:14.439Z",
+  "verified_at": "2026-11-25T09:47:10.468Z",
   "price_per_tb_month": null,
   "notes": "Volume-metered, not unlimited.",
   "extras": {}

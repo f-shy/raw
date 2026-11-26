@@ -93,10 +93,38 @@
       "url": "https://real-debrid.com/vpn",
       "date": "2026-10-23",
       "proved": "the page names the caller and the verdict: from the broker's egress (172.69.41.140) it said 'Your ISP or VPN provider IP address is currently blocked on our website, please contact the support', on two separate reads, while three probes from the local connection returned 'not blocked on our website, you don't seem behind a VPN'. The 'Cooperative VPN providers - Recommended' table rendered its header and zero provider rows in both the blocked and the allowed view."
+    },
+    {
+      "url": "https://real-debrid.com/terms",
+      "date": "2026-11-25",
+      "proved": "the terms still require Remote Traffic for server, VPS and cloud callers",
+      "capture": "sha256:e304594fe96172746bad06bf29f97bc2973d87ec63ec9ea7f85da4a9e29cfe9a",
+      "quote": "The User certifies that he will not use a dedicated server, VPS or any cloud service on our service other than by using his Remote Traffic (which is in addition to the subscription)."
+    },
+    {
+      "url": "https://github.com/debridmediamanager/awesome-debrid/discussions/7",
+      "date": "2026-11-25",
+      "proved": "the vendor FAQ mirror still documents the exhaustion error and the premium-account requirement to buy traffic",
+      "capture": "sha256:b0f6a12806c965fb69397d0d36b9f447effe070f7e9b1d23f70082b1922534aa",
+      "quote": "If you get the error \"traffic_exhausted\", it means that you have no more Remote Traffic."
+    },
+    {
+      "url": "https://real-debrid.com/vpn",
+      "date": "2026-11-25",
+      "proved": "the cooperative-VPN allowlist is published as a table with a per-provider IP count",
+      "capture": "sha256:1bae5aaf0c5d8fd7f9b302b6f715e8524e4f32b0ddf460563e2a38fb8c8073f4",
+      "quote": "| AirVPN | 1102 |"
+    },
+    {
+      "url": "https://real-debrid.com/trafficshare",
+      "date": "2026-11-25",
+      "proved": "the purchase page still returns a 403 shell to every reader, so the traffic allowance and unit price remain unread",
+      "capture": "sha256:b14274992264a575b34be790b4bbabda0cb4041f7708e45e46e34213a80e46e1",
+      "quote": "403 - Forbidden"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T02:21:34.000Z",
+  "verified_at": "2026-11-25T09:46:33.636Z",
   "price_per_tb_month": "unverified",
   "notes": "A separate record from the Real-Debrid subscription because it is a separately sold, separately metered product aimed at exactly this machine class. The subscription record in scratch seed-western/records/real-debrid.json prices the plan; this one prices the exemption. The unit price is the one gap: the German board freesoft-board.de quotes '100GB Traffic fur 9,99 EUR' in a 2012 thread, which is too old and too weakly sourced to promote to a number.",
   "extras": {

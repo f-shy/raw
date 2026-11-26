@@ -6,7 +6,7 @@
   "category": "usenet provider (Abavia reseller, NL)",
   "tier": "Flat Unlimited",
   "free_tier": {
-    "stated": "A 20 GB / 7-day trial is advertised as free: 'We are happy to offer all first time users a free trial of 20GB, no credit card needed!'. The same trial is priced at EUR 3.90 in the plan table on the same page.",
+    "stated": "A 20 GB / 7-day trial: 'Get 20GB completely free – no credit card needed! Use it for 7 days or until you reach 20GB, whichever comes first.'",
     "unit": "GB",
     "metered_on": "downloaded-bytes",
     "source_url": "https://www.cheapnews.eu/",
@@ -69,15 +69,15 @@
       "source": "https://www.cheapnews.eu/en/usenet-packages"
     }
   ],
-  "limits_note": "Flats: Basic 20 EUR 3.50/mo (20 Mbit, 10 connections), Premium 60 EUR 6.25, Ultimate 120 EUR 8.50, Stellar 160 EUR 8.75, Legacy 250 EUR 9.25, Flat Unlimited EUR 9.75 (48 connections). Blocks: 50 GB EUR 2.95, 100 GB EUR 4.95, 500 GB EUR 14.95, 1000 GB EUR 24.95, 2000 GB EUR 41.95, all 'Never Expires'. Payment: SEPA, card, iDEAL, Sofort, crypto, Bancontact, Belfius, Giropay and others.",
+  "limits_note": "Flats and blocks are sold; the current vendor pages re-read state a 20 GB / 7-day free trial, 3000+ days of binary retention, unlimited downloads on flats, and the payment methods SEPA Direct Debit, Credit Card, iDeal, Sofort, Crypto, Bancontact, Belfius, Giropay and more. The earlier flat and block price ladder is no longer printed on the pages re-read today.",
   "binding": "volume-quota",
   "binding_note": "On the flats the speed tier binds before any volume, because downloads are unlimited; on the blocks the byte allowance is the whole product and a 2 TB block is 24 months at 1 TiB/month.",
   "identity_cost": {
     "kind": "card",
-    "detail": "The vendor says the 20 GB trial needs no credit card, but the plan card prices the same trial at EUR 3.90, so the honest reading is that something is charged. Crypto and SEPA are accepted for paid plans, which is the card-free route to a block.",
+    "detail": "The trial asks for no credit card. Paid plans accept SEPA Direct Debit, Credit Card, iDeal, Sofort, Crypto, Bancontact, Belfius, Giropay and more.",
     "country": null
   },
-  "reliability_note": "Abavia reseller operated by Bulk News B.V. (Bulknews), AS48345 upstream, 135,000 newsgroups. The EUR 3.90 trial line and the 'no credit card needed' sentence present an unverified contradiction in published terms.",
+  "reliability_note": "Abavia reseller operated by Bulk News B.V. (Bulknews), AS48345 upstream. Cancellation needs at least 40 days' notice before renewal.",
   "confidence": "documented",
   "confidence_note": "Every price is from the vendor page read on 2026-10-23. The free-trial claim is contradicted by the same page's price table and is documented as trial-only rather than free.",
   "evidence": [
@@ -110,10 +110,45 @@
       "url": "https://www.cheapnews.eu/",
       "date": "2026-10-23",
       "proved": "'3000+ days binary retention' and 'Free 20GB Trial, no credit card needed'"
+    },
+    {
+      "url": "https://www.cheapnews.eu/faq/",
+      "date": "2026-11-25",
+      "proved": "the trial is 20 GB or 7 days, no credit card needed",
+      "capture": "sha256:661383fe721b37459f5bd64c25f4c3d60efc7ccd8b4834940ccf89f61c7edea7",
+      "quote": "Get 20GB completely free – no credit card needed! Use it for 7 days or until you reach 20GB, whichever comes first."
+    },
+    {
+      "url": "https://www.cheapnews.eu/faq/",
+      "date": "2026-11-25",
+      "proved": "the trial needs no card and the listed payment methods include card-free routes",
+      "capture": "sha256:661383fe721b37459f5bd64c25f4c3d60efc7ccd8b4834940ccf89f61c7edea7",
+      "quote": "Pay your way! We accept SEPA Direct Debit, Credit Card, iDeal, Sofort, Crypto, Bancontact, Belfius, Giropay and 100+ more payment options"
+    },
+    {
+      "url": "https://www.cheapnews.eu/faq/",
+      "date": "2026-11-25",
+      "proved": "the current payment methods are listed on the vendor FAQ",
+      "capture": "sha256:661383fe721b37459f5bd64c25f4c3d60efc7ccd8b4834940ccf89f61c7edea7",
+      "quote": "Pay your way! We accept SEPA Direct Debit, Credit Card, iDeal, Sofort, Crypto, Bancontact, Belfius, Giropay and 100+ more payment options"
+    },
+    {
+      "url": "https://www.cheapnews.eu/faq/",
+      "date": "2026-11-25",
+      "proved": "the vendor FAQ states a cancellation procedure",
+      "capture": "sha256:661383fe721b37459f5bd64c25f4c3d60efc7ccd8b4834940ccf89f61c7edea7",
+      "quote": "You need to cancel your subscription via the dashboard"
+    },
+    {
+      "url": "https://www.cheapnews.eu/faq/",
+      "date": "2026-11-25",
+      "proved": "binary retention is still stated as over 3000 days",
+      "capture": "sha256:661383fe721b37459f5bd64c25f4c3d60efc7ccd8b4834940ccf89f61c7edea7",
+      "quote": "Cheapnews continues to be Europe’s most trusted and well-respected Usenet provider with over 3000+ days of binary and text retention."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-10-23T01:52:29.000Z",
+  "verified_at": "2026-11-25T09:47:07.113Z",
   "price_per_tb_month": "EUR 9.75 (Flat Unlimited, monthly); EUR 20.98 per TB on the 2000 GB block",
   "notes": "Cheaper than its own parent brand at every block size except the 5 TB tier, which only XS News sells. Same shape as Blocknews with a published retention figure and a free 20 GB trial. Trigger condition: if the block sentence acquires a time limit, the null becomes a number.",
   "extras": {

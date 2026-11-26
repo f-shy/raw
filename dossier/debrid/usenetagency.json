@@ -6,7 +6,7 @@
   "category": "usenet provider (Abavia reseller, NL)",
   "tier": "Senior",
   "free_tier": {
-    "stated": "A 30 GB, 7-day try-out: 'The try out plan gives you: 500 mbit speed, 4084 days retention, 30 gigabytes free, No auto billing, Absolutely free'. The vendor's payment FAQ repeats it: 'Can I try your service before I pay? Hell yes! You can always try the first 7 days for free.'",
+    "stated": "A 30 GB, 7-day try-out: 'The try out plan gives you: 500 mbit speed, 4118 days retention, 30 gigabytes free, No auto billing, Absolutely free'. The vendor's payment FAQ repeats it: 'Can I try your service before I pay? Hell yes! You can always try the first 7 days for free.'",
     "unit": "GB",
     "metered_on": "downloaded-bytes",
     "source_url": "https://usenet.agency/en/",
@@ -20,8 +20,8 @@
     "notes": "an article size is a protocol convention, not a vendor number"
   },
   "retention": {
-    "stated": "4085 days retention on the home page, 4084 days on the try-out page",
-    "days": 4084,
+    "stated": "4118 days retention on the home page and on the try-out page",
+    "days": 4118,
     "source_url": "https://usenet.agency/en/"
   },
   "egress": {
@@ -55,7 +55,7 @@
     },
     {
       "kind": "retention-clamped",
-      "value": "4085 days",
+      "value": "4118 days",
       "source": "https://usenet.agency/en/"
     }
   ],
@@ -64,12 +64,12 @@
   "binding_note": "The free path is a 30 GB one-off, so at 1 TiB/month the allowance is what fails, and it fails after 30 GB. On Senior the vendor publishes no volume ceiling.",
   "identity_cost": {
     "kind": "email",
-    "detail": "An email address, and the trial has three explicit gates: 'You can't register with a disposable e-mail address', 'You can't use a VPN or proxy server to register' and 'You can't have multiple accounts'. The VPN ban means the signup must come from a real residential address.",
+    "detail": "Name, email address, password and country; the form also offers social sign-in. The trial states four gates: no disposable e-mail address, no VPN or proxy server to register, no multiple accounts and no spam domains.",
     "country": null
   },
   "reliability_note": "The try-out page also carries the line 'Payment will show up on your statement as NectoFarm B.V.', which is odd for a product listed at 'Total cost: FREE' and suggests a payment method may still be captured. That was not tested at checkout, so it is flagged rather than resolved. Abavia reseller operated by NectoFarm BV. The 30 GB try-out is the largest card-free allowance found on any provider among debrid providers, and the VPN ban is the price of it.",
   "confidence": "documented",
-  "confidence_note": "The trial terms, the three registration rules, the prices and the retention figure are all from vendor pages read today. Whether a card is captured at checkout is the one gap, because the signup form itself was not opened.",
+  "confidence_note": "The trial terms, the four registration rules, the prices and the retention figure are all from vendor pages read today. Whether a card is captured at checkout is the one gap, because checkout itself was not tested.",
   "evidence": [
     {
       "url": "https://usenet.agency/en/try-for-free/",
@@ -85,10 +85,52 @@
       "url": "https://usenet.agency/en/support/?category=payments",
       "date": "2026-10-23",
       "proved": "'Can I try your service before I pay? Hell yes!'; 'It is possible to set an automatic payment? We choose not to.'"
+    },
+    {
+      "url": "https://usenet.agency/en/",
+      "date": "2026-11-25",
+      "proved": "all three paid plans state 4118 days of retention",
+      "capture": "sha256:c1038d47d0a202b14cdcd62bd9de4cda6ca621b95480c26aa7c7ea94b13e01c7",
+      "quote": "#### Retention: 4118 days"
+    },
+    {
+      "url": "https://usenet.agency/en/",
+      "date": "2026-11-25",
+      "proved": "retention is 4118 days",
+      "capture": "sha256:c1038d47d0a202b14cdcd62bd9de4cda6ca621b95480c26aa7c7ea94b13e01c7",
+      "quote": "#### Retention: 4118 days"
+    },
+    {
+      "url": "https://usenet.agency/en/",
+      "date": "2026-11-25",
+      "proved": "the retention-clamped limit is 4118 days",
+      "capture": "sha256:c1038d47d0a202b14cdcd62bd9de4cda6ca621b95480c26aa7c7ea94b13e01c7",
+      "quote": "#### Retention: 4118 days"
+    },
+    {
+      "url": "https://usenet.agency/en/try-for-free/",
+      "date": "2026-11-25",
+      "proved": "the trial form asks for name, email, password and country",
+      "capture": "sha256:f8eb39d66eaa7ef57729d2f08f4ca34a74e22ea3bb8908594a9b4b04e1998ae4",
+      "quote": "Your name Your email adres Password Your country"
+    },
+    {
+      "url": "https://usenet.agency/en/try-for-free/",
+      "date": "2026-11-25",
+      "proved": "the try-out still gives 30 GB",
+      "capture": "sha256:f8eb39d66eaa7ef57729d2f08f4ca34a74e22ea3bb8908594a9b4b04e1998ae4",
+      "quote": "30 gigabytes free"
+    },
+    {
+      "url": "https://usenet.agency/en/support/?category=payments",
+      "date": "2026-11-25",
+      "proved": "the 7-day free trial is still stated",
+      "capture": "sha256:4053f56f8ebdd0c9ab0ecca1fb1d5ef933e31b8e47a0a12f4310b260fa49b65f",
+      "quote": "Hell yes! You can always try the first 7 days for free."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T01:52:29.000Z",
+  "verified_at": "2026-11-25T09:47:07.113Z",
   "price_per_tb_month": "EUR 5.75 (Senior, monthly)",
   "notes": "The caveat is the identity gate rather than the product: no disposable email, no VPN or proxy at signup, one account. A client behind a VPN cannot claim this trial at all.",
   "extras": {

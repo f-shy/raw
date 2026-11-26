@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u16-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Re-check these debrid records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/copernicus-cds $.identity_cost.kind: Page requires registering an account but never says e-mail is the identity cost.\n- debrid/hotmart $.limits_note: Source says country fees may apply; it does not say not all methods reach all buyers. The Portuguese quote is in the pt capture, but the first clause is still unproved.\n- debrid/webtor-io $.free_tier.unit: Page says free for basic use; it does not say unlimited or give any quota statement.\n- debrid/fireload $.per_object_cap.bytes: Page says 2 GB (decimal; it writes 1 TB as 1,000 GB), not 2147483648 bytes (2 GiB).\n- debrid/kiwify $.notes: Page documents the region=br override and card-only foreign checkout, but says nothing on a large share of Brazilian resellers or streaming/premium account stores, and does not say the Pix price is unusable to a foreigner with a converted card price in those stores.\n- debrid/cloudpipe $.egress.terms: Page says No Storage Limits for storage, but Free has '3GB max file' and '5 jobs/day', so 'not metered by bytes at any tier' is not proved.\n- debrid/webtor-io $.free_tier.metered_on: Page does not state that the free tier has no byte meter.\n- debrid/ulozto $.free_tier.stated: Cited page proves only 25 GB free. The 150 GB transfer, 0 EUR/month and 1 GB FREE plan are on ulozto.net/koupit-disk, not this page.\n- debrid/hotmart $.reliability_note: Source says Hotmart charges once and the bank handles installments, and that how a refund and installments are processed depends on the bank; it does not say a refund does not cancel them.\n- debrid/copernicus-cds $.free_tier.stated: Account, .cdsapirc, url and token are on the page, but the page never says the data is free.\n- debrid/kiwify $.limits[0].value: Source disables boleto and Pix and hides CPF; it does not say installments are disabled (Chile/Colombia/Peru get up to 12x, Mexico 3x) and card is not the only path (debit card, Apple Pay are listed).\n- debrid/cloudpipe $.reliability_note: Source says files stored temporarily 'Free 6 hours' and 'You can also delete them from your dashboard'; no single span says 'then gone', and it says Drive files cannot be deleted by CloudPipe but not that deletion must go through Drive.\n- debrid/hotmart $.identity_cost.detail: Source says 'some details, such as', not 'only', and does not mention e-mail.\n- debrid/hotmart $.binding_note: Span gives 20+ methods and 180+ countries only. It does not say the gate is seller-enabled methods plus country, nor that a card is the only method crossing both.\n- debrid/webtor-io $.price_per_tb_month: Blog proves Bronze $2/50 GB, Silver $5/250 GB, Gold $15/1 TB, but not that they are monthly, and does not say the free tier costs USD 0 or give a per-TB price.",
+ "scope": {
+  "rids": [
+   "debrid/webtor-io",
+   "debrid/hotmart",
+   "debrid/kiwify",
+   "debrid/copernicus-cds",
+   "debrid/ulozto",
+   "debrid/cloudpipe",
+   "debrid/fireload",
+   "debrid/torcomet"
+  ]
+ },
+ "origin": "audit u92 of 20261125-0137-verify-debrid-5636/u16 failed: 15 of 30 unsupported",
+ "created": "2026-11-25T15:10:38Z"
+}

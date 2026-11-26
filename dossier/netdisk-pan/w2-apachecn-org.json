@@ -93,23 +93,9 @@
     {
       "url": "probe:https://w2.apachecn.org/",
       "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:74a256a63363e33534f8499658525261e1fa6a72a7d02b69d009540ec0ba2e17",
-      "quote": "\"listing_sha256\": \"0d46fd71\""
-    },
-    {
-      "url": "probe:https://w2.apachecn.org/",
-      "date": "2026-11-11",
       "proved": "the probe record states the hash method used for the listing",
       "capture": "sha256:74a256a63363e33534f8499658525261e1fa6a72a7d02b69d009540ec0ba2e17",
       "quote": "\"listing_hash_method\": \"sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters\""
-    },
-    {
-      "url": "probe:https://w2.apachecn.org/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:74a256a63363e33534f8499658525261e1fa6a72a7d02b69d009540ec0ba2e17",
-      "quote": "\"alive\": true"
     },
     {
       "url": "probe:https://w2.apachecn.org/",
@@ -131,13 +117,6 @@
       "proved": "the liveness and mount-list probe checked this host at this instant",
       "capture": "sha256:4ce083ec4a966fa8db29b6ead18c4ed112c378e0ccce17755b3bd1a02b403ed5",
       "quote": "\"checked_at\": \"2026-11-19T03:42:55.824Z\""
-    },
-    {
-      "url": "probe:https://w2.apachecn.org/",
-      "date": "2026-11-19",
-      "proved": "the anonymous session, settings and mount list all answered, so the fresh alive timestamp stands",
-      "capture": "sha256:4ce083ec4a966fa8db29b6ead18c4ed112c378e0ccce17755b3bd1a02b403ed5",
-      "quote": "\"alive\": true"
     },
     {
       "url": "probe:https://w2.apachecn.org/",
@@ -166,6 +145,48 @@
       "proved": "the fresh anonymous root listing hashed to the stored value, so the listing is unchanged",
       "capture": "sha256:631a9d977a89ac93895609c1d454f2838443e7ad1aee4a67556955f613260251",
       "quote": "\"listing_sha256\": \"0d46fd71\""
+    },
+    {
+      "url": "probe:https://w2.apachecn.org/",
+      "date": "2026-11-25",
+      "proved": "the liveness and mount-list probe checked this host at this instant",
+      "capture": "sha256:38e9341e5b44c020800481fb5b90f90b151c767eeae36754082dd2d012dbc5df",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:35.459Z\""
+    },
+    {
+      "url": "probe:https://w2.apachecn.org/",
+      "date": "2026-11-25",
+      "proved": "the anonymous session reported this base path",
+      "capture": "sha256:38e9341e5b44c020800481fb5b90f90b151c767eeae36754082dd2d012dbc5df",
+      "quote": "\"base_path\": \"/公共\""
+    },
+    {
+      "url": "probe:https://w2.apachecn.org/",
+      "date": "2026-11-25",
+      "proved": "the settings response advertised this write flag",
+      "capture": "sha256:38e9341e5b44c020800481fb5b90f90b151c767eeae36754082dd2d012dbc5df",
+      "quote": "\"write_advertised\": false"
+    },
+    {
+      "url": "probe:https://w2.apachecn.org/",
+      "date": "2026-11-25",
+      "proved": "the probe measured this write-content-bypass flag",
+      "capture": "sha256:38e9341e5b44c020800481fb5b90f90b151c767eeae36754082dd2d012dbc5df",
+      "quote": "\"write_content_bypass\": null"
+    },
+    {
+      "url": "probe:https://w2.apachecn.org/",
+      "date": "2026-11-25",
+      "proved": "the settings response reported this upstream provider",
+      "capture": "sha256:38e9341e5b44c020800481fb5b90f90b151c767eeae36754082dd2d012dbc5df",
+      "quote": "\"provider\": \"unknown\""
+    },
+    {
+      "url": "probe:https://w2.apachecn.org/",
+      "date": "2026-11-25",
+      "proved": "the probe obtained a guest session without an account",
+      "capture": "sha256:38e9341e5b44c020800481fb5b90f90b151c767eeae36754082dd2d012dbc5df",
+      "quote": "\"guest\": true"
     }
   ],
   "verdict": "qualifies-with-caveat",

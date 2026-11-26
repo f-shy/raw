@@ -76,10 +76,38 @@
       "url": "https://takefile.link/premium",
       "date": "2026-10-23",
       "proved": "HTTP 404 'Page not found' - there is no vendor premium page, which is why the reseller list is the only purchase route"
+    },
+    {
+      "url": "https://takefile.link/",
+      "date": "2026-11-25",
+      "proved": "uploads are still restricted to affiliate partners",
+      "capture": "sha256:cda845c30d29f03b7fc6fe7d4a35dc59a61a219e0722713642701fccb04d54df",
+      "quote": "### Uploading is available for partners"
+    },
+    {
+      "url": "https://takefile.link/",
+      "date": "2026-11-25",
+      "proved": "the free path still has a countdown, limited speed and one file at a time",
+      "capture": "sha256:cda845c30d29f03b7fc6fe7d4a35dc59a61a219e0722713642701fccb04d54df",
+      "quote": "- Countdown before download\n- Limited speed\n- One file at a time"
+    },
+    {
+      "url": "https://takefile.link/resellers",
+      "date": "2026-11-25",
+      "proved": "the reseller purchase route still begins with a registration link on takefile.link",
+      "capture": "sha256:0ddcf1a690d6bf89f051ca9b143bd5d45604fb131469cf94299b9e9c1e8bb692",
+      "quote": "[Filesharingshop.com](https://takefile.link/?op=registration&next=https://filesharingshop.com/takefile-paypal-reseller.html)"
+    },
+    {
+      "url": "https://takefile.link/premium",
+      "date": "2026-11-25",
+      "proved": "the vendor premium page still answers 404, so no price is published by the host",
+      "capture": "sha256:0be753b8e75c9a1e970a0c4e8496eb5d94912fd3ca84c3b9d0cee085602b65a5",
+      "quote": "# Page not found"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:12:49.395Z",
+  "verified_at": "2026-11-25T09:46:41.072Z",
   "price_per_tb_month": null,
   "notes": "The reseller-only model is the finding: a user can pay with a card, but only by trusting a shop that the host lists without a contract. The payments offered by the shops span PayPal, cards, WebMoney, Bitcoin and YooMoney, which makes this one of the few hosts in the sector payable from both sides of the payment wall. No price is included because none is published. No programmatic path found: Web download page with free/premium split. Upload is not open: 'Uploading is available for partners' - the host only accepts files from affiliates."
 }

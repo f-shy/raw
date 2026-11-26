@@ -1,0 +1,21 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u61-q01",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "No dead host was found among the eight scoped debrid records on 2026-11-25: every primary page returned HTTP 200 and none was parked or retired. Was there a different host in this scope that should have been checked?",
+ "why": "The shared lane question asks for a dead host; inventing one from a first-party 404 path or a sandbox DNS failure would be a false finding.",
+ "scope": {
+  "rids": [
+   "debrid/fastusenet",
+   "debrid/tweaknews",
+   "debrid/sunny-usenet",
+   "debrid/newsgroup-ninja",
+   "debrid/latinusenet",
+   "debrid/usenetstorm",
+   "debrid/newsdemon",
+   "debrid/cubenet"
+  ]
+ },
+ "origin": "20261125-0137-verify-debrid-5636/u61",
+ "created": "2026-11-25T09:47:09Z"
+}

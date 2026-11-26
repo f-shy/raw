@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0137-verify-netdisk-pan-1601-u10-q01",
+ "kind": "verify",
+ "topic": "netdisk-pan",
+ "question": "alist.qsesvick.top now lists 6 root entries (Comprehensive, Death菜鸟, Local, CineXaft, 流媒体(稳定版), Other) with provider reported as OpenList and hash 7a909707, where the previous record held 5 entries, provider unknown and ec8bc9ba. If the new Local and Other mounts are transient, a later run should confirm whether 6 entries is the stable state.",
+ "why": "one anonymous root listing at 2026-11-25T01:38:28Z returned 6 entries; stability across multiple days was not established inside this unit",
+ "scope": {
+  "rids": [
+   "netdisk-pan/alist-qsesvick-top"
+  ]
+ },
+ "origin": "20261125-0137-verify-netdisk-pan-1601/u10",
+ "created": "2026-11-25T11:08:33Z"
+}

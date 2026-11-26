@@ -35,8 +35,8 @@
   "interface": [
     "browser"
   ],
-  "interface_detail": "Web upload and download with a 'Download Manager' and accelerator support; the site publishes no API or remote-upload endpoint on the pages read.",
-  "tooling": "No rclone backend, no published API. Leechall and PrimeLeech both carry an extmatrix generator, so the workable path today is a leecher rather than the host itself.",
+  "interface_detail": "Web upload and download with a 'Download Manager' and accelerator support; the vendor documents an HTTP upload API endpoint at www.extmatrix.com/api/upload.php that takes an api_key.",
+  "tooling": "The vendor publishes an HTTP upload endpoint at www.extmatrix.com/api/upload.php that takes an api_key. No rclone backend was found. Leechall and PrimeLeech both carry an extmatrix generator.",
   "chaining": "A host the paid debrids mostly do not cover, so it is reached through a free leecher (leechall caps it at 6 GB/day, the highest cap on that list) or by buying a $12.95 month. It holds Japanese-market releases that do not appear on Rapidgator or Katfile.",
   "limits": [
     {
@@ -76,13 +76,69 @@
       "url": "https://leechall.com/",
       "date": "2026-10-23",
       "proved": "a third-party leecher's daily cap for the host: 'extmatrix.com 0 B / 6 GB /d'"
+    },
+    {
+      "url": "https://www.extmatrix.com/api/docs.php",
+      "date": "2026-11-25",
+      "proved": "the vendor documents an HTTP upload API endpoint",
+      "capture": "sha256:bb728f9bd1291d63147eaac921cfce80c0cbc8324d33384e342c47260c0ff576",
+      "quote": "$upload_server = \"https://www.extmatrix.com/api/upload.php\";"
+    },
+    {
+      "url": "https://www.extmatrix.com/premium.php",
+      "date": "2026-11-25",
+      "proved": "the free plan is shaped to 100KB/s while premium is unlimited",
+      "capture": "sha256:f1320ac893c359dfc2459bd314fc03668f30a2204a0c9aca75ccc817259366e2",
+      "quote": "Download speed | Unlimited | 100KB/s"
+    },
+    {
+      "url": "https://www.extmatrix.com/premium.php",
+      "date": "2026-11-25",
+      "proved": "free files are deleted after 30 days of inactivity and premium files are not",
+      "capture": "sha256:f1320ac893c359dfc2459bd314fc03668f30a2204a0c9aca75ccc817259366e2",
+      "quote": "Inactive files will be deleted | never | 30 Day(s)"
+    },
+    {
+      "url": "https://www.extmatrix.com/premium.php",
+      "date": "2026-11-25",
+      "proved": "the four premium prices are $12.95, $34.95, $55.95 and $89.95",
+      "capture": "sha256:f1320ac893c359dfc2459bd314fc03668f30a2204a0c9aca75ccc817259366e2",
+      "quote": "** Price** | $12.95 | $34.95 | $55.95 | $89.95"
+    },
+    {
+      "url": "https://www.extmatrix.com/premium.php",
+      "date": "2026-11-25",
+      "proved": "credit-card billing is one-off rather than auto-renewing",
+      "capture": "sha256:f1320ac893c359dfc2459bd314fc03668f30a2204a0c9aca75ccc817259366e2",
+      "quote": "* Please note that credit card billing is not an automatic subscription; we won't charge you automatically."
+    },
+    {
+      "url": "https://www.extmatrix.com/help/terms.php",
+      "date": "2026-11-25",
+      "proved": "the vendor states limits may be revised at any time",
+      "capture": "sha256:ae698846465fab2cfcb3e98f1b42c01e679ac06b830d61b7467ac665c275a505",
+      "quote": "ExtMatrix retains the right to create and revise limits on use, storage, upload and download speeds, sharing, maximum number and duration of look-ups or downloads and any other aspect of the Service, at its sole discretion and at any time, with or without notice."
+    },
+    {
+      "url": "https://www.extmatrix.com/",
+      "date": "2026-11-25",
+      "proved": "the anonymous upload page states a 250.00 MB per-file maximum",
+      "capture": "sha256:8e0f335a95181d93a71d6754abe8eafebb25b7d4e3ac67b16ba0e5647c393c51",
+      "quote": "**Choose a File:** (max. 250.00 MB)"
+    },
+    {
+      "url": "https://leechall.com/",
+      "date": "2026-11-25",
+      "proved": "a third-party leecher lists 6 GB per day for the host",
+      "capture": "sha256:d8bf63f755d814642dc9a8e0b3c6a5e73d73009145cafcb9b09340ebcd64cf2f",
+      "quote": "extmatrix.com extmatrix.com 0 B / 6 GB /d"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:18:17.000Z",
+  "verified_at": "2026-11-25T09:46:38.367Z",
   "price_per_tb_month": "USD 12.95 per month, no TB figure published",
   "history": [],
-  "notes": "The monthly price is flat, not per byte, so price_per_tb_month cannot be computed without a measured download. $89.95 a year is the cheapest per month at $7.50. No programmatic path found: Web upload and download with a 'Download Manager' and accelerator support; the site publishes no API or remote-upload endpoint on the pages read.",
+  "notes": "The monthly price is flat, not per byte, so price_per_tb_month cannot be computed without a measured download. Web upload and download use a 'Download Manager' and accelerator support; the vendor documents an HTTP upload endpoint at www.extmatrix.com/api/upload.php.",
   "extras": {
     "plans": "1 month $12.95; 3 months $34.95; 6 months $55.95; 1 year $89.95",
     "annual_effective_monthly": "USD 7.50",

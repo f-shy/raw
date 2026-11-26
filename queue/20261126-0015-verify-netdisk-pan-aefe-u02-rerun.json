@@ -1,0 +1,20 @@
+{
+ "id": "20261126-0015-verify-netdisk-pan-aefe-u02-rerun",
+ "kind": "verify",
+ "topic": "netdisk-pan",
+ "question": "Re-check these records that the previous pass left without a fresh captured datum. For each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], retention.days, per_object_cap.bytes, limits[i].value). Never confirm $.url, $.topic, $.slug, $.provider, $.endpoint, any source_url or any limits[i].source. List every other field in unread. If the page cannot be read through any route, run the three read-only probes, register a probe record with `scripts/rq capture probe:URL --probe FILE`, and set $.reliability_note to the unverified statement with that probe as measured evidence, then open a question. Every record must end with a captured datum dated 2026-11-25/26.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- netdisk-pan/china-mobile-cloud $.egress.terms: The page states 不限速 and 会员免流量, but the value's second half - forum consensus and Baidu at 0.1 MB/s / Quark at 1.7 MB/s - is nowhere in the capture: it holds no 百度, 夸克, 论坛 or MB/s at all. No span says the whole value, and the third-party comparison is attributed to a first-party page that does not ca\n- netdisk-pan/china-unicom-wopan $.limits[0].value: The span gives 60G of storage for the free ordinary member (免费普通会员, permanent on registration), so the 60 GB free-tier total is on the page. No span says it is the cap in practice: the page ranks no limit, and it lists per-operation caps beside it (单个大文件上传：1G, 批量上传：100个, 单次转存数：50个). That clause is t\n- netdisk-pan/lanzou $.egress.terms: The span states unlimited speed, volume and count with no login, which is the first clause. No span states 'there is no egress price': the page prints no price for downloads (its only 免费 is 免费注册), so that clause is an absence, not something a span says, and the whole value is not in one span. Fresh ",
+ "scope": {
+  "rids": [
+   "netdisk-pan/china-mobile-cloud",
+   "netdisk-pan/china-unicom-wopan",
+   "netdisk-pan/cstcloud-data-capsule",
+   "netdisk-pan/lanzou",
+   "netdisk-pan/lark-drive-via-multi-tenant-app-credentials",
+   "netdisk-pan/mail-ru-cloud",
+   "netdisk-pan/media-advanced360-top",
+   "netdisk-pan/mmpan-net"
+  ]
+ },
+ "origin": "audit u07 of 20261126-0015-verify-netdisk-pan-aefe/u02 failed: 3 of 7 unsupported",
+ "created": "2026-11-26T01:45:14Z"
+}

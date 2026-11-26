@@ -91,13 +91,6 @@
       "quote": "\"consecutive_failures\": 0"
     },
     {
-      "url": "probe:https://pan.mediy.cn/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:d97e4723aff37f11c04309c9bd1e6181b9b1e6397b2cf881eed912deb5dc29c6",
-      "quote": "\"alive\": true"
-    },
-    {
       "url": "probe:https://pan.mediy.cn",
       "date": "2026-11-19",
       "proved": "the probe's checked_at instant is the fresh last-alive verification time",
@@ -124,6 +117,41 @@
       "proved": "the anonymous settings and mount-list requests answered at this instant",
       "capture": "sha256:05808d255528fefca8404bf59d84af8ee6bb4fcaf078cf7b11d577f407738ab6",
       "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://pan.mediy.cn/",
+      "date": "2026-11-25",
+      "proved": "the probe checked this host at this instant",
+      "capture": "sha256:3d8b230b46b7d6a97434704428fd5140ad31deb5ff47f9bd83884b9322e66b5c",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:31.831Z\""
+    },
+    {
+      "url": "probe:https://pan.mediy.cn/",
+      "date": "2026-11-25",
+      "proved": "the anonymous guest session answered and the settings request returned 200, so the host is alive",
+      "capture": "sha256:3d8b230b46b7d6a97434704428fd5140ad31deb5ff47f9bd83884b9322e66b5c",
+      "quote": "\"alive\": true, ... \"status\": 200,"
+    },
+    {
+      "url": "probe:https://pan.mediy.cn/",
+      "date": "2026-11-25",
+      "proved": "the anonymous root listing has this entry count and hash",
+      "capture": "sha256:3d8b230b46b7d6a97434704428fd5140ad31deb5ff47f9bd83884b9322e66b5c",
+      "quote": "\"listing_sha256\": \"89803c56\", ... \"root_entries\": 7,"
+    },
+    {
+      "url": "probe:https://pan.mediy.cn/",
+      "date": "2026-11-25",
+      "proved": "the session is an anonymous guest user",
+      "capture": "sha256:3d8b230b46b7d6a97434704428fd5140ad31deb5ff47f9bd83884b9322e66b5c",
+      "quote": "\"guest\": true, ... \"username\": \"guest\","
+    },
+    {
+      "url": "probe:https://pan.mediy.cn/",
+      "date": "2026-11-25",
+      "proved": "the guest role has this permission bitmask, base path and advertised write flags",
+      "capture": "sha256:3d8b230b46b7d6a97434704428fd5140ad31deb5ff47f9bd83884b9322e66b5c",
+      "quote": "\"permission\": 0, ... \"base_path\": \"/\", ... \"write_advertised\": true, ... \"write_content_bypass\": false,"
     }
   ],
   "verdict": "qualifies-with-caveat",

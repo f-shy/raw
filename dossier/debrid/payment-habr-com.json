@@ -11,7 +11,7 @@
     "metered_on": "none",
     "source_url": "https://payment.habr.com/",
     "read_on": "2026-10-23",
-    "notes": "The published offers carry commission figures such as 'Комиссия 4-5%' for a Steam top-up."
+    "notes": "The published offers carry commission figures such as 'Комиссия 4–5%' for a Steam top-up."
   },
   "per_object_cap": {
     "stated": "not applicable: a payment marketplace",
@@ -61,10 +61,24 @@
       "url": "https://payment.habr.com/",
       "date": "2026-10-23",
       "proved": "'и ничего не продаёт ... платите там - рублями по СБП, картой российского банка', 'Комиссия 4-5%' on a Steam offer, and the 'Карта РФ / СБП' rail labels"
+    },
+    {
+      "url": "https://payment.habr.com/",
+      "date": "2026-11-25",
+      "proved": "the commission is printed with an en dash, not a hyphen",
+      "capture": "sha256:479d378814529aa5265da4d5e5a652dd96813efaeb52720e55695195b4ff8c89",
+      "quote": "Комиссия**4–5%**"
+    },
+    {
+      "url": "https://payment.habr.com/",
+      "date": "2026-11-25",
+      "proved": "the marketplace's catalogue links use the record's root URL as their prefix",
+      "capture": "sha256:3248fa803da9e80ec37353e9f74f00715a7f84d9df6f1e2e3d48bc50d8903304",
+      "quote": "[Выбрать предложение](https://payment.habr.com/grand-theft-auto-vi/)"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-23T02:16:27.684Z",
+  "verified_at": "2026-11-25T19:21:29.469Z",
   "price_per_tb_month": null,
   "notes": "Included because the sector asks for the payment gate itself, and this is the clearest published benchmark for what a Russian pays to reach a foreign service: 4-5% at the cheap end. It does not sell debrid and is not a debrid provider; the record says so rather than implying otherwise."
 }

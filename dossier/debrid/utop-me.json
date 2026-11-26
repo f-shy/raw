@@ -86,10 +86,59 @@
       "url": "https://utop.me/faq",
       "date": "2026-10-23",
       "proved": "search-index read: 'we are an official reseller of Real debrid ... pay using local payment options such as UPI or ban...' (live FAQ is client-rendered and returned no text)"
+    },
+    {
+      "url": "https://utop.me/products/torbox-voucher",
+      "date": "2026-11-25",
+      "proved": "the entry Standard 1-month voucher still costs USD 5.75",
+      "capture": "sha256:b54a04600e917b1ab3a3bc2f53f1f0f5102e0292b41c1f99c37408fc1c658185",
+      "quote": "- Standard :: 1 Month — 5.75 USD"
+    },
+    {
+      "url": "https://utop.me/products/torbox-voucher",
+      "date": "2026-11-25",
+      "proved": "the Essential 3-month voucher still costs USD 10.35",
+      "capture": "sha256:b54a04600e917b1ab3a3bc2f53f1f0f5102e0292b41c1f99c37408fc1c658185",
+      "quote": "- Essential :: 3 Months — 10.35 USD"
+    },
+    {
+      "url": "https://utop.us/torbox-app/torbox-voucher",
+      "date": "2026-11-25",
+      "proved": "the old utop.us domain still publishes the move notice",
+      "capture": "sha256:56901b1a194d2b88e32db7bc482ff3fbfd2a5be92e06cc307299c04ec1ab84d7",
+      "quote": "We've moved to a new domain"
+    },
+    {
+      "url": "https://utop.me/terms",
+      "date": "2026-11-25",
+      "proved": "cryptocurrency is still a published payment method on the reseller's own terms",
+      "capture": "sha256:eda77522cdefd713b23e41fdcaee0029387f3b5649362f217380898b41a17536",
+      "quote": "- Cryptocurrencies such as Bitcoin (on-chain and Lightning), Ethereum, and stablecoins, processed through our crypto payment providers"
+    },
+    {
+      "url": "https://utop.me/terms",
+      "date": "2026-11-25",
+      "proved": "a guest checkout still needs only an email for delivery, with no account or card required by the checkout itself",
+      "capture": "sha256:eda77522cdefd713b23e41fdcaee0029387f3b5649362f217380898b41a17536",
+      "quote": "- **Guest Checkout.** No account is created. Your email is used only for order delivery and order tracking."
+    },
+    {
+      "url": "https://utop.me/delivery",
+      "date": "2026-11-25",
+      "proved": "the code is delivered to the email used at checkout, so the delivery path is still an emailed code",
+      "capture": "sha256:bbe337c4a8b66a35ad584d335439cd50edd69b3d42926ddc111788cf7ef392d0",
+      "quote": "- **Email.** Sent to the address you used at checkout."
+    },
+    {
+      "url": "https://support.torbox.app/en/articles/13269421-torbox-voucher-system",
+      "date": "2026-11-25",
+      "proved": "TorBox's own voucher terms still carry the USD 500 manual-handling threshold",
+      "capture": "sha256:d94987d340298df24356c6663e9db52d364b66ca3966a187eb5bf3f6e76876e4",
+      "quote": "- Vouchers may be purchased with card, but any payments over $500 USD, will need to be handled manually."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T03:30:43.000Z",
+  "verified_at": "2026-11-25T09:47:10.859Z",
   "price_per_tb_month": "USD 5.75 per month (Standard voucher); USD 3.45 per month (Essential, 3-month voucher)",
   "notes": "Markup is flat at 15 percent on every tier checked: Standard 5.75 vs 5.00, Essential 3-month 10.35 vs 9.00, Essential 1-year 41.40 vs 36.00. That is the cheapest documented markup of any reseller among debrid providers and the reason the voucher path is worth naming at all. Included because it is the only route found where an Indian rail (UPI) buys a euro-priced entitlement at the provider's own price rather than a rupee markup. Trigger condition: UPI is dropped from the rail list. No programmatic path found: web store only; delivery is a code redeemed on torbox.app",
   "extras": {

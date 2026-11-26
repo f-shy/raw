@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-netdisk-pan-1601-u01-rerun",
+ "kind": "verify",
+ "topic": "netdisk-pan",
+ "question": "Re-check these netdisk-pan records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- netdisk-pan/gopro-cloud-quik $.price_per_tb_month: Page gives $99.99/yr for 500 GB non-GoPro (=USD 200/TB/yr) and $59.99 for 100 GB; the claimed ~USD 120/TB/yr appears nowhere and does not follow from the page.\n- netdisk-pan/cstcloud-data-capsule $.limits[1].value: Capture says S3 clients are not limited per file, but never states the 20 GB account total.\n- netdisk-pan/cstcloud-data-capsule $.interface: Capture documents S3 only; WebDAV is not mentioned in it.\n- netdisk-pan/1yunpan $.egress.terms: 1TB Monthly Bandwidth on Starter is on page; the Cache-Control max-age=15552000 value is not in the capture.\n- netdisk-pan/quark-tv-uc-tv $.egress.terms: Table lists 夸克网盘 300G and 1.7M/s; the 5 MB/s 88VIP peak and the TV-client streaming claim are not in the capture.\n- netdisk-pan/tianyi-cloud-drive $.free_tier.stated: Table gives 60G free and 2G in the 上传限制 column (per file, not a day); 4/10/12 TB promos and Gold 200 GB are not in the capture.\n- netdisk-pan/china-unicom-wopan $.egress.terms: Vendor says speed is not limited, but the 100/500 Mbit/s poster measurement is not in the capture, and the Wikipedia table lists 联通云盘 at 0.5M/s.\n- netdisk-pan/china-mobile-cloud $.egress.terms: Page states 不限速 and member 免流量; Baidu 0.1 MB/s, Quark 1.7 MB/s and forum consensus are not in this capture.\n- netdisk-pan/quark-tv-uc-tv $.free_tier.stated: Table lists 夸克网盘 300G; the 1 TB gift campaigns, 2 TB total and UC 10 GB base are not in the capture (the table says UC云 stopped storage in 2016).\n- netdisk-pan/china-unicom-wopan $.interface: Page says the driver is a reverse-engineered interface; it does not state rest or webdav.",
+ "scope": {
+  "rids": [
+   "netdisk-pan/1yunpan",
+   "netdisk-pan/quark-tv-uc-tv",
+   "netdisk-pan/cstcloud-data-capsule",
+   "netdisk-pan/gopro-cloud-quik",
+   "netdisk-pan/nikon-image-space-nikon-imaging-cloud",
+   "netdisk-pan/china-mobile-cloud",
+   "netdisk-pan/china-unicom-wopan",
+   "netdisk-pan/tianyi-cloud-drive"
+  ]
+ },
+ "origin": "audit u17 of 20261125-0137-verify-netdisk-pan-1601/u01 failed: 10 of 30 unsupported",
+ "created": "2026-11-25T12:12:07Z"
+}

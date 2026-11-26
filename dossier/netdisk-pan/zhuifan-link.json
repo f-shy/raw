@@ -140,27 +140,6 @@
       "quote": "\"checked_at\": \"2026-11-19T03:45:17.450Z\""
     },
     {
-      "url": "probe:https://zhuifan.link/",
-      "date": "2026-11-19",
-      "proved": "three consecutive failed probes: the Cloudflare 502 page marks the host as in Error with the browser and Cloudflare working, and no AList API, mount list or listing hash was returned",
-      "capture": "sha256:b9c452d427140e15b09e46b3597c3fde6b7d8d90bbc114768b4dfcd3e6afbf1a",
-      "quote": "\"consecutive_failures\": 3"
-    },
-    {
-      "url": "probe:https://zhuifan.link/",
-      "date": "2026-11-19",
-      "proved": "the failure count reached three across this run's probes",
-      "capture": "sha256:b9c452d427140e15b09e46b3597c3fde6b7d8d90bbc114768b4dfcd3e6afbf1a",
-      "quote": "\"consecutive_failures\": 3"
-    },
-    {
-      "url": "probe:https://zhuifan.link/",
-      "date": "2026-11-19",
-      "proved": "every API path of the third probe failed, so the host was recorded dead at this re-check",
-      "capture": "sha256:b9c452d427140e15b09e46b3597c3fde6b7d8d90bbc114768b4dfcd3e6afbf1a",
-      "quote": "\"alive\": false"
-    },
-    {
       "url": "https://zhuifan.link/",
       "date": "2026-11-20",
       "proved": "a 2026-11-20 probe of the host answered HTTP 502, so it is still down",
@@ -198,16 +177,16 @@
     {
       "url": "probe:https://zhuifan.link/",
       "date": "2026-11-25",
-      "proved": "the failure count reached four in the fresh probe",
-      "capture": "sha256:4003be0f3bb88a1f3736e362c97fcf69782e7f91e191b4427322851e852a520c",
-      "quote": "\"consecutive_failures\": 4"
+      "proved": "the dead host returned no listing hash",
+      "capture": "sha256:0ae1eddb5516f938b65645b617a27702549a3e54211c9473c596db42641b571f",
+      "quote": "\"listing_sha256\": null"
     },
     {
       "url": "probe:https://zhuifan.link/",
       "date": "2026-11-25",
-      "proved": "the fresh failed probe was checked at this instant",
-      "capture": "sha256:4003be0f3bb88a1f3736e362c97fcf69782e7f91e191b4427322851e852a520c",
-      "quote": "\"checked_at\": \"2026-11-25T02:34:44.320Z\""
+      "proved": "the probe record states the dead verdict for this host",
+      "capture": "sha256:48c6012071c7ff67bdffea2e686c6cd15bb932a5e1707ff21e86e044b07ebb50",
+      "quote": "\"verdict\": \"dead\""
     }
   ],
   "verdict": "dead",

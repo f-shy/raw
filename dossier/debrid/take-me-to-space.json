@@ -66,9 +66,23 @@
       "capture": "sha256:c23bab809cea0a1838db920495d0e697538571a4e8989a489a1659a521129aaa",
       "quote": "Maximum file size per URL is 32 MB.",
       "proved": "URL uploads are capped at 32 MB"
+    },
+    {
+      "url": "https://take-me-to.space/",
+      "date": "2026-11-25",
+      "proved": "the per-file cap remains 50 MB",
+      "capture": "sha256:c23bab809cea0a1838db920495d0e697538571a4e8989a489a1659a521129aaa",
+      "quote": "Maximum upload size per file is 50 MB"
+    },
+    {
+      "url": "https://take-me-to.space/",
+      "date": "2026-11-25",
+      "proved": "URL uploads remain capped at 32 MB to whitelisted image formats",
+      "capture": "sha256:c23bab809cea0a1838db920495d0e697538571a4e8989a489a1659a521129aaa",
+      "quote": "Maximum file size per URL is 32 MB. Whitelist: WEBP, JPG, JPEG, BMP, GIF, PNG, TIFF, TIF, SVG. URL uploads are being proxied by [DuckDuckGo](https://duckduckgo.com/)."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-03T07:37:12.656Z",
+  "verified_at": "2026-11-25T09:46:42.462Z",
   "price_per_tb_month": null
 }

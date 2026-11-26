@@ -59,7 +59,7 @@
     "detail": "The home page states that uploading is for registered members, with a one-minute free sign-up; the form fields were not read.",
     "country": null
   },
-  "reliability_note": "No status page was read.",
+  "reliability_note": "The home page advertises 'Up to 10 GB per file', a headline that is not repeated in the premium tier table.",
   "confidence": "documented",
   "confidence_note": "Tiers read on the vendor premium page and home page. Cheapest paid tier: unverified: the price list is not on the pages read.",
   "evidence": [
@@ -97,10 +97,59 @@
       "capture": "sha256:a3142199bf36794948bc903de8bbd416166b5bc1c39204c88c0fe7bc54de7e91",
       "quote": "Sign up free in one minute, or log in to start uploading.",
       "proved": "uploading needs a free account"
+    },
+    {
+      "url": "https://theuser.cloud/premium/",
+      "date": "2026-11-25",
+      "proved": "per-file cap by tier: 5120 Mb Free, 10240 Mb Registered, Unlimited Premium",
+      "capture": "sha256:d34ae38e239b72554bccec0399f468139b3005ee0be5495b31b228bf7d03e643",
+      "quote": "Max upload file size\n**5120 Mb**\n**10240 Mb**\n**Unlimited**\n**Unlimited**"
+    },
+    {
+      "url": "https://theuser.cloud/premium/",
+      "date": "2026-11-25",
+      "proved": "download volume is 20 GB in 1 days on Free",
+      "capture": "sha256:d34ae38e239b72554bccec0399f468139b3005ee0be5495b31b228bf7d03e643",
+      "quote": "Download volume\n**20 GB in 1 days **"
+    },
+    {
+      "url": "https://theuser.cloud/premium/",
+      "date": "2026-11-25",
+      "proved": "Free files are deleted 15 days after the last download",
+      "capture": "sha256:d34ae38e239b72554bccec0399f468139b3005ee0be5495b31b228bf7d03e643",
+      "quote": "When are your files deleted?\n**15 days after last download**"
+    },
+    {
+      "url": "https://theuser.cloud/premium/",
+      "date": "2026-11-25",
+      "proved": "no storage allowance on Free, 200 GB on Registered",
+      "capture": "sha256:d34ae38e239b72554bccec0399f468139b3005ee0be5495b31b228bf7d03e643",
+      "quote": "Storage space\n**-**\n**200 GB**\n**Unlimited**\n**Unlimited**"
+    },
+    {
+      "url": "https://theuser.cloud/",
+      "date": "2026-11-25",
+      "proved": "uploading needs a free account",
+      "capture": "sha256:a3142199bf36794948bc903de8bbd416166b5bc1c39204c88c0fe7bc54de7e91",
+      "quote": "Sign up free in one minute, or log in to start uploading."
+    },
+    {
+      "url": "https://theuser.cloud/",
+      "date": "2026-11-25",
+      "proved": "the home page advertises a 10 GB per-file ceiling",
+      "capture": "sha256:a3142199bf36794948bc903de8bbd416166b5bc1c39204c88c0fe7bc54de7e91",
+      "quote": "Up to 10 GB per file"
+    },
+    {
+      "url": "https://theuser.cloud/",
+      "date": "2026-11-25",
+      "proved": "the advertising headline names a 10 GB per-file ceiling",
+      "capture": "sha256:a3142199bf36794948bc903de8bbd416166b5bc1c39204c88c0fe7bc54de7e91",
+      "quote": "Up to 10 GB per file"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T07:37:12.656Z",
+  "verified_at": "2026-11-25T09:46:40.367Z",
   "price_per_tb_month": null,
   "notes": "The page lists an affiliate payout table for 1000 downloads, which means the host pays uploaders. No programmatic path found: Web upload; the home page says uploading is for registered members. No API was read."
 }

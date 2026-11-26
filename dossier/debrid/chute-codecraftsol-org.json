@@ -19,10 +19,10 @@
     "source_url": "https://chute.codecraftsol.org/"
   },
   "retention": {
-    "stated": "unverified: 'Links expire on their own and the files are deleted for good' - no duration is given",
+    "stated": "Choose how long the link lasts: 1 hour to 7 days",
     "days": null,
     "source_url": "https://chute.codecraftsol.org/",
-    "notes": "Expiry exists; its length is not published."
+    "notes": "The link lifetime is selected by the sender: 1 hour to 7 days."
   },
   "egress": {
     "terms": "No byte allowance or download counter is stated; the page offers optional end-to-end encryption and password protection.",
@@ -65,10 +65,31 @@
       "url": "probe:https://chute.codecraftsol.org/api/upload",
       "date": "2026-10-23",
       "proved": "shape sweep: /api/upload 404, /upload 405, /api/files 404, /v1/upload 405, /api/v1/upload 404"
+    },
+    {
+      "url": "https://chute.codecraftsol.org/",
+      "date": "2026-11-25",
+      "proved": "the sender chooses a link lifetime from 1 hour to 7 days",
+      "capture": "sha256:10019d371d275c8ff9a7f5c715850a3ececdee63e86d258460145cf61a1df43f",
+      "quote": "Choose how long the link lasts: 1 hour to 7 days"
+    },
+    {
+      "url": "https://chute.codecraftsol.org/",
+      "date": "2026-11-25",
+      "proved": "the expiry length is published",
+      "capture": "sha256:10019d371d275c8ff9a7f5c715850a3ececdee63e86d258460145cf61a1df43f",
+      "quote": "Choose how long the link lasts: 1 hour to 7 days"
+    },
+    {
+      "url": "https://chute.codecraftsol.org/",
+      "date": "2026-11-25",
+      "proved": "the first-party page publishes the sender-selected 1 hour to 7 day link lifetime",
+      "capture": "sha256:10019d371d275c8ff9a7f5c715850a3ececdee63e86d258460145cf61a1df43f",
+      "quote": "Choose how long the link lasts: 1 hour to 7 days"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:30:47.000Z",
+  "verified_at": "2026-11-25T19:21:35.239Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Listed as a lead for the subsequent audit rather than a settled provider: the numbers are the vendor's and the mechanism is unmeasured. No programmatic path found: Browser drop zone. /upload and /v1/upload answer 405 and /api/upload answers 404, so the anonymous upload is a browser flow with no documented endpoint.",

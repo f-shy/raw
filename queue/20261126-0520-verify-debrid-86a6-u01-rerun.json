@@ -1,0 +1,14 @@
+{
+ "id": "20261126-0520-verify-debrid-86a6-u01-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Append a captured probe row to each of these two records and re-date them. For each record: run `python scripts/probe/probe.py URL --dump-headers --out <ws>/probe`, register the JSON record with `scripts/rq capture --lane <ws> probe:URL --probe <ws>/probe/FILE.json`, add an `append_evidence` row for it (quote \"status\": N), and add a `confirm` of $.url with the probe's \"url\" span and rung measured so the record is re-dated. Do not change any other field. debrid/nzbgrabit -> https://nzbgrabit.org/ ; debrid/temp-files-com -> https://www.temp-files.com/.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/temp-files-com $.url: The fresh read of https://www.temp-files.com/ (capture sha256:dda4dfdc44e00c3064013eac044e0a4da90440013a27feb0d50d41e053ee547c, title 'Deployment Paused') returned HTTP 402 with the body 'This deployment is temporarily paused'; my fresh probe (sha256:6adb29222eafd47daa7d93693ea77ea17a9d4a6bc54f1800d",
+ "scope": {
+  "rids": [
+   "debrid/nzbgrabit",
+   "debrid/temp-files-com"
+  ]
+ },
+ "origin": "audit u02 of 20261126-0520-verify-debrid-86a6/u01 failed: 1 of 2 unsupported",
+ "created": "2026-11-26T05:50:04Z"
+}

@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u156-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "This replaces the reverted attempt u04. Start from .tmp/20261125-0137-verify-debrid-5636/units/u04/changes.jsonl: copy every `set`, `dead`, `append_evidence` and `open_question` op there, but drop every `confirm`. Then, for each record in scope, capture its first-party page and find ONE field whose exact value appears in the capture text; confirm only that one field, with a quote span copied exactly from the capture, and list every other field in unread. If no field value appears in any capture, write an open_question for the record and do not confirm it. Never confirm a synthesized text field.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/pobierz-biz $.limits_note: The capture proves 'Pobieranie z 60 hostingów' only; it says nothing about concurrency, a per-host daily cap or a fair-use paragraph, so the second sentence is not established. A fresh read of https://www.pobierz.biz/how_to (sha256:04386fbb299c644c982b9a4b6793583e6c4289178a9e0f629d94cdf3683caa33) pu\n- debrid/qiwi-wallet $.notes: The FAQ capture is about the Kazakhstan Qplus wallet and shows a top-up with a Kazakhstan bank card, but it does not state that the Russian wallet rail is closed, that Qplus is a separate rail, or the general sentence about CIS payment-method listings. The cited source proves only one clause of the \n- debrid/rapideo-net $.free_tier.stated: The registration capture proves the 'up to 5 GB gratis' clause only. The first clause, the home page's '1 GB free to start', is on a different page and is not in this capture, so one span does not say the whole value.\n- debrid/rapideo-net $.free_tier.notes: The registration capture proves the up-to-5-GB registration credit. 'Not a monthly allowance' and 'the home page states 1 GB' are not in this capture; the value combines two pages and a negative, so it is broader than the source.\n- debrid/rapidtraffic-pl $.limits_note: The capture proves 'Pobieranie z 60 hostingów' only; it says nothing about concurrency, a per-host daily cap or a fair-use paragraph, so the second sentence is not established. A fresh read of https://www.rapidtraffic.pl/how_to (sha256:21e0deb5db5fc3bca572aaee4ddcd724b5626224dc8648dc6a1cbf2d53a20a2f",
+ "scope": {
+  "rids": [
+   "debrid/pobierz-biz",
+   "debrid/rapidtraffic-pl",
+   "debrid/nopremium-pl",
+   "debrid/twojlimit-pl",
+   "debrid/rapideo-net",
+   "debrid/nzbserver-com",
+   "debrid/spotnzb-com",
+   "debrid/qiwi-wallet"
+  ]
+ },
+ "origin": "audit u178 of 20261125-0137-verify-debrid-5636/u156 failed: 5 of 15 unsupported",
+ "created": "2026-11-25T21:29:00Z"
+}

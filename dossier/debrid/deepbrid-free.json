@@ -113,10 +113,31 @@
       "url": "https://www.deepbrid.com/service",
       "date": "2026-10-23",
       "proved": "'we offer a part of our premium service for free' and the 39-name 'Free Hosters Available' list, including Gofile, Mega, Mediafire, Terabox and 1fichier"
+    },
+    {
+      "url": "https://www.deepbrid.com/service",
+      "date": "2026-11-25",
+      "proved": "the logged-out limits panel still shows five files a day, three Filenext files and the 1.2 GB / 300 MB caps",
+      "capture": "sha256:60c4c2455aeb5438123795022c6a20eb3469d3b49b5e92b33df75fa3cc46d19f",
+      "quote": "Files per day 0 / 5\n\nFilenext\n\nFilenext Files 0 / 3\n\nMaximum File Sizes\n\nGeneral 1.2 GB\n\nFilenext 300.0 MB\n\nEmload 300.0 MB"
+    },
+    {
+      "url": "https://www.deepbrid.com/home",
+      "date": "2026-11-25",
+      "proved": "the home page still states five free cloud-provider links a day",
+      "capture": "sha256:5425a2cec624bcf0db356f27735c411d5433586896f1d1d434ed4d157c7a7441",
+      "quote": "With the free account you will be able to fetch up to 5 cloud provider links every day."
+    },
+    {
+      "url": "https://www.deepbrid.com/signup",
+      "date": "2026-11-25",
+      "proved": "the signup page states that a free account needs no card",
+      "capture": "sha256:5bf096cc8e6b3392bc79ffd03e679245731a48b003987eb9238b76eb1cbc23c1",
+      "quote": "Stream at lightning speed today. No credit card required for free accounts."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T01:57:49.000Z",
+  "verified_at": "2026-11-25T09:46:33.636Z",
   "price_per_tb_month": "EUR 0 for 5 files a day, 1.2 GB each",
   "history": [],
   "notes": "The seed said 'a limited free tier' without numbers. The numbers are on the vendor's own downloader page and the per-file cap is the one that matters: it is the only service in this lane whose free tier refuses a file by size rather than by count. Merged from ladder-verify: This record changes one thing about scratch seed-western/records/deepbrid-free.json, which is otherwise right on every number: the five-a-day counter is a session counter, not proven to be an account counter. The ladder multiplies 5 x 1.2 x 30 = 180 GB, which stands as a per-session ceiling but is not proven repeatable across two accounts or two addresses. The 1.2 GB cap is the number hit first, and it is 300 MB on two of the listed hosts.",

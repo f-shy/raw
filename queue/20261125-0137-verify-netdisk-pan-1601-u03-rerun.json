@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-netdisk-pan-1601-u03-rerun",
+ "kind": "verify",
+ "topic": "netdisk-pan",
+ "question": "Re-check these netdisk-pan records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- netdisk-pan/123pan-123 $.identity_cost.kind: Quote says phone number, password, SMS code. It does not say national ID or real-name is needed to register; kind national-id is not supported (any-phone-like).\n- netdisk-pan/vyuyun $.reliability_note: Probe record is dated 2026-11-25 (status 200, bytes 6634), not 2026-10; 'tiny domestic operator with no published SLA' is not in the record.\n- netdisk-pan/weiyun $.egress.terms: Page says unlimited high-speed download is unavailable to free users; it does not say free downloads are heavily throttled.",
+ "scope": {
+  "rids": [
+   "netdisk-pan/pikpak",
+   "netdisk-pan/uc-drive",
+   "netdisk-pan/weiyun",
+   "netdisk-pan/123pan-123",
+   "netdisk-pan/vyuyun",
+   "netdisk-pan/lanzou",
+   "netdisk-pan/mail-ru-cloud",
+   "netdisk-pan/yandex-disk"
+  ]
+ },
+ "origin": "audit u19 of 20261125-0137-verify-netdisk-pan-1601/u03 failed: 3 of 30 unsupported",
+ "created": "2026-11-25T12:12:07Z"
+}

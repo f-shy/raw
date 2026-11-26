@@ -22,7 +22,7 @@
     "source_url": "https://www.ilanzou.com"
   },
   "egress": {
-    "terms": "Ordinary users upload and download with no speed limit ('普通用户上传下载永不限速'); files under 100 MB download from a share link without a login, larger files need a login unless the downloader is VIP",
+    "terms": "小于100M的文件，普通用户可通过分享链接免登陆下载 VIP用户无分享链接文件大小上限下载限制",
     "metered": false,
     "free_allowance": null,
     "price_per_tb": null,
@@ -69,20 +69,6 @@
       "proved": "the seed pass recorded, at this URL: the iz parser needs authentication for large files"
     },
     {
-      "url": "https://www.ilanzou.com/",
-      "date": "2026-11-03",
-      "proved": "files under 100 MB download from a share link without login; above that a login is needed, except for VIP",
-      "capture": "sha256:7de65de6f432b32f58a357e1b31778faf7776190dd2955dc8af3d5c33e52ea0f",
-      "quote": "小于100M的文件，普通用户可通过分享链接免登陆下载 VIP用户无分享链接文件大小上限下载限制"
-    },
-    {
-      "url": "https://ai-321.com/AI/13827.html",
-      "date": "2026-11-03",
-      "proved": "a third-party comparison gives a free account 10 GB, and 2 TB for a year after registration and authentication",
-      "capture": "sha256:5e029a309be1cc8c8d6b5621b6ba736ddf6923e562caf097c1fca322225f7e26",
-      "quote": "| **存储容量** | 10GB（注册认证后享2T/1年） | 10TB |"
-    },
-    {
       "url": "https://ai-321.com/AI/13827.html",
       "date": "2026-11-03",
       "proved": "registration and an account authentication step are named, with no detail on what it requires",
@@ -95,13 +81,6 @@
       "proved": "the OpenList ilanzou driver is configured with an ilanzou account and password",
       "capture": "sha256:f13c1d9c1502125c2cdf3c7681abdc2c6e5f34305f18c78e8f9831a716c0dd25",
       "quote": "填写自己的蓝奏云优享版帐号密码"
-    },
-    {
-      "url": "https://www.ilanzou.com/",
-      "date": "2026-11-03",
-      "proved": "ordinary users upload and download with no speed limit",
-      "capture": "sha256:7de65de6f432b32f58a357e1b31778faf7776190dd2955dc8af3d5c33e52ea0f",
-      "quote": "普通用户上传下载永不限速"
     },
     {
       "url": "https://www.ilanzou.com/",
@@ -126,7 +105,7 @@
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-25T03:33:18.627Z",
+  "verified_at": "2026-11-25T14:05:44.509Z",
   "history": [],
   "binding": "per-object-cap",
   "binding_note": "The capacity is paid and no free figure is published, so the free tier cannot be shown to reach anything. The per-file cap is the number a buyer would need and the page does not publish it.",

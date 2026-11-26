@@ -84,13 +84,20 @@
       "capture": "sha256:5498f5e037ae44fc08f8f05b93d77c56693079197012c5920f142d4769f23b90",
       "quote": "NZBGrabit 2012 - 2025 Powered by vBulletin® Version 4.2.5",
       "proved": "the site is a vBulletin forum dated 2012 to 2025"
+    },
+    {
+      "url": "probe:https://nzbgrabit.org/",
+      "date": "2026-11-26",
+      "capture": "sha256:c44c63c2f9e9445024478bdc5a4e8f4c89735c757d398b894f29f8754f58cad3",
+      "quote": "\"status\": 403",
+      "proved": "the front page answered 403 to a bare GET on 2026-11-26 behind a Cloudflare challenge, so no page of the site could be read that day"
     }
   ],
   "verdict": "qualifies-with-caveat",
   "extras": {
     "price": "USD 0 (free); GBP 14 per year Supporter (reported)"
   },
-  "notes": "No programmatic path found: A vBulletin forum; the front page links Welcome Page, API Key Info and Donate / Upgrade.",
+  "notes": "No programmatic path found: A vBulletin forum; the front page links Welcome Page, API Key Info and Donate / Upgrade. Re-probed 2026-11-26: the front page answered 403 with a Cloudflare challenge and the values above are the last read, on 2026-11-03.",
   "verified_at": "2026-11-03T07:37:15.010Z",
   "topic": "debrid",
   "price_per_tb_month": null

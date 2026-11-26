@@ -6,7 +6,7 @@
   "category": "hosted Stremio addon, universal torrent/debrid scrapers with live-TV and catalog resources",
   "tier": "public instance",
   "free_tier": {
-    "stated": "Free and accountless, but the public instance answered an anonymous stream request with a single placeholder stream titled 'MediaFusion public rate-limit exceeded 🐢'. The manifest itself claims 'configurationRequired: false'.",
+    "stated": "Free and accountless: 'No account required to configure • Create an account to save multiple profiles'. The public manifest claims 'configurationRequired: false'. Public addons have '100 stream requests' up front, '1 request a minute' refills, counted per internet connection.",
     "unit": "requests",
     "metered_on": "request-count",
     "source_url": "https://mediafusion.elfhosted.com/stream/movie/tt1254207.json",
@@ -41,7 +41,7 @@
   "limits": [
     {
       "kind": "request-rate",
-      "value": "per-caller public rate limit, enforced; the number is not published and the over-limit response is a single placeholder stream",
+      "value": "100 stream requests up front, refilling at 1 request a minute, counted per internet connection on the public instance; private instances get 1,000 up front and 10 a minute",
       "source": "https://mediafusion.elfhosted.com/stream/movie/tt1254207.json"
     }
   ],
@@ -71,10 +71,45 @@
       "url": "https://store.elfhosted.com/product/mediafusion-mediaflowproxy/",
       "date": "2026-10-23",
       "proved": "the paid escape: 'Your own private MediaFusion addon for Stremio, bundled with a MediaFlow Proxy so the whole household can stream from one debrid account', USD 9.00 / month"
+    },
+    {
+      "url": "https://mediafusion.elfhosted.com/",
+      "date": "2026-11-25",
+      "proved": "the hosted addon can be configured without an account; an account is optional for saved profiles",
+      "capture": "sha256:3094148b357417841106e4b6e7c7fe10443c7e7a766ed6c2cd9ca263d9a640a1",
+      "quote": "Configure Add-onCreate Account No account required to configure • Create an account to save multiple profiles"
+    },
+    {
+      "url": "https://docs.elfhosted.com/stremio-addons/guide/rate-limits/",
+      "date": "2026-11-25",
+      "proved": "the published public bucket is 100 stream requests with 1,000 for private instances",
+      "capture": "sha256:0d473798b8bc4021c5ebab506a7be009cb7c94219930a4561b4993677fb14b1a",
+      "quote": "Up front | 100 stream requests | 1,000 stream requests"
+    },
+    {
+      "url": "https://docs.elfhosted.com/stremio-addons/guide/rate-limits/",
+      "date": "2026-11-25",
+      "proved": "the public bucket is 100 stream requests with a published refill rate",
+      "capture": "sha256:0d473798b8bc4021c5ebab506a7be009cb7c94219930a4561b4993677fb14b1a",
+      "quote": "Up front | 100 stream requests | 1,000 stream requests"
+    },
+    {
+      "url": "https://mediafusion.elfhosted.com/manifest.json",
+      "date": "2026-11-25",
+      "proved": "the public manifest is still served with configuration not required",
+      "capture": "sha256:41600dc131694ddb37df6da966b1ca05d031c5a62616d0bd589807d80dfba1aa",
+      "quote": "{\"behaviorHints\":{\"configurable\":true,\"configurationRequired\":false}"
+    },
+    {
+      "url": "https://mediafusion.elfhosted.com/stream/movie/tt1254207.json",
+      "date": "2026-11-25",
+      "proved": "a fresh anonymous unconfigured stream request returned an empty stream list, not the old tortoise placeholder",
+      "capture": "sha256:72cd320b218f1f8d9cafd4cf211a72e6195aafe5944e8b1ce331b5962b8597e8",
+      "quote": "{\"streams\":[]}"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:28:11.000Z",
+  "verified_at": "2026-11-25T09:46:44.528Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "This is the clearest evidence found that a free hosted endpoint can be alive and useless at the same time: HTTP 200, valid JSON, schema-correct streams, zero content. Any measurement that only checked status or manifest would have scored it as working.",

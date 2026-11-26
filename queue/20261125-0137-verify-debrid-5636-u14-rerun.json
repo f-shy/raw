@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u14-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Re-check these debrid records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/puffbin-com $.retention.notes: Source mentions burn after reading but never says it is a pull-count of one or distinguishes it from retention.\n- debrid/turbobit-to $.free_tier.stated: Page says basic features are free; it does not say 'None sold'. The cited Vietnam LLC quote does not address the free tier.\n- debrid/turbobit-to $.identity_cost.kind: Capture has no mention of card payment; the quote concerns the operator company only.\n- debrid/gigasend-us $.identity_cost.detail: Email and no recipient account supported (Recipients download without an account), but 'pay tier requires no card to quote' is not stated; 'No credit card required' is listed only for the free tier.\n- debrid/gigasend-us $.identity_cost.detail: Same as c24: 'pay tier requires no card to quote' not stated in source.",
+ "scope": {
+  "rids": [
+   "debrid/turbobit-to",
+   "debrid/pasito-me",
+   "debrid/ninjafiles-io",
+   "debrid/anonfiles-info",
+   "debrid/puffbin-com",
+   "debrid/chute-codecraftsol-org",
+   "debrid/filebolt-net",
+   "debrid/gigasend-us"
+  ]
+ },
+ "origin": "audit u91 of 20261125-0137-verify-debrid-5636/u14 failed: 5 of 30 unsupported",
+ "created": "2026-11-25T15:10:38Z"
+}

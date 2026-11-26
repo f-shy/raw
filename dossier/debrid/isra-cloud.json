@@ -212,10 +212,66 @@
       "proved": "the landing page still states 1 TB of space",
       "capture": "sha256:f60973d4c4954f6775ebb3c7703c10ac249d241d144b8be85b6322e800c3b54c",
       "quote": "You get 1 TB of space"
+    },
+    {
+      "url": "https://isra.cloud/tos.html",
+      "date": "2026-11-25",
+      "proved": "the vendor terms say the service provides only premium subscription services",
+      "capture": "sha256:f7655caa8c9ed69fbbd4e80efd982cb7de7fbf9a40e011ab85236ffb3b958c05",
+      "quote": "We provide Only premium subscription services."
+    },
+    {
+      "url": "https://isra.cloud/tos.html",
+      "date": "2026-11-25",
+      "proved": "the maximum size of an uploaded file is 3 GB for a Premium user",
+      "capture": "sha256:f7655caa8c9ed69fbbd4e80efd982cb7de7fbf9a40e011ab85236ffb3b958c05",
+      "quote": "You agree that the maximum size of files uploaded to the service are 3 GB (for Premium User)."
+    },
+    {
+      "url": "https://isra.cloud/tos.html",
+      "date": "2026-11-25",
+      "proved": "the premium daily download limit is 55GB and the administration may change it",
+      "capture": "sha256:f7655caa8c9ed69fbbd4e80efd982cb7de7fbf9a40e011ab85236ffb3b958c05",
+      "quote": "Premium users are limited to 55GB download per day (24 hours), and it can be changed in any case if decided by our Administration."
+    },
+    {
+      "url": "https://isra.cloud/premium.html",
+      "date": "2026-11-25",
+      "proved": "the 30-day premium plan includes about 1,5 TB of bandwidth",
+      "capture": "sha256:6d8f787bf88aa4ef0aa2c2ef74b56e688eb194b4f0a14fc84f3cf3dd6a2b5292",
+      "quote": "~ 1,5 TB Bandwidth"
+    },
+    {
+      "url": "https://isra.cloud/premium.html",
+      "date": "2026-11-25",
+      "proved": "buying premium requires a registered, verified and authorized account",
+      "capture": "sha256:6d8f787bf88aa4ef0aa2c2ef74b56e688eb194b4f0a14fc84f3cf3dd6a2b5292",
+      "quote": "To purchase a premium access you need to be a registered, verified and authorized user."
+    },
+    {
+      "url": "https://isra.cloud/register.html",
+      "date": "2026-11-25",
+      "proved": "the sign-up page presents a code-entry field",
+      "capture": "sha256:46d08b5708265f75b4111514b133c043053d802e5498470344276995f2e962c4",
+      "quote": "Enter code below:"
+    },
+    {
+      "url": "https://isra.cloud/",
+      "date": "2026-11-25",
+      "proved": "the landing page states 1 TB of space",
+      "capture": "sha256:f60973d4c4954f6775ebb3c7703c10ac249d241d144b8be85b6322e800c3b54c",
+      "quote": "You get 1 TB of space"
+    },
+    {
+      "url": "https://leechall.com/",
+      "date": "2026-11-25",
+      "proved": "a third-party leecher lists 650 MB per day for the host",
+      "capture": "sha256:d8bf63f755d814642dc9a8e0b3c6a5e73d73009145cafcb9b09340ebcd64cf2f",
+      "quote": "isra.cloud isra.cloud 0 B / 650 MB /d"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T11:28:46.170Z",
+  "verified_at": "2026-11-25T09:46:38.367Z",
   "price_per_tb_month": "USD 19.00 per 30 days for about 1,5 TB of bandwidth on the vendor premium page",
   "history": [],
   "notes": "The vendor publishes its premium plans at isra.cloud/premium.html: $19.00 for 30 days, $45.00 for 90 days and $75.00 for 180 days, one-time charge with no auto-renew; resellers list the same durations. No programmatic path found: Web upload and file manager on a subdomain (premium.isra.cloud). No API was found; the vendor publishes no endpoint.",

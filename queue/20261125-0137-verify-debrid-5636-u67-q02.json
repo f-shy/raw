@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u67-q02",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "debrid/dailyuploads $.limits[3].value currently reads '4 GB per file free, 80 GB per file premium', while the first-party premium table states 'Max download file size | 2 GB | 4 GB | 80 GB' (2 GB free, 4 GB registered, 80 GB premium). Should $.limits[3].value be corrected to the tiered figure, given the record's per_object_cap.stated field already states the 2/4/80 GB download caps?",
+ "why": "The record is measured and the correction is a documented page read, which cannot override it without lowering the record's rung. No probe measures a per-file download cap, so no measured-rung set is possible. The page row is appended as evidence; settling this needs a hand change in an own clone or a probe at measured rung.",
+ "scope": {
+  "rids": [
+   "debrid/dailyuploads"
+  ]
+ },
+ "origin": "20261125-0137-verify-debrid-5636/u67",
+ "created": "2026-11-25T12:00:07Z"
+}

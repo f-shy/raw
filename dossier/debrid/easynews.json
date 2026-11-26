@@ -20,7 +20,7 @@
     "notes": ""
   },
   "retention": {
-    "stated": "\"6432+ Days Article Retention\" on the Big Gig row; a checkout page read the same day said \"6643+ Days\". The conservative figure is kept.",
+    "stated": "\"Article Retention 6676 Days\" on every row of the current plans page.",
     "days": 6432,
     "source_url": "https://www.easynews.com/usenet-plans/",
     "notes": "Two vendor surfaces give different day counts on the same day; the smaller is recorded."
@@ -36,7 +36,7 @@
     "rest",
     "unknown"
   ],
-  "interface_detail": "Web-to-Usenet browser interface plus NNTP (200+ days on the mail-in Classic, 6432+ days on Big Gig, 60 connections). The web interface is the distinguishing feature; the schema has no nntp token, so the second token is unknown.",
+  "interface_detail": "Web-to-Usenet browser interface plus NNTP (200+ days on the mail-in Classic, 6676+ days on Big Gig, 60 connections). The web interface is the distinguishing feature; the schema has no nntp token, so the second token is unknown.",
   "tooling": "browser (no client needed); NNTP clients also work",
   "chaining": "Not a free step. It is the fallback when a Usenet indexer returns an article wanted in a browser: pay $9.99 for month one and use the 30-day refund as the trial, which still means a card.",
   "limits": [
@@ -47,7 +47,7 @@
     },
     {
       "kind": "retention-clamped",
-      "value": "6432+ days on Big Gig",
+      "value": "6676+ days on Big Gig",
       "source": "https://www.easynews.com/usenet-plans/"
     }
   ],
@@ -101,10 +101,31 @@
       "proved": "the checkout form's account field is an email address; the card option asks for first name, last name, zip code, country and card number, and the form has no phone field",
       "capture": "sha256:da40ce6da9b01755e141daa24d07c0530119ab2af2f79bd2956417536803fcbc",
       "quote": "placeholder=\"Your Email Address\""
+    },
+    {
+      "url": "https://www.easynews.com/usenet-plans/",
+      "date": "2026-11-25",
+      "proved": "the current plans page states 6676 days of article retention on every plan row",
+      "capture": "sha256:36ddf2e101e3ee9474aa57d255dfc52ca3db824f7374bd3a781d2ac1e107eda4",
+      "quote": "- Article Retention 6676 Days"
+    },
+    {
+      "url": "https://signup.easynews.com/checkout/unlimited-special-deal/",
+      "date": "2026-11-25",
+      "proved": "the checkout page repeats 6676+ days retention and 60 connections for the unlimited special deal",
+      "capture": "sha256:e8a9bf412486849ff8443cac3d3bc085616812d7b26d8a7082be8fbe6c2f18e6",
+      "quote": "- 6676+ Days Article Retention"
+    },
+    {
+      "url": "https://www.easynews.com/usenet-plans/",
+      "date": "2026-11-25",
+      "proved": "the plans page names the Big Gig tier",
+      "capture": "sha256:36ddf2e101e3ee9474aa57d255dfc52ca3db824f7374bd3a781d2ac1e107eda4",
+      "quote": "## Big Gig Plan"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-30T13:11:55.967Z",
+  "verified_at": "2026-11-25T22:07:35.359Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "Repeatability: not applicable, because there is no free trial to repeat. Abandonment: if a free trial appears in the help centre, this becomes a trial record. PayPal is listed, but PayPal guest checkout still requires a funding card, and Easynews presents PayPal as a subscription authorisation rather than a one-off, so it is not a cardless route.",

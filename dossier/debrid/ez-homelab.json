@@ -66,10 +66,24 @@
       "url": "https://ez-homelab.com/pricing",
       "date": "2026-10-23",
       "proved": "the Entertainment package contains 'Media Streaming Plex, Jellyfin, or similar' plus 'Media Management Sonarr, Radarr, Prowlarr', and the pricing model: 'based on actual AWS infrastructure costs plus a small platform fee'"
+    },
+    {
+      "url": "https://ez-homelab.com/hosting/plex",
+      "date": "2026-11-25",
+      "proved": "the Entertainment package price is unchanged at USD 29 per month",
+      "capture": "sha256:88d14b61712550030e96df311bbb5f866a9eaaf580d95dcd4436351f6327e849",
+      "quote": "$29/mo"
+    },
+    {
+      "url": "https://ez-homelab.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing model is unchanged: AWS infrastructure cost plus a platform fee",
+      "capture": "sha256:0114b9e713ee17ba7f9df5324a883c1db1f8a01d3420da83f88da09e9f1f531b",
+      "quote": "Our pricing is based on actual AWS infrastructure costs plus a small platform fee. No hidden charges."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T02:28:11.000Z",
+  "verified_at": "2026-11-25T09:46:50.032Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "The 'your own EC2' wording matters: if the instance is billed to the same AWS account, the true monthly total is USD 29 plus EC2 plus EBS plus egress, and it stops being comparable to a USD 24 ElfHosted stack that sells no storage. A test purchase confirms the threshold; on 2026-10-23 did not make one.",

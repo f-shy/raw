@@ -69,10 +69,17 @@
       "url": "probe:https://yourimageshare.com/tools/upload-from-url",
       "date": "2026-10-23",
       "proved": "a plain client is refused: HTTP 403, 5525 bytes, sha256 a2abe9fc99966465..., challenge detected"
+    },
+    {
+      "url": "https://yourimageshare.com/tools/upload-from-url",
+      "date": "2026-11-26",
+      "proved": "the first-party page states a 200MB per-file maximum",
+      "capture": "sha256:61e0414f06f3b83131552a97b341c520d6eaef665304333d5062be12b88ee224",
+      "quote": "| Maximum file size | 200MB per file |"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T01:52:41.420Z",
+  "verified_at": "2026-11-26T01:10:11.967Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The cleanest anonymous URL-pull found, and the narrowest: media only, 200 MB. It answers 'no install, no account' for one file type class and nothing else. No programmatic path found: A web form taking up to 40 URLs per submit, returning a page link, direct link, embed code, HTML, BBCode and Markdown per file. No API documentation.",

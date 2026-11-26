@@ -66,10 +66,38 @@
       "url": "https://predb.me/api",
       "date": "2026-10-23",
       "proved": "no documented API at /api: the origin returns '404 Not Found' from nginx"
+    },
+    {
+      "url": "https://predb.me/",
+      "date": "2026-11-25",
+      "proved": "the public feed tracks 12.9 million scene releases",
+      "capture": "sha256:7d3fe1b04802eea8c576f05c2ee807b37560a1a673c1e50479cfefcccef88f58",
+      "quote": "12,874,522 releases"
+    },
+    {
+      "url": "https://predb.me/",
+      "date": "2026-11-25",
+      "proved": "the front page lists a release posted minutes ago",
+      "capture": "sha256:7d3fe1b04802eea8c576f05c2ee807b37560a1a673c1e50479cfefcccef88f58",
+      "quote": "8 mins"
+    },
+    {
+      "url": "https://predb.me/",
+      "date": "2026-11-25",
+      "proved": "the feed publishes release names without files",
+      "capture": "sha256:7d3fe1b04802eea8c576f05c2ee807b37560a1a673c1e50479cfefcccef88f58",
+      "quote": "Ultra_Nate-Found_A_Cure-(VENCD146)-CDM-FLAC-1998-D2H"
+    },
+    {
+      "url": "https://predb.me/api",
+      "date": "2026-11-25",
+      "proved": "the documented API path answers nginx 404",
+      "capture": "sha256:26fb7898e15b82407cb4a50fc7174e5cd1de50d23c6d644512be983f09ac527b",
+      "quote": "<h1>404 Not Found</h1>"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T03:18:17.000Z",
+  "verified_at": "2026-11-25T09:47:02.741Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Release database (PreDB) tracking scene metadata and timestamps. The service does not host or transfer downloadable payloads. No programmatic path found: A web listing. /about and /api both return nginx 404 on the origin, so no documented API exists at those paths.",

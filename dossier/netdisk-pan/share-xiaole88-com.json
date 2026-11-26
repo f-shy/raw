@@ -77,13 +77,6 @@
     {
       "url": "probe:https://share.xiaole88.com/",
       "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:638022072ba8e93f123df546984b4dbf180bf0fc9bd486fa7ab03b09dcc4ae55",
-      "quote": "\"listing_sha256\": \"91421213\""
-    },
-    {
-      "url": "probe:https://share.xiaole88.com/",
-      "date": "2026-11-11",
       "proved": "the probe record states the hash method used for the listing",
       "capture": "sha256:638022072ba8e93f123df546984b4dbf180bf0fc9bd486fa7ab03b09dcc4ae55",
       "quote": "\"listing_hash_method\": \"sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters\""
@@ -147,9 +140,30 @@
     {
       "url": "probe:https://share.xiaole88.com/",
       "date": "2026-11-25",
-      "proved": "the fresh probe records the second consecutive failure to return a mount list",
-      "capture": "sha256:1c6d657e4320768e37f50a36cbf191ad277393b2730d233ceb4565f5b35c09c0",
-      "quote": "\"consecutive_failures\": 2"
+      "proved": "the probe checked the host settings at this instant",
+      "capture": "sha256:6f952befdbee3652cda735ea5f58022ed8bb26e50e64d52ef3c5978ca897bcae",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:35.273Z\""
+    },
+    {
+      "url": "probe:https://share.xiaole88.com/",
+      "date": "2026-11-25",
+      "proved": "an anonymous mount-list request was refused because the guest role is disabled",
+      "capture": "sha256:166de745b7aca2f94e51d94467691f572fa6a224046023b06119623e360b7eeb",
+      "quote": "\"list_error\": \"Guest user is disabled, login please\""
+    },
+    {
+      "url": "https://share.xiaole88.com/api/public/settings",
+      "date": "2026-11-25",
+      "proved": "the settings response reports that registration is disabled",
+      "capture": "sha256:01ac03f482a50b2a8060c7f6b72d63c262106855c97890f9044626e18c433126",
+      "quote": "\"allow_register\":\"false\""
+    },
+    {
+      "url": "probe:https://share.xiaole88.com/api/fs/list",
+      "date": "2026-11-25",
+      "proved": "the anonymous list request returned code 401 because the guest role is disabled, so no write result was measured",
+      "capture": "sha256:9ac1df64f3a61ca56d4384704c80aa707435ba54e52315978b5aefaf0b3ab75c",
+      "quote": "\"message\":\"Guest user is disabled, login please\""
     }
   ],
   "verdict": "dead",
@@ -160,7 +174,7 @@
   "extras": {
     "access_mode": "public-instance",
     "read_capability": "full",
-    "write_capability": "permission-denied",
+    "write_capability": "unverified: no write operation was probed; the anonymous guest role is disabled",
     "upstream_provider": "Onedrive",
     "fronting_cdn": "tengine",
     "advertised_write_flag": false,
@@ -170,7 +184,7 @@
     "listing_sha256": "91421213",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-19T03:44:11.619Z",
+    "last_verified_alive": "2026-11-25T01:38:35.273Z",
     "last_verified_dead": "2026-11-25T02:34:42.594Z",
     "consecutive_failures": 2,
     "aliases": [

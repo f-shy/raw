@@ -67,10 +67,31 @@
       "url": "https://apibay.org/robots.txt",
       "date": "2026-10-23",
       "proved": "content-signal text only, with no crawl delay and no rate limit stated"
+    },
+    {
+      "url": "https://apibay.org/q.php?q=ubuntu&cat=0",
+      "date": "2026-11-25",
+      "proved": "the anonymous JSON feed still returns id, name, info_hash, seeders, leechers, size and num_files without a key",
+      "capture": "sha256:48b3af1ace2edb9560bb6ec374d12bfaec919d92d3fb64617e9e2dfea34fb02a",
+      "quote": "{\"id\":\"81462446\",\"name\":\"Clinton D., Negus C. Ubuntu Linux Bible 11ed 2025\",\"info_hash\":\"232CD67EB3FFBD7C37BF9EC3EE887417E5AE1EE6\",\"leechers\":\"3\",\"seeders\":\"35\",\"size\":\"8554738\",\"num_files\":\"1\""
+    },
+    {
+      "url": "https://apibay.org/q.php?q=ubuntu&limit=3",
+      "date": "2026-11-25",
+      "proved": "the response still carries the two-hour edge cache",
+      "capture": "sha256:48b3af1ace2edb9560bb6ec374d12bfaec919d92d3fb64617e9e2dfea34fb02a",
+      "quote": "cache-control: max-age=7200"
+    },
+    {
+      "url": "https://apibay.org/robots.txt",
+      "date": "2026-11-25",
+      "proved": "the robots file carries only content-signal text with no crawl delay or rate stated",
+      "capture": "sha256:8fa3036c68bfcbd32365f6225d24333264093b7cd38d306e106b4dbdc934fd5b",
+      "quote": "# (c)  If the website operator does not include a content signal for a"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T01:52:28.000Z",
+  "verified_at": "2026-11-25T09:47:05.723Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The cleanest no-account JSON torrent feed found: a single GET, a fixed schema, and an info hash in every row. Its political fragility is the risk, not its quota: the domain is one seizure away from gone.",

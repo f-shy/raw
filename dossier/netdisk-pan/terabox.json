@@ -175,10 +175,17 @@
       "proved": "the batch download check compares the size in MB against 500 for type batch, so the enforced multi-file cap is 500 MB; the over500M message text states 3 GB but is display text, not the compared threshold",
       "capture": "sha256:f41c9420fba9da96db1fefae6027c398dbeb2566ab634bc12a9eae252cd0f26e",
       "quote": "if(t=this.len/1048576,n=500,!(t>n&&\"batch\"===this.dlinkParams.type))"
+    },
+    {
+      "url": "https://www.terabox.com/cloud-storage-pricing-plans",
+      "date": "2026-11-25",
+      "proved": "the pricing page lists 1024 GB of free storage",
+      "capture": "sha256:fdd9ada1c9ac231b3214ede769721216e34ee07830156a0e2fea5016f44b9641",
+      "quote": "1024 GB (limited-time)"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-09T15:23:17.027Z",
+  "verified_at": "2026-11-25T14:05:48.228Z",
   "binding": "per-object-cap",
   "notes": "The free allowance is 1024 GB and the pricing page labels it limited-time.",
   "history": [],

@@ -57,7 +57,7 @@
   "binding_note": "A 5000 MB file ceiling is the first limit; the 10000 GB storage is far above any other free figure.",
   "identity_cost": {
     "kind": "email",
-    "detail": "The premium page states that Premium is attached to a Uqload account and that a free account is created first; the form fields were not read.",
+    "detail": "The registration form asks for a username of 4-32 characters, an email address, a password with at least 8 characters mixing letters, numbers and symbols, a repeated password and a captcha. Premium is attached to that account.",
     "country": null
   },
   "reliability_note": "The vendor serves the same site on more than one domain (uqload.is and uqload.vc).",
@@ -98,9 +98,58 @@
       "capture": "sha256:c0c7bf3f5b2ebdd26f9194ae3e39ee506ebc0f66ec5093a945e7577df939adfb",
       "quote": "Drag and drop files in your browser, or send them over FTP, from a remote URL or through the API.",
       "proved": "uploads work by browser, FTP, remote URL and API"
+    },
+    {
+      "url": "https://uqload.is/premium",
+      "date": "2026-11-25",
+      "proved": "Premium retention is 365 days after the last download",
+      "capture": "sha256:889541f33a466d6f784eca7e39996e69b74e985fc9e5044712de8a1b5712dd9d",
+      "quote": "File deletion for Premium files: **365 days after last download**."
+    },
+    {
+      "url": "https://uqload.is/premium",
+      "date": "2026-11-25",
+      "proved": "Premium raises the file ceiling to 30000 MB with unlimited storage",
+      "capture": "sha256:889541f33a466d6f784eca7e39996e69b74e985fc9e5044712de8a1b5712dd9d",
+      "quote": "uploads up to **30000 MB**, **Unlimited** storage"
+    },
+    {
+      "url": "https://uqload.is/premium",
+      "date": "2026-11-25",
+      "proved": "a Uqload account is required before Premium",
+      "capture": "sha256:889541f33a466d6f784eca7e39996e69b74e985fc9e5044712de8a1b5712dd9d",
+      "quote": "Yes. Premium is attached to a Uqload account."
+    },
+    {
+      "url": "https://uqload.is/",
+      "date": "2026-11-25",
+      "proved": "playback has no bandwidth limit",
+      "capture": "sha256:c0c7bf3f5b2ebdd26f9194ae3e39ee506ebc0f66ec5093a945e7577df939adfb",
+      "quote": "There are no bandwidth limits on playback."
+    },
+    {
+      "url": "https://uqload.is/",
+      "date": "2026-11-25",
+      "proved": "uploads work by browser, FTP, remote URL and API",
+      "capture": "sha256:c0c7bf3f5b2ebdd26f9194ae3e39ee506ebc0f66ec5093a945e7577df939adfb",
+      "quote": "Drag and drop files in your browser, or send them over FTP, from a remote URL or through the API."
+    },
+    {
+      "url": "https://uqload.vc/?op=registration",
+      "date": "2026-11-25",
+      "proved": "the registration form asks for a username and an email address",
+      "capture": "sha256:584bb7dd86bb1412656fa3bbd16d8652b56f20f65122e15aa562c29a48398411",
+      "quote": "Username\n\n4–32 characters: letters, numbers, - and _\n\nEmail"
+    },
+    {
+      "url": "https://uqload.vc/?op=registration",
+      "date": "2026-11-25",
+      "proved": "the signup form states its password rule",
+      "capture": "sha256:584bb7dd86bb1412656fa3bbd16d8652b56f20f65122e15aa562c29a48398411",
+      "quote": "Use 8+ characters mixing letters, numbers and symbols."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T07:37:12.656Z",
+  "verified_at": "2026-11-25T09:47:10.468Z",
   "price_per_tb_month": null
 }

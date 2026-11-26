@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u01-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Re-check these debrid records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/brfiles $.free_tier.metered_on: Page is premium plan list; says nothing about a free tier metering.\n- debrid/baixarpremium $.egress.terms: Page shows per-period prices only; nothing about egress or host transfer allowances.\n- debrid/baixarpremium $.verdict: Page lists hosts; it does not say they are separate accounts, and holds no verdict.\n- debrid/baixarpremium $.per_object_cap.stated: Page names no object cap and says nothing about host per-file caps.\n- debrid/avaxhome $.binding: Page says \"you must be registered\" to download; binding none is not stated.\n- debrid/baixarpremium $.interface_detail: WooCommerce, delivery after payment and absence of API are not on the page.\n- debrid/brfiles $.retention.stated: Span supports files do not expire; \"while the subscription is live\" and activity-independence are not on the page.\n- debrid/ddlbase $.interface_detail: Capture proves an RSS list only; content-type, 300 items, self-link, sitemap and /feed/ 404 are not in it.\n- debrid/lucaspremium $.identity_cost.detail: Quote \"Envio Imediato - Entrega automatica em Segundos\" is not on the page (it says \"Envio imediato apos o pagamento ser aprovado\"); CPF and payment methods not addressed.\n- debrid/lucaspremium $.free_tier.stated: Page shows a 30-day product; it does not say that no free or trial product exists.\n- debrid/ddlbase $.free_tier.stated: Feed shows sizes in titles; the two anonymous mirror slots and \"(login for more mirrors)\" are on a post page, not in this capture.\n- debrid/lucaspremium $.chaining: Page says credentials arrive by email; chaining with Stremio/torrent add-ons and Pix are not on it.\n- debrid/baixarpremium $.binding_note: Page has no transfer allowance or 1 TiB/month statement.\n- debrid/archive-by $.per_object_cap.bytes: Span gives 100 MB free and 1 GB premium; value 1073741824 assumes binary GiB and picks premium only.\n- debrid/baixarpremium $.price_per_tb_month: 39.99/31 days and 58.99 are on the page, but the USD rate is not, ComboSupremo lists 34 hosts not 35, and nothing is stated per TB.\n- debrid/ddlbase $.chaining: Capture does not show the chaining steps or anonymous mirrors.\n- debrid/baixarpremium $.binding: Page has prices per period only; no volume quota is stated.\n- debrid/brfiles $.free_tier.unit: Premium page does not state that there is no free tier.\n- debrid/lucaspremium $.retention.stated: 30 days is on the page; expiry and renewal through the same seller are not.\n- debrid/avaxhome $.free_tier.stated: Page says \"in order to download anything on this site, you must be registered\"; contradicts \"No account\".\n- debrid/mundopremium $.free_tier.stated: Page shows a voucher for this one product; that the store sells vouchers only, and no free tier, is not shown.",
+ "scope": {
+  "rids": [
+   "debrid/archive-by",
+   "debrid/brfiles",
+   "debrid/baixarpremium",
+   "debrid/lucaspremium",
+   "debrid/mundopremium",
+   "debrid/avaxhome",
+   "debrid/0daydown",
+   "debrid/ddlbase"
+  ]
+ },
+ "origin": "audit u78 of 20261125-0137-verify-debrid-5636/u01 failed: 21 of 30 unsupported",
+ "created": "2026-11-25T15:10:36Z"
+}

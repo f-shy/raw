@@ -41,7 +41,7 @@
   "limits": [
     {
       "kind": "request-rate",
-      "value": "reported: unlimited API calls; none published on the page read",
+      "value": "Unlimited API calls, no RSS feeds.",
       "source": "https://nzbhydra.com/indexers/"
     }
   ],
@@ -84,6 +84,13 @@
       "capture": "sha256:8d7e10ccc4e64a077e37d9a3fec8478d3a6d88f1cb3480e527da74ad59e8555e",
       "quote": "- [Add user](https://www.nzbstars.com/)",
       "proved": "the page exposes an Add user link next to Login"
+    },
+    {
+      "url": "https://nzbhydra.com/indexers/",
+      "date": "2026-11-26",
+      "proved": "the listing states the API-call claim verbatim",
+      "capture": "sha256:3125b505eca26d74096a6985446593dbb6eb97637bbd1d4543eaa49be6387223",
+      "quote": "Unlimited API calls, no RSS feeds."
     }
   ],
   "verdict": "qualifies-with-caveat",
@@ -91,7 +98,7 @@
     "price": "USD 0 (donations optional)"
   },
   "notes": "",
-  "verified_at": "2026-11-03T07:37:15.010Z",
+  "verified_at": "2026-11-26T01:59:17.873Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }

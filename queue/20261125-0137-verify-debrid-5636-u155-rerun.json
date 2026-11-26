@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u155-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "This replaces the reverted attempt u03. Start from .tmp/20261125-0137-verify-debrid-5636/units/u03/changes.jsonl: copy every `set`, `dead`, `append_evidence` and `open_question` op there, but drop every `confirm`. Then, for each record in scope, capture its first-party page and find ONE field whose exact value appears in the capture text; confirm only that one field, with a quote span copied exactly from the capture, and list every other field in unread. If no field value appears in any capture, write an open_question for the record and do not confirm it. Never confirm a synthesized text field.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/debriditalia $.price_per_tb_month: The value is broader than its source: the home capture proves the EUR 18,49 / 365-day Black Friday promo and the 18,49/12 = 1,5408 -> 1,54 arithmetic, but it does not say 'EUR 3,90 per 30 days on the vendor FAQ price list'. That clause is on https://debriditalia.com/faq.php, which I read fresh (sha2\n- debrid/elfhosted-prowlarr $.free_tier.stated: The value's trial length does not match the page as read now: the cited capture efedb3747fcd2223dd44424c5db8a60b0bc8ed66bd91a98ce6574e4d73134340 says 'Free trial: 38 days' (fetched 2026-11-25T02:22Z), but a fresh read of the same URL at 2026-11-25T19:37Z (sha256:34b43d9b74a5d12dba61e2e9de96e8e2c749c\n- debrid/gdflix $.extras.hosts_tried: The value is broader than its source: the gdflix.pro capture proves the ParkLogic/HeadlineLogic news portal, but it does not say 'gdflix.net (live at new10.gdflix.io)'. The gdflix.net half is on the fresh gdflix.net capture sha256:9e1c134224b95fd7ad0e5efc014f526187086cf81a6b024040396911800ac15f (fin",
+ "scope": {
+  "rids": [
+   "debrid/hubdrive",
+   "debrid/filepress",
+   "debrid/hubcloud",
+   "debrid/gdflix",
+   "debrid/driveseed",
+   "debrid/elfhosted-prowlarr",
+   "debrid/debriditalia",
+   "debrid/megaseed-kz"
+  ]
+ },
+ "origin": "audit u177 of 20261125-0137-verify-debrid-5636/u155 failed: 3 of 14 unsupported",
+ "created": "2026-11-25T21:29:00Z"
+}

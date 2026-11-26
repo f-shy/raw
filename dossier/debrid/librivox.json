@@ -60,7 +60,7 @@
     "detail": "No key and no account: the API answered an anonymous GET with 200 and 3,084 bytes for limit=2.",
     "country": null
   },
-  "reliability_note": "The API changed in 2026-09-26 to cap limit at 500; older clients that asked for more are silently clamped rather than rejected.",
+  "reliability_note": "unverified: HTTP 522 on 2026-11-25; no anonymous live GET to the feed was confirmed today, and a probe recorded the status.",
   "confidence": "documented",
   "confidence_note": "The API contract is the vendor's own page and was exercised here for two records; the audio path is read from the record's url_zip_file field, not downloaded. Downloading one ZIP would raise it.",
   "evidence": [
@@ -83,10 +83,45 @@
       "url": "probe:https://librivox.org/api/feed/audiobooks?limit=1&format=json",
       "date": "2026-10-23",
       "proved": "anonymous access works and the record carries url_zip_file pointing at archive.org/compress/<item>/"
+    },
+    {
+      "url": "https://librivox.org/api/info",
+      "date": "2026-11-25",
+      "proved": "The API still caps one response at 500 records",
+      "capture": "sha256:9f8787c1abbef5288d3be98c4019c4431d1ab9b4515734415b0fbd9099c04c1b",
+      "quote": "limit - will cap the number of results you receive. Defaults to 50. Can no longer be set above 500."
+    },
+    {
+      "url": "https://librivox.org/api/info",
+      "date": "2026-11-25",
+      "proved": "The vendor still asks for a delay between large request runs",
+      "capture": "sha256:9f8787c1abbef5288d3be98c4019c4431d1ab9b4515734415b0fbd9099c04c1b",
+      "quote": "If you intend to access a large number of records this way, please be considerate, and add a delay between your requests."
+    },
+    {
+      "url": "https://librivox.org/api/info",
+      "date": "2026-11-25",
+      "proved": "Audio ZIPs are hosted by Archive.org rather than by librivox.org",
+      "capture": "sha256:9f8787c1abbef5288d3be98c4019c4431d1ab9b4515734415b0fbd9099c04c1b",
+      "quote": "url\\_zip\\_file - the URL of a .zip file containing the all of the audio files. Hosted by Archive.org."
+    },
+    {
+      "url": "https://librivox.org/pages/about-librivox/",
+      "date": "2026-11-25",
+      "proved": "Recordings are dedicated to the public domain",
+      "capture": "sha256:db1728d9d982b2b8d9c6ef3546b9c10c2d630f85ede8445def0dd7ed47ac1419",
+      "quote": "Librivox donates its recordings to the public domain"
+    },
+    {
+      "url": "probe:https://librivox.org/api/feed/audiobooks?limit=2&format=json&sort_order=desc",
+      "date": "2026-11-25",
+      "proved": "The API feed answered HTTP 522 to an anonymous GET on 2026-11-25",
+      "capture": "sha256:a2e6d128da4385eafd9656b2ce8b87540acd6c3420210fd3464c76efabe66410",
+      "quote": "\"status\": 522"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T03:24:34.450Z",
+  "verified_at": "2026-11-25T09:47:00.873Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The interesting part is where the bytes are not: librivox.org serves a small JSON catalogue and archive.org serves the audio. A plan that expects a fast audiobook mirror from this API alone will move metadata and no media.",

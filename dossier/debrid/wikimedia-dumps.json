@@ -79,10 +79,31 @@
       "url": "probe:https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles.xml.bz2 --concurrency 8 --shard-bytes 67108864",
       "date": "2026-10-23",
       "proved": "eight parallel 206s totalling 2.647, 4.748 and 7.649 MiB/s against same-run one-connection baselines of 1.317, 2.918 and 2.337 MiB/s - parallelism helped, and no request was refused"
+    },
+    {
+      "url": "https://dumps.wikimedia.org/",
+      "date": "2026-11-25",
+      "proved": "dumps downloads are rate limited and capped at three connections per IP",
+      "capture": "sha256:e2df3aca2f01d55eeba935d7a50a223bf84b565f8b42105bb71bf5aa331d4438",
+      "quote": "Downloads are also rate limited and capped at 3 connections per-IP."
+    },
+    {
+      "url": "https://dumps.wikimedia.org/",
+      "date": "2026-11-25",
+      "proved": "the XML dumps have a January 2027 sunset date",
+      "capture": "sha256:e2df3aca2f01d55eeba935d7a50a223bf84b565f8b42105bb71bf5aa331d4438",
+      "quote": "These XML dumps are deprecated and will be sunset in January 2027"
+    },
+    {
+      "url": "https://dumps.wikimedia.org/",
+      "date": "2026-11-25",
+      "proved": "a descriptive User-Agent is required for dumps downloads",
+      "capture": "sha256:e2df3aca2f01d55eeba935d7a50a223bf84b565f8b42105bb71bf5aa331d4438",
+      "quote": "we are now enforcing the Wikimedia Foundation User-Agent Policy for dumps downloads"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:24:34.450Z",
+  "verified_at": "2026-11-25T09:46:37.627Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Caveat is the 2027 format change and the 3-connection rule. A single connection gives about 178 GiB/day at the mean, and the best eight-connection run reached 645 GiB/day - which the published cap says a client should not do. The whole English Wikipedia article dump is one day's single-connection allowance.",

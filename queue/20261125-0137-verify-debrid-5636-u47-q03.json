@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u47-q03",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Is premiumlink.site still operating, and if so what are its free caps and registration gate?",
+ "why": "On 2026-11-25 the origin produced no readable content: the broker answered no-content (422), all seven pinned read providers failed or saw no content, broker fetch found a parked-domain redirect to router.parklogic.com, the only archive was from 2026-03-23, and the direct probe returned status null (tls_untrusted). Rule 9 forbids sign-up, so no account-only state was checked; a parked domain is not proof the service ended, so no dead verdict was proposed.",
+ "scope": {
+  "rids": [
+   "debrid/premiumlink-site"
+  ]
+ },
+ "origin": "20261125-0137-verify-debrid-5636/u47",
+ "created": "2026-11-25T09:46:58Z"
+}

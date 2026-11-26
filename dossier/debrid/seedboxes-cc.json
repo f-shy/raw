@@ -52,7 +52,7 @@
       "source": "https://www.seedboxes.cc/"
     }
   ],
-  "limits_note": "Entry plan is EUR 14.35/month for 2 TB, so nothing here is under USD 5; the record exists to price the paid ladder. 10 TB over 30 days is 3.86 MB/s, or 30.9 Mbit/s, sustained.",
+  "limits_note": "Entry plan is EUR 14.35/month on the plan page; the order step shows EUR 15.95 for a 1-month Bat Box. The 10 TB monthly upload allowance sets the sustained rate.",
   "binding": "volume-quota",
   "binding_note": "The 10 TB/month upload counter is reached long before the 50 Gbit port is saturated: 10 TB/month is 30.9 Mbit/s sustained, one 1,600th of the port.",
   "identity_cost": {
@@ -73,10 +73,38 @@
       "url": "https://docs.seedboxes.cc/",
       "date": "2026-10-23",
       "proved": "FTP and SFTP are supported access paths; the docs index lists 'Optimize FTP downloads from your seedbox with multi-part (multi-segmented) downloading'"
+    },
+    {
+      "url": "https://www.seedboxes.cc/",
+      "date": "2026-11-25",
+      "proved": "Bat Box upload quota is 10 TB/month and upload is shaped to 10 Mbit/s past it; download stays unlimited",
+      "capture": "sha256:3a6fe708d8de692d8264e287bb6f810356016aab0731e43d7ba43750b7130ee4",
+      "quote": "After using your monthly traffic quota, upload speed is limited to 10 Mbit/s for the remainder of the month. Download speed remains unlimited."
+    },
+    {
+      "url": "https://www.seedboxes.cc/",
+      "date": "2026-11-25",
+      "proved": "the only no-cost entry is a first-week refund window; no free tier or free trial is stated",
+      "capture": "sha256:3a6fe708d8de692d8264e287bb6f810356016aab0731e43d7ba43750b7130ee4",
+      "quote": "During the first week of your service, you can ask for a refund. That's how confident we are about our seedboxes."
+    },
+    {
+      "url": "https://www.seedboxes.cc/signup?plan=Bat%20Box",
+      "date": "2026-11-25",
+      "proved": "an account is required before an order can continue; no phone or document gate is published",
+      "capture": "sha256:ae9d627d72ae85f188146736dc3c331e8ab45d4f3adfb37bfcf3b00209a533e9",
+      "quote": "To continue with your order, you need to log in or sign up first"
+    },
+    {
+      "url": "https://www.seedboxes.cc/signup?plan=Bat%20Box",
+      "date": "2026-11-25",
+      "proved": "the 1-month Bat Box order step presents a EUR 15.95 total",
+      "capture": "sha256:ae9d627d72ae85f188146736dc3c331e8ab45d4f3adfb37bfcf3b00209a533e9",
+      "quote": "Total:\n€ 15.95"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T03:19:00.000Z",
+  "verified_at": "2026-11-25T09:47:03.625Z",
   "price_per_tb_month": "EUR 14.35 for 2 TB = EUR 7.18/TB/month (USD ~7.8 at 1.09)",
   "history": [],
   "notes": "Sustained-rate conversion used throughout this lane: TB x 10^12 bytes / (30 x 86,400 s), then x 8 for Mbit/s. 10 TB -> 3.86 MB/s -> 30.9 Mbit/s. Candidates considered for why the entry price is above USD 5: premium transit at 50 Gbit, its own hardware and network, and bundled WireGuard VPN; the page supports the first two as positioning, not as a measured cost.",

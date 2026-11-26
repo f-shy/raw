@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u09-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Re-check these debrid records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/drunkenslug $.per_object_cap.stated: Caps result limit says nothing on per-object cap or that NZB is a pointer file.\n- debrid/althub $.free_tier.stated: Trial 14-day, 500/100, Free 100/25, Premium USD 10/1 year not in the capture.\n- debrid/treasure-maps $.per_object_cap.stated: Caps limits do not state per-object cap or NZB pointer nature.\n- debrid/drunkenslug $.interface: Nothing in the capture states interface type rest.\n- debrid/nzb-life $.per_object_cap.stated: Result ceiling is not a per-object cap statement.\n- debrid/nzbfinder $.identity_cost.detail: Verification link and temp-email ban are stated; 'Spam-blocking is the gate, not an invite' is an inference no span states.\n- debrid/nzbgeek $.binding_note: No error 102 and no 5-calls-a-day figure in capture; quote is about subscription only.\n- debrid/nzbfinder $.retention.stated: Strapline supported; third-party '3,600 days / 500,000+ NZBs' not in this capture.\n- debrid/nzbplanet $.interface: Nothing states interface rest.\n- debrid/usenet-crawler $.per_object_cap.stated: Result ceiling is not a per-object cap statement.\n- debrid/nzb-life $.tooling: Host change and key continuing are stated; Prowlarr/NZBHydra2 needing nothing else is not.\n- debrid/nzbgeek $.binding: Nothing says binding is request-rate.\n- debrid/treasure-maps $.interface: Nothing states interface rest.\n- debrid/nzbfinder $.interface: Nothing states interface rest.\n- debrid/althub $.reliability_note: Transport failure (name did not resolve) shown; that the domain moved from althub.ovh to the current domain is not shown.\n- debrid/usenet-crawler $.identity_cost.detail: Form fields, reCAPTCHA and hidden invitecode input are not in this capture.\n- debrid/nzbgeek $.per_object_cap.stated: Result ceiling is not a per-object cap statement.",
+ "scope": {
+  "rids": [
+   "debrid/nzbplanet",
+   "debrid/drunkenslug",
+   "debrid/althub",
+   "debrid/usenet-crawler",
+   "debrid/nzbgeek",
+   "debrid/treasure-maps",
+   "debrid/nzb-life",
+   "debrid/nzbfinder"
+  ]
+ },
+ "origin": "audit u86 of 20261125-0137-verify-debrid-5636/u09 failed: 17 of 30 unsupported",
+ "created": "2026-11-25T15:10:37Z"
+}

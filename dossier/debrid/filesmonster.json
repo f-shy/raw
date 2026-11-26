@@ -82,10 +82,45 @@
       "url": "https://filesmonster.com/free",
       "date": "2026-10-23",
       "proved": "there is no /free page (404 'Page not found'), so the free path is not documented on the site at the obvious address"
+    },
+    {
+      "url": "https://filesmonster.com/info/premiumrules/",
+      "date": "2026-11-25",
+      "proved": "the annual pass carries 2555 GB of premium traffic",
+      "capture": "sha256:4d9e9c8f5ff4350bac3c67bca6cd674552f833a865fbc5666b8f9f3d5ddad6d8",
+      "quote": "365 days Premium Membership contains up to 2555GB of a Premium traffic"
+    },
+    {
+      "url": "https://filesmonster.com/info/premiumrules/",
+      "date": "2026-11-25",
+      "proved": "the 30-day pass carries 210 GB of premium traffic",
+      "capture": "sha256:4d9e9c8f5ff4350bac3c67bca6cd674552f833a865fbc5666b8f9f3d5ddad6d8",
+      "quote": "30 days Premium Membership contains up to 210GB of a Premium traffic"
+    },
+    {
+      "url": "https://filesmonster.com/info/premiumrules/",
+      "date": "2026-11-25",
+      "proved": "multi-threaded clients and download managers are supported",
+      "capture": "sha256:4d9e9c8f5ff4350bac3c67bca6cd674552f833a865fbc5666b8f9f3d5ddad6d8",
+      "quote": "Multi-thread downloads are supported\nDownload managers are supported"
+    },
+    {
+      "url": "https://filesmonster.com/info/premiumrules/",
+      "date": "2026-11-25",
+      "proved": "the per-IP download count limit is 250 per 24 hours",
+      "capture": "sha256:4d9e9c8f5ff4350bac3c67bca6cd674552f833a865fbc5666b8f9f3d5ddad6d8",
+      "quote": "Up to 250 downloads per each 24 hours are allowed from a single IP address"
+    },
+    {
+      "url": "https://filesmonster.com/info/premiumrules/",
+      "date": "2026-11-25",
+      "proved": "credential sharing is forbidden and monitored",
+      "capture": "sha256:4d9e9c8f5ff4350bac3c67bca6cd674552f833a865fbc5666b8f9f3d5ddad6d8",
+      "quote": "Sharing access credentials (login and password) required to log into a Premium account with any third party is forbidden."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T03:37:39.581Z",
+  "verified_at": "2026-11-25T09:46:58.093Z",
   "price_per_tb_month": "USD 3.78 per TB per 30 days at the annual rate (USD 116 / 2.555 TB / 12 months)",
   "history": [],
   "notes": "The useful fact is the bucket arithmetic: this host prices traffic in blocks with an expiry, which is the cheapest per-TB shape among debrid providers and still an order of magnitude above a debrid subscription.",

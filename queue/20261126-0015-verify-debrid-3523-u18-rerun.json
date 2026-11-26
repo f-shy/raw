@@ -1,0 +1,20 @@
+{
+ "id": "20261126-0015-verify-debrid-3523-u18-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Second attempt after the audit. For every finding below, replace the interpretive text with the literal thing the capture shows: a quoted sentence, the page's title, the exact number, or `unverified: <what happened>`. A field that says what a page IS, means or implies is unsupported. Also, for every other field you confirmed or set in the first attempt, keep it only when its whole value is literally in the capture; otherwise list it in unread. Every record needs one confirm whose value is literally in the capture: a short token (identity_cost.kind, free_tier.unit, interface[i], per_object_cap.bytes, retention.days, verdict) or a verbatim sentence.\n- debrid/qiwi-wallet $.limits[0].value (The span says top-ups and transfers from Qiwi wallets became impossible after the licence was revoked, but it gives neither 2024-02-21 nor the Central Bank: the dateline (21 феврал)\n- debrid/releasebb $.free_tier.stated (The fresh fetch is the same parking interstitial and carries that title and the POST to https://router.parklogic.com/, but no span states 5,591 bytes (this capture's body is 7,497 )\n- debrid/scenenzbs $.free_tier.stated (The notice supports the rename only. No span says 'None under this name' or that every request is redirected; 'every request' is broader than one root fetch.)\n- debrid/scnlog $.limits_note (The robots file has the three Disallow lines, the Allow line and the four bot blocks, but it does not state 'The forum is a separate login.'; the value is a summary of separate lin)\n- debrid/simply-nzbs $.free_tier.unit (The capture is a parking page with 'Related Searches:' and five sponsored links. It states no free tier at all, so 'none' is an inference from absence, not a span on the page. A fr)\n- debrid/simply-premium $.limits[1].value (The table says ddownload.com is 50 GB, not 250 GB; the 250 GB rows are 1fichier.com, filefactory.com, filestore.to, mega.co.nz and youtube.com. The value also omits filefactory.com)\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/simply-nzbs $.free_tier.stated: The whole free_tier.stated value is this heading alone. It is a parking template's label for five keyword links (ww547.simplynzbs.com/kw-click); it states no free tier and gives a reader nothing about one. My fresh read of https://simplynzbs.com/ failed (broker 504, then 502 on pin jina-keyless); th\n- debrid/simply-nzbs $.free_tier.stated: Same field as c10: the confirm re-dates the record on a page whose only free-tier text is a parking template's heading, which states no free tier, gone or otherwise.\n- debrid/simply-premium $.limits[1].value: The row is in the table verbatim (a fresh read on 2026-11-26 returned the same sha256), but the field is limits[1].value, which holds a statement of the limit, and this is a Markdown table row with a doubled host name, a factor cell and a status cell. No span says the row is a limit; the record's ow\n- debrid/simply-premium $.limits[1].value: Same field and same reason as c12: the confirm re-dates the record on a raw table row standing in for a limit value. The page does give ddownload.com a 50 GB Daily Traffic cap, so the fact is on the page; the value is not a statement of it.",
+ "scope": {
+  "rids": [
+   "debrid/qiwi-wallet",
+   "debrid/releasebb",
+   "debrid/scenenzbs",
+   "debrid/scnlog",
+   "debrid/seedbox-org-ua",
+   "debrid/simply-nzbs",
+   "debrid/simply-premium",
+   "debrid/spots-xenetix-nl"
+  ]
+ },
+ "origin": "audit u24 of 20261126-0015-verify-debrid-3523/u18 failed: 4 of 14 unsupported",
+ "created": "2026-11-26T02:49:37Z"
+}

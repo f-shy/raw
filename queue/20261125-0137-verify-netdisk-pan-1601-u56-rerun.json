@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-netdisk-pan-1601-u56-rerun",
+ "kind": "verify",
+ "topic": "netdisk-pan",
+ "question": "Settle the audit findings below and re-check these netdisk-pan records. The auditor judged each field below unsupported because the field's whole value is broader than its single quote. Do not try to prove the whole sentence. For each listed field: remove it from every confirm's paths and add it to `unread`, keeping the record's existing value, unless the quote proves a different simple value, in which case `set` the narrowed value the quote states exactly. Then, for each record, pick one simple field whose value the capture states exactly (a number, a unit, a verdict, an interface list, a date) and `confirm` it, so the record is re-dated. Never name a synthesized text field (free_tier.stated, egress.terms, tooling, chaining, notes, reliability_note) in a confirm. An audit of the second attempt judged these claims unsupported:\n- netdisk-pan/nikon-image-space-nikon-imaging-cloud $.free_tier.stated: The page gives the 5 GB figure but nothing on the termination of NIKON IMAGE SPACE free tiers or SnapBridge upload; the 'free tier' character of the 5 GB is not stated either.\n- netdisk-pan/quark-tv-uc-tv $.egress.terms: Table has a 1.7M/s 下载限速 for 夸克网盘 but does not say the limit applies to free users.\n- netdisk-pan/1yunpan $.interface: Capture documents S3 and WebDAV; no REST interface is mentioned anywhere on the page.\n- netdisk-pan/quark-tv-uc-tv $.egress.terms: Table has a 1.7M/s 下载限速 for 夸克网盘 but does not say the limit applies to free users.\n- netdisk-pan/china-mobile-cloud $.limits[0].value: Page says parameters come from browser DevTools Network; it does not say an interactive login is mandatory (it also documents Authorization token entry).\n- netdisk-pan/gopro-cloud-quik $.limits[0].value: Terms say unlimited for GoPro-captured content and that GoPro footage edited/imported by third-party software counts as non-GoPro; the 'media trimmed in the Quik app' exception is not in the capture.\n- netdisk-pan/1yunpan $.egress.terms: Probe shows cache-control public, max-age=15552000 on one host; it does not show that direct links are per-user subdomains.\n- netdisk-pan/tianyi-cloud-drive $.per_object_cap.stated: Wikipedia prose says 2G single-file upload for 天翼云盘 but does not say it is the free tier, and it is not the table; the table column is 上传限制 without 'per file' or 'free'.\n- netdisk-pan/tianyi-cloud-drive $.per_object_cap.stated: Wikipedia prose says 2G single-file upload for 天翼云盘 but does not say it is the free tier, and it is not the table; the table column is 上传限制 without 'per file' or 'free'.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- netdisk-pan/gopro-cloud-quik $.free_tier.unit: Terms say \"the person who purchased this Subscription\" gets unlimited storage for GoPro-captured content; it is a paid subscription benefit, not a free tier.\n- netdisk-pan/quark-tv-uc-tv $.limits[1].value: The 1.7M/s row is for 夸克网盘 (Quark Netdisk); the page never mentions Quark TV / UC TV, so it does not prove the limit for this record.\n- netdisk-pan/quark-tv-uc-tv $.limits[1].value: Same as c10: source row is for 夸克网盘, not Quark TV / UC TV.",
+ "scope": {
+  "rids": [
+   "netdisk-pan/1yunpan",
+   "netdisk-pan/quark-tv-uc-tv",
+   "netdisk-pan/cstcloud-data-capsule",
+   "netdisk-pan/gopro-cloud-quik",
+   "netdisk-pan/nikon-image-space-nikon-imaging-cloud",
+   "netdisk-pan/china-mobile-cloud",
+   "netdisk-pan/china-unicom-wopan",
+   "netdisk-pan/tianyi-cloud-drive"
+  ]
+ },
+ "origin": "audit u69 of 20261125-0137-verify-netdisk-pan-1601/u56 failed: 3 of 13 unsupported",
+ "created": "2026-11-25T14:26:46Z"
+}

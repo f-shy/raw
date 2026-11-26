@@ -49,7 +49,7 @@
   "binding_note": "Speed and volume are unlimited per the third-party index, so the connection count is the stated bound.",
   "identity_cost": {
     "kind": "card",
-    "detail": "The order page says payments are one-off and 'We do not store info'; the form fields were not read: unverified: behind a sign-up.",
+    "detail": "The order page says payments are one-off and 'We do not store info'. The form asks for name, email address, password and country, then a payment method; several card and card-free methods are listed, including cryptocurrencies. No card is required by the form itself.",
     "country": null
   },
   "reliability_note": "The order page names NectoFarm B.V. as the statement name; the backbone is not stated by the vendor.",
@@ -76,10 +76,31 @@
       "capture": "sha256:de22f4ce677b5c3b0ec355bcd0a1ff09f55e2a2cb228cb47edd25cc5921188fa",
       "quote": "TurboUsenet is a Dutch provider based in Arnhem, offering a single no-nonsense plan called TurboTurbo – unlimited speed, 50 connections, over 3,900 days retention, and transparent per-day pricing. Perfect for users who want Usenet without the frills.",
       "proved": "a third-party index states unlimited speed, 50 connections and over 3,900 days retention"
+    },
+    {
+      "url": "https://turbousenet.com/en/order/",
+      "date": "2026-11-25",
+      "proved": "the order form asks for name, email, password and country",
+      "capture": "sha256:70538127995aee01a56f8f3eb2b6cd0dc36267048e0815623d1d56cceb6916e2",
+      "quote": "Your name Your email adres Password Your country"
+    },
+    {
+      "url": "https://turbousenet.com/en/order/",
+      "date": "2026-11-25",
+      "proved": "the single plan still offers 50 connections and unlimited speed",
+      "capture": "sha256:70538127995aee01a56f8f3eb2b6cd0dc36267048e0815623d1d56cceb6916e2",
+      "quote": "TurboTurbo Connections: 50 · Speed: Unlimited"
+    },
+    {
+      "url": "https://turbousenet.com/en/order/",
+      "date": "2026-11-25",
+      "proved": "the 365-day price is unchanged",
+      "capture": "sha256:70538127995aee01a56f8f3eb2b6cd0dc36267048e0815623d1d56cceb6916e2",
+      "quote": "Total cost: € 54,95"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-03T07:37:14.439Z",
+  "verified_at": "2026-11-25T09:47:07.114Z",
   "price_per_tb_month": null,
   "notes": "Priced per period.",
   "extras": {}

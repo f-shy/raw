@@ -81,10 +81,38 @@
       "url": "https://dpgtestbed.kr/",
       "date": "2026-10-23",
       "proved": "third-party ranking site: '휴대폰 본인 인증 시 1,000P를 적립' - evidence that a Korean handset is in the signup path"
+    },
+    {
+      "url": "https://www.yesfile.com/html/popup/charge/ecoupon.html",
+      "date": "2026-11-25",
+      "proved": "the 30-day pass is still advertised at KRW 9,900 against a KRW 25,000 list price",
+      "capture": "sha256:2d8ba6328f207fbd4d30b99995a02d74738bc464f1ee424acddca01a714295a2",
+      "quote": "**25,000** 원 **9,900** 원"
+    },
+    {
+      "url": "https://www.yesfile.com/html/popup/charge/ecoupon.html",
+      "date": "2026-11-25",
+      "proved": "the pass is still sold as a 30-day window for PC and mobile",
+      "capture": "sha256:2d8ba6328f207fbd4d30b99995a02d74738bc464f1ee424acddca01a714295a2",
+      "quote": "30일동안 24시간! PC + 모바일 모두 이용 가능"
+    },
+    {
+      "url": "https://yesfile.com/html/content/charge/pandatv.html",
+      "date": "2026-11-25",
+      "proved": "the charge page still states a validity period for credited bonus points",
+      "capture": "sha256:1b516ba9807c9c7ae4d0f51dae4b759321e88cc2c4d253a5b7c7ee7704642327",
+      "quote": "결제 시 지급되는 보너스의 유효기간은"
+    },
+    {
+      "url": "https://www.yesfile.com/site/?pg_mode=access",
+      "date": "2026-11-25",
+      "proved": "the first-party privacy policy names a Korean mobile number in identity verification",
+      "capture": "sha256:464963cff755a39d94df5ab4315a83de860509813b310d40d70b8a5799382e7a",
+      "quote": "- 본인인증 시 : 성명, 생년월일, 휴대폰번호"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-23T02:20:00.000Z",
+  "verified_at": "2026-11-25T09:47:10.859Z",
   "price_per_tb_month": "KRW 9,900 per 30-day pass (promotional; list KRW 25,000), VAT extra",
   "history": [],
   "notes": "Second Korean webhard, included because its promo price (9,900원) matches Filecast's and because the gift-certificate rail is the clearest sign that the payment layer is domestic. Trigger condition: an overseas card rail appears.",

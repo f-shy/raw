@@ -77,13 +77,6 @@
     {
       "url": "probe:https://pan.applep12.vip/",
       "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:5d0e69d9e8562aa551fb205fa16bfa11d805b292b0d56fc0bae60a77dae057ab",
-      "quote": "\"listing_sha256\": \"e715d3d0\""
-    },
-    {
-      "url": "probe:https://pan.applep12.vip/",
-      "date": "2026-11-11",
       "proved": "the probe record states the hash method used for the listing",
       "capture": "sha256:5d0e69d9e8562aa551fb205fa16bfa11d805b292b0d56fc0bae60a77dae057ab",
       "quote": "\"listing_hash_method\": \"sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters\""
@@ -94,13 +87,6 @@
       "proved": "this host answered every request of this run's probe",
       "capture": "sha256:5d0e69d9e8562aa551fb205fa16bfa11d805b292b0d56fc0bae60a77dae057ab",
       "quote": "\"consecutive_failures\": 0"
-    },
-    {
-      "url": "probe:https://pan.applep12.vip/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:5d0e69d9e8562aa551fb205fa16bfa11d805b292b0d56fc0bae60a77dae057ab",
-      "quote": "\"alive\": true"
     },
     {
       "url": "probe:https://pan.applep12.vip/",
@@ -129,6 +115,20 @@
       "proved": "the fresh anonymous root listing of pan.applep12.vip hashed to the recorded value, so the listing is unchanged",
       "capture": "sha256:3b856fcf96fbd472fe28f47c41941bf24f794166166b2b7019e137a90890a296",
       "quote": "\"listing_sha256\": \"e715d3d0\""
+    },
+    {
+      "url": "probe:https://pan.applep12.vip/",
+      "date": "2026-11-25",
+      "proved": "the probe was checked at this instant",
+      "capture": "sha256:77f719250bb445f18638a1d92be33d2c672dd4f4adc06838e358c54af4be65a2",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:30.974Z\""
+    },
+    {
+      "url": "probe:https://pan.applep12.vip/",
+      "date": "2026-11-25",
+      "proved": "the anonymous root listing returned 26 entries",
+      "capture": "sha256:77f719250bb445f18638a1d92be33d2c672dd4f4adc06838e358c54af4be65a2",
+      "quote": "\"root_entries\": 26"
     }
   ],
   "verdict": "qualifies-with-caveat",

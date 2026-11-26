@@ -95,23 +95,9 @@
     {
       "url": "probe:https://data.yanshiqwq.cn/",
       "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:9ee485117b1d2f478de46a5384c8bc90abd11bd30fbb0c5570b14eefb36c0b01",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://data.yanshiqwq.cn/",
-      "date": "2026-11-11",
       "proved": "the settings request for this host answered HTTP 200 at this instant",
       "capture": "sha256:9ee485117b1d2f478de46a5384c8bc90abd11bd30fbb0c5570b14eefb36c0b01",
       "quote": "\"checked_at\": \"2026-11-11T00:20:03.505Z\""
-    },
-    {
-      "url": "probe:https://data.yanshiqwq.cn/",
-      "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:9ee485117b1d2f478de46a5384c8bc90abd11bd30fbb0c5570b14eefb36c0b01",
-      "quote": "\"listing_sha256\": \"8b066b5f\""
     },
     {
       "url": "probe:https://data.yanshiqwq.cn/",
@@ -147,6 +133,27 @@
       "proved": "the fresh anonymous root listing of data.yanshiqwq.cn hashed to the recorded value, so the listing is unchanged",
       "capture": "sha256:584efaf271c55279e30b70cebdf37d8e93a2fa5a309af4400008818a99cd43a7",
       "quote": "\"listing_sha256\": \"8b066b5f\""
+    },
+    {
+      "url": "probe:https://data.yanshiqwq.cn/",
+      "date": "2026-11-25",
+      "proved": "the re-probe of this host was taken at this instant",
+      "capture": "sha256:28cfc5baa1bed071ba6c2649f2fb0b55b710b011d2f8316e522728ff2afb288b",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:28.687Z\""
+    },
+    {
+      "url": "probe:https://data.yanshiqwq.cn/",
+      "date": "2026-11-25",
+      "proved": "the anonymous root listing still hashes to 8b066b5f with 5 entries",
+      "capture": "sha256:28cfc5baa1bed071ba6c2649f2fb0b55b710b011d2f8316e522728ff2afb288b",
+      "quote": "\"guest\": true ... \"root_entries\": 5 ... \"listing_sha256\": \"8b066b5f\""
+    },
+    {
+      "url": "probe:https://data.yanshiqwq.cn/",
+      "date": "2026-11-25",
+      "proved": "the re-probe answered as an anonymous guest, so registration is not needed",
+      "capture": "sha256:28cfc5baa1bed071ba6c2649f2fb0b55b710b011d2f8316e522728ff2afb288b",
+      "quote": "\"guest\": true"
     }
   ],
   "verdict": "qualifies-with-caveat",

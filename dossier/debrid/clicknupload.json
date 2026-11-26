@@ -6,7 +6,7 @@
   "category": "file host (premium one-time, crypto-friendly)",
   "tier": "premium",
   "free_tier": {
-    "stated": "Free account exists ('Sign Up'). What premium removes is the queue, not a quota: 'No Waiting | No Ads | No Captcha | Fast Download'. The account bar renders 'Traffic available today: Unlimited' with an empty balance and an empty used-space field, which is unpopulated template text and not a statement of the free allowance.",
+    "stated": "Free account exists; the current comparison table lists 2048 Mb maximum upload, unlimited download volume, 'Very Limited' download speed and files deleted 10 days after the last download. Premium removes the wait, ads and captcha: 'No Waiting | No Ads | No Captcha | Fast Download'.",
     "unit": "none",
     "metered_on": "unstated",
     "source_url": "https://clicknupload.click/premium.html",
@@ -14,19 +14,19 @@
     "notes": "The free tier's real download allowance was not published on the page read."
   },
   "per_object_cap": {
-    "stated": "not stated on the page read",
+    "stated": "10240 Mb premium and registered, 2048 Mb free",
     "bytes": null,
     "source_url": "https://clicknupload.click/premium.html",
     "notes": ""
   },
   "retention": {
-    "stated": "not stated on the page read",
+    "stated": "Premium: 60 days after last download. Registered: 30 days after last download. Free: 10 days after last download.",
     "days": null,
     "source_url": "https://clicknupload.click/premium.html",
     "notes": ""
   },
   "egress": {
-    "terms": "Premium is sold as speed and queue removal only; no byte allowance is printed for either tier. The account bar's 'Traffic available today' field is a template with no value behind it, so neither tier's transfer cap is established.",
+    "terms": "The current comparison table lists 'Unlimited' download volume on premium, registered and free tiers, and maximum download speed on premium against limited speed on registered and very limited on free. Premium removes waiting, ads and captcha.",
     "metered": false,
     "free_allowance": "unstated",
     "price_per_tb": null,
@@ -71,10 +71,66 @@
       "url": "https://clicknupload.org/",
       "date": "2026-10-23",
       "proved": "the site now serves from clicknupload.click; .org redirects to the .click login page, which is why the record cites .click"
+    },
+    {
+      "url": "https://clicknupload.click/premium.html",
+      "date": "2026-11-25",
+      "proved": "the free tier now publishes a 2048 Mb upload cap, unlimited download volume and 10-day lifetime",
+      "capture": "sha256:a4a528a81ae40305c61549af6f48118f90cbc25d1254208f56627014cc378363",
+      "quote": "Free\n\n* Very Limited\n* 2048 Mb\n* -\n* Unlimited\n\n\n\n\n\n\n* 10 days after last download"
+    },
+    {
+      "url": "https://clicknupload.click/premium.html",
+      "date": "2026-11-25",
+      "proved": "premium maximum upload is 10240 Mb",
+      "capture": "sha256:a4a528a81ae40305c61549af6f48118f90cbc25d1254208f56627014cc378363",
+      "quote": "Premium\n\n* Maximum\n* 10240 Mb\n* Unlimited\n* Unlimited\n\n\n\n\n\n\n* 60 days after last download"
+    },
+    {
+      "url": "https://clicknupload.click/premium.html",
+      "date": "2026-11-25",
+      "proved": "the free row of the tier table publishes a 10-day lifetime after the last download",
+      "capture": "sha256:a4a528a81ae40305c61549af6f48118f90cbc25d1254208f56627014cc378363",
+      "quote": "Free\n\n* Very Limited\n* 2048 Mb\n* -\n* Unlimited\n\n\n\n\n\n\n* 10 days after last download"
+    },
+    {
+      "url": "https://clicknupload.click/premium.html",
+      "date": "2026-11-25",
+      "proved": "the registered row now publishes unlimited download volume and a limited speed",
+      "capture": "sha256:a4a528a81ae40305c61549af6f48118f90cbc25d1254208f56627014cc378363",
+      "quote": "Registered\n\n* Limited\n* 10240 Mb\n* Unlimited\n* Unlimited\n\n\n\n\n\n\n* 30 days after last download"
+    },
+    {
+      "url": "https://clicknupload.click/premium.html",
+      "date": "2026-11-25",
+      "proved": "premium has a 10240 Mb file cap and unlimited download volume",
+      "capture": "sha256:a4a528a81ae40305c61549af6f48118f90cbc25d1254208f56627014cc378363",
+      "quote": "Premium\n\n* Maximum\n* 10240 Mb\n* Unlimited\n* Unlimited\n\n\n\n\n\n\n* 60 days after last download"
+    },
+    {
+      "url": "https://clicknupload.click/premium.html",
+      "date": "2026-11-25",
+      "proved": "the free tier's cap, speed and 10-day lifetime are as set",
+      "capture": "sha256:a4a528a81ae40305c61549af6f48118f90cbc25d1254208f56627014cc378363",
+      "quote": "Free\n\n* Very Limited\n* 2048 Mb\n* -\n* Unlimited\n\n\n\n\n\n\n* 10 days after last download"
+    },
+    {
+      "url": "https://clicknupload.click/premium.html",
+      "date": "2026-11-25",
+      "proved": "the premium queue-removal claim is unchanged",
+      "capture": "sha256:a4a528a81ae40305c61549af6f48118f90cbc25d1254208f56627014cc378363",
+      "quote": "**No Waiting | No Ads | No Captcha | Fast Download**"
+    },
+    {
+      "url": "https://clicknupload.click/premium.html",
+      "date": "2026-11-25",
+      "proved": "the four premium prices are unchanged",
+      "capture": "sha256:a4a528a81ae40305c61549af6f48118f90cbc25d1254208f56627014cc378363",
+      "quote": "$15\n\n30 Days\n\n$25\n\n90 Days\n\n$40\n180 Days\n\n$50\n\n365 Days"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:18:17.000Z",
+  "verified_at": "2026-11-25T09:46:41.071Z",
   "price_per_tb_month": "USD 15 per 30 days, no volume figure published",
   "history": [],
   "notes": "The $50 annual plan equals $4.17 per month. Cryptocurrency payment without cards is supported. Account dashboard displays 'Traffic available today: Unlimited'. No programmatic path found: Web upload and link checker. No API or FTP on the page read.",

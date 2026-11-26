@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u31-q01",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Have the UsenetMax website and news.usenetmax.com:563 permanently stopped serving, so the free server should be recorded dead?",
+ "why": "On 2026-11-25 broker reads answered HTTP 504 and 522, a direct HTTP probe failed at the transport layer and a TCP probe of port 563 got a DNS resolution failure; the 2026-11-04 probe rows in the record had already timed out, so two consecutive dates show no answer but the offer text cannot be re-read.",
+ "scope": {
+  "rids": [
+   "debrid/usenetmax"
+  ]
+ },
+ "origin": "20261125-0137-verify-debrid-5636/u31",
+ "created": "2026-11-25T09:46:44Z"
+}

@@ -73,10 +73,17 @@
       "url": "https://pomf.lain.la/",
       "date": "2026-10-23",
       "proved": "'Max upload size is 1 GiB, wow!' and the comment that uploads had been disabled for a PHP CVE and are back"
+    },
+    {
+      "url": "https://pomf.lain.la/",
+      "date": "2026-11-25",
+      "proved": "the stated upload cap uses GiB as its unit",
+      "capture": "sha256:ffa09561c132f76f572cce6621b7abce37c96fba78880a5980ad55101d23fa51",
+      "quote": "Max upload size is 1 GiB, wow!"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:30:47.000Z",
+  "verified_at": "2026-11-25T22:07:37.874Z",
   "price_per_tb_month": "USD 0",
   "probe": {
     "record": "probes/raw/pomf.lain.la.json",

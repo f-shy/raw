@@ -71,10 +71,31 @@
       "url": "https://filecast.co.kr/www/index.php/charge/flat/",
       "date": "2026-10-23",
       "proved": "terms: '결제시 부가세 10%가 포함됩니다' and '모든 이용권 금액은 부가세 10% 별도 입니다'; '월정액 상품의 사용기간은 대한민국 표준시간을 기준으로 합니다'; '결제 후 48시간 이내에 신청하셔야만 환불이 가능합니다'"
+    },
+    {
+      "url": "https://filecast.co.kr/www/index.php/charge/flat/",
+      "date": "2026-11-25",
+      "proved": "the recurring 30-day pass is still listed on the charge page",
+      "capture": "sha256:0f1ca3804f52c4e99a482b823e212c7c3b6eba681a8776274fae285a786100e2",
+      "quote": "정기결제(자동결제)"
+    },
+    {
+      "url": "https://filecast.co.kr/www/index.php/charge/flat/",
+      "date": "2026-11-25",
+      "proved": "one of the two contradictory VAT statements is still published on the charge page",
+      "capture": "sha256:0f1ca3804f52c4e99a482b823e212c7c3b6eba681a8776274fae285a786100e2",
+      "quote": "·결제시 부가세 10%가 포함됩니다."
+    },
+    {
+      "url": "http://m.filecast.co.kr/mobile/etc/etc_p_d.php",
+      "date": "2026-11-25",
+      "proved": "the first-party privacy policy names a Korean mobile number in identity verification",
+      "capture": "sha256:447911b32df948a79fdcc51d59f596dc90a1a43e99b9e6166921056f2355603b",
+      "quote": "- - 본인확인 : 이름, 생년월일, CI, DI, 성별, 휴대폰번호(휴대폰 인증시), 아이핀 번호(아이핀 인증시)"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-23T02:20:00.000Z",
+  "verified_at": "2026-11-25T09:47:10.860Z",
   "price_per_tb_month": "KRW 9,900 per 30 days (recurring) or KRW 11,000 one month, plus 10% VAT by the conservative reading",
   "history": [],
   "notes": "Korea's retrieval market is not debrid at all: it is webhard, a domestic catalogue sold by the month. That is why the Korean queries return no premium-link generator. Trigger condition: Filecast publishes an overseas payment path.",

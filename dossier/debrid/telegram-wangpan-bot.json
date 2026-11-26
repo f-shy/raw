@@ -6,7 +6,7 @@
   "category": "hosted bot (Telegram-native netdisk)",
   "tier": "free",
   "free_tier": {
-    "stated": "Dead. The handle no longer resolves to a bot: t.me/WangPanBOT returns 'Telegram: Contact @WangPan' with no Start action, so the username now belongs to a user account.",
+    "stated": "Dead. The handle no longer resolves to a bot: t.me/WangPanBOT returns 'Telegram: Contact @WangPanBOT' with a Send Message action and no Start Bot action, so the username now belongs to a user account.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://t.me/WangPanBOT",
@@ -58,10 +58,31 @@
       "url": "https://t.me/bot_zh/",
       "date": "2026-10-23",
       "proved": "the Chinese bot directory (post 73) described it as 'WangPan netdisk bot ... free, safe, anonymous ... supports full mounts, link sharing, transfer, search'"
+    },
+    {
+      "url": "https://t.me/WangPanBOT",
+      "date": "2026-11-25",
+      "proved": "the handle offers a contact action and no Start Bot action, so it is a user account, not a bot",
+      "capture": "sha256:334e02245161e6c174ef595fd358f28d2350e88858b094fe261d8a9d9ffd0911",
+      "quote": "If you have **Telegram**, you can contact [@WangPanBOT](tg://resolve?domain=WangPanBOT) right away."
+    },
+    {
+      "url": "https://t.me/WangPanBOT",
+      "date": "2026-11-25",
+      "proved": "the page is a user contact, not a launchable bot",
+      "capture": "sha256:334e02245161e6c174ef595fd358f28d2350e88858b094fe261d8a9d9ffd0911",
+      "quote": "Telegram: Contact @WangPanBOT"
+    },
+    {
+      "url": "probe:https://t.me/WangPanBOT",
+      "date": "2026-11-25",
+      "proved": "a direct probe of the handle timed out, and pinned broker routes returned no content",
+      "capture": "sha256:25c43df80b2e8d42af51ac52739c0ae1bde8342acca84e3b261da276ac6f57ee",
+      "quote": "\"error\": \"timeout\""
     }
   ],
   "verdict": "dead",
   "price_per_tb_month": null,
   "notes": "Do not re-open unless the @WangPan handle is seen running as a bot again. The class it represented (a hosted Telegram-native netdisk with mounts) has no living hosted member found on 2026-10-23.",
-  "verified_at": "2026-10-23T01:52:23.000Z"
+  "verified_at": "2026-11-25T09:46:48.488Z"
 }

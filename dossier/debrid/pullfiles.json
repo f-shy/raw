@@ -14,7 +14,7 @@
     "notes": "The client sends a URL, their server pulls it, and the browser receives the stream. Nothing is stored for later re-download."
   },
   "per_object_cap": {
-    "stated": "1 GB per file ('Max. File size: 1 GB').",
+    "stated": "You can download files up to 1GB in size.",
     "bytes": 1073741824,
     "source_url": "https://pullfiles.net/"
   },
@@ -97,10 +97,17 @@
       "proved": "the features page states no daily limit and no paid tier",
       "capture": "sha256:8ae116d4f7e79b791303a02b7ba79820892d39cd804cddb9e0d3fb8d3e7824ce",
       "quote": "Download as many files as you need without restrictions. No daily limits, no premium subscriptions, no hidden fees - just unlimited access to the world's files whenever you need them."
+    },
+    {
+      "url": "https://pullfiles.net/",
+      "date": "2026-11-26",
+      "proved": "the page states the per-file maximum verbatim",
+      "capture": "sha256:bd1be32134f59ceb28cb9aacfe8c856c399a32d4c86936cdf420437c66699a61",
+      "quote": "You can download files up to 1GB in size."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T11:28:32.907Z",
+  "verified_at": "2026-11-26T01:59:17.874Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Answers a narrower question than the sector asked: it will not resolve a Rapidgator page into a direct link, but it will fetch a direct link that is otherwise unreachable. Worth keeping as the last hop. No programmatic path found: One web form: paste a direct file URL, press start, watch a progress panel. No API documentation.",

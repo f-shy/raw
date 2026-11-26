@@ -14,7 +14,7 @@
     "notes": "The unit is CORE's API token, a per-call credit, not a model token. The service page heading 'Unlimited access' introduces harmonised access across CORE's providers and is not a rate; the same page states one batch request or five single requests per 10 seconds."
   },
   "per_object_cap": {
-    "stated": "not applicable: JSON per query, with download endpoints that return the stored PDF. A one-record search response measured 2,091 bytes.",
+    "stated": "not applicable: JSON per query, with download endpoints that return the stored PDF. A one-record search response was measured on 2026-10-31.",
     "bytes": null,
     "source_url": "https://api.core.ac.uk/v3/search/works",
     "notes": ""
@@ -43,11 +43,11 @@
   "limits": [
     {
       "kind": "request-rate",
-      "value": "unauthenticated: 100 tokens per day, maximum 10 per minute, no full text; registered personal user: 1,000 tokens per day, maximum 25 per minute; registered academic user: 5,000 tokens per day, maximum 10 per minute",
+      "value": "unauthenticated: 100 tokens per day, maximum 10 per minute, no full text; registered personal user: 1,000 tokens per day, maximum 25 per minute; registered academic user: 5,000 tokens per day, maximum 10 per minute; Supporting/Sustaining-affiliated academic and non-academic organisation users: about 200k tokens per day on average; VIP: dedicated plan by arrangement",
       "source": "https://api.core.ac.uk/docs/v3"
     }
   ],
-  "limits_note": "The API reference states that access needs no authentication and that full text is not available to unauthenticated users; a key from the registration form, sent as 'Authorization: Bearer {apikey}', raises the allowance. A simple query costs 1 token and a complex one 3 to 5.",
+  "limits_note": "The API reference states that access needs no authentication; a key from the registration form raises the allowance. A simple query costs 1 token and a complex one 3 to 5. The current rate table adds a Supporting/Sustaining-affiliated and organisation tier estimated at about 200k tokens per day, and states that limits may be adjusted dynamically based on server load and usage patterns.",
   "binding": "request-rate",
   "binding_note": "At 1 token for a simple query the unauthenticated allowance is 100 queries a day at most 10 a minute, and a registered personal key 1,000 a day at most 25 a minute; complex queries cost 3 to 5 tokens and lower both.",
   "identity_cost": {
@@ -157,10 +157,87 @@
       "proved": "a registered key is sent as a Bearer token",
       "capture": "sha256:ede8dec9cf3c22a422ae83988eb67ff1dcb34a3d4a37c8cf7abfbcbebb2c7aed",
       "quote": "headers = {\"Authorization\": f\"Bearer {apikey}\"}"
+    },
+    {
+      "url": "https://core.ac.uk/services/api",
+      "date": "2026-11-25",
+      "proved": "the key registration form still starts from an email address",
+      "capture": "sha256:789ed6d62b328da969a629f0ae774d4697ad8b41a67ac795859ddf0565972842",
+      "quote": "Enter your email address to register for a new API key, or restore a previous API key."
+    },
+    {
+      "url": "https://core.ac.uk/services/api",
+      "date": "2026-11-25",
+      "proved": "the service page still states one batch or five single requests per 10 seconds",
+      "capture": "sha256:789ed6d62b328da969a629f0ae774d4697ad8b41a67ac795859ddf0565972842",
+      "quote": "One batch request or five single requests per 10 seconds."
+    },
+    {
+      "url": "https://api.core.ac.uk/docs/v3",
+      "date": "2026-11-25",
+      "proved": "the v3 reference still states the API is free and needs no authentication",
+      "capture": "sha256:26240c8b97ff6f813270d28bf64019b2cba65b3cf703807c1fdbf866be328dca",
+      "quote": "Access to the CORE API is free and requires no authentication."
+    },
+    {
+      "url": "https://api.core.ac.uk/docs/v3",
+      "date": "2026-11-25",
+      "proved": "the unauthenticated allowance is unchanged at 100 tokens a day and at most 10 a minute",
+      "capture": "sha256:26240c8b97ff6f813270d28bf64019b2cba65b3cf703807c1fdbf866be328dca",
+      "quote": "100 tokens per day, maximum 10 per minute."
+    },
+    {
+      "url": "https://api.core.ac.uk/docs/v3",
+      "date": "2026-11-25",
+      "proved": "the registered personal allowance is unchanged at 1,000 tokens a day and at most 25 a minute",
+      "capture": "sha256:26240c8b97ff6f813270d28bf64019b2cba65b3cf703807c1fdbf866be328dca",
+      "quote": "1,000 tokens per day, maximum 25 per minute."
+    },
+    {
+      "url": "https://api.core.ac.uk/docs/v3",
+      "date": "2026-11-25",
+      "proved": "the registered academic allowance is unchanged at 5,000 tokens a day and at most 10 a minute",
+      "capture": "sha256:26240c8b97ff6f813270d28bf64019b2cba65b3cf703807c1fdbf866be328dca",
+      "quote": "5,000 tokens per day, maximum 10 per minute."
+    },
+    {
+      "url": "https://api.core.ac.uk/docs/v3",
+      "date": "2026-11-25",
+      "proved": "a simple query still costs 1 token and a complex one 3 to 5",
+      "capture": "sha256:26240c8b97ff6f813270d28bf64019b2cba65b3cf703807c1fdbf866be328dca",
+      "quote": "As a rule of thumb, a simple query will cost you 1 token while more complex queries will cost you between 3 to 5 tokens."
+    },
+    {
+      "url": "https://api.core.ac.uk/docs/v3",
+      "date": "2026-11-25",
+      "proved": "the v3 reference now publishes a fourth, member-level allowance of about 200k tokens per day",
+      "capture": "sha256:26240c8b97ff6f813270d28bf64019b2cba65b3cf703807c1fdbf866be328dca",
+      "quote": "we estimate this plan should be good for up to about 200k tokens per day"
+    },
+    {
+      "url": "https://api.core.ac.uk/docs/v3",
+      "date": "2026-11-25",
+      "proved": "the v3 reference now warns that rate limits can change dynamically",
+      "capture": "sha256:26240c8b97ff6f813270d28bf64019b2cba65b3cf703807c1fdbf866be328dca",
+      "quote": "To ensure fair usage and maintain API stability, CORE implements rate limits. These limits may be adjusted dynamically based on server load and usage patterns."
+    },
+    {
+      "url": "https://api.core.ac.uk/v3/search/works/?q=open+access&limit=1",
+      "date": "2026-11-25",
+      "proved": "an anonymous search on 2026-11-25 answered 200 with a 10-per-minute rate-limit header, the documented unauthenticated maximum",
+      "capture": "sha256:43e2de088910225d1cc5c8a31159a2ce7a2525393c509d09d660464a81d7692d",
+      "quote": "\"x-ratelimit-limit\": 10"
+    },
+    {
+      "url": "https://api.core.ac.uk/v3/search/works/?q=open+access&limit=1",
+      "date": "2026-11-25",
+      "proved": "an anonymous search on 2026-11-25 returned a large JSON result set; per-query response size varies with the query",
+      "capture": "sha256:43e2de088910225d1cc5c8a31159a2ce7a2525393c509d09d660464a81d7692d",
+      "quote": "\"totalHits\":21803409"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-31T10:03:34.102Z",
+  "verified_at": "2026-11-25T09:46:55.566Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The caveat is the anonymous ceiling and the gated full text: 100 tokens a day and no full text without registration, 1,000 tokens a day with a personal key.",

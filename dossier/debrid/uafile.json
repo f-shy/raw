@@ -90,9 +90,30 @@
       "capture": "sha256:3296773e0ed5f73cdea5b49521baf1c41a4643d27e9768fab6e81fedf119f0ec",
       "quote": "- Нове скачування раз на 5 хвилин для одного IP",
       "proved": "one download per 5 minutes per IP"
+    },
+    {
+      "url": "https://www.uafile.com/",
+      "date": "2026-11-25",
+      "proved": "the per-file cap is still 100 MB",
+      "capture": "sha256:c43eccdcb013319bbce80b9e92cc384c3e8076236437bccf84a773c362525677",
+      "quote": "- Максимум **100 МБ** на один файл"
+    },
+    {
+      "url": "https://www.uafile.com/",
+      "date": "2026-11-25",
+      "proved": "a file is still deleted after 30 days without a download",
+      "capture": "sha256:c43eccdcb013319bbce80b9e92cc384c3e8076236437bccf84a773c362525677",
+      "quote": "- Файл видаляється через 30 днів, якщо ніхто не завантажує"
+    },
+    {
+      "url": "https://www.uafile.com/",
+      "date": "2026-11-25",
+      "proved": "one new download per 5 minutes per IP still holds",
+      "capture": "sha256:c43eccdcb013319bbce80b9e92cc384c3e8076236437bccf84a773c362525677",
+      "quote": "- Нове скачування раз на 5 хвилин для одного IP"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-03T07:37:12.656Z",
+  "verified_at": "2026-11-25T09:46:39.098Z",
   "price_per_tb_month": null
 }

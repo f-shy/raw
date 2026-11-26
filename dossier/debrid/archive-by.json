@@ -76,10 +76,24 @@
       "url": "probe:https://archive.by/upgrade",
       "date": "2026-10-23",
       "proved": "the payment HTML: five forms posting to https://archive.by/paypal/pay with days=7/31/... and a single 'Pay with PayPal' image button - no card fields, no local gateway"
+    },
+    {
+      "url": "https://archive.by/upgrade",
+      "date": "2026-11-25",
+      "proved": "the checkout forms still post to the PayPal gateway only",
+      "capture": "sha256:7707591a99af29da011c87765c36092f04ffca1400ad98f3942071c42a0abdda",
+      "quote": "action=\"https://archive.by/paypal/pay\" method=\"post\""
+    },
+    {
+      "url": "https://archive.by/upgrade",
+      "date": "2026-11-25",
+      "proved": "the premium page uses the label premium account for the paid tier",
+      "capture": "sha256:605bb2d52b6e87865ca1963bb76b465fa359a6117d57cf8a6bfbdf77ceab0b70",
+      "quote": "- Files in your premium account kept forever."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:27:03.166Z",
+  "verified_at": "2026-11-25T19:21:26.871Z",
   "price_per_tb_month": "USD 9.99 per month at the 1-month term; USD 59.99 per year for unlimited storage",
   "notes": "The Belarusian equivalent the sector asked for, and the inverse of bedrive: a BY service that takes only PayPal while a RU service takes only YooMoney. That pairing is the evidence that the payment wall follows the acquirer, not the language of the site. Whether a Belarusian buyer can actually complete a PayPal payment was not tested. No programmatic path found: Web upload/download; premium advertises download-manager support ('Загрузка ... поддержка менеджера загрузок')."
 }

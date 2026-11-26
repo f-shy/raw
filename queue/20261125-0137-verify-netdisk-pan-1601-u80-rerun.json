@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0137-verify-netdisk-pan-1601-u80-rerun",
+ "kind": "verify",
+ "topic": "netdisk-pan",
+ "question": "This is the final narrow repair of the listed records. An auditor judged the fields below unsupported: the field's value is not what its quote proves. For each listed field: remove it from every confirm's paths and add it to `unread`; do NOT set it to a synthesis. Only if a fresh first-party capture states a correct simple value for the field, `set` that exact value with the quote. Then confirm one simple field per record that a capture states exactly, so the record is re-dated. If the correct value is that the record has no free tier or no stated value, set the field to that plain statement only when the first-party page says it. An audit judged these claims unsupported:\n- netdisk-pan/mail-ru-cloud $.free_tier.unit: Quote is a promo banner ('9 months as a gift') mentioning 1 TB; it does not state the free-tier allocation, so it does not prove the free_tier unit.\n- netdisk-pan/uc-drive $.per_object_cap.bytes: Source is a forum user's comment, not the vendor; it says '1G' without stating bytes or conditions, so 1000000000 is not proved.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- netdisk-pan/uc-drive $.per_object_cap.bytes: The page gives the cap only as a 10GB label; it states no byte count, so a null byte value is not stated by any span.\n- netdisk-pan/uc-drive $.per_object_cap.bytes: The page gives the cap only as a 10GB label; it states no byte count, so a null byte value is not stated by any span.",
+ "scope": {
+  "rids": [
+   "netdisk-pan/mail-ru-cloud",
+   "netdisk-pan/uc-drive"
+  ]
+ },
+ "origin": "audit u84 of 20261125-0137-verify-netdisk-pan-1601/u80 failed: 2 of 8 unsupported",
+ "created": "2026-11-25T14:47:05Z"
+}

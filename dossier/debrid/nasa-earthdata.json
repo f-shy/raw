@@ -73,10 +73,17 @@
       "url": "probe:https://cmr.earthdata.nasa.gov/search/collections.json?page_size=1",
       "date": "2026-10-23",
       "proved": "200, 4,238 bytes of JSON to an anonymous client - the catalogue is open even though the granules are not"
+    },
+    {
+      "url": "https://www.earthdata.nasa.gov/data/earthdata-login",
+      "date": "2026-11-26",
+      "proved": "Earthdata Login registration asks for an email address",
+      "capture": "sha256:46998252558e1ba9fb1c9d165f6202acc74a15d7b1b0a0592f53c22f6bc5f1bb",
+      "quote": "You will then be prompted to create a user profile by supplying a username, password, and an email address."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:24:34.450Z",
+  "verified_at": "2026-11-26T01:10:09.784Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Caveat is identity: the bytes are free and the account is mandatory. This is the pattern the sector is meant to separate from the anonymous sources - NASA is not a no-account source, even though nothing is charged.",

@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-netdisk-pan-1601-u61-rerun",
+ "kind": "verify",
+ "topic": "netdisk-pan",
+ "question": "Settle the audit findings below and re-check these netdisk-pan records. The auditor judged each field below unsupported because the field's whole value is broader than its single quote. Do not try to prove the whole sentence. For each listed field: remove it from every confirm's paths and add it to `unread`, keeping the record's existing value, unless the quote proves a different simple value, in which case `set` the narrowed value the quote states exactly. Then, for each record, pick one simple field whose value the capture states exactly (a number, a unit, a verdict, an interface list, a date) and `confirm` it, so the record is re-dated. Never name a synthesized text field (free_tier.stated, egress.terms, tooling, chaining, notes, reliability_note) in a confirm. An audit of the second attempt judged these claims unsupported:\n- netdisk-pan/alist-20237737-xyz $.reliability_note: Status 200, application/json, 2572 bytes are in the probe record; the record holds no body, so 'AList settings JSON' is not proved.\n- netdisk-pan/media-advanced360-top $.retention.stated: The probe shows a 302 to a host answering 401; it does not prove the host is gone.\n- netdisk-pan/alist-20237737-xyz $.retention.stated: The probe shows a 301 to a sibling host that serves 200; it does not prove the host is gone.\n- netdisk-pan/media-advanced360-top $.notes: Probe record does not say the host is a media mirror.\n- netdisk-pan/lark-drive-via-multi-tenant-app-credentials $.identity_cost.detail: The captured page is a login screen ('Welcome to Lark', Email Address, Phone Number, Next); it is not labelled a sign-up page.\n- netdisk-pan/alist-xiaoya-pro $.retention.stated: The probe shows a 302 to bmh.163.com; it does not prove the host is gone.\n- netdisk-pan/alist-xiaoya-pro $.limits[0].value: The probe shows one redirect now; 'stopped serving' (a change over time) is not proved.\n- netdisk-pan/media-advanced360-top $.limits[0].value: The probe shows one path redirecting; 'host stopped serving' is not proved.\n- netdisk-pan/lark-drive-via-multi-tenant-app-credentials $.identity_cost.detail: The captured page is a login screen ('Welcome to Lark', Email Address, Phone Number, Next); it is not labelled a sign-up page.\n- netdisk-pan/alist-20237737-xyz $.limits[0].value: The probe shows a 301 now; 'stopped serving' is not proved.\n- netdisk-pan/alist-20237737-xyz $.reliability_note: Status 200, application/json, 2572 bytes are in the probe record; the record holds no body, so 'AList settings JSON' is not proved.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- netdisk-pan/alist-xiaoya-pro $.url: The probe shows alist.xiaoya.pro 302-redirects to bmh.163.com, an unrelated site; the target in the record proves nothing about the URL being the service.",
+ "scope": {
+  "rids": [
+   "netdisk-pan/lark-drive-via-multi-tenant-app-credentials",
+   "netdisk-pan/public-alist-fronting-139yun",
+   "netdisk-pan/seven-so-cloud",
+   "netdisk-pan/media-advanced360-top",
+   "netdisk-pan/alist-20237737-xyz",
+   "netdisk-pan/alist-advanced360-top",
+   "netdisk-pan/alist-ucu520-top",
+   "netdisk-pan/alist-xiaoya-pro"
+  ]
+ },
+ "origin": "audit u74 of 20261125-0137-verify-netdisk-pan-1601/u61 failed: 1 of 7 unsupported",
+ "created": "2026-11-25T14:26:46Z"
+}

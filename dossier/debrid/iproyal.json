@@ -26,7 +26,7 @@
     "notes": ""
   },
   "egress": {
-    "terms": "The ISP product is sold per IP with no byte meter: the page's own description reads 'The fastest ISP proxy servers with unlimited bandwidth reserved just for you', and the feature list offers 'Zero session limits', 'Dedicated IP Pool' and 'No Limits'. The rotating residential product is metered at $1.75/GB; the dedicated mobile product starts at $117/month for 90 days with 'Zero bandwidth and session limits'.",
+    "terms": "The ISP product is sold per IP: the page now reads 'The fastest ISP proxy servers with unlimited sessions reserved just for you', with 'Dedicated IP Pool' and 'No Limits' (unlimited threads, not an explicit bandwidth claim). Entry is $1.80 per proxy for 24 hours, $2.70 for 30 days. The rotating residential product is from $1.75/GB; the dedicated mobile product has 'Zero bandwidth and session limits'.",
     "metered": false,
     "free_allowance": "none",
     "price_per_tb": null,
@@ -38,7 +38,7 @@
   "interface_detail": "HTTP(S) and SOCKS5 proxy endpoints with a dashboard API for sessions and rotation; the ISP product is a single fixed address.",
   "endpoint": "https://dashboard.iproyal.com/",
   "tooling": "any client that takes an HTTP or SOCKS5 proxy: curl, rclone --http-proxy, a browser, or a WireGuard-less transparent proxy. Nothing about the debrid client needs to change except where it egresses.",
-  "chaining": "One static ISP address at $1.80/month with no byte meter is the cheapest way to give a free VM a residential-class source address, which is the class a debrid service is least likely to refuse; the same vendor's metered residential pool at $1.75/GB is 1,000 times the price at 1 TiB of monthly transfer.",
+  "chaining": "One static ISP address at $2.70 per 30 days with no byte meter is the cheapest way to give a free VM a residential-class source address, which is the class a debrid service is least likely to refuse; the same vendor's metered residential pool at $1.75/GB is roughly 660 times the price at 1 TiB of monthly transfer.",
   "limits": [
     {
       "kind": "per-ip-shaping",
@@ -46,7 +46,7 @@
       "source": "https://iproyal.com/pricing/isp-proxies/"
     }
   ],
-  "limits_note": "The bandwidth claim sits in the page description rather than in the feature list, and the feature list says 'unlimited threads' rather than 'unlimited bandwidth'. The product is priced per IP, so a byte meter would have to be a fair-use clause, and none was read.",
+  "limits_note": "The unlimited-sessions claim sits in the page description rather than in the feature list, and the feature list says 'No Limits' rather than an explicit bandwidth figure. The product is priced per IP, so a byte meter would have to be a fair-use clause, and none was read.",
   "binding": "none",
   "binding_note": "At 1 TiB a month the static ISP product has no byte counter to hit and no published concurrency cap; what fails instead is the debrid side, whose terms call any proxy prohibited.",
   "identity_cost": {
@@ -72,16 +72,51 @@
       "url": "https://iproyal.com/pricing/mobile-proxies/",
       "date": "2026-10-23",
       "proved": "rotating mobile $6.80/GB at 2 GB down to $5.20/GB at 100 GB; dedicated mobile 'Starting from $130/month' (30 days) and '$117/month' (90 days); 'Zero bandwidth and session limits'"
+    },
+    {
+      "url": "https://iproyal.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the pricing index still headlines mobile from USD 117 per month",
+      "capture": "sha256:ca4f26e44b4e4ea97b77213e7a803843b7f3872e29d8ffe76fb91713144b06bf",
+      "quote": "[from $117/month](https://iproyal.com/pricing/mobile-proxies/)"
+    },
+    {
+      "url": "https://iproyal.com/pricing/isp-proxies/",
+      "date": "2026-11-25",
+      "proved": "the ISP page now says unlimited sessions, not unlimited bandwidth",
+      "capture": "sha256:8084ddafebd326fad8e9b81bb1f4719a997c2ffbcd476829bdf4b0da42c5d719",
+      "quote": "The fastest ISP proxy servers with unlimited sessions reserved just for you."
+    },
+    {
+      "url": "https://iproyal.com/pricing/isp-proxies/",
+      "date": "2026-11-25",
+      "proved": "the ISP address is fixed for the rental period",
+      "capture": "sha256:8084ddafebd326fad8e9b81bb1f4719a997c2ffbcd476829bdf4b0da42c5d719",
+      "quote": "Keep the same IP address as long as needed - it’s reserved exclusively for your uninterrupted access."
+    },
+    {
+      "url": "https://iproyal.com/pricing/isp-proxies/",
+      "date": "2026-11-25",
+      "proved": "the ISP product's entry price is USD 1.80 for 24 hours",
+      "capture": "sha256:8084ddafebd326fad8e9b81bb1f4719a997c2ffbcd476829bdf4b0da42c5d719",
+      "quote": "24 Hours Starting from $1.80 /proxy"
+    },
+    {
+      "url": "https://iproyal.com/pricing/mobile-proxies/",
+      "date": "2026-11-25",
+      "proved": "the 90-day dedicated mobile rate is still USD 117 per month",
+      "capture": "sha256:dca347e32a306dbfa02a7a6261e869754cb24507a1ded24580e042bc43c666c4",
+      "quote": "90 Days Starting from $117 /month"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:21:34.000Z",
-  "price_per_tb_month": "from USD 1.80 per static ISP IP per month; USD 1,792 per TiB at the metered residential rate; from USD 117/month dedicated mobile",
+  "verified_at": "2026-11-25T09:47:01.820Z",
+  "price_per_tb_month": "from USD 1.80 per static ISP IP for 24 hours, USD 2.70 per 30 days; USD 1,792 per TiB at the metered residential rate; from USD 117/month dedicated mobile",
   "notes": "Filed under debrid because the record exists to price 'debrid plus an IP class it will accept'. If it is promoted, the egress topic owns residential proxy pricing and dossier/egress/residential-proxy-trial.json already carries the $0.80/GB floor from Geonode; this record must not become a second geonode record. Three products, one record: the ISP tier is the one the debrid arithmetic turns on, and the other two are priced in evidence.",
   "extras": {
     "products": {
       "residential_rotating": "from $1.75/GB",
-      "isp_static": "from $1.80/IP/month",
+      "isp_static": "from $1.80/IP for 24 hours, $2.70 for 30 days",
       "mobile_rotating": "$6.80/GB (2 GB) to $5.20/GB (100 GB)",
       "mobile_dedicated": "$130/month (30 days), $117/month (90 days)"
     },

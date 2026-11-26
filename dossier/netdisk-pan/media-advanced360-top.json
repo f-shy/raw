@@ -51,29 +51,22 @@
       "proved": "HTTP 302 to ww547.advanced360.top, whose TLS handshake then fails; the pinned notice about excess use and this redirect are the two ends of the same shutdown"
     },
     {
-      "url": "probe:https://media.advanced360.top/api/public/settings",
-      "date": "2026-11-19",
-      "proved": "the API endpoint still redirects to ww547.advanced360.top and answers HTTP 401, so no anonymous listing is served",
-      "capture": "sha256:30e50b777fdeafe1e215b693967e5395953d348f8680dc30344de32263c1dc1e",
-      "quote": "\"status\": 401"
-    },
-    {
-      "url": "probe:https://media.advanced360.top/api/public/settings",
-      "date": "2026-11-25",
-      "proved": "the API path answers HTTP 401 after a 302 to ww547.advanced360.top",
-      "capture": "sha256:a15d543862918f4cabfcdde1b7299d66afc123afcfb748c2b697f6665ac32551",
-      "quote": "\"status\": 401"
-    },
-    {
       "url": "https://media.advanced360.top/",
       "date": "2026-11-25",
       "proved": "the root serves a parked page of related-search links",
       "capture": "sha256:b351c0988abf1d4c572157f8774b8f175e4176849abd4ed20d68fd3c87aeb511",
       "quote": "Related Searches:"
+    },
+    {
+      "url": "probe:https://media.advanced360.top/api/public/settings",
+      "date": "2026-11-26",
+      "proved": "the probe record shows HTTP status 401 for the settings endpoint",
+      "capture": "sha256:495f32b520cf2ac82bba74f3253f26aea61ba030f38f138f747c8e94bc5cdc68",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-11-25T15:23:47.350Z",
+  "verified_at": "2026-11-26T02:15:14.533Z",
   "binding": "retention-clamped",
   "binding_note": "The host is not slow or capped, it is gone; the constraint is that it stopped.",
   "notes": "A media mirror. 302 to a host whose TLS fails",

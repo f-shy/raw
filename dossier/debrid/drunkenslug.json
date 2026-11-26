@@ -81,6 +81,13 @@
       "url": "https://www.usenet.com/drunkenslug-nzb-review/",
       "date": "2026-10-23",
       "proved": "third-party tier table: Water free 5 NZBs; Lager 25/250 at EUR 5; Ale 100/1,000 at EUR 10; Wine 200/2,000 at EUR 20"
+    },
+    {
+      "url": "https://drunkenslug.com/api?t=caps",
+      "date": "2026-11-25",
+      "proved": "the caps document declares a 100-result ceiling",
+      "capture": "sha256:688f54af86143ecfe85f3af681b51160ce3d5ffbfc6f9bdb4d8f11906a8d8231",
+      "quote": "<limits max=\"100\" default=\"100\"/>"
     }
   ],
   "verdict": "fails-identity",
@@ -91,7 +98,7 @@
     "registration_open": false
   },
   "notes": "The /api path answering while every HTML path is challenged is itself the useful finding: an indexer the browser cannot open still exposes caps, so registration state and result limits are readable without an account.",
-  "verified_at": "2026-10-23T02:11:54.066Z",
+  "verified_at": "2026-11-25T22:07:34.253Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }

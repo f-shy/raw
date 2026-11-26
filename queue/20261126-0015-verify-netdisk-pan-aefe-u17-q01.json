@@ -1,0 +1,14 @@
+{
+ "id": "20261126-0015-verify-netdisk-pan-aefe-u17-q01",
+ "kind": "verify",
+ "topic": "netdisk-pan",
+ "question": "netdisk-pan/alist-zlion-top still has verdict dead and retention/binding text saying the host is gone, but the fresh anonymous fs/list body returns code 200 with five root directories; should those fields be re-evaluated?",
+ "why": "This unit narrowed only $.limits[0].value to the exact captured sentence and left verdict, retention, binding and tier fields unread.",
+ "scope": {
+  "rids": [
+   "netdisk-pan/alist-zlion-top"
+  ]
+ },
+ "origin": "20261126-0015-verify-netdisk-pan-aefe/u17",
+ "created": "2026-11-26T02:58:42Z"
+}

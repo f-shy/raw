@@ -162,10 +162,38 @@
       "proved": "the live plan page on 2026-10-30 lists two payment frequencies, Subscription at 2.99 EUR per 30 days and One-time at 3.99 EUR per 30 days, and no Free tryout",
       "capture": "sha256:9707166769dbaef5a460ae2c9b65813fc835c425c4364d4582a91a9f70939392",
       "quote": "Using a credit card you will be billed every 30 days automatically."
+    },
+    {
+      "url": "https://alldebrid.com/offer/",
+      "date": "2026-11-25",
+      "proved": "the live plan page still lists only paid subscription and one-time plans",
+      "capture": "sha256:80be07a05ca76ebcfcec898be0eba0176d40eea98292d299c065fea0a6c6f3f9",
+      "quote": "Using a credit card you will be billed every 30 days automatically."
+    },
+    {
+      "url": "https://alldebrid.com/offers/",
+      "date": "2026-11-25",
+      "proved": "the offers URL still serves the site's 404 page and carries no trial",
+      "capture": "sha256:6a6f42c011ce34c9a1305b21ec97728c26c0177f5e9a6ec42fc88252cf9bd0fc",
+      "quote": "404 - la page que vous demandez n'existe pas"
+    },
+    {
+      "url": "https://alldebrid.com/faq/",
+      "date": "2026-11-25",
+      "proved": "the FAQ index still carries no trial entry",
+      "capture": "sha256:69f68efa8ec17a9d69ec4693012173da3ef43ac4ae8c7e0257a26bbcd9a9b593",
+      "quote": "© **AllDebrid.com** 2009 2042 - High quality premium link downloader. All rights reserved, reproduction prohibited without authorization."
+    },
+    {
+      "url": "https://alldebrid.com/",
+      "date": "2026-11-25",
+      "proved": "the home page still describes its torrent-to-link conversion tool and publishes no tryout",
+      "capture": "sha256:22078e4c8d7ab2f6308fbcf157ebdf52ca0ffaa60960e5fe1fcea41542f8688b",
+      "quote": "Our torrent conversion tool allows you to send a torrent file or a magnet link to our service to convert it to a direct download link, allowing you to recover it faster and easier."
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-30T13:11:55.961Z",
+  "verified_at": "2026-11-25T09:46:50.793Z",
   "price_per_tb_month": null,
   "notes": "This is the 'step that is dead since its record was written' in the ladder: scratch seed-western/records/alldebrid-trial.json still records the 25 GB / 7-day tryout as trial-only on confidence 'reported'. Group 3's byte-committed total in ladder.md is '30 + 25 + 15 = 70 GB'; with this step dead it is 45 GB. The 966 GB and 896 GB no-card totals are unaffected because AllDebrid was always card-or-phone gated and never inside them. Merged from seed-western: Kept as its own record because the gate differs from the paid product (phone rather than card) and the ceiling differs by three orders of magnitude. The seed's footnote claimed the trial with no byte figure; the 25 GB comes from third parties and is the number a reader will plan around, so it is flagged rather than dropped.",
   "extras": {

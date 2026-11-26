@@ -57,16 +57,6 @@
       "proved": "the seed pass recorded, at this URL: '250 GB to 100 TB, priced by the terabyte and never by the head'; 'Biggest file 10 TB'; 'Up to 10 TB per file, resumable transfers'"
     },
     {
-      "url": "https://trekmail.net/cloud-drive",
-      "date": "2026-10-21",
-      "proved": "the seed pass recorded, at this URL: 'Server URL https://drive.trekmail.net/dav/files/account/'; 'rclone for scheduled backups, Cyberduck for parallel uploads'; 'One password per device'"
-    },
-    {
-      "url": "https://trekmail.net/cloud-drive",
-      "date": "2026-10-21",
-      "proved": "the seed pass recorded, at this URL: FAQ: 'Yes: 1 TB free for 30 days, and no card. It is a one-time offer per account'; free plan 5 GB permanent"
-    },
-    {
       "url": "https://drive.trekmail.net/dav/files/",
       "date": "2026-10-21",
       "proved": "the seed pass recorded, at this URL: HTTP 401 on GET, so the DAV path exists and is auth-gated; status.php returns 404, so the backend is not Nextcloud"
@@ -108,13 +98,6 @@
     },
     {
       "url": "https://trekmail.net/cloud-drive",
-      "date": "2026-11-03",
-      "proved": "the 1 TB 30-day trial with no card, once per account, is still offered",
-      "capture": "sha256:cc8a79db2f3eff7d69d751f856d44a7b5de2da22858bc7968659922c0aa82eab",
-      "quote": "Yes: 1 TB free for 30 days, and no card. It is a one-time offer per account and it works on every plan including the free one."
-    },
-    {
-      "url": "https://trekmail.net/cloud-drive",
       "date": "2026-11-25",
       "proved": "the page describes sign-up and says the account comes with email included, without showing a registration form",
       "capture": "sha256:df481707c67155ae0b78b3027c9625b8c63339e2ba83c2abe983714124767995",
@@ -126,6 +109,13 @@
       "proved": "a permanent free plan carries 5 GB and a separate one-time 30-day 1 TB trial",
       "capture": "sha256:df481707c67155ae0b78b3027c9625b8c63339e2ba83c2abe983714124767995",
       "quote": "Every account starts with space included, from 5 GB on the free plan up to 200 GB on the largest one, shared with your mail if you use it. ... Yes: 1 TB free for 30 days, and no card. It is a one-time offer per account and it works on every plan including the free one."
+    },
+    {
+      "url": "https://trekmail.net/cloud-drive",
+      "date": "2026-11-25",
+      "proved": "the trial lasts 30 days",
+      "capture": "sha256:df481707c67155ae0b78b3027c9625b8c63339e2ba83c2abe983714124767995",
+      "quote": "Yes: 1 TB free for 30 days, and no card. It is a one-time offer per account and it works on every plan including the free one."
     }
   ],
   "verdict": "qualifies-with-caveat",

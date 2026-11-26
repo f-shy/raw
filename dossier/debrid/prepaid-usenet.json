@@ -102,10 +102,31 @@
       "capture": "sha256:c20dd909187d56863fa88fcd715d0198e4d86a117ccb71e6bbc2baf45b53e981",
       "quote": "Prepaid Usenet is a German provider based exclusively on prepaid data packages with no expiration — no subscription, no minimum term. Blocks from 5 GB to 500 GB, over 1,800 days retention, 10 connections, 256-bit SSL, 100,000+ newsgroups, EU servers, 10 GB demo via SMS. 14-day statutory right of withdrawal.",
       "proved": "a third-party index gives the block range 5 GB to 500 GB and 10 connections"
+    },
+    {
+      "url": "https://www.prepaid-usenet.de/registration/1",
+      "date": "2026-11-25",
+      "proved": "the free test still needs an email confirmation and an SMS activation code",
+      "capture": "sha256:ffd5fd346cd4465adae551e5294c7ecd02de4d27122e80b831f6949d430fc7ee",
+      "quote": "Nach der E-Mail-Bestätigung erhalten Sie per SMS einen Freischaltcode."
+    },
+    {
+      "url": "https://www.prepaid-usenet.de/registration/1",
+      "date": "2026-11-25",
+      "proved": "the vendor still offers a free 10 GB test account",
+      "capture": "sha256:ffd5fd346cd4465adae551e5294c7ecd02de4d27122e80b831f6949d430fc7ee",
+      "quote": "Sie haben dann einen kostenlosen 10GB-Testaccount, den Sie mit dem vollen Funktionsumfang von Prepaid-Usenet nutzen können."
+    },
+    {
+      "url": "https://www.prepaid-usenet.de/",
+      "date": "2026-11-25",
+      "proved": "retention is still stated as up to over 1800 days",
+      "capture": "sha256:3b003ed3d30659531b3db69321cc0b8967d8a59a173469e833a99e7625b74f61",
+      "quote": "Wir bieten Ihnen als Usenet-Provider eine Retention, die Vorhaltezeit von Inhalten im Usenet, von bis über 1800 Tagen. So können Sie auch problemlos auf ältere Inhalte zugreifen."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T07:37:14.439Z",
+  "verified_at": "2026-11-25T09:47:08.495Z",
   "price_per_tb_month": null,
   "notes": "The free 10 GB is a one-off test, not a recurring allowance; the caveat is the SMS step and that the cheapest paid block price is third-party.",
   "extras": {}

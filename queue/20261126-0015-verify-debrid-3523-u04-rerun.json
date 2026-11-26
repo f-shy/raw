@@ -1,0 +1,20 @@
+{
+ "id": "20261126-0015-verify-debrid-3523-u04-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Re-check these records that the previous pass left without a fresh captured datum. For each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], retention.days, per_object_cap.bytes, limits[i].value). Never confirm $.url, $.topic, $.slug, $.provider, $.endpoint, any source_url or any limits[i].source. List every other field in unread. If the page cannot be read through any route, run the three read-only probes, register a probe record with `scripts/rq capture probe:URL --probe FILE`, and set $.reliability_note to the unverified statement with that probe as measured evidence, then open a question. Every record must end with a captured datum dated 2026-11-25/26.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/nzbindex $.limits_note: The capture shows data.page.size = 25, which supports the first clause only. It contains no statement about a limit parameter, so \"there is no limit parameter to raise it\" is not in the source. My fresh reads with limit=100, size=100, pageSize=100, per_page=100 and count=100 also returned size 25, b\n- debrid/nzbscout $.free_tier.unit: The page is a ParkLogic domain-for-sale parking page. It mentions neither NZBScout nor a free tier, so \"unlimited\" is not supported by this capture; the record's free-tier value rests on a third-party row (nzbhydra.com) that is not the confirm's evidence.",
+ "scope": {
+  "rids": [
+   "debrid/nzbforyou",
+   "debrid/nzbgrabit",
+   "debrid/nzbindex",
+   "debrid/nzbs2go",
+   "debrid/nzbscout",
+   "debrid/nzbstars",
+   "debrid/publicmirrorbot",
+   "debrid/pullfiles"
+  ]
+ },
+ "origin": "audit u11 of 20261126-0015-verify-debrid-3523/u04 failed: 2 of 4 unsupported",
+ "created": "2026-11-26T01:45:13Z"
+}

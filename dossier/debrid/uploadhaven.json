@@ -76,10 +76,45 @@
       "url": "https://uploadhaven.com/",
       "date": "2026-10-23",
       "proved": "Pro is USD 8.99/month or USD 2.99/3 days, sold on 'Unlimited bandwidth', 'Max speed', 'No wait' and 'No ads'; no monthly byte allowance and no fair-use clause appear on the page."
+    },
+    {
+      "url": "https://uploadhaven.com/",
+      "date": "2026-11-25",
+      "proved": "the landing page claims a 100 GB per-file limit and unlimited bandwidth",
+      "capture": "sha256:0116796df46cc929e30f4d957fe3109b51850dd0265c9b7b54361107e4c6621b",
+      "quote": "Up to 100 GB per file    Unlimited bandwidth    Free to use"
+    },
+    {
+      "url": "https://uploadhaven.com/",
+      "date": "2026-11-25",
+      "proved": "free downloads exist and uncapped speeds are a Pro feature",
+      "capture": "sha256:0116796df46cc929e30f4d957fe3109b51850dd0265c9b7b54361107e4c6621b",
+      "quote": "Free downloads for everyone. Unlock uncapped speeds with Pro. Your bandwidth, unleashed."
+    },
+    {
+      "url": "https://uploadhaven.com/account/register",
+      "date": "2026-11-25",
+      "proved": "the signup page lists a yearly Pro plan at USD 69.99",
+      "capture": "sha256:92f7b071b35d03b5c436833cac7a7fdc4f58c926b486381775f2cc0e2376bdf6",
+      "quote": "69.99"
+    },
+    {
+      "url": "https://uploadhaven.com/account/register",
+      "date": "2026-11-25",
+      "proved": "the signup form asks for an email address",
+      "capture": "sha256:92f7b071b35d03b5c436833cac7a7fdc4f58c926b486381775f2cc0e2376bdf6",
+      "quote": "Email address"
+    },
+    {
+      "url": "https://uploadhaven.com/account/register",
+      "date": "2026-11-25",
+      "proved": "payment on signup is handled by Stripe",
+      "capture": "sha256:92f7b071b35d03b5c436833cac7a7fdc4f58c926b486381775f2cc0e2376bdf6",
+      "quote": "Secure payment via Stripe"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:20:00.000Z",
+  "verified_at": "2026-11-25T09:46:58.091Z",
   "price_per_tb_month": "USD 8.99 per TiB-month on the stated 'Unlimited bandwidth', which no fair-use number contradicts that was reachable",
   "history": [],
   "notes": "Recorded as the price floor, not as a recommendation: USD 8.99 for unlimited bandwidth is the cheapest flat rate in the lane, and it is also the host with the least likelihood of holding the file wanted. Merged from paid-ladder: Correction to the filehost-premium record, which read 'USD 8.99 per TiB-month on the stated Unlimited bandwidth'. That is the same number at exactly 1 TiB/month, but it is not a per-TiB price and it cannot be compared against a plan that publishes a byte cap. A plan with no allowance goes in the flat-month group, where it is USD 8.99/month and out of contention.",
@@ -91,7 +126,7 @@
     "max_file_premium": "100 GB",
     "api": false,
     "price_30d_usd": 8.99,
-    "price_ladder_reported": "USD 8.99 / month, or USD 2.99 / 3 days",
+    "price_ladder_reported": "USD 8.99 / month, or USD 2.99 / 3 days, or USD 69.99 / year",
     "volume_tib_month": 1.0,
     "conversion": "MiB/s = 1,048,576 B/s; vendor GB = 1e9 B; GiB = 1.073741824e9 B; 1 TiB/month = 0.4045 MiB/s sustained",
     "merged_from": [

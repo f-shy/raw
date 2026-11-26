@@ -6,7 +6,7 @@
   "category": "residential egress: rotating residential, metered per GB",
   "tier": "Residential, monthly plan",
   "free_tier": {
-    "stated": "No free allowance read; entry is '3 GB $3.75/GB Total: $11.25 + VAT billed monthly'. Pay-as-you-go is $4/GB and needs a wallet top-up.",
+    "stated": "A 3-day free trial of 100 MB is available to new users on a residential proxy plan; no ongoing free allowance is published. Entry paid plan is 3 GB at $3.75/GB, total $11.25 plus VAT billed monthly; pay-as-you-go is $4/GB and needs a wallet top-up.",
     "unit": "GB",
     "metered_on": "downloaded-bytes",
     "source_url": "https://decodo.com/pricing",
@@ -62,10 +62,38 @@
       "url": "https://decodo.com/pricing",
       "date": "2026-10-23",
       "proved": "the full ladder: '3 GB $3.75/GB', '10 GB $3.50/GB', '25 GB $3.25/GB', '50 GB $3/GB', '100 GB $2.75/GB', '250 GB $2.5/GB', '1000 GB $2/GB', and 'Pay As You Go is $4/GB'"
+    },
+    {
+      "url": "https://decodo.com/pricing",
+      "date": "2026-11-25",
+      "proved": "The full per-GB ladder and the 115M+ IP pool are unchanged",
+      "capture": "sha256:c84b1afa0c9994327d59fa16416c40f3ce321d0a31cebf13e7d95778447151a6",
+      "quote": "Decodo residential proxy pricing is bandwidth-based. Monthly subscriptions run from $3.75/GB (3GB) to $2.75/GB (100GB), Enterprise plans start from $2.50/GB (250GB) to $2/GB (1TB), and Pay As You Go is $4/GB. Every plan includes the full access to 115M+ IP pool and free advanced targeting."
+    },
+    {
+      "url": "https://decodo.com/pricing",
+      "date": "2026-11-25",
+      "proved": "Card and other payment methods are accepted, so the paid gate takes a card or equivalent payment detail",
+      "capture": "sha256:c84b1afa0c9994327d59fa16416c40f3ce321d0a31cebf13e7d95778447151a6",
+      "quote": "We accept payments with credit cards, PayPal, Alipay, Google Pay, and Apple Pay. You can also pay with cryptocurrency for all products except ISP proxies and datacenter proxies (Pay per IP option)."
+    },
+    {
+      "url": "https://decodo.com/pricing",
+      "date": "2026-11-25",
+      "proved": "A 3-day 100 MB free trial of residential proxies is published",
+      "capture": "sha256:c84b1afa0c9994327d59fa16416c40f3ce321d0a31cebf13e7d95778447151a6",
+      "quote": "Sure thing! Try our residential proxies with a 3-day free trial. Go to the Decodo dashboard , select a residential proxy plan, and opt for the trial version if you’re a new user. Enjoy 100 MB for 3 days"
+    },
+    {
+      "url": "https://decodo.com/pricing",
+      "date": "2026-11-25",
+      "proved": "The only free capacity published is a time-limited 100 MB trial",
+      "capture": "sha256:c84b1afa0c9994327d59fa16416c40f3ce321d0a31cebf13e7d95778447151a6",
+      "quote": "Sure thing! Try our residential proxies with a 3-day free trial. Go to the Decodo dashboard , select a residential proxy plan, and opt for the trial version if you’re a new user. Enjoy 100 MB for 3 days"
     }
   ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:21:34.000Z",
+  "verdict": "trial-only",
+  "verified_at": "2026-11-25T09:47:00.875Z",
   "price_per_tb_month": "USD 2,048 per TiB (USD 2.00/GB at the 1,000 GB plan)",
   "notes": "Counted once as the metered-market reference; the same arithmetic holds for Oxylabs, Databay, SOAX and Rayobyte, each of which gets its own record only because the rungs differ by a factor of two and a reader choosing a vendor needs the rung.",
   "extras": {

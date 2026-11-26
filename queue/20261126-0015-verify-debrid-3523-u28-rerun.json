@@ -1,0 +1,20 @@
+{
+ "id": "20261126-0015-verify-debrid-3523-u28-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Second attempt after the audit. For every finding below, replace the interpretive text with the literal thing the capture shows: a quoted sentence, the page title, the exact status, or `unverified: <what happened>`. A field that says what a page IS, means or implies is unsupported. Keep only values whose whole text is literally in the capture; list the rest in unread. Every record needs one confirm whose value is literally in the capture.\n- debrid/simply-nzbs $.free_tier.stated (The whole free_tier.stated value is this heading alone. It is a parking template's label for five keyword links (ww547.simplynzbs.com/kw-click); it states no free tier and gives a reader nothing about)\n- debrid/simply-nzbs $.free_tier.stated (Same field as c10: the confirm re-dates the record on a page whose only free-tier text is a parking template's heading, which states no free tier, gone or otherwise.)\n- debrid/simply-premium $.limits[1].value (The row is in the table verbatim (a fresh read on 2026-11-26 returned the same sha256), but the field is limits[1].value, which holds a statement of the limit, and this is a Markdown table row with a )\n- debrid/simply-premium $.limits[1].value (Same field and same reason as c12: the confirm re-dates the record on a raw table row standing in for a limit value. The page does give ddownload.com a 50 GB Daily Traffic cap, so the fact is on the p)\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/qiwi-wallet $.limits[0].value: The lede states the stop and a later sentence says top-ups became impossible after the licence revocation, but the 21 February 2024 date is only the article's dateline and the revocation is stated separately; no single span says the wallet stopped on 2024-02-21 because the Central Bank revoked the l\n- debrid/releasebb $.free_tier.stated: The title and the POST to https://router.parklogic.com/ are in the capture, but its body is 5,508 bytes (7,405 with the response headers), not 5,591; a fresh raw fetch on 2026-11-26 (capture 83ac0591a8f4) returned a 5,604-byte body. No capture reproduces the value's byte count.\n- debrid/scnlog $.free_tier.stated: The fresh feed read (and the 2026-11-26 capture) lists 40 items under this heading, but says nothing about a post page, three direct host links, fees, registration or a captcha; the quoted span supports only the heading.\n- debrid/seedbox-org-ua $.egress.terms: The SSD17 plan card lists 'неограниченный трафик'; the 8x10 Gbit/s figure is a separate statistics span ('8x10 гбит/с ... общая емкость подключений в интернет'), and 'not per client' is the reading of 'общая' (total). No single span states the whole value. Fresh reads on 2026-11-26 failed (broker 50\n- debrid/spots-xenetix-nl $.identity_cost.detail: The listing says nothing about the host being unreachable (it reports '1,513ms response time'), so no span states the whole value; the 'cannot be reached' clause rests on the lane's DNS probe, not this page.",
+ "scope": {
+  "rids": [
+   "debrid/qiwi-wallet",
+   "debrid/releasebb",
+   "debrid/scenenzbs",
+   "debrid/scnlog",
+   "debrid/seedbox-org-ua",
+   "debrid/simply-nzbs",
+   "debrid/simply-premium",
+   "debrid/spots-xenetix-nl"
+  ]
+ },
+ "origin": "audit u32 of 20261126-0015-verify-debrid-3523/u28 failed: 5 of 10 unsupported",
+ "created": "2026-11-26T03:22:26Z"
+}

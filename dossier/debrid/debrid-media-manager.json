@@ -54,7 +54,7 @@
     "detail": "No account with DMM; a debrid login for library features, or a DMM API key for the indexer endpoint alone.",
     "country": "None"
   },
-  "reliability_note": "Real-Debrid is the only login offered on the front page, so the tool's multi-provider reputation is ahead of what its own page shows; the login page is the thing to re-read before relying on another provider.",
+  "reliability_note": "The front page now offers DMM key, Real-Debrid, AllDebrid, Torbox, Premiumize, Offcloud, Debrid-Link and Easynews logins; sponsorship is required for the Torznab and Newznab indexers.",
   "confidence": "documented",
   "confidence_note": "The live front page was read today; it states the indexer feature and the single-provider login. The Torznab endpoint itself was not called.",
   "evidence": [
@@ -67,10 +67,52 @@
       "url": "https://notes.debridmediamanager.com/providers/realdebrid/",
       "date": "2026-10-23",
       "proved": "the same project's measurement work on the Real-Debrid add floor and its provider-specific limit notes"
+    },
+    {
+      "url": "https://debridmediamanager.com/",
+      "date": "2026-11-25",
+      "proved": "the front page offers a multi-provider login",
+      "capture": "sha256:93ead402b1cf6906ab2e652dc7833259385657f0c1be61b771574cae85d38d49",
+      "quote": "Please login with one of the supported services below"
+    },
+    {
+      "url": "https://debridmediamanager.com/sponsor/login",
+      "date": "2026-11-25",
+      "proved": "a DMM key works without a debrid account only for the sponsored features",
+      "capture": "sha256:769d82717f77f8cd1ee30b80347fa88b6441a28ad95f74f0132289675112eb9d",
+      "quote": "For sponsors without a debrid account. Everything a sponsorship opens works from this key alone; your library, casting and transfers need a debrid account, which you can connect at any time."
+    },
+    {
+      "url": "https://notes.debridmediamanager.com/dmm/",
+      "date": "2026-11-25",
+      "proved": "the Torznab and Newznab indexers now require an active sponsorship and a DMM API key",
+      "capture": "sha256:6b31cfc4f44bc01be286ba47c24355850bdc9b94b2e012131914f5f8fdfc848a",
+      "quote": "Sonarr Radarr and Prowlarr can search DMM as a Torznab torrent indexer or Newznab Usenet indexer. Both need an active sponsorship and the DMM API key."
+    },
+    {
+      "url": "https://gatekeeper.debridmediamanager.com/",
+      "date": "2026-11-25",
+      "proved": "the sponsor plan needed for the indexers costs EUR 4 a month",
+      "capture": "sha256:181caaa2762af4031b4057411e77fdf48adab059b1348c12aa91998d6c8b5b9b",
+      "quote": "€4 monthly plan. Renews until you cancel. No minimum term."
+    },
+    {
+      "url": "https://notes.debridmediamanager.com/dmm/",
+      "date": "2026-11-25",
+      "proved": "DMM remains a free website that works with six named debrid providers",
+      "capture": "sha256:6b31cfc4f44bc01be286ba47c24355850bdc9b94b2e012131914f5f8fdfc848a",
+      "quote": "[Debrid Media Manager](https://debridmediamanager.com/) (DMM) is a free website for finding movies and shows and adding them to your debrid account: Real-Debrid, AllDebrid, TorBox, Premiumize, Offcloud or Debrid-Link."
+    },
+    {
+      "url": "https://notes.debridmediamanager.com/providers/realdebrid/",
+      "date": "2026-11-25",
+      "proved": "the project's own notes still state a 20-second add floor on one account",
+      "capture": "sha256:47888d99798add078d82d90247dcebcf4e371658079d14d6eab2b217a021e39b",
+      "quote": "Two adds on one account need 20 seconds between them."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T01:51:00.000Z",
+  "verified_at": "2026-11-25T09:46:49.250Z",
   "price_per_tb_month": "USD 0 for the caller",
   "history": [],
   "notes": "Included because it is the one *arr-visible endpoint in the debrid world and because its project notes are the best public measurements of Real-Debrid's real behaviour. Trigger condition: if the indexer endpoint starts requiring a debrid login, the 'only needs a DMM API key' line is stale.",

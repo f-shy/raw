@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u08-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Re-check these debrid records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/ninjacentral $.free_tier.stated: Caps shows only limits max=100 default=100 and open=no; the 20 API hits / 5 downloads a day and the 300/50 raise are not in the capture.\n- debrid/ninjacentral $.identity_cost.detail: Caps shows available=yes open=no, but the third-party tracker record 'Registration closed / site offline' checked 2026-10-06 is not in this capture.\n- debrid/ninjacentral $.limits[0].value: Capture shows only the results cap of 100; the 20 API hits / 5 downloads per day and 300/50 raise are not in it.\n- debrid/nzbking $.free_tier.notes: Page proves the personal-use / no-scraping condition only; 'No quota page exists' and the 5-request burst are not in the capture.\n- debrid/nzbking $.free_tier.stated: Capture is the probe of ?q=verify-u08 (20,538 bytes, status 200), not q=linux 54,006 bytes; the 7,231-byte NZB with 19 files and the absence of a daily counter are not in this record.\n- debrid/nzbking $.per_object_cap.stated: Record shows status 200 and 7,231 bytes, but not 19 files nor that the answer is never the payload.\n- debrid/nzbking $.tooling: Record shows only 404 on /api/nzb?id=x; Prowlarr/NZBHydra2 incompatibility, the wrapper and the RSS feed advert are not in it.\n- debrid/tabula-rasa $.limits[1].value: Caps says open=\"yes\", contradicting 'registration unavailable'; view-only accounts are not mentioned.",
+ "scope": {
+  "rids": [
+   "debrid/nzbking",
+   "debrid/findnzb",
+   "debrid/spots-xenetix-nl",
+   "debrid/binnewz",
+   "debrid/nzbscout",
+   "debrid/ninjacentral",
+   "debrid/tabula-rasa",
+   "debrid/simply-nzbs"
+  ]
+ },
+ "origin": "audit u85 of 20261125-0137-verify-debrid-5636/u08 failed: 8 of 12 unsupported",
+ "created": "2026-11-25T15:10:37Z"
+}

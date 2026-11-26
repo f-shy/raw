@@ -1,0 +1,13 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u169-rerun",
+ "kind": "reconcile",
+ "topic": "debrid",
+ "question": "Settle these disagreements on debrid/nzbking from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.free_tier.notes: proposed \"No quota page exists; the vendor now adds a personal-use and no-scraping condition.\" (evidence https://www.nzbking.com/, capture sha256:0235d94baae0b, quote 'You may use this site only for personal use and at your own risk. Commercial use is prohibited. Do not run scraping scri'); now \"No quota page exists; the claim rests on a 5-request burst rather than a vendor sentence; the vendor page adds a personal-use condition.\". Why it did not apply: the value changed after the lane read it\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/nzbking $.free_tier.notes: The capture states the personal-use and no-scraping condition only; it does not say that no quota page exists. A single home-page read cannot establish a site-wide absence, and one snapshot cannot show that the condition is new ('now adds'). The whole value is broader than the span.",
+ "scope": {
+  "rids": [
+   "debrid/nzbking"
+  ]
+ },
+ "origin": "audit u191 of 20261125-0137-verify-debrid-5636/u169 failed: 1 of 1 unsupported",
+ "created": "2026-11-25T21:29:01Z"
+}

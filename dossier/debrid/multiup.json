@@ -80,16 +80,58 @@
       "url": "probe:https://multiup.io/en/upload/from-links",
       "date": "2026-10-23",
       "proved": "HTTP 200, 133537 bytes, sha256 7597d0194c17c414..., no challenge"
+    },
+    {
+      "url": "https://multiup.io/en/upload/from-links",
+      "date": "2026-11-25",
+      "proved": "the from-links form still accepts HTTP or FTP URLs and states that an account is required",
+      "capture": "sha256:cc6c1fd3580d693a34af09fc9c493eb77da9967187eeaccdf42561ab05b5680e",
+      "quote": "You can remotely upload files from HTTP or FTP ... Account required ... Parallel upload"
+    },
+    {
+      "url": "https://multiup.io/en/upload/from-links",
+      "date": "2026-11-25",
+      "proved": "host caps still run from 512 MB on Filer.net to 300 GB on 1fichier and 500 GB on GoFile",
+      "capture": "sha256:cc6c1fd3580d693a34af09fc9c493eb77da9967187eeaccdf42561ab05b5680e",
+      "quote": "Filer.net\n(512.00 MB) ... 1fichier.com\n(300.00 GB) ... GoFile.io\n(500.00 GB)"
+    },
+    {
+      "url": "https://multiup.io/en/upload/from-links",
+      "date": "2026-11-25",
+      "proved": "the 500 GB ceiling is shared by several listed hosts, not only GoFile",
+      "capture": "sha256:cc6c1fd3580d693a34af09fc9c493eb77da9967187eeaccdf42561ab05b5680e",
+      "quote": "BuzzHeavier.com\n(500.00 GB) ... Chomikuj.pl\n(500.00 GB) ... GoFile.io\n(500.00 GB)"
+    },
+    {
+      "url": "https://multiup.io/en/upload/from-links",
+      "date": "2026-11-25",
+      "proved": "the 500 GB ceiling is shared by several listed hosts",
+      "capture": "sha256:cc6c1fd3580d693a34af09fc9c493eb77da9967187eeaccdf42561ab05b5680e",
+      "quote": "BuzzHeavier.com\n(500.00 GB) ... Chomikuj.pl\n(500.00 GB) ... GoFile.io\n(500.00 GB)"
+    },
+    {
+      "url": "https://multiup.io/en/faq",
+      "date": "2026-11-25",
+      "proved": "the service mirrors uploads to host sites and returns an index link, not a download stream",
+      "capture": "sha256:f8b8765f92b658c786a453bdaffc51ff082df447c653ed7b8564155c09a0d844",
+      "quote": "MultiUp.io is a multiupload website, that is: you upload a file on our server, this one is uploaded automatically, on several hosting-file websites. In the end you obtain a link of the shape : https://multiup.io/download/NUMBERS/FILE_NAME"
+    },
+    {
+      "url": "https://multiup.io/en/faq",
+      "date": "2026-11-25",
+      "proved": "service still states a free ad-funded tier",
+      "capture": "sha256:f8b8765f92b658c786a453bdaffc51ff082df447c653ed7b8564155c09a0d844",
+      "quote": "No, absolutely not. All which is here is free. This service is supplied to you in the state and its use is completely free. This service is self-financed by advertisements."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T01:52:41.420Z",
+  "verified_at": "2026-11-25T09:46:51.629Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The best URL-to-many-hosts relay found: one pull, thirty copies, no bandwidth through the caller. The caveat is the account and the 512 MB floor when Filer.net is selected. No programmatic path found: A web upload form at /en/upload/from-links that accepts HTTP or FTP source links, a host checklist, a terms checkbox and 'Parallel upload'. No API documentation page was found.",
   "extras": {
     "destination_hosts": "30+",
     "smallest_cap": "512 MB (Filer.net)",
-    "largest_cap": "500 GB (GoFile)"
+    "largest_cap": "500 GB (GoFile, BuzzHeavier, Chomikuj, DataNodes, Drive.Google, FireLoad, FTP, FTP2, Media.cm, Mega.nz, Send.now, Theuser.cloud, VikingFile)"
   }
 }

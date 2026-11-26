@@ -93,23 +93,9 @@
     {
       "url": "probe:https://www.yhcres.top/",
       "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:1a815a21d5604d0483979a95c1d5b400c9d7cf8149b172e660661ebcae059f9d",
-      "quote": "\"listing_sha256\": \"296e8611\""
-    },
-    {
-      "url": "probe:https://www.yhcres.top/",
-      "date": "2026-11-11",
       "proved": "the probe record states the hash method used for the listing",
       "capture": "sha256:1a815a21d5604d0483979a95c1d5b400c9d7cf8149b172e660661ebcae059f9d",
       "quote": "\"listing_hash_method\": \"sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters\""
-    },
-    {
-      "url": "probe:https://www.yhcres.top/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:1a815a21d5604d0483979a95c1d5b400c9d7cf8149b172e660661ebcae059f9d",
-      "quote": "\"alive\": true"
     },
     {
       "url": "probe:https://www.yhcres.top/",
@@ -131,13 +117,6 @@
       "proved": "the liveness and mount-list probe checked this host at this instant",
       "capture": "sha256:92ffc27f8b73e911752b77300c698ba17f29011814eec0e3fb8db6bdb351dc9a",
       "quote": "\"checked_at\": \"2026-11-19T03:43:00.527Z\""
-    },
-    {
-      "url": "probe:https://www.yhcres.top/",
-      "date": "2026-11-19",
-      "proved": "the anonymous session, settings and mount list all answered, so the fresh alive timestamp stands",
-      "capture": "sha256:92ffc27f8b73e911752b77300c698ba17f29011814eec0e3fb8db6bdb351dc9a",
-      "quote": "\"alive\": true"
     },
     {
       "url": "probe:https://www.yhcres.top/",
@@ -166,6 +145,55 @@
       "proved": "the fresh anonymous root listing hashed to the stored value, so the listing is unchanged",
       "capture": "sha256:f3846125b7bd8b2637ae86dbccc0400b91f41682b6bf19864d00cd68c2c90850",
       "quote": "\"listing_sha256\": \"296e8611\""
+    },
+    {
+      "url": "probe:https://www.yhcres.top/",
+      "date": "2026-11-25",
+      "proved": "the liveness and mount-list probe checked this host at this instant",
+      "capture": "sha256:acaf7be7fa68ba450ddd1c9ce5f05908299726a186e4a74ee73b18231ec7a343",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:35.555Z\""
+    },
+    {
+      "url": "probe:https://www.yhcres.top/",
+      "date": "2026-11-25",
+      "proved": "the anonymous session reported this base path",
+      "capture": "sha256:acaf7be7fa68ba450ddd1c9ce5f05908299726a186e4a74ee73b18231ec7a343",
+      "quote": "\"base_path\": \"/public\""
+    },
+    {
+      "url": "probe:https://www.yhcres.top/",
+      "date": "2026-11-25",
+      "proved": "the settings response advertised this write flag",
+      "capture": "sha256:acaf7be7fa68ba450ddd1c9ce5f05908299726a186e4a74ee73b18231ec7a343",
+      "quote": "\"write_advertised\": true"
+    },
+    {
+      "url": "probe:https://www.yhcres.top/",
+      "date": "2026-11-25",
+      "proved": "the probe measured this write-content-bypass flag",
+      "capture": "sha256:acaf7be7fa68ba450ddd1c9ce5f05908299726a186e4a74ee73b18231ec7a343",
+      "quote": "\"write_content_bypass\": false"
+    },
+    {
+      "url": "probe:https://www.yhcres.top/",
+      "date": "2026-11-25",
+      "proved": "the settings response reported this upstream provider",
+      "capture": "sha256:acaf7be7fa68ba450ddd1c9ce5f05908299726a186e4a74ee73b18231ec7a343",
+      "quote": "\"provider\": \"unknown\""
+    },
+    {
+      "url": "probe:https://www.yhcres.top/",
+      "date": "2026-11-25",
+      "proved": "the probe obtained a guest session without an account",
+      "capture": "sha256:acaf7be7fa68ba450ddd1c9ce5f05908299726a186e4a74ee73b18231ec7a343",
+      "quote": "\"guest\": true"
+    },
+    {
+      "url": "probe:https://www.yhcres.top/",
+      "date": "2026-11-25",
+      "proved": "the anonymous session reported this permission bitmask",
+      "capture": "sha256:acaf7be7fa68ba450ddd1c9ce5f05908299726a186e4a74ee73b18231ec7a343",
+      "quote": "\"permission\": 0"
     }
   ],
   "verdict": "qualifies-with-caveat",

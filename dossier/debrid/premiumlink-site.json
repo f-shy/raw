@@ -51,7 +51,7 @@
     "detail": "'No registration required-just use, download, and enjoy.'",
     "country": null
   },
-  "reliability_note": "No operator identity, no terms page and counter-based claims: nothing on the page can be checked if the service stops resolving. Direct probe from this host produced no status at all.",
+  "reliability_note": "unverified: no usable response from the origin on 2026-11-25; a direct probe returned status null with error tls_untrusted, and all read routes saw no content or a parked-domain redirect.",
   "confidence": "documented",
   "confidence_note": "The vendor page is captured and quoted: free, no account, 100+ hosts, popularity counters. No quota, per-file cap or retention is published; a direct probe from a residential ISP address ended in a connection reset, and no link generation was attempted, so nothing is measured.",
   "evidence": [
@@ -85,6 +85,13 @@
       "proved": "no registration is required",
       "capture": "sha256:6805a0ca0b9f4fea2acc32e26779c694b94d7befdac6e85f5dcaaf8429eb4e9c",
       "quote": "No registration required—just use, download, and enjoy!"
+    },
+    {
+      "url": "probe:https://premiumlink.site/",
+      "date": "2026-11-25",
+      "proved": "the direct probe got no HTTP status from the origin",
+      "capture": "sha256:315dae00b89c1e2742ee9f1b704ec3d5aac0e1f67792219989b7dea35e689b7c",
+      "quote": "\"status\": null"
     }
   ],
   "verdict": "qualifies-with-caveat",

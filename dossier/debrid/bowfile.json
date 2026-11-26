@@ -35,8 +35,8 @@
   "interface": [
     "browser"
   ],
-  "interface_detail": "Web upload with a register_non_user upload route. No API page was read.",
-  "tooling": "Browser only as read. No rclone backend found.",
+  "interface_detail": "Web upload with a register_non_user route and a documented REST upload API at https://bowfile.com/api/v2/file/upload using an access_token and account_id from /authorize.",
+  "tooling": "Browser upload and a documented REST file-upload API requiring an access_token and account_id.",
   "chaining": "20 GB per file with no account is large for a free host, but 20-day retention and a speed-limited free download make it a hand-off point, not an archive.",
   "limits": [
     {
@@ -86,10 +86,66 @@
       "capture": "sha256:172cf06be6a3e569a4c36b4ef987fc3070bb0c7808b80f7b8b5b29a7e1e156bb",
       "quote": "Free/non accounts files are kept for 20 days. Premium accounts files are kept for 100 days.",
       "proved": "non-account uploads exist and retention is 20 days against 100 days"
+    },
+    {
+      "url": "https://bowfile.com/upgrade",
+      "date": "2026-11-25",
+      "proved": "the free plan keeps files 20 days",
+      "capture": "sha256:0b2f4143600493b5a9e5f8e67277e4397a213455ad6e7108a72b0ba1406bad7c",
+      "quote": "Files kept for 20 Days"
+    },
+    {
+      "url": "https://bowfile.com/upgrade",
+      "date": "2026-11-25",
+      "proved": "the per-file upload cap is 20.00 GB",
+      "capture": "sha256:0b2f4143600493b5a9e5f8e67277e4397a213455ad6e7108a72b0ba1406bad7c",
+      "quote": "Maximum File Upload Size 20.00 GB"
+    },
+    {
+      "url": "https://bowfile.com/upgrade",
+      "date": "2026-11-25",
+      "proved": "the Pro paid plan keeps files 30 days",
+      "capture": "sha256:0b2f4143600493b5a9e5f8e67277e4397a213455ad6e7108a72b0ba1406bad7c",
+      "quote": "- Maximum download speeds possible.\n- No Adverts\n- Files kept for 30 Days"
+    },
+    {
+      "url": "https://bowfile.com/faq",
+      "date": "2026-11-25",
+      "proved": "non-account uploads exist and retention is 20 days against 100 days",
+      "capture": "sha256:172cf06be6a3e569a4c36b4ef987fc3070bb0c7808b80f7b8b5b29a7e1e156bb",
+      "quote": "Free/non accounts files are kept for 20 days. Premium accounts files are kept for 100 days."
+    },
+    {
+      "url": "https://bowfile.com/faq",
+      "date": "2026-11-25",
+      "proved": "the 20 GB per-file cap is the same on free and premium",
+      "capture": "sha256:172cf06be6a3e569a4c36b4ef987fc3070bb0c7808b80f7b8b5b29a7e1e156bb",
+      "quote": "Each file you upload must be less than 20 GB in size for free/non accounts or less than 20 GB in size for premium accounts."
+    },
+    {
+      "url": "https://bowfile.com/faq",
+      "date": "2026-11-25",
+      "proved": "uploading and downloading are free for all users",
+      "capture": "sha256:172cf06be6a3e569a4c36b4ef987fc3070bb0c7808b80f7b8b5b29a7e1e156bb",
+      "quote": "Yes, uploading and downloading is 100% Free for all users."
+    },
+    {
+      "url": "https://bowfile.com/api",
+      "date": "2026-11-25",
+      "proved": "a REST file-upload endpoint is documented on the vendor domain",
+      "capture": "sha256:1b05508eefb46c2b273e38044bb53e8cbae588875aa427f4b5d652f24d3cfdd1",
+      "quote": "https://bowfile.com/api/v2/file/upload"
+    },
+    {
+      "url": "https://bowfile.com/api",
+      "date": "2026-11-25",
+      "proved": "the REST upload API uses a token obtained at the /authorize step",
+      "capture": "sha256:1b05508eefb46c2b273e38044bb53e8cbae588875aa427f4b5d652f24d3cfdd1",
+      "quote": "- access_token The access token created previously by `/authorize`."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T07:37:12.225Z",
+  "verified_at": "2026-11-25T09:46:40.368Z",
   "price_per_tb_month": "USD 1.49 (Pro) and USD 2.99 (Vip); billing period and volume not stated",
   "history": [],
   "notes": "Cheapest paid plan is Pro at USD 1.49, which adds maximum download speed and removes adverts. No programmatic path found: Web upload with a register_non_user upload route. No API page was read.",

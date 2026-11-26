@@ -64,9 +64,43 @@
       "capture": "sha256:c2581bde8eb7215f42cc8509d58cec3f27495107da29b59d2cbaad6024b0d887",
       "quote": "Current limits: 10 files · 100 MB / file · 2.0 GB total · 7d max",
       "proved": "per-file cap 100 MB, 2.0 GB total, 7 days maximum"
+    },
+    {
+      "url": "probe:https://www.temp-files.com/",
+      "date": "2026-10-27",
+      "proved": "the page answered HTTP 402 from a residential ISP address and checked nothing",
+      "capture": "sha256:0367a89913f9fdc8b50c6c3d2c81dab5a966f53c8666b37dfc5ca22de46f514c",
+      "quote": "\"status\": 402"
+    },
+    {
+      "url": "https://www.temp-files.com/",
+      "date": "2026-10-27",
+      "proved": "the origin itself answers HTTP 402 with the deployment disabled",
+      "capture": "sha256:4822459877058f2c97cf77d994a925bf1be37bec3bcfe057bc4029cdfbb1c534",
+      "quote": "x-vercel-error: DEPLOYMENT_DISABLED"
+    },
+    {
+      "url": "https://www.temp-files.com/",
+      "date": "2026-10-27",
+      "proved": "the target now serves a deployment-paused notice in place of the file host",
+      "capture": "sha256:490c96c190491c1589d428297a4e5c260c5815a25a2dc1f307e3ab44c06a9fcf",
+      "quote": "This deployment is temporarily paused"
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20211226234156/http://temp-files.com/?provider=wayback",
+      "date": "2026-10-27",
+      "proved": "the only archived capture holds a site-not-found notice, not the file host",
+      "capture": "sha256:149797fb81b343a965c5883f8a11a188c7772e6ef5fb05c4c8382435d7ecd5b7",
+      "quote": "没有找到站点"
     }
   ],
-  "verdict": "fails-quota",
+  "verdict": "dead",
   "verified_at": "2026-11-03T07:37:12.656Z",
-  "price_per_tb_month": null
+  "price_per_tb_month": null,
+  "extras": {
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
+  }
 }

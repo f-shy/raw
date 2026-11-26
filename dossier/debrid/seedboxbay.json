@@ -61,10 +61,24 @@
       "url": "https://seedboxbay.com/",
       "date": "2026-10-23",
       "proved": "'Minimal rTorrent Seedbox ... 100GB Storage ... Unlimited Bandwidth ... SFTP & File Manager ... For $5 Per Month Only'; USD 10/500 GB and USD 20/1000 GB tiers with root access and dedicated IP"
+    },
+    {
+      "url": "probe:https://seedboxbay.com/",
+      "date": "2026-11-25",
+      "proved": "a direct probe could not resolve the host, so no current first-party value could be re-read",
+      "capture": "sha256:3c148bb91d1d746014f056d0bf196cbf2665a352333285c6e1957d2e34441a3e",
+      "quote": "\"error\": \"dns\""
+    },
+    {
+      "url": "probe:https://seedboxbay.com/",
+      "date": "2026-11-25",
+      "proved": "a direct probe could not resolve seedboxbay.com, with no HTTP response",
+      "capture": "sha256:3c148bb91d1d746014f056d0bf196cbf2665a352333285c6e1957d2e34441a3e",
+      "quote": "\"error\": \"dns\""
     }
   ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:19:00.000Z",
+  "verdict": "dead",
+  "verified_at": "2026-11-25T09:47:03.625Z",
   "price_per_tb_month": "USD 5 for 100 GB = USD 50/TB/month",
   "history": [],
   "notes": "Exactly USD 5 for 100 GB, the same price as Leechdrive's 50 GB, so it is the better of the two on capacity and the worse on published detail (no FAQ, no fair-use page). Sustained-rate conversion: unlimited claimed on 1 Gbps, 125 MB/s theoretical; 1 TiB/month needs 3.39 Mbit/s. Potential constraints: a fair-use cap, per-server contention, or storage-only limits; the first is not published and cannot be confirmed without buying.",
@@ -75,6 +89,10 @@
     "minimum_term": "monthly",
     "apps": "ruTorrent WebUI, rTorrent; Plex tiers at USD 10 and USD 20 include root access and a dedicated IP",
     "trial_card_required": "no trial exists",
-    "trial_restock": "not applicable"
+    "trial_restock": "not applicable",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

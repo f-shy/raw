@@ -33,7 +33,7 @@
   "limits": [
     {
       "kind": "retention-clamped",
-      "value": "the host stopped serving: no TCP service",
+      "value": "若发现下载行为过多，将直接关停本站",
       "source": "probe:https://alist.zlion.top/api/public/settings"
     }
   ],
@@ -77,10 +77,24 @@
       "proved": "the host answers the AList settings API with title Zlion and version v4.2.9",
       "capture": "sha256:ceec46d0e235b0c6f9d72d15a9c1cb6b2e8979850e37eb34adb282ce6be43dff",
       "quote": "\"site_title\":\"Zlion\""
+    },
+    {
+      "url": "probe:https://alist.zlion.top/api/fs/list",
+      "date": "2026-11-26",
+      "proved": "the saved anonymous fs/list body carries this notice",
+      "capture": "sha256:f83a2b41538ad56169e22b473c563154efc582ab733fca2f07335534d4c38c61",
+      "quote": "若发现下载行为过多，将直接关停本站"
+    },
+    {
+      "url": "probe:https://alist.zlion.top/api/fs/list",
+      "date": "2026-11-26",
+      "proved": "the readme field of the anonymous fs/list body contains this exact sentence",
+      "capture": "sha256:f83a2b41538ad56169e22b473c563154efc582ab733fca2f07335534d4c38c61",
+      "quote": "若发现下载行为过多，将直接关停本站"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-11-19T21:12:45.420Z",
+  "verified_at": "2026-11-26T02:58:42.229Z",
   "binding": "retention-clamped",
   "binding_note": "The host is not slow or capped, it is gone; the constraint is that it stopped.",
   "notes": "Zlion instance with media collections where WebDAV access is inactive due to excessive bandwidth utilization. TCP service is offline.",

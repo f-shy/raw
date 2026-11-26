@@ -72,13 +72,6 @@
     {
       "url": "probe:https://s3.776161.xyz/",
       "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:6db2c772e13260b2645c0b9d43b863f0c890b1907db6b2ef11941ec46495f46e",
-      "quote": "\"listing_sha256\": \"bf5dac27\""
-    },
-    {
-      "url": "probe:https://s3.776161.xyz/",
-      "date": "2026-11-11",
       "proved": "the probe record states the hash method used for the listing",
       "capture": "sha256:6db2c772e13260b2645c0b9d43b863f0c890b1907db6b2ef11941ec46495f46e",
       "quote": "\"listing_hash_method\": \"sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters\""
@@ -92,24 +85,10 @@
     },
     {
       "url": "probe:https://s3.776161.xyz/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:6db2c772e13260b2645c0b9d43b863f0c890b1907db6b2ef11941ec46495f46e",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://s3.776161.xyz/",
       "date": "2026-11-19",
       "proved": "the liveness and mount-list probe checked this host at this instant",
       "capture": "sha256:fc79bb6c266f8f984058c03e1f66ed0a0c5e9f8c1fa858acfdf1cee64727ff6a",
       "quote": "\"checked_at\": \"2026-11-19T03:42:33.623Z\""
-    },
-    {
-      "url": "probe:https://s3.776161.xyz/",
-      "date": "2026-11-19",
-      "proved": "the anonymous session, settings and mount list all answered, so the fresh alive timestamp stands",
-      "capture": "sha256:fc79bb6c266f8f984058c03e1f66ed0a0c5e9f8c1fa858acfdf1cee64727ff6a",
-      "quote": "\"alive\": true"
     },
     {
       "url": "probe:https://s3.776161.xyz/",
@@ -138,6 +117,55 @@
       "proved": "the fresh anonymous root listing hashed to the stored value, so the listing is unchanged",
       "capture": "sha256:4e86d769fb15b46466418ef8d1cfa33b5465a285ecee2182d8b3a1425259dd01",
       "quote": "\"listing_sha256\": \"bf5dac27\""
+    },
+    {
+      "url": "probe:https://s3.776161.xyz/",
+      "date": "2026-11-25",
+      "proved": "the liveness and mount-list probe checked this host at this instant",
+      "capture": "sha256:bbac713d9bed06238632724702ffe50ece10c931a2c2292a86fe56001d29853d",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:35.229Z\""
+    },
+    {
+      "url": "probe:https://s3.776161.xyz/",
+      "date": "2026-11-25",
+      "proved": "the anonymous session reported this base path",
+      "capture": "sha256:bbac713d9bed06238632724702ffe50ece10c931a2c2292a86fe56001d29853d",
+      "quote": "\"base_path\": \"/\""
+    },
+    {
+      "url": "probe:https://s3.776161.xyz/",
+      "date": "2026-11-25",
+      "proved": "the settings response advertised this write flag",
+      "capture": "sha256:bbac713d9bed06238632724702ffe50ece10c931a2c2292a86fe56001d29853d",
+      "quote": "\"write_advertised\": true"
+    },
+    {
+      "url": "probe:https://s3.776161.xyz/",
+      "date": "2026-11-25",
+      "proved": "the probe measured this write-content-bypass flag",
+      "capture": "sha256:bbac713d9bed06238632724702ffe50ece10c931a2c2292a86fe56001d29853d",
+      "quote": "\"write_content_bypass\": false"
+    },
+    {
+      "url": "probe:https://s3.776161.xyz/",
+      "date": "2026-11-25",
+      "proved": "the settings response reported this upstream provider",
+      "capture": "sha256:bbac713d9bed06238632724702ffe50ece10c931a2c2292a86fe56001d29853d",
+      "quote": "\"provider\": \"unknown\""
+    },
+    {
+      "url": "probe:https://s3.776161.xyz/",
+      "date": "2026-11-25",
+      "proved": "the probe obtained a guest session without an account",
+      "capture": "sha256:bbac713d9bed06238632724702ffe50ece10c931a2c2292a86fe56001d29853d",
+      "quote": "\"guest\": true"
+    },
+    {
+      "url": "probe:https://s3.776161.xyz/",
+      "date": "2026-11-25",
+      "proved": "the anonymous session reported this permission bitmask",
+      "capture": "sha256:bbac713d9bed06238632724702ffe50ece10c931a2c2292a86fe56001d29853d",
+      "quote": "\"permission\": 0"
     }
   ],
   "verdict": "qualifies-with-caveat",

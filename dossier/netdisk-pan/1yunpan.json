@@ -89,13 +89,6 @@
     {
       "url": "probe:https://www.1yunpan.com/config.json",
       "date": "2026-11-03",
-      "proved": "the site config sets the per-upload size limit to 32212254720 bytes",
-      "capture": "sha256:6ce2e8085f6efcb6680948e05ef4cd11edc846997f85dc9948a0f5210d19570d",
-      "quote": "\"upload_allow_max_size\": 32212254720"
-    },
-    {
-      "url": "probe:https://www.1yunpan.com/config.json",
-      "date": "2026-11-03",
       "proved": "the config disables registration with any email domain and carries an email_whitelist of permitted domains",
       "capture": "sha256:6ce2e8085f6efcb6680948e05ef4cd11edc846997f85dc9948a0f5210d19570d",
       "quote": "\"allow_all_email_to_register\": 0,"
@@ -113,13 +106,6 @@
       "proved": "the config the web app loads sets upload.temporarily_disabled to true",
       "capture": "sha256:6ce2e8085f6efcb6680948e05ef4cd11edc846997f85dc9948a0f5210d19570d",
       "quote": "\"temporarily_disabled\": true,"
-    },
-    {
-      "url": "probe:https://id5mjj37zbn85c.1yunpan.com/Videos/test.mp4#head",
-      "date": "2026-11-03",
-      "proved": "a HEAD on the demo MP4 answers HTTP 200 with Content-Length 1326142372",
-      "capture": "sha256:da84e4fbf59e71966245c47f355e5a175e03077211cf150a630a5f19f257c8cc",
-      "quote": "\"content-length\": \"1326142372\""
     },
     {
       "url": "probe:https://id5mjj37zbn85c.1yunpan.com/Videos/test.mp4#range",
@@ -204,10 +190,17 @@
       "proved": "a ranged GET returns the matching Content-Range",
       "capture": "sha256:67de5d466b69363e9c9e00b785c70028bab29e85f4d5c2c829ebc1b6ed2cbb96",
       "quote": "\"content-range\": \"bytes 1000000-1000255/1326142372\""
+    },
+    {
+      "url": "probe:https://www.1yunpan.com/config.json",
+      "date": "2026-11-26",
+      "proved": "the saved config body gives the upload size limit as 32212254720",
+      "capture": "sha256:dc96679c71c0bd21be509194bafd253e78479d8dca2b1b0f0fd508426f9a1689",
+      "quote": "\"upload_allow_max_size\": 32212254720"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T15:23:47.349Z",
+  "verified_at": "2026-11-26T02:15:13.859Z",
   "history": [],
   "price_per_tb_month": "Pro at CNY 29/month is 1 TB storage and 10 TB/month; the free tier is not purchasable and has no per-terabyte price",
   "binding": "per-ip-shaping",

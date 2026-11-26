@@ -5,7 +5,7 @@
   "url": "https://t.me/s/alistshare",
   "category": "index-list",
   "free_tier": {
-    "stated": "a Telegram channel that still publishes public AList instances and their guest WebDAV credentials; a 2026-11-19 post advertises 全站资源约10T，不限速 at pan.lm379.cn with user public_dav",
+    "stated": "unverified: the channel feed publishes WebDAV credentials but shows only times, not a 2026-11-19 date",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://t.me/s/alistshare",
@@ -16,7 +16,7 @@
     "source_url": "https://t.me/s/alistshare"
   },
   "retention": {
-    "stated": "the pinned post is a 2025-01 notice about excess use, but the recent feed still publishes AList instances with guest WebDAV credentials",
+    "stated": "unverified: the pinned post warns against malicious traffic flooding",
     "days": null,
     "source_url": "https://t.me/s/alistshare"
   },
@@ -29,7 +29,7 @@
     "rest"
   ],
   "tooling": "the /s/ preview is readable without an account; the message feed is HTML",
-  "chaining": "Index channel: a 2026-11-19 post advertises a public AList instance at pan.lm379.cn with guest WebDAV credentials (user public_dav, password public) and no stated quota guarantee.",
+  "chaining": "unverified: a feed post gives the AList instance URL https://pan.lm379.cn but carries no 2026-11-19 date",
   "limits": [
     {
       "kind": "retention-clamped",
@@ -68,10 +68,38 @@
       "proved": "the WebDAV endpoint the channel publishes answered HTTP 401 with a Basic auth realm on 2026-11-19",
       "capture": "sha256:bd7dcf21ca2afbcafc9b9a4a69ed2fb50bbe4f46c0dd1fe36c8e585e7cad6619",
       "quote": "\"status\": 401"
+    },
+    {
+      "url": "https://t.me/s/alistshare",
+      "date": "2026-11-25",
+      "proved": "the channel feed publishes a WebDAV user named public_dav",
+      "capture": "sha256:0cef6d803fec7a6f183394b1628ec2a3cb8f87f9d7815314e8b2a9b559ca9df9",
+      "quote": "user: public_dav"
+    },
+    {
+      "url": "https://t.me/s/alistshare",
+      "date": "2026-11-25",
+      "proved": "the feed publishes a post giving this instance URL",
+      "capture": "sha256:0cef6d803fec7a6f183394b1628ec2a3cb8f87f9d7815314e8b2a9b559ca9df9",
+      "quote": "https://pan.lm379.cn"
+    },
+    {
+      "url": "https://t.me/s/alistshare",
+      "date": "2026-11-25",
+      "proved": "the pinned post is a notice about excess traffic use",
+      "capture": "sha256:0cef6d803fec7a6f183394b1628ec2a3cb8f87f9d7815314e8b2a9b559ca9df9",
+      "quote": "Malicious traffic flooding is truly disgraceful!"
+    },
+    {
+      "url": "https://t.me/s/alistshare",
+      "date": "2026-11-25",
+      "proved": "the feed publishes a post giving this AList instance URL",
+      "capture": "sha256:0cef6d803fec7a6f183394b1628ec2a3cb8f87f9d7815314e8b2a9b559ca9df9",
+      "quote": "https://pan.lm379.cn"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:44.735Z",
+  "verified_at": "2026-11-25T13:26:29.022Z",
   "binding": "retention-clamped",
   "notes": "Index channel publishing public AList instances with guest WebDAV credentials, plus tool posts and a pinned notice about excess use.",
   "history": [],

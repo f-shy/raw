@@ -91,13 +91,6 @@
       "quote": "\"consecutive_failures\": 0"
     },
     {
-      "url": "probe:https://pan.roxylib.com/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:bc2ce086c89af49f9c53c6990e9731a729beba4c9db7434da5606c84ca6997d8",
-      "quote": "\"alive\": true"
-    },
-    {
       "url": "probe:https://pan.roxylib.com",
       "date": "2026-11-19",
       "proved": "the probe's checked_at instant is the fresh last-alive verification time",
@@ -124,6 +117,41 @@
       "proved": "the anonymous settings and mount-list requests answered at this instant",
       "capture": "sha256:070268791b6e27b899e4ab9025b987e4f5c4135aa1e606c4b9bd1544fbc32075",
       "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://pan.roxylib.com/",
+      "date": "2026-11-25",
+      "proved": "the probe checked this host at this instant",
+      "capture": "sha256:3777ef9da951cc8eced4d9bac0c896d3d994b3dd174f88242cd988df4d52b8ee",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:33.938Z\""
+    },
+    {
+      "url": "probe:https://pan.roxylib.com/",
+      "date": "2026-11-25",
+      "proved": "the anonymous guest session answered and the settings request returned 200, so the host is alive",
+      "capture": "sha256:3777ef9da951cc8eced4d9bac0c896d3d994b3dd174f88242cd988df4d52b8ee",
+      "quote": "\"alive\": true, ... \"status\": 200,"
+    },
+    {
+      "url": "probe:https://pan.roxylib.com/",
+      "date": "2026-11-25",
+      "proved": "the anonymous root listing has this entry count and hash",
+      "capture": "sha256:3777ef9da951cc8eced4d9bac0c896d3d994b3dd174f88242cd988df4d52b8ee",
+      "quote": "\"listing_sha256\": \"4e4fd534\", ... \"root_entries\": 1,"
+    },
+    {
+      "url": "probe:https://pan.roxylib.com/",
+      "date": "2026-11-25",
+      "proved": "the session is an anonymous guest user",
+      "capture": "sha256:3777ef9da951cc8eced4d9bac0c896d3d994b3dd174f88242cd988df4d52b8ee",
+      "quote": "\"guest\": true, ... \"username\": \"guest\","
+    },
+    {
+      "url": "probe:https://pan.roxylib.com/",
+      "date": "2026-11-25",
+      "proved": "the guest role has this permission bitmask, base path and advertised write flags",
+      "capture": "sha256:3777ef9da951cc8eced4d9bac0c896d3d994b3dd174f88242cd988df4d52b8ee",
+      "quote": "\"permission\": 0, ... \"base_path\": \"/\", ... \"write_advertised\": true, ... \"write_content_bypass\": false,"
     }
   ],
   "verdict": "qualifies-with-caveat",

@@ -74,10 +74,38 @@
       "url": "probe:https://leechpremium.link/",
       "date": "2026-10-23",
       "proved": "direct probe failed with a DNS error (errno 11004) at 01:52 and 01:47, while the broker could read the page; reachability is network-dependent"
+    },
+    {
+      "url": "https://leechpremium.link/faq.php",
+      "date": "2026-11-25",
+      "proved": "the 5 links per day and 1 GB per-file free caps are unchanged",
+      "capture": "sha256:c9fc42b8735c5ce1482849f0a00e5d0c49aec36d5e9e969b7a209832aa98b6df",
+      "quote": "Free users can generate up to 5 links per day with a maximum file size of 1GB."
+    },
+    {
+      "url": "https://leechpremium.link/faq.php",
+      "date": "2026-11-25",
+      "proved": "the free path still needs no account",
+      "capture": "sha256:c9fc42b8735c5ce1482849f0a00e5d0c49aec36d5e9e969b7a209832aa98b6df",
+      "quote": "Free to use  Instant access  No registration"
+    },
+    {
+      "url": "https://leechpremium.link/faq.php",
+      "date": "2026-11-25",
+      "proved": "the vendor still attributes failures to its own hosts' daily bandwidth limits",
+      "capture": "sha256:c9fc42b8735c5ce1482849f0a00e5d0c49aec36d5e9e969b7a209832aa98b6df",
+      "quote": "The filehost's premium account has reached daily bandwidth limit"
+    },
+    {
+      "url": "https://leechpremium.link/",
+      "date": "2026-11-25",
+      "proved": "the front page states the free plan needs no card, in addition to the FAQ's no-registration statement",
+      "capture": "sha256:5246a126226df0c366f5a50137a5baafc19fec029d1c7e91fe71ea71e56ce904",
+      "quote": "No credit card required for free plan • 256-bit SSL encryption"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T01:52:41.420Z",
+  "verified_at": "2026-11-25T09:46:58.786Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "This is the clearest published free cap in the sector: 5 links/day, 1 GB/file, no account. It is not a debrid service and it does not touch usenet or torrents; it only converts host links that the vendor's accounts can still fetch. No programmatic path found: A single web form: paste the host link, click Generate, receive a premium link. No API documentation was found; a wrapper would drive the form or the resulting page with a browser session.",

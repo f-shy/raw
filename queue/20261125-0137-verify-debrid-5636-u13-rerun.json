@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u13-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Re-check these debrid records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/stremio-addons-net $.reliability_note: Capture shows a catalog addon only; it does not say ranking is partly paid or that position is not a quality signal.\n- debrid/digitkala $.free_tier.stated: Capture proves AllDebrid 30-day product at 2,862,000 Toman; 'a long catalogue of host accounts' is not on this page.\n- debrid/stremio-addons-net $.reliability_note: Quote shows one 'Affiliated' VPN placement; it does not state that ranking is partly paid or that position is no quality signal.\n- debrid/vidhide $.egress.terms: 'no speed caps' and HLS spans are present, but 'No allowance or price is printed' is contradicted: page says 'You will get unlimited free traffic and storage when you prioritize using EarnVids Player'.\n- debrid/telegram-premium $.free_tier.stated: faq_premium capture lists '4 GB File Uploads' and 'Faster Download Speed' but does not state the free 2 GB limit (that is on /faq) nor that the free tier is 'Not free'; the whole value is not in one span.\n- debrid/digitkala $.notes: Price and 30-day AllDebrid product are on the page; 'the same operator sells host accounts' is not.\n- debrid/nzbindex $.free_tier.stated: Capture proves 200 / 7,770 bytes; totalElements 4,560 / 183 pages are in the body capture. The 3,470-byte application/x-nzb download is in no cited capture; a fresh /download/<id>.nzb request answered 307 to /api/download/<id>.nzb (not followed).\n- debrid/digitkala $.free_tier.stated: Capture proves AllDebrid 30-day product at 2,862,000 Toman; 'a long catalogue of host accounts' is not on this page.\n- debrid/telegram-premium $.chaining: Span says anyone can download 4 GB files uploaded by Premium users. TDLib/MTProto, halving object count of 1 TiB, and bot 20/50 MB limits are not on the page.\n- debrid/nzbindex $.free_tier.stated: Span shows totalElements 4560 only; 'No account and no key', 7,770 bytes and the NZB download of 3,470 bytes are not in it.\n- debrid/vidhide $.free_tier.notes: Page says 'You will get unlimited free traffic and storage when you prioritize using EarnVids Player', so 'Free' has a qualifier and an allowance (unlimited) is printed; earnings figure not checked.\n- debrid/nzbindex $.limits[0].value: Span is one search's status 200 (the second); the record does not show three searches or that there is no limit.\n- debrid/binzb $.per_object_cap.stated: Homepage cannot prove that no NZB endpoint exists elsewhere on the domain; login links to lamtoto-mafia.pages.dev only show the homepage's accounts point elsewhere.\n- debrid/binzb $.per_object_cap.stated: Homepage shows the LAMTOTO site but cannot prove no NZB endpoint is served anywhere on the domain; no endpoint was probed in the capture.\n- debrid/stremio-addons-net $.retention.stated: Capture shows sort sections and the install-catalog addon; 'listings persist while the addon is maintained' is not stated.\n- debrid/stremio-addons-net $.free_tier.stated: Fresh GET of /api/addons returned 404, but the page offers an installable catalog addon, which contradicts 'no machine-readable feed'; 'free to browse with no account' is not stated.",
+ "scope": {
+  "rids": [
+   "debrid/binzb",
+   "debrid/nzbindex",
+   "debrid/digitkala",
+   "debrid/iranget",
+   "debrid/telegram-premium",
+   "debrid/vidhide",
+   "debrid/lulustream",
+   "debrid/stremio-addons-net"
+  ]
+ },
+ "origin": "audit u90 of 20261125-0137-verify-debrid-5636/u13 failed: 16 of 30 unsupported",
+ "created": "2026-11-25T15:10:38Z"
+}

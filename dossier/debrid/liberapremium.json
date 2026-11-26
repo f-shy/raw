@@ -77,10 +77,24 @@
       "url": "https://liberapremium.com/",
       "date": "2026-10-23",
       "proved": "'liberapremium chegou ao fim ... Desde 2015 ... Foram anos de histórias ... liberapremium • 2015 - 2026'"
+    },
+    {
+      "url": "https://liberapremium.com/",
+      "date": "2026-11-25",
+      "proved": "the former vendor domain now serves a domain-expired notice, confirming the service is gone",
+      "capture": "sha256:0d94a8d0af8508a77c2cd4637aebd7164eeec227bcc3ccbf76f90fe3b290bcc7",
+      "quote": "Your domain is expired. Renew the domain to activate the website"
+    },
+    {
+      "url": "https://liberapremium.com/",
+      "date": "2026-11-25",
+      "proved": "no service remains at the vendor domain",
+      "capture": "sha256:0d94a8d0af8508a77c2cd4637aebd7164eeec227bcc3ccbf76f90fe3b290bcc7",
+      "quote": "Website content is unavailable due to the fact that domain has expired. Renew your domain in order to see your website online."
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T02:15:00.000Z",
+  "verified_at": "2026-11-25T09:46:58.787Z",
   "history": [],
   "notes": "Method note for the subsequent audit: a search snippet for this domain still returns a working price list and a host table, while the origin serves a farewell page. Any lane that prices Brazilian generators from snippets alone will quote a service that no longer exists. The live read is what settled it. Found by searching in Portuguese ('gerador de links premium gratis'), which is the only way it surfaced; an English query never returns it. It is the second Brazilian multi-hoster to close found among debrid providers's search results.",
   "extras": {
@@ -118,6 +132,10 @@
           "https://liberapremium.com/"
         ]
       }
+    },
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
     }
   }
 }

@@ -19,8 +19,8 @@
     "source_url": "https://www.eweka.nl/en/checkout"
   },
   "retention": {
-    "stated": "'6639+ Days Binary Retention' on every plan",
-    "days": 6639,
+    "stated": "'6672+ Days Binary Retention' on every plan",
+    "days": 6672,
     "source_url": "https://www.eweka.nl/en/checkout"
   },
   "egress": {
@@ -58,7 +58,7 @@
     },
     {
       "kind": "retention-clamped",
-      "value": "6639+ days of article retention",
+      "value": "6672+ days of article retention",
       "source": "https://www.eweka.nl/en/pricing"
     }
   ],
@@ -123,10 +123,52 @@
       "proved": "the same post places Eweka and Newshosting's US servers in one corporate group, Highwinds/Omicron, with Eweka on the Dutch notice regime and the US servers on the US one, and calls the labels inference from server location and a community map",
       "capture": "sha256:47b22dd46960130f05ba3acb7eeaac73d7ad6dfdc6b21cc75164522c8b7bf59a",
       "quote": "Inside Highwinds/Omicron, **Eweka** operates under NTD while **Newshosting’s** US servers operate under DMCA — same corporate group, two different takedown streams."
+    },
+    {
+      "url": "https://www.eweka.nl/en/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page now states 6672+ days on every term",
+      "capture": "sha256:9277ad6b9531ef22ab5667a778d2b037b29db92043293beeb98c323be1a38f5b",
+      "quote": "- 6672+ Days"
+    },
+    {
+      "url": "https://www.eweka.nl/en/pricing",
+      "date": "2026-11-25",
+      "proved": "the retention limit is now 6672 days",
+      "capture": "sha256:9277ad6b9531ef22ab5667a778d2b037b29db92043293beeb98c323be1a38f5b",
+      "quote": "- 6672+ Days"
+    },
+    {
+      "url": "https://www.eweka.nl/en/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page still states retention on every term",
+      "capture": "sha256:9277ad6b9531ef22ab5667a778d2b037b29db92043293beeb98c323be1a38f5b",
+      "quote": "- 6672+ Days"
+    },
+    {
+      "url": "https://www.eweka.nl/en/30-day-mbg",
+      "date": "2026-11-25",
+      "proved": "the money-back guarantee is still the only risk-free route and no free tier is offered",
+      "capture": "sha256:33767156f4d5a30e4a953dfab81eafc557a91b3db71869a729e65f77e57d9703",
+      "quote": "no-questions-asked 30-day money-back guarantee"
+    },
+    {
+      "url": "https://www.eweka.nl/en/",
+      "date": "2026-11-25",
+      "proved": "unlimited data is still stated on every term",
+      "capture": "sha256:b0fab04f5ae5d5bf5464c56cb528fe745cd9a0ff1c725e04a8cfb307892eeeb5",
+      "quote": "Unlimited Data"
+    },
+    {
+      "url": "https://www.eweka.nl/en/checkout",
+      "date": "2026-11-25",
+      "proved": "the 52% offer is still shown at checkout",
+      "capture": "sha256:52cd2302c7b7f82e303437de334447b284b1c8bfedf75b7164cc8f8eb72f701f",
+      "quote": "Get 52% OFF Unlimited Usenet!"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-30T13:11:55.968Z",
+  "verified_at": "2026-11-25T09:47:08.497Z",
   "history": [],
   "notes": "The largest published promo-versus-list gap in the set: EUR 14.49/month struck through against EUR 6.99 charged, 52%. Two things make it less alarming than the number suggests. The discount has run unchanged for 37 months, so the list price is never observed to be charged; and the 12-month term at EUR 9.00 sets the realistic renewal floor, which is 28.8% above the 15-month rate. A client who renews at the 15-month rate pays nothing extra; one who falls to the 12-month rate pays 28.8% more. Potential failure points: retention, an indexer listing that outlives the article, or a group subscription problem. All three are named by the vendor. The absence of a takedown clause on this page, next to Newshosting's explicit one, is the notable difference between two knowledge bases in the same group; it is documented as an observation about the documentation, not about the spool. The 15-month offer at EUR 6.99/mo is the lowest per-month figure the vendor itself publishes, at EUR 104.85 for the term.",
   "extras": {

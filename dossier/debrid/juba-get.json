@@ -24,7 +24,7 @@
     "source_url": "https://juba-get.com/"
   },
   "egress": {
-    "terms": "No quota stated for the free hosts; the premium list is 117 file hosts plus 17 Tezfiles subscriptions.",
+    "terms": "No quota stated for the free hosts; the premium list is 119 file hosts plus 17 Tezfiles subscriptions.",
     "metered": false,
     "free_allowance": "none stated",
     "price_per_tb": null,
@@ -81,10 +81,31 @@
       "capture": "sha256:4558ce01d436d8b18334a0a5c257e250e717b4167ed75aeb79f2346b4d863d52",
       "quote": "Crie uma conta agora! É grátis!",
       "proved": "creating an account is free"
+    },
+    {
+      "url": "https://juba-get.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the page still says premium files can be downloaded without an account",
+      "capture": "sha256:c50c654a3f5265ad45061c9ea1658f21640a7ee1a43ab3ed7fb6075d0adeae76",
+      "quote": "Baixe premium seus arquivos, sem necessidade de criar uma conta!"
+    },
+    {
+      "url": "https://juba-get.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the premium list now names 119 file hosts and 17 Tezfiles subscriptions",
+      "capture": "sha256:c50c654a3f5265ad45061c9ea1658f21640a7ee1a43ab3ed7fb6075d0adeae76",
+      "quote": "Hosts Premium: * 119 Filehosts + * * 17 Tezfiles Subscribes *"
+    },
+    {
+      "url": "https://juba-get.com/pricing",
+      "date": "2026-11-25",
+      "proved": "creating an account is still advertised as free",
+      "capture": "sha256:c50c654a3f5265ad45061c9ea1658f21640a7ee1a43ab3ed7fb6075d0adeae76",
+      "quote": "Crie uma conta agora! É grátis!Contate nosso suporte e obtenha uma oferta gratuita!"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T07:37:13.292Z",
+  "verified_at": "2026-11-25T09:46:52.402Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "The domain jubaget.com serves the same page. No programmatic path found: Web generator in Portuguese."

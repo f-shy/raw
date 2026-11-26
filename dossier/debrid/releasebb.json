@@ -6,7 +6,7 @@
   "category": "DDL release index (defunct; domain now a parking router)",
   "tier": "free",
   "free_tier": {
-    "stated": "none: the domain no longer serves an index. The root returned 5,591 bytes titled 'Redirecting...' whose script posts browser fingerprints to https://router.parklogic.com/",
+    "stated": "Redirecting...",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://releasebb.net/",
@@ -65,10 +65,17 @@
       "url": "https://releasebb.net/",
       "date": "2026-10-23",
       "proved": "the reader's extractor found 1 word in the page and refused it as 'no content', consistent with an interstitial rather than an index"
+    },
+    {
+      "url": "https://releasebb.net/",
+      "date": "2026-11-26",
+      "proved": "the root page title is Redirecting... on a parking interstitial",
+      "capture": "sha256:7be0e008c75d77a2fb883dc6d7fb8261c88a9c8b8a1ac7c20f1d69bc2a5a812d",
+      "quote": "Redirecting..."
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T01:52:28.000Z",
+  "verified_at": "2026-11-26T03:35:38.206Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Distinct from rlsbb.cc, which is still alive and whose feed channel is also titled 'ReleaseBB'. The two names are the same brand on different domains; only rlsbb.cc serves posts today. Not deleted, because a name this common will be searched again.",

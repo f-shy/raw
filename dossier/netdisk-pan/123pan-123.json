@@ -38,7 +38,7 @@
   "limits": [
     {
       "kind": "per-object-cap",
-      "value": "10 GB per file in 标准空间",
+      "value": "标准空间单文件上限 10GB，超过 10GB 的资源，无法存入标准空间",
       "source": "https://xiaoyi.vc/123yunpan-storage-adjustment-professional-standard-space.html"
     },
     {
@@ -122,10 +122,17 @@
       "proved": "a non-mainland phone number cannot be used to log in, so the account phone is a mainland +86 number",
       "capture": "sha256:80adc882dc589f3e104835dc3a98aba0e3a631ad124b62fe4f98316c408b05cd",
       "quote": "注：请勿修改非大陆地区手机号，此操作将会导致无法登录。"
+    },
+    {
+      "url": "https://xiaoyi.vc/123yunpan-storage-adjustment-professional-standard-space.html",
+      "date": "2026-11-26",
+      "proved": "the article states the 标准空间 single-file ceiling of 10GB",
+      "capture": "sha256:19f7b839af3121c59e699b2bf449f46dd75aeb4aae7b374c79efe5a51e3d4802",
+      "quote": "标准空间单文件上限 10GB，超过 10GB 的资源，无法存入标准空间"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-11-09T00:00:00.000Z",
+  "verified_at": "2026-11-26T02:15:13.858Z",
   "history": [],
   "binding": "per-ip-shaping",
   "binding_note": "The capacity is real and large, so the quota is not what stops a plan. 10 GB of extraction traffic a month is 0.03% of the daily target, and the identity gate means the tier cannot even be bought from outside China.",

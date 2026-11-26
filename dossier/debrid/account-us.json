@@ -60,7 +60,7 @@
     "detail": "PayPal; delivery of account credentials by email",
     "country": null
   },
-  "reliability_note": "Two reviews is not a rating; the shop is out of stock, and the product it sells is the one shape the vendor's terms name ('managing it for somebody else').",
+  "reliability_note": "unverified: the product URL answered HTTP 404 on 2026-11-25; no reader route established its current content",
   "price_per_tb_month": null,
   "evidence": [
     {
@@ -93,6 +93,13 @@
       "proved": "the shop still sells an account only, with no product in stock and 2 reviews",
       "capture": "sha256:e3ac8bce8a037060dca8e105a5650548ad1033a2c0e96ad4ef99025c7d957495",
       "quote": "We DO NOT sell Real-debrid Premium Key, sell Account only"
+    },
+    {
+      "url": "probe:account.us",
+      "date": "2026-11-25",
+      "proved": "a direct request to the product URL answered HTTP 404 on 2026-11-25",
+      "capture": "sha256:ea739ebb990fb9e2ae4135bb4f6f838d8e66a922548fd2eb3e242580a5f827c2",
+      "quote": "\"status\": 404"
     }
   ],
   "verdict": "fails-identity",

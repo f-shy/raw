@@ -6,12 +6,12 @@
   "category": "usenet provider (German, volume subscriptions and 5-year prepaid accounts)",
   "tier": "25 Gigabyte monthly",
   "free_tier": {
-    "stated": "Free demo account: 0.5 Gigabyte for 7 days at EUR 0.00, confirmed with a free SMS code to a mobile phone; one new demo per phone number and email address every 90 days.",
-    "unit": "GB",
-    "metered_on": "downloaded-bytes",
+    "stated": "The ordering page no longer shows a free demo offer; the current terms of the demo are unverified because the vendor page does not state them.",
+    "unit": "none",
+    "metered_on": "unstated",
     "source_url": "https://www.simonews.com/usenet_server/english/test_zugang/",
     "read_on": "2026-11-03",
-    "notes": "The demo needs a mobile number; a landline works through a hang-up call to a stated number."
+    "notes": "The demo terms are unverified: the first-party demo page now shows an order form with no allowance, SMS step or repeat period."
   },
   "per_object_cap": {
     "stated": "no per-object cap is published; retrieval is by Usenet article over NNTP",
@@ -54,7 +54,7 @@
   "binding_note": "Every paid product is a fixed volume or a speed-capped flat; the demo is 0.5 GB.",
   "identity_cost": {
     "kind": "any-phone",
-    "detail": "The demo sends 'a free SMS code to your mobile phone which you have to confirm on this page'; a landline is accepted by a hang-up call. The paid order form was not opened: unverified: behind a sign-up.",
+    "detail": "The demo's SMS and phone requirement is unverified: the first-party demo page now shows an order form without that wording.",
     "country": null
   },
   "reliability_note": "Backbone is not stated on the vendor pages read.",
@@ -102,10 +102,66 @@
       "capture": "sha256:a24f84e8a40d595eeafbcb024622baee61bd0937896195b505877345f78c119f",
       "quote": "# 1600 Tage Usenet Retention",
       "proved": "retention is 1600 days"
+    },
+    {
+      "url": "https://www.simonews.com/usenet_server/english/test_zugang/",
+      "date": "2026-11-25",
+      "proved": "the demo page now shows an order form instead of the previously stated demo terms",
+      "capture": "sha256:d96631dab69dc4961eb51f82e58702314f9c2d08b4b39132afaa29c22403bd4c",
+      "quote": "Order: step 1/2"
+    },
+    {
+      "url": "https://www.simonews.com/usenet_server/english/test_zugang/",
+      "date": "2026-11-25",
+      "proved": "the page no longer states a free data allowance",
+      "capture": "sha256:d96631dab69dc4961eb51f82e58702314f9c2d08b4b39132afaa29c22403bd4c",
+      "quote": "Order: step 1/2"
+    },
+    {
+      "url": "https://www.simonews.com/usenet_server/english/test_zugang/",
+      "date": "2026-11-25",
+      "proved": "the page no longer states how any free allowance is metered",
+      "capture": "sha256:d96631dab69dc4961eb51f82e58702314f9c2d08b4b39132afaa29c22403bd4c",
+      "quote": "Order: step 1/2"
+    },
+    {
+      "url": "https://www.simonews.com/usenet_server/english/test_zugang/",
+      "date": "2026-11-25",
+      "proved": "the first-party page no longer states the demo terms",
+      "capture": "sha256:d96631dab69dc4961eb51f82e58702314f9c2d08b4b39132afaa29c22403bd4c",
+      "quote": "Order: step 1/2"
+    },
+    {
+      "url": "https://www.simonews.com/usenet_server/english/test_zugang/",
+      "date": "2026-11-25",
+      "proved": "the demo page no longer states an SMS or phone requirement",
+      "capture": "sha256:d96631dab69dc4961eb51f82e58702314f9c2d08b4b39132afaa29c22403bd4c",
+      "quote": "Order: step 1/2"
+    },
+    {
+      "url": "https://www.simonews.com/usenet_server/english/test_zugang/",
+      "date": "2026-11-25",
+      "proved": "the demo page is now an order form with no stated free terms",
+      "capture": "sha256:d96631dab69dc4961eb51f82e58702314f9c2d08b4b39132afaa29c22403bd4c",
+      "quote": "Order: step 1/2"
+    },
+    {
+      "url": "https://www.simonews.com/usenet_server/english/preise/",
+      "date": "2026-11-25",
+      "proved": "the smallest monthly subscription is still 25 GB at EUR 5.95",
+      "capture": "sha256:e05eb0271228b2333d35ae5c51592ddfa98ea171f4838f1bf64da708ae347c6d",
+      "quote": "| 25 Gigabyte | € 5.95 p.m. |"
+    },
+    {
+      "url": "https://www.simonews.com/",
+      "date": "2026-11-25",
+      "proved": "retention is still stated as 1600 days",
+      "capture": "sha256:a24f84e8a40d595eeafbcb024622baee61bd0937896195b505877345f78c119f",
+      "quote": "# 1600 Tage Usenet Retention"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T07:37:14.439Z",
+  "verified_at": "2026-11-25T09:47:08.495Z",
   "price_per_tb_month": null,
   "notes": "The free demo is 0.5 GB, enough to test the service only; prices are in euro and volume-metered.",
   "extras": {}

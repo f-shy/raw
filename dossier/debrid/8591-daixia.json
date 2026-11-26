@@ -53,7 +53,7 @@
   "limits_note": "",
   "identity_cost": {
     "kind": "any-phone",
-    "detail": "An 8591 account plus a Taiwanese payment rail. Not a mainland identity wall, but not anonymous either; the registration fields were not read.",
+    "detail": "The seller account shows 行動電話已驗證身份證已驗證 (phone number and ID document verified); a buyer needs a marketplace account and a Taiwanese payment rail.",
     "country": null
   },
   "reliability_note": "A single seller account with 998 stock, not a platform guarantee of the pan access behind it.",
@@ -64,10 +64,45 @@
       "url": "https://www.8591.com.tw/v3/mall/detail/2419856982",
       "date": "2026-10-23",
       "proved": "'單件價格 $10', '24小時内交貨', '(庫存998件)', payment 7-11/全家/萊爾福/OK/玉山帳户, pan list 百度／夸克／騰訊／迅雷／阿里雲／115／UC／城通／天翼／飛貓／微雲／移動／堅果／小飛機, 刊登時間 2026-09-07"
+    },
+    {
+      "url": "https://www.8591.com.tw/v3/mall/detail/2419856982",
+      "date": "2026-11-25",
+      "proved": "the listing states a per-item price",
+      "capture": "sha256:d440fec757c35b2f2e17cd5e739fc2b9e369765a86cc0752f3abe0bcf7fb52d2",
+      "quote": "單件價格"
+    },
+    {
+      "url": "https://www.8591.com.tw/v3/mall/detail/2419856982",
+      "date": "2026-11-25",
+      "proved": "the listing holds 998 units in stock",
+      "capture": "sha256:d440fec757c35b2f2e17cd5e739fc2b9e369765a86cc0752f3abe0bcf7fb52d2",
+      "quote": "(庫存998件)"
+    },
+    {
+      "url": "https://www.8591.com.tw/v3/mall/detail/2419856982",
+      "date": "2026-11-25",
+      "proved": "the listing promises delivery within 24 hours",
+      "capture": "sha256:d440fec757c35b2f2e17cd5e739fc2b9e369765a86cc0752f3abe0bcf7fb52d2",
+      "quote": "24小時内交貨"
+    },
+    {
+      "url": "https://www.8591.com.tw/v3/mall/detail/2419856982",
+      "date": "2026-11-25",
+      "proved": "the listing names the file hosts it will fetch",
+      "capture": "sha256:d440fec757c35b2f2e17cd5e739fc2b9e369765a86cc0752f3abe0bcf7fb52d2",
+      "quote": "百度／夸克／騰訊／迅雷／阿里雲／115／UC／城通／天翼／飛貓／微雲／移動／堅果／小飛機"
+    },
+    {
+      "url": "https://www.8591.com.tw/v3/mall/detail/2419856982",
+      "date": "2026-11-25",
+      "proved": "the seller account shows phone and identity-document verification",
+      "capture": "sha256:d440fec757c35b2f2e17cd5e739fc2b9e369765a86cc0752f3abe0bcf7fb52d2",
+      "quote": "行動電話已驗證身份證已驗證"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T01:57:23.977Z",
+  "verified_at": "2026-11-25T09:47:02.741Z",
   "price_per_tb_month": "TWD 10 per item",
   "history": [],
   "notes": "NT$10 is about ¥2.3. Included as the non-mainland variant of the Taobao model: same per-item pricing, different identity wall. No programmatic path found: Marketplace chat; delivery is a message, no API.",

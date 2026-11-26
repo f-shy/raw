@@ -123,10 +123,52 @@
       "proved": "third party: the signup copy still lists a 100G disk on registration",
       "capture": "sha256:dd2341318472ff6d804f84c02b97a9f960ab3646f807ab240e7a98e16f221bca",
       "quote": "100G 网盘: 与全球用户分享您的文件，无限存储空间，通过下载量您将获得丰厚的回报。"
+    },
+    {
+      "url": "https://www.77file.com/account?action=register",
+      "date": "2026-11-25",
+      "proved": "the registration form fields are email, password, password confirmation and a captcha",
+      "capture": "sha256:03fff6a8675962c309ce94e502a331a272eae1a91e08be9e6225c72dbc885795",
+      "quote": "邮箱 密码 确认密码 验证码"
+    },
+    {
+      "url": "https://www.77file.com/",
+      "date": "2026-11-25",
+      "proved": "the landing page still advertises one-click login and registration without stating a storage quota",
+      "capture": "sha256:378ea0d6412d57a8b451124989387d5c13c7a6b3fda3d1edfd68b7effb3f17a2",
+      "quote": "一键登录 / 一键注册"
+    },
+    {
+      "url": "https://www.77file.com/vip.php",
+      "date": "2026-11-25",
+      "proved": "the only published per-file cap remains 10 GB on the VIP page",
+      "capture": "sha256:a1ef5ac6377bf6febcba9cf0d33aa1e9f4adbdca0877db346e099498f2314a41",
+      "quote": "单文件最大 10GB"
+    },
+    {
+      "url": "https://www.77file.com/vip.php",
+      "date": "2026-11-25",
+      "proved": "the never-deleted claim remains on the VIP page for the service as a whole",
+      "capture": "sha256:a1ef5ac6377bf6febcba9cf0d33aa1e9f4adbdca0877db346e099498f2314a41",
+      "quote": "文件永不删除"
+    },
+    {
+      "url": "http://www.58xuexi.com/app/v203089.html",
+      "date": "2026-11-25",
+      "proved": "a third-party page still quotes the signup copy offering 100 GB on registration",
+      "capture": "sha256:dd2341318472ff6d804f84c02b97a9f960ab3646f807ab240e7a98e16f221bca",
+      "quote": "100G 网盘: 与全球用户分享您的文件，无限存储空间，通过下载量您将获得丰厚的回报。"
+    },
+    {
+      "url": "https://www.chimaozy.com/77file%e7%a0%b4%e8%a7%a3%e9%99%90%e9%80%9f/",
+      "date": "2026-11-25",
+      "proved": "a third-party review still reports tens of KB/s or a few KB/s on the free path",
+      "capture": "sha256:e14525f5e4672b52d90add27f41f8d54b5635dd85314605333f95f8c5f2f4204",
+      "quote": "下载速度只有几十KB/s，甚至几KB/s"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-03T11:28:57.799Z",
+  "verified_at": "2026-11-25T09:46:56.526Z",
   "price_per_tb_month": "CNY 0",
   "history": [],
   "notes": "Split from the VIP record because the two tiers differ in the thing that matters: one is the cheapest paid traffic in the sector, the other is unusable.",

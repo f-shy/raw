@@ -76,10 +76,31 @@
       "url": "https://payholder.ru/service-oplata",
       "date": "2026-10-23",
       "proved": "the per-service floor 'от 290 р.' repeated across the catalogue"
+    },
+    {
+      "url": "probe:https://payholder.ru/",
+      "date": "2026-11-25",
+      "proved": "the payholder.ru origin answered 200 through the broker and the vendor page is reachable",
+      "capture": "sha256:1ba3c293bd1ef74063aba730deda2d2fc1bee1661ee42d9e756291abe9c65706",
+      "quote": "\"status\": 200"
+    },
+    {
+      "url": "probe:https://payholder.ru/service-oplata",
+      "date": "2026-11-25",
+      "proved": "the service catalogue answered 200 through the broker read route",
+      "capture": "sha256:c1002cdec5e48730866bf81e1892cd930fe8584739905098dc4e3a603a72cf9a",
+      "quote": "\"status\": 200"
+    },
+    {
+      "url": "probe:https://payholder.ru/gift-card",
+      "date": "2026-11-25",
+      "proved": "the payment page answered 200 through the broker read route",
+      "capture": "sha256:795c629288215d10ba8ca96e5ca863627cb1f1c3f8322b336e3904c27350f7e7",
+      "quote": "\"status\": 200"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-23T02:16:08.502Z",
+  "verified_at": "2026-11-25T09:46:57.294Z",
   "price_per_tb_month": null,
   "notes": "The clearest evidence that the wall runs in both directions. A Russian cannot pay Real-Debrid directly, so a Russian intermediary exists; a foreigner cannot use that intermediary, so the two markets have separate payment paths and no single card works on both sides. The vc.ru guides date from 2026 and the service list is live; the exact fee schedule is not published, only a floor."
 }

@@ -110,6 +110,27 @@
       "proved": "the product page states the free allowance in GiB, free forever for every user",
       "capture": "sha256:f547db7245fe27a28d6479ca0c07a2b4fb343b0adff0615ea2235858d52d709a",
       "quote": "Get 10GiB of storage, 1 million state-change operations and 10 million state-read operations per month. Free, forever, for every user."
+    },
+    {
+      "url": "https://telnyx.com/pricing.md",
+      "date": "2026-11-25",
+      "proved": "the first-party price sheet gives the storage rate as USD 0.006 per GiB per month",
+      "capture": "sha256:8213d87a44c0c360f22a93c0e6659c613f813c2769eaccde977ccd48699ea652",
+      "quote": "| Voice Ai Storage Usd Per Gib Per Month | $0.006/GiB/mo | flat | Cloud Storage for Conversational AI |"
+    },
+    {
+      "url": "https://telnyx.com/pricing/storage",
+      "date": "2026-11-25",
+      "proved": "the headline scopes zero egress to inference and Telnyx services",
+      "capture": "sha256:f935cf6f0705b4fa849ba50538f815dfbbab74fae7233640a9573357fed2f3f8",
+      "quote": "$0.006 a GB a month. $0 egress to inference. S3 compatible storage in the same buildings as the GPUs and the media plane. Model artifacts, recordings, and RAG corpora, with no egress line to Telnyx services."
+    },
+    {
+      "url": "https://telnyx.com/pricing/storage",
+      "date": "2026-11-25",
+      "proved": "rates may vary by destination and volume tier",
+      "capture": "sha256:f935cf6f0705b4fa849ba50538f815dfbbab74fae7233640a9573357fed2f3f8",
+      "quote": "Rates may vary by destination and volume tier."
     }
   ],
   "verdict": "fails-quota",

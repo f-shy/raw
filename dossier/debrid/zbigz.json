@@ -81,10 +81,24 @@
       "url": "https://www.rapidseedbox.com/blog/10-top-alternatives-to-seedr-cc",
       "date": "2026-10-23",
       "proved": "reported: premium is unlimited storage and unlimited file size at about $9.99/month; the older 1 GB free cap is contradicted by the vendor table"
+    },
+    {
+      "url": "https://m.zbigz.com/payment",
+      "date": "2026-11-25",
+      "proved": "the Guest / Free account / Premium plan table is unchanged: 20 GB max file size, 1 or 2 torrents, 7-day free retention, limited free speed",
+      "capture": "sha256:f38fa1b2f44c0845a93f1359779f50ccdab66fac1ce31dfc9d5296327082df2e",
+      "quote": "| Max file size | 20 GB | 20 GB | Unlimited |\n| Download speed | Limited | Limited | Unlimited |\n| Number of torrents | 1 | 2 | Unlimited |\n| Files kept for |  | 7 days | Unlimited |\n| Storage size |  | Limited | 2 TB |"
+    },
+    {
+      "url": "https://zbigz.com/page/faq",
+      "date": "2026-11-25",
+      "proved": "guest use needs no registration, so identity remains anonymous",
+      "capture": "sha256:1d209b824a9990ffa04764a5946742b727c0497cf01300793440eaaffb32cd95",
+      "quote": "ZbigZ can be used absolutely free and without registrations. No actions required."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T01:54:40.000Z",
+  "verified_at": "2026-11-25T09:47:06.401Z",
   "price_per_tb_month": "free tier; premium price not published on the page read",
   "notes": "The one free tier among debrid providers whose published per-file cap (20 GB) is within a few percent of the 20 GiB case, and the only one usable with no account at all. Whether a 21.47 GB torrent is rejected depends on GB versus GiB, which the vendor does not say.",
   "extras": {

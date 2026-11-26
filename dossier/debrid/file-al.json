@@ -71,10 +71,31 @@
       "url": "https://file.al/premium.html",
       "date": "2026-10-23",
       "proved": "the prices (30 days $29.95, 90 days $59.95, 365 days $99.95) and the feature table: Premium 100 Gb upload / 4 TB / 30 GB/day / never deleted; Registered 20 Gb / 1 TB / 5 GB/day / 30 days"
+    },
+    {
+      "url": "https://file.al/premium.html",
+      "date": "2026-11-25",
+      "proved": "the registered tier still has 20 Gb upload, 1 TB storage, 5 GB/day and 30-day retention",
+      "capture": "sha256:0fded79b0546620aff6caf66d4a679d9ac3aa21e87c51b96adbdf4a87cf450cd",
+      "quote": "Registered\n\n- 20 Gb\n- 1 TB\n- 5 GB in 1 days\n- 30 days after last download"
+    },
+    {
+      "url": "https://file.al/premium.html",
+      "date": "2026-11-25",
+      "proved": "premium still lists 100 Gb upload, 4 TB storage, 30 GB/day and never-deleted files",
+      "capture": "sha256:0fded79b0546620aff6caf66d4a679d9ac3aa21e87c51b96adbdf4a87cf450cd",
+      "quote": "Premium\n\n- 100 Gb\n- 4 TB\n- 30 GB in 1 days\n- Never"
+    },
+    {
+      "url": "https://file.al/premium.html",
+      "date": "2026-11-25",
+      "proved": "the 30-day premium price is still $29.95",
+      "capture": "sha256:0fded79b0546620aff6caf66d4a679d9ac3aa21e87c51b96adbdf4a87cf450cd",
+      "quote": "30 days\n\n$29.95\n\nMost Popular!"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:18:17.000Z",
+  "verified_at": "2026-11-25T09:46:41.070Z",
   "price_per_tb_month": "USD 29.95 per month for 4 TB stored and 30 GB/day",
   "history": [],
   "notes": "The $99.95 year is $8.33 a month. 4 TB stored for $8.33 is the cheapest storage per euro in tested services, and the 30 GB/day drain is what makes it an archive rather than a workspace. No programmatic path found: Web upload with remote URL upload on premium. No API endpoint is published on the page read.",

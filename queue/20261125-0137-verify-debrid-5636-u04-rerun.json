@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u04-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Re-check these debrid records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/nzbserver-com $.tooling: Span shows only an RSS feed; Prowlarr/NZBHydra2 acceptance, key being ignored, Sonarr/Radarr/Lidarr/Mylar working and the Spotweb UI at /?page=index are not in the capture.\n- debrid/nzbserver-com $.limits[1].value: Caps proves max 500 / default 50 only; that a limit above 500 silently returns 50 results is not shown.\n- debrid/nzbserver-com $.endpoint: Capture shows t=search and t=g links; the t=caps URL is not in this capture (separate capture) so one span does not cover the whole value.\n- debrid/pobierz-biz $.limits_note: Proves 60 hostings only; the absence of concurrency, per-host cap and fair-use text is not proven by the pricing page (how_to capture also mentions a 20 GB daily transfer on Premium).\n- debrid/nopremium-pl $.chaining: Plugins listed, but 'headless box' use and the comparison with EUR 3-10 subscription services is not in the source.\n- debrid/twojlimit-pl $.free_tier.stated: 5 GB on the home page is in the capture; 'Załóż konto i wypróbuj za darmo', the FAQ 1 GB and the confirmation-link condition are not in this capture.\n- debrid/spotnzb-com $.egress.terms: Shows an NZB served without key; 'no metering' is not proven.\n- debrid/nopremium-pl $.interface_detail: Plugin list is on the page; 'plugins imply a REST API exists' is the lane's inference, not in the source.\n- debrid/rapideo-net $.reliability_note: Page says 819600 users, claim says 818,728; Trustpilot link and 'volume ceiling' not shown.\n- debrid/qiwi-wallet $.tooling: Article says top-up/withdrawal stopped; says nothing about tooling.\n- debrid/pobierz-biz $.limits_note: Same as c04: only 60 hostings proven; absences not proven.\n- debrid/nopremium-pl $.egress.price_per_tb: 2 GB at 2.99 zł is shown; 38.99 zł per 110 GB is not in the capture.",
+ "scope": {
+  "rids": [
+   "debrid/pobierz-biz",
+   "debrid/rapidtraffic-pl",
+   "debrid/nopremium-pl",
+   "debrid/twojlimit-pl",
+   "debrid/rapideo-net",
+   "debrid/nzbserver-com",
+   "debrid/spotnzb-com",
+   "debrid/qiwi-wallet"
+  ]
+ },
+ "origin": "audit u81 of 20261125-0137-verify-debrid-5636/u04 failed: 12 of 30 unsupported",
+ "created": "2026-11-25T15:10:37Z"
+}

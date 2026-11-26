@@ -89,10 +89,38 @@
       "url": "https://www.reddit.com/r/usenet/wiki/providers",
       "date": "2026-10-23",
       "proved": "BlockNews on NetNews, AS6450; reseller of the same backbone as Frugal Usenet"
+    },
+    {
+      "url": "https://www.blocknews.net/",
+      "date": "2026-11-25",
+      "proved": "the 5 GB block at USD 1.99 is still the cheapest listed block",
+      "capture": "sha256:7301fe53d6f60ee2c4760e045aaf41288234aed62242b15ca7140a165599b837",
+      "quote": "- 5 GBs – $1.99!"
+    },
+    {
+      "url": "https://www.blocknews.net/",
+      "date": "2026-11-25",
+      "proved": "purchased block bytes still do not expire",
+      "capture": "sha256:7301fe53d6f60ee2c4760e045aaf41288234aed62242b15ca7140a165599b837",
+      "quote": "Keep Your Gigs Until Used!"
+    },
+    {
+      "url": "https://www.blocknews.net/",
+      "date": "2026-11-25",
+      "proved": "up to 200 connections are still stated",
+      "capture": "sha256:7301fe53d6f60ee2c4760e045aaf41288234aed62242b15ca7140a165599b837",
+      "quote": "We offer our users the ability to use up to **200 connections**."
+    },
+    {
+      "url": "probe:https://www.blocknews.net/faq/",
+      "date": "2026-11-25",
+      "proved": "the FAQ still answers 403 to a direct probe, so its article retention figure remains unread",
+      "capture": "sha256:2dcbf1b8bdad17a4f317267db676160f5d71ba442759182cf1778cd9530ac2c7",
+      "quote": "\"status\": 403"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T03:20:00.000Z",
+  "verified_at": "2026-11-25T09:47:09.832Z",
   "price_per_tb_month": "USD 39.99 per TB one-time",
   "notes": "The block is the answer to the debrid question in its purest form: nothing to renew, nothing to lapse. What it does not give is storage of a chosen file - it gives access to articles the provider happens to hold. Trigger condition: a published article-retention figure, or a change to the non-expiry claim. At $32.55/TB it is cheaper than every UsenetExpress block except CubeNet's 2 TB tier, and it sits on a different backbone, which is what a fill account needs.",
   "extras": {

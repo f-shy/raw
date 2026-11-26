@@ -6,7 +6,7 @@
   "category": "hosted bot (URL to Telegram file)",
   "tier": "free",
   "free_tier": {
-    "stated": "The bot's own description: 'Quick way to upload files to telegram by url. Maximum file size allowed 500MB Daily upload limit 1GB, /upgrade for more'. 18 717 monthly users on the same page.",
+    "stated": "The bot's own description: 'Quick way to upload files to telegram by url. Maximum file size allowed 500MB Daily upload limit 1GB, /upgrade for more'. 16 546 monthly users on the same page.",
     "unit": "GB",
     "metered_on": "uploaded-bytes",
     "source_url": "https://t.me/uploadbot",
@@ -69,10 +69,24 @@
       "url": "https://core.telegram.org/bots/faq",
       "date": "2026-10-23",
       "proved": "'Use the getFile method. Please note that this will only work with files of up to 20 MB in size.' - the ceiling on retrieving what this bot stores"
+    },
+    {
+      "url": "https://t.me/uploadbot",
+      "date": "2026-11-25",
+      "proved": "the bot's page now reports 16 546 monthly users",
+      "capture": "sha256:c22e6116734edf5514c0cc36d9e0ed66d07a75b510ce8412ed5c292f40ca31fd",
+      "quote": "16 546 monthly users"
+    },
+    {
+      "url": "https://t.me/uploadbot",
+      "date": "2026-11-25",
+      "proved": "the 500MB per-file cap and 1GB daily limit are unchanged",
+      "capture": "sha256:c22e6116734edf5514c0cc36d9e0ed66d07a75b510ce8412ed5c292f40ca31fd",
+      "quote": "Quick way to upload files to telegram by url. Maximum file size allowed 500MB Daily upload limit 1GB, /upgrade for more"
     }
   ],
   "verdict": "qualifies-with-caveat",
   "price_per_tb_month": null,
   "notes": "Abandon if the description loses the 1 GB/day line or the monthly-user count falls to zero. The paid '/upgrade' tier's price was not read.",
-  "verified_at": "2026-10-23T01:52:23.000Z"
+  "verified_at": "2026-11-25T09:46:48.488Z"
 }

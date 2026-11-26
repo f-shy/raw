@@ -59,7 +59,7 @@
   "binding_note": "The flats are unlimited in volume, so speed and connection count bound a month; the blocks are bounded by GB.",
   "identity_cost": {
     "kind": "card",
-    "detail": "unverified: the checkout was not opened, so the fields it asks for are behind a sign-up.",
+    "detail": "The checkout asks for a username, password, e-mail, name, surname and country; payment is through Stripe. No phone, ID document or institution is named.",
     "country": null
   },
   "reliability_note": "Backbone is not stated on the page read; a third-party index lists Abavia.",
@@ -100,10 +100,66 @@
       "capture": "sha256:1a4e0b40abd752859eb3a57666d01e88d5ebda3c21ddc9b3456f0e98da8649c2",
       "quote": "| Usenet speed | 20 Mbit/s | 100 Mbit/s | 1000 Mbit/s |",
       "proved": "speed per flat"
+    },
+    {
+      "url": "https://usenetdeal.com/checkout?product_variation=5?locale=en",
+      "date": "2026-11-25",
+      "proved": "the checkout asks for a username, password, e-mail, name, surname and country",
+      "capture": "sha256:762712e35330310e7bce992618aa62f84079fe75a3f7002548bf7933b8044e1c",
+      "quote": "Choose your desired username and password to log in to our services. ... Email ... Password ... Name ... Surname ... Select country"
+    },
+    {
+      "url": "https://usenetdeal.com/usenet/",
+      "date": "2026-11-25",
+      "proved": "the three flats cost EUR 1.69, 2.89 and 3.39 a month with a 7-day money-back guarantee",
+      "capture": "sha256:1a4e0b40abd752859eb3a57666d01e88d5ebda3c21ddc9b3456f0e98da8649c2",
+      "quote": "|  | STARTER € 1,69 per month 7-day money-back guarantee | FAST € 2,89 per month 7-day money-back guarantee | LIGHTSPEED € 3,39 per month 7-day money-back guarantee |"
+    },
+    {
+      "url": "https://usenetdeal.com/usenet/",
+      "date": "2026-11-25",
+      "proved": "the three blocks cost EUR 9.99, 15.99 and 35.99 one-time at 1000 Mbit",
+      "capture": "sha256:1a4e0b40abd752859eb3a57666d01e88d5ebda3c21ddc9b3456f0e98da8649c2",
+      "quote": "|  | BLOCK 500 € 9,99 One-time 1000Mbit speed | BLOCK 1000 € 15,99 One-time 1000Mbit speed | BLOCK 2500 € 35,99 One-time 1000Mbit speed |"
+    },
+    {
+      "url": "https://usenetdeal.com/usenet/",
+      "date": "2026-11-25",
+      "proved": "binary retention is 3800 days on every plan and block",
+      "capture": "sha256:1a4e0b40abd752859eb3a57666d01e88d5ebda3c21ddc9b3456f0e98da8649c2",
+      "quote": "| Binary retention | 3800 days | 3800 days | 3800 days |"
+    },
+    {
+      "url": "https://usenetdeal.com/usenet/",
+      "date": "2026-11-25",
+      "proved": "the flats allow 10, 40 and 60 connections",
+      "capture": "sha256:1a4e0b40abd752859eb3a57666d01e88d5ebda3c21ddc9b3456f0e98da8649c2",
+      "quote": "| Connections | 10 connections | 40 connections | 60 connections |"
+    },
+    {
+      "url": "https://usenetdeal.com/usenet/",
+      "date": "2026-11-25",
+      "proved": "the flats are capped at 20, 100 and 1000 Mbit/s",
+      "capture": "sha256:1a4e0b40abd752859eb3a57666d01e88d5ebda3c21ddc9b3456f0e98da8649c2",
+      "quote": "| Usenet speed | 20 Mbit/s | 100 Mbit/s | 1000 Mbit/s |"
+    },
+    {
+      "url": "https://usenetdeal.com/usenet/",
+      "date": "2026-11-25",
+      "proved": "the flats have an unlimited download volume",
+      "capture": "sha256:1a4e0b40abd752859eb3a57666d01e88d5ebda3c21ddc9b3456f0e98da8649c2",
+      "quote": "| Download limit | Unlimited | Unlimited | Unlimited |"
+    },
+    {
+      "url": "https://usenetdeal.com/checkout?product_variation=5?locale=en",
+      "date": "2026-11-25",
+      "proved": "the checkout offers a payment-method choice with Stripe",
+      "capture": "sha256:762712e35330310e7bce992618aa62f84079fe75a3f7002548bf7933b8044e1c",
+      "quote": "Select your desired payment method"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-03T07:37:14.439Z",
+  "verified_at": "2026-11-25T09:47:07.818Z",
   "price_per_tb_month": "EUR 15.99 for a 1000 GB block, one-time",
   "notes": "Flats are priced per month and speed tier; blocks one-time.",
   "extras": {}

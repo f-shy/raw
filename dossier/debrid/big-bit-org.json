@@ -70,14 +70,21 @@
       "capture": "sha256:3125b505eca26d74096a6985446593dbb6eb97637bbd1d4543eaa49be6387223",
       "quote": "30,000+ monthly visitors. English and Dutch.",
       "proved": "third-party: the listing described an English and Dutch forum"
+    },
+    {
+      "url": "probe:https://big-bit.org/",
+      "date": "2026-11-26",
+      "proved": "the probe record states the TLS error verbatim",
+      "capture": "sha256:84e707ffdb0307c2af637167d706567f52104ec04d51db2e72a0f43b56162f37",
+      "quote": "\"error\": \"tls_error\""
     }
   ],
   "verdict": "dead",
   "extras": {
     "price": "unverified: unreachable"
   },
-  "notes": "",
-  "verified_at": "2026-11-03T07:37:15.010Z",
+  "notes": "\"error\": \"tls_error\"",
+  "verified_at": "2026-11-26T02:15:10.480Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }

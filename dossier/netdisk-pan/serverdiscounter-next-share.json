@@ -5,7 +5,7 @@
   "url": "https://serverdiscounter.com/en/nextcloud",
   "category": "managed Nextcloud, paid only",
   "free_tier": {
-    "stated": "No free tier. A 14-day free trial with no credit card and 'no commitment', which is deleted at the end unless extended. Plans: Small 1 TB at EUR 4.95/month including VAT, Basic 5 TB at EUR 15.95, Grow 10 TB at EUR 29.95, Big 25 TB at EUR 59.95",
+    "stated": "14 Days Free Trial All features. No credit card. No commitment.",
     "unit": "TiB",
     "metered_on": "stored-bytes",
     "source_url": "https://serverdiscounter.com/en/nextcloud",
@@ -79,10 +79,80 @@
       "proved": "the first-party page still advertises a 14-day trial needing no credit card; the paid order still requires a card",
       "capture": "sha256:4128b72274dce249218e836c6bb8d665e68ae42d269a719297941b099394aa23",
       "quote": "14 Days Free Trial All features. No credit card. No commitment."
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20260809095924/http://serverdiscounter.com/en/nextcloud?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the four tiers are still 1, 5, 10 and 25 TB",
+      "capture": "sha256:91d34c81e92486e6eb73b3527c5f81a0dd1b7c731f83b5fdc8c07bb27bff57bb",
+      "quote": "| Cloud Storage | 1 TB | 5 TB | 10 TB | 25 TB |"
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20260809095924/http://serverdiscounter.com/en/nextcloud?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the per-file cap is 10 GB on all four tiers",
+      "capture": "sha256:91d34c81e92486e6eb73b3527c5f81a0dd1b7c731f83b5fdc8c07bb27bff57bb",
+      "quote": "| Max. file size | 10 GB | 10 GB | 10 GB | 10 GB |"
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20260809095924/http://serverdiscounter.com/en/nextcloud?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "traffic is flatrate on all four tiers",
+      "capture": "sha256:91d34c81e92486e6eb73b3527c5f81a0dd1b7c731f83b5fdc8c07bb27bff57bb",
+      "quote": "| Traffic | Flatrate | Flatrate | Flatrate | Flatrate |"
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20260809095924/http://serverdiscounter.com/en/nextcloud?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the minimum term is one month",
+      "capture": "sha256:91d34c81e92486e6eb73b3527c5f81a0dd1b7c731f83b5fdc8c07bb27bff57bb",
+      "quote": "| Minimum term | 1 Month | 1 Month | 1 Month | 1 Month |"
+    },
+    {
+      "url": "https://serverdiscounter.com/en/nextcloud",
+      "date": "2026-11-25",
+      "proved": "the page advertises a 14-day free trial with all features, no credit card, and no commitment",
+      "capture": "sha256:4128b72274dce249218e836c6bb8d665e68ae42d269a719297941b099394aa23",
+      "quote": "14 Days Free Trial All features. No credit card. No commitment."
+    },
+    {
+      "url": "https://serverdiscounter.com/en/nextcloud",
+      "date": "2026-11-25",
+      "proved": "the comparison table states a 10 GB max file size on all four tiers",
+      "capture": "sha256:4128b72274dce249218e836c6bb8d665e68ae42d269a719297941b099394aa23",
+      "quote": "| Max. file size | 10 GB | 10 GB | 10 GB | 10 GB |"
+    },
+    {
+      "url": "https://serverdiscounter.com/en/nextcloud",
+      "date": "2026-11-25",
+      "proved": "the comparison table states flatrate traffic on all four tiers",
+      "capture": "sha256:4128b72274dce249218e836c6bb8d665e68ae42d269a719297941b099394aa23",
+      "quote": "| Traffic | Flatrate | Flatrate | Flatrate | Flatrate |"
+    },
+    {
+      "url": "https://serverdiscounter.com/en/nextcloud",
+      "date": "2026-11-25",
+      "proved": "the comparison table states a one-month minimum term on all four tiers",
+      "capture": "sha256:4128b72274dce249218e836c6bb8d665e68ae42d269a719297941b099394aa23",
+      "quote": "| Minimum term | 1 Month | 1 Month | 1 Month | 1 Month |"
+    },
+    {
+      "url": "https://serverdiscounter.com/en/nextcloud",
+      "date": "2026-11-25",
+      "proved": "the first-party Nextcloud page states a 14-day free trial with all features, no credit card and no commitment",
+      "capture": "sha256:b9dd2191e69b0afb2cf87e01eb361639dbd0c905b4d4e6cd7dc2a3cf9d01919e",
+      "quote": "14 Days Free Trial All features. No credit card. No commitment."
+    },
+    {
+      "url": "https://serverdiscounter.com/en/nextcloud",
+      "date": "2026-11-25",
+      "proved": "the first-party Nextcloud page states flatrate traffic for the offer",
+      "capture": "sha256:b9dd2191e69b0afb2cf87e01eb361639dbd0c905b4d4e6cd7dc2a3cf9d01919e",
+      "quote": "Unlimited users, **traffic flatrate** and **100% renewable energy**."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:12:45.101Z",
+  "verified_at": "2026-11-25T14:45:36.596Z",
   "history": [],
   "price_per_tb_month": "EUR 2.40/TB/month including VAT at 25 TB (EUR 59.95/month), rising to EUR 4.95/TB/month at 1 TB, read 2026-10-22",
   "binding": "per-object-cap",

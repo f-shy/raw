@@ -58,11 +58,31 @@
       "url": "https://archive.web.pkgforge.dev/capture/20240826090412/http://linkpremium.net/?provider=wayback",
       "date": "2026-10-23",
       "proved": "the 2024-08-26 capture was already a 1068-byte stub, so the domain has not hosted a working generator in the period covered"
+    },
+    {
+      "url": "https://linkpremium.net/",
+      "date": "2026-11-25",
+      "proved": "the HTTP 200 body is a single sentence of description with no generator",
+      "capture": "sha256:07c231409b522d3ba296b6f2ac715a575b0a794128abc9fa710f7b260d357a8e",
+      "quote": "Link Premium Generator allows you to generate premium links for Rapidgator, Uploaded, Bigfile, Depfile, Fboom, Keep2share, Turbobit, Mediafire, 4shared, etc"
+    },
+    {
+      "url": "probe:https://linkpremium.net/",
+      "date": "2026-11-25",
+      "proved": "the HTTP 200 response body is still only 156 bytes",
+      "capture": "sha256:58f81c29be437c6b3b83faf008f4eb01b4be54cbce79f95e70dc396466e54399",
+      "quote": "\"bytes\": 156"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T02:06:35.000Z",
+  "verified_at": "2026-11-25T09:47:00.044Z",
   "price_per_tb_month": null,
   "history": [],
-  "notes": "A textbook HTTP-200 false positive: the search result renders as 'Link Premium Generator allows you to generate premium links for Rapidgator, Uploaded, Bigfile, Depfile, Fboom, Keep2share, Turbotbit, Mediafire, 4shared, etc' while the page itself is a stub. It belongs on the dead list, not the provider list."
+  "notes": "A textbook HTTP-200 false positive: the search result renders as 'Link Premium Generator allows you to generate premium links for Rapidgator, Uploaded, Bigfile, Depfile, Fboom, Keep2share, Turbotbit, Mediafire, 4shared, etc' while the page itself is a stub. It belongs on the dead list, not the provider list.",
+  "extras": {
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
+  }
 }

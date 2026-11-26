@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u17-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Re-check these debrid records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/cafe-arz $.chaining: span says only that domestic bank accounts cannot pay; Toman settlement, euro-priced debrid subscription, and no reseller markup on the account are not stated\n- debrid/cafe-arz $.limits_note: quoted phrase 'has many challenges' is not in the page and the page does not say a company of this kind is required; it says domestic bank payment is impossible and offers Cafe Arz as one route\n- debrid/multcloud $.identity_cost.kind: span is about payment methods; capture does not say that sign-up uses an email as identity (only 'all you need to create an account' and an invoice emailed)\n- debrid/maxcloudbox $.limits[0].value: 3-day trial 20 GB is right, but longer plans are not all 100 GB: the 10-day Elite plan is 50GB NVMe SSD\n- debrid/purevpn $.identity_cost.detail: the value quotes 'Accepting Credit Cards, PayPal, Bitcoin, and other Crypto payments' as the order page text; that string is not in the capture (an FAQ gives similar content)\n- debrid/cafe-arz $.tooling: page does not say the service is browser only\n- debrid/multcloud $.free_tier.stated: free plan lists 4 sync modes, not 5 (5 is not on the page for free; 10 on paid)\n- debrid/multcloud $.identity_cost.detail: payment methods and CleverBridge are on the page; OAuth authorisation of each connected cloud is not stated",
+ "scope": {
+  "rids": [
+   "debrid/torrentdrive-io",
+   "debrid/megabox-me",
+   "debrid/indoleech-com",
+   "debrid/maxcloudbox",
+   "debrid/multcloud",
+   "debrid/purevpn",
+   "debrid/cafe-arz",
+   "debrid/coinbase-commerce"
+  ]
+ },
+ "origin": "audit u93 of 20261125-0137-verify-debrid-5636/u17 failed: 8 of 30 unsupported",
+ "created": "2026-11-25T15:10:38Z"
+}

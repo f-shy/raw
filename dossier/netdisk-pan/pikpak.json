@@ -63,37 +63,9 @@
       "quote": "If you choose `android`, it will simulate the Android client for access."
     },
     {
-      "url": "https://mypikpak.com/",
-      "date": "2026-11-03",
-      "proved": "the landing page offers cloud download of torrent, magnet and URL links into the drive and states no storage quota",
-      "capture": "sha256:596c21157cb12b144d3ff71f74e67aebc9f6eecf3b14b4a0908fa36a127e60bc",
-      "quote": "Torrent · Magnet · URL"
-    },
-    {
-      "url": "https://mypikpak.com/",
-      "date": "2026-11-03",
-      "proved": "the landing page presents a cloud-download drive and states no storage quota",
-      "capture": "sha256:596c21157cb12b144d3ff71f74e67aebc9f6eecf3b14b4a0908fa36a127e60bc",
-      "quote": "Torrent · Magnet · URL"
-    },
-    {
       "url": "https://mypikpak.com/en-US/help-center/file_management/space/insufficient_cloud_storage_space",
       "date": "2026-11-25",
       "proved": "the first-party help center now states the free and Premium storage figures",
-      "capture": "sha256:910871a0b7f303e43a9dc5a23a8fda1b78879b508fbe866db5d604a0652bff3a",
-      "quote": "Free accounts include 6 GB of storage, and Premium includes 10 TB."
-    },
-    {
-      "url": "https://mypikpak.com/en-US/help-center/file_management/space/insufficient_cloud_storage_space",
-      "date": "2026-11-25",
-      "proved": "the free quota is measured in GB",
-      "capture": "sha256:910871a0b7f303e43a9dc5a23a8fda1b78879b508fbe866db5d604a0652bff3a",
-      "quote": "Free accounts include 6 GB of storage, and Premium includes 10 TB."
-    },
-    {
-      "url": "https://mypikpak.com/en-US/help-center/file_management/space/insufficient_cloud_storage_space",
-      "date": "2026-11-25",
-      "proved": "the source of the quota figure is the first-party help page",
       "capture": "sha256:910871a0b7f303e43a9dc5a23a8fda1b78879b508fbe866db5d604a0652bff3a",
       "quote": "Free accounts include 6 GB of storage, and Premium includes 10 TB."
     },
@@ -119,13 +91,6 @@
       "quote": "- An email address for registration and verification."
     },
     {
-      "url": "probe:https://mypikpak.com/en/price",
-      "date": "2026-11-25",
-      "proved": "the former pricing path is gone; the first-party help pages carry the current terms",
-      "capture": "sha256:50393a3d41f210ce69448f64dd5ed2a64839f37572b6ce901065d1ea269e8338",
-      "quote": "\"status\": 404"
-    },
-    {
       "url": "https://mypikpak.com/en-US/help-center/file_management/space/exceed_limit",
       "date": "2026-11-25",
       "proved": "the first-party help center states the over-limit download throttle",
@@ -140,29 +105,15 @@
       "quote": "Torrent · Magnet · URL"
     },
     {
-      "url": "https://mypikpak.com/en-US/help-center/file_management/space/insufficient_cloud_storage_space",
-      "date": "2026-11-25",
-      "proved": "the free storage figure is unchanged across the first-party help pages",
-      "capture": "sha256:910871a0b7f303e43a9dc5a23a8fda1b78879b508fbe866db5d604a0652bff3a",
-      "quote": "Free accounts include 6 GB of storage, and Premium includes 10 TB."
-    },
-    {
-      "url": "https://mypikpak.com/en-US/faq",
-      "date": "2026-11-25",
-      "proved": "the inactivity deletion rule is stated in the first-party FAQ",
-      "capture": "sha256:a707e17c6aa38d4ee7dbe6d64b0688191f0852c5c2bfd5c15f49635a00b6e17a",
-      "quote": "If you are a non-Premium user and have no login activity for 12 consecutive months, PikPak may initiate the account deletion process."
-    },
-    {
-      "url": "https://pikpak.jp/en/blog-free-trial.html",
-      "date": "2026-11-25",
-      "proved": "the vendor regional page states the email signup gate",
-      "capture": "sha256:2ea69e3dddb8f83c4b278a1032fdd3d53763bd16278151df1d23442335b8e1cc",
-      "quote": "- An email address for registration and verification."
+      "url": "https://mypikpak.com/en-US/help-center/premium/payment_and_billing/premium_not_activated",
+      "date": "2026-11-26",
+      "proved": "the help page names the sign-in email address as the account identifier",
+      "capture": "sha256:f5d90c52e399c02c94a477d28045549e9bfc6eeb9d44f0bad0f22f8cda3e3c6b",
+      "quote": "your PikPak account identifier, which is usually your sign-in email address"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-25T03:33:18.629Z",
+  "verified_at": "2026-11-26T02:15:15.158Z",
   "binding": "per-object-cap",
   "notes": "The landing page advertises cloud transfer to drive storage. The first-party help center throttles over-limit storage to 100 KB/s and states deletion 15 to 30 days after exceeding the limit.",
   "history": [],

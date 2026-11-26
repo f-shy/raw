@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u200-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Minimal confirmation of the reverted attempt u158. Drop every `set` and every `confirm` from .tmp/20261125-0137-verify-debrid-5636/units/u158/changes.jsonl. Keep a `dead` op only when its evidence is a probe record whose status is 404, 410 or a transport failure; otherwise turn it into an open_question naming the rid. Keep `append_evidence` and `open_question`. Then, for each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], retention.days, per_object_cap.bytes, limits[i].value). Never confirm `$.url`, `$.topic`, `$.slug`, `$.provider`, `$.endpoint`, `$.free_tier.source_url`, `$.limits[i].source` or any system field. List every other field in unread. If no field matches, open a question for the record. No set operations.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/turbobitpremium-org $.identity_cost.kind: The FAQ never says an email address is required: its only email mention is this password-delivery question ('SMS or email'), and the answer asks for a mobile phone number or e-money account. No span says registration or a guest purchase needs an email address, so identity_cost.kind = email is not es",
+ "scope": {
+  "rids": [
+   "debrid/publicmirrorbot",
+   "debrid/magnetlinkdl",
+   "debrid/turbobitpremium-org",
+   "debrid/turboget-net",
+   "debrid/pullfiles",
+   "debrid/yourimageshare",
+   "debrid/ex-ua",
+   "debrid/fs-to"
+  ]
+ },
+ "origin": "audit u216 of 20261125-0137-verify-debrid-5636/u200 failed: 1 of 6 unsupported",
+ "created": "2026-11-25T23:11:10Z"
+}

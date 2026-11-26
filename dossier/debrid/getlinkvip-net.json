@@ -14,7 +14,7 @@
     "notes": "Price is the missing fact in this record; the homepage advertises 'giá thấp hơn 3-5 lần so với mua từng tài khoản ở mỗi filehost' without a number."
   },
   "per_object_cap": {
-    "stated": "not stated",
+    "stated": "Free file size per get capped at 2 GB; VIP has no per-get file-size cap.",
     "bytes": null,
     "source_url": "https://getlinkvip.net/guide.html",
     "notes": ""
@@ -58,7 +58,7 @@
     "detail": "Not documented on the pages read: the guide and homepage publish no payment page. Every other Vietnamese PLG among debrid providers takes either a card (LinksVIP) or domestic rails only (Getlink.vn), so this is unresolved rather than assumed.",
     "country": "Vietnam"
   },
-  "reliability_note": "A hard two-connection limit per machine with no published quota means the failure mode is a slow download rather than an error; support is a Facebook/Zalo channel.",
+  "reliability_note": "A two-connection ceiling per machine and a stated 5MB/s VIP speed mean the failure mode is a slow download rather than an error; support is a Facebook Fanpage and email.",
   "confidence": "documented",
   "confidence_note": "The guide's limit sentences and the homepage's positioning sentence were read today. The price and payment rail are the two facts this record does not have; a pricing page or a checkout would supply both.",
   "evidence": [
@@ -71,10 +71,52 @@
       "url": "https://getlinkvip.net/",
       "date": "2026-10-23",
       "proved": "'hơn 14+ filehosts ... với giá thấp hơn 3-5 lần so với mua từng tài khoản ở mỗi filehost' (search-index read of the homepage)"
+    },
+    {
+      "url": "probe:https://getlinkvip.net/",
+      "date": "2026-11-25",
+      "proved": "the live host did not answer through the proxy on 2026-11-25",
+      "capture": "sha256:002f01af511fd3105ee12505db365fdf27a86c5b8d1fd22a353b0ae8741aa363",
+      "quote": "\"status\": null"
+    },
+    {
+      "url": "probe:https://archive.web.pkgforge.dev/capture/20250614232252/https://getlinkvip.net/guide.html?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "guide states a 5MB/s VIP speed and a two-connection ceiling per machine",
+      "capture": "sha256:ed108d9f741f944d9007fd8c134ada528ea15d4fd89ac1006d71de2ad6ac9e03",
+      "quote": "Tốc độ tải ... 5MB/s ... Vì giới hạn tối đa mỗi máy chỉ được 2 kết nối để download."
+    },
+    {
+      "url": "probe:https://archive.web.pkgforge.dev/capture/20250614232252/https://getlinkvip.net/guide.html?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the guide states a 2 GB per-get cap for free and no cap for VIP",
+      "capture": "sha256:ed108d9f741f944d9007fd8c134ada528ea15d4fd89ac1006d71de2ad6ac9e03",
+      "quote": "Đối với thành viên Vip thì không giới hạn dung lượng tệp tin trên mỗi lần get. Đối với thành viên Free thì sẽ bị giới hạn không quá 2GB cho mỗi lần get."
+    },
+    {
+      "url": "probe:https://archive.web.pkgforge.dev/capture/20250614232252/https://getlinkvip.net/guide.html?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "per-host daily bandwidth is deducted on a successful get; a re-get for resume does not re-deduct",
+      "capture": "sha256:ed108d9f741f944d9007fd8c134ada528ea15d4fd89ac1006d71de2ad6ac9e03",
+      "quote": "Đối với những host có giới hạn băng thông trong ngày ... sau get link thành công, băng thông của host đó sẽ bị trừ. ... Trong quá trình tải, bạn có thể bị lỗi đường truyền, bị lỗi do rớt mạng, hoặc lý do nào đó khiến việc download bị đứng lại giữa chừng. Nên chúng tôi hỗ trợ bạn re-get link lại, lấy mới link download để resume tiếp, mà không trừ băng thông."
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20250614232252/https://getlinkvip.net/guide.html?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the vendor guide caps downloads at two connections per machine and states a 5MB/s VIP speed",
+      "capture": "sha256:812e7f514ed039a44fb58d92973f986ba43bdad238a7f012492fd1e98d5f6530",
+      "quote": "Vì giới hạn tối đa mỗi máy chỉ được 2 kết nối để download. ... Tốc độ tải | < 512KB/s | 5MB/s |"
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20250614232252/https://getlinkvip.net/guide.html?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the vendor guide states the per-machine connection ceiling and the VIP download speed",
+      "capture": "sha256:812e7f514ed039a44fb58d92973f986ba43bdad238a7f012492fd1e98d5f6530",
+      "quote": "Vì giới hạn tối đa mỗi máy chỉ được 2 kết nối để download. ... Tốc độ tải | < 512KB/s | 5MB/s |"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:20:00.000Z",
+  "verified_at": "2026-11-25T12:00:08.495Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "Included for the constraint, not the price: it is the only Vietnamese service found that states a connection cap instead of a byte cap, and that changes the failure mode. Trigger condition: a published price and host table appear.",

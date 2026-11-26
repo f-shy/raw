@@ -54,7 +54,7 @@
     "detail": "Through the bot: a Telegram account, so any phone number. Through the site: 'partes del servicio' work with no account at all, and history or paid plans need registration.",
     "country": null
   },
-  "reliability_note": "A young service with a Spanish-language terms page last updated on the day of this read and a bot that is its own distribution channel: both are signs of one operator with no published uptime. Files expire by the sender's setting, so the loss is predictable.",
+  "reliability_note": "The Spanish-language terms page is dated 25/11/2026 and states that transfers can be suspended or deleted and that recovery after expiry is not guaranteed.",
   "confidence": "documented",
   "confidence_note": "The bot description and the site's terms were both read today and agree that the service stores and re-serves files. The 4 GB figure is reported by the bot only, not measured with an upload.",
   "evidence": [
@@ -67,10 +67,38 @@
       "url": "https://dripfiles.com/",
       "date": "2026-10-23",
       "proved": "the terms describe 'un servicio de envío y compartición de archivos' with upload, link or email sharing, expiry, password and premium features, last updated 23/10/2026"
+    },
+    {
+      "url": "https://dripfiles.com/",
+      "date": "2026-11-25",
+      "proved": "the terms carry a current revision date of 25 November 2026",
+      "capture": "sha256:a9cf841dcf09cce2c7d6761d31ec998bb5cde397c4dd449bb15246242161f4af",
+      "quote": "Última actualización: 25/11/2026 · DripFiles"
+    },
+    {
+      "url": "https://dripfiles.com/",
+      "date": "2026-11-25",
+      "proved": "the terms were revised on the day of this read",
+      "capture": "sha256:a9cf841dcf09cce2c7d6761d31ec998bb5cde397c4dd449bb15246242161f4af",
+      "quote": "Última actualización: 25/11/2026 · DripFiles"
+    },
+    {
+      "url": "https://t.me/DripFilesBot",
+      "date": "2026-11-25",
+      "proved": "the bot still offers a share link for files up to 4 GB",
+      "capture": "sha256:54b5d2272d2130b58512d66a7941bfca300aa6eff06217a9fe2e8f430dab72ee",
+      "quote": "The official DripFiles bot. Drop a file → get a share link. Up to 4 GB."
+    },
+    {
+      "url": "https://dripfiles.com/",
+      "date": "2026-11-25",
+      "proved": "parts of the service work with no account; history and paid plans require registration",
+      "capture": "sha256:a9cf841dcf09cce2c7d6761d31ec998bb5cde397c4dd449bb15246242161f4af",
+      "quote": "Puedes usar partes del servicio sin cuenta; otras funciones (por ejemplo, historial o planes de pago) pueden requerir registro o inicio de sesión."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:43:39.513Z",
+  "verified_at": "2026-11-25T09:46:42.462Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Included because it is a real hosted store-and-forward service and not an account mirror: the file goes into the vendor's storage and comes back as a link. No programmatic path found: Two front ends: a Telegram bot (@DripFilesBot) and a website with upload, link share and email share. No API is documented on the pages read.",

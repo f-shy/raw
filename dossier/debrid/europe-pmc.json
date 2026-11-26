@@ -79,10 +79,24 @@
       "url": "probe:https://europepmc.org/ftp/oa/",
       "date": "2026-10-23",
       "proved": "403 over HTTPS - the FTP tree has no HTTPS mirror at that path"
+    },
+    {
+      "url": "https://europepmc.org/RestfulWebService",
+      "date": "2026-11-25",
+      "proved": "the web service publishes a REST fields endpoint",
+      "capture": "sha256:f6c714ae045b4357b853886ca4b4537fa6af988de582c3b930347370d295642a",
+      "quote": "GET https://www.ebi.ac.uk/europepmc/webservices/rest/fields"
+    },
+    {
+      "url": "https://europepmc.org/downloads",
+      "date": "2026-11-25",
+      "proved": "eight bulk content types are still published",
+      "capture": "sha256:49478c36af335619b93f2bd15060a04200c3a2f9a1da7ccac1dfd283f2e70865",
+      "quote": "There are eight types of Europe PMC content available for automated, bulk download:"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:24:34.450Z",
+  "verified_at": "2026-11-25T22:07:37.875Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Caveat is the bulk mirror, not the API. Metadata is effectively unlimited through pageSize=1000; full text at TiB scale depends on the FTP tree, which this network could not open.",

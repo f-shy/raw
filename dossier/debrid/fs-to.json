@@ -53,7 +53,7 @@
     "detail": "not applicable: no account can be created",
     "country": "Ukraine"
   },
-  "reliability_note": "The seizure of FS.TO is named in the same report as one of the pressures that preceded EX.UA's closure two days later.",
+  "reliability_note": "| [**fs.to**](https://fs.to) | FS stands for File Sharing. | [.to](https://www.iana.org/domains/root/db/to.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/fs.to) | ✓ |",
   "confidence": "documented",
   "confidence_note": "The seizure date, the actor and the stopped service are quoted from RBC-Ukraine's report of 2016-11-17, read today. The relocation claim is a quote of an unverified VK post and is labelled as such. Evidence dates normalised to the read date on 2026-10-23; a source that carries its own date keeps it in the proved field.",
   "evidence": [
@@ -61,10 +61,38 @@
       "url": "https://daily.rbc.ua/rus/show/fayloobmenniki-berut-abordazh-pochemu-zakryvayutsya-1479386850.html",
       "date": "2026-10-23",
       "proved": "the 2016-11-15 seizure of FS.TO's servers by Ukraine's cyberpolice, the service stopping at its main address, and the unverified VK relocation claim"
+    },
+    {
+      "url": "probe:https://fs.to/",
+      "date": "2026-11-26",
+      "proved": "a GET to fs.to on 2026-11-26 redirected to a different host",
+      "capture": "sha256:f881ce49d889da6ba39abb2e649a55a8fb25e7a12f3af024b763fa1774dae529",
+      "quote": "\"location\":\"https://s.ee/docs/official-domains/\""
+    },
+    {
+      "url": "https://daily.rbc.ua/rus/show/fayloobmenniki-berut-abordazh-pochemu-zakryvayutsya-1479386850.html",
+      "date": "2026-11-26",
+      "proved": "the 2016 report says Ukraine's cyberpolice seized fs.to servers on 15 November",
+      "capture": "sha256:9c2c011bde6a77b663f40a1d7c4469bbfd99bf00eaa21d3bd8d4675dbb5b6423",
+      "quote": "Департамент киберполиции Национальной полиции Украины 15 ноября изъял сервера одного из крупнейших в Украине онлайн-кинотеатров fs.to."
+    },
+    {
+      "url": "https://s.ee/docs/official-domains/",
+      "date": "2026-11-26",
+      "proved": "the first-party page names fs.to as an official S.EE file-sharing domain",
+      "capture": "sha256:f9a5f1b9aa6480c88619a7dd8460b5442d0a52e87a80a70f1db3b4e728fde0be",
+      "quote": "| [**fs.to**](https://fs.to) | FS stands for File Sharing. | [.to](https://www.iana.org/domains/root/db/to.html) | Cloudflare | Cloudflare | [View](https://dnssec-analyzer.verisignlabs.com/fs.to) | ✓ |"
+    },
+    {
+      "url": "https://daily.rbc.ua/rus/show/fayloobmenniki-berut-abordazh-pochemu-zakryvayutsya-1479386850.html",
+      "date": "2026-11-26",
+      "proved": "the report states the cyberpolice seizure of fs.to servers on 15 November",
+      "capture": "sha256:9c2c011bde6a77b663f40a1d7c4469bbfd99bf00eaa21d3bd8d4675dbb5b6423",
+      "quote": "Департамент киберполиции Национальной полиции Украины 15 ноября изъял сервера одного из крупнейших в Украине онлайн-кинотеатров fs.to."
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T02:24:29.926Z",
+  "verified_at": "2026-11-26T02:58:40.528Z",
   "price_per_tb_month": null,
   "notes": "Recorded with FS.TO's sibling EX.UA so the pair is closed together. No live successor was found, and the VK relocation claim is not treated as one."
 }

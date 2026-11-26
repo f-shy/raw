@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u207-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Minimal confirmation of the reverted attempt u167. Drop every `set` and every `confirm` from .tmp/20261125-0137-verify-debrid-5636/units/u167/changes.jsonl. Keep a `dead` op only when its evidence is a probe record whose status is 404, 410 or a transport failure; otherwise turn it into an open_question naming the rid. Keep `append_evidence` and `open_question`. Then, for each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], retention.days, per_object_cap.bytes, limits[i].value). Never confirm `$.url`, `$.topic`, `$.slug`, `$.provider`, `$.endpoint`, `$.free_tier.source_url`, `$.limits[i].source` or any system field. List every other field in unread. If no field matches, open a question for the record. No set operations.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/cloudpipe $.free_tier.stated: The pricing capture states the free-plan bullets ('$0/month', '5 jobs / day', '3GB max file size', 'Standard download speed', '6hr server storage (no storage cap)', '1 download at a time'), but it does not say the value's final clause, \"Home page adds 'No credit card required for free plan'\". Its ow",
+ "scope": {
+  "rids": [
+   "debrid/webtor-io",
+   "debrid/hotmart",
+   "debrid/kiwify",
+   "debrid/copernicus-cds",
+   "debrid/ulozto",
+   "debrid/cloudpipe",
+   "debrid/fireload",
+   "debrid/torcomet"
+  ]
+ },
+ "origin": "audit u223 of 20261125-0137-verify-debrid-5636/u207 failed: 1 of 8 unsupported",
+ "created": "2026-11-25T23:11:10Z"
+}

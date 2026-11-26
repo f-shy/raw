@@ -5,7 +5,7 @@
   "category": "Usenet indexer (renamed)",
   "tier": "free",
   "free_tier": {
-    "stated": "None under this name: every request is redirected to a mover notice, 'SceneNZBs is now called Treasure Maps. You can find us at our new address.'",
+    "stated": "We have moved! SceneNZBs is now called **Treasure Maps**. You can find us at our new address.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://scenenzbs.com/",
@@ -66,6 +66,13 @@
       "url": "https://treasure-maps.com/",
       "date": "2026-10-23",
       "proved": "the successor confirms: 'SceneNZBs now sails under a new flag - Treasure Maps. Your access still works.'"
+    },
+    {
+      "url": "probe:https://scenenzbs.com/",
+      "date": "2026-11-26",
+      "proved": "the redirect target states SceneNZBs is now called Treasure Maps at a new address",
+      "capture": "sha256:ac0ded10d6f0649aab7f48f5d788ef25ad7aec841f7b3216ff125ca2fba9c7cf",
+      "quote": "We have moved! SceneNZBs is now called **Treasure Maps**. You can find us at our new address."
     }
   ],
   "verdict": "dead",
@@ -74,7 +81,7 @@
     "successor": "treasure-maps"
   },
   "notes": "Inactive indexer domain redirecting to successor service NZB-Life.",
-  "verified_at": "2026-10-23T02:11:54.066Z",
+  "verified_at": "2026-11-26T02:15:11.166Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }

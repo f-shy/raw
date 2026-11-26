@@ -87,10 +87,38 @@
       "proved": "Telegram's per-file ceiling is 2 GB, 4 GB with Premium",
       "capture": "sha256:b2b47f4d10eef65f2241c8d0b8c905d5c40e0f31bcd2ba1962c5682609fd55b4",
       "quote": "Send and receive files of any type, up to 2 GB in size each (or 4 GB with [Premium](https://telegram.org/faq_premium)), access them instantly on your other devices."
+    },
+    {
+      "url": "https://t.me/FileToDirectLinkBot",
+      "date": "2026-11-25",
+      "proved": "the bot's own page still claims a permanent download and stream link for Telegram files",
+      "capture": "sha256:9e12315d8bca8db3583219d281e3a3313997f56fb2ed0f5b8ceffe01e87babf6",
+      "quote": "Bot to get permanent download and stream link for Telegram files"
+    },
+    {
+      "url": "https://t.me/FileToDirectLinkBot",
+      "date": "2026-11-25",
+      "proved": "the bot is still a Telegram chat with a Start action and no published HTTP API",
+      "capture": "sha256:9e12315d8bca8db3583219d281e3a3313997f56fb2ed0f5b8ceffe01e87babf6",
+      "quote": "[Start Bot](tg://resolve?domain=FileToDirectLinkBot)"
+    },
+    {
+      "url": "https://telegram.org/faq",
+      "date": "2026-11-25",
+      "proved": "a Telegram account is logged in with a mobile phone number",
+      "capture": "sha256:db52c8ab9f1c97f8c3e07bd0bfdcad3b97224fa5ab080ee3807d1312a614ad63",
+      "quote": "Just use your main mobile phone number to log in everywhere, your cloud chats will sync instantly."
+    },
+    {
+      "url": "https://telegram.org/faq",
+      "date": "2026-11-25",
+      "proved": "Telegram's own per-file ceiling is 2 GB, or 4 GB with Premium",
+      "capture": "sha256:db52c8ab9f1c97f8c3e07bd0bfdcad3b97224fa5ab080ee3807d1312a614ad63",
+      "quote": "send and receive files of any type, up to 2 GB in size each (or 4 GB with"
     }
   ],
   "verdict": "qualifies-with-caveat",
   "price_per_tb_month": null,
   "notes": "Abandon if the t.me page stops resolving to a bot with a Start action. No programmatic path found: A Telegram chat with the bot; the result is a link or a file delivered into the chat. No HTTP API is published.",
-  "verified_at": "2026-11-03T07:37:11.506Z"
+  "verified_at": "2026-11-25T09:46:45.852Z"
 }

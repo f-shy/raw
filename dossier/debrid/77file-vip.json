@@ -94,10 +94,52 @@
       "url": "https://www.77file.com/vip.php",
       "date": "2026-10-23",
       "proved": "gaoji: 1 TB storage with 1 TB of traffic at CNY 39.7/month (list CNY 40). zunxiang: 1 TB storage with 12 TB of traffic at CNY 197 per 12 months (list CNY 480), rendered as CNY 16.41/month. Both: 10 GB single file; 25 / 100 fast pulls per day."
+    },
+    {
+      "url": "https://www.77file.com/vip.php",
+      "date": "2026-11-25",
+      "proved": "the VIP page still offers 1 TB storage with a 12 TB traffic allowance",
+      "capture": "sha256:a1ef5ac6377bf6febcba9cf0d33aa1e9f4adbdca0877db346e099498f2314a41",
+      "quote": "尊享会员 / 存储空间 1T · 流量额度 12T"
+    },
+    {
+      "url": "https://www.77file.com/vip.php",
+      "date": "2026-11-25",
+      "proved": "the 12 TB tier still costs CNY 197 against a CNY 480 list price",
+      "capture": "sha256:a1ef5ac6377bf6febcba9cf0d33aa1e9f4adbdca0877db346e099498f2314a41",
+      "quote": "原价 ~~480元~~现价 197元"
+    },
+    {
+      "url": "https://www.77file.com/vip.php",
+      "date": "2026-11-25",
+      "proved": "the per-file maximum is still 10 GB",
+      "capture": "sha256:a1ef5ac6377bf6febcba9cf0d33aa1e9f4adbdca0877db346e099498f2314a41",
+      "quote": "单文件最大 10GB"
+    },
+    {
+      "url": "https://www.77file.com/vip.php",
+      "date": "2026-11-25",
+      "proved": "the vendor still claims files are never deleted",
+      "capture": "sha256:a1ef5ac6377bf6febcba9cf0d33aa1e9f4adbdca0877db346e099498f2314a41",
+      "quote": "文件永不删除"
+    },
+    {
+      "url": "https://www.77file.com/vip.php",
+      "date": "2026-11-25",
+      "proved": "the VIP page still advertises support for download accelerators",
+      "capture": "sha256:a1ef5ac6377bf6febcba9cf0d33aa1e9f4adbdca0877db346e099498f2314a41",
+      "quote": "支持下载加速工具"
+    },
+    {
+      "url": "https://www.77file.com/vip.php",
+      "date": "2026-11-25",
+      "proved": "the VIP page says activation follows payment and that purchases are non-refundable",
+      "capture": "sha256:a1ef5ac6377bf6febcba9cf0d33aa1e9f4adbdca0877db346e099498f2314a41",
+      "quote": "购买后稍等几分钟即开通；购买后不支持退款！"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T01:57:23.978Z",
+  "verified_at": "2026-11-25T09:46:56.525Z",
   "price_per_tb_month": "CNY 16.4 per TB of 流量额度 (尊享, ¥197 for 12 months and 12 TB)",
   "history": [],
   "notes": "The 25/100 次高速传输请求/天 is a true pull-count in the vocabulary's sense and is rare enough to record: the vendor sells a number of fast pulls per day on top of a byte allowance. The two page variants disagree on the 尊享 price (¥197/12mo vs ¥297/24mo), both promotions, and the conservative per-month figure is recorded. The page does not say whether 流量额度 12T is per month or per term; the arithmetic says per term, because a monthly 12 TB at ¥16.41/month would undercut the 1 TB/month tier at ¥39.7 by a factor no seller would offer. The 高级 per-TB figure therefore stays unstated rather than assumed. Merged from paid-ladder: Correction of unit, not of price: the chinese-ecosystem record states 'CNY 16.4 per TB of liuliang edu', which is correct per TB and 10% optimistic per TiB. At CNY 18.05 per TiB-month this is the fourth-cheapest published allowance in the corpus, behind DDownload, DailyUploads and 1fichier Light. The term reading is the record's inference, not a vendor statement, so the row is ranked with the flag rather than used to decide anything.",

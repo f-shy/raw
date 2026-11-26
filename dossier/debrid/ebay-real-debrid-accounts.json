@@ -22,7 +22,7 @@
   "binding_note": "This is the exact pattern the vendor's terms name: one login, many holders, connections recorded. A 20-day term is short enough that the seller may not care whether it survives.",
   "confidence": "reported",
   "confidence_note": "the seller's page was read today; a seller is not the vendor, so nothing here is at the documented rung except the vendor terms quoted in evidence",
-  "verified_at": "2026-11-03T11:28:57.797Z",
+  "verified_at": "2026-11-25T09:46:36.207Z",
   "history": [],
   "slug": "ebay-real-debrid-accounts",
   "provider": "eBay (seller ax-metals)",
@@ -100,6 +100,13 @@
       "proved": "the title, price of 3,99 EUR and seller feedback text are as recorded",
       "capture": "sha256:81b059a5186b4677a5e05c7a02231e32358d6dcb48c0d9c488b650b9262006cc",
       "quote": "REAL-DEBRID - 20 JOURS - COMPTE PREMIUM - 82 HÉBERGEURS"
+    },
+    {
+      "url": "probe:www.befr.ebay.be",
+      "date": "2026-11-25",
+      "proved": "a direct request reached the eBay host at HTTP 200 on 2026-11-25",
+      "capture": "sha256:fba0707eb895a214a5d218ce8533ffcf278b989e809532132fed2ac1b8ec0154",
+      "quote": "\"status\": 200"
     }
   ],
   "verdict": "fails-identity",

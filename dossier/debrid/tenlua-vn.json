@@ -106,6 +106,20 @@
       "proved": "an HTTPS GET of tenlua.vn timed out",
       "capture": "sha256:74a8d64afc5ab2929e6fa776cf5f93406b356324ae458e7ba0cd03d5a435cf35",
       "quote": "\"error\": \"timeout\""
+    },
+    {
+      "url": "probe:https://tenlua.vn/",
+      "date": "2026-11-25",
+      "proved": "an HTTPS GET of tenlua.vn returned no HTTP status",
+      "capture": "sha256:628e57f0ec1aa3322d8ad3a8fbdf0a787303a4b3464d008c69e9b97e214b36c7",
+      "quote": "\"status\": 0"
+    },
+    {
+      "url": "probe:tenlua.vn:443",
+      "date": "2026-11-25",
+      "proved": "a TCP connect to tenlua.vn port 443 failed name resolution",
+      "capture": "sha256:41dc71ccdc08b4be7501110ed9219ca5b167991e6268d19af5d39be28b2c035a",
+      "quote": "\"status\":0"
     }
   ],
   "verdict": "dead",
@@ -115,6 +129,10 @@
   "notes": "Third of the three Vietnamese hosts the get-link economy was built on (Fshare, 4share, Tenlua). The record stays so the name is answered with its evidence. Trigger condition: a 2026 Wayback capture or a live response showing a working storefront.",
   "extras": {
     "name_in_shops": "Ten lua / Tenlua",
-    "status_source_kind": "third-party uptime page"
+    "status_source_kind": "third-party uptime page",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

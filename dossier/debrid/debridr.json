@@ -102,12 +102,19 @@
       "url": "probe:https://debridr.com/",
       "date": "2026-10-23",
       "proved": "origin down: HTTP 522, 7222 bytes, sha256 89b8d430674f3c70..., error http-522"
+    },
+    {
+      "url": "probe:https://debridr.com/pt",
+      "date": "2026-11-26",
+      "proved": "the probe recorded HTTP 523 verbatim",
+      "capture": "sha256:e8a919a8eb191ccdaa4c6ae340e04cd49d06230ddcc19b3e65697e434fb0d6d0",
+      "quote": "\"status\": 523"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:15:00.000Z",
+  "verified_at": "2026-11-26T02:15:10.482Z",
   "history": [],
-  "notes": "debridr serves a Portuguese page and an English one, with no Portuguese-language commercial content beyond the interface; it is not a Brazilian company as far as the pages read show. It is the only zero-account multi-host found among debrid providers that names 1fichier and Mega together. A 2026-era entrant with localised host pages (pt, ja and others), which is how it surfaced in non-English searches. It states a daily limit exists and never states its size, so it is recorded at the unverified rung rather than estimated. Its 56-host list is broad and current: it includes Fikper-era hosts such as 10drives, Cloudfam and Zincdrive alongside the older Rapidgator/K2S set. The bot is the interesting part: a chat interface removes the need for a browser session and is drivable by a wrapper through the Telegram API. Whether the bot honours the same unstated daily limit was not tested. The host count is settled at 56: the vendors own English page names 56 hosts from Rapidgator to Ubiqfile (read 2026-10-23); the ~70 figure was a lane reading of a different panel and is not a second count. The page was down (HTTP 522) on 2026-11-18, so the 2026-10-23 reading stands.",
+  "notes": "\"status\": 523",
   "extras": {
     "hosts_claimed": "29 named plus 'more than 25 others'",
     "telegram_bot": "@debridrbot",

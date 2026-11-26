@@ -43,7 +43,7 @@
     "detail": "unverified: the sign-up page was not read; a paid order with an account is implied by the money-back guarantee.",
     "country": "None"
   },
-  "reliability_note": "The live home page answered HTTP 503 on 2026-11-03; the archive copy dates from 2026-09-12.",
+  "reliability_note": "The live home and plan pages answered HTTP 503 on 2026-11-25; pinned read routes and a direct probe also failed. The archive copy dates from 2026-09-12.",
   "confidence": "reported",
   "confidence_note": "The price and the SSH access come from an archive copy of the vendor home page; the live page was unavailable and the plan page was not read.",
   "evidence": [
@@ -60,10 +60,31 @@
       "capture": "sha256:d1b394338299dc9dfe3f1804624365dac4112a9be12b07236cfe526e79b93a5a",
       "quote": "All shared slots come with SSH access standard, so you're free to install your own applications and services or setup your own cron jobs.",
       "proved": "every shared slot has SSH access"
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20260912060859/https://swizzin.net/?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the archived home page still states shared slots from USD 15.95/month with a 7-day money-back guarantee",
+      "capture": "sha256:d1b394338299dc9dfe3f1804624365dac4112a9be12b07236cfe526e79b93a5a",
+      "quote": "Optimized Seedbox Solutions Starting at $15.95/month* *7-Day money-back guarantee"
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20260912060859/https://swizzin.net/?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "every shared slot has SSH access",
+      "capture": "sha256:d1b394338299dc9dfe3f1804624365dac4112a9be12b07236cfe526e79b93a5a",
+      "quote": "All shared slots come with SSH access standard, so you're free to install your own applications and services or setup your own cron jobs."
+    },
+    {
+      "url": "probe:https://swizzin.net/",
+      "date": "2026-11-25",
+      "proved": "a direct probe of the live home page answered HTTP 503",
+      "capture": "sha256:b4da6c1049705956a8b9b9d24827f3cd21bcd63cd36f20e8cb3711189573f9ea",
+      "quote": "\"status\": 503"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-03T07:37:15.242Z",
+  "verified_at": "2026-11-25T09:47:03.625Z",
   "history": [],
   "notes": "The vendor's plan page https://swizzin.net/plans/ holds the storage and bandwidth per slot.",
   "extras": {

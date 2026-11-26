@@ -50,7 +50,7 @@
   "binding_note": "The reseller adds no constraint; Debrid-Link's per-day host quotas become the binding ones after activation.",
   "identity_cost": {
     "kind": "card",
-    "detail": "The product page publishes no payment-method list, and the checkout was not entered. The store describes itself as 'official distributor and reseller of various software licenses in India', so a card or an Indian wallet is the minimum such a checkout implies; it is not confirmed.",
+    "detail": "The product page states: 'Buy online securely with Net Banking, Credit Cards, Debit Cards and more.' A bank transfer, credit card or debit card is accepted; no checkout was entered and no card-issuer restriction is stated.",
     "country": "India"
   },
   "reliability_note": "A reseller margin with no published refund terms on the product page; the entitlement depends on a third party (Debrid-Link) staying up, and the store carries no responsibility for that.",
@@ -66,10 +66,38 @@
       "url": "https://247premiumcart.com/product/linksnappy-elite-membership-180-days/",
       "date": "2026-10-23",
       "proved": "second price point from the same store: LinkSnappy Elite 180 days 'Original price was: ₹11,000.00. Current price is: ₹9,900.00'"
+    },
+    {
+      "url": "https://247premiumcart.com/product/debrid-link-premium-1-month/",
+      "date": "2026-11-25",
+      "proved": "the Debrid-Link month still costs INR 750 against INR 1,000 list",
+      "capture": "sha256:e4b1c5b74cd7d51089d75c303a84d8707c33c371d24fa587ff97cf695c4b13cf",
+      "quote": "Original price was: ₹1,000.00.Current price is: ₹750.00."
+    },
+    {
+      "url": "https://247premiumcart.com/product/debrid-link-premium-1-month/",
+      "date": "2026-11-25",
+      "proved": "the entitlement is still 30 days",
+      "capture": "sha256:e4b1c5b74cd7d51089d75c303a84d8707c33c371d24fa587ff97cf695c4b13cf",
+      "quote": "30 days Debrid-Link Premium Access"
+    },
+    {
+      "url": "https://247premiumcart.com/product/debrid-link-premium-1-month/",
+      "date": "2026-11-25",
+      "proved": "the store now publishes Net Banking, credit cards and debit cards as payment rails",
+      "capture": "sha256:e4b1c5b74cd7d51089d75c303a84d8707c33c371d24fa587ff97cf695c4b13cf",
+      "quote": "Buy online securely with Net Banking, Credit Cards, Debit Cards and more."
+    },
+    {
+      "url": "https://247premiumcart.com/product/debrid-link-premium-1-month/",
+      "date": "2026-11-25",
+      "proved": "the store is still an Indian reseller",
+      "capture": "sha256:e4b1c5b74cd7d51089d75c303a84d8707c33c371d24fa587ff97cf695c4b13cf",
+      "quote": "247premiumcart.com is official distributor and reseller of various software licenses in India."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:20:00.000Z",
+  "verified_at": "2026-11-25T09:46:59.421Z",
   "price_per_tb_month": "INR 750 per 30 days for Debrid-Link (list INR 1,000)",
   "history": [],
   "notes": "India buys global debrid through rupee resellers because the providers bill in EUR/USD and many Indian buyers have no international card. That is the same gate as Indonesia's, answered with a reseller instead of a local service. Trigger condition: the store's checkout turns out to require an Indian-issued card only.",

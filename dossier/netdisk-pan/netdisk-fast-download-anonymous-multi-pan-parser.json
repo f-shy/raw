@@ -78,13 +78,6 @@
     {
       "url": "https://raw.githubusercontent.com/qaiu/netdisk-fast-download/main/README.md",
       "date": "2026-11-01",
-      "proved": "the project README gives Docker deployment steps, an image pulled from ghcr.io, for a server that the user runs",
-      "capture": "sha256:6db0683295073400965eaad83a2c121f5603936be7fa72d1ff7b6ad18fb59992",
-      "quote": "#### 海外服务器Docker部署 ... docker pull ghcr.io/qaiu/netdisk-fast-download:latest"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/qaiu/netdisk-fast-download/main/README.md",
-      "date": "2026-11-01",
       "proved": "the README names port 6400 for the API and port 6401 for the built-in web tool of the server that the user runs",
       "capture": "sha256:6db0683295073400965eaad83a2c121f5603936be7fa72d1ff7b6ad18fb59992",
       "quote": "- **6400**: API 服务端口（建议使用 Nginx 代理） ... - **6401**: 内置 Web 解析工具（个人使用可直接开放此端口）"
@@ -137,20 +130,6 @@
       "proved": "the API documentation advises against frequent requests to avoid an address ban and states no figure",
       "capture": "sha256:6a2c465b0e259425114f5c7715e7f20e227bd882817b1c38a999a2de92d40ffa",
       "quote": "1. **请求频率**: 建议不要过于频繁请求，避免IP被封"
-    },
-    {
-      "url": "https://nfd-parser.github.io/api.html",
-      "date": "2026-11-02",
-      "proved": "the API documentation describes a RESTful API that resolves share links of many pans to direct links",
-      "capture": "sha256:6a2c465b0e259425114f5c7715e7f20e227bd882817b1c38a999a2de92d40ffa",
-      "quote": "NFD Parser 提供 RESTful API 接口，支持解析多种网盘分享链接并获取直链。"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/qaiu/netdisk-fast-download/main/README.md",
-      "date": "2026-11-01",
-      "proved": "the project README lists the free public instance at lz.qaiu.top and prints no quota, unit or price",
-      "capture": "sha256:6db0683295073400965eaad83a2c121f5603936be7fa72d1ff7b6ad18fb59992",
-      "quote": "[公益解析，lz站](https://lz.qaiu.top)"
     },
     {
       "url": "https://raw.githubusercontent.com/qaiu/netdisk-fast-download/main/README.md",
@@ -207,10 +186,17 @@
       "proved": "the shipped example still leaves the per-IP rate limiter commented out",
       "capture": "sha256:89d5450030d2dd20b9a9344bd071f0f673e370a27d0bb1fa56adcefb354b96f0",
       "quote": "#rateLimit:"
+    },
+    {
+      "url": "https://nfd-parser.github.io/api.html",
+      "date": "2026-11-26",
+      "proved": "the sentence names the RESTful API interface",
+      "capture": "sha256:6a2c465b0e259425114f5c7715e7f20e227bd882817b1c38a999a2de92d40ffa",
+      "quote": "NFD Parser 提供 RESTful API 接口，支持解析多种网盘分享链接并获取直链。"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T03:33:18.628Z",
+  "verified_at": "2026-11-26T02:15:15.157Z",
   "history": [],
   "binding": "write-gated",
   "binding_note": "The resolver is free and stores nothing, so the auth table binds it: Quark is anonymous only up to 10MiB, UC never is, feijipan and ilanzou need auth above 100 MB, and 123 usually needs the user's own Authorization. Baidu and Xunlei moved to the paid professional endpoint; Quark and UC did not.",

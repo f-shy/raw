@@ -72,10 +72,38 @@
       "url": "https://help.my-seedbox.com/en/article/moyens-de-paiement-supportes-1q8342v",
       "date": "2026-10-23",
       "proved": "the rail list 'PayPal, Credit card (Visa, MasterCard, Visa Electron, Maestro), \"Basic\" cryptocurrencies (BTC & LTC), Advanced cryptocurrencies (ETH, BCH, DASH, and more than 40 others) from EUR 8, My-Seedbox credit balance (Tokens)' and the Dedipass pricing 'a premium SMS costs you EUR 3.00 and gives you only one credit/Token (worth EUR 1.00). Calls are charged at EUR 1.99'"
+    },
+    {
+      "url": "https://www.my-seedbox.com/seedbox/comparatif",
+      "date": "2026-11-25",
+      "proved": "the free trial still requires a French mobile number",
+      "capture": "sha256:a2240ec927b5a79850aeec03d9a504f57086320bc8ed24525d8c99391063eece",
+      "quote": "Essai sous réserve de disponibilité et d’éligibilité. Numéro mobile français (+33) requis."
+    },
+    {
+      "url": "https://www.my-seedbox.com/seedbox/comparatif",
+      "date": "2026-11-25",
+      "proved": "the trial needs an account and verification of a French mobile number, one trial per account and number",
+      "capture": "sha256:a2240ec927b5a79850aeec03d9a504f57086320bc8ed24525d8c99391063eece",
+      "quote": "L’essai SEED300 est soumis à disponibilité et à éligibilité. Il nécessite un compte et la vérification d’un numéro mobile français (+33). Un seul essai est autorisé par compte et par numéro."
+    },
+    {
+      "url": "https://help.my-seedbox.com/en/article/moyens-de-paiement-supportes-1q8342v",
+      "date": "2026-11-25",
+      "proved": "PayPal is one of the supported payment methods on 2026-11-25",
+      "capture": "sha256:c197b2497d26a36bdd6a2fbec905948bc94ec49516abb1f918f91b3d360b2f4b",
+      "quote": "- PayPal"
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20250516234830/https://www.my-seedbox.com/seedbox/essai?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the 48-hour SEED300 trial is visible in the 2025 archived trial page",
+      "capture": "sha256:223153872f2f6680b850c267beef215276ff6448887bb63ee554a5fd27ea883b",
+      "quote": "nous vous proposons de tester gratuitement (et **sans engagement**!) notre offre SEED300 pendant une durée de 48h"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T03:19:00.000Z",
+  "verified_at": "2026-11-25T09:47:04.426Z",
   "price_per_tb_month": "EUR 6.00 TTC for 300 Go = EUR 20/TB/month",
   "history": [],
   "notes": "The trial exists and is free, but its identity gate cannot be passed without a French mobile, so the usable entry is EUR 6.00 TTC/month for 300 Go. Sustained-rate conversion: 100 Mbit/s = 12.5 MB/s = 1.08 TB/day; 1 TiB/month needs 3.39 Mbit/s, so the cap is generous and the price is the constraint. Potential constraints: the +33 trial gate, the 100 Mbit/s download cap, the daily upload band; the first is decisive for the free path, the second for retrieval. A seedbox is a different product from debrid, but it belongs among debrid providers because it is the only host in the sample that prices a cash rail with no card, no bank and no wallet at all. The 3x fee is the answer: that path exists but is the most expensive euro per euro in published records.",

@@ -23,7 +23,7 @@
     "source_url": "https://pc.woozooo.com/"
   },
   "egress": {
-    "terms": "downloads are stated as unlimited in speed, volume and count, with no login; there is no egress price",
+    "terms": "下载不限速度，不限流量，不限次数，免登录下载！",
     "metered": false,
     "source_url": "https://pc.woozooo.com/"
   },
@@ -98,10 +98,17 @@
       "proved": "the OpenList Lanzou driver mounts an account by username and password and refreshes the cookie itself; it also has cookie and share-link modes (reverse-engineered, third-party)",
       "capture": "sha256:ea97382be4ddfd770e37a0a1258a89fce5bef892ff485d54dbe66a90ba305ca2",
       "quote": "可以显示自己网盘所有文件，只需要填写帐号密码，会自动帮你刷新cookie"
+    },
+    {
+      "url": "https://pc.woozooo.com/",
+      "date": "2026-11-26",
+      "proved": "the vendor home page states no speed, volume or count limit on downloads and no login",
+      "capture": "sha256:9aedd22bca29979c2a778196bd01de05e0b439ce4627c51b9789e736ae34a7f0",
+      "quote": "下载不限速度，不限流量，不限次数，免登录下载！"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-04T00:21:07.069Z",
+  "verified_at": "2026-11-26T02:15:14.532Z",
   "binding": "per-object-cap",
   "notes": "Offers unconstrained total storage capacity constrained by a 100 MiB per-file ceiling. Functions primarily as a lightweight direct-link distribution target for small file archives.",
   "history": [],

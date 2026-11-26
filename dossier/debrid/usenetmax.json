@@ -52,7 +52,7 @@
     "detail": "An email address: 'no credit card required, a password will be emailed to you'. The terms add that only one free account is permitted per individual, household or IP address.",
     "country": null
   },
-  "reliability_note": "A demo server attached to a demo indexer, with a group list that only covers what members ask for and a stated risk that content disappears when the beta misbehaves. On 2026-11-03 neither the website (an HTTP GET timed out) nor the NNTP port of news.usenetmax.com (a TCP connect timed out) answered, while DNS for both names resolves and a Wayback Machine copy of the home page dated 2026-06-27 shows the offer. Liveness is unconfirmed: the page text that reads today is an index copy.",
+  "reliability_note": "unverified: https://www.usenetmax.com/ did not answer a direct HTTP GET on 2026-11-26; the probe recorded \"error\": \"transport\" and status null. No current first-party page was readable through any route; the offer text remains from a 2026-06-27 archived copy.",
   "confidence": "unverified",
   "confidence_note": "The offer text was read from the live page body on 2026-10-23, but no HTTP status accompanied it and the direct fetch failed at network requests. Nothing was connected to, so neither the account flow nor the service's availability is established.",
   "evidence": [
@@ -126,10 +126,24 @@
       "proved": "a TCP connect to port 563 timed out",
       "capture": "sha256:550cd84dcb716f13b645d5fce9bb27b9b7e99054ab719f595a7c250ae6e3dbd8",
       "quote": "TimeoutError('timed out')"
+    },
+    {
+      "url": "probe:https://www.usenetmax.com/",
+      "date": "2026-11-26",
+      "proved": "a direct HTTP probe on 2026-11-26 could not reach the site and recorded status null",
+      "capture": "sha256:17c2b67606b1ca3bb6b3d03f5e4b2bce74c45995e5e9ccac49509055d40297c9",
+      "quote": "\"error\": \"transport\""
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20260627052500/https://www.usenetmax.com/?provider=wayback",
+      "date": "2026-11-26",
+      "proved": "the archived first-party home page states NNTP access, confirming the nntp interface",
+      "capture": "sha256:4ac116bda4c6b5f844c1240c30dcfd6e01124432a3b3fc5d0c0a9e805925b38b",
+      "quote": "- NNTP access for newsreader or downloader"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-04T06:53:12.551Z",
+  "verified_at": "2026-11-26T01:10:11.966Z",
   "price_per_tb_month": "USD 0",
   "notes": "Usenet provider advertising free trial access, though live registration availability remains unconfirmed.",
   "extras": {

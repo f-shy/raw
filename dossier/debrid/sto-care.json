@@ -48,7 +48,7 @@
     },
     {
       "kind": "pull-count",
-      "value": "10 downloads per link (vendor claim)",
+      "value": "10 downloads per link; 100 uploads per IP per day",
       "source": "https://sto.care/blog/file-io-alternative/"
     }
   ],
@@ -83,10 +83,24 @@
       "url": "https://sto.care/blog/0x0-st-alternative/",
       "date": "2026-10-23",
       "proved": "the service positions itself as a 0x0.st and transfer.sh replacement with a curl one-liner"
+    },
+    {
+      "url": "probe:https://ul.sto.care/",
+      "date": "2026-11-25",
+      "proved": "the upload host states 100 uploads per day per IP and up to 10 fetches per file",
+      "capture": "sha256:0ab9923b1fd663919baee4293a7d50be57031326590f5f6d2140f0d51b11d37b",
+      "quote": "Upload (max 100 MB, no auth, 100 uploads/day per IP): ... Download (each file may be fetched up to 10 times):"
+    },
+    {
+      "url": "https://ul.sto.care/",
+      "date": "2026-11-25",
+      "proved": "the retention-clamped limit is 72 hours",
+      "capture": "sha256:0ab9923b1fd663919baee4293a7d50be57031326590f5f6d2140f0d51b11d37b",
+      "quote": "Files expire after 72 hours or 10 downloads, whichever comes first."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:30:47.000Z",
+  "verified_at": "2026-11-25T22:07:37.875Z",
   "price_per_tb_month": "USD 0",
   "probe": {
     "record": "probes/raw/ul.sto.care.json",

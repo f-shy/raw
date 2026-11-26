@@ -6,7 +6,7 @@
   "category": "donation-funded Nextcloud, free tier only",
   "free_tier": {
     "stated": "1 GB for email, 2 GB for the cloud and 500 MB for CryptPad, free with an account",
-    "unit": "GiB",
+    "unit": "GB",
     "metered_on": "stored-bytes",
     "source_url": "https://disroot.org/forms/extra-storage-space",
     "read_on": "2026-11-25"
@@ -63,13 +63,6 @@
     {
       "url": "https://status.disroot.org/",
       "date": "2026-11-03",
-      "proved": "the status page states the Nextcloud Files feature is disabled until a storage failure is solved while calendars, contacts and chat work",
-      "capture": "sha256:b74e3374025cc3095564123843ac7dc1443115f624ec16b7ffca11c2b5869abf",
-      "quote": "Nextcloud - Files feature has been disabled until the issue is solved, calendars, contacts, chat etc works as normal"
-    },
-    {
-      "url": "https://status.disroot.org/",
-      "date": "2026-11-03",
       "proved": "the 2026-11-02 status update says unreadable disk regions may lead to unrecoverable data",
       "capture": "sha256:b74e3374025cc3095564123843ac7dc1443115f624ec16b7ffca11c2b5869abf",
       "quote": "some unreadable region does exist on the disk which may lead to unrecoverable data"
@@ -87,13 +80,6 @@
       "proved": "the Nextcloud service page answers HTTP 404 while the site root serves the maintenance page",
       "capture": "sha256:62bf13eba8b6b167eb8dc6cb1b111568f95198399e65f8ca9726fffb1b162a8e",
       "quote": "\"status\": 404"
-    },
-    {
-      "url": "https://status.disroot.org/",
-      "date": "2026-11-03",
-      "proved": "the status page states the Nextcloud Files feature is disabled",
-      "capture": "sha256:b74e3374025cc3095564123843ac7dc1443115f624ec16b7ffca11c2b5869abf",
-      "quote": "Nextcloud - Files feature has been disabled until the issue is solved, calendars, contacts, chat etc works as normal"
     },
     {
       "url": "https://disroot.org/en/forms/extra-storage-space",
@@ -136,6 +122,13 @@
       "proved": "the 29.10.2026 update reports one repeated unreadable sector complicating file system repair",
       "capture": "sha256:b01a16a01a6ebe5f54142078fbad10ebb94c32de34a4f585b85d7ba6b198c59d",
       "quote": "However, we seem to have one confirmed repeated unreadable sector which makes the file system repair a bit tricky."
+    },
+    {
+      "url": "https://disroot.org/forms/extra-storage-space",
+      "date": "2026-11-25",
+      "proved": "the first-party storage form states the free allowances in GB",
+      "capture": "sha256:3e4c699608388dc5adbd72e51e3eaf1d82d50484da1a452e29c0539bc8cd42e3",
+      "quote": "With your **Disroot** account, you get FREE storage: 1GB for your emails, 2GB for the cloud, 500MB for cryptpad."
     }
   ],
   "verdict": "fails-quota",

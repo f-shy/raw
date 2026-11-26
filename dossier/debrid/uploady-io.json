@@ -14,14 +14,14 @@
     "notes": "No free allowance is printed; the premium block is what names a number."
   },
   "per_object_cap": {
-    "stated": "not stated on the page read",
-    "bytes": null,
+    "stated": "Anon 5120 Mb, Premium 15360 Mb, Registered 10240 Mb per file",
+    "bytes": 5368709120,
     "source_url": "https://uploady.io/premium.html",
     "notes": ""
   },
   "retention": {
-    "stated": "not stated on the page read",
-    "days": null,
+    "stated": "Anon files 3 days, Premium 60 days, Registered 30 days after last download",
+    "days": 3,
     "source_url": "https://uploady.io/premium.html",
     "notes": ""
   },
@@ -71,15 +71,85 @@
       "url": "https://uploady.io/",
       "date": "2026-10-23",
       "proved": "'no sign-up required' for free upload and the free account offer"
+    },
+    {
+      "url": "https://uploady.io/premium.html",
+      "date": "2026-11-25",
+      "proved": "the 30-day premium is USD 14.99 for 50 GB per day",
+      "capture": "sha256:32be6a32f82503abfae8f9946deb5e8ce7e6bf863dc798c80ee0a6e26563be91",
+      "quote": "30-Day Premium\n50.00 GB/day · One-time · No subscription\n$14.99"
+    },
+    {
+      "url": "https://uploady.io/premium.html",
+      "date": "2026-11-25",
+      "proved": "premium buys speed, no waiting, daily traffic and no ads",
+      "capture": "sha256:32be6a32f82503abfae8f9946deb5e8ce7e6bf863dc798c80ee0a6e26563be91",
+      "quote": "* Faster download speed\n* No waiting or countdowns\n* High-volume daily traffic\n* Ad-free experience"
+    },
+    {
+      "url": "https://uploady.io/premium.html",
+      "date": "2026-11-25",
+      "proved": "per-file caps by account: Anon 5120 Mb, Premium 15360 Mb, Registered 10240 Mb",
+      "capture": "sha256:32be6a32f82503abfae8f9946deb5e8ce7e6bf863dc798c80ee0a6e26563be91",
+      "quote": "| Max upload file size\n5120 Mb\n15360 Mb\n10240 Mb"
+    },
+    {
+      "url": "https://uploady.io/premium.html",
+      "date": "2026-11-25",
+      "proved": "file retention by account: Anon 3 days, Premium 60 days, Registered 30 days",
+      "capture": "sha256:32be6a32f82503abfae8f9946deb5e8ce7e6bf863dc798c80ee0a6e26563be91",
+      "quote": "3 days\n60 days\n30 days"
+    },
+    {
+      "url": "https://uploady.io/",
+      "date": "2026-11-25",
+      "proved": "upload needs no account",
+      "capture": "sha256:5c6318b62ebd4b46a7d7fc124b88aea18695daaae23248e29f3cf753a493f25c",
+      "quote": "No. You can upload and share files instantly without signing up. Just drag, drop, and share."
+    },
+    {
+      "url": "https://uploady.io/",
+      "date": "2026-11-25",
+      "proved": "registered free files expire after 30 days of no downloads",
+      "capture": "sha256:5c6318b62ebd4b46a7d7fc124b88aea18695daaae23248e29f3cf753a493f25c",
+      "quote": "Files expire after **30 days** of no downloads"
+    },
+    {
+      "url": "https://uploady.io/register.html",
+      "date": "2026-11-25",
+      "proved": "registration asks for no card",
+      "capture": "sha256:77bad6e26e4b128de8d7ac81de4aee97936ee60ddebc98af520a645ca01082db",
+      "quote": "Free forever. No credit card required."
+    },
+    {
+      "url": "https://uploady.io/premium.html",
+      "date": "2026-11-25",
+      "proved": "the Anon per-file cap is 5120 Mb",
+      "capture": "sha256:32be6a32f82503abfae8f9946deb5e8ce7e6bf863dc798c80ee0a6e26563be91",
+      "quote": "5120 Mb"
+    },
+    {
+      "url": "https://uploady.io/premium.html",
+      "date": "2026-11-25",
+      "proved": "retention by account: Anon 3 days, Premium 60 days, Registered 30 days",
+      "capture": "sha256:32be6a32f82503abfae8f9946deb5e8ce7e6bf863dc798c80ee0a6e26563be91",
+      "quote": "3 days\n60 days\n30 days"
+    },
+    {
+      "url": "https://uploady.io/premium.html",
+      "date": "2026-11-25",
+      "proved": "anonymous files are kept 3 days",
+      "capture": "sha256:32be6a32f82503abfae8f9946deb5e8ce7e6bf863dc798c80ee0a6e26563be91",
+      "quote": "3 days"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T03:18:17.000Z",
+  "verified_at": "2026-11-25T09:46:40.369Z",
   "price_per_tb_month": "USD 14.99 per 30 days for 50 GB/day",
   "history": [],
   "notes": "The Stripe 'Low Fees' variant exists because the 'No Fees' variant passes the processor cost on; the checkout totals differ by the fee, not the plan. No programmatic path found: Web upload with no signup required for free use; premium is attached to an account. No API published.",
   "extras": {
-    "plans": "30 days $14.99, 50 GB/day",
+    "plans": "30 days $14.99 50 GB/day; 30-day Pro $27.99 100 GB/day; 90 days $35.99 75 GB/day; 90-day Pro $69.99 150 GB/day; 180 days $59.99 100 GB/day; 180-day Pro $99.99 200 GB/day; 365 days $89.99 150 GB/day; 365-day Pro $149.99 300 GB/day",
     "payments": "Stripe (No Fees / Low Fees), Byteseller, PayPal via Patreon, Apple/Google Pay",
     "anonymous_upload": true
   }

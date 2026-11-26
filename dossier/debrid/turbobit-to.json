@@ -20,10 +20,10 @@
     "notes": "unstated"
   },
   "retention": {
-    "stated": "not stated on the page read",
-    "days": null,
+    "stated": "Files are deleted after 30 days of inactivity; the period can be extended only by buying premium access or downloading the file.",
+    "days": 30,
     "source_url": "https://turbobit.to/ru/",
-    "notes": "unstated"
+    "notes": "30 days of inactivity; the period is extended by a premium account or a download"
   },
   "egress": {
     "terms": "not stated on the page read; only the premium account is described",
@@ -66,10 +66,38 @@
       "url": "https://turbobit.to/tos.php",
       "date": "2026-10-23",
       "proved": "'Turbobit.net, a website for file hosting and online storage, is a registered company.' - no jurisdiction, no entity name"
+    },
+    {
+      "url": "https://turbobit.to/ru/",
+      "date": "2026-11-25",
+      "proved": "the page states files are removed after 30 days of inactivity",
+      "capture": "sha256:d53e8b20d6de8d4fcbe7f09f0e7543b96c7253d232238e326c127c8445a36dfc",
+      "quote": "На Turbobit вы всегда видите, сколько времени ваши файлы останутся доступными, прежде чем они будут удалены после 30 дней бездействия."
+    },
+    {
+      "url": "https://turbobit.to/ru/",
+      "date": "2026-11-25",
+      "proved": "the inactivity deletion period is 30 days",
+      "capture": "sha256:d53e8b20d6de8d4fcbe7f09f0e7543b96c7253d232238e326c127c8445a36dfc",
+      "quote": "На Turbobit вы всегда видите, сколько времени ваши файлы останутся доступными, прежде чем они будут удалены после 30 дней бездействия."
+    },
+    {
+      "url": "https://turbobit.to/ru/",
+      "date": "2026-11-25",
+      "proved": "the extension methods are a premium account or a download",
+      "capture": "sha256:d53e8b20d6de8d4fcbe7f09f0e7543b96c7253d232238e326c127c8445a36dfc",
+      "quote": "Это время можно продлить только с помощью приобретения премиум-аккаунта или скачивания файла."
+    },
+    {
+      "url": "https://turbobit.to/ru/",
+      "date": "2026-11-25",
+      "proved": "the first-party page states a 30-day inactivity deletion period",
+      "capture": "sha256:d53e8b20d6de8d4fcbe7f09f0e7543b96c7253d232238e326c127c8445a36dfc",
+      "quote": "На Turbobit вы всегда видите, сколько времени ваши файлы останутся доступными, прежде чем они будут удалены после 30 дней бездействия."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-23T02:12:30.815Z",
+  "verified_at": "2026-11-25T19:21:35.238Z",
   "price_per_tb_month": null,
   "notes": "Included because it ranks for Russian 'turbobit premium' queries and looks like the vendor. Candidate explanations considered: (1) it is Turbobit's own Vietnamese-facing brand - contradicted by turbobit.net's own pages, which never name a Vietnamese entity and serve an unrelated app shell; (2) it is an affiliate that bought an expired/typo domain - supported by the clone help pages and the outbound premium-shop links; (3) it is the vendor's own affiliate programme - no evidence. The record states (2) as the plausible reading and refuses to vouch for the payee."
 }

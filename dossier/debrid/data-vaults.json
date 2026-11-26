@@ -79,13 +79,69 @@
       "capture": "sha256:164d7689a1cfb545b5760b923b44db15815686e437a90c74e286d102e6ec18af",
       "quote": "Max upload file size",
       "proved": "the plan table lists a per-file upload cap for each plan"
+    },
+    {
+      "url": "https://datavaults.co/premium/",
+      "date": "2026-11-25",
+      "proved": "the Registered free tier allows 5 GB per file",
+      "capture": "sha256:164d7689a1cfb545b5760b923b44db15815686e437a90c74e286d102e6ec18af",
+      "quote": "Max upload file size\n\n**5 GB**"
+    },
+    {
+      "url": "https://datavaults.co/premium/",
+      "date": "2026-11-25",
+      "proved": "the Registered free tier lists 15 GB of storage",
+      "capture": "sha256:164d7689a1cfb545b5760b923b44db15815686e437a90c74e286d102e6ec18af",
+      "quote": "Storage space\n\n**15 GB**"
+    },
+    {
+      "url": "https://datavaults.co/premium/",
+      "date": "2026-11-25",
+      "proved": "the Registered free tier lists 100 GB of download volume",
+      "capture": "sha256:164d7689a1cfb545b5760b923b44db15815686e437a90c74e286d102e6ec18af",
+      "quote": "Download volume\n\n**100 GB**"
+    },
+    {
+      "url": "https://datavaults.co/premium/",
+      "date": "2026-11-25",
+      "proved": "Registered free files are deleted after 7 days",
+      "capture": "sha256:164d7689a1cfb545b5760b923b44db15815686e437a90c74e286d102e6ec18af",
+      "quote": "When are your files deleted?\n\n**7 Days**"
+    },
+    {
+      "url": "https://datavaults.co/premium/",
+      "date": "2026-11-25",
+      "proved": "the cheapest paid plan is USD 10.99 for 30 days",
+      "capture": "sha256:164d7689a1cfb545b5760b923b44db15815686e437a90c74e286d102e6ec18af",
+      "quote": "$10.99 for 30 days"
+    },
+    {
+      "url": "https://datavaults.co/register/",
+      "date": "2026-11-25",
+      "proved": "registration asks for username, email and password",
+      "capture": "sha256:0b5dc5a4576a8abd717a59496d53b0f552dd4b7d10da5875a13f033b0e19d99d",
+      "quote": "Username\n\nE-mail\n\nPassword\n\nRetype Password"
+    },
+    {
+      "url": "https://datavaults.co/",
+      "date": "2026-11-25",
+      "proved": "the home page now advertises one year of free unlimited storage",
+      "capture": "sha256:db7b3646794eed4cea096ce68eedf7090f272cb1b3c134695113495c2f224ed8",
+      "quote": "Enjoy 1 Year of Free Unlimited Storage with your account — no limits, no restrictions!"
+    },
+    {
+      "url": "https://datavaults.co/",
+      "date": "2026-11-25",
+      "proved": "the home page advertises one year of free unlimited storage",
+      "capture": "sha256:db7b3646794eed4cea096ce68eedf7090f272cb1b3c134695113495c2f224ed8",
+      "quote": "Enjoy 1 Year of Free Unlimited Storage with your account — no limits, no restrictions!"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T07:37:12.225Z",
+  "verified_at": "2026-11-25T09:46:40.367Z",
   "price_per_tb_month": "USD 10.99 per 30 days for 2000 GB of storage and unlimited download volume",
   "history": [],
-  "notes": "No programmatic path found: Web upload with remote URL upload on the plan table; no API page was read.",
+  "notes": "The home page now offers 1 year of free unlimited storage activated through the vendor's Discord; the premium table still prints a per-file cap, a storage allowance and a download volume for the Registered free tier.",
   "extras": {
     "plans": "Anonymous $0; Registered $0; Premium $10.99 / 30 days; Premium PRO $14.99 / 30 days"
   }

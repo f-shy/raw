@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u208-q01",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Does the domain torrentdrive.io have any A or AAAA record, and when did the service stop being reachable?",
+ "why": "the broker refused with 530 DNS failure on 2026-11-25, every provider pin was refused as destination-refused with 'no A or AAAA record', and the probe record shows a transport error with status null; the existing dead verdict stands, but no fresh page was read to re-date it",
+ "scope": {
+  "rids": [
+   "debrid/torrentdrive-io"
+  ]
+ },
+ "origin": "20261125-0137-verify-debrid-5636/u208",
+ "created": "2026-11-25T22:07:36Z"
+}

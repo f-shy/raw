@@ -37,7 +37,7 @@
   "limits": [
     {
       "kind": "per-ip-shaping",
-      "value": "2 GB a day of upload on the free tier, which is about 1.4 GB an hour",
+      "value": "非会员用户单个自然日最多可上传累计2G的文件",
       "source": "https://linux.do/t/topic/578176"
     },
     {
@@ -168,10 +168,17 @@
       "proved": "the driver names a phone number as the username and offers cookie login and the client driver beside the slider check",
       "capture": "sha256:42eedb25435b9367748f5d3f22a60b9db3eee480cc3ea90e1c73164bc479e4d9",
       "quote": "用于登录的电话号码 ... Web 端登录已更换为滑动验证码，**不再支持 OCR 与手动输入**，若需要验证码请使用 `添加 Cookie 进行登录` 或使用 `天翼云盘客户端` 驱动"
+    },
+    {
+      "url": "https://m.cloud.189.cn/template/vip-privilege-intro.html",
+      "date": "2026-11-26",
+      "proved": "the privileges page states the daily upload allowance for non-members",
+      "capture": "sha256:2bd910eed7729984e415fdc41a9c0a66b128baae7ed2f8c8b29c9fc8703d1bb8",
+      "quote": "非会员用户单个自然日最多可上传累计2G的文件"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-11-25T14:57:25.807Z",
+  "verified_at": "2026-11-26T02:15:15.160Z",
   "history": [],
   "binding": "per-ip-shaping",
   "binding_note": "Promotional allocations provide substantial nominal capacity but are restricted by a 2 GB daily upload limit, requiring approximately 5.5 years to transfer 4 TB. Registration requires domestic mobile identity verification.",

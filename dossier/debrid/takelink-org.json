@@ -71,10 +71,17 @@
       "url": "http://blogrider.ru/blogs/78829/posts/id/4408344/servis-bistrogo-skachivaniya-s-platnikh-fayloobmennikov.php",
       "date": "2026-10-23",
       "proved": "what the service was: 'takelink.org. Скачать бесплатно прямые ссылки на файлообменники'"
+    },
+    {
+      "url": "probe:https://takelink.org/",
+      "date": "2026-11-26",
+      "capture": "sha256:2322919240dc5b7ba2fdc3c021a4980d1ffff349d4629cf637f9f8005a5fc21b",
+      "quote": "\"status\": null",
+      "proved": "the domain does not resolve on 2026-11-26: the probe records a DNS failure, which is the death evidence for this record"
     }
   ],
   "verdict": "dead",
   "verified_at": "2026-10-23T02:18:27.322Z",
   "price_per_tb_month": null,
-  "notes": "Named in the sector brief as a service Russian forums mention, so it is closed with evidence rather than left as an open question. The 2023 capture predates the check by three and a half years, which means the domain had already changed hands well before the live probe failed."
+  "notes": "Named in the sector brief as a service Russian forums mention, so it is closed with evidence rather than left as an open question. The 2023 capture predates the check by three and a half years, which means the domain had already changed hands well before the live probe failed. Re-probed 2026-11-26: takelink.org no longer resolves (DNS failure), which is what the dead verdict rests on."
 }

@@ -1,0 +1,21 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u27-q01",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "No scoped host was dead at the 2026-11-25 check: which of debrid/1fichier, debrid/uploadflix, debrid/wafile, debrid/searchfiles-de, debrid/hightail, debrid/send-now, debrid/file2-me, debrid/grosfichiers has since gone, if the run expected a dead host?",
+ "why": "The verify question asks to record a dead host as dead, but all eight scoped first-party pages answered HTTP 200 on 2026-11-25; a dead verdict needs a 404, 410, DNS failure or a live sign-up/termination notice, and none was found.",
+ "scope": {
+  "rids": [
+   "debrid/1fichier",
+   "debrid/uploadflix",
+   "debrid/wafile",
+   "debrid/searchfiles-de",
+   "debrid/hightail",
+   "debrid/send-now",
+   "debrid/file2-me",
+   "debrid/grosfichiers"
+  ]
+ },
+ "origin": "20261125-0137-verify-debrid-5636/u27",
+ "created": "2026-11-25T09:46:41Z"
+}

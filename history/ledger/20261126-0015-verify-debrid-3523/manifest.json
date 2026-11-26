@@ -1,0 +1,883 @@
+{
+ "manifest": 1,
+ "written": "2026-11-26T03:57:40Z",
+ "run": {
+  "run": "20261126-0015-verify-debrid-3523",
+  "kind": "verify",
+  "topic": "debrid",
+  "request": "gap-fill: every hosted record without a fresh captured datum",
+  "created": "2026-11-26T00:15:38Z",
+  "base": "9b9b249f0335227fadb45cbc3f4a3baf4fdccbb9",
+  "branch": "rq/20261126-0015-verify-debrid-3523",
+  "issue": null,
+  "rounds": 5,
+  "research_issue": null
+ },
+ "units": [
+  {
+   "id": "u01",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "debrid",
+   "tally": {
+    "applied": 7,
+    "confirmed": 8,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check these records that the previous pass left without a fresh captured datum. For each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], reten",
+   "scope": {
+    "rids": [
+     "debrid/big-bit-org",
+     "debrid/binnewz",
+     "debrid/binzb",
+     "debrid/cafe-arz",
+     "debrid/copernicus-cds",
+     "debrid/debridr",
+     "debrid/digitkala",
+     "debrid/ex-ua"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u02",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "debrid",
+   "tally": {
+    "confirmed": 6,
+    "applied": 3,
+    "questions": 2,
+    "dead": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check these records that the previous pass left without a fresh captured datum. For each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], reten",
+   "scope": {
+    "rids": [
+     "debrid/filesharingtalk",
+     "debrid/findnzb",
+     "debrid/fireload",
+     "debrid/fs-to",
+     "debrid/high-way-free",
+     "debrid/high-way-premium",
+     "debrid/high-way-unlimited",
+     "debrid/hizliyukle-com"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u03",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "debrid",
+   "tally": {
+    "confirmed": 7,
+    "applied": 4,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check these records that the previous pass left without a fresh captured datum. For each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], reten",
+   "scope": {
+    "rids": [
+     "debrid/hotmart",
+     "debrid/iranget",
+     "debrid/kiwify",
+     "debrid/lightningusenet",
+     "debrid/magnetlinkdl",
+     "debrid/megabox-me",
+     "debrid/nasa-earthdata",
+     "debrid/news69"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u04",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "debrid",
+   "tally": {
+    "applied": 4,
+    "questions": 5,
+    "confirmed": 4,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check these records that the previous pass left without a fresh captured datum. For each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], reten",
+   "scope": {
+    "rids": [
+     "debrid/nzbforyou",
+     "debrid/nzbgrabit",
+     "debrid/nzbindex",
+     "debrid/nzbs2go",
+     "debrid/nzbscout",
+     "debrid/nzbstars",
+     "debrid/publicmirrorbot",
+     "debrid/pullfiles"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u05",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "debrid",
+   "tally": {
+    "confirmed": 6,
+    "applied": 2,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check these records that the previous pass left without a fresh captured datum. For each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], reten",
+   "scope": {
+    "rids": [
+     "debrid/qiwi-wallet",
+     "debrid/releasebb",
+     "debrid/scenenzbs",
+     "debrid/scnlog",
+     "debrid/seedbox-org-ua",
+     "debrid/simply-nzbs",
+     "debrid/simply-premium",
+     "debrid/spots-xenetix-nl"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u06",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "debrid",
+   "tally": {
+    "confirmed": 6,
+    "applied": 2,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check these records that the previous pass left without a fresh captured datum. For each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], reten",
+   "scope": {
+    "rids": [
+     "debrid/stremio-addons-net",
+     "debrid/temp-files-com",
+     "debrid/the-hive",
+     "debrid/torcomet",
+     "debrid/torrentdrive-io",
+     "debrid/turbobitpremium-org",
+     "debrid/turboget-net",
+     "debrid/ulozto"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u07",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "debrid",
+   "tally": {
+    "applied": 1,
+    "confirmed": 3,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check these records that the previous pass left without a fresh captured datum. For each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], reten",
+   "scope": {
+    "rids": [
+     "debrid/usenetmax",
+     "debrid/webtor-io",
+     "debrid/yourimageshare"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u08",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u01",
+   "score": {
+    "supported": 1,
+    "unsupported": 8,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 9,
+    "upper95": 0.98,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 9 claim(s) integrated by unit u01 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u09",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u02",
+   "score": {
+    "supported": 5,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 8,
+    "upper95": 0.694,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 8 claim(s) integrated by unit u02 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u10",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u03",
+   "score": {
+    "supported": 10,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 10,
+    "upper95": 0.278,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 10 claim(s) integrated by unit u03 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u11",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u04",
+   "score": {
+    "supported": 2,
+    "unsupported": 2,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 4,
+    "upper95": 0.85,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 4 claim(s) integrated by unit u04 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u12",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u05",
+   "score": {
+    "supported": 0,
+    "unsupported": 6,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 6,
+    "upper95": 1.0,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 6 claim(s) integrated by unit u05 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u13",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u06",
+   "score": {
+    "supported": 5,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 6,
+    "upper95": 0.564,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 6 claim(s) integrated by unit u06 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u14",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u07",
+   "score": {
+    "supported": 3,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 3,
+    "upper95": 0.562,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 3 claim(s) integrated by unit u07 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u15",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "debrid",
+   "tally": {
+    "applied": 8,
+    "confirmed": 8,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Second attempt after the audit. For every finding below, replace the interpretive text with the literal thing the capture shows: a quoted sentence, the page's title, the exact number, or `unverified: <what happened>`. A field that says what a page IS, means or implies is unsupported. Also, for every",
+   "scope": {
+    "rids": [
+     "debrid/big-bit-org",
+     "debrid/binnewz",
+     "debrid/binzb",
+     "debrid/cafe-arz",
+     "debrid/copernicus-cds",
+     "debrid/debridr",
+     "debrid/digitkala",
+     "debrid/ex-ua"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u16",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "debrid",
+   "tally": {
+    "applied": 8,
+    "confirmed": 9,
+    "questions": 4,
+    "conflict": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Second attempt after the audit. For every finding below, replace the interpretive text with the literal thing the capture shows: a quoted sentence, the page's title, the exact number, or `unverified: <what happened>`. A field that says what a page IS, means or implies is unsupported. Also, for every",
+   "scope": {
+    "rids": [
+     "debrid/filesharingtalk",
+     "debrid/findnzb",
+     "debrid/fireload",
+     "debrid/fs-to",
+     "debrid/high-way-free",
+     "debrid/high-way-premium",
+     "debrid/high-way-unlimited",
+     "debrid/hizliyukle-com"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u17",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "debrid",
+   "tally": {
+    "applied": 6,
+    "confirmed": 8,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Second attempt after the audit. For every finding below, replace the interpretive text with the literal thing the capture shows: a quoted sentence, the page's title, the exact number, or `unverified: <what happened>`. A field that says what a page IS, means or implies is unsupported. Also, for every",
+   "scope": {
+    "rids": [
+     "debrid/nzbforyou",
+     "debrid/nzbgrabit",
+     "debrid/nzbindex",
+     "debrid/nzbs2go",
+     "debrid/nzbscout",
+     "debrid/nzbstars",
+     "debrid/publicmirrorbot",
+     "debrid/pullfiles"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u18",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "debrid",
+   "tally": {
+    "applied": 6,
+    "confirmed": 8,
+    "conflict": 1,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Second attempt after the audit. For every finding below, replace the interpretive text with the literal thing the capture shows: a quoted sentence, the page's title, the exact number, or `unverified: <what happened>`. A field that says what a page IS, means or implies is unsupported. Also, for every",
+   "scope": {
+    "rids": [
+     "debrid/qiwi-wallet",
+     "debrid/releasebb",
+     "debrid/scenenzbs",
+     "debrid/scnlog",
+     "debrid/seedbox-org-ua",
+     "debrid/simply-nzbs",
+     "debrid/simply-premium",
+     "debrid/spots-xenetix-nl"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u19",
+   "kind": "reconcile",
+   "status": "integrated",
+   "topic": "debrid",
+   "tally": {
+    "applied": 1,
+    "confirmed": 1,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "conflict",
+   "question": "Settle these disagreements on debrid/fs-to from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.free_tier.stated: proposed \"Департамент киберполиции Национальной полиции Украины 15 ноября изъял сервера одного из крупнейших ",
+   "scope": {
+    "rids": [
+     "debrid/fs-to"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u20",
+   "kind": "reconcile",
+   "status": "integrated",
+   "topic": "debrid",
+   "tally": {
+    "applied": 1,
+    "confirmed": 1,
+    "rejected": 0
+   },
+   "origin": "conflict",
+   "question": "Settle these disagreements on debrid/scenenzbs from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.free_tier.stated: proposed \"We have moved! SceneNZBs is now called **Treasure Maps**. You can find us at our new address.\" ",
+   "scope": {
+    "rids": [
+     "debrid/scenenzbs"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u21",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u15",
+   "score": {
+    "supported": 16,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 16,
+    "upper95": 0.194,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 16 claim(s) integrated by unit u15 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u22",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u16",
+   "score": {
+    "supported": 12,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 13,
+    "upper95": 0.333,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 13 claim(s) integrated by unit u16 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u23",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u17",
+   "score": {
+    "supported": 14,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 14,
+    "upper95": 0.215,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 14 claim(s) integrated by unit u17 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u24",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u18",
+   "score": {
+    "supported": 10,
+    "unsupported": 4,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 14,
+    "upper95": 0.546,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 14 claim(s) integrated by unit u18 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u25",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u19",
+   "score": {
+    "supported": 2,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 2,
+    "upper95": 0.658,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 2 claim(s) integrated by unit u19 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u26",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u20",
+   "score": {
+    "supported": 2,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 2,
+    "upper95": 0.658,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 2 claim(s) integrated by unit u20 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u27",
+   "kind": "reconcile",
+   "status": "integrated",
+   "topic": "debrid",
+   "tally": {
+    "conflict": 1,
+    "confirmed": 1,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "conflict",
+   "question": "Settle these disagreements on debrid/fs-to from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.free_tier.stated: proposed \"Closed. 'Департамент киберполиции Национальной полиции Украины 15 ноября [2016] изъял сервера одног",
+   "scope": {
+    "rids": [
+     "debrid/fs-to"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u28",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "debrid",
+   "tally": {
+    "applied": 2,
+    "confirmed": 8,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Second attempt after the audit. For every finding below, replace the interpretive text with the literal thing the capture shows: a quoted sentence, the page title, the exact status, or `unverified: <what happened>`. A field that says what a page IS, means or implies is unsupported. Keep only values ",
+   "scope": {
+    "rids": [
+     "debrid/qiwi-wallet",
+     "debrid/releasebb",
+     "debrid/scenenzbs",
+     "debrid/scnlog",
+     "debrid/seedbox-org-ua",
+     "debrid/simply-nzbs",
+     "debrid/simply-premium",
+     "debrid/spots-xenetix-nl"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u29",
+   "kind": "reconcile",
+   "status": "integrated",
+   "topic": "debrid",
+   "tally": {
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Settle the fs-to disagreement without a set: the record is documented and the closure quote is reported. Keep the current value, confirm one field the record's own first-party source states so the record stays re-dated, and open a question about a first-party closure page.",
+   "scope": {
+    "rids": [
+     "debrid/fs-to"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u30",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "debrid",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the record keeps its documented value; u29 files the first-party follow-up",
+    "at": "2026-11-26T02:59:19Z",
+    "was": "planned"
+   },
+   "question": "Settle these disagreements on debrid/fs-to from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.free_tier.stated: proposed \"Департамент киберполиции Национальной полиции Украины 15 ноября изъял сервера одного из крупнейших ",
+   "scope": {
+    "rids": [
+     "debrid/fs-to"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u31",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u27",
+   "score": {
+    "supported": 1,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 1,
+    "upper95": 0.793,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 1 claim(s) integrated by unit u27 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u32",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u28",
+   "score": {
+    "supported": 5,
+    "unsupported": 5,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 10,
+    "upper95": 0.763,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 10 claim(s) integrated by unit u28 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u33",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "debrid",
+   "tally": {
+    "applied": 4,
+    "confirmed": 5,
+    "questions": 2,
+    "conflict": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Fix five audit findings by replacing each field value with exactly the literal span the capture states; old = the current value, new = the literal span, quote = the same span. debrid/qiwi-wallet $.limits[0].value: use 'Клиенты кредитного учреждения не могут пополнить кошельки и вывести с них средств",
+   "scope": {
+    "rids": [
+     "debrid/qiwi-wallet",
+     "debrid/releasebb",
+     "debrid/scnlog",
+     "debrid/seedbox-org-ua",
+     "debrid/spots-xenetix-nl"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u34",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u33",
+   "score": {
+    "supported": 0,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 0,
+    "upper95": 1.0,
+    "failed": false,
+    "undecided": true
+   },
+   "question": "Re-read 9 claim(s) integrated by unit u33 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u35",
+   "kind": "reconcile",
+   "status": "integrated",
+   "topic": "debrid",
+   "tally": {
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Settle the spots-xenetix-nl disagreement without a set: the record is measured and the listing is third-party. Keep the current value, confirm one field the record's measured probe states so it stays re-dated, and file the listing text as an open question.",
+   "scope": {
+    "rids": [
+     "debrid/spots-xenetix-nl"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u36",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "debrid",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the record keeps its measured value; u35 files the listing follow-up",
+    "at": "2026-11-26T03:36:51Z",
+    "was": "planned"
+   },
+   "question": "Settle these disagreements on debrid/spots-xenetix-nl from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.identity_cost.detail: proposed \"Spotweb-based. No login or registration required. Entirely free.\" (evidence https://",
+   "scope": {
+    "rids": [
+     "debrid/spots-xenetix-nl"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u37",
+   "kind": "reconcile",
+   "status": "integrated",
+   "topic": "debrid",
+   "tally": {
+    "conflict": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Make spots-xenetix-nl identity_cost.detail honest: set it to an `unverified:` statement (the host is unreachable from this vantage; a third-party listing says 'Spotweb-based. No login or registration required. Entirely free.'), with the record's probe evidence and rung measured. No confirm needed; t",
+   "scope": {
+    "rids": [
+     "debrid/spots-xenetix-nl"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u38",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "debrid",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the record keeps its measured value; u35 files the listing follow-up",
+    "at": "2026-11-26T03:57:35Z",
+    "was": "planned"
+   },
+   "question": "Settle these disagreements on debrid/spots-xenetix-nl from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.identity_cost.detail: proposed \"unverified: the host cannot be reached from this vantage; a third-party listing says",
+   "scope": {
+    "rids": [
+     "debrid/spots-xenetix-nl"
+    ]
+   },
+   "rejects": 0
+  }
+ ],
+ "report": [
+  "run 20261126-0015-verify-debrid-3523 (verify debrid): gap-fill: every hosted record without a fresh captured datum",
+  "units 38: abandoned 3, integrated 28, reverted 7",
+  "applied 33, confirmed 43, added 0, corroborated 0, dead 0, related 0, rejected 0, conflicts 4, open questions 15, evidence rows dropped 0",
+  "ledger lines 221, captures cited 74, conflicts logged 6 (6 handled by reconcile units)",
+  "audit of u01 by u08: 1 supported, 8 unsupported, 0 cannot tell; upper95 0.980 -> reverted",
+  "audit of u02 by u09: 5 supported, 3 unsupported, 0 cannot tell; upper95 0.694 -> reverted",
+  "audit of u03 by u10: 10 supported, 0 unsupported, 0 cannot tell; upper95 0.278 -> kept",
+  "audit of u04 by u11: 2 supported, 2 unsupported, 0 cannot tell; upper95 0.850 -> reverted",
+  "audit of u05 by u12: 0 supported, 6 unsupported, 0 cannot tell; upper95 1.000 -> reverted",
+  "audit of u06 by u13: 5 supported, 1 unsupported, 0 cannot tell; upper95 0.564 -> reverted",
+  "audit of u07 by u14: 3 supported, 0 unsupported, 0 cannot tell; upper95 0.562 -> kept",
+  "audit of u15 by u21: 16 supported, 0 unsupported, 0 cannot tell; upper95 0.194 -> kept",
+  "audit of u16 by u22: 12 supported, 1 unsupported, 0 cannot tell; upper95 0.333 -> kept",
+  "audit of u17 by u23: 14 supported, 0 unsupported, 0 cannot tell; upper95 0.215 -> kept",
+  "audit of u18 by u24: 10 supported, 4 unsupported, 0 cannot tell; upper95 0.546 -> reverted",
+  "audit of u19 by u25: 2 supported, 0 unsupported, 0 cannot tell; upper95 0.658 -> kept",
+  "audit of u20 by u26: 2 supported, 0 unsupported, 0 cannot tell; upper95 0.658 -> kept",
+  "audit of u27 by u31: 1 supported, 0 unsupported, 0 cannot tell; upper95 0.793 -> kept",
+  "audit of u28 by u32: 5 supported, 5 unsupported, 0 cannot tell; upper95 0.763 -> reverted",
+  "audit of u33 by u34: 0 supported, 0 unsupported, 0 cannot tell; upper95 1.000 -> kept, undecided",
+  "abandoned u30 (reconcile): the record keeps its documented value; u29 files the first-party follow-up",
+  "abandoned u36 (reconcile): the record keeps its measured value; u35 files the listing follow-up",
+  "abandoned u38 (reconcile): the record keeps its measured value; u35 files the listing follow-up",
+  "not audited: u35 (no auditor scored them)"
+ ],
+ "merged": {},
+ "undo_skipped": [],
+ "conflicts": []
+}

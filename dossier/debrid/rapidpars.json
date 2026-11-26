@@ -6,7 +6,7 @@
   "category": "premium-link generator / multi-hoster (Iran; private-tracker torrent search, usenet, Iranian download server)",
   "tier": "unstated",
   "free_tier": {
-    "stated": "No free allowance is stated on the home page. Access is sold, and the plan table sits behind the account panel; panel.rapidpars.com returned a proxy 530 on the attempt made on 2026-10-23.",
+    "stated": "No free allowance is stated on the home page. Access is sold in traffic packs; the smallest published pack seen is 500 GB for 19 USDT and a 2,000 GB pack is offered by support.",
     "unit": "none",
     "metered_on": "unstated",
     "source_url": "https://www.rapidpars.com/",
@@ -20,7 +20,7 @@
     "notes": ""
   },
   "retention": {
-    "stated": "not stated on the page read.",
+    "stated": "Default file retention is 14 days from conversion; 30 days costs one third of the volume again and 60 days charges the full volume again.",
     "days": null,
     "source_url": "https://www.rapidpars.com/",
     "notes": ""
@@ -41,7 +41,7 @@
   "limits": [
     {
       "kind": "volume-quota",
-      "value": "sold as traffic; the plan values are behind the panel and were not read",
+      "value": "sold as traffic; 500 GB for 19 USDT and 2,000 GB for 70 USDT are published on the home page",
       "source": "https://www.rapidpars.com/"
     }
   ],
@@ -66,10 +66,52 @@
       "url": "https://news.rapidpars.com/",
       "date": "2026-10-23",
       "proved": "The vendor's changelog and incident posts, including an Icerbox account suspension headline seen in search (headline only, post not read)"
+    },
+    {
+      "url": "https://www.rapidpars.com/",
+      "date": "2026-11-25",
+      "proved": "An Iranian download server makes the caller's ISP count the transfer at domestic rates",
+      "capture": "sha256:62fd9478a9f40a2a55d6df496dbcd4b3a06e7db19b6d0c47696a1a6cab9f2a04",
+      "quote": "در این حالت میزان مصرف ترافیک اینترنت شما نیم بها خواهد یافت."
+    },
+    {
+      "url": "https://www.rapidpars.com/",
+      "date": "2026-11-25",
+      "proved": "Packs of 500 GB and 2,000 GB are sold for 19 and 70 USDT respectively",
+      "capture": "sha256:62fd9478a9f40a2a55d6df496dbcd4b3a06e7db19b6d0c47696a1a6cab9f2a04",
+      "quote": "همچنین امکان شارژ اکانت با ارزهای دیجیتال با قیمت ۱۹ تتر برای پلن ۵۰۰ گیگابایت و یا ۷۰ تتر برای پلن ۲ هزار گیگابایت فراهم می باشد."
+    },
+    {
+      "url": "https://www.rapidpars.com/",
+      "date": "2026-11-25",
+      "proved": "The default 14-day retention and the extra-volume cost of 30 and 60 day options are published",
+      "capture": "sha256:62fd9478a9f40a2a55d6df496dbcd4b3a06e7db19b6d0c47696a1a6cab9f2a04",
+      "quote": "مدت نگهداری پیشفرض فایل ها از زمان تبدیل لینک ۱۴ روز می باشد. در صورت تمایل به نگهداری بیشتر فایل ها، امکان انتخاب مدت ۳۰ روز با کسر حجم یک سوم برابر و یا ۶۰ روز با کسر حجم کامل فایل (علاوه بر کسر حجم عادی سیستم تبدیل لینک) فراهم می باشد."
+    },
+    {
+      "url": "https://www.rapidpars.com/",
+      "date": "2026-11-25",
+      "proved": "Two traffic packs with their sizes and prices are published",
+      "capture": "sha256:62fd9478a9f40a2a55d6df496dbcd4b3a06e7db19b6d0c47696a1a6cab9f2a04",
+      "quote": "همچنین امکان شارژ اکانت با ارزهای دیجیتال با قیمت ۱۹ تتر برای پلن ۵۰۰ گیگابایت و یا ۷۰ تتر برای پلن ۲ هزار گیگابایت فراهم می باشد."
+    },
+    {
+      "url": "https://cdn.rapidpars.com/",
+      "date": "2026-11-25",
+      "proved": "A Telegram bot performs link conversion, torrent and usenet jobs and account management without visiting the site",
+      "capture": "sha256:ffbe56269d1737017f0ac02c0c200cf943d62d862f46754b30b2ecce1ae0f8cd",
+      "quote": "با عضویت در ربات تلگرام رپیدپارس، امکان تبدیل لینک، تورنت و یوزنت، مشاهده وضعیت اکانت و تورنت و یوزنت درحال تبدیل، انصراف از تبدیل تورنت و یوزنت در حال تبدیل، مدیریت فایل‌ها، شارژ اکانت بدون مراجعه به وب سایت را خواهید داشت."
+    },
+    {
+      "url": "https://www.rapidpars.com/",
+      "date": "2026-11-25",
+      "proved": "The account panel exposes an email address field, so registration uses email",
+      "capture": "sha256:62fd9478a9f40a2a55d6df496dbcd4b3a06e7db19b6d0c47696a1a6cab9f2a04",
+      "quote": "پست الکترونیک :"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T03:17:21.000Z",
+  "verified_at": "2026-11-25T09:47:00.873Z",
   "price_per_tb_month": null,
   "notes": "Second native Iranian multi-hoster found. Its distinguishing feature is private-tracker search, which most global debrid services do not offer because they do not hold tracker accounts. The panel domain refused network requests twice (HTTP 530), so price and quota stay unverified; that refusal is a property of the probe route, not evidence of death."
 }

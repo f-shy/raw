@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-netdisk-pan-1601-u05-rerun",
+ "kind": "verify",
+ "topic": "netdisk-pan",
+ "question": "Re-check these netdisk-pan records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- netdisk-pan/netdisk-fast-download $.free_tier.stated: Capture shows the site is live at 0.4.8 but says nothing about no charge or no key. The README capture says 123pan downloads usually need a login and the public site cannot log in, so \"for the drivers it lists\" is too broad.\n- netdisk-pan/guangyapan $.identity_cost.detail: Docs show a phone-number SMS login but not the POST /v1/auth/verification 400 text, the email-path 404s, or the conclusion that no email-only path exists. Those parts are not in the capture.\n- netdisk-pan/disroot-cloud $.reliability_note: Status disabled-Files part is supported. The 2026-11-02 update is not in the capture (latest entry 29.10.2026; a fresh read returned the identical sha256). Donation-funded, hand-reviewed extra storage and annual invoice claims are also absent from it. Unrecoverable-data wording is not there either.\n- netdisk-pan/guangyapan $.free_tier.stated: 2T at registration and 500T for members are supported. \"100 GB per file free and 1 TB for members\" is not in the capture; a fresh read via jina returned the same page without it.\n- netdisk-pan/shadow-drive $.identity_cost.detail: The 12 countries list is supported. A card requirement is not stated anywhere in the capture; the free 20 GB plan is not shown to need one, and no billing-address rule is stated.\n- netdisk-pan/disroot-cloud $.reliability_note: The evidence is a Nextcloud status.php version string. It says nothing about donation funding, extra storage, VAT, or the Files outage. The value is a reliability note, not a version.\n- netdisk-pan/guangyapan $.identity_cost.kind: The login box offers SMS verification. Nothing says any phone number works or which regions are accepted; the OpenList docs example is +86. \"any-phone\" is not shown.\n- netdisk-pan/disroot-cloud $.free_tier.stated: Free amounts (1GB, 2GB, 500MB) and 21% VAT are supported, but the annual price steps (5 GB EUR 11 ... 60 GB EUR 110) are not in the capture; a fresh read returned the identical sha256 without them.\n- netdisk-pan/netdisk-fast-download $.free_tier.stated: A 200 from the probe shows only that the host answers. It does not say parsing is free or keyless; the README says public parsing cannot log in to 123pan.\n- netdisk-pan/disroot-cloud $.free_tier.stated: The page supports a free 2GB only. The price steps and the 21% VAT are not on this page. Value is mostly unsupported by this capture.\n- netdisk-pan/ploud-storage $.free_tier.stated: Page says a dedicated space of 500 Go or 1 To. It does not say 1 TB for every account, that it is free, that no paid tiers exist, or that 1 TB is a definitive ceiling.\n- netdisk-pan/netdisk-fast-download $.limits: Driver table supports 123云盘 100G with login above 100M and 蓝奏云 100M (\"MiB\" is the claim's reading of \"M\"). The word \"now\" (a change) is not shown, and \"no published limit on lz.qaiu.top\" is an absence claim that the table capture cannot show.",
+ "scope": {
+  "rids": [
+   "netdisk-pan/guangyapan",
+   "netdisk-pan/netdisk-fast-download",
+   "netdisk-pan/disroot-cloud",
+   "netdisk-pan/apple-managed-apple-account-200-gb",
+   "netdisk-pan/trekmail-drive",
+   "netdisk-pan/asus-webstorage",
+   "netdisk-pan/ploud-storage",
+   "netdisk-pan/shadow-drive"
+  ]
+ },
+ "origin": "audit u21 of 20261125-0137-verify-netdisk-pan-1601/u05 failed: 12 of 30 unsupported",
+ "created": "2026-11-25T12:12:07Z"
+}

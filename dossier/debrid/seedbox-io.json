@@ -60,14 +60,32 @@
       "url": "https://hostingby.design/",
       "date": "2026-10-23",
       "proved": "'App hosting €6.59 Starting price', 'VPS Hosting €5.00', the EUR 10.95 application plan with 'Capacity 4TB' and 'Outgoing data 10TB', and the consolidation notice"
+    },
+    {
+      "url": "probe:https://seedbox.io/",
+      "date": "2026-11-25",
+      "proved": "seedbox.io redirects to hostingby.design and serves no seedbox product",
+      "capture": "sha256:fbc73ec47aafa296fa07d47a464c847cdea2f299488e5e0789ff1abba58a49ee",
+      "quote": "\"final_url\": \"https://hostingby.design#utm_source=sbio-redirect\""
+    },
+    {
+      "url": "https://hostingby.design/",
+      "date": "2026-11-25",
+      "proved": "the successor's application plan states 4 TB capacity",
+      "capture": "sha256:084dbc8a4f3c78398376282e69f0df9091609a4017fed914582e81aea0de600f",
+      "quote": "Capacity4TB"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T01:56:20.000Z",
+  "verified_at": "2026-11-25T09:47:02.743Z",
   "price_per_tb_month": null,
   "notes": "The record is kept so a later search for seedbox.io's plans finds the answer here. The distinction that matters for debrid: what survives is a rented app-hosting box, not a torrent-to-cloud service and not a seedbox panel.",
   "extras": {
     "successor": "Hosting by Design (HNielsen Technologies)",
-    "observed_redirect": "seedbox.io -> hostingby.design"
+    "observed_redirect": "seedbox.io -> hostingby.design",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "acquired"
+    }
   }
 }

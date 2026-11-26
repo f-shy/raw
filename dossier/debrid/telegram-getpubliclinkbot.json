@@ -49,7 +49,7 @@
     "detail": "A Telegram account, which is logged in with a mobile phone number; no key or card is asked on the bot's page.",
     "country": null
   },
-  "reliability_note": "Single-operator bot; the page directs problems to a FAQ inside the bot (behind a Telegram account), and shows 13 870 monthly users.",
+  "reliability_note": "Single-operator bot; the page directs problems to a FAQ inside the bot (behind a Telegram account), and shows 12 027 monthly users.",
   "confidence": "documented",
   "confidence_note": "The description is the bot's own, read on its t.me page. Liveness of the backend needs a Telegram account and was not tested. Any paid tier of the bot is unverified: behind a sign-up (it is reached from inside the bot, with a Telegram account); the bot's page states no price.",
   "evidence": [
@@ -80,10 +80,38 @@
       "capture": "sha256:ce95e5d287ce57fe0bba371a25a9c4414932b444208d4403a6951dacd442346d",
       "quote": "13 870 monthly users",
       "proved": "the page shows 13 870 monthly users"
+    },
+    {
+      "url": "https://t.me/getPublicLinkBot",
+      "date": "2026-11-25",
+      "proved": "the page shows 12 027 monthly users on 2026-11-25",
+      "capture": "sha256:f0ac6f593eea3c79a3abc9debf53d380f4d26340e7ad210a27b6d2b74db49be3",
+      "quote": "12 027 monthly users"
+    },
+    {
+      "url": "https://t.me/getPublicLinkBot",
+      "date": "2026-11-25",
+      "proved": "the bot still offers an external link for any document file of any size and directs issues to a FAQ in HELP",
+      "capture": "sha256:f0ac6f593eea3c79a3abc9debf53d380f4d26340e7ad210a27b6d2b74db49be3",
+      "quote": "Just Send Me any Document File of any SIZE i will Generate a External Link. Any Issues Read The FAQ in HELP"
+    },
+    {
+      "url": "https://telegram.org/faq",
+      "date": "2026-11-25",
+      "proved": "Telegram login uses a mobile phone number",
+      "capture": "sha256:db52c8ab9f1c97f8c3e07bd0bfdcad3b97224fa5ab080ee3807d1312a614ad63",
+      "quote": "Just use your main mobile phone number to log in everywhere, your cloud chats will sync instantly."
+    },
+    {
+      "url": "https://telegram.org/faq",
+      "date": "2026-11-25",
+      "proved": "Telegram's own per-file ceiling is 2 GB, or 4 GB with Premium",
+      "capture": "sha256:db52c8ab9f1c97f8c3e07bd0bfdcad3b97224fa5ab080ee3807d1312a614ad63",
+      "quote": "Send and receive files of any type, up to 2 GB in size each (or 4 GB with"
     }
   ],
   "verdict": "qualifies-with-caveat",
   "price_per_tb_month": null,
   "notes": "Abandon if the t.me page stops resolving to a bot with a Start action. No programmatic path found: A Telegram chat with the bot; the result is a link or a file delivered into the chat. No HTTP API is published.",
-  "verified_at": "2026-11-03T07:37:11.506Z"
+  "verified_at": "2026-11-25T09:46:47.478Z"
 }

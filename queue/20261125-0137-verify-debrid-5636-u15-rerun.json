@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u15-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Re-check these debrid records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/hizliyukle-com $.notes: The capture is a shutdown notice: it states the service was closed because of hosting costs. It does not state the 10 GB offer, its absence from an English query, the upload page types, or the 307 redirects on /api/upload and /upload.\n- debrid/europe-pmc $.identity_cost.kind: The page describes publication coverage and output formats; it does not state that access is anonymous or that no key, account or registration is needed. 'anonymous' is an inference, not a stated fact.\n- debrid/europe-pmc $.egress.terms: The page states no price, byte allowance or metering, but it also does not say access is free or unmetered. 'Free and unmetered' is an inference from silence, and a missing key/account policy is an absence, not a statement.\n- debrid/europe-pmc $.notes: The HTTPS listing proves the bulk OA tree and the .xml.gz files dated 2026-11-21. It says nothing about the API or metadata paging, so 'Metadata is effectively unlimited through each paged response' is not supported by this capture.\n- debrid/kappa-lol $.reliability_note: The capture is a TCP probe record of name-resolution failures on ports 80 and 443. It contains no reply URL, file extension or Content-Type, so it does not prove the URL-extension claim.\n- debrid/europe-pmc $.reliability_note: The capture proves the HTTPS OA tree and the .xml.gz files dated 2026-11-21, but it has no rate or throttling measurement. 'No throttling signal was seen at the low rate used here' is not supported by this capture.\n- debrid/europe-pmc $.reliability_note: Same as c15: the listing proves the HTTPS OA tree and the 2026-11-21 files, but not 'No throttling signal was seen at the low rate used here'.\n- debrid/qu-ax $.free_tier.stated: The homepage states the 256MB cap and the 1 day / 7 days / 30 days choices (plus 1 year and Permanent). It does not say that no account or email is asked for; that part is missing, and the value also omits the 1-year and Permanent choices.\n- debrid/europe-pmc $.interface: The page names the Europe PMC web services (REST) and the FTP site, but never a CLI. 'cli' is not supported.\n- debrid/europe-pmc $.notes: Same as c09: the listing proves the HTTPS OA tree and the 2026-11-21 files, but it says nothing about the API or 'Metadata is effectively unlimited through each paged response'.\n- debrid/europe-pmc $.chaining: The page lists bulk content types and metadata directories. It does not mention pmc-oa-opendata, pageSize=1000, about 787 KB per call, or account-free access.",
+ "scope": {
+  "rids": [
+   "debrid/hizliyukle-com",
+   "debrid/pomf-lain-la",
+   "debrid/kappa-lol",
+   "debrid/qu-ax",
+   "debrid/crafterbin",
+   "debrid/sto-care",
+   "debrid/appbox-bg-2000",
+   "debrid/europe-pmc"
+  ]
+ },
+ "origin": "audit u174 of 20261125-0137-verify-debrid-5636/u15 failed: 11 of 30 unsupported",
+ "created": "2026-11-25T21:28:59Z"
+}

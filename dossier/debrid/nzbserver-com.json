@@ -86,6 +86,20 @@
       "url": "https://nzbhydra.com/indexers/",
       "date": "2026-10-23",
       "proved": "third-party: 'Spotweb-based technology. No login or registration required. Entirely free, no upgrade options. Inconsistent uptime, 4.6s response time when operational.'"
+    },
+    {
+      "url": "probe:https://www.nzbserver.com/api?t=caps",
+      "date": "2026-11-25",
+      "proved": "a direct anonymous fetch of caps was answered HTTP 403 by a Cloudflare challenge",
+      "capture": "sha256:b8936b29522fc4552004e91772ba0107133e5dabbc5f50b9eb101bda3fb06d02",
+      "quote": "\"status\": 403"
+    },
+    {
+      "url": "https://www.nzbserver.com/api?t=caps",
+      "date": "2026-11-25",
+      "proved": "caps names the server type Spotweb",
+      "capture": "sha256:8ab63aaaace9f217d91675a9deda68cf1adca5cbc899cd42a29a57585db572e8",
+      "quote": "<server version=\"0.1\" title=\"Spotweb\" strapline=\"Spotweb API Index\""
     }
   ],
   "verdict": "qualifies",
@@ -134,7 +148,7 @@
     "burst": "10 sequential searches, all 200"
   },
   "notes": "The 7,346-byte NZB has the same sha256 as the one spotnzb.com served for the same message-id, so the two instances share a Spotnet backend or mirror the same database; the search feeds differ slightly in size (41,868 vs 41,244 bytes) but start with the same item. Treat them as one catalogue reachable at two hostnames, not as two independent indexers.",
-  "verified_at": "2026-10-23T02:11:54.066Z",
+  "verified_at": "2026-11-25T22:07:39.151Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }

@@ -246,10 +246,45 @@
       "proved": "the vendor pricing page describes the Premium plan and lists four priced plans",
       "capture": "sha256:d04379ddd7d6b1c2de850594ca559327629c43210c32a08d05474e8d09ad1122",
       "quote": "Skip the public countdown, unlock direct downloads, and get larger transfer allowances with FileFactory Premium."
+    },
+    {
+      "url": "https://www.filefactory.com/pricing",
+      "date": "2026-11-25",
+      "proved": "Premium skips the countdown while Free and Guest wait 45-60 seconds",
+      "capture": "sha256:626b1b47a2b3104720214ceff84a0b1bbd5bda1e5147fc899ccf5e435ce68897",
+      "quote": "Premium downloads start without the public countdown.\nNone\n45-60 sec\n45-60 sec"
+    },
+    {
+      "url": "https://www.filefactory.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the maximum transfer size is 5 GB Premium, 2 GB Free and 1 GB Guest",
+      "capture": "sha256:626b1b47a2b3104720214ceff84a0b1bbd5bda1e5147fc899ccf5e435ce68897",
+      "quote": "Maximum combined size for all files in one transfer.\n5 GB\n2 GB\n1 GB"
+    },
+    {
+      "url": "https://www.filefactory.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the 30-day Premium plan costs USD 19",
+      "capture": "sha256:626b1b47a2b3104720214ceff84a0b1bbd5bda1e5147fc899ccf5e435ce68897",
+      "quote": "$19USD"
+    },
+    {
+      "url": "https://www.filefactory.com/pricing",
+      "date": "2026-11-25",
+      "proved": "transfer expiry ranges are 1-90 days Premium, 1-30 days Free and 1-7 days Guest",
+      "capture": "sha256:626b1b47a2b3104720214ceff84a0b1bbd5bda1e5147fc899ccf5e435ce68897",
+      "quote": "Transfer expiry range\nSet transfers to expire when you want.\n1-90 days\n1-30 days\n1-7 days"
+    },
+    {
+      "url": "https://www.filefactory.com/premium",
+      "date": "2026-11-25",
+      "proved": "a default-route read of /premium was served an Access Restricted page",
+      "capture": "sha256:5ab9bcc3c805dd9e4f8bbc20495e51cbeafe63768d3a85fabd60416bd353b2e1",
+      "quote": "Your access to FileFactory has been restricted."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T11:28:46.169Z",
+  "verified_at": "2026-11-25T09:46:58.093Z",
   "price_per_tb_month": "USD 19 per 30 days on the vendor pricing page; no per-TiB figure because the vendor publishes no byte allowance",
   "history": [],
   "notes": "The vendor pricing page now prices Premium at USD 19 for 30 days and lists no TrafficShare or unlimited-bandwidth claim; the earlier reseller figures for the 30-day price and for TrafficShare are not on it. The per-TiB column stays empty because no byte allowance is published. Not worth a key at 1 TiB/month unless the link is here. No programmatic path found: No API documentation reachable; the site presents FileFactory Transfer (send files by email or link) and serves its Premium pricing at /premium.",

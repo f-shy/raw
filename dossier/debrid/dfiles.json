@@ -81,10 +81,38 @@
       "capture": "sha256:cba7a96888cda78c80cc094aa12663efdceb48627da1ad5a22f20fa229366103",
       "quote": "All you need is to create an account and upload files.",
       "proved": "an account is needed to upload"
+    },
+    {
+      "url": "https://dfiles.eu/",
+      "date": "2026-11-25",
+      "proved": "the homepage still states a 10 GB per-file upload cap",
+      "capture": "sha256:44216502e97d2df6fa27cefb14498a65c92ec33cd2d01f7dbe52eed6ae720717",
+      "quote": "最大上传文件大小 – 10 GB"
+    },
+    {
+      "url": "https://dfiles.eu/",
+      "date": "2026-11-25",
+      "proved": "the homepage still advertises unlimited storage time and space",
+      "capture": "sha256:44216502e97d2df6fa27cefb14498a65c92ec33cd2d01f7dbe52eed6ae720717",
+      "quote": "无限文件存储的时间和空间"
+    },
+    {
+      "url": "https://dfiles.eu/",
+      "date": "2026-11-25",
+      "proved": "an account is needed before upload, which binds before the cap",
+      "capture": "sha256:44216502e97d2df6fa27cefb14498a65c92ec33cd2d01f7dbe52eed6ae720717",
+      "quote": "您只需要创建帐户和上传文件。"
+    },
+    {
+      "url": "https://depositfiles.com/gold/payment.php",
+      "date": "2026-11-25",
+      "proved": "the gold plan still costs USD 11.95 for one month",
+      "capture": "sha256:95fcc2a0084ce94fc146598c1fb6ea9df152e1f0258a5c4fbc44e0fa9b70cae9",
+      "quote": "1 个月 11.95 USD* 0.39 USD 每天"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T07:37:12.225Z",
+  "verified_at": "2026-11-25T09:46:39.097Z",
   "price_per_tb_month": "unverified: no premium price page was readable",
   "history": [],
   "notes": "No programmatic path found: Files upload from remote HTTP or FTP servers; web upload.",

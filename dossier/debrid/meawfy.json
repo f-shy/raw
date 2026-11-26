@@ -33,10 +33,10 @@
     "source_url": "https://meawfy.com/"
   },
   "interface": [
-    "unknown"
+    "rest"
   ],
-  "interface_detail": "HTML search only. /api and /documentation both return 404 on the same host, so no machine interface is advertised. A Telegram bot exists per the site's own documentation paths.",
-  "tooling": "Browser or the Telegram bot. There is no documented REST endpoint; a client would have to drive the search page.",
+  "interface_detail": "HTML search plus a documented public POST endpoint at https://meawfy.com/api/submit-link for submitting MEGA links, with no authentication. The shorter /api and /documentation paths do not serve a page; the docs live at /documentation/api/submit-link.",
+  "tooling": "Browser or the Telegram bot for search; a documented POST endpoint at /api/submit-link for submitting links needs no authentication. Unlocking a real link still needs an account.",
   "chaining": "Use it to find a public MEGA link by filename, then hand that link to a debrid service that accepts MEGA, or to the MEGA client under the account's own transfer quota.",
   "limits": [
     {
@@ -50,7 +50,7 @@
   "binding_note": "The constraint that stops a caller is the account and its credit balance, which is identity, not one of the seven byte or rate constraints.",
   "identity_cost": {
     "kind": "email",
-    "detail": "An account is required before a real link is revealed: the home page says an account gets 3 credits to unlock real links. Whether email alone is enough was not established, because the signup flow was not entered.",
+    "detail": "An account is required before a real link is revealed: the home page says an account gets 3 credits to unlock real links. The signup page asks for an email address and password, or Google sign-in, and requires email verification; no phone number or ID document is shown.",
     "country": null
   },
   "reliability_note": "The index only sees links that were shared publicly; a link that the uploader deleted disappears from results, and the page itself frames results as 'no dead ends' without saying how often it re-checks.",
@@ -71,10 +71,66 @@
       "url": "https://meawfy.com/documentation",
       "date": "2026-10-23",
       "proved": "HTTP 404, so the documentation path the site implies is not at that address"
+    },
+    {
+      "url": "https://meawfy.com/documentation/api/submit-link",
+      "date": "2026-11-25",
+      "proved": "the API documentation names an authentication field for a REST submission endpoint",
+      "capture": "sha256:8f0ce94fd3f27938021d33fcffaea272a485c1bb073674f1d443a255250a97ce",
+      "quote": "Authentication"
+    },
+    {
+      "url": "https://meawfy.com/documentation/api/submit-link",
+      "date": "2026-11-25",
+      "proved": "the vendor documents a REST submission endpoint at that path",
+      "capture": "sha256:8f0ce94fd3f27938021d33fcffaea272a485c1bb073674f1d443a255250a97ce",
+      "quote": "`https://meawfy.com/api/submit-link`"
+    },
+    {
+      "url": "https://meawfy.com/documentation/api/submit-link",
+      "date": "2026-11-25",
+      "proved": "the documented submission API needs no authentication",
+      "capture": "sha256:8f0ce94fd3f27938021d33fcffaea272a485c1bb073674f1d443a255250a97ce",
+      "quote": "Free to use** with no authentication flow."
+    },
+    {
+      "url": "https://meawfy.com/documentation/api/submit-link",
+      "date": "2026-11-25",
+      "proved": "the public submission API needs no authentication",
+      "capture": "sha256:8f0ce94fd3f27938021d33fcffaea272a485c1bb073674f1d443a255250a97ce",
+      "quote": "None required"
+    },
+    {
+      "url": "https://meawfy.com/signup",
+      "date": "2026-11-25",
+      "proved": "signup requires an email address that must be verified",
+      "capture": "sha256:084020a9d6f2b873306144d2cb8a548c5e8dd919a168ad1557f121e0f10acfcb",
+      "quote": "Email verification is required."
+    },
+    {
+      "url": "https://meawfy.com/signup",
+      "date": "2026-11-25",
+      "proved": "the signup gate is an email address, with no phone or ID document asked for",
+      "capture": "sha256:084020a9d6f2b873306144d2cb8a548c5e8dd919a168ad1557f121e0f10acfcb",
+      "quote": "or create your account with email"
+    },
+    {
+      "url": "https://meawfy.com/",
+      "date": "2026-11-25",
+      "proved": "an account still gets 3 free credits and a dead link is refunded within 5 days",
+      "capture": "sha256:63b6d0ed5b2fb8d838bd7572aad0fa9878fd385f8799efe428c6b8e4b450ae28",
+      "quote": "🎁 Get 3 free credits when you sign up🛡️ If a link dies within 5 days of unlock, we refund the credit automatically"
+    },
+    {
+      "url": "https://meawfy.com/",
+      "date": "2026-11-25",
+      "proved": "the index still claims 42M+ entries",
+      "capture": "sha256:63b6d0ed5b2fb8d838bd7572aad0fa9878fd385f8799efe428c6b8e4b450ae28",
+      "quote": "42M+ indexed entries. Search across courses, software, datasets, and media. No dead links or guesswork."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-23T01:52:28.000Z",
+  "verified_at": "2026-11-25T09:46:42.463Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "One of three MEGA search fronts found in a single query (meganz.net, meawfy, zippysharedjs). All three are link indexes over publicly shared MEGA folders, so none can see a private file; the distinction between them is whether the link costs an account, which here it does.",

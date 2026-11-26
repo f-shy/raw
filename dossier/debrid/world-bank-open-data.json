@@ -73,10 +73,31 @@
       "url": "probe:https://api.worldbank.org/v2/country/all/indicator/NY.GDP.MKTP.CD?format=json&per_page=50 (8 connections, 3 rounds)",
       "date": "2026-10-23",
       "proved": "24 requests in 2,061 ms wall, all 200, 9,735-13,760 bytes per response - no 429 at about 18 requests/second"
+    },
+    {
+      "url": "https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation",
+      "date": "2026-11-25",
+      "proved": "no key, account or other authentication is needed",
+      "capture": "sha256:2e48ebc3c9d8e05fca271f132e84a1c21f50e54e3a85f25214bf44ebcb444fa3",
+      "quote": "API keys and other authentication methods are no longer necessary to access the API."
+    },
+    {
+      "url": "https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation",
+      "date": "2026-11-25",
+      "proved": "the API exposes nearly 16,000 time series indicators",
+      "capture": "sha256:2e48ebc3c9d8e05fca271f132e84a1c21f50e54e3a85f25214bf44ebcb444fa3",
+      "quote": "The World Bank Indicators API provides access to nearly 16,000 time series indicators."
+    },
+    {
+      "url": "https://api.worldbank.org/v2/country/all/indicator/NY.GDP.MKTP.CD?format=json&per_page=50",
+      "date": "2026-11-25",
+      "proved": "the documented per_page=50 JSON call answered 200 without a key",
+      "capture": "sha256:e9755ecbc1ddf54d6a304867cac177a165016dff34a1b63a568c220add7d0f70",
+      "quote": "HTTP/2 200"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T03:24:34.450Z",
+  "verified_at": "2026-11-25T09:46:37.626Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "A useful contrast among debrid providers: on the file hosts, more connections made things slower; here eight connections made the same 24 calls 21 times faster than one. The difference is latency-bound JSON versus bandwidth-bound files.",

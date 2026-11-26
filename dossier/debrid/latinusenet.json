@@ -20,8 +20,8 @@
     "notes": "an article size is a protocol convention, not a vendor number"
   },
   "retention": {
-    "stated": "unverified: the plans page read does not state retention",
-    "days": null,
+    "stated": "Over 3,000 days of files, stated on the vendor home page",
+    "days": 3000,
     "source_url": "https://latinusenet.com/planes/"
   },
   "egress": {
@@ -95,10 +95,52 @@
       "capture": "sha256:896c3be1ab9503b676c1e483a30f6b27050e6ee2aca19ebca2ccb962bb8b1b1c",
       "quote": "- Conexión a 10 mbps",
       "proved": "the cheapest plan is capped at 10 mbps"
+    },
+    {
+      "url": "https://latinusenet.com/planes/",
+      "date": "2026-11-25",
+      "proved": "the cheapest monthly plan is USD 5.00",
+      "capture": "sha256:5edaacf0aa9030db052ee56d015d841be6a9a53afe96685623caaa2129d90083",
+      "quote": "## $5.00/mes"
+    },
+    {
+      "url": "https://latinusenet.com/planes/",
+      "date": "2026-11-25",
+      "proved": "the cheapest yearly-billed plan is USD 4.17 per month",
+      "capture": "sha256:5edaacf0aa9030db052ee56d015d841be6a9a53afe96685623caaa2129d90083",
+      "quote": "## $4.17/mes"
+    },
+    {
+      "url": "https://latinusenet.com/planes/",
+      "date": "2026-11-25",
+      "proved": "the cheapest plan is capped at 10 mbps",
+      "capture": "sha256:5edaacf0aa9030db052ee56d015d841be6a9a53afe96685623caaa2129d90083",
+      "quote": "Conexión a 10 mbps"
+    },
+    {
+      "url": "https://latinusenet.com/planes/",
+      "date": "2026-11-25",
+      "proved": "10 simultaneous connections on the cheapest plan",
+      "capture": "sha256:5edaacf0aa9030db052ee56d015d841be6a9a53afe96685623caaa2129d90083",
+      "quote": "10 conexiones simultáneas"
+    },
+    {
+      "url": "https://latinusenet.com/planes/",
+      "date": "2026-11-25",
+      "proved": "downloads are unlimited on the flat plans",
+      "capture": "sha256:5edaacf0aa9030db052ee56d015d841be6a9a53afe96685623caaa2129d90083",
+      "quote": "Descargas ilimitadas"
+    },
+    {
+      "url": "https://latinusenet.com/",
+      "date": "2026-11-25",
+      "proved": "the vendor states over 3,000 days of retention on its home page",
+      "capture": "sha256:8f0507174a333aa06278e899ef759ca0a0ee4d7e649a4934e992ccfd450fc5e9",
+      "quote": "Nuestros servidores almacenan mas de 3000 días de archivos"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-03T07:37:14.439Z",
+  "verified_at": "2026-11-25T09:47:09.200Z",
   "price_per_tb_month": null,
   "notes": "Unlimited volume, priced per month and speed tier.",
   "extras": {}

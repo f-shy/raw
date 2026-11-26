@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-netdisk-pan-1601-u04-rerun",
+ "kind": "verify",
+ "topic": "netdisk-pan",
+ "question": "Re-check these netdisk-pan records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- netdisk-pan/quark-cloud-drive $.egress.terms: Page supports only 2-4 MB/s free vs about 50 MB/s SVIP. The 60 KB/s third-party measurement and the client user agent/cookie condition for downloads above 50 MB are not on this page; the page says free users are not cut to 100 KB/s.\n- netdisk-pan/doubao-drive $.free_tier.unit: Page gives no free capacity figure, so no unit (TiB) is stated.\n- netdisk-pan/baidu-pan $.per_object_cap.bytes: Web limit is 1G, but desktop client allows 4G for ordinary users, so 1e9 is not the free per-file cap. 1G is also not shown as decimal GB.\n- netdisk-pan/115-cloud-drive-115 $.limits[1].value: Page names only an ID-card photo for individuals plus other materials the onboarding page prompts. 真实姓名, 证件类型, 证件号码 and 有效期 do not appear in the capture.\n- netdisk-pan/62cloud-61cloud $.free_tier.stated: Page lists 61G for free users in an August 2026 promotion post. The quoted words 国内商家，注册送61g are not in the capture, and 注册送 (given on registration) is not stated. Fresh read the same.\n- netdisk-pan/62cloud-61cloud $.free_tier.unit: Page says 61G; it does not state GiB vs GB.\n- netdisk-pan/ctfile $.extras.registration: Form shows email, password, Turnstile security check. No 5-character verification code appears; the capture also offers phone sign-up.\n- netdisk-pan/terabox $.identity_cost.detail: Blog says new accounts cannot register by phone. It does not list email registration fields (user name, date of birth, verification code) or absence of card/ID fields.\n- netdisk-pan/62cloud-61cloud $.identity_cost.detail: Page covers email-domain list and no temporary email. No CNY 0.10 Alipay real-name payment or forum post on that in this capture.\n- netdisk-pan/62cloud-61cloud $.notes: Direct-link move is supported, but the note says seasonal WebDAV; post/153 says WebDAV is available after buying membership. The note also claims forum-derived documentation and 61 GB, which this page does not cover.",
+ "scope": {
+  "rids": [
+   "netdisk-pan/ctfile",
+   "netdisk-pan/terabox",
+   "netdisk-pan/115-cloud-drive-115",
+   "netdisk-pan/62cloud-61cloud",
+   "netdisk-pan/aliyun-drive",
+   "netdisk-pan/baidu-pan",
+   "netdisk-pan/doubao-drive",
+   "netdisk-pan/quark-cloud-drive"
+  ]
+ },
+ "origin": "audit u20 of 20261125-0137-verify-netdisk-pan-1601/u04 failed: 10 of 30 unsupported",
+ "created": "2026-11-25T12:12:07Z"
+}

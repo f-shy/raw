@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u167-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "This replaces the reverted attempt u16. Start from .tmp/20261125-0137-verify-debrid-5636/units/u16/changes.jsonl: copy every `set`, `dead`, `append_evidence` and `open_question` op there, but drop every `confirm`. Then, for each record in scope, capture its first-party page and find ONE field whose exact value appears in the capture text; confirm only that one field, with a quote span copied exactly from the capture, and list every other field in unread. If no field value appears in any capture, write an open_question for the record and do not confirm it. Never confirm a synthesized text field.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/fireload $.identity_cost.detail: The captured sign-up page shows one field, E-mail, and the Sign up button, with no card or phone field, but it does not contain the quoted sentence 'No credit card required' (that sentence is on https://www.fireload.com/upgrade, capture sha256:d2b36e8b2d0c5bfb3928e37ac7d209f31cd750bb79893fa41b1b8b75\n- debrid/torcomet $.identity_cost.detail: The registration page (this capture, and a fresh read sha256:c1bd5077731dacaf04b5f361033e317bc54443894860976d7342540cab50ae05) proves the Full name, Email address and Password (minlength=8) fields and shows no phone, card or document field, but it does not contain the clause that the terms mention b",
+ "scope": {
+  "rids": [
+   "debrid/webtor-io",
+   "debrid/hotmart",
+   "debrid/kiwify",
+   "debrid/copernicus-cds",
+   "debrid/ulozto",
+   "debrid/cloudpipe",
+   "debrid/fireload",
+   "debrid/torcomet"
+  ]
+ },
+ "origin": "audit u189 of 20261125-0137-verify-debrid-5636/u167 failed: 2 of 11 unsupported",
+ "created": "2026-11-25T21:29:01Z"
+}

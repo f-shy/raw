@@ -35,8 +35,8 @@
   "interface": [
     "browser"
   ],
-  "interface_detail": "Web upload with a register_non_user route; no API page was read.",
-  "tooling": "Browser only as read. No rclone backend found.",
+  "interface_detail": "Web upload with a register_non_user route; the vendor documents a REST upload API at https://api.cyberfile.me/api/v2/file/upload using an access_token and account_id from /authorize. The api.cyberfile.me hostname did not resolve from a plain client on 2026-11-25.",
+  "tooling": "Browser upload and a documented REST file-upload API requiring an access_token and account_id; the api.cyberfile.me endpoint did not resolve from a plain client on 2026-11-25.",
   "chaining": "10 GB anonymous files kept 14 days: a hand-off point for one large file, not storage.",
   "limits": [
     {
@@ -81,10 +81,59 @@
       "capture": "sha256:c708a7fd4a02be751ae8b002a025ffc90b3b522eea0b87481105337162cb6af6",
       "quote": "Upload files up-to 10 GB anonymously.",
       "proved": "anonymous upload is offered up to 10 GB"
+    },
+    {
+      "url": "https://cyberfile.me/faq",
+      "date": "2026-11-25",
+      "proved": "per-file caps are 10 GB free and 100 GB premium",
+      "capture": "sha256:40cd955ca73498f52719bd7f9f354ded30a8944894ebe3cdb3886e431dc92182",
+      "quote": "Each file you upload must be less than 10 GB in size for free/non accounts or less than 100 GB in size for premium accounts."
+    },
+    {
+      "url": "https://cyberfile.me/faq",
+      "date": "2026-11-25",
+      "proved": "free retention is 14 days",
+      "capture": "sha256:40cd955ca73498f52719bd7f9f354ded30a8944894ebe3cdb3886e431dc92182",
+      "quote": "Free/non accounts files are kept for 14 days. Premium accounts files are kept for unlimited days."
+    },
+    {
+      "url": "https://cyberfile.me/faq",
+      "date": "2026-11-25",
+      "proved": "uploading and downloading are free for all users",
+      "capture": "sha256:40cd955ca73498f52719bd7f9f354ded30a8944894ebe3cdb3886e431dc92182",
+      "quote": "Yes, uploading and downloading is 100% Free for all users."
+    },
+    {
+      "url": "https://cyberfile.me/",
+      "date": "2026-11-25",
+      "proved": "anonymous upload is offered up to 10 GB",
+      "capture": "sha256:c708a7fd4a02be751ae8b002a025ffc90b3b522eea0b87481105337162cb6af6",
+      "quote": "Upload files up-to 10 GB anonymously."
+    },
+    {
+      "url": "https://cyberfile.me/register",
+      "date": "2026-11-25",
+      "proved": "the optional account registers a username only",
+      "capture": "sha256:0b4ed1c52415841416b76dcfec175931f49cd4cd9188b596e4fc668145de4f9d",
+      "quote": "**IMPORTANT:** Because our registration system only works with usernames, there's no way to recover your password in case you forget it."
+    },
+    {
+      "url": "https://cyberfile.me/api",
+      "date": "2026-11-25",
+      "proved": "a REST file-upload endpoint is documented on the vendor domain",
+      "capture": "sha256:d57cd6a35c839d961439495b40872b4dd1503e57c3ba05183b0404ae8a105320",
+      "quote": "https://api.cyberfile.me/api/v2/file/upload"
+    },
+    {
+      "url": "https://cyberfile.me/api",
+      "date": "2026-11-25",
+      "proved": "the REST upload API uses a token obtained at the /authorize step",
+      "capture": "sha256:d57cd6a35c839d961439495b40872b4dd1503e57c3ba05183b0404ae8a105320",
+      "quote": "- access_token The access token created previously by `/authorize`."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T07:37:12.225Z",
+  "verified_at": "2026-11-25T09:46:40.367Z",
   "price_per_tb_month": "unverified: the premium price page was not readable",
   "history": [],
   "notes": "No programmatic path found: Web upload with a register_non_user route; no API page was read.",

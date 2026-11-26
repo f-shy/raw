@@ -5,8 +5,8 @@
   "url": "https://pan.moe/",
   "category": "community cloud drive on Cloudreve, non-profit",
   "free_tier": {
-    "stated": "1 TB free for every registrant and described as permanent, 2 to 5 TB for community members by application, and above 5 TB a cold-storage plan. Terms section 3.1 confirms '1TB（或更高）空间'",
-    "unit": "TiB",
+    "stated": "萌社区网盘（萌盘）是一款面向广大用户的免费云存储服务，注册即享1TB永久免费空间，萌社区成员可享最大5TB容量。",
+    "unit": "TB",
     "metered_on": "stored-bytes",
     "source_url": "https://pan.moe.one/terms/",
     "read_on": "2026-10-22"
@@ -37,7 +37,7 @@
   "limits": [
     {
       "kind": "write-gated",
-      "value": "terms section 5.4 forbids creating several accounts 'for the purpose of expanding capacity' and states that the provider closes the accounts that do it",
+      "value": "任何用户不得以“扩容”的目的创建多个萌盘账号",
       "source": "https://pan.moe.one/terms/"
     },
     {
@@ -97,10 +97,38 @@
       "proved": "terms section 5.4 still forbids creating multiple accounts to expand capacity",
       "capture": "sha256:5cfbb7b4635b77f0f94c40ef805c7c0db2a08332e8746cef6078a5fbe3e97295",
       "quote": "任何用户不得以“扩容”的目的创建多个萌盘账号"
+    },
+    {
+      "url": "https://pan.moe.one/terms/",
+      "date": "2026-11-25",
+      "proved": "terms section 5.4 forbids creating several accounts to expand capacity",
+      "capture": "sha256:625ff32ab901d842b3e92ab07a59611adc474f99f25b45ee34894c515d7aa416",
+      "quote": "任何用户不得以“扩容”的目的创建多个萌盘账号"
+    },
+    {
+      "url": "https://pan.moe/",
+      "date": "2026-11-25",
+      "proved": "the landing page states 1TB free on registration and up to 5TB for community members",
+      "capture": "sha256:0062935bc214391e99ea05dcdcea96538572198971d85ef2eb20442cef0a6f75",
+      "quote": "萌社区网盘（萌盘）是一款面向广大用户的免费云存储服务，注册即享1TB永久免费空间，萌社区成员可享最大5TB容量。"
+    },
+    {
+      "url": "https://pan.moe/",
+      "date": "2026-11-25",
+      "proved": "the landing page states the free and member capacities in TB",
+      "capture": "sha256:0062935bc214391e99ea05dcdcea96538572198971d85ef2eb20442cef0a6f75",
+      "quote": "萌社区网盘（萌盘）是一款面向广大用户的免费云存储服务，注册即享1TB永久免费空间，萌社区成员可享最大5TB容量。"
+    },
+    {
+      "url": "https://pan.moe/",
+      "date": "2026-11-25",
+      "proved": "the landing page states the free quota in TB",
+      "capture": "sha256:0062935bc214391e99ea05dcdcea96538572198971d85ef2eb20442cef0a6f75",
+      "quote": "萌社区网盘（萌盘）是一款面向广大用户的免费云存储服务，注册即享1TB永久免费空间，萌社区成员可享最大5TB容量。"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:12:45.101Z",
+  "verified_at": "2026-11-25T14:05:44.508Z",
   "history": [],
   "binding": "write-gated",
   "binding_note": "Offers 1 TB of free storage with class 2 WebDAV endpoint access without phone verification. Terms of service section 5.4 explicitly prohibits maintaining multiple accounts, enforcing a strict 1 TB account limit.",

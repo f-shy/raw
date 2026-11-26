@@ -35,13 +35,13 @@
   "interface": [
     "rest"
   ],
-  "interface_detail": "JDownloader 2, pyLoad and IDM plugins documented on the pricing FAQ; web downloader otherwise.",
+  "interface_detail": "JDownloader 2, pyLoad, IDM and an open REST API are listed on the home page; a web panel is available.",
   "tooling": "JDownloader 2, pyLoad, IDM. No API documented publicly.",
   "chaining": "35 GB/day is 1.05 TB/month, enough for the 1 TiB monthly volume, but at PLN 29.99 (USD 7.69) it is above the debrid USD 5 bar and adds a Polish-currency payment step.",
   "limits": [
     {
       "kind": "volume-quota",
-      "value": "35 GB/day on Pro and Lite; 35 GB total on the 24-hour test",
+      "value": "35 GB/day on Pro and Lite; 35 GB total on the 24-hour test; Pro covers 157 hosts and Lite 120 of 157",
       "source": "https://get24.org/pricing"
     },
     {
@@ -50,7 +50,7 @@
       "source": "https://get24.org/pricing"
     }
   ],
-  "limits_note": "Lite covers 122 of 161 hosts and excludes 'Pro hosts' entirely; Pro covers all 161. Only Lite and Pro differ in host coverage, not in daily transfer.",
+  "limits_note": "Lite covers 120 of 157 hosts and excludes Pro hosts; Pro covers all 157. Both paid plans carry the same 35 GB daily transfer.",
   "binding": "volume-quota",
   "binding_note": "35 GB/day is 1.05 TB/month, which just clears 1 TiB, so the daily counter is what binds; on Lite the tighter constraint is the 39 missing hosts, not the bytes.",
   "identity_cost": {
@@ -71,10 +71,45 @@
       "url": "https://get24.org/debrid",
       "date": "2026-10-23",
       "proved": "'Active services 154', 'Files 115 hosts', and per-host counters such as 'Copycase 0.00 / 35 GB' showing the daily counter shape"
+    },
+    {
+      "url": "https://get24.org/pricing",
+      "date": "2026-11-25",
+      "proved": "the paid plans allow 35 GB per day",
+      "capture": "sha256:1cae4cdc26e31ab92bbf5625b5272e2321a4faa65c65b019399143960119068a",
+      "quote": "- Transfer: **35 GB / day**"
+    },
+    {
+      "url": "https://get24.org/pricing",
+      "date": "2026-11-25",
+      "proved": "Lite covers 120 of 157 hosts",
+      "capture": "sha256:1cae4cdc26e31ab92bbf5625b5272e2321a4faa65c65b019399143960119068a",
+      "quote": "- Hosts: **120** of 157"
+    },
+    {
+      "url": "https://get24.org/",
+      "date": "2026-11-25",
+      "proved": "the home page lists an open REST API and three downloader integrations",
+      "capture": "sha256:3d2deaf462c27e16db6de289cec44a39cdf664164d1b8a183c3a6d194d49cbdc",
+      "quote": "Native support for JDownloader 2, pyLoad, IDM, and open REST API for building your own solutions."
+    },
+    {
+      "url": "https://get24.org/pricing",
+      "date": "2026-11-25",
+      "proved": "Pro covers 157 hosts and Lite 120",
+      "capture": "sha256:1cae4cdc26e31ab92bbf5625b5272e2321a4faa65c65b019399143960119068a",
+      "quote": "Pro gives full access to all 157 hosts, including services marked as \"Pro\". Lite supports 120 hosts at a lower price."
+    },
+    {
+      "url": "https://get24.org/pricing",
+      "date": "2026-11-25",
+      "proved": "all devices share the same daily transfer",
+      "capture": "sha256:1cae4cdc26e31ab92bbf5625b5272e2321a4faa65c65b019399143960119068a",
+      "quote": "There is no device limit, but download sessions share your daily transfer."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T01:39:03.000Z",
+  "verified_at": "2026-11-25T09:46:53.124Z",
   "price_per_tb_month": "PLN 29.99/month Lite, PLN 39.99/month Pro (USD 7.69 and USD 10.26 at 3.899348 PLN/USD on 2026-10-23)",
   "history": [],
   "notes": "A Polish service with PLN-only pricing, which is why it does not surface in English comparisons. It clears 100 GiB/month on paper (35 GB/day) but misses the USD 5 bar. Currency conversion from the exchangerate-api USD base read on 2026-10-23.",

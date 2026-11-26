@@ -42,13 +42,13 @@
     },
     {
       "kind": "write-gated",
-      "value": "the plan purchase fails for a HUAWEI ID registered in a country where the cloud storage plan is not available",
+      "value": "Check whether you can purchase a cloud storage plan in the country or region where your HUAWEI ID is registered, as the service is only supported in some countries or regions outside the Chinese mainland.",
       "source": "https://consumer.huawei.com/en/support/content/en-us15804999/"
     }
   ],
   "identity_cost": {
     "kind": "country-phone",
-    "detail": "a HUAWEI ID registered in a country where the plan is sold. The vendor's own support page says the purchase prompt fails otherwise",
+    "detail": "Check whether you can purchase a cloud storage plan in the country or region where your HUAWEI ID is registered, as the service is only supported in some countries or regions outside the Chinese mainland.",
     "country": "cn"
   },
   "reliability_note": "The terms now split 基础服务, unmetered for contacts, SMS and notes, from 会员服务, metered for photos, video and app data. The unmetered half holds no bulk data. Free-space farming exists but is territory-locked to app-install tasks on Huawei handsets",
@@ -78,20 +78,6 @@
       "url": "https://www.v2ex.com/t/1076365",
       "date": "2026-10-21",
       "proved": "the seed pass recorded, at this URL: a 2 TB carpool at CNY 698 for six people at CNY 120 each, 330 GB per person"
-    },
-    {
-      "url": "https://consumer.huawei.com/en/support/content/en-us15804999/",
-      "date": "2026-11-03",
-      "proved": "the vendor support page says the plan purchase depends on the country or region where the HUAWEI ID is registered",
-      "capture": "sha256:0be8ba2339118a70db5d8ade28fc7b61eee82d67f732bf79a5ec1fd5419e9a2c",
-      "quote": "Check whether you can purchase a cloud storage plan in the country or region where your HUAWEI ID is registered, as the service is only supported in some countries or regions outside the Chinese mainland."
-    },
-    {
-      "url": "https://consumer.huawei.com/en/support/content/en-us15804999/",
-      "date": "2026-11-03",
-      "proved": "the support page lists the purchase prompt that says the plan is not yet available",
-      "capture": "sha256:0be8ba2339118a70db5d8ade28fc7b61eee82d67f732bf79a5ec1fd5419e9a2c",
-      "quote": "The user is prompted that the cloud storage plan is not yet available"
     },
     {
       "url": "https://zh.wikipedia.org/zh-cn/中国大陆网盘列表",
@@ -141,6 +127,20 @@
       "proved": "the vendor page states the cloud space has no rate limit",
       "capture": "sha256:863aa6cc21de407cc7d9d9f73a155dba98cf798e3c1f5d8ea6190c2af4bac34a",
       "quote": "华为云空间没有速率限制，上传和下载的速率取决于您的网络环境，具体速率请以您实际使用为准。"
+    },
+    {
+      "url": "https://consumer.huawei.com/en/support/content/en-us15804999/",
+      "date": "2026-11-25",
+      "proved": "the vendor support page states this value",
+      "capture": "sha256:85df0f52b7d4770f5011f866ca6ead76cfddc5c92fdef403ba4602765cf1addf",
+      "quote": "Check whether you can purchase a cloud storage plan in the country or region where your HUAWEI ID is registered, as the service is only supported in some countries or regions outside the Chinese mainland."
+    },
+    {
+      "url": "https://consumer.huawei.com/en/support/content/en-us15804999/",
+      "date": "2026-11-25",
+      "proved": "an unsupported region shows a plan-not-available prompt",
+      "capture": "sha256:85df0f52b7d4770f5011f866ca6ead76cfddc5c92fdef403ba4602765cf1addf",
+      "quote": "The user is prompted that the cloud storage plan is not yet available"
     }
   ],
   "verdict": "fails-quota",

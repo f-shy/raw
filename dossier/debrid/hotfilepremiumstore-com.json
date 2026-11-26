@@ -68,14 +68,39 @@
       "proved": "on 2026-11-03 a direct GET of the product page answered HTTP 302 to the same path with ?SubmitCurrency=1&id_currency=2, then HTTP 404 with 65053 bytes",
       "capture": "sha256:37962a36ae6c37a44f0c89d1e1d6036604333ef9f46afaead5b60f170249da09",
       "quote": "\"status\": 404"
+    },
+    {
+      "url": "https://www.hotfilepremiumstore.com/en/real-debrid/112-official-reseller-of-real-debrid-30-days-premium-account.html",
+      "date": "2026-11-25",
+      "proved": "the product page is gone on the first-party store",
+      "capture": "sha256:c4b650d3deef44fa7a2636113109b0ace9bc5fdf9649470225fdfa1c7a91af63",
+      "quote": "The page you are looking for was not found."
+    },
+    {
+      "url": "probe:https://www.hotfilepremiumstore.com/en/real-debrid/112-official-reseller-of-real-debrid-30-days-premium-account.html",
+      "date": "2026-11-25",
+      "proved": "a direct GET of the product URL answered 404 after a 302 to the currency variant",
+      "capture": "sha256:5aa9f9fa74f4a6f04fc6c4ab7c8d145e7d7311fe9c369122a4085886a689a997",
+      "quote": "\"status\": 404"
+    },
+    {
+      "url": "https://www.hotfilepremiumstore.com/en/real-debrid/112-official-reseller-of-real-debrid-30-days-premium-account.html",
+      "date": "2026-11-25",
+      "proved": "the store's error page still lists payment rails, but no Real-Debrid product is shown",
+      "capture": "sha256:c4b650d3deef44fa7a2636113109b0ace9bc5fdf9649470225fdfa1c7a91af63",
+      "quote": "Secure Payment 100% Secure Credit/Debit Card, NetBanking, Wallets, or UPI"
     }
   ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:20:00.000Z",
+  "verdict": "dead",
+  "verified_at": "2026-11-25T09:46:59.422Z",
   "price_per_tb_month": "INR 900 per 30 days for Real-Debrid (reported)",
   "history": [],
   "notes": "Carried at the reported rung on purpose: the Indian price set is more useful with a third point even when one is weaker, provided the weakness is stated. Trigger condition: the store renders, or the price is contradicted.",
   "extras": {
-    "price_list_india": "AllDebrid ₹500 (premiuminrupees), Debrid-Link ₹750 (247premiumcart), Real-Debrid ₹900 (this store)"
+    "price_list_india": "AllDebrid ₹500 (premiuminrupees), Debrid-Link ₹750 (247premiumcart), Real-Debrid ₹900 (this store)",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

@@ -90,10 +90,24 @@
       "url": "https://send.now/register",
       "date": "2026-10-23",
       "proved": "signup needs only a username and a 14-character password; no card or phone is asked for on the form"
+    },
+    {
+      "url": "https://send.now/",
+      "date": "2026-11-25",
+      "proved": "guests still lose files after 15 days of inactivity",
+      "capture": "sha256:c164a827e9534a838605dd4f3b2037cec5914eaa980770b46e90241742301b99",
+      "quote": "Be aware! As a guest user, your files might be lost after 15 days of inactivity."
+    },
+    {
+      "url": "https://send.now/pricing",
+      "date": "2026-11-25",
+      "proved": "Premium still includes 1000 GB of direct-link traffic",
+      "capture": "sha256:1859ace5b9884c227c7f1aa3f9bff8a4ee18c6d54997b9b3d5241b5ca310464b",
+      "quote": "1000 GB direct link traffic"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:41:32.718Z",
+  "verified_at": "2026-11-25T09:46:41.783Z",
   "price_per_tb_month": "EUR 1.50 per TB-month of storage at Premium (EUR 14.99 for 10 TB); EUR 3 per TB of direct-link egress",
   "history": [],
   "notes": "File hosting service providing native WebDAV and FTP access alongside REST API endpoints without requiring custom wrappers.",

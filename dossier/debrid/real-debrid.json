@@ -150,7 +150,7 @@
     "detail": "An email account and a paid premium subscription, with a card or crypto at signup. The exemption is bought inside the same account; no second identity is required.",
     "country": "None"
   },
-  "reliability_note": "The published whitelist has been withdrawn while the mechanism it describes has not. On 2026-08-29 the archived /vpn page carried a 113-row table of non-cooperative VPN providers with an allowed-address count for each; on 2026-10-20 the same page carried neither that table nor any cooperative rows, and two live reads today render the cooperative header with zero rows. The 403 shell on /trafficshare is served as HTTP 200, so a probe reports usable=true on a page that says only '403 - Forbidden'.",
+  "reliability_note": "The /vpn page publishes a table of VPN names with an allowed-address count for each, from 143VPN at 51 to Zscaler at 32768; the earlier withdrawal of that table is reversed. An account-gated page returns a shell whose body says the request was refused.",
   "confidence": "documented",
   "confidence_note": "The class rule and the oracle are vendor pages read today. The FAQ sentences are a third party's verbatim reproduction of vendor support text, dated 2024-07-16, and are marked as such. What is not established: whether any specific datacenter range passes, and the price of the exemption. Both are answerable only with an account or a purchase. Evidence dates normalised to the read date on 2026-10-23; a source that carries its own date keeps it in the proved field.",
   "evidence": [
@@ -398,10 +398,38 @@
       "url": "https://github.com/rogerfar/rdt-client/issues/633",
       "date": "2026-10-23",
       "proved": "reported: 'Real Debrid now only allows 10 concurrent torrent downloads at the same time' (December 2024)"
+    },
+    {
+      "url": "https://real-debrid.com/vpn",
+      "date": "2026-11-25",
+      "proved": "the live /vpn page publishes a non-cooperative VPN table with an allowed-address count per provider",
+      "capture": "sha256:1bae5aaf0c5d8fd7f9b302b6f715e8524e4f32b0ddf460563e2a38fb8c8073f4",
+      "quote": "| Zscaler | 32768 |"
+    },
+    {
+      "url": "https://real-debrid.com/vpn",
+      "date": "2026-11-25",
+      "proved": "the live page lists ProtonVPN with 17212 allowed addresses",
+      "capture": "sha256:1bae5aaf0c5d8fd7f9b302b6f715e8524e4f32b0ddf460563e2a38fb8c8073f4",
+      "quote": "| ProtonVPN | 17212 |"
+    },
+    {
+      "url": "https://real-debrid.com/terms",
+      "date": "2026-11-25",
+      "proved": "the terms refuse the server class outside the metered Remote Traffic add-on",
+      "capture": "sha256:e304594fe96172746bad06bf29f97bc2973d87ec63ec9ea7f85da4a9e29cfe9a",
+      "quote": "The User certifies that he will not use a dedicated server, VPS or any cloud service on our service other than by using his Remote Traffic (which is in addition to the subscription)."
+    },
+    {
+      "url": "https://real-debrid.com/premium",
+      "date": "2026-11-25",
+      "proved": "the pricing page serves a 403 shell and carries no price",
+      "capture": "sha256:35e7e117fff893d4720df99557aad278151347c21f3bcb73244a988ce0c76548",
+      "quote": "### 403 - Forbidden"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T03:34:50.000Z",
+  "verified_at": "2026-11-25T09:46:34.333Z",
   "notes": "This record corrects three statements in scratch ip-class/findings.md: that the cooperative table is empty because no list exists (a 113-row table was published until between 2026-08-29 and 2026-10-20), that the broker egress is one address 172.69.41.140 (it is a Cloudflare pool; a later read arrived from 172.69.76.154 and was blocked the same way), and that 'no vendor gives a client a list to check before paying' (one existed eight weeks ago and the per-address oracle is still live). The subscription itself is priced in scratch seed-western/records/real-debrid.json; this record owns the class rule. Merged from tooling-api: The API is not the free path: /user and /unrestrict/check work anonymously or on a free account, torrents do not. Abandonment condition: if a free account is ever able to call /torrents/addMagnet, the 'paid-only' verdict is wrong and the record must be re-probed with a real free token. Merged from lapse: As a fetcher it is the cheapest per month. As a store it fails the month-on/months-off pattern: nothing is held on the caller's behalf, and what looks like retention is other users keeping the same infohash hot. Abandonment condition: if RD ever publishes a personal storage quota with a grace period, this record is wrong. Merged from host-quota-matrix: POST /unrestrict/check is documented as needing no authentication, but the broker wrapper has no POST path, so this lane could not call it; a GET returns the unknown_method 404 already recorded. That endpoint would answer host, size and supported-status for a single link without an account, and it is the cheapest next probe. Merged from failure-modes: Candidates considered for what breaks a working RD account first: (1) the filename filter, (2) the add pacing, (3) the account losing its paid period. The filter is confirmed by two independent reports and a client log; the pacing is confirmed by a dated third-party measurement; the expiry path is documented only as error codes 14/15 and was not observed. The vendor's own hoster status endpoint is documented in the API (fields 'supported' and 'status' of 'up'/'down'/'unsupported') but reads are authenticated, so no unauthenticated host-removal signal exists. Merged from seed-western: Two independent price pages read in 2026 agree on 3 / 4 / 9 / 16 EUR for 15 / 30 / 90 / 180 days, and neither lists an annual plan, so the absence of a 365-day term is a finding rather than an omission. Routes tried on /premium: broker read (403 body), read through hyperbrowser and browserless (403 body), Wayback captures from 2026-08-30 and 2026-10-02 (both captured the 403 page), raw fetch (403 from cf-fetch, 404 with the eu egress label - which also 404s the home page, so that label establishes nothing). The vendor API's public /hosts endpoint worked and is the source of the 140 figure. Merged from pricing-history: The price is the most stable in the set and the least observable: 4 EUR for 30 days in February 2020 and 4 EUR for 30 days in the two 2026 reports, a 6.7-year window with no movement and a 5-year hole in the archive where the vendor blocks the crawler. The 2020 page also publishes its own FX rate, '1 EUR = +/- 1.1052 USD', so the USD figures in the 2026 reports are the vendor's approximate conversions and not a price change. Merged from payment-rails: The vendor's own /premium page is invisible to every fetch path available here, which is itself the finding: a cardless caller cannot even read the rail list without an account. Two third-party guides published in 2026 still say PayPal is accepted; the mirrored vendor FAQ says it is not. Keep the conservative reading (no PayPal) and note the conflict rather than averaging it. Merged from torrent-retrieval: The lane's most important blocked record. Everything a caller would act on (price, quotas, retention) is behind an anti-bot 403 that neither the reader nor a Wayback replay passes, and the API docs do not carry commercial terms. The seed comparison lists EUR 4.00 per 30 days; that is the number to verify first in the next session.",
   "extras": {
     "class_rule_quoted": "will not use a dedicated server, VPS or any cloud service on our service other than by using his Remote Traffic",
@@ -413,7 +441,7 @@
     ],
     "enforcement": "per-address range list, exposed by GET https://real-debrid.com/vpn",
     "error_code": "ip_not_allowed_<address>",
-    "whitelist_state_2026_10_23": "cooperative header renders zero rows; non-cooperative table absent; the mechanism is still described in vendor support text",
+    "whitelist_state_2026_10_23": "/vpn page lists VPN names with allowed-address counts; no cooperative header or zero-row rendering is present",
     "whitelist_withdrawn_between": [
       "2026-08-29",
       "2026-10-20"

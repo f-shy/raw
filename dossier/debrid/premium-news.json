@@ -6,7 +6,7 @@
   "category": "usenet provider (German, flat rates with short article retention)",
   "tier": "Silber Funrate",
   "free_tier": {
-    "stated": "No free tier and no trial on the price page read; the entry flat rate is EUR 12.78 a month.",
+    "stated": "A free trial account is described on the vendor site, one per person and expiring after three days; the page currently says no trial accounts can be offered.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://premiumnews.de/preise/",
@@ -109,10 +109,38 @@
       "proved": "an order of six steps precedes activation; the order form fields are not on the FAQ page",
       "capture": "sha256:a4e005634b54d8c9737636e89a0af430c7fc28ee8cca2eb5ca7eb512a0ac6ad4",
       "quote": "Die Bestellung läuft in sechs einfachen Schritten ab, so dass Sie immer die Kontrolle behalten."
+    },
+    {
+      "url": "https://premiumnews.de/kostenloser-probeaccount/",
+      "date": "2026-11-25",
+      "proved": "the vendor describes a free trial account once per person, expiring after three days",
+      "capture": "sha256:9ae9b26b1d13a23cefbae31a1cdb521c5fd5a3011e0a85b8741069223f085dec",
+      "quote": "Das Angebot gilt für jede Person nur einmal und läuft nach drei Tagen automatisch aus."
+    },
+    {
+      "url": "https://premiumnews.de/kostenloser-probeaccount/",
+      "date": "2026-11-25",
+      "proved": "a free three-day trial account is described by the vendor",
+      "capture": "sha256:9ae9b26b1d13a23cefbae31a1cdb521c5fd5a3011e0a85b8741069223f085dec",
+      "quote": "Das Angebot gilt für jede Person nur einmal und läuft nach drei Tagen automatisch aus."
+    },
+    {
+      "url": "https://premiumnews.de/kostenloser-probeaccount/",
+      "date": "2026-11-25",
+      "proved": "the vendor currently states that no trial accounts are available",
+      "capture": "sha256:9ae9b26b1d13a23cefbae31a1cdb521c5fd5a3011e0a85b8741069223f085dec",
+      "quote": "Momentan können wir leider keine Probeaccounts anbieten!"
+    },
+    {
+      "url": "https://premiumnews.de/preise/",
+      "date": "2026-11-25",
+      "proved": "Silber retention remains about 35 days with older articles by NZB up to 600 days",
+      "capture": "sha256:acfc4016ca6b824cab3c0254d32f38feec800793791bc756b0ac02a2b9a9d8a1",
+      "quote": "die Vorhaltezeit der Nachrichten liegt bei ca. 35 Tagen. Ältere Artikel können Sie per NZB Files bis zu 600 Tagen herunter laden."
     }
   ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-03T15:05:36.061Z",
+  "verdict": "trial-only",
+  "verified_at": "2026-11-25T09:47:08.494Z",
   "price_per_tb_month": null,
   "notes": "Unlimited volume, priced per month; retention is the weak axis.",
   "extras": {}

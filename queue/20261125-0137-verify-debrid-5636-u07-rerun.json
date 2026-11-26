@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u07-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Re-check these debrid records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/army-of-strangers $.free_tier.stated: Capture shows a casino (slots, live casino, poker, sports betting) but no span mentions lotteries, a redirect, or the former NZB forum.\n- debrid/binsearch $.free_tier.stated: Span is about retention. The value's 98,890 bytes, 174 pages, 4,229-byte NZB with 9 files and no-account facts are not in the capture (first-party probe numbers).\n- debrid/nzbgrabit $.free_tier.stated: Supports free account cannot grab without upgrading. The word Supporter tier does not appear in the capture, so the paid Supporter tier claim is not proven.\n- debrid/nzbgrabit $.free_tier.stated: Same as c11: no Supporter tier in the capture.\n- debrid/the-hive $.free_tier.stated: Registration free is proven; 1 NZB per day, limited forum access and no API are not in this capture.\n- debrid/the-hive $.free_tier.unit: Nothing in the capture states an allowance unit of objects.",
+ "scope": {
+  "rids": [
+   "debrid/seedbox-org-ua",
+   "debrid/nzbforyou",
+   "debrid/nzbgrabit",
+   "debrid/filesharingtalk",
+   "debrid/the-hive",
+   "debrid/big-bit-org",
+   "debrid/army-of-strangers",
+   "debrid/binsearch"
+  ]
+ },
+ "origin": "audit u84 of 20261125-0137-verify-debrid-5636/u07 failed: 6 of 23 unsupported",
+ "created": "2026-11-25T15:10:37Z"
+}

@@ -5,8 +5,8 @@
   "url": "https://www.nextfiles.one/en/secure-cloud-for-private-customers-and-associations-29/",
   "category": "managed Nextcloud and Seafile, paid only",
   "free_tier": {
-    "stated": "No free tier. A one-month free trial on the Nextcloud CE plans. Nextcloud CE: Premium Silver 1 TB at EUR 6.99/month, Premium Gold 2 TB at EUR 19.99/month, Premium Platin 3 TB at EUR 39.99/month, Premium Max 5 TB at EUR 99.99/month. Seafile Pro plans are priced separately on the Seafile page.",
-    "unit": "TiB",
+    "stated": "Test for free for one month and check - cancel anytime",
+    "unit": "none",
     "metered_on": "stored-bytes",
     "source_url": "https://www.nextfiles.one/en/secure-cloud-for-private-customers-and-associations-29/",
     "read_on": "2026-10-22"
@@ -18,7 +18,7 @@
   },
   "retention": {
     "stated": "Contract term from one month with automatic renewal for the same period; a consumer may cancel any time before a new billing period. Disaster-recovery backups of the last 7 days are kept, with managed or own backups offered for up to 10 years",
-    "days": null,
+    "days": 7,
     "source_url": "https://www.nextfiles.one/en/secure-cloud-for-private-customers-and-associations-29/"
   },
   "egress": {
@@ -44,7 +44,7 @@
   ],
   "identity_cost": {
     "kind": "card",
-    "detail": "a nextfiles.one account and a card. The trial needs no card, per the plan text, and the paid order does. No identity document stated",
+    "detail": "unverified: the page lists payment options but does not say the trial needs no card",
     "country": null
   },
   "reliability_note": "Germany, ISO 27001 data centres, renewable power. The per-terabyte price rises with size, which is the opposite of every other reseller here and is the signal that the large tiers are not built for price comparison",
@@ -90,16 +90,65 @@
       "proved": "the private-customer Nextcloud CE plan table was re-read on 2026-11-19",
       "capture": "sha256:c089e9718589528faa3d6be960e175160179f843d926c33a33eea0b6e1b62b65",
       "quote": "1 TB storage space"
+    },
+    {
+      "url": "https://www.nextfiles.one/en/secure-cloud-for-private-customers-and-associations-29/",
+      "date": "2026-11-25",
+      "proved": "disaster-recovery backups cover the last 7 days",
+      "capture": "sha256:906548f2b415285aeaa229b1f2343c031600140c2fa416151a229129f94044f3",
+      "quote": "Disaster Recovery data backup with anytime access to the backups of the last 7 days"
+    },
+    {
+      "url": "https://www.nextfiles.one/en/secure-cloud-for-private-customers-and-associations-29/",
+      "date": "2026-11-25",
+      "proved": "the plan table prices storage in TB",
+      "capture": "sha256:906548f2b415285aeaa229b1f2343c031600140c2fa416151a229129f94044f3",
+      "quote": "1 TB storage space"
+    },
+    {
+      "url": "https://www.nextfiles.one/en/secure-cloud-for-private-customers-and-associations-29/",
+      "date": "2026-11-25",
+      "proved": "the page offers a one-month free trial",
+      "capture": "sha256:906548f2b415285aeaa229b1f2343c031600140c2fa416151a229129f94044f3",
+      "quote": "Test for free for one month and check - cancel anytime"
+    },
+    {
+      "url": "https://www.nextfiles.one/en/secure-cloud-for-private-customers-and-associations-29/",
+      "date": "2026-11-25",
+      "proved": "five payment options are listed",
+      "capture": "sha256:906548f2b415285aeaa229b1f2343c031600140c2fa416151a229129f94044f3",
+      "quote": "We offer various payment options: invoice, bank transfer, direct debit, PayPal, and credit card."
+    },
+    {
+      "url": "probe:https://www.nextfiles.one/en/secure-cloud-for-private-customers-and-associations-29/",
+      "date": "2026-11-25",
+      "proved": "the plan page is still served",
+      "capture": "sha256:1150eb4d086fd9fe5671f1c33efd0ad4591c0f8f7263adad3c86fb6a88b50aad",
+      "quote": "\"status\": 200"
+    },
+    {
+      "url": "https://www.nextfiles.one/en/secure-cloud-for-private-customers-and-associations-29/",
+      "date": "2026-11-25",
+      "proved": "the one-month trial is attached to the priced Premium Silver plan; no free storage quantity is published",
+      "capture": "sha256:906548f2b415285aeaa229b1f2343c031600140c2fa416151a229129f94044f3",
+      "quote": "1 Month Free Trial\n\n6,99 € \n/ Month"
+    },
+    {
+      "url": "https://www.nextfiles.one/en/secure-cloud-for-private-customers-and-associations-29/",
+      "date": "2026-11-25",
+      "proved": "the free offer is a one-month trial, cancellable at any time",
+      "capture": "sha256:906548f2b415285aeaa229b1f2343c031600140c2fa416151a229129f94044f3",
+      "quote": "Test for free for one month and check - cancel anytime"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:12:44.737Z",
+  "verified_at": "2026-11-25T14:21:57.881Z",
   "history": [],
   "price_per_tb_month": "EUR 6.99/TB/month at 1 TB rising to EUR 20.00/TB/month at 5 TB, including VAT, read 2026-11-19",
   "binding": "per-object-cap",
-  "binding_note": "The price curve decides the tier and the tier is small, so the unstated per-file cap is the number a buyer cannot plan around. At EUR 10/TB/month on the 10 TB plan it is also four times Serverdiscounter, which is why it is recorded as a small-instance option.",
+  "binding_note": "The price curve decides the tier and the tier is small, so the unstated per-file cap is the number a buyer cannot plan around. At EUR 20.00/TB/month on the 5 TB plan the rate is almost three times the 1 TB one, which is why it is recorded as a small-instance option.",
   "confidence_note": "The Nextcloud CE plan table was read live. The Seafile side was read live too and contradicts the seed, so the record carries what the live page said and names the disagreement. `documented`: no plan was ordered and no WebDAV endpoint was exercised.",
-  "notes": "Read completely because the seed's figure needed checking: the four tiers are confirmed and the per-terabyte curve really is inverted, EUR 4.99/TB at 1 TB rising to EUR 10/TB at 10 TB. The seed also gave a Seafile price list that the live Seafile page renders differently, as Business S/M/L by user count rather than as per-terabyte sizes; the seed's 'EUR 9.90 for 1 TB' does not appear, so the Seafile side is recorded from the live page only.",
+  "notes": "Read completely because the seed's figure needed checking: the four tiers are confirmed and the per-terabyte curve really is inverted, EUR 6.99/TB at 1 TB rising to EUR 20.00/TB at 5 TB. The seed also gave a Seafile price list that the live Seafile page renders differently, as Business S/M/L by user count rather than as per-terabyte sizes; the seed's 'EUR 9.90 for 1 TB' does not appear, so the Seafile side is recorded from the live page only.",
   "extras": {
     "access_mode": "paid",
     "free_tier_exists": false,

@@ -63,7 +63,7 @@
     "detail": "An international card is accepted directly: 'LinksVIP chấp nhận thanh toán Thẻ Ghi nợ hoặc Tín dụng quốc tế Visa/MasterCard.' Vietnamese rails are offered as an alternative (MoMo, ZaloPay, bank transfer, scratch card), so the card is the foreigner's route and the local rails are the shortcut.",
     "country": null
   },
-  "reliability_note": "The vendor's own notice says the Fshare get-link path is unstable ('Hiện tại hệ thống Get link Fshare hoạt động không ổn định') and Rapidgator was under maintenance at read time; support runs through a Facebook page, not a ticket system.",
+  "reliability_note": "The pricing page warns that MoMo payments are delayed up to 12h: 'Hiện tại thanh toán qua Momo sẽ bị delay lên tới 12h.' The one-day trial excludes Nitroflare, Filenext and Katfile.",
   "confidence": "documented",
   "confidence_note": "The premium page was fetched raw and the price table, the card sentence and the per-host maximums were read from the HTML today. A successful get-link of one Fshare file from outside Vietnam would move this to measured.",
   "evidence": [
@@ -81,10 +81,38 @@
       "url": "https://linksvip.net/get-link.html",
       "date": "2026-10-23",
       "proved": "'Limit 50 links per host every 24 hours. All other Filehosts are unmetered.' and the same 80 GB Fshare row"
+    },
+    {
+      "url": "https://linksvip.net/premium.html",
+      "date": "2026-11-25",
+      "proved": "trial is sold at VND 20,000 for one day, 30 days at VND 150,000, lifetime VND 6.9m, Visa/MasterCard accepted and MoMo delayed",
+      "capture": "sha256:986733050a1831b8ebda13d5bf63376f5f854607d80f41f1470d5d3d7e75e8d0",
+      "quote": "<td>Trial 1 ngày *</td> ... <td>20.000đ</td> ... <td>150.000đ</td> ... <td>6.900.000đ</td> ... * Gói Trial 1 ngày không hỗ trợ Nitroflare, Filenext, Katfile ... LinksVIP chấp nhận thanh toán Thẻ Ghi nợ hoặc Tín dụng quốc tế Visa/MasterCard. ... Hiện tại thanh toán qua Momo sẽ bị delay lên tới 12h."
+    },
+    {
+      "url": "https://linksvip.net/premium.html",
+      "date": "2026-11-25",
+      "proved": "per-host daily maximum table still runs from 3 GB on Rapidgator to 80 GB on Fshare",
+      "capture": "sha256:9cfe7d8ca296dfabbf5ef3d5711e0f5a78ea71ebfb6ff247005a2b6a4b023129",
+      "quote": "| 1fichier.com 1fichier |  | 0 MB | 10 GB | ... | Mega.nz Mega |  | 0 MB | 50 GB | ... | Rapidgator.net Rapidgator |  | 0 MB | 3 GB | ... | fshare.vn Fshare |  |  | 80 GB |"
+    },
+    {
+      "url": "https://linksvip.net/get-link.html",
+      "date": "2026-11-25",
+      "proved": "the 50 links per host per 24 hours rule is still stated",
+      "capture": "sha256:56dcc83a0fd6b16e00c4e3066818dc25d9323b016a9ea58b98848504e26c83d6",
+      "quote": "Limit 50 links per host every 24 hours."
+    },
+    {
+      "url": "https://linksvip.net/premium.html",
+      "date": "2026-11-25",
+      "proved": "the vendor states a MoMo payment delay of up to 12 hours",
+      "capture": "sha256:986733050a1831b8ebda13d5bf63376f5f854607d80f41f1470d5d3d7e75e8d0",
+      "quote": "Hiện tại thanh toán qua Momo sẽ bị delay lên tới 12h."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:20:00.000Z",
+  "verified_at": "2026-11-25T09:46:51.630Z",
   "price_per_tb_month": "VND 150,000 per 30 days; per-host daily caps apply (3 GB/day on Rapidgator-class hosts, 80 GB/day on Fshare)",
   "history": [],
   "notes": "The clearest card-payable Vietnamese service found: it is a Vietnamese-operated shop that takes Visa/MasterCard and also sells into the local wallet economy. Caveat is coverage, not access: 3 GB/day on the hosts a foreign client actually wants. Trigger condition: the card rail disappears, or the Fshare daily cap is withdrawn.",

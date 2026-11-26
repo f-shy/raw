@@ -1,0 +1,15 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u27-q03",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "What fields does the file2.me sign-up form ask for, and does the send.now API answer 429 after five wrong-key requests in five minutes or always answer HTTP 200?",
+ "why": "The file2.me account form and the send.now API error behaviour were not re-read on 2026-11-25; no account was created and no wrong-key request was sent.",
+ "scope": {
+  "rids": [
+   "debrid/file2-me",
+   "debrid/send-now"
+  ]
+ },
+ "origin": "20261125-0137-verify-debrid-5636/u27",
+ "created": "2026-11-25T09:46:41Z"
+}

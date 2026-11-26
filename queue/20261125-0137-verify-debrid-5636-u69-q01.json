@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u69-q01",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "debrid/fakirdebrid $.extras.host_matrix.hosts_listed holds 64 from a 2026-10-23 probe, but two first-party status reads on 2026-11-25 each list 61 host rows. Should the field be set to 61, given that no measured-rung probe can carry the current row count?",
+ "why": "Two first-party status-page reads on 2026-11-25 each list 61 host rows; the record holds 64 at rung measured from a probe read on 2026-10-23. Direct probes of the origin answer HTTP 403 (Cloudflare challenge), so no probe record exists at the measured rung to carry a 61-row count, and this lane cannot lower the record rung.",
+ "scope": {
+  "rids": [
+   "debrid/fakirdebrid"
+  ]
+ },
+ "origin": "20261125-0137-verify-debrid-5636/u69",
+ "created": "2026-11-25T12:00:08Z"
+}

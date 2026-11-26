@@ -47,7 +47,7 @@
     "detail": "No signup path was reachable, so no identity was ever requested. This is the absence of a gate, not a free one.",
     "country": null
   },
-  "reliability_note": "The domain answered 404 at the origin through network requests's read path; whether the business still trades under another domain was not established.",
+  "reliability_note": "LightningUsenet.com is for sale",
   "confidence": "documented",
   "confidence_note": "A 404 from the origin is a documented observation with a date. It does not prove the company is gone, only that this host serves nothing.",
   "evidence": [
@@ -60,10 +60,17 @@
       "url": "https://lightningusenet.com/",
       "date": "2026-10-23",
       "proved": "\"exa read the URL and reports CRAWL_NOT_FOUND (the origin answered 404)\" - the host serves no page"
+    },
+    {
+      "url": "https://lightningusenet.com/",
+      "date": "2026-11-26",
+      "proved": "the captured first-party domain shows a HugeDomains sale listing",
+      "capture": "sha256:4848a1d775a99ebca1c17424aa6d212fc94ec1acb4483218b1449a88e2b20a44",
+      "quote": "- Title: LightningUsenet.com is for sale | HugeDomains"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T02:20:22.000Z",
+  "verified_at": "2026-11-26T01:10:09.783Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "Repeatability: not applicable. If the domain revives, the record changes to whatever the new page says, with a history entry; it is not deleted.",

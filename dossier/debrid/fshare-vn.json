@@ -14,7 +14,7 @@
     "notes": "A free account exists and is what get-link shops resell access to; the site itself promotes VIP and Fcode as the paid paths. No free-tier quota sentence was found."
   },
   "per_object_cap": {
-    "stated": "not stated on the pages read",
+    "stated": "The Directlink plan states a file-size maximum of 3000GB; no cap is published for the VIP or Fcode download paths.",
     "bytes": null,
     "source_url": "https://blog.fshare.vn/dac-quyen-vip-fshare.html",
     "notes": ""
@@ -60,8 +60,8 @@
   "binding": "none",
   "binding_note": "At 1 TiB/month the requirement is 34 GB/day and the VIP allowance is 300 GB/day, so no throughput constraint binds. What stops a registrant outside the country is payment, recorded in identity_cost.",
   "identity_cost": {
-    "kind": "country-phone",
-    "detail": "Every published rail is Vietnamese: 'Mua Fcode bằng MoMo/ShopeePay/FPT Pay/VNPAY' or SMS 'FCODE gửi 8700 (Áp dụng cho các mạng Viettel, Mobifone, Vinaphone)'; VIP is also sold by domestic bank transfer to a named account. No card, PayPal or crypto rail appears on the Fcode or VIP pages.",
+    "kind": "card",
+    "detail": "Fcode is bought with MoMo/ShopeePay/FPT Pay/VNPAY or by SMS on Viettel, Mobifone and Vinaphone; the home page also names Visa cards, phone cards and SMS as payment methods.",
     "country": "Vietnam"
   },
   "reliability_note": "Fcode delivery depends on a live QR scan inside a Vietnamese wallet app or an SMS from a Vietnamese carrier; a code that is not copied within the 12 h window is lost, and get-link shops report the Fshare get-link path itself as unstable.",
@@ -92,10 +92,66 @@
       "url": "https://blog.fshare.vn/canh-bao-nhung-tac-hai-va-nguy-co-xay-ra-khi-getlinks-fshare-tu-cac-website-khong-dang-tin-cay.html",
       "date": "2026-10-23",
       "proved": "the host warns against the get-link layer and names why the shops are unreliable: 'người dùng sẽ bị giới hạn dung lượng dữ liệu tải, số lượng lượt tải trong ngày ... tốc độ tải không ổn định, dữ liệu khi tải xuống bị đứt quãng'"
+    },
+    {
+      "url": "https://blog.fshare.vn/dac-quyen-vip-fshare.html",
+      "date": "2026-11-25",
+      "proved": "the Directlink plan states a 3000 GB file-size limit",
+      "capture": "sha256:14076936a9acf52a74ead13230bf64bafbc8bfd705b4484892a5888b3699e0aa",
+      "quote": "tối đa 3000GB"
+    },
+    {
+      "url": "https://www.fshare.vn/",
+      "date": "2026-11-25",
+      "proved": "the Fshare home page names Visa cards among payment methods",
+      "capture": "sha256:d407099e945da0883795cb77d02ad9243702ff258abe9a31a81dfe32b8de57eb",
+      "quote": "Đa dạng các hình thức thanh toán từ ví điện tử đến các loại thẻ Visa, thẻ cào điện tử, tin nhắn SMS…"
+    },
+    {
+      "url": "https://www.fshare.vn/fcode",
+      "date": "2026-11-25",
+      "proved": "the wallet Fcode is 20,000 VND for 10 downloads in 12 hours with a 50 GB allowance",
+      "capture": "sha256:f6f905c146780d9d35f3cc297419f26bf06bef76514949954d409470935ae6b1",
+      "quote": "**20.000 VND** Cho 10 lượt tải/12h/50GB dung lượng tải khi **mua Fcode bằng MoMo/ShopeePay/FPT Pay/VNPAY.**"
+    },
+    {
+      "url": "https://www.fshare.vn/fcode",
+      "date": "2026-11-25",
+      "proved": "the SMS Fcode is bought through three named Vietnamese carriers",
+      "capture": "sha256:f6f905c146780d9d35f3cc297419f26bf06bef76514949954d409470935ae6b1",
+      "quote": "👉 Gửi tin nhắn theo cú pháp: **FCODE** gửi **8700** (Áp dụng cho các mạng Viettel, Mobifone, Vinaphone)"
+    },
+    {
+      "url": "https://blog.fshare.vn/dac-quyen-vip-fshare.html",
+      "date": "2026-11-25",
+      "proved": "VIP download allowance is up to 300 GB per day",
+      "capture": "sha256:14076936a9acf52a74ead13230bf64bafbc8bfd705b4484892a5888b3699e0aa",
+      "quote": "**Tải dữ liệu không giới hạn tốc độ**: Với tài khoản VIP, bạn có thể tải dữ liệu với tốc độ tối đa lên đến 300GB mỗi ngày, giúp tiết kiệm thời gian và tăng hiệu quả công việc."
+    },
+    {
+      "url": "https://blog.fshare.vn/dac-quyen-vip-fshare.html",
+      "date": "2026-11-25",
+      "proved": "VIP storage is 300 GB of which 50 GB is guaranteed against deletion",
+      "capture": "sha256:14076936a9acf52a74ead13230bf64bafbc8bfd705b4484892a5888b3699e0aa",
+      "quote": "dung lượng lưu trữ 300GB trong đó có 50GB lưu trữ đảm bảo (file không bị xóa và được giữ an toàn trong suốt thời gian sử dụng gói dịch vụ)."
+    },
+    {
+      "url": "https://www.fshare.vn/payment/service/package-vip",
+      "date": "2026-11-25",
+      "proved": "the VIP 30-day package costs 90,000 VND",
+      "capture": "sha256:1ee991e4ccad66dbe33b6a5f649634ef8b50f7fddb7dd930dd3bc6e6bde503b9",
+      "quote": "**Siêu tiết kiệm, chỉ từ 3.000Đ/ ngày (VIP 30 ngày/ 90.000Đ)**"
+    },
+    {
+      "url": "https://api.fshare.vn/payment/package/?type=vip",
+      "date": "2026-11-25",
+      "proved": "a 4-day VIP package is sold by SMS at 15,000 VND",
+      "capture": "sha256:af2fab8c2718d0644c31737aed981f51eed14805e0c2f0983b391f3f3c739f70",
+      "quote": "VIP 4 ngày – 15.000đ không giới hạn lượt tải"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-23T02:20:00.000Z",
+  "verified_at": "2026-11-25T09:46:38.369Z",
   "price_per_tb_month": "VND 90,000 per 30 days (VIP, 300 GB/day cap); VND 20,000 per 50 GB Fcode",
   "history": [],
   "notes": "The Vietnamese host at the centre of the local get-link economy. Read directly rather than through a comparison site. The storage plan (1 TB-100 TB, VND 450,000 per 3 months for 1 TB per FPT's page) is a separate product and is not what the get-link shops resell. Trigger condition: Fshare publishes a card or international rail for Fcode.",

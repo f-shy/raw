@@ -5,7 +5,7 @@
   "category": "Usenet NZB link forum (redirects to a parking host)",
   "tier": "free",
   "free_tier": {
-    "stated": "none: the domain redirects to a parking host that does not resolve. A third-party listing described a community forum sharing NZB links with open registration.",
+    "stated": "none: the former NZB link forum is gone; the domain now redirects to a third-party online casino (casino, sports betting, poker and lotteries) with no NZB index or free tier.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://army-of-strangers.biz/",
@@ -34,14 +34,14 @@
   "interface": [
     "unknown"
   ],
-  "interface_detail": "none reachable: a request answered HTTP 302 to a parking host (ww80 subdomain of the same domain) whose name then failed to resolve.",
+  "interface_detail": "None reachable for an NZB index: a first-party read of the domain now redirects to a third-party online casino site",
   "endpoint": "https://army-of-strangers.biz/",
   "tooling": "none: a client cannot reach the forum.",
   "chaining": "none: replace it with a reachable index.",
   "limits": [
     {
       "kind": "request-rate",
-      "value": "none applicable: the domain redirects to a parking host",
+      "value": "none applicable: a probe read a client-side redirect page at the domain, and no NZB index is served",
       "source": "probe:https://army-of-strangers.biz/"
     }
   ],
@@ -55,7 +55,7 @@
   },
   "reliability_note": "The domain answers HTTP 302 to a parking host whose name does not resolve, and a public resolver returns SERVFAIL for the domain itself.",
   "confidence": "measured",
-  "confidence_note": "The redirect and the resolver failure were read today; that the redirect target is a parking page is inferred from its name and the failed resolution, not read.",
+  "confidence_note": "The client-side redirect at the domain was read by a probe on 2026-11-25; a pinned first-party read that day landed on a third-party casino registration page.",
   "evidence": [
     {
       "url": "probe:https://army-of-strangers.biz/",
@@ -77,6 +77,55 @@
       "capture": "sha256:3125b505eca26d74096a6985446593dbb6eb97637bbd1d4543eaa49be6387223",
       "quote": "Community-driven forum sharing NZB links, not hosting files directly.",
       "proved": "third-party: the listing described a community forum sharing NZB links"
+    },
+    {
+      "url": "probe:https://army-of-strangers.biz/",
+      "date": "2026-11-25",
+      "proved": "the domain answered a JavaScript redirect page on 2026-11-25, so no NZB index is served at the domain",
+      "capture": "sha256:9c72f337789c39cb448db477cde41afa3ee9030a3c7459a5429d3797c496e83f",
+      "quote": "window.location.replace"
+    },
+    {
+      "url": "probe:https://army-of-strangers.biz/",
+      "date": "2026-11-25",
+      "proved": "the domain answered a client-side redirect page, with no NZB interface at the URL",
+      "capture": "sha256:9c72f337789c39cb448db477cde41afa3ee9030a3c7459a5429d3797c496e83f",
+      "quote": "window.location.replace"
+    },
+    {
+      "url": "probe:https://army-of-strangers.biz/",
+      "date": "2026-11-25",
+      "proved": "a probe read a client-side redirect at the domain on 2026-11-25",
+      "capture": "sha256:9c72f337789c39cb448db477cde41afa3ee9030a3c7459a5429d3797c496e83f",
+      "quote": "window.location.replace"
+    },
+    {
+      "url": "probe:https://army-of-strangers.biz/",
+      "date": "2026-11-25",
+      "proved": "the domain served a redirect page with no NZB index on 2026-11-25",
+      "capture": "sha256:9c72f337789c39cb448db477cde41afa3ee9030a3c7459a5429d3797c496e83f",
+      "quote": "window.location.replace"
+    },
+    {
+      "url": "probe:https://army-of-strangers.biz/",
+      "date": "2026-11-25",
+      "proved": "a probe read a client-side redirect at the domain on 2026-11-25, so no NZB index is served",
+      "capture": "sha256:9c72f337789c39cb448db477cde41afa3ee9030a3c7459a5429d3797c496e83f",
+      "quote": "window.location.replace"
+    },
+    {
+      "url": "https://army-of-strangers.biz/",
+      "date": "2026-11-25",
+      "proved": "a first-party read of the domain landed on a third-party online casino with no NZB index",
+      "capture": "sha256:823486495af4bdae2f8839f563e1d4c9542e30488a057595669343937b34ca8e",
+      "quote": "Dive into our in-house games, live casino and slots"
+    },
+    {
+      "url": "https://army-of-strangers.biz/",
+      "date": "2026-11-25",
+      "proved": "the page reached at the domain offers sports betting, not an NZB index",
+      "capture": "sha256:823486495af4bdae2f8839f563e1d4c9542e30488a057595669343937b34ca8e",
+      "quote": "Bet on Football, Cricket, NFL, eSports"
     }
   ],
   "verdict": "dead",
@@ -84,7 +133,7 @@
     "price": "unverified: unreachable"
   },
   "notes": "",
-  "verified_at": "2026-11-03T07:37:15.010Z",
+  "verified_at": "2026-11-25T12:00:07.720Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }

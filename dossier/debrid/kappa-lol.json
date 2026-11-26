@@ -73,9 +73,16 @@
       "url": "https://kappa.lol/",
       "date": "2026-10-23",
       "proved": "the page <title> is 'segs.lol'; no size or retention number appears on the page"
+    },
+    {
+      "url": "probe:https://kappa.lol/",
+      "date": "2026-11-25",
+      "proved": "the HTTP probe returned no status because the hostname did not resolve (transport failure)",
+      "capture": "sha256:8159847ee46162fe941da944f96ef468169e068c8c7d3efe2b124f49421196a7",
+      "quote": "\"status\": null"
     }
   ],
-  "verdict": "qualifies-with-caveat",
+  "verdict": "dead",
   "verified_at": "2026-10-23T02:30:47.000Z",
   "price_per_tb_month": "USD 0",
   "probe": {
@@ -89,6 +96,10 @@
   "notes": "Useful as a one-line anonymous store, unusable as an archive until the cap and retention are measured. The absent extension in the returned URL is the practical trap: a resumption test keyed on Content-Type will see application/octet-stream for every file.",
   "extras": {
     "md5_echoed": "0316a02c6c0e8b28ad82065de17289c4",
-    "delete_url_in_reply": true
+    "delete_url_in_reply": true,
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

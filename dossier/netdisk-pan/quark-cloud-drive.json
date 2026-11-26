@@ -22,7 +22,7 @@
     "source_url": "https://terms.alicdn.com/legal-agreement/terms/b_end_product_protocol/20230516173016165/20230516173016165.html"
   },
   "egress": {
-    "terms": "No per-GB fee, but the free tier is shaped to 2 to 4 MB/s against about 50 MB/s on SVIP, and a third-party fetch service measured a free account at about 60 KB/s. Downloads above 50 MB need a client user agent and a cookie",
+    "terms": "2-4 MB/s",
     "metered": true,
     "free_allowance": null,
     "price_per_tb": null,
@@ -36,7 +36,7 @@
   "limits": [
     {
       "kind": "per-ip-shaping",
-      "value": "2 to 4 MB/s on the free tier",
+      "value": "2-4 MB/s",
       "source": "https://kuake.ijinshan.com/membership/index.html"
     },
     {
@@ -120,10 +120,17 @@
       "proved": "the reverse-engineered PC API still answers 401 require login to a guest, so the read path is gated",
       "capture": "sha256:c58a553695708af2a29998118707c62d80da4a86885442cead11196cd9b59a6a",
       "quote": "{\"status\":401,\"code\":31001,\"message\":\"require login [guest]\",\"req_id\":\"99fs42-2ba8c269338691\",\"timestamp\":1795071413}"
+    },
+    {
+      "url": "https://kuake.ijinshan.com/membership/index.html",
+      "date": "2026-11-25",
+      "proved": "the membership table lists 2-4 MB/s and about 50 MB/s download speeds",
+      "capture": "sha256:6ac8761c39e55c6f62bbadf3b1b1714c9f5998fe97d8f8c2bbf5bd162a04ff15",
+      "quote": "| 下载速度 | 2-4 MB/s | 约 50 MB/s |"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-11-19T21:12:43.949Z",
+  "verified_at": "2026-11-25T14:05:48.230Z",
   "history": [],
   "binding": "per-ip-shaping",
   "binding_note": "10 GB free, and 2 to 4 MB/s is 170 to 340 GB a day at best, so the quota and the shaping both fail. The shaping is the one that would still bind on a paid tier, and the identity gate sits in front of both.",

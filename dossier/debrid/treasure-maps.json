@@ -71,6 +71,13 @@
       "url": "https://treasure-maps.com/",
       "date": "2026-10-23",
       "proved": "vendor text: 'SceneNZBs now sails under a new flag - Treasure Maps. Your access still works.' plus 'No account yet? Register'"
+    },
+    {
+      "url": "https://treasure-maps.com/api?t=caps",
+      "date": "2026-11-25",
+      "proved": "the caps document declares a 500-result ceiling",
+      "capture": "sha256:9d500335db8a88b1096c9a2d2b5905800975b75626da82b355f98cdbab60e3f4",
+      "quote": "<limits max=\"500\" default=\"250\"/>"
     }
   ],
   "verdict": "qualifies-with-caveat",
@@ -82,7 +89,7 @@
     "predecessor": "scenenzbs"
   },
   "notes": "The 458 KB caps is the largest among debrid providers, which means a very wide category list; nothing else could be learned without an account.",
-  "verified_at": "2026-10-23T02:11:54.066Z",
+  "verified_at": "2026-11-25T22:07:34.254Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }

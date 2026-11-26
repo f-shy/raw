@@ -6,10 +6,10 @@
   "category": "multi-hoster / debrid (link unrestrict + torrent cache + usenet + cloud storage)",
   "tier": "premium",
   "free_tier": {
-    "stated": "No free tier. Access is a paid membership, priced at 9.99 EUR / 11.99 USD for one month or 69.99 EUR / 79.99 USD for one year, and every membership or renewal fills the fair-use balance to 1,000 points.",
+    "stated": "No free tier. Access is a paid membership priced at USD 11.99 for one month or USD 79.99 for one year (EUR prices may be shown by region); a free sign-up with no credit card is available, but the paid membership carries the service limits.",
     "unit": "none",
     "metered_on": "none",
-    "source_url": "https://www.premiumize.me/premium",
+    "source_url": "https://www.premiumize.me/",
     "read_on": "2026-10-23",
     "notes": "The 1,000-point balance is stated in the legal page, not on the pricing table."
   },
@@ -24,11 +24,11 @@
     "source_url": "https://www.premiumize.me/legal"
   },
   "egress": {
-    "terms": "Fair-use points, not bytes: 'The use of the Service is subject to a fair-use limit based on available points ... In cases of excessive usage exceeding available points, access to services is temporarily restricted until the daily replenishment of 30 points at midnight (UTC) or until additional booster points are purchased.'",
+    "terms": "Fair-use points with a published byte allowance: the pricing page states '3 TB of traffic every month' and the legal page states access is restricted until the daily refill at midnight (UTC) or a booster purchase.",
     "metered": true,
-    "free_allowance": "1,000 points per membership period; 30 points replenished daily at 00:00 UTC",
+    "free_allowance": "3 TB of traffic every month; 1,000 points per membership period with 100 points replenished daily at 00:00 UTC",
     "price_per_tb": null,
-    "source_url": "https://www.premiumize.me/legal"
+    "source_url": "https://www.premiumize.me/premium"
   },
   "interface": [
     "rest",
@@ -43,7 +43,7 @@
   "limits": [
     {
       "kind": "volume-quota",
-      "value": "1,000 fair-use points per membership period, 30 replenished per day at 00:00 UTC; overspend returns account_limit_reached",
+      "value": "1,000 fair-use points per membership period, 100 replenished per day at 00:00 UTC; overspend returns account_limit_reached",
       "source": "https://www.premiumize.me/legal"
     },
     {
@@ -68,7 +68,7 @@
     },
     {
       "kind": "volume-quota",
-      "value": "1,000 fair-use points per rolling 30 days, 1 point per GB, replenished 30 points per day at midnight UTC",
+      "value": "1,000 fair-use points per rolling 30 days, 1 point per GB, replenished 100 points per day at midnight UTC",
       "source": "https://www.premiumize.me/legal"
     },
     {
@@ -113,19 +113,19 @@
     },
     {
       "kind": "volume-quota",
-      "value": "1000 GB of traffic per rolling balance, refilled 30 GB/day",
+      "value": "1000 GB of traffic per rolling balance, refilled 100 GB/day",
       "source": "https://www.premiumize.me/help/article/download-limit"
     }
   ],
   "limits_note": "Point cost is not uniform: the API returns a per-service 'fairusefactor' that multiplies point consumption for that host, so one host can drain the same balance faster than another. The /fairuse page that explains it is behind a login and was not read.",
   "binding": "volume-quota",
-  "binding_note": "The only account-level counter is points; a monthly transfer of 1 TiB spends them at a per-host multiplier and hits account_limit_reached, not a connection or per-file limit.",
+  "binding_note": "The only account-level counter is points; the 3 TB monthly allowance is spent at a per-host multiplier and hits account_limit_reached, not a connection or per-file limit.",
   "identity_cost": {
     "kind": "email",
     "detail": "'An e-mail address is required for registration'; disposable-mail domains are refused and the vendor may exclude providers. Card or voucher to pay. No phone number in the pages read.",
     "country": null
   },
-  "reliability_note": "Fair-use exhaustion restricts all access until the daily 30-point top-up, not just the offending transfer; a missing key and a wrong key return the same authentication_failed string; a domain-restricted signup can fail before any payment.",
+  "reliability_note": "Fair-use exhaustion restricts all access until the daily 100-point top-up, not just the offending transfer; a missing key and a wrong key return the same authentication_failed string; a domain-restricted signup can fail before any payment.",
   "confidence": "documented",
   "confidence_note": "The error envelope, the retry classes and the fair-use mechanics are on the vendor's own API and legal pages. The 8-request concurrency figure is a third party's and is attributed. A live call spending points would raise the metering half to measured.",
   "evidence": [
@@ -306,12 +306,61 @@
       "proved": "So, as an example: You download 100 GB from the Usenet. As you can see in linked table it has a factor of *2*. In that case we would deduct 200 points from your Fair Use level.",
       "capture": "sha256:6d252ec5c80e7e340936203404e0aaaf9b861991f462f72cf693b6ec9f1ddf3f",
       "quote": "So, as an example: You download 100 GB from the Usenet. As you can see in linked table it has a factor of *2*. In that case we would deduct 200 points from your Fair Use level."
+    },
+    {
+      "url": "https://www.premiumize.me/premium",
+      "date": "2026-11-25",
+      "proved": "every paid plan now includes 3 TB of traffic per month",
+      "capture": "sha256:b3e5b3c9a18448bde41f2e0b1616a6ab2ffd73143c6bcc454e349cd6466e631d",
+      "quote": "3 TB of traffic every month"
+    },
+    {
+      "url": "https://www.premiumize.me/legal",
+      "date": "2026-11-25",
+      "proved": "the daily fair-use point refill is now 100 points, not 30",
+      "capture": "sha256:49245829048bf4fc77acd153c027863769184d44c52b944c1e290cb1065c935d",
+      "quote": "daily replenishment of 100 points"
+    },
+    {
+      "url": "https://www.premiumize.me/premium",
+      "date": "2026-11-25",
+      "proved": "the one-month price is now 11.99 USD on the pricing page",
+      "capture": "sha256:b3e5b3c9a18448bde41f2e0b1616a6ab2ffd73143c6bcc454e349cd6466e631d",
+      "quote": "1 Month\n\n$11.99"
+    },
+    {
+      "url": "https://www.premiumize.me/",
+      "date": "2026-11-25",
+      "proved": "registering an account is free and does not ask for a card",
+      "capture": "sha256:dbabf98d213b7d5e8bcd02fce2498ab548de73c7087234766b8b9c0b33415907",
+      "quote": "Signup is free and no credit card required."
+    },
+    {
+      "url": "https://www.premiumize.me/features",
+      "date": "2026-11-25",
+      "proved": "WebDAV, FTP and SFTP access to cloud storage is still listed",
+      "capture": "sha256:140048d993b86da91857f6ccf398188d20987f7d035f9025e238177bb8282e3b",
+      "quote": "Connect to your cloud with WebDAV, FTP, or SFTP."
+    },
+    {
+      "url": "https://www.premiumize.me/help/article/download-limit",
+      "date": "2026-11-25",
+      "proved": "the help page states a 100-point daily refill and a 3 TB monthly allowance",
+      "capture": "sha256:593750b207576e49938502855da9550f66759903567680d8b4a6d1605e4883f9",
+      "quote": "Every day at midnight (UTC time zone), you’ll receive another 100 points."
+    },
+    {
+      "url": "https://www.premiumize.me/premium",
+      "date": "2026-11-25",
+      "proved": "a three-year plan at 179.99 USD is offered that was not in the record",
+      "capture": "sha256:b3e5b3c9a18448bde41f2e0b1616a6ab2ffd73143c6bcc454e349cd6466e631d",
+      "quote": "3 Years\n\n$179.99"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-18T01:51:01.234Z",
+  "verified_at": "2026-11-25T09:46:54.554Z",
   "price_per_tb_month": null,
-  "notes": "Candidates for the first failure: point exhaustion, the per-host fairusefactor making one host expensive, or the 8-request ceiling. Point exhaustion is documented with a number and a reset time; the per-host multiplier is documented as a field but its values are behind a login; the concurrency ceiling is third-party only. The 30-points-per-day figure is widely quoted as roughly 30 GB/day of ordinary traffic by users, which is an inference from an undisclosed point-to-byte rate and is not stated by the vendor. Merged from tooling-api: The cheapest of the eight per month is AllDebrid, but Premiumize is the cheapest that a plain 'rclone mount' can read, and it is the only one with usenet included. Abandonment condition: if the API reference gains a numeric rate limit, the 'no number' finding is stale. Merged from seed-western: At the 30-point daily refill the sustained allowance is 900 GB per 30 days, so Premiumize is short of a 1 TiB month before any usenet is used. That is the arithmetic that decides this record, and it is why the verdict is a caveat rather than a clean qualify. The number of supported hosts is not published on any reachable page; premiumize.me/services redirects to /features, which lists capabilities and no host count. Merged from host-quota-matrix: The 2026 site dropped the public host-list page entirely; the API endpoint is now the only host list, and it is unauthenticated. Merged from pricing-history: The euro price has not moved in 36 months; what changed is the packaging. A 3-month term at EUR 24.99 was sold from 2023 to at least 2025-10 and is gone in 2026, and USD moved to the front of the table at a rate the vendor fixes itself (11.99/9.99 = 1.200, 79.99/69.99 = 1.143), so the dollar buyer pays a different margin than the euro buyer. The EUR buyer's price history is flat. Merged from lapse: The cleanest documented answer in the lane: a lapsed Premiumize keeps nothing by contract. Its 72-hour payment grace is the only slack, and it applies to a failed payment, not to a deliberate pause. Abandonment condition: a published grace number supersedes the 0. Merged from paid-ladder: Correction to the seed-western record, which read 'the point budget caps a month at about 1 TB, so the effective ceiling is roughly EUR 9.99 per TB'. Two things go wrong there: a vendor TB is not a TiB (1,000 GB = 0.9095 TiB, so the price per TiB is 10% higher, USD 12.32 not USD 11.21), and the sustainable rate is 30 points a day, which is 900 GB, not 1,000. The 1,000-point ceiling is only reachable once; after that Premiumize is USD 13.70 per TiB-month, which puts it 18x the cheapest allowance in the corpus rather than 15x. Merged from torrent-retrieval: The best storage-per-euro of the paid multi-hosters and the only one with 1 TB persistent cloud storage plus WebDAV on every plan, but the fair-use balance makes it a 1 TB/month service in practice, and the annual price is the only way it gets near the lane's sub-5-euro bar. Merged from payment-rails: The coin list and the processor are not published. 'Cryptocurrencies' unnamed is weaker evidence than TorBox's 20-coin list: a client cannot tell in advance whether Monero is accepted, and the privacy property that makes a crypto rail useful depends on the coin.",
+  "notes": "Candidates for the first failure: point exhaustion, the per-host fairusefactor making one host expensive, or the 8-request ceiling. Point exhaustion is documented with a number and a reset time; the per-host multiplier is documented as a field but its values are behind a login; the concurrency ceiling is third-party only. The 100-points-per-day figure works out at roughly 100 GB/day of ordinary traffic at the 1 point to 1 GB rate the help page states, and the pricing page states the same allowance as 3 TB a month. Merged from tooling-api: The cheapest of the eight per month is AllDebrid, but Premiumize is the cheapest that a plain 'rclone mount' can read, and it is the only one with usenet included. Abandonment condition: if the API reference gains a numeric rate limit, the 'no number' finding is stale. Merged from seed-western: At the 100-point daily refill the sustained allowance is 3,000 GB per 30 days, which covers a 1 TiB month before any usenet is used. The number of supported hosts is not published on any reachable page; premiumize.me/services redirects to /features, which lists capabilities and no host count. Merged from host-quota-matrix: The 2026 site dropped the public host-list page entirely; the API endpoint is now the only host list, and it is unauthenticated. Merged from pricing-history: The euro price has not moved in 36 months; what changed is the packaging. A 3-month term at EUR 24.99 was sold from 2023 to at least 2025-10 and is gone in 2026, and USD moved to the front of the table at a rate the vendor fixes itself (11.99/9.99 = 1.200, 79.99/69.99 = 1.143), so the dollar buyer pays a different margin than the euro buyer. The EUR buyer's price history is flat. Merged from lapse: The cleanest documented answer in the lane: a lapsed Premiumize keeps nothing by contract. Its 72-hour payment grace is the only slack, and it applies to a failed payment, not to a deliberate pause. Abandonment condition: a published grace number supersedes the 0. Merged from paid-ladder: Correction to the seed-western record, which read 'the point budget caps a month at about 1 TB, so the effective ceiling is roughly EUR 9.99 per TB'. Two things go wrong there: a vendor TB is not a TiB (1,000 GB = 0.9095 TiB, so the price per TiB is 10% higher), and the sustainable rate is 100 points a day, which is 3,000 GB, not the 1,000 the point balance holds. At the 3 TB the pricing page states, the one-month price is USD 4.39 per TiB-month. Merged from torrent-retrieval: The best storage-per-euro of the paid multi-hosters and the only one with 1 TB persistent cloud storage plus WebDAV on every plan, but the fair-use balance makes it a 3 TB/month service in practice, and the annual price is the only way it gets near the lane's sub-5-euro bar. Merged from payment-rails: The coin list and the processor are not published. 'Cryptocurrencies' unnamed is weaker evidence than TorBox's 20-coin list: a client cannot tell in advance whether Monero is accepted, and the privacy property that makes a crypto rail useful depends on the coin.",
   "extras": {
     "failure_angle": "point exhaustion",
     "strongest_signal": "account_limit_reached",

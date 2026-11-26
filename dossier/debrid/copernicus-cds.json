@@ -68,13 +68,20 @@
       "url": "probe:https://cds.climate.copernicus.eu/api/retrieve/v1/processes",
       "date": "2026-10-23",
       "proved": "200 with 25,713 bytes of JSON to an anonymous client - the process catalogue is public even though retrieval is not"
+    },
+    {
+      "url": "https://cds.climate.copernicus.eu/how-to-api",
+      "date": "2026-11-26",
+      "proved": "the setup page states this API purpose verbatim",
+      "capture": "sha256:f3b657720d5e19ff08b4bf012cb91f335d6926a4e1d2e4c70f0070d59d769869",
+      "quote": "**The Climate Data Store (CDS) Application Program Interface (API)** is a service providing programmatic access to CDS, ADS and CEMS Early Warning DS data."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:24:34.450Z",
+  "verified_at": "2026-11-26T02:15:10.481Z",
   "price_per_tb_month": "USD 0",
   "history": [],
-  "notes": "Caveat is the account and the queue, not the price. This is the clearest example in the sector of a resource that is free but not anonymous: the bytes cost nothing and the token is mandatory.",
+  "notes": "**The Climate Data Store (CDS) Application Program Interface (API)** is a service providing programmatic access to CDS, ADS and CEMS Early Warning DS data.",
   "extras": {
     "auth": "personal access token in ~/.cdsapirc",
     "client": "cdsapi>=0.7.7",

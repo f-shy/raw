@@ -61,7 +61,7 @@
     "detail": "The home page states 'No fees, no registration, completely free'. No account exists to create; a mirror operator is a volunteer arrangement, not a registration that is needed.",
     "country": null
   },
-  "reliability_note": "Main-site IP blocks are automatic and last days; the generated collection is rebuilt in batches, so a mirror refresh sees traffic spikes rather than a steady delta.",
+  "reliability_note": "unverified: HTTP 503 on 2026-11-25; the origin served a maintenance page to every read route, and Retry-After 21600 was sent with the response.",
   "confidence": "documented",
   "confidence_note": "The collection size is the vendor's own metadata.json, fetched here; one complete file was downloaded and hashed. What would raise it to measured for the bulk path is an rsync of a filtered subset from a mirror with a byte count, which was not run.",
   "evidence": [
@@ -89,10 +89,24 @@
       "url": "probe:https://www.gutenberg.org/cache/epub/1342/pg1342.txt",
       "date": "2026-10-23",
       "proved": "200, 772,386 bytes, sha256 3f6bb9d6f78e0293b56acd4714dd68cb7d6d1d293402031ce9d5a216bcaf9d75, text/plain, 2,239.5 ms - the file downloaded here is the book"
+    },
+    {
+      "url": "probe:https://www.gutenberg.org/",
+      "date": "2026-11-25",
+      "proved": "gutenberg.org answered HTTP 503 to an anonymous GET on 2026-11-25",
+      "capture": "sha256:10941baa38f9377469fd98fc7a46e4b7f03ac890872809d0a8bd1aaa95c4d245",
+      "quote": "\"status\": 503"
+    },
+    {
+      "url": "https://www.gutenberg.org/",
+      "date": "2026-11-25",
+      "proved": "The origin served a maintenance page on 2026-11-25",
+      "capture": "sha256:849b267bf0351b4fac1f348e33757903fc73be90fbfca9fa80b710ce233cbf62",
+      "quote": "Project Gutenberg is temporarily unavailable while we perform maintenance."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:24:34.450Z",
+  "verified_at": "2026-11-25T09:47:00.874Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Caveat is the main site, not the catalogue. The catalogue is 2.44 TB and mirrorable, which is more than the stated archive of 20 TiB needs from this one source, but the main site will block a bulk puller within a day. The abandoned route is 'scrape gutenberg.org with parallel connections': the robot policy names it as a blockable offence and the mirror path costs nothing.",

@@ -109,10 +109,66 @@
       "capture": "sha256:ad689a4206a6c2661275660645f47a470634dc66487c8a2666801267daac301c",
       "quote": "Username E-mail Password Retype Password Recaptcha requires verification.",
       "proved": "registration asks for a username, e-mail and password with a reCAPTCHA"
+    },
+    {
+      "url": "https://savefiles.com/premium",
+      "date": "2026-11-25",
+      "proved": "the per-file cap is 10480 MB on Free and 20480 MB on Premium",
+      "capture": "sha256:2927d2e0eda966f7d4a0e625f7b91079f6a470ee9967e11b10ef7fe3dc6ae73f",
+      "quote": "10480 MB 20480 MB"
+    },
+    {
+      "url": "https://savefiles.com/premium",
+      "date": "2026-11-25",
+      "proved": "storage is 2000 GB on Free and 10000 GB on Premium",
+      "capture": "sha256:2927d2e0eda966f7d4a0e625f7b91079f6a470ee9967e11b10ef7fe3dc6ae73f",
+      "quote": "2000 GB 10000 GB"
+    },
+    {
+      "url": "https://savefiles.com/premium",
+      "date": "2026-11-25",
+      "proved": "download speed is 1500 Kbytes/sec on Free",
+      "capture": "sha256:2927d2e0eda966f7d4a0e625f7b91079f6a470ee9967e11b10ef7fe3dc6ae73f",
+      "quote": "1500 Kbytes/sec 2000 Kbytes/sec"
+    },
+    {
+      "url": "https://savefiles.com/premium",
+      "date": "2026-11-25",
+      "proved": "free files expire after 12 days with no downloads",
+      "capture": "sha256:2927d2e0eda966f7d4a0e625f7b91079f6a470ee9967e11b10ef7fe3dc6ae73f",
+      "quote": "12 days no downloads 28 days no downloads"
+    },
+    {
+      "url": "https://savefiles.com/premium",
+      "date": "2026-11-25",
+      "proved": "the premium ladder starts at a 30-day period",
+      "capture": "sha256:2927d2e0eda966f7d4a0e625f7b91079f6a470ee9967e11b10ef7fe3dc6ae73f",
+      "quote": "30 days"
+    },
+    {
+      "url": "https://savefiles.com/premium",
+      "date": "2026-11-25",
+      "proved": "download volume is unlimited on both tiers",
+      "capture": "sha256:2927d2e0eda966f7d4a0e625f7b91079f6a470ee9967e11b10ef7fe3dc6ae73f",
+      "quote": "**Unlimited**"
+    },
+    {
+      "url": "https://savefiles.com/?op=registration",
+      "date": "2026-11-25",
+      "proved": "the registration form asks for an e-mail address",
+      "capture": "sha256:e2d115afdebb3c60b62a6624f56a1d8f3d031289c5585da19cd7630475d91b63",
+      "quote": "E-mail"
+    },
+    {
+      "url": "https://savefiles.com/?op=registration",
+      "date": "2026-11-25",
+      "proved": "registration is gated by a reCAPTCHA check",
+      "capture": "sha256:e2d115afdebb3c60b62a6624f56a1d8f3d031289c5585da19cd7630475d91b63",
+      "quote": "g-recaptcha"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T07:37:12.656Z",
+  "verified_at": "2026-11-25T09:46:37.627Z",
   "price_per_tb_month": null,
   "notes": "Cheapest paid tier is the 30-day Premium at 29.99 USD."
 }

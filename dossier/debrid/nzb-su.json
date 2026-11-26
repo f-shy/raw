@@ -66,16 +66,34 @@
       "url": "https://www.nzb.life/",
       "date": "2026-10-23",
       "proved": "the successor states the mapping in its own meta description: 'NZB.su and nzbsu users should use NZB.life.'"
+    },
+    {
+      "url": "probe:https://nzb.su/api?t=caps",
+      "date": "2026-11-25",
+      "proved": "the retired endpoint answered 200 with a 157-byte XML error document",
+      "capture": "sha256:ba5168045e4682b5a870026ed288c6e013a35fb88d51267c13da04696063b7b0",
+      "quote": "\"bytes\": 157"
+    },
+    {
+      "url": "probe:https://nzb.su/api?t=caps",
+      "date": "2026-11-25",
+      "proved": "the retired endpoint XML names error code 101 and the nzb.life replacement URL",
+      "capture": "sha256:867011a3dbcebd9fa574c0f4de16e98864fedd2abc3fb5f49aa64455e656ab74",
+      "quote": "<error code=\"101\" description=\"This API endpoint has been retired. Update your indexer URL from nzb.su to nzb.life.\"/>"
     }
   ],
   "verdict": "dead",
   "extras": {
     "price": "retired",
     "successor": "nzb-life",
-    "error_code": 101
+    "error_code": 101,
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   },
   "notes": "Do not delete: the old host is still in circulating lists and in old client configs, and the error message is the only thing that tells a reader where the index went.",
-  "verified_at": "2026-10-23T02:11:54.066Z",
+  "verified_at": "2026-11-25T19:21:33.183Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }

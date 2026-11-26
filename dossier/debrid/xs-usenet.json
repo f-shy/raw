@@ -74,12 +74,19 @@
       "url": "https://notes.debridmediamanager.com/providers/usenet/",
       "date": "2026-10-23",
       "proved": "Connection-count sizing: 'Set connections to what your plan actually allows ... Going over what the plan permits gets connections refused.'"
+    },
+    {
+      "url": "probe:https://my.xsusenet.com/",
+      "date": "2026-11-26",
+      "capture": "sha256:aa79349aa955a35701228c016988e9bf9c01ceb7e0231d44ed2f0a6102b882cf",
+      "quote": "\"status\": null",
+      "proved": "the client area did not answer on 2026-11-26: the probe records a transport timeout, so the knowledgebase could not be re-read and its values are unchanged"
     }
   ],
   "verdict": "qualifies",
   "verified_at": "2026-10-23T02:22:02.000Z",
   "price_per_tb_month": null,
-  "notes": "Potential failure points: the connection cap, the 1100-day wall, or the credential split between client area and NNTP. The credential split is the one that breaks a first-hour setup; the 1100-day wall is the one that breaks an archive pull. Both are documented.",
+  "notes": "Potential failure points: the connection cap, the 1100-day wall, or the credential split between client area and NNTP. The credential split is the one that breaks a first-hour setup; the 1100-day wall is the one that breaks an archive pull. Both are documented. Re-probed 2026-11-26: my.xsusenet.com timed out, so the knowledgebase values are the 2026-10-23 reading and the record is stale rather than re-dated.",
   "extras": {
     "failure_angle": "credential split and a published retention wall",
     "strongest_signal": "482/502 at connect, 430 at fetch",

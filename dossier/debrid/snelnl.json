@@ -49,7 +49,7 @@
   "binding_note": "No volume cap; the speed tier bounds a month.",
   "identity_cost": {
     "kind": "card",
-    "detail": "unverified: the order form was not opened, so the fields it asks for are behind a sign-up; a third-party index lists card, PayPal, iDEAL and Paysafe.",
+    "detail": "The checkout lists iDEAL, Credit Card and Bancontact as payment methods and asks for personal details; the individual form fields remain unverified: behind a sign-up.",
     "country": null
   },
   "reliability_note": "Backbone and retention are not stated on the vendor page read.",
@@ -97,10 +97,59 @@
       "proved": "the vendor's trial is 3 days or 10 GB",
       "capture": "sha256:88b3804aeef025cb40536227ab1e61b6efec49c8f1a5b8fa6e333deb1a6be12d",
       "quote": "a referred customer subscribes for a free trial period of 3 days/10 GB"
+    },
+    {
+      "url": "https://checkout.snelnl.com/checkout",
+      "date": "2026-11-25",
+      "proved": "the checkout lists iDEAL, Credit Card and Bancontact as payment methods",
+      "capture": "sha256:40cabba55233ed0e0274e819037dae51ac3ed455606cb22ee20470aa48c3102f",
+      "quote": "iDEAL"
+    },
+    {
+      "url": "https://www.snelnl.com/en/products",
+      "date": "2026-11-25",
+      "proved": "the Slow plan starts at EUR 3.95 a month",
+      "capture": "sha256:2906f125970e8a6ea2c640f8e1e7572993b57879f07317e38bcb29b0606fd2c3",
+      "quote": "- Starting at € 3,95 p/month"
+    },
+    {
+      "url": "https://www.snelnl.com/en/products",
+      "date": "2026-11-25",
+      "proved": "the Slow plan is capped at 5 Mbit",
+      "capture": "sha256:2906f125970e8a6ea2c640f8e1e7572993b57879f07317e38bcb29b0606fd2c3",
+      "quote": "- 5 Mbit downloadspeed"
+    },
+    {
+      "url": "https://www.snelnl.com/en/test-accounts",
+      "date": "2026-11-25",
+      "proved": "the trial page states the Fast plan at 180 Mbit",
+      "capture": "sha256:ccda0bb306bf506d05dc163284224895bb61ce0376582f33e828f70ab992de77",
+      "quote": "180 Mbit, about 22.5 MB/s speed"
+    },
+    {
+      "url": "https://www.snelnl.com/en/products",
+      "date": "2026-11-25",
+      "proved": "downloads are unlimited on all plans",
+      "capture": "sha256:2906f125970e8a6ea2c640f8e1e7572993b57879f07317e38bcb29b0606fd2c3",
+      "quote": "- Unlimited Downloads"
+    },
+    {
+      "url": "https://www.snelnl.com/en/test-accounts",
+      "date": "2026-11-25",
+      "proved": "each of the three plans is offered with a free test",
+      "capture": "sha256:ccda0bb306bf506d05dc163284224895bb61ce0376582f33e828f70ab992de77",
+      "quote": "## Free test!"
+    },
+    {
+      "url": "https://www.snelnl.com/en/affiliate",
+      "date": "2026-11-25",
+      "proved": "the affiliate page states the free trial is 3 days/10 GB",
+      "capture": "sha256:88b3804aeef025cb40536227ab1e61b6efec49c8f1a5b8fa6e333deb1a6be12d",
+      "quote": "For example a referred customer subscribes for a free trial period of 3 days/10 GB, you will receive the commission for the first paid purchase, if within 14 days."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-03T15:25:56.571Z",
+  "verified_at": "2026-11-25T09:47:07.819Z",
   "price_per_tb_month": null,
   "notes": "Verdict is trial-only: the vendor offers a 3 days/10 GB free trial on each plan and no ongoing free tier.",
   "extras": {}

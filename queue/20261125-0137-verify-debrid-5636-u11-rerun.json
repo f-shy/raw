@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u11-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Re-check these debrid records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/usenext $.identity_cost.kind: Span says payment information and billing address, not a card; card/PayPal/iDeal appear only in §6.1c.\n- debrid/usenext $.free_tier.stated: Capture has the 0 EUR, 30 GB and 7.95 EUR lines but no 'try out Usenet risk-free for 14 days' sentence.\n- debrid/pureusenet $.egress.free_allowance: Span says no download limits; the 7 days free allowance and 8/20/60 Mbps are not in it.\n- debrid/pureusenet $.free_tier.unit: Span says free for one week; it does not say the trial is unlimited.\n- debrid/xlned $.free_tier.metered_on: Span gives speed, connections and retention only; says nothing about how a free tier is metered.\n- debrid/nzb-su $.verdict: A 157-byte 200 response does not show the service is dead; nzb.su notice says service continues on nzb.life. Probe has no body.\n- debrid/hitnews $.free_tier.unit: Span is a 3-day EUR 2.50 trial; no hours unit.\n- debrid/xlned $.free_tier.stated: Cited order page shows EUR 4.99/1 month but does not say 'no trial'; the 2007 about-page sentence is in a different capture, so no one span carries the whole value.\n- debrid/nzb-su $.chaining: Notice says accounts and services continue on nzb.life; 'carries the live limits' is not stated.\n- debrid/nzb-su $.reliability_note: Probe record shows status 200 and 157 bytes only; the XML error content, live DNS and client logging behaviour are not shown.\n- debrid/pureusenet $.free_tier.stated: Capture has the 'free for one week' sentence only; 'Free week trial' feature and the Dutch sentence are not in it.\n- debrid/usenight $.free_tier.unit: Span is the 00:00-11:00 CET window; it does not say there is no free tier.\n- debrid/hitnews $.free_tier.stated: Span shows the EUR 2.50 price; 'No free trial is offered' is an inference from absence, not stated.\n- debrid/usenight $.free_tier.metered_on: Span is the full-speed window; it says nothing of metering.\n- debrid/usenext $.identity_cost.detail: Registration step is §3.1b, not §1.1b; §6.1c is real but says 'when the Agreement begins', not before the trial starts.\n- debrid/usenight $.retention.stated: Support page says 'over 4118 days of binary retention'; it does not contain the home-page string 'High retention (4118 days)'.\n- debrid/xlned $.chaining: Quoted about-page span is about a 2007 trial; 1.6 TB/month and 1 TiB volume are not in it.",
+ "scope": {
+  "rids": [
+   "debrid/nzb-su",
+   "debrid/wtfnzb",
+   "debrid/usenext",
+   "debrid/xlned",
+   "debrid/pureusenet",
+   "debrid/hitnews",
+   "debrid/usenetbucket",
+   "debrid/usenight"
+  ]
+ },
+ "origin": "audit u88 of 20261125-0137-verify-debrid-5636/u11 failed: 17 of 30 unsupported",
+ "created": "2026-11-25T15:10:37Z"
+}

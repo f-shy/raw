@@ -68,10 +68,17 @@
       "url": "probe:https://filebolt.net/api/files",
       "date": "2026-10-23",
       "proved": "HTTP 400 from a JSON endpoint at /api/files, so an API exists but publishes no contract"
+    },
+    {
+      "url": "https://filebolt.net/",
+      "date": "2026-11-25",
+      "proved": "the first-party page states the 10 GB per-file cap without an account",
+      "capture": "sha256:578f3192f57fec823c6e05e44c47d0f222930de0cdab78afa1624a5ac6de4038",
+      "quote": "Send files up to 10 GB each, no account needed."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:30:47.000Z",
+  "verified_at": "2026-11-25T19:21:35.239Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The controlled-hand-off feature set is real but unmeasured; the record exists so the subsequent audit does not re-discover the name. No programmatic path found: Browser drop zone. /api/upload returns 404, /api/files returns 400, so a JSON API exists (the 400 is a validation answer) but its contract is not published.",

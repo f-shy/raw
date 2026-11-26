@@ -29,7 +29,7 @@
     "terms": "Prepaid packages, each a fixed allowance at a fixed rate: '5 GB+ $13.75 $2.75/GB ... 10 GB $22.50 $2.25/GB ... 50 GB $87.50 $1.75/GB ... 150 GB $210.00 $1.40/GB ... 500 GB $475.00'. The product is 'a shared rotating pool, not a static ISP allocation'.",
     "metered": true,
     "free_allowance": "none",
-    "price_per_tb": "USD 0.95/GB at the 500 GB package (USD 475); the 1 TB package was not read",
+    "price_per_tb": "USD 0.72/GB at the 1 TB package (USD 737.28, valid 31 days); 5 TB is USD 0.65/GB (USD 3,328)",
     "source_url": "https://databay.com/proxies/residential/pricing"
   },
   "interface": [
@@ -38,11 +38,11 @@
   "interface_detail": "HTTP(S) and SOCKS5 rotating pool, country or continent selector, sticky sessions up to 120 minutes on the datacenter product; the residential page states connection-based rotation.",
   "endpoint": "https://app.databay.com/",
   "tooling": "any HTTP/SOCKS5 client",
-  "chaining": "Prepaid and valid for 186 days at the entry tier, so it is the metered product a corpus can test once without a monthly commitment; at TiB scale it is still USD 973 for 500 GB.",
+  "chaining": "Prepaid and valid for 186 days at the entry tier, so it is the metered product a corpus can test once without a monthly commitment; at TiB scale the 1 TB package is USD 737.28 at USD 0.72/GB.",
   "limits": [
     {
       "kind": "volume-quota",
-      "value": "prepaid GB package; 500 GB for USD 475 is the largest package read",
+      "value": "prepaid GB package; the largest read is 5 TB at USD 0.65/GB (USD 3,328), with 1 TB at USD 737.28",
       "source": "https://databay.com/proxies/residential/pricing"
     },
     {
@@ -53,7 +53,7 @@
   ],
   "limits_note": "Rotation per connection is the wrong shape for a long download: a single HTTP transfer holds one connection, so a rotation policy that only changes on a new connection leaves the transfer on one address, which is what a debrid IP check wants.",
   "binding": "volume-quota",
-  "binding_note": "USD 0.95/GB is the cheapest large-package rate among debrid providers except Rayobyte's disputed headline, and it is still USD 973 for half the month.",
+  "binding_note": "USD 0.72/GB is the cheapest large-package rate among debrid providers except Rayobyte's disputed headline, and the 1 TB package is still USD 737.28 for 31 days.",
   "identity_cost": {
     "kind": "card",
     "detail": "Self-service checkout at app.databay.com with card; no identity document mentioned on the page read.",
@@ -61,17 +61,59 @@
   },
   "reliability_note": "'A fresh IP is not guaranteed for every connection' and sticky sessions 'may end before that requested window' - a mid-transfer address change is the failure mode, and it is the one debrid terms punish as account sharing.",
   "confidence": "documented",
-  "confidence_note": "The package table is on the vendor page read today. The 1 TB rung was below the fold and is not quoted, so the per-TiB figure is derived from the 500 GB package and labelled as such.",
+  "confidence_note": "The package table is on the vendor page read today. The 1 TB rung is quoted directly at USD 737.28, so the per-TiB figure is the published rate, not a derivation from the 500 GB package.",
   "evidence": [
     {
       "url": "https://databay.com/proxies/residential/pricing",
       "date": "2026-10-23",
       "proved": "the package ladder with rates and totals: 5 GB $2.75/GB ($13.75), 10 GB $2.25/GB ($22.50), 50 GB $1.75/GB ($87.50), 150 GB $1.40/GB ($210), 500 GB $475; and 'Entry starts at 5 GB' with 186-day validity"
+    },
+    {
+      "url": "https://databay.com/proxies/residential/pricing",
+      "date": "2026-11-25",
+      "proved": "the entry package is still 5 GB for USD 13.75, valid 186 days",
+      "capture": "sha256:2b0c03a6e144ed0427c6e4cd0cf1a405e9defeecb3a695734029d40f80dd4335",
+      "quote": "$13.75**for 5 GB of traffic**Valid 186 days · $2.75/GB"
+    },
+    {
+      "url": "https://databay.com/proxies/residential/pricing",
+      "date": "2026-11-25",
+      "proved": "the 1 TB package is now published at USD 737.28 and USD 0.72/GB",
+      "capture": "sha256:2b0c03a6e144ed0427c6e4cd0cf1a405e9defeecb3a695734029d40f80dd4335",
+      "quote": "1 TB$737.28. Per GB: $0.72, 73% below the per-GB rate. Valid for: 31 days."
+    },
+    {
+      "url": "https://databay.com/proxies/residential/pricing",
+      "date": "2026-11-25",
+      "proved": "the 1 TB package is now priced directly, so no derivation is needed",
+      "capture": "sha256:2b0c03a6e144ed0427c6e4cd0cf1a405e9defeecb3a695734029d40f80dd4335",
+      "quote": "1 TB$737.28. Per GB: $0.72, 73% below the per-GB rate. Valid for: 31 days."
+    },
+    {
+      "url": "https://databay.com/proxies/residential/pricing",
+      "date": "2026-11-25",
+      "proved": "the rotation policy is unchanged",
+      "capture": "sha256:2b0c03a6e144ed0427c6e4cd0cf1a405e9defeecb3a695734029d40f80dd4335",
+      "quote": "Connection-based rotation; a fresh IP is not guaranteed"
+    },
+    {
+      "url": "https://databay.com/proxies/residential/pricing",
+      "date": "2026-11-25",
+      "proved": "validity is 186 days by the GB and 31 days on packages",
+      "capture": "sha256:2b0c03a6e144ed0427c6e4cd0cf1a405e9defeecb3a695734029d40f80dd4335",
+      "quote": "186 days for bandwidth bought by the GB; 31 days on packages."
+    },
+    {
+      "url": "https://databay.com/proxies/residential/pricing",
+      "date": "2026-11-25",
+      "proved": "the trial asks for a card",
+      "capture": "sha256:2b0c03a6e144ed0427c6e4cd0cf1a405e9defeecb3a695734029d40f80dd4335",
+      "quote": "We ask for a card, but you pay nothing during the trial."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:21:34.000Z",
-  "price_per_tb_month": "USD 0.95/GB at the 500 GB package, i.e. USD 973 per TiB derived from that rung",
+  "verified_at": "2026-11-25T09:47:01.820Z",
+  "price_per_tb_month": "USD 0.72/GB at the 1 TB package, i.e. USD 737.28 per TiB",
   "notes": "Entered the sector as a low-rate outlier and stayed because of the 186-day validity, which makes it the only metered vendor here a small test purchase does not waste.",
   "extras": {
     "ladder": "2.75 / 2.25 / 1.75 / 1.40 / 0.95 USD per GB at 5 / 10 / 50 / 150 / 500 GB",

@@ -6,7 +6,7 @@
   "category": "former file host, now dead",
   "tier": "free",
   "free_tier": {
-    "stated": "Not applicable: no service is served. indishare.org answers a Cloudflare 523 at the origin and indishare.me serves a keyword-advert landing page.",
+    "stated": "Not applicable: no service is served. indishare.org is an expired domain whose page says 'This domain is expired. If you are the domain owner please click here to renew it.'",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://indishare.org/",
@@ -47,7 +47,7 @@
     "detail": "No registration surface exists to price.",
     "country": null
   },
-  "reliability_note": "Two hostnames, two failures: 523 at the origin on .org, and a parked keyword-ad page on .me. The name circulates in host lists and in debrid broker manifests, so a client may still see it offered.",
+  "reliability_note": "Two hostnames, two failures: an expired-domain notice on .org, and a 401 from a parked redirect on .me. The name circulates in host lists and in debrid broker manifests, so a client may still see it offered.",
   "confidence": "documented",
   "confidence_note": "Both hostnames were fetched today and the artefacts are quoted in the evidence rows. The record does not claim when it died, only that it was dead when read.",
   "evidence": [
@@ -60,14 +60,46 @@
       "url": "https://indishare.me/",
       "date": "2026-10-23",
       "proved": "the .me hostname redirected to http://ww547.indishare.me/?tkn=... and served a keyword-ad landing page ('Who Has The Best Car Insurance', 'Find Low Cost Car Insurance Now'), the classic domain-squat footprint"
+    },
+    {
+      "url": "https://indishare.org/",
+      "date": "2026-11-25",
+      "proved": "the indishare.org domain has expired and serves a registrar notice instead of a host service",
+      "capture": "sha256:edd2a899fe4c89456915a7798ea8d28f558b74babe9dcdae71d6dc08bc19fd11",
+      "quote": "This domain is expired. If you are the domain owner please click here to renew it."
+    },
+    {
+      "url": "https://indishare.org/",
+      "date": "2026-11-25",
+      "proved": "no service is offered under the indishare.org name",
+      "capture": "sha256:edd2a899fe4c89456915a7798ea8d28f558b74babe9dcdae71d6dc08bc19fd11",
+      "quote": "This domain is expired. If you are the domain owner please click here to renew it."
+    },
+    {
+      "url": "probe:https://indishare.me/",
+      "date": "2026-11-25",
+      "proved": "the .me hostname redirects to a parked page that answers 401",
+      "capture": "sha256:7ceadaf98e2df280917c7cae105bc4b9d34c91c3836391c794ae405e23e91bc7",
+      "quote": "\"status\": 401,"
+    },
+    {
+      "url": "https://indishare.org/",
+      "date": "2026-11-25",
+      "proved": "the host is an expired domain with no service",
+      "capture": "sha256:edd2a899fe4c89456915a7798ea8d28f558b74babe9dcdae71d6dc08bc19fd11",
+      "quote": "This domain is expired. If you are the domain owner please click here to renew it."
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T03:39:12.321Z",
+  "verified_at": "2026-11-25T09:46:43.323Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "Named in the first sweep with no broker read. Recorded dead rather than dropped so the name stops costing a fetch every wave.",
   "extras": {
-    "failure_modes_seen": "origin 523 on .org; ad-park redirect on .me"
+    "failure_modes_seen": "origin 523 on .org; ad-park redirect on .me",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

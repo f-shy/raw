@@ -82,20 +82,6 @@
     {
       "url": "https://yun.139.com/intro/",
       "date": "2026-11-03",
-      "proved": "the vendor page still states a 20G base space with 1T and 2T larger grants through campaigns",
-      "capture": "sha256:b75183a9c12d8148de4b862c5d8110bf81fe4bc966cdc5bc439c4191cbf5102c",
-      "quote": "初始空间20G且用户可直接通过丰富的网盘活动，轻松领取1T、2T等更大容量的空间"
-    },
-    {
-      "url": "https://yun.139.com/intro/",
-      "date": "2026-11-03",
-      "proved": "the vendor page still states upload and download are not rate-limited",
-      "capture": "sha256:b75183a9c12d8148de4b862c5d8110bf81fe4bc966cdc5bc439c4191cbf5102c",
-      "quote": "不限速：上传下载不限速，支持5G网络环境下高速传输。"
-    },
-    {
-      "url": "https://yun.139.com/intro/",
-      "date": "2026-11-03",
       "proved": "the 尊享云计划 membership still lists an extra 8T of space",
       "capture": "sha256:b75183a9c12d8148de4b862c5d8110bf81fe4bc966cdc5bc439c4191cbf5102c",
       "quote": "额外8T超大空间"
@@ -148,10 +134,17 @@
       "proved": "China Mobile subscribers who take the cloud membership get zero-rated traffic when using the cloud",
       "capture": "sha256:b75183a9c12d8148de4b862c5d8110bf81fe4bc966cdc5bc439c4191cbf5102c",
       "quote": "会员免流量：中国移动用户开通中国移动云盘会员，可畅享超大容量定向免流，使用中国移动云盘无惧流量消耗。"
+    },
+    {
+      "url": "https://yun.139.com/intro/",
+      "date": "2026-11-26",
+      "proved": "the first-party introduction states uploads and downloads are not speed-limited",
+      "capture": "sha256:b75183a9c12d8148de4b862c5d8110bf81fe4bc966cdc5bc439c4191cbf5102c",
+      "quote": "2. 不限速：上传下载不限速，支持5G网络环境下高速传输。"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-11-25T15:23:48.015Z",
+  "verified_at": "2026-11-26T02:15:14.531Z",
   "history": [],
   "binding": "write-gated",
   "binding_note": "The capacity and the egress both qualify, and the gate is the carrier identity: a China Mobile subscriber number, with the promotions redeemable only inside the carrier app. The write gate on the driver's parameters is the second lock.",

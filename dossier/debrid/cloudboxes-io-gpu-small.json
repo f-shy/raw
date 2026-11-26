@@ -6,7 +6,7 @@
   "category": "shared seedbox and app hosting (GPU transcoding)",
   "tier": "GPU Small",
   "free_tier": {
-    "stated": "No free tier; a 24-hour trial costs EUR 0.30 with the promotion code IWANTATRIAL, and the cheapest plan shown on the page is Small (Premium Shared) from EUR 14.95 per month; the cheapest GPU plan, GPU Small, is from EUR 19.95 per month.",
+    "stated": "No free tier; a 24-hour trial with the promotion code IWANTATRIAL costs EUR 0.30 on the GPU boxes and EUR 0.60 on the Premium Shared boxes; the cheapest plan shown on the page is Small (Premium Shared) from EUR 14.95 per month; the cheapest GPU plan, GPU Small, is from EUR 19.95 per month.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://cloudboxes.io/",
@@ -114,10 +114,31 @@
       "proved": "the trial offer and prices are as stated",
       "capture": "sha256:6cfb09898f7d5a682633a8c00db7818d1c00198c4196e963e1dfc270f34aa32e",
       "quote": "*Use IWANTATRIAL to get a 24 hour trial for a tiny fee of 0.30€"
+    },
+    {
+      "url": "https://cloudboxes.io/",
+      "date": "2026-11-25",
+      "proved": "the Premium Shared 24-hour trial costs EUR 0.60, not EUR 0.30",
+      "capture": "sha256:67738ccaf1a2db48a4a6ff3936071ee72cc843e178e868fb4007110648242d4c",
+      "quote": "*Use IWANTATRIAL to get a 24 hour trial for a tiny fee of 0.60€"
+    },
+    {
+      "url": "https://cloudboxes.io/",
+      "date": "2026-11-25",
+      "proved": "GPU Small still carries a 4 TB allowance before the 100 Mbit fall-back",
+      "capture": "sha256:219040ca1a0e40f9344b68a6c768b0ab5190792a6d3c8d542774ec8c084744ff",
+      "quote": "4TB Bandwidth then 100mbit"
+    },
+    {
+      "url": "https://cloudboxes.io/",
+      "date": "2026-11-25",
+      "proved": "GPU Small still lists 4 TB bandwidth then a 100 Mbit fall-back",
+      "capture": "sha256:67738ccaf1a2db48a4a6ff3936071ee72cc843e178e868fb4007110648242d4c",
+      "quote": "- **4TB** <small>Bandwidth then 100mbit</small>"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-03T15:25:52.641Z",
+  "verified_at": "2026-11-25T09:47:04.425Z",
   "history": [],
   "notes": "The home page also lists NVMe Hybrid boxes from EUR 29.95 per month.",
   "extras": {

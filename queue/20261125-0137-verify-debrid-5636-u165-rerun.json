@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u165-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "This replaces the reverted attempt u13. Start from .tmp/20261125-0137-verify-debrid-5636/units/u13/changes.jsonl: copy every `set`, `dead`, `append_evidence` and `open_question` op there, but drop every `confirm`. Then, for each record in scope, capture its first-party page and find ONE field whose exact value appears in the capture text; confirm only that one field, with a quote span copied exactly from the capture, and list every other field in unread. If no field value appears in any capture, write an open_question for the record and do not confirm it. Never confirm a synthesized text field.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/binzb $.free_tier.stated: The capture shows LAMTOTO branding and casino-review text ('jackpot', 'bonus'), but no span states that the domain serves no free tier or that this replaced a Usenet search engine; 'none' and 'in place of the search engine' are not in the source.\n- debrid/binzb $.per_object_cap.stated: The capture shows the LAMTOTO page and its login/register links pointing to lamtoto-mafia.pages.dev; it has no statement about NZB endpoints or per-object caps, and one root page cannot establish that no NZB endpoint is served anywhere on the domain.\n- debrid/binzb $.retention.stated: The capture contains no statement about retention or a Usenet index; the LAMTOTO branding alone does not show that no Usenet index with a retention window is served on the domain.\n- debrid/digitkala $.free_tier.stated: The fresh read prices the 30-day AllDebrid account at 2,880,000 Toman, not 2,862,000 (the page changed since the lane's capture); the product page also shows no catalogue of host accounts.\n- debrid/digitkala $.notes: The fresh read prices the account at 2,880,000 Toman, not 2,862,000; the product capture has no host-account catalogue (that list is on the shop's login page, a different capture).\n- debrid/nzbindex $.free_tier.stated: The capture is the search JSON body: it proves totalElements 4,560 and totalPages 183, but it contains no HTTP status, no 7,770-byte count and no /download request; the 3,470-byte application/x-nzb download appears in neither this capture nor the record's measured download (4,264 bytes).\n- debrid/nzbindex $.limits[0].value: The capture is one probe record for one search (q=linux, 200); it does not show three consecutive searches, so the value's '3 consecutive JSON searches, all 200' is broader than the source.\n- debrid/stremio-addons-net $.reliability_note: The capture shows one affiliated PureVPN sponsor placement; it does not state that addon ranking is partly paid or that an entry's position is not a quality signal, and the ad slot is not a ranked addon entry.\n- debrid/stremio-addons-net $.interface_detail: The probe record shows /api/addons returned 404 with text/html; it contains no evidence that there is no documented JSON endpoint elsewhere, and nothing about addon pages carrying an install URL or that being the only machine-usable artefact.\n- debrid/telegram-premium $.retention.stated: The same FAQ states a retention condition: after 18 months offline the account is deleted along with all messages and media (default, adjustable in Settings). 'Gives no retention window' and 'kept until deleted' are contradicted by the page; the cited sentence only says media can stay while the acco",
+ "scope": {
+  "rids": [
+   "debrid/binzb",
+   "debrid/nzbindex",
+   "debrid/digitkala",
+   "debrid/iranget",
+   "debrid/telegram-premium",
+   "debrid/vidhide",
+   "debrid/lulustream",
+   "debrid/stremio-addons-net"
+  ]
+ },
+ "origin": "audit u187 of 20261125-0137-verify-debrid-5636/u165 failed: 10 of 27 unsupported",
+ "created": "2026-11-25T21:29:01Z"
+}

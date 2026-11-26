@@ -74,10 +74,52 @@
       "url": "https://debridmaster.com/telegram-bot",
       "date": "2026-10-23",
       "proved": "'Starting @debridmasterbot creates your DebridMaster account - no email or password needed.' and 'The minimum top-up in the bot is $5'"
+    },
+    {
+      "url": "https://debridmaster.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the Free column still states 2 files a day up to 512 MB each",
+      "capture": "sha256:dde2c6cadb98df4d00367a60e495c3a8605cafda857e0857a0029a91714c2b56",
+      "quote": "2 files a day, up to 512 MB each"
+    },
+    {
+      "url": "https://debridmaster.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the free download link stays valid for 24 hours",
+      "capture": "sha256:dde2c6cadb98df4d00367a60e495c3a8605cafda857e0857a0029a91714c2b56",
+      "quote": "Free links unlock after a short wait and stay valid for 24 hours."
+    },
+    {
+      "url": "https://debridmaster.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the free allowance resets on a rolling 24 hours and is shared per network",
+      "capture": "sha256:dde2c6cadb98df4d00367a60e495c3a8605cafda857e0857a0029a91714c2b56",
+      "quote": "The allowance resets on a rolling 24 hours and is shared by everyone on the same network."
+    },
+    {
+      "url": "https://debridmaster.com/telegram-bot",
+      "date": "2026-11-25",
+      "proved": "the bot sends a resumable download link, not a Telegram file; free links last 24 hours",
+      "capture": "sha256:96ebc4fea442f832d0c79b823b078993f7c9ed9d801e335ece607af701d2d68b",
+      "quote": "No. It sends a download link to our verified copy, which works in a browser or a download manager and supports resume. Paid links last 72 hours, free ones 24 hours."
+    },
+    {
+      "url": "https://debridmaster.com/telegram-bot",
+      "date": "2026-11-25",
+      "proved": "pressing Start in Telegram creates the account without an email or password",
+      "capture": "sha256:96ebc4fea442f832d0c79b823b078993f7c9ed9d801e335ece607af701d2d68b",
+      "quote": "That creates your DebridMaster account — no email or password needed."
+    },
+    {
+      "url": "https://debridmaster.com/telegram-bot",
+      "date": "2026-11-25",
+      "proved": "the bot's minimum top-up is USD 5 and credit does not expire",
+      "capture": "sha256:96ebc4fea442f832d0c79b823b078993f7c9ed9d801e335ece607af701d2d68b",
+      "quote": "The minimum top-up in the bot is $5; credit never expires."
     }
   ],
   "verdict": "qualifies-with-caveat",
   "price_per_tb_month": "USD 500 (pay-as-you-go, 0.50/GB); USD 250 effective on Premium (40 GB for 9.99)",
   "notes": "The important fact for debrid is negative: this class of bot is a debrid front-end in a chat and moves zero bytes through Telegram. Abandon if the free column changes or if the bot starts uploading files into the chat.",
-  "verified_at": "2026-10-23T01:52:23.000Z"
+  "verified_at": "2026-11-25T09:46:49.251Z"
 }

@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u199-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Minimal confirmation of the reverted attempt u155. Drop every `set` and every `confirm` from .tmp/20261125-0137-verify-debrid-5636/units/u155/changes.jsonl. Keep a `dead` op only when its evidence is a probe record whose status is 404, 410 or a transport failure; otherwise turn it into an open_question naming the rid. Keep `append_evidence` and `open_question`. Then, for each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], retention.days, per_object_cap.bytes, limits[i].value). Never confirm `$.url`, `$.topic`, `$.slug`, `$.provider`, `$.endpoint`, `$.free_tier.source_url`, `$.limits[i].source` or any system field. List every other field in unread. If no field matches, open a question for the record. No set operations.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/hubcloud $.interface_detail: The value names api.hubcloud.foo and hubcloud.foo/drive/admin, but the cited page (final_url https://hubcloud.mov/) publishes the endpoint as api.hubcloud.mov/upload and the dashboard as hubcloud.mov/drive/admin; no span of the capture contains hubcloud.foo.",
+ "scope": {
+  "rids": [
+   "debrid/hubdrive",
+   "debrid/filepress",
+   "debrid/hubcloud",
+   "debrid/gdflix",
+   "debrid/driveseed",
+   "debrid/elfhosted-prowlarr",
+   "debrid/debriditalia",
+   "debrid/megaseed-kz"
+  ]
+ },
+ "origin": "audit u215 of 20261125-0137-verify-debrid-5636/u199 failed: 1 of 8 unsupported",
+ "created": "2026-11-25T23:11:10Z"
+}

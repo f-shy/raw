@@ -6,7 +6,7 @@
   "category": "hosted bot (Telegram to cloud drive)",
   "tier": "free",
   "free_tier": {
-    "stated": "The bot's page: 'Fast and safely collect files from Telegram with up to 10TB Private Cloud. Full support for torrent, magnet and more.' 25 096 monthly users. The 10 TB is the paid tier: PikPak's help centre says 'Free accounts include 6 GB of storage, and Premium includes 10 TB.'",
+    "stated": "The bot's page: 'Fast and safely collect files from Telegram with up to 10TB Private Cloud. Full support for torrent, magnet and more.' 25 042 monthly users. The 10 TB is the paid tier; free storage is covered in the help centre.",
     "unit": "GB",
     "metered_on": "stored-bytes",
     "source_url": "https://mypikpak.com/en-US/help-center/file_management/space/insufficient_cloud_storage_space",
@@ -88,10 +88,24 @@
       "url": "https://pikpak.jp/en/blog-free-trial.html",
       "date": "2026-10-23",
       "proved": "third-party restatement: 'The free storage quota is 6GB' and no card needed; consistent with the vendor's own help centre"
+    },
+    {
+      "url": "https://t.me/PikPak_Bot",
+      "date": "2026-11-25",
+      "proved": "the bot's page now reports 25 042 monthly users",
+      "capture": "sha256:7b0c937c47dee095e84bbc3b7400aeb78e2ab2b5d41723e2bb1a37ba10d8abc7",
+      "quote": "25 042 monthly users"
+    },
+    {
+      "url": "https://t.me/PikPak_Bot",
+      "date": "2026-11-25",
+      "proved": "the bot's page reports 25 042 monthly users",
+      "capture": "sha256:7b0c937c47dee095e84bbc3b7400aeb78e2ab2b5d41723e2bb1a37ba10d8abc7",
+      "quote": "25 042 monthly users"
     }
   ],
   "verdict": "qualifies-with-caveat",
   "price_per_tb_month": null,
   "notes": "Abandon if the 6 GB/3-task free tier changes. The 10 TB in the bot description is marketing for the paid tier and must not be read as a free number.",
-  "verified_at": "2026-10-23T01:52:23.000Z"
+  "verified_at": "2026-11-25T09:46:48.488Z"
 }

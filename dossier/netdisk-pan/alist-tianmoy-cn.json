@@ -67,30 +67,9 @@
     {
       "url": "probe:https://alist.tianmoy.cn/",
       "date": "2026-11-11",
-      "proved": "this host answered every request of this run's probe",
-      "capture": "sha256:54b1bf23cb5b3202dc1117ebb53f24c7e4c16cfd830a4ab2fe6fd3d04fcb7177",
-      "quote": "\"consecutive_failures\": 0"
-    },
-    {
-      "url": "probe:https://alist.tianmoy.cn/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:54b1bf23cb5b3202dc1117ebb53f24c7e4c16cfd830a4ab2fe6fd3d04fcb7177",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://alist.tianmoy.cn/",
-      "date": "2026-11-11",
       "proved": "the settings request for this host answered HTTP 200 at this instant",
       "capture": "sha256:54b1bf23cb5b3202dc1117ebb53f24c7e4c16cfd830a4ab2fe6fd3d04fcb7177",
       "quote": "\"checked_at\": \"2026-11-11T00:20:01.878Z\""
-    },
-    {
-      "url": "probe:https://alist.tianmoy.cn/",
-      "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:54b1bf23cb5b3202dc1117ebb53f24c7e4c16cfd830a4ab2fe6fd3d04fcb7177",
-      "quote": "\"listing_sha256\": \"fcd1bca6\""
     },
     {
       "url": "probe:https://alist.tianmoy.cn/",
@@ -98,20 +77,6 @@
       "proved": "the liveness and mount-list probe checked this host at this instant",
       "capture": "sha256:ad2083eb8a0ca854cecad0c45291ac01efa5ba3a5325e1efaa1e26e0bea3a17a",
       "quote": "\"checked_at\": \"2026-11-19T03:31:20.741Z\""
-    },
-    {
-      "url": "probe:https://alist.tianmoy.cn/",
-      "date": "2026-11-19",
-      "proved": "the anonymous session, settings and mount list all answered, so the fresh alive timestamp stands",
-      "capture": "sha256:ad2083eb8a0ca854cecad0c45291ac01efa5ba3a5325e1efaa1e26e0bea3a17a",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://alist.tianmoy.cn/",
-      "date": "2026-11-19",
-      "proved": "the anonymous root listing hashed to fcd1bca6, equal to the recorded value; no hash change",
-      "capture": "sha256:ad2083eb8a0ca854cecad0c45291ac01efa5ba3a5325e1efaa1e26e0bea3a17a",
-      "quote": "\"listing_sha256\": \"fcd1bca6\""
     },
     {
       "url": "probe:https://alist.tianmoy.cn/",
@@ -140,10 +105,31 @@
       "proved": "the fresh anonymous root listing hashed to the recorded value, so the listing is unchanged",
       "capture": "sha256:c50462e77d860586257a0e8c54e4b3b8c383e1c572eb1f048545abb292fd9eb5",
       "quote": "\"listing_sha256\": \"fcd1bca6\""
+    },
+    {
+      "url": "probe:https://alist.tianmoy.cn/",
+      "date": "2026-11-25",
+      "proved": "the re-probe of this host was taken at this instant",
+      "capture": "sha256:262e451150e183e3cba1bd68113e9b1eaffcef00b2afcbfa4fa796feb44f9875",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:28.684Z\""
+    },
+    {
+      "url": "probe:https://alist.tianmoy.cn/",
+      "date": "2026-11-25",
+      "proved": "the anonymous session, settings and root listing all answered, so no consecutive failure",
+      "capture": "sha256:262e451150e183e3cba1bd68113e9b1eaffcef00b2afcbfa4fa796feb44f9875",
+      "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://alist.tianmoy.cn/",
+      "date": "2026-11-25",
+      "proved": "the anonymous root listing still hashes to fcd1bca6 with 3 entries",
+      "capture": "sha256:262e451150e183e3cba1bd68113e9b1eaffcef00b2afcbfa4fa796feb44f9875",
+      "quote": "\"guest\": true, ... \"root_entries\": 3, ... \"listing_sha256\": \"fcd1bca6\""
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T04:14:27.572Z",
+  "verified_at": "2026-11-25T11:08:33.683Z",
   "binding": "write-gated",
   "notes": "3 root entries on AList v4.2.6. It flaps between answering as an AList API and answering 200 with no API at all, and between listing and not listing, across runs minutes apart.",
   "history": [],

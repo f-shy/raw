@@ -66,10 +66,24 @@
       "url": "https://media.cm/premium",
       "date": "2026-10-23",
       "proved": "there is no /premium route (404 'Not Found'), so the paid terms are only those summarised on the homepage"
+    },
+    {
+      "url": "https://media.cm/",
+      "date": "2026-11-25",
+      "proved": "the free storage, bandwidth and no-expiry claims are unchanged",
+      "capture": "sha256:5889da8a4b198f9264b15b5079c9bbc6331d2ea539a74a6e1e8707b1fc8acb8b",
+      "quote": "Stream all your videos freely; we offer endless bandwidth at no charge, and your videos never expire."
+    },
+    {
+      "url": "https://media.cm/",
+      "date": "2026-11-25",
+      "proved": "a free user tier exists; the sign-up page itself was not read",
+      "capture": "sha256:5889da8a4b198f9264b15b5079c9bbc6331d2ea539a74a6e1e8707b1fc8acb8b",
+      "quote": "Ad-free Enjoy an ad-free streaming experience, even as a free user—your videos will always be free of ads."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:35:30.060Z",
+  "verified_at": "2026-11-25T09:46:44.527Z",
   "price_per_tb_month": "EUR 0",
   "history": [],
   "notes": "Video hosting service advertising unlimited free HLS bandwidth and 4K streaming. No programmatic path found: The page read describes the player, the upload form and embedding only. No API, FTP or CLI is mentioned on the homepage; the premium page path /premium returns 404, so the paid tier's terms were not read.",

@@ -77,12 +77,19 @@
       "proved": "the archived listing still states unlimited space, 400,000 files per drive and a 750 GB per day upload cap",
       "capture": "sha256:2b9d1b3dec1c35563cdcbeb1f981bf79cdfcd7ec3ed9077b102362e6887ab3a1",
       "quote": "无限空间，单盘最多 40 万个文件。\n • 每天上传额度 750 GB。"
+    },
+    {
+      "url": "probe:https://www.nodeseek.com/post-963458-1",
+      "date": "2026-11-26",
+      "capture": "sha256:aadf391f89fcfb6d771d424f330035e7a17d5aa46b7dd962b22010ec8894a172",
+      "quote": "\"status\": 403",
+      "proved": "the thread answered 403 behind a Cloudflare challenge on 2026-11-26, so the post could not be re-read and the quoted prices stand from 2026-11-19"
     }
   ],
   "verdict": "paid-only",
   "verified_at": "2026-11-19T21:12:44.363Z",
   "binding": "request-rate",
-  "notes": "Signal documentation rather than a purchase route. Four listings on one forum between 2024-05 and 2026-10 quote CNY 15 to 20 per month for unlimited Google team-drive space with a 400,000-file cap and a 750 GB per day upload cap, and two of the threads argue about whether the space is a genuine plan or an expansion bug. Where a rental market exists, the underlying unlimited quota is being arbitraged, and the intermediary account is what fails.",
+  "notes": "Signal documentation rather than a purchase route. Four listings on one forum between 2024-05 and 2026-10 quote CNY 15 to 20 per month for unlimited Google team-drive space with a 400,000-file cap and a 750 GB per day upload cap, and two of the threads argue about whether the space is a genuine plan or an expansion bug. Where a rental market exists, the underlying unlimited quota is being arbitraged, and the intermediary account is what fails. Re-probed 2026-11-26: the thread answered 403 with a Cloudflare challenge, so the rent prices are the 2026-11-19 reading.",
   "history": [],
   "extras": {
     "access_mode": "paid-pan",

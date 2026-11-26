@@ -6,12 +6,12 @@
   "category": "voucher reseller (payment rail)",
   "tier": "reseller",
   "free_tier": {
-    "stated": "no free tier; the reseller sells Real-Debrid voucher codes: 30 days EUR 20.00, 90 days EUR 40.00, 180 days EUR 75.00, all tax included.",
+    "stated": "no free tier; the reseller sells Real-Debrid voucher codes: 30 days EUR 28.00, 90 days EUR 50.00, 180 days EUR 90.00, 360 days EUR 99.00, all tax included. The 30/90/180-day SKUs were in stock on the read date; the 360-day SKU was out of stock.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://www.24instant.com/en/69-real-debrid",
     "read_on": "2026-10-23",
-    "notes": "all three SKUs showed 'Out of stock' on the read date"
+    "notes": "the 30/90/180-day SKUs showed 'In Stock' on the read date; the 360-day SKU showed 'Out of stock'"
   },
   "per_object_cap": {
     "stated": "not applicable to this record: a voucher is not an object.",
@@ -37,11 +37,11 @@
   ],
   "interface_detail": "web store; delivery is a code redeemed at the vendor",
   "tooling": "no API; browser checkout",
-  "chaining": "the worst-documented markup in the sample: the same 30 days of Real-Debrid that costs EUR 4 direct is EUR 20 here, and no SKU was in stock.",
+  "chaining": "the worst-documented markup in the sample: the same 30 days of Real-Debrid that costs EUR 4 direct is EUR 28 here, and the 360-day SKU was out of stock.",
   "limits": [
     {
       "kind": "write-gated",
-      "value": "all four Real-Debrid SKUs out of stock on 2026-10-23",
+      "value": "the 360-day Real-Debrid SKU out of stock on 2026-11-25; the 30/90/180-day SKUs in stock",
       "source": "https://www.24instant.com/en/69-real-debrid"
     },
     {
@@ -50,7 +50,7 @@
       "source": "https://real-debrid.com/terms"
     }
   ],
-  "limits_note": "no payment-vocabulary limit. The only limit that matters is availability: 'Out of stock' on every Real-Debrid SKU read today.",
+  "limits_note": "no payment-vocabulary limit. The only limit that matters is availability: 'Out of stock' on the 360-day Real-Debrid SKU read today; the 30/90/180-day terms are in stock.",
   "binding": "none",
   "binding_note": "Nothing in the seven-kind vocabulary applies; the constraint is price and stock.",
   "identity_cost": {
@@ -58,7 +58,7 @@
     "detail": "Checkout with an email. AllDebrid's own reseller directory lists 24instant with 'Bank Wire, Bitcoin, Credit Cards, Other, Paysera, Webmoney', so a card is not required for the rail.",
     "country": null
   },
-  "reliability_note": "Every Real-Debrid listing was out of stock when read, so the route is documented but not currently purchasable.",
+  "reliability_note": "Three Real-Debrid listings (30/90/180 days) are in stock on the read date; the 360-day listing is out of stock.",
   "confidence": "documented",
   "confidence_note": "Prices, stock state and the reseller rail list were read today on vendor and reseller pages. What would raise it: a completed purchase, which was not attempted.",
   "evidence": [
@@ -86,12 +86,68 @@
       "url": "https://real-debrid.com/terms",
       "date": "2026-10-23",
       "proved": "'The User's account is for personal use only. Only the individual who holds the account is allowed to connect on it. Connections to the User's account are recorded so that we can detect account sharing.' and 'Any account sharing or generated links sharing will lead to a suspension of the User account.' and 'not allowed to resell any Premium account nor managing it for somebody else without our explicit permission'"
+    },
+    {
+      "url": "https://www.24instant.com/en/69-real-debrid",
+      "date": "2026-11-25",
+      "proved": "the 30-day Real-Debrid voucher now costs EUR 28.00 including tax and is in stock",
+      "capture": "sha256:6a06696fc932f4895fb6ea763c73a86110be89335a9f3e8e5587e6763074c4bc",
+      "quote": "28,00 €  In Stock   Tax included"
+    },
+    {
+      "url": "https://www.24instant.com/en/69-real-debrid",
+      "date": "2026-11-25",
+      "proved": "the 360-day SKU remains out of stock while the shorter terms are in stock",
+      "capture": "sha256:6a06696fc932f4895fb6ea763c73a86110be89335a9f3e8e5587e6763074c4bc",
+      "quote": "99,00 €  Out of stock   Tax included"
+    },
+    {
+      "url": "https://www.24instant.com/en/69-real-debrid",
+      "date": "2026-11-25",
+      "proved": "only the 360-day SKU is out of stock today",
+      "capture": "sha256:6a06696fc932f4895fb6ea763c73a86110be89335a9f3e8e5587e6763074c4bc",
+      "quote": "99,00 €  Out of stock   Tax included"
+    },
+    {
+      "url": "https://www.24instant.com/en/69-real-debrid",
+      "date": "2026-11-25",
+      "proved": "the shop is purchasable now on the three shorter terms",
+      "capture": "sha256:6a06696fc932f4895fb6ea763c73a86110be89335a9f3e8e5587e6763074c4bc",
+      "quote": "28,00 €  In Stock   Tax included"
+    },
+    {
+      "url": "https://www.24instant.com/en/69-real-debrid",
+      "date": "2026-11-25",
+      "proved": "the 90-day voucher now costs EUR 50.00 including tax",
+      "capture": "sha256:6a06696fc932f4895fb6ea763c73a86110be89335a9f3e8e5587e6763074c4bc",
+      "quote": "50,00 €  In Stock   Tax included"
+    },
+    {
+      "url": "https://www.24instant.com/en/69-real-debrid",
+      "date": "2026-11-25",
+      "proved": "the 30-day price and stock state re-read today",
+      "capture": "sha256:6a06696fc932f4895fb6ea763c73a86110be89335a9f3e8e5587e6763074c4bc",
+      "quote": "28,00 €  In Stock   Tax included"
+    },
+    {
+      "url": "https://www.24instant.com/en/69-real-debrid",
+      "date": "2026-11-25",
+      "proved": "the 360-day SKU remains out of stock",
+      "capture": "sha256:6a06696fc932f4895fb6ea763c73a86110be89335a9f3e8e5587e6763074c4bc",
+      "quote": "99,00 €  Out of stock   Tax included"
+    },
+    {
+      "url": "https://www.24instant.com/en/real-debrid/305-real-debrid-365-days-premium-account.html",
+      "date": "2026-11-25",
+      "proved": "the 360-day SKU product page confirms it is out of stock",
+      "capture": "sha256:a1ec9cee9f2cd3044cf8da18f91b425a9359f8d923e120b86e4bcaa534cda044",
+      "quote": "This product is no longer in stock"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:30:43.000Z",
-  "price_per_tb_month": "EUR 20 per 30 days of Real-Debrid; EUR 4 direct",
-  "notes": "The markup is 5x on 30 days, 4.4x on 90 days and 4.7x on 180 days. A voucher is not automatically a small premium: at this reseller it is the difference between affordable and not. Vendor baseline, third-party: comparative listings lists Real-Debrid at EUR 3 / 15 days, EUR 4 / 30 days, EUR 9 / 90 days, EUR 16 / 180 days. real-debrid.com/premium returned 403 to read (exa, browserless, contextdev) and to fetch, so the vendor's own table was not read on 2026-10-23. At EUR 20 for 30 days this shop is 5x the vendor's own 30-day price; the 360-day SKU at EUR 99 is 3.1x the sum of two 180-day purchases (EUR 32). The 360-day term is the one thing a reseller sells that the vendor's published table does not. No programmatic path found: web store; delivery is a code redeemed at the vendor",
+  "verified_at": "2026-11-25T09:47:10.858Z",
+  "price_per_tb_month": "EUR 28 per 30 days of Real-Debrid; EUR 50 per 90 days; EUR 90 per 180 days; EUR 99 per 360 days (out of stock)",
+  "notes": "The markup is 7x on 30 days, 5.6x on 90 days and 5.6x on 180 days. A voucher is not automatically a small premium: at this reseller it is the difference between affordable and not. Vendor baseline, third-party: comparative listings lists Real-Debrid at EUR 3 / 15 days, EUR 4 / 30 days, EUR 9 / 90 days, EUR 16 / 180 days. real-debrid.com/premium returned 403 to read (exa, browserless, contextdev) and to fetch, so the vendor's own table was not read on 2026-10-23. At EUR 28 for 30 days this shop is 7x the vendor's own 30-day price; the 360-day SKU at EUR 99 is 3.1x the sum of two 180-day purchases (EUR 32). The 360-day term is the one thing a reseller sells that the vendor's published table does not. No programmatic path found: web store; delivery is a code redeemed at the vendor",
   "extras": {
     "payment_group": "crypto",
     "resells": [
@@ -109,7 +165,7 @@
         "Paysera",
         "Webmoney"
       ],
-      "markup_vs_direct": "+400% on 30 days of Real-Debrid; stock: none"
+      "markup_vs_direct": "+600% on 30 days of Real-Debrid; stock: 30/90/180-day SKUs in stock"
     },
     "merged_from": [
       "resale"

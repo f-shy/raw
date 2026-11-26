@@ -6,7 +6,7 @@
   "category": "DDL release index (scene releases with direct host links)",
   "tier": "free",
   "free_tier": {
-    "stated": "Free to read with no account: /feed/ served 40 RSS items and the post page carried three direct host links. No fee, no registration, no captcha on the pages read.",
+    "stated": "Latest releases from The Scene",
     "unit": "unlimited",
     "metered_on": "none",
     "source_url": "https://scnlog.me/feed/",
@@ -77,10 +77,17 @@
       "url": "https://scnlog.me/wp-json/wp/v2/posts?per_page=2",
       "date": "2026-10-23",
       "proved": "HTTP 401 Unauthorized, so the WordPress REST API is not an open route and RSS is the feed that works"
+    },
+    {
+      "url": "https://scnlog.me/feed/",
+      "date": "2026-11-26",
+      "proved": "the feed heading is Latest releases from The Scene",
+      "capture": "sha256:3e2f6efcc48caf1f1d0183be83b4f33558ba628c3670ae6ee6a34f909560e506",
+      "quote": "Latest releases from The Scene"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T01:52:28.000Z",
+  "verified_at": "2026-11-26T03:35:38.207Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The strongest DDL-side feed in this lane: machine-readable, no account, and the post page hands over host links without a login. Candidates considered and rejected as the primary path: rlsbb.cc (robots.txt forbids the crawl), ddlbase.com (two mirrors then a login), 0daydown.com (VIP gate). The site's own JSON API is 401, which is why RSS rather than JSON is the answer.",

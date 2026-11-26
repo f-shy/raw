@@ -50,7 +50,7 @@
     "detail": "an email address and no phone while registration was open. Registration is now disabled",
     "country": null
   },
-  "reliability_note": "Public-benefit drive running on underlying OneDrive storage. Published site configuration documents a scheduled service shutdown.",
+  "reliability_note": "unverified: https://cloud.7so.top/api/v3/site/config returned no HTTP status with a TLS hostname mismatch on 2026-11-26; no config body was read",
   "confidence": "documented",
   "evidence": [
     {
@@ -86,10 +86,17 @@
       "proved": "the landing page shows a server error notice on the declared shutdown date",
       "capture": "sha256:bda8a25238bc24051d9a87c30cb18afe5500aaa80c466c26428be2b069fce77c",
       "quote": "请检查网络，如果一切正常，那么可能是服务器出现了问题"
+    },
+    {
+      "url": "probe:https://cloud.7so.top/api/v3/site/config",
+      "date": "2026-11-26",
+      "proved": "the probe recorded a TLS verification error and no HTTP status",
+      "capture": "sha256:4a5ef7325a24b64140c2dfd9ccd2a79907dd32cc6128598897f78f0b5b3957e5",
+      "quote": "\"error\": \"tls_untrusted\""
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-11-19T21:12:44.736Z",
+  "verified_at": "2026-11-26T02:15:15.159Z",
   "history": [],
   "binding": "retention-clamped",
   "binding_note": "Service officially announced shutdown with new user registration disabled, establishing complete retention expiry.",

@@ -84,23 +84,9 @@
     {
       "url": "probe:https://p.vx365.vip/",
       "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:e4df43db3c97c775700924f9741692de8d473026814261b72dae8e125a8eb81c",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://p.vx365.vip/",
-      "date": "2026-11-11",
       "proved": "the settings request for this host answered HTTP 200 at this instant",
       "capture": "sha256:e4df43db3c97c775700924f9741692de8d473026814261b72dae8e125a8eb81c",
       "quote": "\"checked_at\": \"2026-11-11T00:20:05.465Z\""
-    },
-    {
-      "url": "probe:https://p.vx365.vip/",
-      "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:e4df43db3c97c775700924f9741692de8d473026814261b72dae8e125a8eb81c",
-      "quote": "\"listing_sha256\": \"e715d3d0\""
     },
     {
       "url": "probe:https://p.vx365.vip/",
@@ -136,6 +122,27 @@
       "proved": "the fresh anonymous root listing of p.vx365.vip hashed to the recorded value, so the listing is unchanged",
       "capture": "sha256:7f3d2200cafdb6067b1081511df62313e73d791cfe73ba4e3eca5e58e70c2299",
       "quote": "\"listing_sha256\": \"e715d3d0\""
+    },
+    {
+      "url": "probe:https://p.vx365.vip/",
+      "date": "2026-11-25",
+      "proved": "the re-probe of this host was taken at this instant",
+      "capture": "sha256:4133778c3780d562c52826d64549d660ba953c17590de667755952ae64cc5bd3",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:30.287Z\""
+    },
+    {
+      "url": "probe:https://p.vx365.vip/",
+      "date": "2026-11-25",
+      "proved": "the anonymous root listing still hashes to e715d3d0 with 26 entries",
+      "capture": "sha256:4133778c3780d562c52826d64549d660ba953c17590de667755952ae64cc5bd3",
+      "quote": "\"guest\": true ... \"root_entries\": 26 ... \"listing_sha256\": \"e715d3d0\""
+    },
+    {
+      "url": "probe:https://p.vx365.vip/",
+      "date": "2026-11-25",
+      "proved": "the re-probe answered as an anonymous guest, so registration is not needed",
+      "capture": "sha256:4133778c3780d562c52826d64549d660ba953c17590de667755952ae64cc5bd3",
+      "quote": "\"guest\": true"
     }
   ],
   "verdict": "qualifies-with-caveat",

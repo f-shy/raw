@@ -84,12 +84,40 @@
       "capture": "sha256:94e5af65784495af0ad7ee7c030768e0364d5ac58accb46b2953148dc6febc49",
       "quote": "PAYMENT OPTIONS INCLUDE CRYPTO AND PAYPAL GUEST CHECKOUTS",
       "proved": "crypto and PayPal guest checkout are accepted"
+    },
+    {
+      "url": "https://meggafast.com/index.php/order/",
+      "date": "2026-11-25",
+      "proved": "transfer terms, 1 GB port, 2:1 public-tracker ratio and FTP-over-TLS dashboard are unchanged",
+      "capture": "sha256:e2218db0fdfd03e5e3308471ccb299970257db7d6eeaccd72726f0bbfadbe1d9",
+      "quote": "Unlimited Downloads / Uploads, User Dashboard FTP over TLS (faster) 1 GB Port connection Public trackers Allowed 2:1 ratio on Public Trackers"
+    },
+    {
+      "url": "https://meggafast.com/",
+      "date": "2026-11-25",
+      "proved": "the free trial is for Xtream-TV, not for seedboxes",
+      "capture": "sha256:74a16c92d48575c69a8bf5c1105973a0f426ca24ef4946db2e3da1902a088051",
+      "quote": "Xtream-tv services 20.000 plus streaming media channels (Free Trial available)"
+    },
+    {
+      "url": "https://meggafast.com/index.php/order/",
+      "date": "2026-11-25",
+      "proved": "the entry box is still 125 GB at GBP 4.00/month plus an 8% PayPal fee",
+      "capture": "sha256:e2218db0fdfd03e5e3308471ccb299970257db7d6eeaccd72726f0bbfadbe1d9",
+      "quote": "- [MeggaBox 125GB](https://dashboard.meggafast.com/frm/2vt4NrxzZSLquGkrt)\n\n£4.00 / Month\n\n+8% paypal Transaction fee"
+    },
+    {
+      "url": "https://meggafast.com/",
+      "date": "2026-11-25",
+      "proved": "the home page names sFTP rather than the FTP over TLS named on the order page",
+      "capture": "sha256:74a16c92d48575c69a8bf5c1105973a0f426ca24ef4946db2e3da1902a088051",
+      "quote": "Unlimited Downloads / Uploads, User Dashboard sFTP 1 GB Port connection Public trackers Allowed 2:1 ratio on Public Trackers"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-03T07:37:15.242Z",
+  "verified_at": "2026-11-25T09:47:04.424Z",
   "history": [],
-  "notes": "Dedicated Seedbox 1TB is listed at GBP 15.00/month on the same page.",
+  "notes": "A live fetch on 2026-11-25 reads 1 GB port and FTP over TLS on the order page, while the home page reads sFTP and a container with SSH access to apps; the two first-party pages disagree on the protocol.",
   "extras": {
     "port_gbps": "1",
     "minimum_term": "monthly",

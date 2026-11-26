@@ -54,7 +54,7 @@
     "detail": "An account plus a VIP purchase stands between a caller and the link. The registration form was not opened, so the payment rail is unverified.",
     "country": "CN"
   },
-  "reliability_note": "Baidu Pan links die with the uploader's account and are shaped by region; posts share a fixed archive password ('0daydown') which must be applied before the file opens.",
+  "reliability_note": "unverified: the site's pages no longer answer: https://www.0daydown.com/ and https://www.0daydown.com/feed/ each returned HTTP 200 with a 114-byte HTML body that only redirects to /lander on 2026-11-25. Routes tried: reader, two provider pins, fetch, archive, three HTTP probes and a TCP connect probe.",
   "confidence": "documented",
   "confidence_note": "Home page, feed headers and one post were read on 2026-10-23. Purchasing a VIP account confirms the payment rail and the real per-link quota.",
   "evidence": [
@@ -72,10 +72,59 @@
       "url": "https://www.0daydown.com/10/3668985.html",
       "date": "2026-10-23",
       "proved": "VIP-only download notice in place of the link, and 'Password/解压密码 0daydown' in the post body"
+    },
+    {
+      "url": "probe:https://www.0daydown.com/",
+      "date": "2026-11-25",
+      "proved": "the probe recorded the status of the response from the site's home page",
+      "capture": "sha256:e6af07d617eac52e3a4ca971957675a0a40aabc60d8314f512629cf3e8975985",
+      "quote": "\"status\": 200,"
+    },
+    {
+      "url": "probe:https://www.0daydown.com/",
+      "date": "2026-11-25",
+      "proved": "the body of the 200 response is only a redirect to a lander, not the index",
+      "capture": "sha256:6dc9c7fc93bb488bb0520a6c780a8d3c0fb5486a4711aca49b4c53fac7393023",
+      "quote": "window.location.href=\"/lander\""
+    },
+    {
+      "url": "probe:https://www.0daydown.com/feed/",
+      "date": "2026-11-25",
+      "proved": "the feed probe also recorded a 200 with a 114-byte redirect-only body",
+      "capture": "sha256:0255a45ed12b6fc11310407f7aa4605f3f91c3d005c8f8ebb2ab6317c45c6153",
+      "quote": "\"status\": 200,"
+    },
+    {
+      "url": "https://www.0daydown.com/",
+      "date": "2026-11-25",
+      "proved": "a provider read of the domain shows a GoDaddy parked-domain page, so the index is gone",
+      "capture": "sha256:c3600a3ac3289ae5a61c0246c2b4019ed6b41c47ec28b7c89678ed6f46c58303",
+      "quote": "is parked free, courtesy of GoDaddy.com."
+    },
+    {
+      "url": "https://www.v2ex.com/t/1254635",
+      "date": "2026-11-25",
+      "proved": "a third-party user report says the site is down",
+      "capture": "sha256:793fa7692559103d1d42f18dad7078fe37cee13c7479376a55d7a279565926cc",
+      "quote": "已经挂了"
+    },
+    {
+      "url": "https://www.0daydown.com/",
+      "date": "2026-11-25",
+      "proved": "the domain is parked, so the index no longer exists",
+      "capture": "sha256:c3600a3ac3289ae5a61c0246c2b4019ed6b41c47ec28b7c89678ed6f46c58303",
+      "quote": "is parked free, courtesy of GoDaddy.com."
+    },
+    {
+      "url": "probe:https://www.0daydown.com/",
+      "date": "2026-11-25",
+      "proved": "the probe record targets the home page named by the record",
+      "capture": "sha256:e6af07d617eac52e3a4ca971957675a0a40aabc60d8314f512629cf3e8975985",
+      "quote": "\"url\": \"https://www.0daydown.com/\","
     }
   ],
-  "verdict": "paid-only",
-  "verified_at": "2026-10-23T01:52:28.000Z",
+  "verdict": "dead",
+  "verified_at": "2026-11-25T19:21:26.872Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Included because an English-language pass would not surface it: the feed is reachable, the catalogue is software and courses rather than video, and the download path is Baidu Pan, which no English DDL index uses.",
@@ -83,6 +132,10 @@
     "language": "zh",
     "feed_protocol": "rss2",
     "storage_target": "baidu-pan",
-    "vip_gate": true
+    "vip_gate": true,
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

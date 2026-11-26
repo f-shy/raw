@@ -20,8 +20,8 @@
     "notes": "an article size is a protocol convention, not a vendor number"
   },
   "retention": {
-    "stated": "Not stated by the vendor on any page read. The trial and plans pages carry no day count; the Omicron spool this reseller serves through us.sslusenet.com is sold elsewhere as 6,642+ days, which is inferred rather than measured here.",
-    "days": null,
+    "stated": "6,676+ days of binary retention, stated on the vendor home page. The retention guide says 6,668+ days; the more conservative of the two first-party figures is recorded.",
+    "days": 6668,
     "source_url": "https://www.fastusenet.org/signup/freetrial.php"
   },
   "egress": {
@@ -45,16 +45,16 @@
     },
     {
       "kind": "volume-quota",
-      "value": "15 GB during the 14-day trial; 15 GB, 35 GB or unlimited after it",
+      "value": "15 GB during the 14-day trial; 6 GB, 15 GB, 35 GB or unlimited after it",
       "source": "https://www.fastusenet.org/signup/freetrial.php"
     }
   ],
-  "limits_note": "Trial then $6.95/mo unlimited, $5.95/mo for 35 GB, $3.95/mo for 15 GB. The trial carries 15 GB whichever plan is chosen, so the most a free trial yields here is 15 GB once.",
+  "limits_note": "Trial then a 6 GB tier is published at $2.95/mo alongside the existing unlimited, 35 GB and 15 GB plans. The trial carries 15 GB whichever plan is chosen.",
   "binding": "volume-quota",
   "binding_note": "The trial is hard-capped at 15 GB and the two cheap plans are hard-capped at 15 GB and 35 GB per month. At 1 TiB/month the counter is the first thing that fails, on every tier.",
   "identity_cost": {
     "kind": "card",
-    "detail": "'Payment Information' is step 3 of the trial signup, before 'Create Login' is step 4, so a payment method is captured before the trial starts. The card is what makes this trial-only.",
+    "detail": "The signup flow lists four steps: 'Choose Your Plan', 'Confirm Account', 'Payment Information', 'Create Login'. The payment step asks for an email address, first name, last name and a credit/debit card or PayPal, so a payment method is captured before the trial starts.",
     "country": null
   },
   "reliability_note": "Omicron reseller on the sslusenet.com hosts, the same pair Newsgroup Ninja uses. The 14-day window is longer than the 3 to 7 days most competitors allow.",
@@ -70,10 +70,66 @@
       "url": "https://www.fastusenet.org/signup/freetrial.php",
       "date": "2026-10-23",
       "proved": "the page's signup flow lists four steps - '1 Choose Your Plan, 2 Confirm Account, 3 Payment Information, 4 Create Login' - taken from the search snippet of this URL because the extractor returned only the marketing copy; the meta description adds 'Choose the plan your account converts to after the trial'"
+    },
+    {
+      "url": "https://www.fastusenet.org/signup/freetrial.php",
+      "date": "2026-11-25",
+      "proved": "the free trial is 14 days or 15 GB, whichever comes first",
+      "capture": "sha256:9d3b1a8089678b1f3110e02b0a3eb2e5dd5ddf1b54decb1fd65ef04709d53cf1",
+      "quote": "Our unrestricted free trial gives you **14 days** to test our service or **15GB** of downloads, whichever comes first."
+    },
+    {
+      "url": "https://www.fastusenet.org/signup/freetrial.php",
+      "date": "2026-11-25",
+      "proved": "50 SSL connections on the trial",
+      "capture": "sha256:9d3b1a8089678b1f3110e02b0a3eb2e5dd5ddf1b54decb1fd65ef04709d53cf1",
+      "quote": "- 50 SSL Connections"
+    },
+    {
+      "url": "https://www.fastusenet.org/",
+      "date": "2026-11-25",
+      "proved": "the vendor now publishes 6,676+ days of retention on its home page",
+      "capture": "sha256:075efabd9e24be1f82f47e068a974d30d1f3bcb4dc8c83a87c761e3f8ddc11ae",
+      "quote": "6,676+ Days Retention"
+    },
+    {
+      "url": "https://www.fastusenet.org/usenet-retention.html",
+      "date": "2026-11-25",
+      "proved": "the retention guide states 6,668+ days of storage",
+      "capture": "sha256:0614c359c1df1f43fcb4ee593e5fc37413546857681d6cdf3f1ee377ad7c9564",
+      "quote": "6,668+ days"
+    },
+    {
+      "url": "https://www.fastusenet.org/",
+      "date": "2026-11-25",
+      "proved": "a 6 GB plan is now listed alongside unlimited, 35 GB and 15 GB",
+      "capture": "sha256:075efabd9e24be1f82f47e068a974d30d1f3bcb4dc8c83a87c761e3f8ddc11ae",
+      "quote": "- 6 GB"
+    },
+    {
+      "url": "https://www.fastusenet.org/",
+      "date": "2026-11-25",
+      "proved": "the 6 GB plan is priced at USD 2.95 per month",
+      "capture": "sha256:075efabd9e24be1f82f47e068a974d30d1f3bcb4dc8c83a87c761e3f8ddc11ae",
+      "quote": "$2.95/mo"
+    },
+    {
+      "url": "https://members.fastusenet.org/register?plan=unlimited&trial=1",
+      "date": "2026-11-25",
+      "proved": "the signup flow includes a Payment Information step before the login step",
+      "capture": "sha256:46c4bfd46ff90bf65fd81c8cd2fe15fb35bce7e245eb1f5764fdfaea3d23bcd5",
+      "quote": "Payment Information"
+    },
+    {
+      "url": "https://members.fastusenet.org/register?plan=unlimited&trial=1",
+      "date": "2026-11-25",
+      "proved": "the signup step offers credit or debit card as a payment method",
+      "capture": "sha256:46c4bfd46ff90bf65fd81c8cd2fe15fb35bce7e245eb1f5764fdfaea3d23bcd5",
+      "quote": "Credit / Debit CardVisa"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-10-23T01:52:29.000Z",
+  "verified_at": "2026-11-25T09:47:09.199Z",
   "price_per_tb_month": "USD 6.95 (unlimited, monthly)",
   "notes": "Documented as the clearest example of the pattern: a trial advertised as free, gated at a payment step that no vendor page describes as optional.",
   "extras": {

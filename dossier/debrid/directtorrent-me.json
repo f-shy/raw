@@ -55,7 +55,7 @@
     "detail": "Registration asks for an email address, a username and a password.",
     "country": null
   },
-  "reliability_note": "No outage observed on the day read.",
+  "reliability_note": "unverified: the host did not resolve on 2026-11-25; no page field could be re-read.",
   "confidence": "documented",
   "confidence_note": "First-party home page and registration page; prices in Sri Lankan rupees.",
   "evidence": [
@@ -93,6 +93,13 @@
       "capture": "sha256:3195b9d51d55bbcc340e5c953429b5e71874709a28b4348e0f3c1addcb1595e6",
       "quote": "Email Address Username Password Confirm Password",
       "proved": "registration asks for email, username and password"
+    },
+    {
+      "url": "probe:https://directtorrent.me/",
+      "date": "2026-11-25",
+      "proved": "the probe got no HTTP response because the name did not resolve",
+      "capture": "sha256:27e97f450e443045caba6325777202f4b5828c42b63f321e78a2428c6535973f",
+      "quote": "\"status\": null"
     }
   ],
   "verdict": "qualifies-with-caveat",

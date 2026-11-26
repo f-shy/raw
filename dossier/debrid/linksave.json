@@ -56,11 +56,6 @@
   "confidence_note": "The death is measured twice (probe redirect + DNS failure, proxy 504). The description of what it was rests on a 2011 forum post and the archive capture, and is marked reported.",
   "evidence": [
     {
-      "url": "probe:https://linksave.in/",
-      "date": "2026-10-23",
-      "proved": "HTTP 302 to https://ww17.linksave.in/, then 'getaddrinfo failed' errno 11004; 0 bytes; no hash"
-    },
-    {
       "url": "probe:https://linkcrypt.ws/",
       "date": "2026-10-23",
       "proved": "the sibling domain fails identically: 302 to https://ww17.linkcrypt.ws/, then DNS failure"
@@ -74,16 +69,34 @@
       "url": "https://www.autoitscript.com/forum/topic/129784-help-using-winhttp-to-send-data-using-linksave-api/",
       "date": "2026-10-23",
       "proved": "reported, 2011: the protect API signature and the rsdf/ccf/dlc container options"
+    },
+    {
+      "url": "probe:https://linksave.in/",
+      "date": "2026-11-25",
+      "proved": "the host still redirects to the ww17 wildcard host rather than serving a link protector",
+      "capture": "sha256:93762334853d93fae0789c35f910a271f1483fbfd141d75e7576873045081547",
+      "quote": "\"status\": 302"
+    },
+    {
+      "url": "probe:https://linksave.in/",
+      "date": "2026-11-25",
+      "proved": "the redirect target now serves an advertising and consent frame page rather than the link protector",
+      "capture": "sha256:73c1803d14ee5eb7a761944560793e08f0eac18394933296e7a831c47959a1d4",
+      "quote": "search-nowglobal.com"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T01:52:41.420Z",
+  "verified_at": "2026-11-25T09:46:50.031Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "linkcrypt.ws is the same case and is documented here rather than as a second file: both 302 to the identical ww17.<domain> wildcard and both fail DNS. Requirements names both; one dead service with two domains is one fact.",
   "extras": {
     "sibling_domain": "linkcrypt.ws (302 to ww17.linkcrypt.ws, DNS failure)",
-    "last_live_capture": "2025-05-24T06:39:44Z (Wayback, HTTP 200)"
+    "last_live_capture": "2025-05-24T06:39:44Z (Wayback, HTTP 200)",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   },
   "probe": {
     "url": "https://linksave.in/",

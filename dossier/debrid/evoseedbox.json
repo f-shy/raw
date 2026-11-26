@@ -28,7 +28,7 @@
   "egress": {
     "terms": "'unlimited downloads · metered upload bandwidth'; the FAQ says 'The monthly allowance (2-20 TB depending on plan) applies to traffic leaving the box - your FTP downloads and seeding.' Grabbing torrents into the box is unlimited; the allowance is stated as a range across plans, not per plan in the readable text.",
     "metered": true,
-    "free_allowance": "2 TB to 20 TB per month depending on plan (range as stated; the entry plan's own figure was not in the page text)",
+    "free_allowance": "2 TB to 20 TB per month depending on plan (range as stated); EVO Blitz, the entry plan, has 2 TB of upload bandwidth per month",
     "price_per_tb": null,
     "source_url": "https://evoseedbox.com/pricing/"
   },
@@ -62,7 +62,7 @@
       "source": "https://evoseedbox.com/pricing/"
     }
   ],
-  "limits_note": "The cheapest plan's own upload figure is the one number this record could not read: the FAQ gives the range and says most users never reach it. At 1 TiB/month the requirement is 3.39 Mbit/s sustained, which fits every plan in the range.",
+  "limits_note": "The entry tier EVO Blitz has 2 TB of upload bandwidth per month; the FAQ gives the 2-20 TB range across plans. At 1 TiB/month the requirement is 3.39 Mbit/s sustained, which fits every plan in the range.",
   "binding": "volume-quota",
   "binding_note": "The monthly upload allowance is the only byte counter; 2 TB at the bottom of the range is 6.17 Mbit/s sustained, so 1 TiB of monthly transfer uses half of the smallest allowance.",
   "identity_cost": {
@@ -93,10 +93,38 @@
       "url": "https://evoseedbox.com/plex-seedbox/",
       "date": "2026-10-23",
       "proved": "'Plex is a one-click app ... runs 24/7 on our 10Gbps network', '160+ active Plex servers on our fleet', 'From $5/month'"
+    },
+    {
+      "url": "https://evoseedbox.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the 10 Gbps port, unlimited downloads and metered upload terms are unchanged",
+      "capture": "sha256:ca887661e44b39f719505c1dfc407e4b370360e3cfd217389b809e52f8620971",
+      "quote": "All plans: 10 Gbps network · unlimited downloads · metered upload bandwidth · every app one-click"
+    },
+    {
+      "url": "https://evoseedbox.com/cheap-seedbox/",
+      "date": "2026-11-25",
+      "proved": "the plan table names 2 TB of upload bandwidth on the USD 5 entry tier",
+      "capture": "sha256:5aa4540fe1b359ff52b2a1d1f5f712a28c67d51ac6620deb1ecd69d97a5e403a",
+      "quote": "| **EVO Blitz** | 150 GB | 2 TB | $5 |"
+    },
+    {
+      "url": "https://evoseedbox.com/cheap-seedbox/",
+      "date": "2026-11-25",
+      "proved": "the USD 5 entry tier is named EVO Blitz with 2 TB of upload bandwidth",
+      "capture": "sha256:5aa4540fe1b359ff52b2a1d1f5f712a28c67d51ac6620deb1ecd69d97a5e403a",
+      "quote": "| **EVO Blitz** | 150 GB | 2 TB | $5 |"
+    },
+    {
+      "url": "https://evoseedbox.com/cheap-seedbox/",
+      "date": "2026-11-25",
+      "proved": "the allowance counts uploads only, not downloads",
+      "capture": "sha256:5aa4540fe1b359ff52b2a1d1f5f712a28c67d51ac6620deb1ecd69d97a5e403a",
+      "quote": "Every tier keeps unlimited downloads — the bandwidth figure only counts torrent uploads."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:19:00.000Z",
+  "verified_at": "2026-11-25T09:47:04.425Z",
   "price_per_tb_month": "USD 5 for 150 GB = USD 33.33/TB/month",
   "history": [],
   "notes": "At USD 5 the entry plan is exactly the boundary, not under it, and the per-TB price is the worst in this lane. It qualifies on absolute price and on the 7-day refund, not on value per TB. Sustained-rate conversion: 2 TB/month = 6.17 Mbit/s; 1 TiB/month = 3.39 Mbit/s. Candidates considered for the real constraint: the 150 GB disk (forces 7 cycles for 1 TiB), the upload allowance, the 10 Gbps shared port; the disk is the practical limit and the allowance is the priced one. cheapseedboxes.com states that EvoSeedbox and Iseedfast are its own seedbox services; they are recorded as separate brands because they have separate sites, prices and plan structures. Merged from hosted-stacks: The cheapest app-inclusive seedbox found at USD 5, but the number that matters - how much disk and how much upload the USD 5 buys - is the one the page would not give up. Treat USD 5 as the entry price and the quota as unverified until the plan cards are read in a browser.",

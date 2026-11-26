@@ -55,10 +55,17 @@
       "url": "https://www.zippyshare.com/",
       "date": "2026-10-23",
       "proved": "'Here lies Zippyshare [2006 - 2023]', 'Farewell.'"
+    },
+    {
+      "url": "https://www.zippyshare.com/",
+      "date": "2026-11-25",
+      "proved": "the vendor domain states the service closed in 2023",
+      "capture": "sha256:c643388588a6169cf89d6bed1578a58d804e9238ae9b8d376f53734f313594c5",
+      "quote": "Here lies Zippyshare [2006 - 2023]"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T02:20:00.000Z",
+  "verified_at": "2026-11-25T09:46:37.625Z",
   "price_per_tb_month": "not applicable: dead",
   "history": [],
   "notes": "Kept as a dead record so a future audit does not spend a pass rediscovering it. Debrid host lists that still include Zippyshare are stale in that row.",
@@ -67,6 +74,10 @@
     "source_url": "https://www.zippyshare.com/",
     "price_ladder_reported": "none",
     "volume_tib_month": 1.0,
-    "conversion": "MiB/s = 1,048,576 B/s; vendor GB = 1e9 B; GiB = 1.073741824e9 B; 1 TiB/month = 0.4045 MiB/s sustained"
+    "conversion": "MiB/s = 1,048,576 B/s; vendor GB = 1e9 B; GiB = 1.073741824e9 B; 1 TiB/month = 0.4045 MiB/s sustained",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

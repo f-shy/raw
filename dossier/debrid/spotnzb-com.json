@@ -76,6 +76,13 @@
       "url": "probe:https://spotnzb.com/api?t=g&id=19XKJ8pokN4BLjUagNmQp@spot.net&x=1",
       "date": "2026-10-23",
       "proved": "anonymous NZB download returned 200, 7,346 bytes, 10 files, sha256 ac230711... identical to nzbserver.com's"
+    },
+    {
+      "url": "https://spotnzb.com/api?t=caps",
+      "date": "2026-11-25",
+      "proved": "caps declares a maximum of 500 results per request",
+      "capture": "sha256:9a66b56b0ddd18b3c8bdfc79e15cc67fe2b168963bfb7851740ee4b4f8784ca8",
+      "quote": "<limits max=\"500\" default=\"50\"/>"
     }
   ],
   "verdict": "qualifies",
@@ -108,7 +115,7 @@
     "same_backend_as": "nzbserver-com"
   },
   "notes": "Listed in a community index of Usenet indexers as 'No accounts, Free'. Its caps is a stock Spotweb default, so it is a second front end rather than a separately curated index.",
-  "verified_at": "2026-10-23T02:11:54.066Z",
+  "verified_at": "2026-11-25T22:07:39.151Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }

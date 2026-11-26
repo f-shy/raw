@@ -75,10 +75,17 @@
       "proved": "the bot page is live as 'Magnet Link Downloader', names the fallback bot @MagnetLinkDL2Bot and a help channel, and states no price, allowance or daily count",
       "capture": "sha256:174a15f0ec85185aa09a17ac8f2455b104c2ccc53079125c1547c8a2ca2ec965",
       "quote": "If not working then Try"
+    },
+    {
+      "url": "https://t.me/MagnetLinkDLBot",
+      "date": "2026-11-26",
+      "proved": "the bot's own page names @MagnetLinkDL2Bot as its fallback",
+      "capture": "sha256:7358101f25bdf8fc5e6b1ff17f5619d892c8f1ba00f5ba0bc88354706646c140",
+      "quote": "[@MagnetLinkDL2Bot](https://t.me/MagnetLinkDL2Bot)"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T11:28:50.404Z",
+  "verified_at": "2026-11-26T01:10:09.783Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Documented as a service because it resolves and fetches: a magnet is supplied and a link to bytes comes back. The ledger's account-mirror bots (for example anything that clones into a user's own Drive) are excluded by that same test and listed in findings.md instead. No programmatic path found: A Telegram bot only. There is no HTTP endpoint: the interface is a chat with @MagnetLinkDLBot, and the operator publishes a fallback bot (@MagnetLinkDL2Bot) rather than an API.",

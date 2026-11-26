@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u160-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "This replaces the reverted attempt u08. Start from .tmp/20261125-0137-verify-debrid-5636/units/u08/changes.jsonl: copy every `set`, `dead`, `append_evidence` and `open_question` op there, but drop every `confirm`. Then, for each record in scope, capture its first-party page and find ONE field whose exact value appears in the capture text; confirm only that one field, with a quote span copied exactly from the capture, and list every other field in unread. If no field value appears in any capture, write an open_question for the record and do not confirm it. Never confirm a synthesized text field.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/binnewz $.url: The capture is a probe record whose \"url\" is the probe's own target; the request read 0 bytes with error tls_untrusted, so it carries no BinnewZ content. On 2026-11-25 the address serves a ParkLogic parking redirect (payload domainFull binnews.ninja, POST to router.parklogic.com; capture 321cdc8b), \n- debrid/findnzb $.url: The capture is a probe record whose \"url\" is the probe's own target; the read is HTTP 522 with a 7220-byte Cloudflare 'Error code 522 Connection timed out' page and no site text. A fresh probe on 2026-11-25 repeated 522, and the nearest Wayback capture (2026-07-11) is also 521. Nothing in the source\n- debrid/nzbscout $.url: The capture is a probe record whose \"url\" is the probe's own target; the request read 0 bytes with error tls_untrusted. On 2026-11-25 the address serves a ParkLogic parking redirect (payload domainFull nzbscout.com; capture 59ff1f3a), not the NZBScout indexer, so it does not prove the URL.\n- debrid/simply-nzbs $.url: The capture is a probe record whose \"url\" is the probe's own target; its 200 is 476 bytes with no body in the record. My own probe of the same URL on 2026-11-25 got a 476-byte JavaScript redirect stub ('<title>Loading...</title>' then window.location.replace(...?ch=1&js=...)) with no indexer text (c\n- debrid/spots-xenetix-nl $.url: The capture is a probe record whose \"url\" is the probe's own target and whose request failed. A DoH A query on 2026-11-25 returns NOERROR with no Answer row, only the xenetix.nl SOA (capture 62753006), so the name has no address at all. A target that does not resolve proves nothing about where the v",
+ "scope": {
+  "rids": [
+   "debrid/nzbking",
+   "debrid/findnzb",
+   "debrid/spots-xenetix-nl",
+   "debrid/binnewz",
+   "debrid/nzbscout",
+   "debrid/ninjacentral",
+   "debrid/tabula-rasa",
+   "debrid/simply-nzbs"
+  ]
+ },
+ "origin": "audit u182 of 20261125-0137-verify-debrid-5636/u160 failed: 5 of 8 unsupported",
+ "created": "2026-11-25T21:29:00Z"
+}

@@ -26,7 +26,7 @@
     "notes": ""
   },
   "egress": {
-    "terms": "Direct CDN links from the host's own servers with 'no throttling added by Debridly'. Counted per host per 24 hours, reset at 00:00 UTC.",
+    "terms": "Direct CDN links from the host's own servers with no throttling added by Debridly. Caps are per host per 24 hours and reset at 00:00 UTC; the host list reports 95 supported hosts, 89 online and 3 TB of combined daily caps.",
     "metered": true,
     "free_allowance": "unpublished free allowance; Premium caps per host, e.g. 200 GB/24h on 1Fichier",
     "price_per_tb": null,
@@ -60,7 +60,7 @@
       "source": "https://debridly.com/premium"
     }
   ],
-  "limits_note": "Some hosts are marked Offline in the list (daofile.com 'Offline Daily cap 3 GB' on the read date). The premium page warns that hosts such as Rapidgator and Tezfiles sell a separate premium package for 'exclusive' content that Debridly cannot unlock.",
+  "limits_note": "On the read date 89 of 95 hosts were online, with a combined 3 TB of daily caps; daofile.com, indishare.com, mexa.sh and nelion.me are marked Offline. The premium page warns that hosts such as Rapidgator and Tezfiles sell a separate premium package for exclusive content that Debridly cannot unlock.",
   "binding": "volume-quota",
   "binding_note": "At 1 TiB/month the per-host daily cap is the constraint that binds: 200 GB/day on 1Fichier is 6 TB/month, but a month spread over the 2-5 GB hosts (FileDot, Emload, DaoFile) hits their caps at tens of GB, so host mix decides whether 100 GiB is reachable at all.",
   "identity_cost": {
@@ -101,10 +101,66 @@
       "url": "https://web.archive.org/cdx/search/cdx?url=debridly.com&output=json&fl=timestamp&limit=3",
       "date": "2026-10-23",
       "proved": "the archive holds no capture of this domain, so no earlier price can be established"
+    },
+    {
+      "url": "https://debridly.com/signup",
+      "date": "2026-11-25",
+      "proved": "a free account can be created without payment",
+      "capture": "sha256:d9637f2edd73dc352136193b236dea5256c600c4b744c20b770546f2466bb2f8",
+      "quote": "Free signup. Upgrade to Premium any time."
+    },
+    {
+      "url": "https://debridly.com/premium-link-generator/1fichier",
+      "date": "2026-11-25",
+      "proved": "the 1Fichier counter resets at 00:00 UTC",
+      "capture": "sha256:02b70d9994b42ae69b9d6f8acf10b1dfb65ffebfcabde5de30dfc88469bc0ad5",
+      "quote": "The counter resets at 00:00 UTC, and the live bandwidth panel on this page shows exactly how much you have left."
+    },
+    {
+      "url": "https://debridly.com/premium",
+      "date": "2026-11-25",
+      "proved": "generated links are valid for 24 hours",
+      "capture": "sha256:4435f99f53ffbdd28be990254994cfad4e082373e5b3b252d6a6066c2be67236",
+      "quote": "24h link validity"
+    },
+    {
+      "url": "https://debridly.com/hosts",
+      "date": "2026-11-25",
+      "proved": "1Fichier has a 200 GB daily cap",
+      "capture": "sha256:49fd225a8080ef212bad871a51fd9f7a77cfcee47cd61ff61e03db4f7a8b8b28",
+      "quote": "- [1Fichier 1fichier.com Online Daily cap 200 GBOpen generator](https://debridly.com/premium-link-generator/1fichier)"
+    },
+    {
+      "url": "https://debridly.com/hosts",
+      "date": "2026-11-25",
+      "proved": "89 hosts were online on the read date",
+      "capture": "sha256:49fd225a8080ef212bad871a51fd9f7a77cfcee47cd61ff61e03db4f7a8b8b28",
+      "quote": "89\nOnline right now"
+    },
+    {
+      "url": "https://debridly.com/",
+      "date": "2026-11-25",
+      "proved": "no client software or browser extension is needed",
+      "capture": "sha256:dfb2b1a4b68a5268a00dcc1511bf940c91e4b4ecb6f9418fecc1b5a0644d6310",
+      "quote": "No browser extensions or software required"
+    },
+    {
+      "url": "https://debridly.com/signup",
+      "date": "2026-11-25",
+      "proved": "Google sign-in is offered alongside the email-and-password form",
+      "capture": "sha256:d9637f2edd73dc352136193b236dea5256c600c4b744c20b770546f2466bb2f8",
+      "quote": "Continue with Google"
+    },
+    {
+      "url": "https://debridly.com/premium",
+      "date": "2026-11-25",
+      "proved": "the annual plan costs USD 49.99",
+      "capture": "sha256:4435f99f53ffbdd28be990254994cfad4e082373e5b3b252d6a6066c2be67236",
+      "quote": "$49.99 / 365d"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T01:39:03.000Z",
+  "verified_at": "2026-11-25T09:46:53.124Z",
   "price_per_tb_month": "USD 49.99/year (USD 4.17/month) or USD 7.99/30 days",
   "history": [],
   "notes": "The only provider among debrid providers that publishes a numeric per-host daily cap instead of an 'unlimited' adjective. The annual term is sub-USD-5 per month; the 30-day term is not. Free tier exists but its allowance is unpublished, which is why the record is priced at the premium tier. The hosts page count differs between the page text ('90+ hosts') and the premium page ('70+ supported hosts'), so the true count is between the two. The newest service in the set and the only one with no archive footprint whatsoever, so it is a price with no history rather than a stable price. Its 365-day term at USD 49.99 is the second-cheapest annual in the set after OffCloud's EUR 40.",

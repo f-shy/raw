@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u162-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "This replaces the reverted attempt u10. Start from .tmp/20261125-0137-verify-debrid-5636/units/u10/changes.jsonl: copy every `set`, `dead`, `append_evidence` and `open_question` op there, but drop every `confirm`. Then, for each record in scope, capture its first-party page and find ONE field whose exact value appears in the capture text; confirm only that one field, with a quote span copied exactly from the capture, and list every other field in unread. If no field value appears in any capture, write an open_question for the record and do not confirm it. Never confirm a synthesized text field.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/abnzb $.reliability_note: One probe run (attempts 2, probed 2026-11-25T20:11:49Z) shows the request to / answered 302 and redirected to /login, and only the follow-up /login request answered 403, which the record itself marks as a Cloudflare challenge ('cloudflare-challenge:title:just a moment...'). The record does not show \n- debrid/nzbstars $.reliability_note: The probe record proves the direct request was answered HTTP 403 with a Cloudflare bot challenge (challenge.detected true, status 403). It does not say the page was read through a pinned provider: the record names no provider and its route is the probe's own 'proxy'. That clause rests on a separate \n- debrid/nzbwolf $.identity_cost.detail: The register page proves the free form asks for Display name, Email address and a Password of at least 12 characters. It says nothing about paid plans, Bitcoin or BTCPay, so the value's second sentence has no span in this capture. The run's sidecar for this capture records fetched_at 2026-11-03T11:1",
+ "scope": {
+  "rids": [
+   "debrid/abnzb",
+   "debrid/nzbnoob",
+   "debrid/news69",
+   "debrid/nzbstars",
+   "debrid/nzbs2go",
+   "debrid/nzbwolf",
+   "debrid/miatrix",
+   "debrid/scenenzbs"
+  ]
+ },
+ "origin": "audit u184 of 20261125-0137-verify-debrid-5636/u162 failed: 3 of 8 unsupported",
+ "created": "2026-11-25T21:29:00Z"
+}

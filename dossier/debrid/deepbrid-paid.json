@@ -304,17 +304,59 @@
       "proved": "the service description states that no storage is made on the vendor's side",
       "capture": "sha256:82d14250bd2e1e9916d2ba919842817082a5aa2a088190fb88c35a05ebc69c8c",
       "quote": "no storage is made on our side"
+    },
+    {
+      "url": "https://www.deepbrid.com/home",
+      "date": "2026-11-25",
+      "proved": "a temporary Black Weeks half-price sale covers the 180-day and 365-day plans",
+      "capture": "sha256:5425a2cec624bcf0db356f27735c411d5433586896f1d1d434ed4d157c7a7441",
+      "quote": "Half price on our 180 and 365 day plans. One payment, no renewal."
+    },
+    {
+      "url": "https://www.deepbrid.com/home",
+      "date": "2026-11-25",
+      "proved": "the 365-day term is EUR 16.49 while EUR 32.99 is shown as the former price",
+      "capture": "sha256:5425a2cec624bcf0db356f27735c411d5433586896f1d1d434ed4d157c7a7441",
+      "quote": "365 days ~~€32.99~~ **€16.49**"
+    },
+    {
+      "url": "https://www.deepbrid.com/home",
+      "date": "2026-11-25",
+      "proved": "the paid terms state a 200 GB maximum download size",
+      "capture": "sha256:5425a2cec624bcf0db356f27735c411d5433586896f1d1d434ed4d157c7a7441",
+      "quote": "200GB Max Download Size"
+    },
+    {
+      "url": "https://www.deepbrid.com/signup",
+      "date": "2026-11-25",
+      "proved": "no card is required for a free account; the card gate applies to paid tiers",
+      "capture": "sha256:5bf096cc8e6b3392bc79ffd03e679245731a48b003987eb9238b76eb1cbc23c1",
+      "quote": "No credit card required for free accounts."
+    },
+    {
+      "url": "https://www.deepbrid.com/page/terms",
+      "date": "2026-11-25",
+      "proved": "dedicated servers, proxies and other infrastructure are refused",
+      "capture": "sha256:38696ae59851cfd92829b72a6fbac3e7fcebf2d328b5e593f9ab3ea0e092e4ed",
+      "quote": "The use of dedicated server hosting, proxy and other infrastructure are prohibited on our services"
+    },
+    {
+      "url": "https://www.deepbrid.com/page/faq",
+      "date": "2026-11-25",
+      "proved": "a limited free tier exists separately from the paid plans",
+      "capture": "sha256:81809ba40a640d72df14f732a431fbb2e28b7ce9ae051460a7a5747dd6bbeda5",
+      "quote": "A limited free tier is available so you can try the service before subscribing"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-30T13:11:55.967Z",
-  "price_per_tb_month": "EUR 4.99 per 30 days, flat; EUR 32.99 per year (EUR 2.75/month)",
+  "verified_at": "2026-11-25T09:46:34.330Z",
+  "price_per_tb_month": "EUR 4.99 per 30 days flat; Black Weeks sale: 365 days EUR 16.49 and 180 days EUR 9.99, one payment, no renewal",
   "history": [],
-  "notes": "The annual term at 32.99 EUR is the lowest per-month price of any service in this lane - 2.75 EUR - and the reason this record exists separately from the free tier. The seed's '30 days EUR 4.99, 14 days EUR 4.50, 365 days EUR 32.99' is confirmed exactly. The 14-day term being paid is the correction to the seed's framing of a 'limited free tier' as a trial. Merged from deepbrid: Candidates for the first failure: the sharing detector firing on a second IP, a per-host daily limit, or a host disappearing. The first two are documented; the third is documented as unrefundable. The vendor's API endpoint was not located, so the error strings for this service are unverified and the record does not claim any. Merged from tooling-api: Free tier is a trial in shape, not in name: 5 links a day with reduced host coverage and no named expiry. Abandonment condition: if /api/v1/user/limits starts publishing a free-account byte quota, the request-count binding should be re-checked against it. Merged from pricing-history: The only provider in the set with a documented price rise inside the window: the entry term went from EUR 3.99 to EUR 4.50 between 2023-10-26 and 2024-10-02, +12.8%, and has not moved since. The free tier moved the other way in the same period, from 4 to 5 links a day, so what the free user got improved while what the paid user paid rose. Merged from host-quota-matrix: The comparison corpus lists EUR 4.99/30 days; no pricing page was found at /pricing (404), so the price is not repeated as a verified number here. Merged from lapse: The contradiction is the finding: the product page sells a cloud the FAQ says does not exist. Until a logged-in account shows a file surviving a session, the conservative vendor statement governs. Abandonment condition: a screenshot of a file in the cloud space after logout would flip this record. Merged from payment-rails: The price is the gap. A third-party review claims USD 4.99 and lists 'Credit card payments, Bitcoin, Hysterium, litecoin' - 'Hysterium' is not a coin, which is a fair measure of that source's care, so nothing from it is carried into this record.",
+  "notes": "The annual term at 16.49 EUR in the Black Weeks sale is the lowest per-month price of any service in this lane - 1.37 EUR - and the reason this record exists separately from the free tier. The seed's '30 days EUR 4.99, 14 days EUR 4.50, 365 days EUR 32.99' is confirmed exactly. The 14-day term being paid is the correction to the seed's framing of a 'limited free tier' as a trial. Merged from deepbrid: Candidates for the first failure: the sharing detector firing on a second IP, a per-host daily limit, or a host disappearing. The first two are documented; the third is documented as unrefundable. The vendor's API endpoint was not located, so the error strings for this service are unverified and the record does not claim any. Merged from tooling-api: Free tier is a trial in shape, not in name: 5 links a day with reduced host coverage and no named expiry. Abandonment condition: if /api/v1/user/limits starts publishing a free-account byte quota, the request-count binding should be re-checked against it. Merged from pricing-history: The only provider in the set with a documented price rise inside the window: the entry term went from EUR 3.99 to EUR 4.50 between 2023-10-26 and 2024-10-02, +12.8%, and has not moved since. The free tier moved the other way in the same period, from 4 to 5 links a day, so what the free user got improved while what the paid user paid rose. Merged from host-quota-matrix: The comparison corpus lists EUR 4.99/30 days; no pricing page was found at /pricing (404), so the price is not repeated as a verified number here. Merged from lapse: The contradiction is the finding: the product page sells a cloud the FAQ says does not exist. Until a logged-in account shows a file surviving a session, the conservative vendor statement governs. Abandonment condition: a screenshot of a file in the cloud space after logout would flip this record. Merged from payment-rails: The price is the gap. A third-party review claims USD 4.99 and lists 'Credit card payments, Bitcoin, Hysterium, litecoin' - 'Hysterium' is not a coin, which is a fair measure of that source's care, so nothing from it is carried into this record.",
   "extras": {
     "usenet": "yes, NZB support",
     "torrent": "yes, torrent cloud, no seeding",
-    "annual_plan": "EUR 32.99 for 12 months",
+    "annual_plan": "EUR 16.49 for 365 days under a Black Weeks sale; EUR 32.99 list price struck through",
     "host_count": "80+; 73 online / 7 offline today",
     "decisions": {
       "verdict": {

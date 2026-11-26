@@ -79,23 +79,9 @@
     {
       "url": "probe:https://ipa.p12.pp.ua/",
       "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:cfd4bb8412f7f4c1628289ca78a5146a81512c61646af3015a0f444b7ee304ec",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://ipa.p12.pp.ua/",
-      "date": "2026-11-11",
       "proved": "the settings request for this host answered HTTP 200 at this instant",
       "capture": "sha256:cfd4bb8412f7f4c1628289ca78a5146a81512c61646af3015a0f444b7ee304ec",
       "quote": "\"checked_at\": \"2026-11-11T00:20:03.982Z\""
-    },
-    {
-      "url": "probe:https://ipa.p12.pp.ua/",
-      "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:cfd4bb8412f7f4c1628289ca78a5146a81512c61646af3015a0f444b7ee304ec",
-      "quote": "\"listing_sha256\": \"e715d3d0\""
     },
     {
       "url": "probe:https://ipa.p12.pp.ua/",
@@ -131,6 +117,27 @@
       "proved": "the fresh anonymous root listing of ipa.p12.pp.ua hashed to the recorded value, so the listing is unchanged",
       "capture": "sha256:56b6a6902b7ab9550028e995b915d790afeceb681dc5e50330c17488148eae22",
       "quote": "\"listing_sha256\": \"e715d3d0\""
+    },
+    {
+      "url": "probe:https://ipa.p12.pp.ua/",
+      "date": "2026-11-25",
+      "proved": "the re-probe of this host was taken at this instant",
+      "capture": "sha256:d478f5db64ff2eff300eaaa512f003c663532dbc9e925bf0d5ccfeb85ba22336",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:28.697Z\""
+    },
+    {
+      "url": "probe:https://ipa.p12.pp.ua/",
+      "date": "2026-11-25",
+      "proved": "the anonymous root listing still hashes to e715d3d0 with 26 entries",
+      "capture": "sha256:d478f5db64ff2eff300eaaa512f003c663532dbc9e925bf0d5ccfeb85ba22336",
+      "quote": "\"guest\": true ... \"root_entries\": 26 ... \"listing_sha256\": \"e715d3d0\""
+    },
+    {
+      "url": "probe:https://ipa.p12.pp.ua/",
+      "date": "2026-11-25",
+      "proved": "the re-probe answered as an anonymous guest, so registration is not needed",
+      "capture": "sha256:d478f5db64ff2eff300eaaa512f003c663532dbc9e925bf0d5ccfeb85ba22336",
+      "quote": "\"guest\": true"
     }
   ],
   "verdict": "qualifies-with-caveat",

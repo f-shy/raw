@@ -6,7 +6,7 @@
   "category": "residential egress: rotating residential, metered per GB and tiered by country",
   "tier": "Residential, monthly plan",
   "free_tier": {
-    "stated": "The price table carries a 'Free' column beside the paid tiers, priced at the Tier-1 rate of $5.00/GB; the volume behind that column was not read.",
+    "stated": "Sandbox is a free-to-sign-up, no-commitment plan with no subscription fee and no included credits; top-up credits are bought at the Sandbox rate of $5.00/GB at Tier 1.",
     "unit": "GB",
     "metered_on": "downloaded-bytes",
     "source_url": "https://soax.com/pricing",
@@ -50,8 +50,8 @@
   "binding": "volume-quota",
   "binding_note": "Even the cheapest Tier-3 rate is USD 358 a TiB, which is 90 times a USD 4 subscription; the meter, not the class, is what fails.",
   "identity_cost": {
-    "kind": "card",
-    "detail": "Self-service subscription; the payment methods were not read on the page opened.",
+    "kind": "email",
+    "detail": "Self-service signup; a card is used only for paid plans and top-up credits, and the free Sandbox plan has no subscription fee. No phone or ID document is named on the pricing page.",
     "country": null
   },
   "reliability_note": "Country tiering means the exit's country, not just its class, is priced; a debrid account whose login country differs from its exit country is also the pattern that trips new-location checks.",
@@ -62,10 +62,59 @@
       "url": "https://soax.com/pricing",
       "date": "2026-10-23",
       "proved": "the tier matrix: 'Tier 1 | $5.00/GB | $3.00/GB | $2.20/GB | $1.50/GB | from $0.85/GB', 'Tier 3 | $2.00/GB | $1.20/GB | $0.90/GB | $0.60/GB | from $0.35/GB', and 'Germany and the United States are both in tier 1'"
+    },
+    {
+      "url": "https://soax.com/pricing",
+      "date": "2026-11-25",
+      "proved": "Tier 1 rates still run from $5.00/GB on Sandbox to $0.85/GB on the top plan",
+      "capture": "sha256:3a67dcbe7f59c8a4bdf7de58ca69fbbe61a83922f5ef511152aa4661fafae77f",
+      "quote": "| Tier 1 | $5.00/GB | $3.00/GB | $2.20/GB | $1.50/GB | from $0.85/GB |"
+    },
+    {
+      "url": "https://soax.com/pricing",
+      "date": "2026-11-25",
+      "proved": "Tier 3 rates still run from $2.00/GB on Sandbox to $0.35/GB on the top plan",
+      "capture": "sha256:3a67dcbe7f59c8a4bdf7de58ca69fbbe61a83922f5ef511152aa4661fafae77f",
+      "quote": "| Tier 3 | $2.00/GB | $1.20/GB | $0.90/GB | $0.60/GB | from $0.35/GB |"
+    },
+    {
+      "url": "https://soax.com/pricing",
+      "date": "2026-11-25",
+      "proved": "The free Sandbox plan has no included credits, only paid top-ups",
+      "capture": "sha256:3a67dcbe7f59c8a4bdf7de58ca69fbbe61a83922f5ef511152aa4661fafae77f",
+      "quote": "No. Sandbox is our no-commitment option. It has no subscription fee and includes no credits. You can buy top-up credits as needed and test SOAX at Sandbox rates and limits."
+    },
+    {
+      "url": "https://soax.com/pricing",
+      "date": "2026-11-25",
+      "proved": "The signup is self-service and card payment is optional at checkout on the free Sandbox plan",
+      "capture": "sha256:3a67dcbe7f59c8a4bdf7de58ca69fbbe61a83922f5ef511152aa4661fafae77f",
+      "quote": "We accept most major credit and debit cards. The methods available to you are shown at checkout."
+    },
+    {
+      "url": "https://soax.com/pricing",
+      "date": "2026-11-25",
+      "proved": "Card is a payment method shown at checkout, not a signup requirement stated on the pricing page",
+      "capture": "sha256:3a67dcbe7f59c8a4bdf7de58ca69fbbe61a83922f5ef511152aa4661fafae77f",
+      "quote": "We accept most major credit and debit cards. The methods available to you are shown at checkout."
+    },
+    {
+      "url": "https://soax.com/pricing",
+      "date": "2026-11-25",
+      "proved": "The free plan carries no bytes, so all usable capacity is paid",
+      "capture": "sha256:3a67dcbe7f59c8a4bdf7de58ca69fbbe61a83922f5ef511152aa4661fafae77f",
+      "quote": "No. Sandbox is our no-commitment option. It has no subscription fee and includes no credits. You can buy top-up credits as needed and test SOAX at Sandbox rates and limits."
+    },
+    {
+      "url": "https://soax.com/pricing",
+      "date": "2026-11-25",
+      "proved": "Germany and the United States are classified as Tier 1 egress countries",
+      "capture": "sha256:3a67dcbe7f59c8a4bdf7de58ca69fbbe61a83922f5ef511152aa4661fafae77f",
+      "quote": "Germany and the United States are both in tier 1, so we combine that traffic."
     }
   ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:21:34.000Z",
+  "verdict": "paid-only",
+  "verified_at": "2026-11-25T09:47:00.875Z",
   "price_per_tb_month": "USD 358-870 per TiB at the top tier (1,024 GB), USD 922-2,253 per TiB on the $500/month plan",
   "notes": "The lowest per-GB number found anywhere in the metered market (Tier 3, $0.35/GB) still costs USD 358 per TiB, which is the number that ends the argument that metered residential egress can carry a debrid workload.",
   "extras": {

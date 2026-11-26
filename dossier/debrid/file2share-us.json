@@ -63,10 +63,45 @@
       "url": "https://file2share.us/transfer-sh-alternative",
       "date": "2026-10-23",
       "proved": "'File2Share accepts the same curl --upload-file command' - the claim the two probes refute"
+    },
+    {
+      "url": "https://file2share.us/",
+      "date": "2026-11-25",
+      "proved": "the site still advertises a free upload allowance",
+      "capture": "sha256:fcd330c6d4d2779ea3b7616e6c1ba4bcd72c0f7177628c18688925dff42d7e27",
+      "quote": "Up to 50GB free"
+    },
+    {
+      "url": "https://file2share.us/faq/",
+      "date": "2026-11-25",
+      "proved": "the advertised free per-file cap is 50 GB",
+      "capture": "sha256:bad14a3624c25caedcebcd57aa4588da8f40e77390aa0e5e5253afe457cd276f",
+      "quote": "Free uploads are supported up to 50 GB per file."
+    },
+    {
+      "url": "probe:https://file2share.us/payload-1mib.bin",
+      "date": "2026-11-25",
+      "proved": "the old PUT upload target is still a static 404 on 2026-11-25",
+      "capture": "sha256:f52e1c546c5b3810e1f053b3cc2655577a402ad7fc9842b98d69e4f135f09e3e",
+      "quote": "\"status\": 404"
+    },
+    {
+      "url": "probe:https://file2share.us/upload",
+      "date": "2026-11-25",
+      "proved": "the old POST upload target is still a static 404 on 2026-11-25",
+      "capture": "sha256:1fc92b2c7f030cbac29aeeadfbb254e0502f3eb4ceaa8db4ba9dcbbfd870d320",
+      "quote": "\"status\": 404"
+    },
+    {
+      "url": "https://file2share.us/transfer-sh-alternative",
+      "date": "2026-11-25",
+      "proved": "the current command-line route is at upd.file2share.us and is rate-limited per address",
+      "capture": "sha256:10de11723326eecd0b6194c3b25982044010aee4efd74d3871e114ae6b3664ee",
+      "quote": "Each IP address can start up to 40 uploads per hour."
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T02:30:47.000Z",
+  "verified_at": "2026-11-25T09:47:06.402Z",
   "history": [],
   "notes": "Do not retry the marketing page's command; the path it names does not exist.",
   "extras": {

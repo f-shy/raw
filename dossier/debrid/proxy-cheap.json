@@ -26,7 +26,7 @@
     "notes": ""
   },
   "egress": {
-    "terms": "The static residential plan's three published bullets are 'Unlimited Bandwidth', '100+ Threads' and '100+ Mbps'; the price is $2.71 per month per IP (7 days for $1.99, 12 months at the same $2.71 monthly rate).",
+    "terms": "The basic static residential IPv4 plan now lists 'Shared by up to 3 users', '1 GB bandwidth', 'No speed upgrades', 'No concurrency upgrades' and 'HTTP/SOCKS5'; the 1-month price is $2.71 and the 12-month price is $2.17/month. The old unlimited-bandwidth, 100+ threads and 100+ Mbps bullets are no longer on the page.",
     "metered": false,
     "free_allowance": "none",
     "price_per_tb": null,
@@ -41,13 +41,13 @@
   "chaining": "At $2.71 a month for an address with no byte meter and 100 Mbit/s, this is the cheapest residential-class egress in the set: it makes the total for a prohibited debrid service about $7 a month instead of $1,800.",
   "limits": [
     {
-      "kind": "per-ip-shaping",
-      "value": "100+ Mbps per address, 100+ threads, no byte counter published",
+      "kind": "volume-quota",
+      "value": "1 GB bandwidth per address; shared by up to 3 users; no speed or concurrency upgrades on the basic plan",
       "source": "https://www.proxy-cheap.com/pricing"
     }
   ],
   "limits_note": "100 Mbit/s is 12.5 MB/s, or 1 TiB in 23.9 hours of saturated transfer; that is a throughput ceiling, not a volume ceiling, and it does not bind 1 TiB of monthly transfer.",
-  "binding": "none",
+  "binding": "volume-quota",
   "binding_note": "Nothing in the vocabulary fails at 1 TiB/month on this product: no byte meter, no concurrency limit below 100, and 100 Mbit/s clears the 3.24 Mbit/s 1 TiB of monthly transfer needs by a factor of 30.",
   "identity_cost": {
     "kind": "card",
@@ -60,13 +60,50 @@
   "evidence": [
     {
       "url": "https://www.proxy-cheap.com/pricing",
-      "date": "2026-10-23",
-      "proved": "'$2.71 PER MONTH' with 'Unlimited Bandwidth', '100+ Threads', '100+ Mbps' on the static-residential-ipv4 plans; a 7-day plan at $1.99; datacenter IPv4 at $1.49/proxy and IPv6 at $0.15/proxy for comparison"
+      "date": "2026-11-25",
+      "proved": "the cheapest entry is still the paid 7-day plan at USD 1.99",
+      "capture": "sha256:e70429417cf713bfc27447fa3416ac94f8f5e54f3d4e973b410434f2c4e19591",
+      "quote": "7 Day Trial Starts at $1.99 PER WEEK"
+    },
+    {
+      "url": "https://www.proxy-cheap.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the basic plan is now listed with 1 GB bandwidth and shared access",
+      "capture": "sha256:e70429417cf713bfc27447fa3416ac94f8f5e54f3d4e973b410434f2c4e19591",
+      "quote": "1 Month Starts at $2.71 PER MONTH"
+    },
+    {
+      "url": "https://www.proxy-cheap.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the basic static residential plan now has a published 1 GB byte allowance",
+      "capture": "sha256:e70429417cf713bfc27447fa3416ac94f8f5e54f3d4e973b410434f2c4e19591",
+      "quote": "Shared by up to 3 users\n\n- 1 GB bandwidth\n\n- No speed upgrades\n\n- No concurrency upgrades"
+    },
+    {
+      "url": "https://www.proxy-cheap.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the basic plan's limit is now a byte allowance rather than throughput",
+      "capture": "sha256:e70429417cf713bfc27447fa3416ac94f8f5e54f3d4e973b410434f2c4e19591",
+      "quote": "1 GB bandwidth"
+    },
+    {
+      "url": "https://www.proxy-cheap.com/pricing",
+      "date": "2026-11-25",
+      "proved": "a 1 GB allowance now binds the basic static residential plan",
+      "capture": "sha256:e70429417cf713bfc27447fa3416ac94f8f5e54f3d4e973b410434f2c4e19591",
+      "quote": "1 GB bandwidth"
+    },
+    {
+      "url": "https://www.proxy-cheap.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the 12-month rate is USD 2.17 per month and the basic plan includes 1 GB",
+      "capture": "sha256:e70429417cf713bfc27447fa3416ac94f8f5e54f3d4e973b410434f2c4e19591",
+      "quote": "12 Months Starts at $2.17 ~~$2.71~~ PER MONTH"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:21:34.000Z",
-  "price_per_tb_month": "USD 2.71 per IP per month, unlimited bytes",
+  "verified_at": "2026-11-25T09:47:01.821Z",
+  "price_per_tb_month": "USD 2.71 per IP per month for the basic plan (USD 2.17 on a 12-month term), 1 GB included",
   "notes": "The single most important number among debrid providers: it is the counter-example to 'a residential proxy costs $2/GB and therefore debrid is pointless'. The metered market is $1.40-$6.00/GB; the static market is $0.30-$2.71 per IP per month with no meter. The two markets are different products and published records should never quote one as the price of the other.",
   "extras": {
     "static_residential_monthly": "USD 2.71",

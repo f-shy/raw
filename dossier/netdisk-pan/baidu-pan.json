@@ -18,11 +18,11 @@
   },
   "retention": {
     "stated": "Trash holds deleted files for 10 days. The free allowance was cut from 2 TB to 100 GB in 2020 for accounts not logged in for two years",
-    "days": null,
+    "days": 10,
     "source_url": "https://www.ithome.com/0/511/746.htm"
   },
   "egress": {
-    "terms": "Metered by throttle rather than by byte: non-member downloads are capped around 0.1 MB/s and anything sizeable needs the desktop or mobile client",
+    "terms": "0.1M/s",
     "metered": true,
     "free_allowance": null,
     "price_per_tb": null,
@@ -150,10 +150,24 @@
       "proved": "Baidu's help centre on 2026-11-19 states registration is free of charge",
       "capture": "sha256:ddb2b4aefbfb95a2f93379d5e0c5c8f88cad3a6b0b471b7ba5a19fb56955352a",
       "quote": "注册百度网盘账号是完全免费的，不会收取您的任何费用。"
+    },
+    {
+      "url": "https://zh.wikipedia.org/wiki/中国大陆网盘列表",
+      "date": "2026-11-25",
+      "proved": "the comparison table lists a 0.1M/s download rate for Baidu Pan",
+      "capture": "sha256:aa332e531f22eb8d4aade7a812a7ad4e36c8d8d2362a892073731989dafd84db",
+      "quote": "| 百度网盘 | 300G | 无 | 有 | 有 | 0.1M/s | 是 | 是 |"
+    },
+    {
+      "url": "https://pan.baidu.com/disk/help",
+      "date": "2026-11-25",
+      "proved": "ordinary users get a 10-day trash retention",
+      "capture": "sha256:3a99b645300ea700c4ed8e94b9bda3eb83984080d8b484c949ea1db1522eb854",
+      "quote": "普通用户可享受10天有效期"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-19T21:12:45.623Z",
+  "verified_at": "2026-11-25T14:05:48.229Z",
   "history": [],
   "binding": "per-ip-shaping",
   "binding_note": "300 GB free, and 0.1 MB/s is 8.6 GB a day, so the throttle binds first: 1 TB takes 116 days of continuous reading.",

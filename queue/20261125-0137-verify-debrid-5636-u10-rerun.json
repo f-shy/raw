@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u10-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Re-check these debrid records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/scenenzbs $.free_tier.metered_on: Notice says the site moved; it does not state a free-tier metering basis of 'none'.\n- debrid/nzbwolf $.free_tier.notes: Capture lists Free, Basic and Ultra only; Premium USD 20 (10,000 and 5,000) is not on the page, and Ultra/Basic yearly API figures are split across spans.\n- debrid/nzbnoob $.free_tier.unit: Row gives 1 download and 100 API hits; the page does not name the unit 'requests'.\n- debrid/nzbnoob $.identity_cost.detail: Capture shows user name, password, confirm and email fields only; no card absence or hidden empty invite field is shown.\n- debrid/nzbwolf $.identity_cost.detail: Register capture proves display name, email and 12-character password; Bitcoin/BTCPay payment is not on that page.\n- debrid/scenenzbs $.reliability_note: Probe shows root 301 to a notice page; says nothing about an API path or client failure at search time.\n- debrid/scenenzbs $.free_tier.unit: Notice does not state free-tier unit; 'none' is not on the page.\n- debrid/nzbstars $.identity_cost.kind: An Add user link does not show anonymous access; Login link is also present.\n- debrid/miatrix $.reliability_note: Capture has no failed database reboot (Sept 2025) or Nov 2023 server move; the news item is dated Sept 29th, 2026.\n- debrid/nzbstars $.reliability_note: Probe proves direct 403 with Cloudflare challenge; 'read through a pinned provider' is not in this record.\n- debrid/nzbstars $.extras.price: Page asks for donations; it does not state a USD 0 price.\n- debrid/scenenzbs $.free_tier.stated: Notice supports the rename; 'every request is redirected' is broader than one root fetch.\n- debrid/abnzb $.reliability_note: One probe shows 302 to /login then 403; 'every direct request' is broader than one probe.\n- debrid/abnzb $.reliability_note: One probe shows 302 to /login then 403; 'every direct request' is broader than one probe.\n- debrid/nzbwolf $.identity_cost.detail: Register capture proves display name, email and 12-character password; Bitcoin/BTCPay payment is not on that page.\n- debrid/nzbnoob $.free_tier.metered_on: Row gives 1 download and 100 API hits with daily reset; 'request-count' as the metering basis is not stated.\n- debrid/nzbstars $.identity_cost.detail: Capture has Login and Add user links but no 'No registration required' text.",
+ "scope": {
+  "rids": [
+   "debrid/abnzb",
+   "debrid/nzbnoob",
+   "debrid/news69",
+   "debrid/nzbstars",
+   "debrid/nzbs2go",
+   "debrid/nzbwolf",
+   "debrid/miatrix",
+   "debrid/scenenzbs"
+  ]
+ },
+ "origin": "audit u87 of 20261125-0137-verify-debrid-5636/u10 failed: 17 of 30 unsupported",
+ "created": "2026-11-25T15:10:37Z"
+}

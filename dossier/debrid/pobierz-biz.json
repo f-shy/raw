@@ -69,10 +69,17 @@
       "url": "probe:html-diff https://www.pobierz.biz/ vs https://www.rapidtraffic.pl/",
       "date": "2026-10-23",
       "proved": "the two home pages are the same build: after normalising the brand string the raw HTML differs only in the GA property, the logo asset, the Trustpilot business-unit id and the Turnstile site key, and both carry the same Google Ads conversion id AW-17061610643"
+    },
+    {
+      "url": "https://www.pobierz.biz/pricing",
+      "date": "2026-11-25",
+      "proved": "the vendor price list includes a 10 GB package at 6,99 zł",
+      "capture": "sha256:7d360ae06f0c18d9f7a78b710bd2f1c5f5b48ad3c35c890c94f2dda7f676aff5",
+      "quote": "10 GB\n\n6,99 zł 0.7 zł/GB"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:06:35.000Z",
+  "verified_at": "2026-11-25T22:07:39.150Z",
   "price_per_tb_month": "PLN 276 per TB (EUR 63.2 at the ECB reference rate 4.3695 of 2026-10-22)",
   "history": [],
   "notes": "White-label twin of RapidTraffic.pl: two domains, one codebase, one Google Ads conversion id, one price list. Treat the two as one provider and do not count them as two services. At this volume the pay-per-GB model is 20 times the monthly cost of AllDebrid, so this is a small-burst tool, not a base. No programmatic path found: Web form: paste a link, the service fetches it, the download comes from its servers. No API, CLI or protocol endpoint is documented."

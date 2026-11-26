@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-netdisk-pan-1601-u08-rerun",
+ "kind": "verify",
+ "topic": "netdisk-pan",
+ "question": "Re-check these netdisk-pan records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- netdisk-pan/alist-20237737-xyz $.reliability_note: Record shows the 301 target answers status 200, application/json, 2572 bytes; it is not 'nowhere that answers'.\n- netdisk-pan/alist-advanced360-top $.reliability_note: Fresh read of the URL returns a parking-style page with keyword links, not a JS-cookie interstitial. Stored record shows only status 200 text/html 502 bytes, no cookie or JS challenge (challenge.detected false).\n- netdisk-pan/alist-xiaoya-pro $.reliability_note: Record shows a 302 to bmh.163.com only; nothing says the domain was repurposed (a redirect is not proof of re-registration).\n- netdisk-pan/lark-drive-via-multi-tenant-app-credentials $.identity_cost.kind: Page says no card needed; it does not say the identity cost is an email. The sign-up form lists email or phone, so kind 'email' alone is not shown.\n- netdisk-pan/lark-drive-via-multi-tenant-app-credentials $.chaining: 100G per app tenant and 250M per file are stated. 'Google service-account pattern', load-balancing writes and one flat namespace are not in the capture; it says instances are auto-routed by order and read/write permission.\n- netdisk-pan/lark-drive-via-multi-tenant-app-credentials $.identity_cost.detail: Form lists email address and phone number. 'Overseas IP outside the mainland', 'distinct credentials per tenant' and the developer-console login wall detail are not stated in the capture.\n- netdisk-pan/media-advanced360-top $.reliability_note: Record shows a 302 to plain http (no TLS) host that answered 401, error http-401; no TLS failure appears.\n- netdisk-pan/public-alist-fronting-139yun $.tooling: Settings capture supports v3.45.1 only; it does not show the root listing or any WebDAV check.\n- netdisk-pan/seven-so-cloud $.free_tier.stated: Page confirms shutdown and migration, but not the 1 TB / 200 GB figures, the '11月19下线' site configuration or registerEnabled false; those are not in the capture.",
+ "scope": {
+  "rids": [
+   "netdisk-pan/lark-drive-via-multi-tenant-app-credentials",
+   "netdisk-pan/public-alist-fronting-139yun",
+   "netdisk-pan/seven-so-cloud",
+   "netdisk-pan/media-advanced360-top",
+   "netdisk-pan/alist-20237737-xyz",
+   "netdisk-pan/alist-advanced360-top",
+   "netdisk-pan/alist-ucu520-top",
+   "netdisk-pan/alist-xiaoya-pro"
+  ]
+ },
+ "origin": "audit u24 of 20261125-0137-verify-netdisk-pan-1601/u08 failed: 9 of 16 unsupported",
+ "created": "2026-11-25T12:12:08Z"
+}

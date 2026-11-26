@@ -25,7 +25,7 @@
     "source_url": "https://usersdrive.com/vzm2kpefxwwx.html"
   },
   "retention": {
-    "stated": "not stated on the page read; the object offered was uploaded 2024-05-15 and still listed",
+    "stated": "Files on a registered free account are deleted 15 days after the last download; anonymous files are deleted 10 days after the last download.",
     "days": null,
     "source_url": "https://usersdrive.com/vzm2kpefxwwx.html"
   },
@@ -51,7 +51,7 @@
     },
     {
       "kind": "per-ip-shaping",
-      "value": "9 s countdown before the button; speed not measurable because no link was issued",
+      "value": "9 s countdown before the button; speed not measurable because no link was issued (probe 2026-11-25: Turnstile challenge still present on the download page).",
       "source": "probe:https://usersdrive.com/vzm2kpefxwwx.html"
     },
     {
@@ -61,7 +61,7 @@
     },
     {
       "kind": "retention-clamped",
-      "value": "11 days after the last download on a registered free account, down from 20 days in 2026-03",
+      "value": "15 days after the last download on a registered free account.",
       "source": "https://usersdrive.com/?op=payments"
     },
     {
@@ -81,7 +81,7 @@
     },
     {
       "kind": "retention-clamped",
-      "value": "files deleted 11 days after the last download on a registered free account",
+      "value": "files deleted 15 days after the last download on a registered free account",
       "source": "https://usersdrive.com/?op=payments"
     },
     {
@@ -175,10 +175,38 @@
       "url": "https://usersdrive.org/faq/",
       "date": "2026-10-23",
       "proved": "'54 GB on a free account, 73 GB registered, and no stated limit with premium'; '5250 MB without an account, 10500 MB once registered'"
+    },
+    {
+      "url": "https://usersdrive.com/?op=payments",
+      "date": "2026-11-25",
+      "proved": "the registered free daily volume is still 73 GB in 1 day",
+      "capture": "sha256:014885092a1c2a13546750fa817ea7923b9d8afdcc8c02768663605ac244b547",
+      "quote": "73 GB in 1 days"
+    },
+    {
+      "url": "https://usersdrive.com/?op=payments",
+      "date": "2026-11-25",
+      "proved": "the free anonymous retention row is 10 days",
+      "capture": "sha256:014885092a1c2a13546750fa817ea7923b9d8afdcc8c02768663605ac244b547",
+      "quote": "10 days after last download"
+    },
+    {
+      "url": "probe:https://usersdrive.com/vzm2kpefxwwx.html",
+      "date": "2026-11-25",
+      "proved": "the download page still presents a Cloudflare Turnstile challenge",
+      "capture": "sha256:f317b0c48b69ef506bb10c7959abcab039b9ee6083710f20d5b0dbbe57527c8a",
+      "quote": "\"signature\": \"generic-captcha:cf-turnstile\""
+    },
+    {
+      "url": "probe:https://usersdrive.com/?op=payments",
+      "date": "2026-11-25",
+      "proved": "the registered free retention row on the payments table reads 15 days after last download",
+      "capture": "sha256:8438243b08b4d9ee5c78e558b8d0644b8109c2962244d45feaf5465ae56f8e90",
+      "quote": "15 days after last download"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T03:31:02.558Z",
+  "verified_at": "2026-11-25T12:00:09.605Z",
   "price_per_tb_month": null,
   "notes": "The verdict is about the scripted path, not about the host: a browser or a debrid reaches the file. Recorded as measured because the refusal is what this session observed, twice. Merged from verify-usersdrive: 73 GB/day x 30 = 2,190 GB = 2.19 TB = 1.99 TiB if the vendor's GB is decimal, which is what the rest of the table implies (5250 Mb file cap). Treated as GiB the month is 2.14 TiB. The claim that this 'beats USD 3.00 for one TiB' is true of the quota and false of the price comparison: TorBox Essential at USD 3.00 sells a 10 TB/month non-flagging ceiling, 9.095 TiB, across many hosts. Free wins on cash for 1 TiB from this host; it does not win on capacity, coverage or time. Merged from paid-ladder: Correction to the filehost-premium record, which read 'USD 10.00 per TiB-month with no published cap at the 30-day plan; USD 70.00 for a year makes it USD 5.83 per TiB-month'. Two defects: a plan that publishes no allowance cannot carry a per-TiB figure, and 70/12 is USD 5.83 only on a 12-month year with no days in it. The plan belongs in the flat-month group, and its price is USD 70.00/year = USD 5.75/month. The reason it matters is ranking: a per-TiB label put a single-host key in the same column as plans that publish a byte cap. Merged from filehost-premium: The finding that matters for the lane is the free tier, not the price: 73 GB/day free with unlimited storage is the only free allowance found that covers the whole month without a key.",
   "extras": {

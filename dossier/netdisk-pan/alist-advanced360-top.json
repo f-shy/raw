@@ -42,7 +42,7 @@
     "detail": "no account would have helped",
     "country": null
   },
-  "reliability_note": "Death mode: JS-cookie interstitial.",
+  "reliability_note": "<title>Loading...</title>",
   "confidence": "measured",
   "evidence": [
     {
@@ -63,10 +63,17 @@
       "proved": "the API endpoint redirects to a 401 Forbidden interstitial, so no anonymous read is served",
       "capture": "sha256:10317348bd1ec11be7c0711ba3fefb2603d84a74b2902b6b79c194727633a41d",
       "quote": "\"status\": 401"
+    },
+    {
+      "url": "probe:https://alist.advanced360.top/api/public/settings",
+      "date": "2026-11-26",
+      "proved": "the saved interstitial body has the title Loading...",
+      "capture": "sha256:feab9435bb4ce7984ed608560056a3bc6473fb083f3b34bb7653867b21f8f4c0",
+      "quote": "<title>Loading...</title>"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-11-19T21:12:45.102Z",
+  "verified_at": "2026-11-26T02:15:13.859Z",
   "binding": "retention-clamped",
   "binding_note": "The host is not slow or capped, it is gone; the constraint is that it stopped.",
   "notes": "a media instance behind a JavaScript cookie gate. JS-cookie interstitial",

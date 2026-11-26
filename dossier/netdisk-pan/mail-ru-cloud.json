@@ -78,10 +78,17 @@
       "proved": "the rclone mailru backend also needs an app password",
       "capture": "sha256:3b8bfed70ee99f8bdc194e75e2e82ba928f02bcc592c3f6e2ff5cd647b91bd2c",
       "quote": "Rclone **will not work** with your normal username and password"
+    },
+    {
+      "url": "https://help.mail.ru/cloud/desktop/webdav/",
+      "date": "2026-11-26",
+      "proved": "the vendor help page gives the webdav.cloud.mail.ru endpoint",
+      "capture": "sha256:2acc2e508f12c9af8d02464e168ddcdc931a26bb70b990194065b5e5a6c94465",
+      "quote": "9. В поле **Сетевой адрес или адрес в Интернете** введите `https://webdav.cloud.mail.ru` и нажмите **Далее**."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-04T01:23:08.569Z",
+  "verified_at": "2026-11-26T02:15:14.533Z",
   "binding": "per-object-cap",
   "notes": "The landing page read on 2026-10-22 offers 1 TB at RUB 1,560 for the first year and RUB 3,000 from the second, with nine months added, under a promotion running 2026-10-15 to 2026-11-19. That is a paid tier, so this record is `paid-only` for the purposes of this survey and contradicts the shape of the corpus's older 'Mail.ru 1 TB free' records, which are the storage topic's to reconcile.",
   "history": [],

@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u06-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Re-check these debrid records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/yourimageshare $.free_tier.metered_on: Page says no account; it states no metering basis and no request count, so 'request-count' is not proved.\n- debrid/yourimageshare $.free_tier.unit: Page states no unit of metering; 'requests' is not proved.\n- debrid/fs-to $.reliability_note: Report says seizure on 15 Nov and ex.ua closure statement on the evening of 16 Nov, i.e. one day later, not two; the lawyer names the fs.to closure as one factor.\n- debrid/magnetlinkdl $.free_tier.unit: Page publishes nothing about a free tier or metering; absence does not prove unit 'none'.\n- debrid/turboget-net $.egress.terms: Capture has no plan prices (5.95, 9.95, 34.95, 59.95, 89.95), no 5 days/1 month terms and no GB quotas for plans; also FAQ says 40 Gb a day while rules say 25 GB.\n- debrid/turboget-net $.tooling: FAQ names the support channels, but 'Browser only' is not stated in it.\n- debrid/ex-ua $.limits[0].value: Source shows an announcement (RBC: evening of 16 Nov) and a 30 Nov deadline for files, not termination on 2016-11-16; Interfax gives no 16 Nov date.\n- debrid/turbobitpremium-org $.binding: Shop page sells time-based memberships; no traffic quota is shown, so 'volume-quota' is not proved.\n- debrid/ex-ua $.interface_detail: Probe shows the name does not resolve; the 2012 seizure and restoration is in neither the probe nor the RBC report.\n- debrid/publicmirrorbot $.identity_cost.kind: Page shows a Telegram bot; nothing about phone requirement or identity cost.\n- debrid/pullfiles $.reliability_note: Probe proves HTTP 200 and 65612 bytes only; single point of failure, operator visibility and no stated uptime/operator identity are not in it.",
+ "scope": {
+  "rids": [
+   "debrid/publicmirrorbot",
+   "debrid/magnetlinkdl",
+   "debrid/turbobitpremium-org",
+   "debrid/turboget-net",
+   "debrid/pullfiles",
+   "debrid/yourimageshare",
+   "debrid/ex-ua",
+   "debrid/fs-to"
+  ]
+ },
+ "origin": "audit u83 of 20261125-0137-verify-debrid-5636/u06 failed: 11 of 30 unsupported",
+ "created": "2026-11-25T15:10:37Z"
+}

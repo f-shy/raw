@@ -41,7 +41,7 @@
   "limits": [
     {
       "kind": "write-gated",
-      "value": "wallet top-up and withdrawal stopped on 2024-02-21 when the Central Bank revoked the licence of QIWI Bank",
+      "value": "Клиенты кредитного учреждения не могут пополнить кошельки и вывести с них средства",
       "source": "https://www.interfax-russia.ru/view/kivi-bank-lishilsya-licenzii-qiwi-koshelek-perevody-cherez-contact-ne-dostupny"
     }
   ],
@@ -66,10 +66,17 @@
       "url": "https://megaseed.kz/",
       "date": "2026-10-23",
       "proved": "a live CIS service still lists 'QIWI KZT' and 'QIWI RUB' among its payment anchors - the stale-listing case this record exists to flag"
+    },
+    {
+      "url": "https://www.interfax-russia.ru/view/kivi-bank-lishilsya-licenzii-qiwi-koshelek-perevody-cherez-contact-ne-dostupny",
+      "date": "2026-11-26",
+      "proved": "the report states that clients of the credit institution cannot top up wallets or withdraw funds",
+      "capture": "sha256:c4c27353d59ff177b16c6fcd0979118174089f64df6ae185a8383b16f053d32f",
+      "quote": "Клиенты кредитного учреждения не могут пополнить кошельки и вывести с них средства"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T02:24:30.824Z",
+  "verified_at": "2026-11-26T03:35:38.206Z",
   "price_per_tb_month": null,
   "notes": "A dead rail, recorded because a reader will otherwise treat 'QIWI accepted' on a provider page as a working payment option. The rule this establishes: a payment method listed by a CIS service is a claim about the past, and must be checked against the rail's own status. QIWI KZT may still work in Kazakhstan; nothing was found either way, so the record does not claim it."
 }

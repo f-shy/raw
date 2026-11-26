@@ -250,10 +250,38 @@
       "url": "probe:https://high-way.me/pages/tarife",
       "date": "2026-10-23",
       "proved": "no public tariff page: HTTP 404"
+    },
+    {
+      "url": "https://high-way.me/pages/tariffs/",
+      "date": "2026-11-25",
+      "proved": "the tariff page says registrations may be checked manually or refused",
+      "capture": "sha256:afc015e63005fa4e8831a51d8f2bd35cd276d3e717d18599faf1be7736e2af23",
+      "quote": "kann es sein, dass wir deine Registrierung manuell prüfen oder ablehnen müssen."
+    },
+    {
+      "url": "https://high-way.me/choosep.php",
+      "date": "2026-11-25",
+      "proved": "a no-expiry 250 GB traffic package is still listed",
+      "capture": "sha256:1d89745cd39fefdae4b59e3223056852e9f0da45ff06a329cfafa028a4a2a5fd",
+      "quote": "direkt 250 GB"
+    },
+    {
+      "url": "https://high-way.me/help/counting/",
+      "date": "2026-11-25",
+      "proved": "free users are charged the whole file size in advance",
+      "capture": "sha256:cff0ec14172053253e7bb381e87813247ecad33d9d2206cf1783c74045f23e7f",
+      "quote": "Sind Sie Free-User, wird jede Datei die Sie herunterladen im Voraus bezahlt"
+    },
+    {
+      "url": "https://high-way.me/help/terms",
+      "date": "2026-11-25",
+      "proved": "unused traffic of no-expiry packages loses 10 percent per month after 24 idle months",
+      "capture": "sha256:637e053b130980f5871691138c3a613238982a928e054ce7b6c7e1b4b999728d",
+      "quote": "ab dem vierundzwanzigsten Monat monatlich 10 % des ursprünglich inkludierten Traffics"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:22:02.000Z",
+  "verified_at": "2026-11-25T09:46:54.553Z",
   "price_per_tb_month": null,
   "notes": "Candidates for the first failure: traffic exhaustion (error 3), the per-host traffic ceiling (14/15), or a hoster blocking HIGHWAY (code 11). Error 3 is the one a 1 TiB/month workload meets; the per-host ceiling is the one a single large release meets. The API documentation is a 2015 forum post; it is the vendor's own and the only one published, and the last changelog entry read is from 2016. Merged from verify-ipclass: This record corrects the ip-class lane's classification. Its table lists High-Way under 'server IPs at registration (reported)' and gives the verdict fails-egress, and its own prose then says High-Way 'gates the registration instead of the download' - which is the refusal of a class at signup, not a download-time class rule. The headline claim 'the other six refuse the class' counts High-Way as one of the six. Its own documentation refuses nothing; the gate is manual vetting, which is an identity constraint. Existing records that own other angles: scratch seed-western/records/high-way-free.json, high-way-premium.json, high-way-unlimited.json, scratch host-quota-matrix/records/high-way.json. Merged from paid-ladder: The records that already existed each priced one line of this page and neither normalised TB to TiB, so the EUR 12.00 30-day rate and the EUR 32.50 no-expiry rate were both being compared against per-TiB figures from other lanes and each was 10% better than it is. This record carries the whole grid and the TiB normalisation. The floor is the annual 9 TB package, not the 30-day 1 TB one: EUR 8.33 per TB-month against EUR 12.00 is a 31% cut for a 12-month commitment, and the 12 TB annual (EUR 110) is worse per byte than the 9 TB annual (EUR 75), which is the one non-monotonic rung in the ladder. Merged from pricing-history: The 'ab' prices are floors, not prices: EUR 3.99 buys the smallest Premium package and the tariff actually needed is the byte package. The seed corpus lists 'Premium EUR 5.99 / Unlimited EUR 9.99' for 30 days, which does not match today's page (EUR 3.99 and EUR 5.99 floors); the seed figure is not reproducible from the vendor and is not carried here. Merged from lapse: The best price per TB in the lane and the only one whose currency does not rot, at the cost of a reviewed registration and a German-only contract. Fetched files are still not stored. Abandonment condition: if the 2038 sunset is brought forward, the indefinite claim shrinks. Merged from regional-eu: The cheapest-looking number on the page is the wrong one: EUR 3.99 buys the plan, not traffic, and every downloaded byte is charged again through a package. At 1 TiB/month the effective price is EUR 16-32.50 per TB, which is the highest per-byte price in this lane and the reason it is not the cheapest monthly option despite the lowest headline. Free MB can be bought, so the 'free' tier is a credit scheme, not an allowance. Merged from host-quota-matrix: Ranked here on mechanism rather than numbers: the factor system is real and documented, but nothing about the caps is observable without an approved account.",
   "extras": {

@@ -10,13 +10,13 @@
     "metered_on": "stored-bytes",
     "source_url": "https://www.ctfile.com/register",
     "read_on": "2026-10-22",
-    "notes": "the landing page and the register page agree on 5 TB and 20 GB; the help centre adds 20 GB free and 30 GB for Standard members"
+    "notes": "the landing page and the register page agree on 5 TB and 20 GB; the help centre states the same 20 GB per file"
   },
   "per_object_cap": {
-    "stated": "20 GB per file on the free tier; 30 GB on Standard",
+    "stated": "Free users: Max 20GB per file",
     "bytes": 20000000000,
     "source_url": "https://www.ctfile.com/help",
-    "notes": "terms section 3.2.8 states the same two numbers as a default"
+    "notes": "terms section 3.2.8 states the same 20 GB as a default"
   },
   "retention": {
     "stated": "files are deleted after 30 consecutive days without a sign-in on a free account, or 365 days on a paid account",
@@ -57,7 +57,7 @@
   ],
   "identity_cost": {
     "kind": "email",
-    "detail": "the email path asks for an email address, a password and a 5-character image verification code, then acceptance of the terms; 'Sign up with phone instead' is the alternative; no card, no ID document and no PRC phone number are asked for on the email path",
+    "detail": "email, password, captcha",
     "country": null
   },
   "reliability_note": "Over-quota triggers deletion of the excess without prior notice, and the inactivity clock deletes a free account's files at 30 days; a monthly sign-in cron keeps it alive and nothing else does.",
@@ -166,16 +166,44 @@
       "proved": "registration itself grants 5 TB of shared space at no charge",
       "capture": "sha256:aa085e0c36b24d6335be4ab545c21e0c24cf1c1a16dd330beb35011c6fe98046",
       "quote": "section_2_tip_text:\"Get 5TB shared space upon registration, completely free!\""
+    },
+    {
+      "url": "https://www.ctfile.com/assets/account-pages-7k0OlWK8.js",
+      "date": "2026-11-25",
+      "proved": "the sign-up request body carries email, password and captcha",
+      "capture": "sha256:1b4f987372253b292b7ed8e859eb991e9bfb6470671e79778d67b1783bcf6159",
+      "quote": "body:JSON.stringify({email:i.email,password:i.password,captcha:i.code,captcha_id:c,invite_code:G,ref:f})"
+    },
+    {
+      "url": "https://www.ctfile.com/assets/index-DqUjQ9XK.js",
+      "date": "2026-11-25",
+      "proved": "the form asks for a 5-character verification code entered from an image",
+      "capture": "sha256:a16f83c27679df5919497e91009fb039d550a69d2cd2f8f8a28a4d31340c8ec3",
+      "quote": "captcha_hint:\"请输入图片中的5位字母和数字\""
+    },
+    {
+      "url": "https://www.ctfile.com/help",
+      "date": "2026-11-25",
+      "proved": "the help page gives a 20GB per-file cap for free users",
+      "capture": "sha256:d9b1cd94326758f6e309fde65d055412276c3160e501c788d4cddd5469089fb1",
+      "quote": "Free users: Max 20GB per file"
+    },
+    {
+      "url": "https://www.ctfile.com/register",
+      "date": "2026-11-25",
+      "proved": "the sign-up page advertises 5TB of free space",
+      "capture": "sha256:b102c229f1f0def002d380a50e6f7498010d54af5759b5815375a03d40cd4bb8",
+      "quote": "5TB"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-09T13:21:23.326Z",
+  "verified_at": "2026-11-25T14:05:48.227Z",
   "binding": "retention-clamped",
   "notes": "5 TB free, 20 GB per file, email-only registration, WebDAV advertised. The 30-day inactivity deletion is the number that decides how it can be used: a monthly cron job keeps it, and nothing else does. Terms section 3.2.7 also caps the account at 200,000 files, which at 20 GB per file is a 4 PB nominal ceiling and therefore not the constraint.",
   "history": [],
   "extras": {
     "access_mode": "registration-gated",
-    "registration": "email + password + human-verification step",
+    "registration": "请输入图片中的5位字母和数字 (5-character image verification code)",
     "webdav_tier": "advertised on the free tier and on Super as batch download",
     "inactivity_days_free": 30,
     "inactivity_days_paid": 365,

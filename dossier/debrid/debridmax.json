@@ -66,10 +66,24 @@
       "url": "https://www.ozbargain.com.au/node/55467",
       "date": "2026-10-23",
       "proved": "a 2011 forum post describes DebridMax as 'a premium link generator' for Rapidshare and Megaupload, which fixes what the name meant when it was alive"
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20251201215330/http://www.debridmax.com/?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the archived domain serves a Chinese LED-signage company news index with posts dated 2025-11-14, not a debrid service",
+      "capture": "sha256:0c96caebce2fb89083bebea815514d985399d5bc3e5b5fff0a78ce6548257600",
+      "quote": "2025-11-14"
+    },
+    {
+      "url": "probe:http://www.debridmax.com/",
+      "date": "2026-11-25",
+      "proved": "a direct probe of the live domain on 2026-11-25 got no HTTP answer; the name did not resolve through the network path used",
+      "capture": "sha256:0cf86f8bb62bcffa684a7609a226076eda65792dae209ebe6c95e580a01e561d",
+      "quote": "\"status\": 502"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T01:39:03.000Z",
+  "verified_at": "2026-11-25T09:46:53.852Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "A name in the brief's list, checked and refuted. The current live page could not be read (broker exit 4 twice); the archive capture is the evidence. Do not resurrect this name as a prospect unless a new operator is found operating it.",

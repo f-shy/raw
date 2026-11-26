@@ -54,12 +54,12 @@
   "binding_note": "Nothing in the vocabulary binds at 1 TiB/month because no bytes pass through Safelinking; the only gate is its optional captcha on creation.",
   "identity_cost": {
     "kind": "anonymous",
-    "detail": "The API documentation lists no credential parameter. The 2011-era competitors required username:password; this one's protect call does not. Not confirmed end to end because the host did not answer a direct request.",
+    "detail": "The documented protect call has no credential field, but the same API page documents a separate Auth mode with a username and password parameter that returns an api_hash.",
     "country": null
   },
   "reliability_note": "The domain did not complete a TCP connection from this host: two probes timed out after 21 s (connect error 10060) while network requests returned a provider snapshot of the same page. Treat reachability as location-dependent, not as uptime.",
   "confidence": "reported",
-  "confidence_note": "The page text is a provider snapshot rather than a live origin read, and both direct probes timed out, so the record is third-party until a request succeeds from a client network. A measured rung needs one successful /check call.",
+  "confidence_note": "The API documentation is a first-party GitHub page; a live origin read returned a domain-parking page and a direct probe failed. The hosted service was not reached, so the rung stays reported.",
   "evidence": [
     {
       "url": "https://github.com/safelinking/Safelinking",
@@ -80,10 +80,38 @@
       "url": "probe:https://safelinking.net/s64aTFQ",
       "date": "2026-10-23",
       "proved": "the package host also timed out: 21133.5 ms, 0 bytes, error 'timeout'"
+    },
+    {
+      "url": "https://github.com/safelinking/Safelinking",
+      "date": "2026-11-25",
+      "proved": "the API documentation includes a username credential parameter in its Auth mode",
+      "capture": "sha256:3b9b169d2d2c739f8deb3e2b864cf7470db792180d4cd93d604cfdc24b59f085",
+      "quote": "username | Username of the user. | Input"
+    },
+    {
+      "url": "https://github.com/safelinking/Safelinking",
+      "date": "2026-11-25",
+      "proved": "the protect API takes a mandatory links-to-protect field with no registration field",
+      "capture": "sha256:3b9b169d2d2c739f8deb3e2b864cf7470db792180d4cd93d604cfdc24b59f085",
+      "quote": "The links you wish to protect, separated by line breaks or \"%0A\" (MANDATORY)."
+    },
+    {
+      "url": "https://safelinking.net/",
+      "date": "2026-11-25",
+      "proved": "the safelinking.net domain now shows a Namecheap domain-parking page rather than the link protection service",
+      "capture": "sha256:db4c773775c3a27a26ec0b0407e360a07f0076fdd66df358637e1b1179ff4073",
+      "quote": "has been recently registered with namecheap.com"
+    },
+    {
+      "url": "https://safelinking.net/",
+      "date": "2026-11-25",
+      "proved": "the origin domain now serves a parking page rather than the service",
+      "capture": "sha256:db4c773775c3a27a26ec0b0407e360a07f0076fdd66df358637e1b1179ff4073",
+      "quote": "has been recently registered with namecheap.com"
     }
   ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T01:52:41.420Z",
+  "verdict": "dead",
+  "verified_at": "2026-11-25T09:46:50.031Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Answers half the sector question negatively: it will mint a protected link anonymously over HTTP, but it does not resolve anything to a direct link and it adds a captcha rather than removing one. If a wrapper is wanted, the API exists and is documented; if direct links are wanted, this is not it.",
@@ -93,6 +121,10 @@
       "GET https://safelinking.net/check?link=<package>&output=JSON"
     ],
     "short_domain": "sflk.in",
-    "reachability": "timeout from this host; broker snapshot only"
+    "reachability": "timeout from this host; broker snapshot only",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

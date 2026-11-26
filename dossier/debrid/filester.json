@@ -20,7 +20,7 @@
     "notes": "bytes = 10 x 1024^3; the vendor may change the cap without notice."
   },
   "retention": {
-    "stated": "As long as files have downloads it will be kept as long as the site is running. Files that do not get downloads within 35 days will get deleted.",
+    "stated": "FAQ: as long as files have downloads they are kept while the site runs; files with no downloads for 35 days are deleted. The first-party API documentation states a different inactivity period: files are deleted after 45 days without views or downloads.",
     "days": 35,
     "source_url": "https://filester.me/faq",
     "notes": "The 35 days restart with each download."
@@ -81,10 +81,52 @@
       "capture": "sha256:90227a7194e201f189828293d103e99c0a00966fee98246a7d76b9cfeee04a65",
       "quote": "Anonymous uploads cannot be manually deleted.",
       "proved": "anonymous uploads exist"
+    },
+    {
+      "url": "https://filester.me/faq",
+      "date": "2026-11-25",
+      "proved": "the per-file cap stays 10 GB and remains changeable without notice",
+      "capture": "sha256:90227a7194e201f189828293d103e99c0a00966fee98246a7d76b9cfeee04a65",
+      "quote": "Up-to 10GB, subject to be changed without any prior notice if it gets abused, or we decide to increase it."
+    },
+    {
+      "url": "https://filester.me/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ still states a 35-day no-download deletion",
+      "capture": "sha256:90227a7194e201f189828293d103e99c0a00966fee98246a7d76b9cfeee04a65",
+      "quote": "Files that do not get downloads within 35 days will get deleted."
+    },
+    {
+      "url": "https://filester.me/faq",
+      "date": "2026-11-25",
+      "proved": "anonymous uploads still exist",
+      "capture": "sha256:90227a7194e201f189828293d103e99c0a00966fee98246a7d76b9cfeee04a65",
+      "quote": "Anonymous uploads cannot be manually deleted."
+    },
+    {
+      "url": "https://filester.me/api-docs",
+      "date": "2026-11-25",
+      "proved": "the first-party API page states 45 days of inactivity before deletion, against 35 days on the FAQ",
+      "capture": "sha256:9f3a02066b4aea977285d8f8c289b9dfa3d56858239dc680f396b881d6ad72d9",
+      "quote": "File inactivity | Deleted after 45 days without views or downloads"
+    },
+    {
+      "url": "https://filester.me/api-docs",
+      "date": "2026-11-25",
+      "proved": "a REST API exists with key-based access and guest uploads, so the read path is programmatic",
+      "capture": "sha256:9f3a02066b4aea977285d8f8c289b9dfa3d56858239dc680f396b881d6ad72d9",
+      "quote": "All API requests require an API key passed as a Bearer token in the `Authorization` header. Get your key from your [Account Settings](https://filester.me/account) page. Guest uploads (no authentication) are also supported for the upload endpoint."
+    },
+    {
+      "url": "https://filester.me/api-docs",
+      "date": "2026-11-25",
+      "proved": "the API has a 1,000 requests per hour per key limit",
+      "capture": "sha256:9f3a02066b4aea977285d8f8c289b9dfa3d56858239dc680f396b881d6ad72d9",
+      "quote": "Rate limit: 1,000 requests per hour per API key."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T07:37:12.225Z",
+  "verified_at": "2026-11-25T09:46:39.735Z",
   "price_per_tb_month": "unverified: no paid tier page was readable",
   "history": [],
   "notes": "",

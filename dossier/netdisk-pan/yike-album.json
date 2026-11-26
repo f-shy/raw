@@ -59,13 +59,6 @@
       "proved": "the seed pass recorded, at this URL: '自己存色图都用谷歌无限相册', an adjacent forum thread on the same unlimited-photo-album pattern"
     },
     {
-      "url": "https://yike.baidu.com",
-      "date": "2026-11-03",
-      "proved": "the album service's own page on yike.baidu.com is titled as a claim of unlimited album space",
-      "capture": "sha256:4cdfa432e79c7ace73cb3b48c571579a63d5e185f4effb5521915ad13a2b0021",
-      "quote": "<title>领取无限相册空间</title>"
-    },
-    {
       "url": "probe:https://yike.baidu.com",
       "date": "2026-11-03",
       "proved": "the page on yike.baidu.com answers 200 with the unlimited album space title; the record's own URL www.yike.com did not answer",
@@ -85,6 +78,13 @@
       "proved": "the service page title advertises unlimited album space",
       "capture": "sha256:a08b6a8eca3017dce2fa5d3d01a6af0b56df44c3f5cda3e2aac1795138a63172",
       "quote": "<title>领取无限相册空间</title>"
+    },
+    {
+      "url": "https://mobile.baidu.com/appitemp/3869444",
+      "date": "2026-11-25",
+      "proved": "the Baidu app listing states unlimited storage space with unlimited original-quality photo and video backup",
+      "capture": "sha256:9baf247822f806ba9c1168ef92271b235625010f59c09a4a89cfc7fe3d566dff",
+      "quote": "1、无限存储空间：无限量原画质备份照片视频，任意手机设备都能访问。"
     }
   ],
   "verdict": "fails-quota",

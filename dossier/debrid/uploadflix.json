@@ -133,10 +133,38 @@
       "proved": "the registration form asks for username, e-mail, password and an image code",
       "capture": "sha256:64ad031058cb5cde2371dcd2fd01500545e4aaf4551e3ea1bda422f135312a67",
       "quote": "Username:\n\nE-mail:\n\nPassword:\n\nRetype Password:"
+    },
+    {
+      "url": "https://www.uploadflix.com/",
+      "date": "2026-11-25",
+      "proved": "the free per-file upload cap is still 5 GB",
+      "capture": "sha256:c846d9b4b4c153ac036d1e8ba811d24e9b9b8974f0e6b6526420c2e050a1c673",
+      "quote": "Upload files up to 5 GB each without any restrictions."
+    },
+    {
+      "url": "https://1uploadflix.net/buy_premium.html?op=payments",
+      "date": "2026-11-25",
+      "proved": "the premium upload cap is still 10 GB per file",
+      "capture": "sha256:8e5fdfcea962c35a86b43e045a7dd2b4f4738a1d3fec7341e378a16a81718dc1",
+      "quote": "## 5. Upload Up to 10 GB"
+    },
+    {
+      "url": "https://1uploadflix.net/buy_premium.html?op=payments",
+      "date": "2026-11-25",
+      "proved": "premium still sells download speed rather than a byte allowance",
+      "capture": "sha256:ed75bc2e372a0c7e3f3439fef537b7428c38e31a540ad21cf277845f7c6c6e03",
+      "quote": "Get the best possible download speeds with our high-priority access to bandwidth."
+    },
+    {
+      "url": "https://www.uploadflix.com/faq.html",
+      "date": "2026-11-25",
+      "proved": "the FAQ still states an expiry without giving its length",
+      "capture": "sha256:90b97519175f38eb3cac91905e8ca4fb8eadbc86b6305c7ce1454ab163c5e1c7",
+      "quote": "If you lost your removal code you can simply wait until the file expires so it will be automatically removed from our site."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T11:28:53.663Z",
+  "verified_at": "2026-11-25T09:46:41.783Z",
   "history": [],
   "notes": "UploadFlix is not a Portuguese- or Spanish-language service; it surfaced under Portuguese queries because Brazilian link generators list it. It is documented here because the debrid question - what does the local scene actually use - cannot be answered without the hosts the generators carry.",
   "extras": {

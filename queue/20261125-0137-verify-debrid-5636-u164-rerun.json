@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u164-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "This replaces the reverted attempt u12. Start from .tmp/20261125-0137-verify-debrid-5636/units/u12/changes.jsonl: copy every `set`, `dead`, `append_evidence` and `open_question` op there, but drop every `confirm`. Then, for each record in scope, capture its first-party page and find ONE field whose exact value appears in the capture text; confirm only that one field, with a quote span copied exactly from the capture, and list every other field in unread. If no field value appears in any capture, write an open_question for the record and do not confirm it. Never confirm a synthesized text field.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/newsgroupdirect $.retention.stated: The cited 02:57Z capture (sha256:8411b950..., of newsgroupdirect.com/pricing) says 5,948+ on every plan row, but fresh reads at 20:30Z and 20:34Z of the www and /pricing pages say 5,949+ on every plan row (capture sha256:afedc5c9..., identical text to the record's 18:55Z capture). The claim's 5,948 \n- debrid/pourcesoir $.identity_cost.detail: The register capture proves the identifier (at least 3 characters starting with a letter), password (at least 6), email, age declaration and captcha fields, but it does not say registration is mandatory or free; that sentence is on the home page https://pourcesoir.in/ (capture sha256:5055def9...), a\n- debrid/usenetprime $.retention.stated: This pricing capture gives 5,913+ days on every plan row; the value also says the service feature list gives 5,912+ days, which is on the home page https://www.usenetprime.com/ (capture sha256:d90b0143...), a different source. No one span proves both numbers.",
+ "scope": {
+  "rids": [
+   "debrid/usenetprime",
+   "debrid/thundernews",
+   "debrid/supernews",
+   "debrid/newsgroupdirect",
+   "debrid/usenetnow",
+   "debrid/lightningusenet",
+   "debrid/easynews",
+   "debrid/pourcesoir"
+  ]
+ },
+ "origin": "audit u186 of 20261125-0137-verify-debrid-5636/u164 failed: 3 of 13 unsupported",
+ "created": "2026-11-25T21:29:01Z"
+}

@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0137-verify-netdisk-pan-1601-u63-q01",
+ "kind": "verify",
+ "topic": "netdisk-pan",
+ "question": "What term should scripts/dossier/schema.json add to free_tier.unit for a free offer denominated in a one-month trial rather than in storage? netdisk-pan/nextfiles-one now uses 'none' because no free storage quantity is published; the true offer is a 1-month trial of a paid plan.",
+ "why": "The private-customer page states '1 Month Free Trial' next to a priced plan and 'Test for free for one month and check - cancel anytime', but no free storage quantity; the vocabulary has seconds, minutes and hours but no day or month term, and 'TB' belongs to the paid plan.",
+ "scope": {
+  "rids": [
+   "netdisk-pan/nextfiles-one"
+  ]
+ },
+ "origin": "20261125-0137-verify-netdisk-pan-1601/u63",
+ "created": "2026-11-25T14:21:57Z"
+}

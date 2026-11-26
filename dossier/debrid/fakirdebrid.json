@@ -87,10 +87,52 @@
       "proved": "on 2026-11-03 a direct GET of the plan page answered HTTP 401 (172 bytes, www-authenticate: Basic realm \"Authorization\")",
       "capture": "sha256:40a3967fec3e44cfd9d462f25775e42d4f4c5fa3b9354a337f89f72433d4ca7b",
       "quote": "\"status\": 401"
+    },
+    {
+      "url": "https://fakirdebrid.net/status.php",
+      "date": "2026-11-25",
+      "proved": "the status table still shows Rapidgator at 35 GB per day, 100 links per day and 280 GB per week",
+      "capture": "sha256:c2f2011b1e481286872063e78e230593d4ba5c5731218df67f918678e3e06a98",
+      "quote": "Rapidgator.net | ![](https://fakirdebrid.net/images/status/on.png) | 0.00 KB / 35 GB | 0 / 100 Links | 0 Bytes / 280 GB |"
+    },
+    {
+      "url": "https://fakirdebrid.net/",
+      "date": "2026-11-25",
+      "proved": "the site still sells a VIP membership and the limits table carries no free-plan offering",
+      "capture": "sha256:2889bca6b76441bfebd70de26d707a0bff21bd1bc336f2c60335d611a4c1217e",
+      "quote": "[Buy ViP Membership](https://fakirdebrid.net/showthread.php?tid=184&pid=1370#pid1370)"
+    },
+    {
+      "url": "https://fakirdebrid.net/",
+      "date": "2026-11-25",
+      "proved": "the login form asks for a username, a password and a captcha; the registration link sits beside it",
+      "capture": "sha256:2889bca6b76441bfebd70de26d707a0bff21bd1bc336f2c60335d611a4c1217e",
+      "quote": "Username:\n\nPassword:\n\nCaptcha:"
+    },
+    {
+      "url": "https://fakirdebrid.net/status.php",
+      "date": "2026-11-25",
+      "proved": "the live status table was read on 2026-11-25",
+      "capture": "sha256:c2f2011b1e481286872063e78e230593d4ba5c5731218df67f918678e3e06a98",
+      "quote": "Last Updated: **2026.11.25 12:19:26** (+3 UTC)"
+    },
+    {
+      "url": "https://fakirdebrid.net/status.php",
+      "date": "2026-11-25",
+      "proved": "a second read of the live status table on 2026-11-25",
+      "capture": "sha256:2b044cacb9ad8a8ed6e166af983aab4790672c8fc75f4a0a01c4e08e21774ef7",
+      "quote": "Last Updated: **2026.11.25 14:16:36** (+3 UTC)"
+    },
+    {
+      "url": "probe:https://fakirdebrid.net/status.php",
+      "date": "2026-11-25",
+      "proved": "on 2026-11-25 a direct probe of the origin answered HTTP 403 with a Cloudflare challenge, so the host count is not measurable from the origin",
+      "capture": "sha256:44789b2a7c37c02f1972e34689590e6f8cd095b076899ec6ed5bb3b25e287217",
+      "quote": "\"status\": 403"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T03:37:00.000Z",
+  "verified_at": "2026-11-25T09:46:55.564Z",
   "price_per_tb_month": null,
   "notes": "Reseller documentation lists '50 GB Download traffic per day / 300 Links Daily' as a plan total, while individual host quotas vary across supported providers.",
   "extras": {

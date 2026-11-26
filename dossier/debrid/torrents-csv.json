@@ -67,15 +67,50 @@
       "url": "https://torrents-csv.com/",
       "date": "2026-10-23",
       "proved": "'Making sure you're not a bot!', Anubis version v1.28.1, proof-of-work challenge instead of the index"
+    },
+    {
+      "url": "https://torrents-csv.com/",
+      "date": "2026-11-25",
+      "proved": "the HTML front end now names Anubis v1.28.2",
+      "capture": "sha256:d4db3ea68bc595d8da6df7ef48626ffa96ca3e7988527ad62340e55b87db07d7",
+      "quote": "This website is running Anubis version `v1.28.2`."
+    },
+    {
+      "url": "https://torrents-csv.com/",
+      "date": "2026-11-25",
+      "proved": "the front-end challenge is still Anubis v1.28.2",
+      "capture": "sha256:d4db3ea68bc595d8da6df7ef48626ffa96ca3e7988527ad62340e55b87db07d7",
+      "quote": "This website is running Anubis version `v1.28.2`."
+    },
+    {
+      "url": "https://torrents-csv.com/service/search?q=debian&size=2",
+      "date": "2026-11-25",
+      "proved": "the JSON search endpoint still returns infohash, name, size_bytes, seeders, leechers, completed and scraped_date with no key",
+      "capture": "sha256:88d9fc807fd26fb7e30404f9c6caefa380872eaa96b1fa9faa58d1331c2e034a",
+      "quote": "{\"infohash\":\"029830a40e0fd9eca4cabb8f8c0e24a9e8c5a03f\",\"name\":\"Mastering Debian Linux. From Beginner to Advanced 2024\",\"size_bytes\":4392928,\"created_unix\":1746104157,\"seeders\":17,\"leechers\":1,\"completed\":226,\"scraped_date\":1792904386,\"id\":140379}"
+    },
+    {
+      "url": "https://torrents-csv.com/",
+      "date": "2026-11-25",
+      "proved": "the HTML surface gates on a proof-of-work computation rather than a published rate",
+      "capture": "sha256:d4db3ea68bc595d8da6df7ef48626ffa96ca3e7988527ad62340e55b87db07d7",
+      "quote": "Please note that Anubis requires the use of modern JavaScript features that plugins like JShelter will disable."
+    },
+    {
+      "url": "https://torrents-csv.com/",
+      "date": "2026-11-25",
+      "proved": "the HTML surface is a proof-of-work challenge rather than the index",
+      "capture": "sha256:d4db3ea68bc595d8da6df7ef48626ffa96ca3e7988527ad62340e55b87db07d7",
+      "quote": "This is a measure against bots and malicious requests similar to a CAPTCHA."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T01:52:28.000Z",
+  "verified_at": "2026-11-25T09:47:05.724Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Useful because the search endpoint is one GET with a stable schema, and the caveat is that the same host gates its HTML behind a proof of work, so an unannounced change would break a scraper without warning. The bulk-dump path that TorrentClaw's docs imply was not verified here.",
   "extras": {
-    "anubis_version": "v1.28.1",
+    "anubis_version": "v1.28.2",
     "bulk_dump": "unverified",
     "api_open": true
   }

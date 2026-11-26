@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u59-q03",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Should debrid/newsxs $.free_tier.stated, $.free_tier.unit, $.free_tier.metered_on and $.free_tier.notes state the free 14-day trial with a 150 GB data allowance that the vendor trial page gives?",
+ "why": "The trial page already stated 150 GB at the earlier read; the record calls the allowance unverified and uses unit none and metered_on unstated. This verify lane did not set unchanged values; the understatement needs a change run.",
+ "scope": {
+  "rids": [
+   "debrid/newsxs"
+  ]
+ },
+ "origin": "20261125-0137-verify-debrid-5636/u59",
+ "created": "2026-11-25T09:47:07Z"
+}

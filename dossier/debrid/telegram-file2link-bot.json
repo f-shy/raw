@@ -49,7 +49,7 @@
     "detail": "A Telegram account, which is logged in with a mobile phone number; no key or card is asked on the bot's page.",
     "country": null
   },
-  "reliability_note": "Single-operator bot; 18 058 monthly users are shown on the page.",
+  "reliability_note": "Single-operator bot; 17 806 monthly users are shown on the page.",
   "confidence": "documented",
   "confidence_note": "The description is the bot's own, read on its t.me page. Liveness of the backend needs a Telegram account and was not tested. Any paid tier of the bot is unverified: behind a sign-up (it is reached from inside the bot, with a Telegram account); the bot's page states no price.",
   "evidence": [
@@ -87,10 +87,38 @@
       "proved": "the bot's page still states a 20MB size limit and points larger files to @getpubliclinkbot, with no price or quota",
       "capture": "sha256:9889af960df6751d4b4df144e193f173b0280f441c9d84aa77922d464c35ae2f",
       "quote": "get download link for any telegram file, size limit is 20MB, for large files use our"
+    },
+    {
+      "url": "https://t.me/file2link_bot",
+      "date": "2026-11-25",
+      "proved": "the page shows 17 806 monthly users on 2026-11-25",
+      "capture": "sha256:83f8f1933e6d36a27538eab88563026c28a3ca45d6d5a2f962f89933a2ba4227",
+      "quote": "17 806 monthly users"
+    },
+    {
+      "url": "https://t.me/file2link_bot",
+      "date": "2026-11-25",
+      "proved": "the bot still states a 20MB size limit and points larger files to @getpubliclinkbot",
+      "capture": "sha256:83f8f1933e6d36a27538eab88563026c28a3ca45d6d5a2f962f89933a2ba4227",
+      "quote": "get download link for any telegram file, size limit is 20MB, for large files use our [@getpubliclinkbot](https://t.me/getpubliclinkbot)"
+    },
+    {
+      "url": "https://telegram.org/faq",
+      "date": "2026-11-25",
+      "proved": "Telegram login uses a mobile phone number",
+      "capture": "sha256:db52c8ab9f1c97f8c3e07bd0bfdcad3b97224fa5ab080ee3807d1312a614ad63",
+      "quote": "Just use your main mobile phone number to log in everywhere, your cloud chats will sync instantly."
+    },
+    {
+      "url": "https://telegram.org/faq",
+      "date": "2026-11-25",
+      "proved": "Telegram's own per-file ceiling is 2 GB, or 4 GB with Premium",
+      "capture": "sha256:db52c8ab9f1c97f8c3e07bd0bfdcad3b97224fa5ab080ee3807d1312a614ad63",
+      "quote": "Send and receive files of any type, up to 2 GB in size each (or 4 GB with"
     }
   ],
   "verdict": "fails-quota",
   "price_per_tb_month": null,
   "notes": "Abandon if the t.me page stops resolving to a bot with a Start action.",
-  "verified_at": "2026-11-03T15:05:37.414Z"
+  "verified_at": "2026-11-25T09:46:47.478Z"
 }

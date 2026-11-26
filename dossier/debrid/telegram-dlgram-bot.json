@@ -57,10 +57,31 @@
       "url": "https://t.me/dlgram_bot",
       "date": "2026-10-23",
       "proved": "'Files To Links Fast' with 'https://github.com/musa-42/streamer_file' in the description"
+    },
+    {
+      "url": "https://t.me/dlgram_bot",
+      "date": "2026-11-25",
+      "proved": "the bot's own page still links the public source repository",
+      "capture": "sha256:e2c0ef9d106f558a53f0f4feaaec2635eb208ef98ce3ccad4f9822c98aac2a15",
+      "quote": "https://github.com/musa-42/streamer_file"
+    },
+    {
+      "url": "https://telegram.org/faq",
+      "date": "2026-11-25",
+      "proved": "Telegram login uses a mobile phone number",
+      "capture": "sha256:db52c8ab9f1c97f8c3e07bd0bfdcad3b97224fa5ab080ee3807d1312a614ad63",
+      "quote": "Just use your main mobile phone number to log in everywhere, your cloud chats will sync instantly."
+    },
+    {
+      "url": "https://telegram.org/faq",
+      "date": "2026-11-25",
+      "proved": "Telegram's own per-file ceiling is 2 GB, or 4 GB with Premium",
+      "capture": "sha256:db52c8ab9f1c97f8c3e07bd0bfdcad3b97224fa5ab080ee3807d1312a614ad63",
+      "quote": "Send and receive files of any type, up to 2 GB in size each (or 4 GB with"
     }
   ],
   "verdict": "qualifies-with-caveat",
   "price_per_tb_month": null,
   "notes": "Abandon if the repository is deleted or the bot stops resolving. This is the one record in the class where the fallback is verifiable, so it is the one to test first.",
-  "verified_at": "2026-10-23T01:52:23.000Z"
+  "verified_at": "2026-11-25T09:46:47.479Z"
 }

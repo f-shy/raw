@@ -33,10 +33,11 @@
     "source_url": "https://filer.net/"
   },
   "interface": [
-    "browser"
+    "browser",
+    "rest"
   ],
-  "interface_detail": "Web upload with a download manager. No API or FTP is published on the page read.",
-  "tooling": "Browser only as read. Filer.net is on the PrimeLeech generator list, so a leecher is the fallback.",
+  "interface_detail": "Web upload with a download manager and a documented REST API on filer.net/api with status, folder and download-link endpoints.",
+  "tooling": "The vendor publishes a REST API on filer.net/api that most endpoints reach with HTTP Basic credentials; no rclone backend was found. Filer.net is also on the PrimeLeech generator list.",
   "chaining": "Free unlimited storage with registration is the unusual part: it is a place to park files rather than to move them. Premium at €9.99 a month removes the throttle when a pull has to finish tonight.",
   "limits": [
     {
@@ -55,7 +56,7 @@
   "binding_note": "With storage unlimited and transfer unmetered, the only thing that can fail at 1 TiB a month is the speed cap on the free tier. The premium tier removes it and the page then names no further constraint.",
   "identity_cost": {
     "kind": "email",
-    "detail": "'Registration is required to upload files' - a free account for the free plan, a card at checkout for premium. The signup form fields were not read.",
+    "detail": "'Registration is required to upload files'. The sign-up form requires an email address; the API takes the same email and password as HTTP Basic credentials.",
     "country": null
   },
   "reliability_note": "Unlimited free storage with no published retention rule means files can be removed on a policy the user never sees; the page states none.",
@@ -66,13 +67,55 @@
       "url": "https://filer.net/",
       "date": "2026-10-23",
       "proved": "'No hidden costs!', the 'FREE Unlimited Basic' plan, and the four prices: 4.99 € 2 days, 9.99 € 30 days, 19.99 € 90 days, 49.99 € 365 days"
+    },
+    {
+      "url": "https://filer.net/api",
+      "date": "2026-11-25",
+      "proved": "the published API uses email and password basic authentication",
+      "capture": "sha256:cd77bcb9358605e625b724502517e72682f593d9ffff5d30dafc090cc4e730e3",
+      "quote": "Most endpoints require HTTP Basic Authentication with your Filer.net credentials (email and password)."
+    },
+    {
+      "url": "https://filer.net/user/register",
+      "date": "2026-11-25",
+      "proved": "the sign-up form requires an email address",
+      "capture": "sha256:6e89b8e8cf1025fb51739444ea73ebecabe626c342ca7511d8fdcdb4eb59bac9",
+      "quote": "Email address is required"
+    },
+    {
+      "url": "https://filer.net/",
+      "date": "2026-11-25",
+      "proved": "the free tier requires registration to upload",
+      "capture": "sha256:aa8a8476f4975e3097173e776ba6f2cad91468ab7915e9984b19db2c2e5e8b72",
+      "quote": "Filer.net is a worldwide cloud service available to all users for free. Registration is required to upload files."
+    },
+    {
+      "url": "https://filer.net/",
+      "date": "2026-11-25",
+      "proved": "the 365-day premium plan is priced at EUR 49.99",
+      "capture": "sha256:aa8a8476f4975e3097173e776ba6f2cad91468ab7915e9984b19db2c2e5e8b72",
+      "quote": "49.99 €"
+    },
+    {
+      "url": "https://filer.net/",
+      "date": "2026-11-25",
+      "proved": "the 365-day plan includes a 30-day voucher",
+      "capture": "sha256:aa8a8476f4975e3097173e776ba6f2cad91468ab7915e9984b19db2c2e5e8b72",
+      "quote": "Includes voucher for 30 days!"
+    },
+    {
+      "url": "https://filer.net/user/register",
+      "date": "2026-11-25",
+      "proved": "the terms require a registered account to use the service",
+      "capture": "sha256:6e89b8e8cf1025fb51739444ea73ebecabe626c342ca7511d8fdcdb4eb59bac9",
+      "quote": "Use requires registration of a user account."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:18:17.000Z",
+  "verified_at": "2026-11-25T09:46:38.368Z",
   "price_per_tb_month": "EUR 9.99 per 30 days, no volume figure published",
   "history": [],
-  "notes": "Operated by FITSCHIGOGERL SA, Rue du 31-Décembre 36, 1207 Genève, per the page footer. The 365-day plan at €49.99 is €4.11 a month, the cheapest per month of any paid file host in tested services. No programmatic path found: Web upload with a download manager. No API or FTP is published on the page read.",
+  "notes": "Operated by FITSCHIGOGERL SA, Geneva, per the page footer. Web upload uses a download manager; a REST API is documented at filer.net/api.",
   "extras": {
     "plans": "2 days €4.99; 30 days €9.99; 90 days €19.99; 365 days €49.99",
     "operator": "FITSCHIGOGERL SA, Geneva",

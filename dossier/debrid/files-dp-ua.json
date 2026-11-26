@@ -11,7 +11,7 @@
     "metered_on": "unstated",
     "source_url": "https://files.dp.ua/en/",
     "read_on": "2026-11-03",
-    "notes": "No total storage or download byte allowance is printed; the upload form offers expiry choices of 1 download, 24 hours, 7 days or 20 days."
+    "notes": "No total storage or download byte allowance is printed; the upload form offers expiry choices of 1 download, 24 hours, 7 days or 14 days."
   },
   "per_object_cap": {
     "stated": "The maximum allowable file size is 100 GB.",
@@ -81,10 +81,52 @@
       "capture": "sha256:91c0c2094f99b21663d7702b303effaaf26d7da981cda54777cc73d6194ef4ad",
       "quote": "Download and forward any files even without registration.",
       "proved": "no registration is needed"
+    },
+    {
+      "url": "https://www.files.dp.ua/en/",
+      "date": "2026-11-25",
+      "proved": "the per-file cap stays 100 GB",
+      "capture": "sha256:686bce27c179cf4647dc4a7526353dfc03cc42f5c2c36128163327ecc0cc1053",
+      "quote": "The maximum allowable file size is 100 GB."
+    },
+    {
+      "url": "https://www.files.dp.ua/en/",
+      "date": "2026-11-25",
+      "proved": "retention stays up to 25 days",
+      "capture": "sha256:686bce27c179cf4647dc4a7526353dfc03cc42f5c2c36128163327ecc0cc1053",
+      "quote": "Your files will be stored on our servers for up to 25 days, after the expiration date will be deleted."
+    },
+    {
+      "url": "https://www.files.dp.ua/en/",
+      "date": "2026-11-25",
+      "proved": "no registration is still needed",
+      "capture": "sha256:686bce27c179cf4647dc4a7526353dfc03cc42f5c2c36128163327ecc0cc1053",
+      "quote": "Download and forward any files even without registration."
+    },
+    {
+      "url": "https://www.files.dp.ua/en/",
+      "date": "2026-11-25",
+      "proved": "the stated transfer speed stays 1000 megabits per second",
+      "capture": "sha256:686bce27c179cf4647dc4a7526353dfc03cc42f5c2c36128163327ecc0cc1053",
+      "quote": "Upload and download files at speeds up to 1000 megabits per second."
+    },
+    {
+      "url": "https://www.files.dp.ua/en/",
+      "date": "2026-11-25",
+      "proved": "the upload form's expiry choices now list 14 days where the record's notes name 20 days",
+      "capture": "sha256:2190f4ac015364aeb298492d8b65decae772df76fc8c7546a32eaf8b909d71d8",
+      "quote": "1 download\n24 hours\n7 days\n14 days"
+    },
+    {
+      "url": "https://www.files.dp.ua/en/",
+      "date": "2026-11-25",
+      "proved": "the upload form's last expiry choice is now 14 days, not 20 days",
+      "capture": "sha256:2190f4ac015364aeb298492d8b65decae772df76fc8c7546a32eaf8b909d71d8",
+      "quote": "1 download\n24 hours\n7 days\n14 days"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T07:37:12.225Z",
+  "verified_at": "2026-11-25T09:46:39.736Z",
   "price_per_tb_month": "unverified: no paid tier was found",
   "history": [],
   "notes": "No programmatic path found: Web upload with an optional numeric password and a choice of expiry.",

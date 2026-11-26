@@ -14,8 +14,8 @@
     "notes": ""
   },
   "per_object_cap": {
-    "stated": "Not published.",
-    "bytes": null,
+    "stated": "The free plan publishes a 500 MB maximum single-file upload.",
+    "bytes": 500,
     "source_url": "http://www.urldwz.com/",
     "notes": ""
   },
@@ -46,7 +46,7 @@
     },
     {
       "kind": "per-object-cap",
-      "value": "not published",
+      "value": "500 MB maximum single-file upload on Free",
       "source": "http://www.urldwz.com/"
     }
   ],
@@ -64,10 +64,38 @@
       "url": "http://www.urldwz.com/",
       "date": "2026-10-23",
       "proved": "'现在注册即送10G永久空间，不限流量，更不限速'; '不管是免费用户还是付费用户，都不限速'; video host '20元/10G/月', 扩容 '3元/G/月'"
+    },
+    {
+      "url": "http://www.urldwz.com/",
+      "date": "2026-11-25",
+      "proved": "registration gives 10 GB permanent space with unmetered traffic and speed",
+      "capture": "sha256:0a9b17639d25621b58309c37a7021ab12f92bbf9fdf3a0a08447b73d421f0995",
+      "quote": "现在注册即送10G永久空间，不限流量，更不限速"
+    },
+    {
+      "url": "http://www.urldwz.com/",
+      "date": "2026-11-25",
+      "proved": "neither free nor paid users are speed-limited",
+      "capture": "sha256:0a9b17639d25621b58309c37a7021ab12f92bbf9fdf3a0a08447b73d421f0995",
+      "quote": "不管是免费用户还是付费用户，都不限速"
+    },
+    {
+      "url": "http://www.urldwz.com/",
+      "date": "2026-11-25",
+      "proved": "video hosting is 20 yuan per 10 GB per month, expansion 3 yuan per GB per month",
+      "capture": "sha256:0a9b17639d25621b58309c37a7021ab12f92bbf9fdf3a0a08447b73d421f0995",
+      "quote": "20元/10G/月，（扩容价格：3元/G/月）"
+    },
+    {
+      "url": "http://www.urldwz.com/",
+      "date": "2026-11-25",
+      "proved": "the free plan publishes a 500 MB maximum single-file upload",
+      "capture": "sha256:0a9b17639d25621b58309c37a7021ab12f92bbf9fdf3a0a08447b73d421f0995",
+      "quote": "单文件最大上传500M"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T01:57:23.944Z",
+  "verified_at": "2026-11-25T09:46:37.626Z",
   "price_per_tb_month": "CNY 0 for 10 GB; CNY 20 per 10 GB/month paid",
   "history": [],
   "notes": "Included because published records has no record of a Chinese host that sells *unmetered egress* as the headline. At 3 元/GB/month for expansion it is 30x 115's 8-year price per TB.",

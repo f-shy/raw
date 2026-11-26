@@ -44,7 +44,7 @@
     "detail": "Not applicable: no sign-up is offered.",
     "country": null
   },
-  "reliability_note": "The archived copy of 2026-03-12 serves an unrelated betting article; the live root was not readable on 2026-11-03, so the current state is unverified.",
+  "reliability_note": "unverified: no DNS resolution for the host on 2026-11-26; transport error \"the name did not resolve\" with status null",
   "confidence": "documented",
   "confidence_note": "One dated observation; the date the service closed is not established.",
   "evidence": [
@@ -54,6 +54,13 @@
       "capture": "sha256:b3c76fbf05fd772e0b934a29e6cbb35d88e9b83142c4cb7e39616d433fd45542",
       "quote": "**Topvin** là nhà cái uy tín đã nhanh chóng chiếm lĩnh thị trường cá cược trực tuyến tại Việt Nam",
       "proved": "the archived copy of 2026-03-12 serves a betting-site article, not a cloud torrent service"
+    },
+    {
+      "url": "probe:https://torrentdrive.io/",
+      "date": "2026-11-26",
+      "proved": "the measured request returned no status and read no body",
+      "capture": "sha256:68b2dc29d2d7b2603e0a3fa65cff9dc65030eb1d4dfde147b692f9ce03bbbb97",
+      "quote": "\"status\": null"
     }
   ],
   "verdict": "dead",

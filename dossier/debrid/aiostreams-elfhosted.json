@@ -6,7 +6,7 @@
   "category": "hosted Stremio addon aggregator (combines other addons, filters and sorts, debrid-aware)",
   "tier": "public instance",
   "free_tier": {
-    "stated": "Free, no account to install: 'Use AIOStreams without hosting it yourself via community-run public instances.' On the ElfHosted instance, 'The most stable option due to being a professional service, but the public instance forcefully excludes P2P, HTTP, and Live stream types.'",
+    "stated": "Free, no account to install: 'Use AIOStreams without hosting it yourself via community-run public instances.' On the ElfHosted instance, 'Rate limits keep it fast for everyone. It serves debrid and Usenet streams only, with Torrentio, AnimeKitsu and Torrent Catalogs turned off.' Official docs: 'the public instance forcefully excludes P2P, HTTP, and Live stream types'.",
     "unit": "requests",
     "metered_on": "request-count",
     "source_url": "https://docs.aiostreams.viren070.me/getting-started/public-instances/",
@@ -76,10 +76,38 @@
       "url": "https://store.elfhosted.com/product/aiostreams-stremthru/",
       "date": "2026-10-23",
       "proved": "the paid tier: 'Your own private AIOStreams addon with a StremThru instance alongside', USD 9.00 / month"
+    },
+    {
+      "url": "https://docs.aiostreams.viren070.me/getting-started/public-instances/",
+      "date": "2026-11-25",
+      "proved": "the ElfHosted public instance still excludes P2P, HTTP and Live streams",
+      "capture": "sha256:d7d3b0bea6dd40b4cee9e454b5c50d6defee63f28517022dd174eaa5967004bc",
+      "quote": "The most stable option due to being a professional service, but the public instance forcefully excludes P2P, HTTP, and Live stream types."
+    },
+    {
+      "url": "https://aiostreams.elfhosted.com/stremio/configure",
+      "date": "2026-11-25",
+      "proved": "the public instance is rate limited and serves only debrid and Usenet streams with Torrentio, AnimeKitsu and Torrent Catalogs disabled",
+      "capture": "sha256:541731ec0554120e9207874ade5368a8040861b5bf7f85710c4454a96ff27717",
+      "quote": "Rate limits keep it fast for everyone. It serves debrid and Usenet streams only, with Torrentio, AnimeKitsu and Torrent Catalogs turned off."
+    },
+    {
+      "url": "https://aiostreams.elfhosted.com/stremio/configure",
+      "date": "2026-11-25",
+      "proved": "the live public instance states debrid and Usenet only with Torrentio, AnimeKitsu and Torrent Catalogs disabled",
+      "capture": "sha256:541731ec0554120e9207874ade5368a8040861b5bf7f85710c4454a96ff27717",
+      "quote": "Rate limits keep it fast for everyone. It serves debrid and Usenet streams only, with Torrentio, AnimeKitsu and Torrent Catalogs turned off."
+    },
+    {
+      "url": "https://docs.aiostreams.viren070.me/getting-started/public-instances/",
+      "date": "2026-11-25",
+      "proved": "hosted public instances remain available; self-hosting is not the answer",
+      "capture": "sha256:d7d3b0bea6dd40b4cee9e454b5c50d6defee63f28517022dd174eaa5967004bc",
+      "quote": "You do not need to self-host AIOStreams. There are several public instances run by the community that work great for most users."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:28:11.000Z",
+  "verified_at": "2026-11-25T09:46:44.527Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The Torrentio ban matters for a free-only client: Torrentio is the addon with the best public hit rate, and this instance disables it 'respecting the Torrentio developer's request'. So the free aggregator is the free addon minus the best free source.",

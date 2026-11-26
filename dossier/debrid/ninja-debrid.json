@@ -58,7 +58,7 @@
     "detail": "Free account needed an email confirmation ('create a free account and confirm your email'). Anonymous path needed nothing.",
     "country": null
   },
-  "reliability_note": "The service was replaced by a redirect to a torrent index within 12 days of the last capture; a client's bookmarked URL now lands on unrelated content.",
+  "reliability_note": "unverified: unreachable on 2026-11-25, the origin and its former /en page both answered HTTP 522 after a 301 to monkeytorrent.com; the debrid content cannot be re-read.",
   "confidence": "documented",
   "confidence_note": "The redirect is measured twice (a HEAD and a GET, both finishing at monkeytorrent.com with network requests reporting redirects=followed(1)). The free-tier numbers come from the 2026-10-11 capture and a search index, so they describe what the service offered, not what it offers.",
   "evidence": [
@@ -78,6 +78,20 @@
       "proved": "a fetch of https://ninjadebrid.net/ on 2026-11-03 answered HTTP 200 and reported the final URL https://monkeytorrent.com/ after one followed redirect",
       "capture": "sha256:b45c878137b1b7b3f125cd8d297e0ca26596a32eb7488f01cf429581135f7347",
       "quote": "x-web-final-url: https://monkeytorrent.com/"
+    },
+    {
+      "url": "probe:https://ninjadebrid.net/",
+      "date": "2026-11-25",
+      "proved": "the domain answers no HTTP service and follows a 301 to monkeytorrent.com",
+      "capture": "sha256:18f04acc15ca608f131cb4d469c3516538ce411e07b919a97959fb94c1db7f52",
+      "quote": "\"status\": 522"
+    },
+    {
+      "url": "probe:https://ninjadebrid.net/en",
+      "date": "2026-11-25",
+      "proved": "the former debrid page answers no HTTP service and follows a 301 to monkeytorrent.com",
+      "capture": "sha256:1bc3eaefdf4a9847098c23cff71ec4edbd4a97268bf1f5513c0254c0d175b752",
+      "quote": "\"status\": 522"
     }
   ],
   "verdict": "dead",
@@ -88,6 +102,10 @@
   "extras": {
     "redirect_target": "https://monkeytorrent.com/",
     "last_capture_live": "2026-10-11T07:48:59Z",
-    "former_free_offer": "100 GB at full speed on a free account; 10 GB per torrent per 24 h anonymously"
+    "former_free_offer": "100 GB at full speed on a free account; 10 GB per torrent per 24 h anonymously",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

@@ -127,6 +127,55 @@
       "capture": "sha256:4d988f6af8ffc587459c6d4d4a9ea57f9f2b6b3839ad311f5325fb97df17b0ec",
       "quote": "Bot Debrid.web.id @debridwebidBot",
       "proved": "the handle resolves to a bot with a Start action"
+    },
+    {
+      "url": "https://debrid.web.id/telegram-bot",
+      "date": "2026-11-25",
+      "proved": "a Free user still gets at most 2 links a day through the bot, reset daily at 00:00 WIB",
+      "capture": "sha256:61ac6c01a5ff7a3c7d20bb33110b73f52cf7d55bc07352bb39db9c93975ec3b2",
+      "quote": "Limit Pengguna Free: Pengguna dengan status FREE tetap bisa menggunakan bot ini dengan kuota maksimal 2 link per hari (di-reset secara otomatis setiap jam 00:00 WIB)."
+    },
+    {
+      "url": "https://debrid.web.id/telegram-bot",
+      "date": "2026-11-25",
+      "proved": "the bot still allows 1 link per minute",
+      "capture": "sha256:61ac6c01a5ff7a3c7d20bb33110b73f52cf7d55bc07352bb39db9c93975ec3b2",
+      "quote": "Limit Limit per Menit: Untuk menjaga kualitas server, sistem membatasi request menjadi 1 link setiap 1 menit."
+    },
+    {
+      "url": "https://debrid.web.id/telegram-bot",
+      "date": "2026-11-25",
+      "proved": "sending more than 10 links quickly triggers a 1-hour auto-block",
+      "capture": "sha256:61ac6c01a5ff7a3c7d20bb33110b73f52cf7d55bc07352bb39db9c93975ec3b2",
+      "quote": "Mengirim lebih dari 10 link dalam waktu singkat (di limit) akan memicu Auto-Block 1 Jam."
+    },
+    {
+      "url": "https://debrid.web.id/",
+      "date": "2026-11-25",
+      "proved": "the website still states 2 generations a day for a Free user",
+      "capture": "sha256:565b0cd7c8ca46b3d90dc884bcf2b36cc210fbe2cec2cd193f1ab57896efa9a3",
+      "quote": "Free user mendapat 2x generate per hari. Premium user unlimited!"
+    },
+    {
+      "url": "https://debrid.web.id/register",
+      "date": "2026-11-25",
+      "proved": "the registration form asks for username, email and a password of at least 6 characters, with an optional referral code",
+      "capture": "sha256:9737e6e54eb8ec38c11622aaa1a6b4c8dd5335847b2c263de8ad8abf4b4c0d6b",
+      "quote": "Username * Email address * Referral Code (Optional) Password * Minimum 6 characters"
+    },
+    {
+      "url": "https://t.me/debridwebidBot",
+      "date": "2026-11-25",
+      "proved": "the handle still resolves to a bot with a Start action",
+      "capture": "sha256:e04064b576ebf33e2ea7067046378f435c4df9d596a75f9dfede3ba88789c605",
+      "quote": "[Start Bot](tg://resolve?domain=debridwebidBot)"
+    },
+    {
+      "url": "https://debrid.web.id/pricing",
+      "date": "2026-11-25",
+      "proved": "the only paid plan listed is Basic at Rp 25.000 for 30 days",
+      "capture": "sha256:67e601cb7742be6e70a364fa730325eca4435d3b7e1c337a01f2040db0d444c9",
+      "quote": "Rp 25.000 / 30 Hari"
     }
   ],
   "verdict": "qualifies-with-caveat",
@@ -134,5 +183,5 @@
   "notes": "Abandon if the Free count or the profile-linking step changes. Cheapest paid tier is Basic at Rp 25.000 per 30 days; there is no seedbox on it. No programmatic path found: A Telegram chat. The Telegram ID is entered on the website's account profile page first; then a hoster URL or a magnet link is sent to the bot.",
   "topic": "debrid",
   "slug": "telegram-debridwebid-bot",
-  "verified_at": "2026-11-03T07:37:11.869Z"
+  "verified_at": "2026-11-25T09:46:49.251Z"
 }

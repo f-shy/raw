@@ -53,7 +53,7 @@
     "detail": "Was invite-only: 'weekly 50 users get 10 invites each' plus a paid bypass. Today no registration path answers.",
     "country": null
   },
-  "reliability_note": "Dead: the name redirects to a parking host that no longer resolves; a rendered read of the domain through a pinned provider ends on a human-verification page that offers a software installer download. A client that still has it configured follows the redirect and gets no result, not an auth error.",
+  "reliability_note": "unverified: no literal field value was readable on 2026-11-26; a direct read-only probe recorded status null with error dns for the domain",
   "confidence": "reported",
   "confidence_note": "The redirect to a parking subdomain was observed today, and that is strong evidence of a lapsed domain. The rung stays reported because the authoritative statement of death ('no longer operational as of 2024-2025') is third-party; the redirect alone does not date it.",
   "evidence": [
@@ -111,6 +111,13 @@
       "proved": "third-party review still states the indexer is no longer operational",
       "capture": "sha256:dee381f82e212e5c2c8ef0d640aebbaedf61e738cffd538a7308e042a7e701e9",
       "quote": "Editor’s Note: SimplyNZB is no longer operational as of 2024-2025."
+    },
+    {
+      "url": "probe:https://simplynzbs.com/",
+      "date": "2026-11-26",
+      "proved": "the direct probe recorded no HTTP status and a DNS error for simplynzbs.com on 2026-11-26",
+      "capture": "sha256:803eac1903a068c0f2d82264d4e1b7c00908a8db561508c1fac6fecee7875a36",
+      "quote": "\"status\": null"
     }
   ],
   "verdict": "dead",

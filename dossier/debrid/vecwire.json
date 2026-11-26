@@ -6,7 +6,7 @@
   "category": "multi-hoster (premium link generator, free tier on five hosts)",
   "tier": "Free",
   "free_tier": {
-    "stated": "Up to 5 free links per day on 5 free hosts (1fichier, Extmatrix, Fshare.vn, Syncs.online, YouTube); the counter resets at 00:00 UTC.",
+    "stated": "Up to 5 free links per day on 4 free hosts (1fichier, Fshare.vn, Syncs.online, YouTube); the counter resets at 00:00 UTC. Extmatrix is no longer listed as a free host.",
     "unit": "requests",
     "metered_on": "request-count",
     "source_url": "https://get.vecwire.com/free/",
@@ -14,7 +14,7 @@
     "notes": ""
   },
   "per_object_cap": {
-    "stated": "Per host on the free tier: 1fichier 4 GB, Extmatrix 2 GB, Fshare.vn 5 GB, Syncs.online 3 GB, YouTube 60 GB.",
+    "stated": "Per host on the free tier: 1fichier 4 GB, Fshare.vn 5 GB, Syncs.online 3 GB, YouTube 60 GB. Extmatrix is no longer listed as a free host.",
     "bytes": null,
     "source_url": "https://get.vecwire.com/free/"
   },
@@ -33,8 +33,8 @@
   "interface": [
     "browser"
   ],
-  "interface_detail": "Web generator: paste a URL, or a short batch, and receive a direct link.",
-  "tooling": "Browser only on the pages read.",
+  "interface_detail": "Web generator: paste a URL, or a short batch, and receive a direct link. Premium accounts also get a personal Bearer API key with RD-compatible endpoints for automated workflows and third-party downloaders.",
+  "tooling": "Browser generator on the free path; premium accounts get a Bearer API key with RD-compatible endpoints, and generated HTTPS links work in IDM, NDM, FDM and JDownloader.",
   "chaining": "Rapidgator, Nitroflare, K2S and Hot4share stay on the paid plan.",
   "limits": [
     {
@@ -44,7 +44,7 @@
     },
     {
       "kind": "per-object-cap",
-      "value": "free hosts: 1fichier 4 GB, Extmatrix 2 GB, Fshare.vn 5 GB, Syncs.online 3 GB, YouTube 60 GB",
+      "value": "free hosts: 1fichier 4 GB, Fshare.vn 5 GB, Syncs.online 3 GB, YouTube 60 GB",
       "source": "https://get.vecwire.com/free/"
     }
   ],
@@ -93,10 +93,66 @@
       "capture": "sha256:cb60ee1489997eb9c086a7b031380ffad16d10f3ba9de4b23fbb37a7be1fe5f5",
       "quote": "Rapidgator, Nitroflare, K2S, and Hot4share require premium.",
       "proved": "four hosts need the paid plan"
+    },
+    {
+      "url": "https://get.vecwire.com/free/",
+      "date": "2026-11-25",
+      "proved": "the free page now states four free hosts and a 5-link daily cap",
+      "capture": "sha256:122b8a1b884e7bce8323c0da456d727897f5f96bd8bdf00cde87e81e4d2bfac1",
+      "quote": "5 links/day 4 free hosts"
+    },
+    {
+      "url": "https://get.vecwire.com/free/",
+      "date": "2026-11-25",
+      "proved": "the free-host table still lists 1fichier at 4 GB and no Extmatrix row",
+      "capture": "sha256:122b8a1b884e7bce8323c0da456d727897f5f96bd8bdf00cde87e81e4d2bfac1",
+      "quote": "| 1fichier 1fichier | online | 4 GB |"
+    },
+    {
+      "url": "https://get.vecwire.com/free/",
+      "date": "2026-11-25",
+      "proved": "the free-host table now has four rows, with YouTube capped at 60 GB",
+      "capture": "sha256:122b8a1b884e7bce8323c0da456d727897f5f96bd8bdf00cde87e81e4d2bfac1",
+      "quote": "| youtube Youtube | online | 60 GB |"
+    },
+    {
+      "url": "https://get.vecwire.com/free/",
+      "date": "2026-11-25",
+      "proved": "the free tier still offers 5 links per day across four hosts",
+      "capture": "sha256:122b8a1b884e7bce8323c0da456d727897f5f96bd8bdf00cde87e81e4d2bfac1",
+      "quote": "5 links/day 4 free hosts"
+    },
+    {
+      "url": "https://get.vecwire.com/free/",
+      "date": "2026-11-25",
+      "proved": "the free link counter still resets at 00:00 UTC",
+      "capture": "sha256:122b8a1b884e7bce8323c0da456d727897f5f96bd8bdf00cde87e81e4d2bfac1",
+      "quote": "Resets at 00:00 UTC"
+    },
+    {
+      "url": "https://get.vecwire.com/",
+      "date": "2026-11-25",
+      "proved": "premium-only hosts are still sold from USD 3.49 on a one-time payment",
+      "capture": "sha256:2033d351f548a43d920127fa7bd414947622639f473dc64a0f3d87843d624cf1",
+      "quote": "Rapidgator, Nitroflare, K2S, Hot4share and more from $3.49."
+    },
+    {
+      "url": "https://get.vecwire.com/",
+      "date": "2026-11-25",
+      "proved": "a paid API is now documented; it uses the RD-compatible endpoint shape",
+      "capture": "sha256:2033d351f548a43d920127fa7bd414947622639f473dc64a0f3d87843d624cf1",
+      "quote": "Premium members get a personal Bearer API key in Account Settings with RD-compatible endpoints for automated workflows and third-party downloaders."
+    },
+    {
+      "url": "https://get.vecwire.com/",
+      "date": "2026-11-25",
+      "proved": "generated links work in four named download managers",
+      "capture": "sha256:2033d351f548a43d920127fa7bd414947622639f473dc64a0f3d87843d624cf1",
+      "quote": "Every generated link works directly with IDM, Neat Download Manager (NDM), Free Download Manager (FDM), and JDownloader."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T07:37:13.292Z",
+  "verified_at": "2026-11-25T09:46:53.853Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "Cheapest paid tier: unverified, the plans page needs a login. No programmatic path found: Web generator: paste a URL, or a short batch, and receive a direct link."

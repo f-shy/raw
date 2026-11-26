@@ -19,12 +19,12 @@
     "source_url": "https://filebit.pl/oferta"
   },
   "retention": {
-    "stated": "unverified: how long a transferred file stays downloadable is not stated; transfer packs carry no time limit",
+    "stated": "Generated download links are valid for 24 hours and then become inactive; how long a transferred file itself stays on the server is not stated.",
     "days": null,
     "source_url": "https://filebit.pl/oferta"
   },
   "egress": {
-    "terms": "Time accounts: 50 GB/24h for 30 days at 18.2, or 100 GB/24h for 30 days at 35.99. Transfer packs: 50 GB at 17.99 up to 830 GB at 132.99, with no time limit.",
+    "terms": "Time accounts: 30 days 50 GB/24h at 19.49, 60 days at 36.99, 90 days at 52.99; 30 days 100 GB/24h at 38.49, 60 days at 72.99, 90 days at 103.99. Transfer packs: 50 GB at 18.49, 83 GB at 23.69, 165 GB at 40.99, 330 GB at 68.99, 830 GB at 136.99, with no time limit.",
     "metered": true,
     "free_allowance": "250 MB on registration",
     "price_per_tb": null,
@@ -52,7 +52,7 @@
   "binding_note": "Both account types are metered in bytes: a daily allowance on time accounts and a fixed pack on transfer accounts.",
   "identity_cost": {
     "kind": "email",
-    "detail": "Registration form with a 12-character password rule and consent boxes; the page title states a 3-day free test with no card. The remaining form fields were not rendered, so an email field is unverified.",
+    "detail": "Registration form asks for a unique login, a current email address needed for contact and password reset, and a password of at least 12 characters with an uppercase letter, a lowercase letter and a digit; referrer login is optional. Terms and marketing consents are required. The former 3-day free test title is no longer on the page.",
     "country": null
   },
   "reliability_note": "No outage or removal observed; the site shows live counters (users online, bandwidth load, total downloaded).",
@@ -128,10 +128,52 @@
       "proved": "the FAQ still states a one-time free 250 MB on registration",
       "capture": "sha256:f4aac8998908825a160d3f650053f3025792720ef71fd9b4bb4d72fa25752144",
       "quote": "Przy rejestracji konta dostaniesz za darmo, na start 250 MB, które możesz sobie wykorzystać i sprawdzić, jak działa nasz serwis."
+    },
+    {
+      "url": "https://filebit.pl/oferta",
+      "date": "2026-11-25",
+      "proved": "the cheapest time account now costs 19.49 for 30 days at 50 GB/24h",
+      "capture": "sha256:1b54f1ffe52569d8f61c0895503231079bc49ae937877d790a996fc79a2ca7a8",
+      "quote": "- 30 dni 50 GB/24h  19.49"
+    },
+    {
+      "url": "https://filebit.pl/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ still grants 250 MB on registration",
+      "capture": "sha256:f4aac8998908825a160d3f650053f3025792720ef71fd9b4bb4d72fa25752144",
+      "quote": "Przy rejestracji konta dostaniesz za darmo, na start 250 MB, które możesz sobie wykorzystać i sprawdzić, jak działa nasz serwis."
+    },
+    {
+      "url": "https://filebit.pl/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ still confirms a download manager can be used with the service",
+      "capture": "sha256:f4aac8998908825a160d3f650053f3025792720ef71fd9b4bb4d72fa25752144",
+      "quote": "Czy mogę używać do pobierania plików programów typu Jdownloader? Tak można."
+    },
+    {
+      "url": "https://filebit.pl/rejestracja",
+      "date": "2026-11-25",
+      "proved": "the registration form now requires an email address",
+      "capture": "sha256:ae3028b454980e5964e3f7c03eed8d62c6d29bcd171b3387e9e8455043581bd7",
+      "quote": "Podaj aktualny adres e-mail – niezbędny do kontaktu i resetu hasła"
+    },
+    {
+      "url": "https://filebit.pl/regulamin",
+      "date": "2026-11-25",
+      "proved": "the terms still offer one free file per day before an account exists",
+      "capture": "sha256:498d5a91f34e97f24e3ce41417f1a0f29b0e263abcdd65b37d97049926281b3b",
+      "quote": "Klient ma możliwość bezpłatnego przetestowania Serwisu przed założeniem Konta Użytkownika - może pobrać jeden plik dziennie bez opłat."
+    },
+    {
+      "url": "https://filebit.pl/regulamin",
+      "date": "2026-11-25",
+      "proved": "generated download links expire after 24 hours",
+      "capture": "sha256:498d5a91f34e97f24e3ce41417f1a0f29b0e263abcdd65b37d97049926281b3b",
+      "quote": "Wygenerowane linki do plików (danych) są ważne 24 godziny i po tym czasie stają się nieaktywne."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T15:25:54.292Z",
+  "verified_at": "2026-11-25T09:46:52.401Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "Polish multi-hoster; prices shown without a currency symbol, read as PLN from the list header. HappyHours halves the metered transfer between 02:00 and 10:00 on transfer accounts per the FAQ. No programmatic path found: Web form and account panel; the FAQ says a download manager such as JDownloader can be fed the links."

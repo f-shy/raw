@@ -99,6 +99,13 @@
       "proved": "the front page identifies the site as a usenet indexing community site",
       "capture": "sha256:889b25e60b7dc3cac231d12d37f7fe74acccbf51991c13eb4250949da91e0c39",
       "quote": "A usenet indexing community site."
+    },
+    {
+      "url": "https://wtfnzb.pw/",
+      "date": "2026-11-25",
+      "proved": "the first-party page carries the record host URL",
+      "capture": "sha256:889b25e60b7dc3cac231d12d37f7fe74acccbf51991c13eb4250949da91e0c39",
+      "quote": "https://wtfnzb.pw/"
     }
   ],
   "verdict": "qualifies-with-caveat",
@@ -107,7 +114,7 @@
     "nzb_is_newznab": false
   },
   "notes": "Four API paths returning the home page is the shape of a single-page app with a catch-all route, not of a retired API. A client that needs automation should look for an API on a subdomain before concluding there is none.",
-  "verified_at": "2026-11-03T11:28:53.665Z",
+  "verified_at": "2026-11-25T19:21:33.183Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }

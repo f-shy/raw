@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u198-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Minimal confirmation of the reverted attempt u154. Drop every `set` and every `confirm` from .tmp/20261125-0137-verify-debrid-5636/units/u154/changes.jsonl. Keep a `dead` op only when its evidence is a probe record whose status is 404, 410 or a transport failure; otherwise turn it into an open_question naming the rid. Keep `append_evidence` and `open_question`. Then, for each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], retention.days, per_object_cap.bytes, limits[i].value). Never confirm `$.url`, `$.topic`, `$.slug`, `$.provider`, `$.endpoint`, `$.free_tier.source_url`, `$.limits[i].source` or any system field. List every other field in unread. If no field matches, open a question for the record. No set operations.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/rlsbb $.extras.crawl_delay_s: The only Crawl-delay: 10 in robots.txt follows the Bingbot group, which is the last user-agent group in the file; neither User-agent: * group carries a Crawl-delay (the first has Content-Signal and Allow: /, the second has Disallow: /). The file publishes no ten-second crawl delay for the wildcard a",
+ "scope": {
+  "rids": [
+   "debrid/rlsbb",
+   "debrid/releasebb",
+   "debrid/scnlog",
+   "debrid/nasa-earthdata",
+   "debrid/simply-premium",
+   "debrid/high-way-premium",
+   "debrid/high-way-unlimited",
+   "debrid/high-way-free"
+  ]
+ },
+ "origin": "audit u214 of 20261125-0137-verify-debrid-5636/u198 failed: 1 of 8 unsupported",
+ "created": "2026-11-25T23:11:10Z"
+}

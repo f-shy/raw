@@ -79,10 +79,24 @@
       "url": "https://1fichier.com/tarifs.html?lg=en",
       "date": "2026-10-23",
       "proved": "'Every service is available free of charge, in a limited form' and the Visitors column: 'Advertising, captcha, waiting time, limited speed, removal after 15 days'"
+    },
+    {
+      "url": "https://1fichier.com/tarifs.html?lg=en",
+      "date": "2026-11-25",
+      "proved": "the Visitors column still lists the four stated restrictions on the free tier",
+      "capture": "sha256:1e66919a20611d4db20f9b2a74df31363646aa1770a2b559893805a642a6679e",
+      "quote": "Advertising, captcha, waiting time, limited speed, removal after 15 days"
+    },
+    {
+      "url": "https://1fichier.com/hlp.html",
+      "date": "2026-11-25",
+      "proved": "the service still states a 300 GB per-file cap and unlimited file count",
+      "capture": "sha256:740725a79f1e2dbe2875db44eb7f31bb6f11b3c69ae88135056687afed6db573",
+      "quote": "We let you store an unlimited number of files, each up to **300 GB**."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T03:31:02.558Z",
+  "verified_at": "2026-11-25T09:46:41.782Z",
   "price_per_tb_month": "USD 0",
   "notes": "Probe files: probes/1fichier-c1.json, 1fichier-c1-second.json, 1fichier-c8.json, 1fichier-c32.json. The 41.91 MB FLAC found through MultiUp was dead (HTTP 404 on the 1fichier link), which is why the object is a 2022 zip from a public folder instead.",
   "extras": {

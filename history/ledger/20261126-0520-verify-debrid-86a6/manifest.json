@@ -1,0 +1,87 @@
+{
+ "manifest": 1,
+ "written": "2026-11-26T05:52:36Z",
+ "run": {
+  "run": "20261126-0520-verify-debrid-86a6",
+  "kind": "verify",
+  "topic": "debrid",
+  "request": "append a captured probe row for the last two records",
+  "created": "2026-11-26T05:20:50Z",
+  "base": "9b9b249f0335227fadb45cbc3f4a3baf4fdccbb9",
+  "branch": "rq/20261126-0520-verify-debrid-86a6",
+  "issue": null,
+  "rounds": 0,
+  "research_issue": null
+ },
+ "units": [
+  {
+   "id": "u01",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "debrid",
+   "tally": {
+    "evidence": 2,
+    "confirmed": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Append a captured probe row to each of these two records and re-date them. For each record: run `python scripts/probe/probe.py URL --dump-headers --out <ws>/probe`, register the JSON record with `scripts/rq capture --lane <ws> probe:URL --probe <ws>/probe/FILE.json`, add an `append_evidence` row for",
+   "scope": {
+    "rids": [
+     "debrid/nzbgrabit",
+     "debrid/temp-files-com"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u02",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u01",
+   "score": {
+    "supported": 1,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 2,
+    "upper95": 0.905,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 2 claim(s) integrated by unit u01 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u03",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "debrid",
+   "tally": {
+    "applied": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-date debrid/temp-files-com with a captured probe and an unverified note. Run `python scripts/probe/probe.py https://www.temp-files.com/ --dump-headers --out .tmp/20261126-0520-verify-debrid-86a6/units/u03/probe`, register the JSON with `scripts/rq capture --lane .tmp/20261126-0520-verify-debrid-8",
+   "scope": {
+    "rids": [
+     "debrid/temp-files-com"
+    ]
+   },
+   "rejects": 0
+  }
+ ],
+ "report": [
+  "run 20261126-0520-verify-debrid-86a6 (verify debrid): append a captured probe row for the last two records",
+  "units 3: integrated 2, reverted 1",
+  "applied 1, confirmed 0, added 0, corroborated 0, dead 0, related 0, rejected 0, conflicts 0, open questions 0, evidence rows dropped 0",
+  "ledger lines 7, captures cited 3, conflicts logged 0 (0 handled by reconcile units)",
+  "audit of u01 by u02: 1 supported, 1 unsupported, 0 cannot tell; upper95 0.905 -> reverted",
+  "no claim audited: u03 (values marked unverified)"
+ ],
+ "merged": {},
+ "undo_skipped": [],
+ "conflicts": []
+}

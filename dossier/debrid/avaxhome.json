@@ -50,7 +50,7 @@
   "binding_note": "AvaxHome transfers nothing, so no byte constraint binds. The constraint lives on whichever host a post links to.",
   "identity_cost": {
     "kind": "anonymous",
-    "detail": "No registration to read. Whether a download from a linked host requires an account depends on that host.",
+    "detail": "unverified: the sign-up requirements are behind a sign-up; reading the index needs no account, but the live front page now states that a registration is needed to download anything on the site.",
     "country": null
   },
   "reliability_note": "Posts are made by named contributors ('Posted By: roxul', 'IrGens', 'AvaxHomeAI') and the front page carries an AvaxHomeAI-written editorial post at the top, so the site mixes automated editorial with human uploads. A post's links rot at the host's pace, not the site's.",
@@ -61,10 +61,24 @@
       "url": "https://avxhm.se/",
       "date": "2026-10-23",
       "proved": "the site is live with posts dated '23 Oct 2026 02:14', the ebook/course/software facets, and the named contributors"
+    },
+    {
+      "url": "https://avxhm.se/",
+      "date": "2026-11-25",
+      "proved": "the live front page now gates downloads behind registration",
+      "capture": "sha256:f4cc7f503ce96854fb7feb123603a4d90f162a535d6a0d2f8b85b4f3b3aab3fb",
+      "quote": "you must be registered"
+    },
+    {
+      "url": "https://avxhm.se/",
+      "date": "2026-11-25",
+      "proved": "the front page links to https://avxhm.se/ as AvaxHome",
+      "capture": "sha256:f4cc7f503ce96854fb7feb123603a4d90f162a535d6a0d2f8b85b4f3b3aab3fb",
+      "quote": "- [AvaxHome](https://avxhm.se/)"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T03:18:17.000Z",
+  "verified_at": "2026-11-25T19:21:26.872Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "It is an index, not a provider: nothing here can be scheduled, mounted or measured for capacity. No programmatic path found: A blog front page with dated posts and category facets (/ebooks/facet/<topic>/). No API, RSS or search endpoint was read.",

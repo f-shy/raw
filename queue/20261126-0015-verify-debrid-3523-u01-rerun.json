@@ -1,0 +1,20 @@
+{
+ "id": "20261126-0015-verify-debrid-3523-u01-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Re-check these records that the previous pass left without a fresh captured datum. For each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], retention.days, per_object_cap.bytes, limits[i].value). Never confirm $.url, $.topic, $.slug, $.provider, $.endpoint, any source_url or any limits[i].source. List every other field in unread. If the page cannot be read through any route, run the three read-only probes, register a probe record with `scripts/rq capture probe:URL --probe FILE`, and set $.reliability_note to the unverified statement with that probe as measured evidence, then open a question. Every record must end with a captured datum dated 2026-11-25/26.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/binzb $.notes: The fresh read is branded LAMTOTO, but no span in the capture states the date 2026-11-26: the page text carries no date, and 2026-11-26 appears only in the capture's fetched_at metadata, so the whole value is not in one span.\n- debrid/binzb $.notes: Same as c01: the page is branded LAMTOTO, but no span states 2026-11-26; the date is only the capture's fetched_at, not the page text.\n- debrid/cafe-arz $.notes: The title span states 'خرید اشتراک از سایت های خارجی', but no single span states the whole note: 'Iranian domestic payment service providing account settlement without international cards' synthesizes several passages, and 'No published fee schedule' is an absence no span states.\n- debrid/cafe-arz $.notes: Same as c03: only the title phrase is in one span; the settlement summary and 'No published fee schedule' are not stated by any single span.\n- debrid/digitkala $.notes: The page states 'موجودی: در انبار', but no span in the capture states the date 2026-11-26: the product page carries no date, and the date is only the capture's fetched_at, so the whole value is not in one span.\n- debrid/digitkala $.notes: Same as c06: the stock line is in the page, but no span states 2026-11-26; the date is only the capture's fetched_at.\n- debrid/ex-ua $.notes: Only the final sentence is in the BBC report. The first two sentences ('Preserved so the subsequent audit does not spend a wave...' and 'A closure with two dated reports is a dead record, not an omission.') are process narrative about the audit and appear nowhere in the page.\n- debrid/ex-ua $.notes: Same as c08: the BBC report states only the removal deadline; the audit-process narrative in the first two sentences is not in the page.",
+ "scope": {
+  "rids": [
+   "debrid/big-bit-org",
+   "debrid/binnewz",
+   "debrid/binzb",
+   "debrid/cafe-arz",
+   "debrid/copernicus-cds",
+   "debrid/debridr",
+   "debrid/digitkala",
+   "debrid/ex-ua"
+  ]
+ },
+ "origin": "audit u08 of 20261126-0015-verify-debrid-3523/u01 failed: 8 of 9 unsupported",
+ "created": "2026-11-26T01:45:13Z"
+}

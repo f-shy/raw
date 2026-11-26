@@ -79,13 +79,6 @@
     {
       "url": "probe:https://kho.t0m.top/",
       "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:7b0970459ce47dcf17cc44940fd5ff9f74daff4e12f1bf4827046731eba0ba12",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://kho.t0m.top/",
-      "date": "2026-11-11",
       "proved": "the settings request for this host answered HTTP 200 at this instant",
       "capture": "sha256:7b0970459ce47dcf17cc44940fd5ff9f74daff4e12f1bf4827046731eba0ba12",
       "quote": "\"checked_at\": \"2026-11-11T00:20:04.595Z\""
@@ -103,13 +96,6 @@
       "proved": "the liveness and mount-list probe answered settings, me and list at this instant",
       "capture": "sha256:71aeb49dd40608df170a4f1fc06c3091c090cfc313b2315b96bfc85e8eb3aef5",
       "quote": "\"checked_at\": \"2026-11-19T03:34:17.135Z\""
-    },
-    {
-      "url": "probe:https://kho.t0m.top/",
-      "date": "2026-11-19",
-      "proved": "the anonymous root listing hashed to 6d034603 in this run",
-      "capture": "sha256:71aeb49dd40608df170a4f1fc06c3091c090cfc313b2315b96bfc85e8eb3aef5",
-      "quote": "\"listing_sha256\": \"6d034603\""
     },
     {
       "url": "probe:https://kho.t0m.top/",
@@ -138,6 +124,27 @@
       "proved": "the fresh anonymous root listing of kho.t0m.top hashed to the recorded value, so the listing is unchanged",
       "capture": "sha256:5b30e948c46a2cce7bced08f353170a80e6826b08237912fbc1f40bc9b541bb7",
       "quote": "\"listing_sha256\": \"6d034603\""
+    },
+    {
+      "url": "probe:https://kho.t0m.top/",
+      "date": "2026-11-25",
+      "proved": "the re-probe of this host was taken at this instant",
+      "capture": "sha256:dc851be5a060087a8be9dcf30c1bb49e8e11cc212bf59a1585bceec0fa39368b",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:28.703Z\""
+    },
+    {
+      "url": "probe:https://kho.t0m.top/",
+      "date": "2026-11-25",
+      "proved": "the anonymous root listing still hashes to 6d034603 with 6 entries",
+      "capture": "sha256:dc851be5a060087a8be9dcf30c1bb49e8e11cc212bf59a1585bceec0fa39368b",
+      "quote": "\"guest\": true ... \"root_entries\": 6 ... \"listing_sha256\": \"6d034603\""
+    },
+    {
+      "url": "probe:https://kho.t0m.top/",
+      "date": "2026-11-25",
+      "proved": "the re-probe answered as an anonymous guest, so registration is not needed",
+      "capture": "sha256:dc851be5a060087a8be9dcf30c1bb49e8e11cc212bf59a1585bceec0fa39368b",
+      "quote": "\"guest\": true"
     }
   ],
   "verdict": "qualifies-with-caveat",

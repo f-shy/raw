@@ -33,7 +33,7 @@
   "interface": [
     "unknown"
   ],
-  "interface_detail": "No connection: an HTTPS request to the origin was refused on 2026-10-23.",
+  "interface_detail": "unverified: no page could be read; the request path refused the host as non-public on 2026-11-25",
   "tooling": "Nothing to drive.",
   "chaining": "Nothing to chain.",
   "limits": [],
@@ -45,7 +45,7 @@
     "detail": "No signup was reached; the host refused the connection.",
     "country": null
   },
-  "reliability_note": "One of several AnonFiles-branded revival sites; this one is not serving.",
+  "reliability_note": "unverified: the request path refused the host as non-public on 2026-11-25 (403); routes tried: page reader and a direct HTTPS GET (403 not a public host)",
   "confidence": "measured",
   "confidence_note": "Measured death: ConnectionRefusedError on the upload POST.",
   "evidence": [
@@ -53,10 +53,31 @@
       "url": "probe:https://anonfiles.info/upload",
       "date": "2026-10-23",
       "proved": "multipart POST -> ConnectionRefusedError [WinError 10061], no HTTP status at all"
+    },
+    {
+      "url": "probe:https://anonfiles.info/",
+      "date": "2026-11-25",
+      "proved": "the host was refused on the current network path; no HTTP answer was received",
+      "capture": "sha256:cb284ceabb46c7001c8921b26a859c30495993dc6a2da2a38ecb04ae965b837d",
+      "quote": "\"error_detail\": \"URLError: <urlopen error Tunnel connection failed: 403 not a public host>\""
+    },
+    {
+      "url": "probe:https://anonfiles.info/",
+      "date": "2026-11-25",
+      "proved": "no HTTP response was obtained from the host",
+      "capture": "sha256:cb284ceabb46c7001c8921b26a859c30495993dc6a2da2a38ecb04ae965b837d",
+      "quote": "\"error\": \"transport\""
+    },
+    {
+      "url": "probe:https://anonfiles.info/",
+      "date": "2026-11-25",
+      "proved": "the probe targeted the record's first-party URL; no page was served",
+      "capture": "sha256:cb284ceabb46c7001c8921b26a859c30495993dc6a2da2a38ecb04ae965b837d",
+      "quote": "\"url\": \"https://anonfiles.info/\""
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T02:30:47.000Z",
+  "verified_at": "2026-11-25T19:21:35.239Z",
   "history": [],
   "notes": "The 20 GB claim in the search index is stale; the origin is not listening.",
   "extras": {

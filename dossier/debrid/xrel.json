@@ -42,7 +42,7 @@
   "limits": [
     {
       "kind": "request-rate",
-      "value": "no published limit on the pages read; the API returned a 403 bot challenge",
+      "value": "no published limit on the pages read; the v2 API still answers HTTP 403 to an anonymous read",
       "source": "https://api.xrel.to/v2/"
     }
   ],
@@ -72,10 +72,38 @@
       "url": "https://api.xrel.to/v2/index.html",
       "date": "2026-10-23",
       "proved": "HTTP 404 from nginx, so that documentation path does not exist"
+    },
+    {
+      "url": "https://www.xrel.to/",
+      "date": "2026-11-25",
+      "proved": "the site serves the xREL.v3 release database",
+      "capture": "sha256:2e4a568b2772e54d55647fdce584257f050b4443933ec850db56eb6ff6a43de9",
+      "quote": "xREL.v3"
+    },
+    {
+      "url": "https://www.xrel.to/",
+      "date": "2026-11-25",
+      "proved": "release lists carry the size of each scene release",
+      "capture": "sha256:2e4a568b2772e54d55647fdce584257f050b4443933ec850db56eb6ff6a43de9",
+      "quote": "8749 MB"
+    },
+    {
+      "url": "https://www.xrel.to/",
+      "date": "2026-11-25",
+      "proved": "the HTML surface links NFO text without a download",
+      "capture": "sha256:2e4a568b2772e54d55647fdce584257f050b4443933ec850db56eb6ff6a43de9",
+      "quote": "NFO ansehen"
+    },
+    {
+      "url": "probe:https://api.xrel.to/v2/",
+      "date": "2026-11-25",
+      "proved": "the documented v2 API answered HTTP 403 on a fresh read",
+      "capture": "sha256:b4558187c0bdae578a98b38c0d2752706ec064cabd01a942c47457f769d5b013",
+      "quote": "\"status\": 403"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T01:52:28.000Z",
+  "verified_at": "2026-11-25T09:47:02.741Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Included because it is the metadata layer a DDL pipeline needs to turn 'Some.Release.2026.1080p-GRP' into a title, and because it is the clean example of the debrid challenge rule: HTML readable, API challenged, documented as unverified rather than rejected.",

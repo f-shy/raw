@@ -73,10 +73,17 @@
       "capture": "sha256:b2b47f4d10eef65f2241c8d0b8c905d5c40e0f31bcd2ba1962c5682609fd55b4",
       "quote": "up to 2 GB in size each (or 4 GB with",
       "proved": "Telegram's own per-file ceiling is 2 GB, or 4 GB with Premium"
+    },
+    {
+      "url": "https://t.me/UptoTGRobot",
+      "date": "2026-11-25",
+      "proved": "the bot still offers direct-link uploads to Telegram with no quota stated",
+      "capture": "sha256:c7eb09e63981217880625666f65764d8378bd0b480f0ddf97a6f199263052082",
+      "quote": "URL Uploader bot from [@cwprojects](https://t.me/cwprojects) for uploading files to telegram via direct links"
     }
   ],
   "verdict": "qualifies-with-caveat",
   "price_per_tb_month": null,
   "notes": "Abandon if the t.me page stops resolving to a bot with a Start action. No programmatic path found: A Telegram chat with the bot; the result is a link or a file delivered into the chat. No HTTP API is published.",
-  "verified_at": "2026-11-03T07:37:11.506Z"
+  "verified_at": "2026-11-25T09:46:48.489Z"
 }

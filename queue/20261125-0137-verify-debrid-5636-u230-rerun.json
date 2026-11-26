@@ -1,0 +1,17 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u230-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Fix five audit findings, one per record. For each, read the current record with `scripts/rq show 20261125-0137-verify-debrid-5636 RID`, capture the cited page, and either narrow the field to exactly what the capture states or drop the claim and confirm a different field the capture states. debrid/rlsbb: the record says robots.txt sets Crawl-delay 10 for the wildcard agent, but the file sets it only for the Bingbot group; set $.limits[0].value to that correct statement with the robots.txt capture. debrid/hubcloud: the record's interface_detail names api.hubcloud.foo and hubcloud.foo/drive/admin, but the page publishes api.hubcloud.mov and hubcloud.mov/drive/admin; set $.interface_detail to the .mov statement. debrid/turbobitpremium-org: the page does not state that registration needs an email; do not confirm $.identity_cost.kind, and confirm a field the FAQ states (for example $.identity_cost.detail) or open a question. debrid/binsearch: set $.category to exactly 'Usenet binary search engine', dropping the parenthetical. debrid/cloudpipe: set $.free_tier.stated to exactly the free-plan bullet list (Free $0/month, 5 jobs/day, 3GB max file size, Standard download speed, 6hr server storage (no storage cap), 1 download at a time), dropping the extra sentence. Every set needs old equal to the current value and a quote that states the whole new value. Confirm one settled field per record so it is re-dated.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/hubcloud $.identity_cost.detail: The capture says only 'No account linking needed' (about linking a Drive account) and shows a dashboard link. It does not say that generating a link needs nothing (no account, email or card), nor that the public path does not require the dashboard; that anonymity is inferred from the absence of a lo\n- debrid/turbobitpremium-org $.identity_cost.detail: The FAQ supports both purchase routes (registered turbobit.net account, or a Turbo access code without one) but never says a code is emailed. Its only email mentions are the password-delivery question and Plimus cancellation; 'a guest purchase that emails a Turbo code' is not in the cited capture.",
+ "scope": {
+  "rids": [
+   "debrid/rlsbb",
+   "debrid/hubcloud",
+   "debrid/turbobitpremium-org",
+   "debrid/binsearch",
+   "debrid/cloudpipe"
+  ]
+ },
+ "origin": "audit u231 of 20261125-0137-verify-debrid-5636/u230 failed: 2 of 9 unsupported",
+ "created": "2026-11-25T23:40:33Z"
+}

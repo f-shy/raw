@@ -88,10 +88,38 @@
       "capture": "sha256:1a5b59172eb06a46f4fe4cb1da39a46a442d4d330bba1d521d2dedb3b2a2886a",
       "quote": "Username Email Password I agree to terms of service.",
       "proved": "registration asks for username, email and password"
+    },
+    {
+      "url": "https://www.cboxera.com/",
+      "date": "2026-11-25",
+      "proved": "the free plan still carries 25 GB of daily bandwidth",
+      "capture": "sha256:446b0d90cc79b20f7c9c722003bf023b29b17ee762a11582b76d05649e4332d4",
+      "quote": "- 25 GB Daily Bandwidth"
+    },
+    {
+      "url": "https://www.cboxera.com/",
+      "date": "2026-11-25",
+      "proved": "paid plans still carry 150 GB of daily bandwidth",
+      "capture": "sha256:446b0d90cc79b20f7c9c722003bf023b29b17ee762a11582b76d05649e4332d4",
+      "quote": "- 150 GB Daily Bandwidth"
+    },
+    {
+      "url": "https://www.cboxera.com/",
+      "date": "2026-11-25",
+      "proved": "the service proxies links and stores no files, so there is no retention or per-object product",
+      "capture": "sha256:446b0d90cc79b20f7c9c722003bf023b29b17ee762a11582b76d05649e4332d4",
+      "quote": "Download links which are generated at cboxera are proxied directly from file hosting sites, so we don't store any files on our servers at any cases."
+    },
+    {
+      "url": "https://www.cboxera.com/register",
+      "date": "2026-11-25",
+      "proved": "registration is available; the form asks for username, email, password and agreement to terms, with a reCAPTCHA gate",
+      "capture": "sha256:ba07635ea3a0fbb8d7f581a8b4abd5d6677fde928ddd52e2464a2cfc0ee123d2",
+      "quote": "Register"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T07:37:13.292Z",
+  "verified_at": "2026-11-25T09:46:53.853Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "The paid plans share one 150 GB daily figure across 1, 2 and 3 months. No programmatic path found: Web generator after login; links are proxied directly from the file hosts over HTTPS."

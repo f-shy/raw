@@ -114,10 +114,38 @@
       "proved": "the public resolver answers NXDOMAIN for filepursuit.com",
       "capture": "sha256:71bc9d726284fe22542819f6d440cb71dffc664879fe20b93d4c03f7a3a82308",
       "quote": "\"Status\":3"
+    },
+    {
+      "url": "probe:filepursuit.com",
+      "date": "2026-11-25",
+      "proved": "the site still cannot be reached by a direct probe",
+      "capture": "sha256:494c230a6a6b18d08e8c7b078639db0455793ba956587cb9ec174ca8f252f9d1",
+      "quote": "\"error\": \"transport\""
+    },
+    {
+      "url": "probe:https://dns.google/resolve?name=filepursuit.com&type=A",
+      "date": "2026-11-25",
+      "proved": "the public resolver still answers NXDOMAIN for filepursuit.com",
+      "capture": "sha256:572a79880851c1518dd995ff541286fb35d18b5aac855bba997a20751b8d6b38",
+      "quote": "\"Status\":3"
+    },
+    {
+      "url": "probe:https://rdap.verisign.com/com/v1/domain/filepursuit.com",
+      "date": "2026-11-25",
+      "proved": "the registry still shows the domain on client hold",
+      "capture": "sha256:72d212227b8ca784b82affba3511cbaee43aa6e950cb95a7c57c0f20260a5edc",
+      "quote": "\"status\":[\"client hold\",\"client transfer prohibited\"]"
+    },
+    {
+      "url": "https://rapidapi.com/azharxes/api/filepursuit/pricing",
+      "date": "2026-11-25",
+      "proved": "the free RapidAPI plan still allows 500 requests per hour",
+      "capture": "sha256:bade1a855cd9ac9c518bce59e5011bf31f014de84ad1d4e2b29f45811cdde7fc",
+      "quote": "500 requests per hour"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-11-04T06:53:12.551Z",
+  "verified_at": "2026-11-25T09:46:42.463Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The index domain no longer resolves, so the service is recorded dead. The RapidAPI listing remains, showing a 0% service level, and its machine interface needs a RapidAPI key.",

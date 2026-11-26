@@ -6,7 +6,7 @@
   "category": "hosted bot (Telegram file to link and stream)",
   "tier": "free",
   "free_tier": {
-    "stated": "The page names a '4GB File To Link/Stream Bot'; no price, quota or daily count is stated.",
+    "stated": "unverified: the first-party page now resolves to a bare Telegram contact page with no description, price, quota or daily count",
     "unit": "none",
     "metered_on": "unstated",
     "source_url": "https://t.me/KR_File2link_Bot",
@@ -73,10 +73,52 @@
       "capture": "sha256:b2b47f4d10eef65f2241c8d0b8c905d5c40e0f31bcd2ba1962c5682609fd55b4",
       "quote": "up to 2 GB in size each (or 4 GB with",
       "proved": "Telegram's own per-file ceiling is 2 GB, or 4 GB with Premium"
+    },
+    {
+      "url": "https://t.me/KR_File2link_Bot",
+      "date": "2026-11-25",
+      "proved": "today's first-party t.me page is a bare contact page with no description or advertised limit",
+      "capture": "sha256:8158e94fa43cce6d0fe68e3296759a2a6fe900db79883f88f3c8f59c900bcae2",
+      "quote": "Telegram: Contact @KR_File2link_Bot"
+    },
+    {
+      "url": "https://t.me/KR_File2link_Bot",
+      "date": "2026-11-25",
+      "proved": "the page offers only a Telegram Send Message link, not a Start Bot action or an HTTP API",
+      "capture": "sha256:8158e94fa43cce6d0fe68e3296759a2a6fe900db79883f88f3c8f59c900bcae2",
+      "quote": "Send Message"
+    },
+    {
+      "url": "https://telegram.org/faq",
+      "date": "2026-11-25",
+      "proved": "a Telegram account is logged in with a mobile phone number",
+      "capture": "sha256:db52c8ab9f1c97f8c3e07bd0bfdcad3b97224fa5ab080ee3807d1312a614ad63",
+      "quote": "Just use your main mobile phone number to log in everywhere, your cloud chats will sync instantly."
+    },
+    {
+      "url": "https://telegram.org/faq",
+      "date": "2026-11-25",
+      "proved": "Telegram's own per-file ceiling is 2 GB, or 4 GB with Premium",
+      "capture": "sha256:db52c8ab9f1c97f8c3e07bd0bfdcad3b97224fa5ab080ee3807d1312a614ad63",
+      "quote": "send and receive files of any type, up to 2 GB in size each (or 4 GB with"
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20250128101049/https://t.me/KR_File2link_Bot?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the archived first-party page from 2025-01-28 advertised 4GB File To Link/Stream Bot",
+      "capture": "sha256:e04028f5bd71d71bc7e46936be74b4087d28d13b5b80d5d506ead2776d56ef87",
+      "quote": "4GB File To Link/Stream Bot"
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20250128101049/https://t.me/KR_File2link_Bot?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the archived page reported 14,328 monthly users, a scale signal that today's page no longer carries",
+      "capture": "sha256:e04028f5bd71d71bc7e46936be74b4087d28d13b5b80d5d506ead2776d56ef87",
+      "quote": "14 328 monthly users"
     }
   ],
   "verdict": "qualifies-with-caveat",
   "price_per_tb_month": null,
   "notes": "Abandon if the t.me page stops resolving to a bot with a Start action. No programmatic path found: A Telegram chat with the bot; the result is a link or a file delivered into the chat. No HTTP API is published.",
-  "verified_at": "2026-11-03T07:37:11.506Z"
+  "verified_at": "2026-11-25T09:46:45.851Z"
 }

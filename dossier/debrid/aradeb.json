@@ -26,7 +26,7 @@
     "notes": ""
   },
   "egress": {
-    "terms": "Streams are played from the user's own Real-Debrid or TorBox account ('Streams are provided through your paid Real-Debrid or TorBox account'), so traffic is billed by that provider and not by Aradeb.",
+    "terms": "Discovery uses the user's own paid Debrid service with TorBox, AllDebrid, Premiumize or Real-Debrid; quality and availability depend on sources and the user's paid Debrid provider; Real-Debrid support is being phased out and TorBox or AllDebrid is recommended.",
     "metered": false,
     "free_allowance": null,
     "price_per_tb": null,
@@ -35,9 +35,9 @@
   "interface": [
     "rest"
   ],
-  "interface_detail": "A Stremio addon endpoint configured at https://aradeb.518878.xyz; the Stremio client calls it over HTTP. Installation orders are distributed through the project's Discord.",
+  "interface_detail": "A Stremio addon endpoint configured at https://aradeb.518878.xyz; the Stremio client calls it over HTTP. Installation is via the Discord setup guide; donation and key requests are handled through the configuration page and a Discord support ticket.",
   "tooling": "Stremio desktop and mobile; a Discord bot for keys; no CLI and no API documentation beyond the addon protocol.",
-  "chaining": "It is the Arabic-language layer on top of a global debrid subscription: the addon supplies Arabic catalogs and private-tracker sources, the debrid account supplies the bytes, and no regional service is bought.",
+  "chaining": "It is the Arabic-language layer on top of a global debrid subscription: the addon supplies Arabic, Arabic-dubbed and Turkish catalogs, the user's paid debrid account supplies the bytes, and no regional service is bought.",
   "limits": [
     {
       "kind": "write-gated",
@@ -61,10 +61,52 @@
       "url": "https://stremio-addons.net/addons/aradeb",
       "date": "2026-10-23",
       "proved": "Arabic catalogs, Latin and Arabic search, streams 'provided through your paid Real-Debrid or TorBox account' up to 4K, 90-day trial keys via a Discord bot, permanent keys for donors only, configure page aradeb.518878.xyz"
+    },
+    {
+      "url": "https://stremio-addons.net/addons/aradeb",
+      "date": "2026-11-25",
+      "proved": "the addon now names four supported debrid providers and phases out Real-Debrid",
+      "capture": "sha256:7959bb23c4cdabda0e6919398f3f3dbc1ec9f8c9ffd8dbf9edb0f0d26397b590",
+      "quote": "- Discover content using **TorBox, AllDebrid, Premiumize, or Real-Debrid**.\n- Quality and availability depend on sources and your paid Debrid provider.\n\n*Note: Real-Debrid support is being phased out. TorBox or AllDebrid is recommended.*"
+    },
+    {
+      "url": "https://stremio-addons.net/addons/aradeb",
+      "date": "2026-11-25",
+      "proved": "permanent keys are requested through the configuration page and a Discord support ticket",
+      "capture": "sha256:7959bb23c4cdabda0e6919398f3f3dbc1ec9f8c9ffd8dbf9edb0f0d26397b590",
+      "quote": "- Donate through the configuration page and request your key via a Discord support ticket."
+    },
+    {
+      "url": "https://stremio-addons.net/addons/aradeb",
+      "date": "2026-11-25",
+      "proved": "the addon's catalogs cover Arabic, Arabic-dubbed and Turkish titles",
+      "capture": "sha256:7959bb23c4cdabda0e6919398f3f3dbc1ec9f8c9ffd8dbf9edb0f0d26397b590",
+      "quote": "**Aradeb** is a Stremio addon for discovering Arabic, Arabic-dubbed, and Turkish movies and series in up to **4K**, using your own paid Debrid service."
+    },
+    {
+      "url": "https://stremio-addons.net/addons/aradeb",
+      "date": "2026-11-25",
+      "proved": "the listing describes Aradeb as a Stremio addon",
+      "capture": "sha256:7959bb23c4cdabda0e6919398f3f3dbc1ec9f8c9ffd8dbf9edb0f0d26397b590",
+      "quote": "**Aradeb** is a Stremio addon for discovering Arabic, Arabic-dubbed, and Turkish movies and series in up to **4K**, using your own paid Debrid service."
+    },
+    {
+      "url": "https://stremio-addons.net/addons/aradeb",
+      "date": "2026-11-25",
+      "proved": "the listing names four debrid providers, ties availability to the user's paid Debrid provider, phases out Real-Debrid and recommends TorBox or AllDebrid",
+      "capture": "sha256:7959bb23c4cdabda0e6919398f3f3dbc1ec9f8c9ffd8dbf9edb0f0d26397b590",
+      "quote": "using your own paid Debrid service. ... - Discover content using **TorBox, AllDebrid, Premiumize, or Real-Debrid**.\n- Quality and availability depend on sources and your paid Debrid provider.\n\n*Note: Real-Debrid support is being phased out. TorBox or AllDebrid is recommended.*"
+    },
+    {
+      "url": "https://stremio-addons.net/addons/aradeb",
+      "date": "2026-11-25",
+      "proved": "the egress statement still names four debrid providers, ties availability to the user's paid Debrid provider and phases out Real-Debrid",
+      "capture": "sha256:7959bb23c4cdabda0e6919398f3f3dbc1ec9f8c9ffd8dbf9edb0f0d26397b590",
+      "quote": "using your own paid Debrid service. ... - Discover content using **TorBox, AllDebrid, Premiumize, or Real-Debrid**.\n- Quality and availability depend on sources and your paid Debrid provider.\n\n*Note: Real-Debrid support is being phased out. TorBox or AllDebrid is recommended.*"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:17:21.000Z",
+  "verified_at": "2026-11-25T22:12:34.246Z",
   "price_per_tb_month": "USD 0 for the addon; the Real-Debrid or TorBox subscription is the cost",
   "notes": "This is the clearest evidence that the Arabic market consumes retrieval through a global service rather than a local one: the local layer is an addon, and the paid account is Real-Debrid or TorBox. A separate 'Arab debrid service' was searched for and not found (see findings.md)."
 }

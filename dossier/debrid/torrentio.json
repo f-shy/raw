@@ -82,10 +82,45 @@
       "url": "https://torrentio.strem.fun/",
       "date": "2026-10-23",
       "proved": "version v0.0.15, the scraped provider list, and 'RealDebrid/Premiumize/AllDebrid/DebridLink/EasyDebrid/Offcloud/TorBox/Put.io support' on the configuration page - which came back with upstream_status 403 and full body text"
+    },
+    {
+      "url": "https://torrentio.strem.fun/stream/movie/tt1254207.json",
+      "date": "2026-11-25",
+      "proved": "the stream endpoint returns JSON without a key and with no published limit in the response",
+      "capture": "sha256:ab0f602d187140e730a7f53e3dc5e0ac80db5d9ea242b93d2f317cb29de2af8b",
+      "quote": "{\"streams\":[{\"name\":\"Torrentio"
+    },
+    {
+      "url": "https://torrentio.strem.fun/stream/movie/tt1254207.json",
+      "date": "2026-11-25",
+      "proved": "the addon body repeats the cacheMaxAge, staleRevalidate and staleError values",
+      "capture": "sha256:ab0f602d187140e730a7f53e3dc5e0ac80db5d9ea242b93d2f317cb29de2af8b",
+      "quote": "\"cacheMaxAge\":3600,\"staleRevalidate\":14400,\"staleError\":604800"
+    },
+    {
+      "url": "https://torrentio.strem.fun/stream/movie/tt1254207.json",
+      "date": "2026-11-25",
+      "proved": "the sample still contains the recorded Big Buck Bunny stream hash",
+      "capture": "sha256:ab0f602d187140e730a7f53e3dc5e0ac80db5d9ea242b93d2f317cb29de2af8b",
+      "quote": "\"infoHash\":\"f181e166e440b355ce73cc8b988f47ad7e8ea6ab\""
+    },
+    {
+      "url": "https://torrentio.strem.fun/",
+      "date": "2026-11-25",
+      "proved": "the configuration page still lists the same scraped providers",
+      "capture": "sha256:b07bc723b33a890a0a711892fd597406ff81fd6f1939c85a186f323cc9661fd9",
+      "quote": "Currently supports YTS(+), EZTV(+), RARBG(+), 1337x(+), EXT(+), ThePirateBay(+)"
+    },
+    {
+      "url": "https://torrentio.strem.fun/",
+      "date": "2026-11-25",
+      "proved": "the configuration page still reports addon version v0.0.15",
+      "capture": "sha256:b07bc723b33a890a0a711892fd597406ff81fd6f1939c85a186f323cc9661fd9",
+      "quote": "v0.0.15"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T01:52:28.000Z",
+  "verified_at": "2026-11-25T09:47:05.724Z",
   "price_per_tb_month": "USD 0 for the add-on",
   "history": [],
   "notes": "Stremio addon resolving titles into streamable torrent and debrid cached links. Queries are evaluated per title rather than providing full index scraping.",

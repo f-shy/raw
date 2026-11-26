@@ -129,10 +129,52 @@
       "proved": "a key gets 1 request a second on all endpoints",
       "capture": "sha256:db019c44effbdb66090ddc999c9979e09856d90ec788d55c316f9ca2079d7ad9",
       "quote": "The introductory rate limit for an API key is 1 RPS on all endpoints."
+    },
+    {
+      "url": "https://www.semanticscholar.org/product/api",
+      "date": "2026-11-25",
+      "proved": "anonymous use is allowed but shares a 1000 rps pool",
+      "capture": "sha256:e463f81e85595b48a000bbf1928c40eb909f3be474411bb75adbc1d15a6d345b",
+      "quote": "Most Semantic Scholar endpoints are available to the public without authentication, but they are rate-limited to 1000 requests per second shared among all unauthenticated users."
+    },
+    {
+      "url": "https://www.semanticscholar.org/product/api",
+      "date": "2026-11-25",
+      "proved": "a key gives 1 rps",
+      "capture": "sha256:e463f81e85595b48a000bbf1928c40eb909f3be474411bb75adbc1d15a6d345b",
+      "quote": "The introductory rate limit for an API key is 1 RPS on all endpoints."
+    },
+    {
+      "url": "https://www.semanticscholar.org/product/api",
+      "date": "2026-11-25",
+      "proved": "the key is delivered by email",
+      "capture": "sha256:e463f81e85595b48a000bbf1928c40eb909f3be474411bb75adbc1d15a6d345b",
+      "quote": "You will receive your private API key via email."
+    },
+    {
+      "url": "https://api.semanticscholar.org/api-docs/",
+      "date": "2026-11-25",
+      "proved": "batch lookup accepts at most 500 ids",
+      "capture": "sha256:bb9ab874530831d8fba782aaffc5d4abc5dfa14635d7cb834aba7199fc75bbf1",
+      "quote": "Can only process 500 paper ids at a time."
+    },
+    {
+      "url": "https://api.semanticscholar.org/api-docs/",
+      "date": "2026-11-25",
+      "proved": "bulk search tops out at 10 million papers",
+      "capture": "sha256:bb9ab874530831d8fba782aaffc5d4abc5dfa14635d7cb834aba7199fc75bbf1",
+      "quote": "Up to 10,000,000 papers can be fetched via this method."
+    },
+    {
+      "url": "https://api.semanticscholar.org/api-docs/",
+      "date": "2026-11-25",
+      "proved": "the key is sent in an x-api-key header",
+      "capture": "sha256:bb9ab874530831d8fba782aaffc5d4abc5dfa14635d7cb834aba7199fc75bbf1",
+      "quote": "If you are using an API key, it must be set in the header `x-api-key` (case-sensitive)."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-31T10:03:28.422Z",
+  "verified_at": "2026-11-25T09:47:02.743Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The caveat is availability, not price: a 1,000 rps global pool sounds large and behaves like a queue. A key trades the pool for a predictable 1 rps.",

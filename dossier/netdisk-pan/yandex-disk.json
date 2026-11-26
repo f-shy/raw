@@ -87,10 +87,17 @@
       "proved": "WebDAV access requires a Yandex 360 plan from 2026-06-22",
       "capture": "sha256:d904057f23c14258cf3653a5fd0339c792f1485ce3b992138437754c8b19ffc4",
       "quote": "Starting June 22, 2026, WebDAV access requires a"
+    },
+    {
+      "url": "https://yandex.com/support/yandex-360/customers/disk/web/en/enlarge/disk-space",
+      "date": "2026-11-26",
+      "proved": "the first-party help page states the no-plan storage allowance in GB",
+      "capture": "sha256:8e2fa7b6cf8659a42d5fef662c549b1d6ad4c869b83495196d99df5f18644eb9",
+      "quote": "By default, users without a plan get 5 GB of storage space."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-04T00:21:08.722Z",
+  "verified_at": "2026-11-26T01:10:14.530Z",
   "binding": "per-object-cap",
   "notes": "The corpus's storage topic carries Yandex records; this one is scoped to the pan's role here. The fact that changed is WebDAV: the help page dated the closure to 2026-06-22, so a bridge that mounted Yandex over WebDAV stopped working on a published date rather than silently.",
   "history": [],

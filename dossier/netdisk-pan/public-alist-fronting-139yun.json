@@ -36,7 +36,7 @@
   "limits": [
     {
       "kind": "write-gated",
-      "value": "write=false in the listing",
+      "value": "\"write\":false,\"provider\":\"139Yun\"",
       "source": "probe:https://alist.jiejingfan.vip/api/fs/list"
     },
     {
@@ -156,10 +156,17 @@
       "proved": "the settings endpoint answers code 200 with no session and carries the site title and version v3.45.1; it holds no allowance, quota, unit or price field",
       "capture": "sha256:9993727c81cbe25cd44bb82971f481da8e24e04c968f71c83f76a9fe37598be6",
       "quote": "\"site_title\":\"晴天网盘\""
+    },
+    {
+      "url": "probe:https://alist.jiejingfan.vip/api/fs/list?path=%2F&page=1&per_page=0",
+      "date": "2026-11-26",
+      "proved": "the root listing body carries the write flag false and provider 139Yun",
+      "capture": "sha256:1824aa371d6778f88fa5f70de040f2098b4ace7c343ed1980ea5be14c5d2dd13",
+      "quote": "\"write\":false,\"provider\":\"139Yun\""
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-02T09:58:35.803Z",
+  "verified_at": "2026-11-26T02:15:15.159Z",
   "history": [],
   "binding": "write-gated",
   "binding_note": "The read path reaches a Chinese carrier pan and that is the finding. What binds is the write gate plus a tree that is half stubs, so it is a fetch source at best.",

@@ -26,9 +26,9 @@
     "notes": ""
   },
   "egress": {
-    "terms": "The link streams from Leechall's own servers, so the byte counter that binds is Leechall's, per host, per day. The page lists caps such as 'extmatrix.com 0 B / 6 GB /d', '1fichier.com 0 B / 8 GB /d', 'mega.nz 0 B / 1 GB /d', 'isra.cloud 0 B / 650 MB /d', 'emload.com 0 B / 250 MB /d'.",
+    "terms": "The link streams from Leechall's own servers, so the byte counter that binds is Leechall's, per host, per day. The page lists caps such as 'extmatrix.com 0 B / 6 GB /d' and 'kshared.com 0 B / 850 MB /d', down to 350 MB/day on chomikuj.pl.",
     "metered": true,
-    "free_allowance": "per-host daily totals: extmatrix 6 GB/d, 1fichier 8 GB/d, mega.nz 1 GB/d, alfafile 1 GB/d, filestore.to 5 GB/d, tezfiles 800 MB/d, hitfile 650 MB/d, isra.cloud 650 MB/d, chomikuj.pl 350 MB/d, emload 250 MB/d",
+    "free_allowance": "per-host daily totals: extmatrix 6 GB/d, kshared.com 850 MB/d, tezfiles.com 800 MB/d, alfafile.net 1 GB/d, chomikuj.pl 350 MB/d, turbobit.net 650 MB/d, hitfile.net 650 MB/d, icerbox.com 650 MB/d, cloudghost.net 1 GB/d, isra.cloud 650 MB/d",
     "price_per_tb": null,
     "source_url": "https://leechall.com/"
   },
@@ -37,7 +37,7 @@
   ],
   "interface_detail": "A web form: paste a host URL, receive a generated link. The only other channel the page offers is a Telegram channel for status (t.me/leechallcom). No API, CLI or rclone backend was found.",
   "tooling": "none today: browser form only. A wrapper would have to drive the form or reverse its request shape; that is a tooling gap, not a verdict.",
-  "chaining": "Covers the small set of hosts a debrid subscription does not: extmatrix, isra.cloud, emload, chomikuj.pl. At 250 MB/day on emload and 650 MB/day on isra it moves a few hundred megabytes a day, so it supplements a paid debrid rather than replacing one.",
+  "chaining": "Covers the small set of hosts a debrid subscription does not: extmatrix, isra.cloud, chomikuj.pl. At 350 MB/day on chomikuj.pl and 650 MB/day on isra.cloud it moves about a gigabyte a day, so it supplements a paid debrid rather than replacing one.",
   "limits": [
     {
       "kind": "pull-count",
@@ -46,13 +46,13 @@
     },
     {
       "kind": "volume-quota",
-      "value": "per-host daily caps, 250 MB/day (emload) to 8 GB/day (1fichier)",
+      "value": "per-host daily caps, 350 MB/day (chomikuj.pl) to 6 GB/day (extmatrix.com)",
       "source": "https://leechall.com/"
     }
   ],
   "limits_note": "Every listed host carries its own daily byte ceiling, so the binding number depends on which host is targeted. A host not on the list cannot be fetched at all.",
   "binding": "volume-quota",
-  "binding_note": "Five files a day is generous next to the bytes: at 250 MB/day for emload and 650 MB/day for isra.cloud, 1 TiB of monthly transfer would need roughly 1,500 days of emload quota. The daily byte ceiling on each host is what fails first.",
+  "binding_note": "Five files a day is generous next to the bytes: at 350 MB/day for chomikuj.pl and 650 MB/day for isra.cloud, 1 TiB of monthly transfer would need roughly 1,600 days of isra.cloud quota. The daily byte ceiling on each host is what fails first.",
   "identity_cost": {
     "kind": "anonymous",
     "detail": "The generator ran with no account on the page read; the page prints a usage counter against the caller's network ('Your IP: ...', 'You Used: 0 B'), so the identity it bills is the egress address, not a login. The address printed at read time was the broker's, so it says nothing about the local IP.",
@@ -71,10 +71,38 @@
       "url": "https://leechall.io/",
       "date": "2026-10-23",
       "proved": "the same operator sells a paid ad-free service from $2.99, which fixes leechall.com's free tier in the product line"
+    },
+    {
+      "url": "https://leechall.com/",
+      "date": "2026-11-25",
+      "proved": "the anonymous counter still shows five files per day",
+      "capture": "sha256:adfda8eb7a174c1024de3e757fece19612d163f6f8a40b596271ab1e9b48e27b",
+      "quote": "- Files Per Day: 0 / 5"
+    },
+    {
+      "url": "https://leechall.com/",
+      "date": "2026-11-25",
+      "proved": "extmatrix daily allowance is still 6 GB",
+      "capture": "sha256:adfda8eb7a174c1024de3e757fece19612d163f6f8a40b596271ab1e9b48e27b",
+      "quote": "- extmatrix.com extmatrix.com 0 B / 6 GB /d"
+    },
+    {
+      "url": "https://leechall.com/",
+      "date": "2026-11-25",
+      "proved": "kshared daily allowance is now 850 MB, not in the old per-host list",
+      "capture": "sha256:adfda8eb7a174c1024de3e757fece19612d163f6f8a40b596271ab1e9b48e27b",
+      "quote": "- kshared.com kshared.com 0 B / 850 MB /d"
+    },
+    {
+      "url": "https://leechall.com/",
+      "date": "2026-11-25",
+      "proved": "the paid sibling's entry price is still $2.99",
+      "capture": "sha256:adfda8eb7a174c1024de3e757fece19612d163f6f8a40b596271ab1e9b48e27b",
+      "quote": "[Leechall.io - Download File Instantly Without Any Ads - Price from $2.99](https://leechall.io/)"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:18:17.000Z",
+  "verified_at": "2026-11-25T09:47:00.043Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The per-host caps are the useful artefact: they are a third-party statement of what each host lets a leecher pull per day, which is the number the filehost's own pages rarely publish. No programmatic path found: A web form: paste a host URL, receive a generated link. The only other channel the page offers is a Telegram channel for status (t.me/leechallcom).",

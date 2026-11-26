@@ -20,7 +20,7 @@
     "notes": "The paid plan advertises 'Unlimited remote traffic', which is a transfer claim, not a per-object size."
   },
   "retention": {
-    "stated": "not applicable: no storage product. Generated links are temporary and the downloader keeps a history of them for the account.",
+    "stated": "Not applicable: no storage product. A generated link is valid from a few minutes to approximately 24 hours depending on the file host.",
     "days": null,
     "source_url": "https://bestdebrid.com/en/downloader/",
     "notes": ""
@@ -65,7 +65,7 @@
     "detail": "Free account needs a username, an email address and a password. Google and Facebook sign-in also offered. No card and no phone on the free path. Paid plans are bought as a key or by subscription.",
     "country": null
   },
-  "reliability_note": "Free tier covers only hosts that are already free; filejoker was offline on the read date; VPN and proxy egress is refused with error 632; the paid plan allows VPN.",
+  "reliability_note": "Free tier covers only hosts already free. On the read date 49 of 52 hosts were online, with hulkshare, silkfiles and world-files marked offline; 8 hosts are marked free. VPN and proxy use is refused on free accounts and allowed on Premium.",
   "confidence": "documented",
   "confidence_note": "Free and paid limits are quoted from the vendor's FAQ, plans page and API reference. A generated link pulled end to end would raise it to measured.",
   "evidence": [
@@ -88,10 +88,66 @@
       "url": "https://bestdebrid.com/fr/restapi.php",
       "date": "2026-10-23",
       "proved": "'Quota journalier : chaque compte est limité à 70 fichiers uniques par 24 h, web et API confondus (erreur 121)', error 56 (free daily quota), error 122 (concurrency), error 632 (VPN/proxy), and a per-host limits endpoint returning 'linksperday' and 'bandwidth' such as '150 GB'"
+    },
+    {
+      "url": "https://bestdebrid.com/en/faq/",
+      "date": "2026-11-25",
+      "proved": "generated link validity spans minutes to about 24 hours",
+      "capture": "sha256:0a2d36c12d8beee0dc712cc54913f36fe6dc37ea69d32b9d901360138d171575",
+      "quote": "The validity period of a generated link depends on the file host and may range from **a few minutes to approximately 24 hours**."
+    },
+    {
+      "url": "https://bestdebrid.com/en/faq/",
+      "date": "2026-11-25",
+      "proved": "the free account allows one link per day",
+      "capture": "sha256:0a2d36c12d8beee0dc712cc54913f36fe6dc37ea69d32b9d901360138d171575",
+      "quote": "- up to 1 link per day;"
+    },
+    {
+      "url": "https://bestdebrid.com/fr/restapi.php",
+      "date": "2026-11-25",
+      "proved": "all accounts are capped at 70 unique files per 24 hours across web and API",
+      "capture": "sha256:f82dcaca9e59129b123d19b8f2db17c99548bc9b89e8a32af3062776cbb3978b",
+      "quote": "Quota journalier : chaque compte est limité à 70 fichiers uniques par 24 h, web et API confondus (erreur 121)."
+    },
+    {
+      "url": "https://bestdebrid.com/en/downloader/",
+      "date": "2026-11-25",
+      "proved": "49 of 52 hosts were online on the read date",
+      "capture": "sha256:332613fe79b40a8a5ac94ed921e486efe10e72ec0c2696d50939e5ef3a3ecd2a",
+      "quote": "49 / 52 hosts online"
+    },
+    {
+      "url": "https://bestdebrid.com/en/plans/",
+      "date": "2026-11-25",
+      "proved": "the 15-day one-time plan costs EUR 3",
+      "capture": "sha256:621d6a9791683922584608405e21e2b016aa69dcb114253a202e941d8e29f612",
+      "quote": "€ 3"
+    },
+    {
+      "url": "https://bestdebrid.com/en/faq/",
+      "date": "2026-11-25",
+      "proved": "the service is browser-only with no software to install",
+      "capture": "sha256:0a2d36c12d8beee0dc712cc54913f36fe6dc37ea69d32b9d901360138d171575",
+      "quote": "BestDebrid works entirely online through your web browser."
+    },
+    {
+      "url": "https://bestdebrid.com/en/hosters/",
+      "date": "2026-11-25",
+      "proved": "49 of 52 hosts online and 8 free hosts on the read date",
+      "capture": "sha256:058d3a4b63c0b52feb884db762d2e4306995945c35422d3752fcae3512bb9a2f",
+      "quote": "49 / 52 online 8 free Automatic checks"
+    },
+    {
+      "url": "https://bestdebrid.com/en/faq/",
+      "date": "2026-11-25",
+      "proved": "the FAQ describes the Premium payment gates on its accepted-methods list",
+      "capture": "sha256:0a2d36c12d8beee0dc712cc54913f36fe6dc37ea69d32b9d901360138d171575",
+      "quote": "We accept:"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T01:39:03.000Z",
+  "verified_at": "2026-11-25T09:46:53.123Z",
   "price_per_tb_month": "EUR 4.50/month subscription; EUR 3 per 15 days one-time (USD 5.05 and USD 3.37 at the 2026-10-23 ECB-derived rate of 0.8915 EUR per USD)",
   "history": [],
   "notes": "The free tier is not a free multi-hoster: its host list is the set of hosts that need no debrid. The sub-USD-5 band is the paid side. USD conversions use the exchangerate-api USD base read on 2026-10-23 (EUR 0.891529 per USD). Cheapest per-month shape is the 365-day one-time pass at EUR 45, or EUR 3 per 15 days for a short burst. The '2147483647 GB' bandwith figure is 2^31-1, an integer sentinel, not a measured allowance.",

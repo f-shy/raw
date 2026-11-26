@@ -10,7 +10,7 @@
     "metered_on": "none",
     "source_url": "https://www.nzbking.com/",
     "read_on": "2026-10-23",
-    "notes": "No quota page exists; the claim rests on a 5-request burst rather than a vendor sentence."
+    "notes": "No quota page exists; the claim rests on a 5-request burst rather than a vendor sentence; the vendor page adds a personal-use condition."
   },
   "per_object_cap": {
     "stated": "not applicable: the answer is an NZB pointer file (7,231 bytes, 19 files), never the payload",
@@ -71,6 +71,20 @@
       "url": "probe:https://www.nzbking.com/api/nzb?id=<id>",
       "date": "2026-10-23",
       "proved": "no Newznab-style API path: 404, so a client cannot add it as an indexer"
+    },
+    {
+      "url": "probe:https://www.nzbking.com/",
+      "date": "2026-11-25",
+      "proved": "an anonymous read of the vendor home page answered 200",
+      "capture": "sha256:da3ceeac45555f6e1a3b6d51f02c01e22aede99448de59b7ba2fd9c77385546f",
+      "quote": "\"status\": 200"
+    },
+    {
+      "url": "https://www.nzbking.com/",
+      "date": "2026-11-25",
+      "proved": "the vendor states a personal-use condition and prohibits scraping scripts",
+      "capture": "sha256:0235d94baae0b92414d74fd4b8dc76f92af165b2060940b6eddad5ace675e592",
+      "quote": "You may use this site only for personal use and at your own risk. Commercial use is prohibited. Do not run scraping scripts; they will be blocked."
     }
   ],
   "verdict": "qualifies",
@@ -97,7 +111,7 @@
     "burst": "5 sequential searches, all 200"
   },
   "notes": "",
-  "verified_at": "2026-10-23T02:11:54.066Z",
+  "verified_at": "2026-11-25T19:27:48.008Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }

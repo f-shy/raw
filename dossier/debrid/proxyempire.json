@@ -26,7 +26,7 @@
     "notes": ""
   },
   "egress": {
-    "terms": "The page title states the three headline rates: 'Residential $1.50/GB, Mobile $2/GB, ISP $2/IP'; the body adds 'unused GB roll over' and, for dedicated mobile, 'unlimited bandwidth and unlimited IP changes on demand'.",
+    "terms": "The page headline states the rates: '**Rotating Residential**from $1.50/GB **ISP Proxies**from $2.00/IP **Rotating Mobile**from $2.00/GB'. GB plans 'roll over and never expires'. Static ISP is 'Priced per dedicated IP, monthly. Unlimited traffic, with a fair use cap of 100 GB per IP per month, so there is no bandwidth to buy.' Dedicated mobile advertises 'UNLIMITED GB'.",
     "metered": true,
     "free_allowance": "none",
     "price_per_tb": "USD 1.50/GB residential, i.e. USD 1,536 per TiB; USD 2.00/IP/month for static ISP; mobile metered at $2/GB or unlimited on a dedicated port",
@@ -42,7 +42,7 @@
   "limits": [
     {
       "kind": "volume-quota",
-      "value": "rotating products are metered and roll unused GB over; the static ISP and dedicated mobile products are sold per address or port with no meter",
+      "value": "rotating products are metered and unused GB rolls over and never expires; static ISP is sold per address with a 100 GB per IP per month fair-use cap; dedicated mobile is sold per device with unlimited GB",
       "source": "https://proxyempire.io/pricing/"
     }
   ],
@@ -62,10 +62,38 @@
       "url": "https://proxyempire.io/pricing/",
       "date": "2026-10-23",
       "proved": "title 'Proxy Pricing: Residential $1.50/GB, Mobile $2/GB, ISP $2/IP'; 'Try residential and mobile proxies for $1.97'; 'unused GB roll over'; dedicated mobile 'unlimited bandwidth and unlimited IP changes on demand'; '30M+ ... residential IPs' and '24 Countries' for static residential"
+    },
+    {
+      "url": "https://proxyempire.io/pricing/",
+      "date": "2026-11-25",
+      "proved": "the paid trial is still USD 1.97 with a fixed bandwidth allowance",
+      "capture": "sha256:5e1e1b723c06ff42399df3276b766a80ddd138f250e453c1d469a9fe76d5d19c",
+      "quote": "Try residential and mobile proxies for $1.97: 100 MB of residential and 50 MB of mobile bandwidth. No contracts, no expiry."
+    },
+    {
+      "url": "https://proxyempire.io/pricing/",
+      "date": "2026-11-25",
+      "proved": "the static ISP product now publishes a 100 GB per IP monthly fair-use cap",
+      "capture": "sha256:5e1e1b723c06ff42399df3276b766a80ddd138f250e453c1d469a9fe76d5d19c",
+      "quote": "ISP-issued residential IPs that stay yours. Stable sessions and a consistent identity for account access and long-running workflows. Priced per dedicated IP, monthly. Unlimited traffic, with a fair use cap of 100 GB per IP per month, so there is no bandwidth to buy."
+    },
+    {
+      "url": "https://proxyempire.io/pricing/",
+      "date": "2026-11-25",
+      "proved": "the GB-based plans roll over without expiry",
+      "capture": "sha256:5e1e1b723c06ff42399df3276b766a80ddd138f250e453c1d469a9fe76d5d19c",
+      "quote": "Every GB-based plan works the same way: you buy bandwidth, use it whenever you want, and whatever you don’t use **rolls over and never expires**."
+    },
+    {
+      "url": "https://proxyempire.io/pricing/",
+      "date": "2026-11-25",
+      "proved": "the headline rates are unchanged",
+      "capture": "sha256:5e1e1b723c06ff42399df3276b766a80ddd138f250e453c1d469a9fe76d5d19c",
+      "quote": "**Rotating Residential**from $1.50/GB **ISP Proxies**from $2.00/IP **Rotating Mobile**from $2.00/GB **Dedicated Mobile**from $20/day **Rotating Datacenter**from $0.35/GB **Unlimited Residential**from $200/day"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:21:34.000Z",
+  "verified_at": "2026-11-25T09:47:01.820Z",
   "price_per_tb_month": "USD 1,536 per TiB metered; USD 2 per static ISP IP per month",
   "notes": "Included because it is the only vendor read that prices all three shapes on one page: metered residential, static ISP and unlimited dedicated mobile. That is the evidence that 'what a residential IP costs' has three answers, not one.",
   "extras": {

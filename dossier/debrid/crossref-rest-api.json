@@ -52,7 +52,7 @@
       "source": "probe:https://api.crossref.org/works?rows=1000&cursor=*&select=DOI,title,container-title,published,author"
     }
   ],
-  "limits_note": "Monthly snapshots are a Metadata Plus benefit fetched with a Crossref-Plus-API-Token header; the free bulk path is the annual public data file over Academic Torrents. Without a token, a HEAD of the documented URL https://api.crossref.org/snapshots/monthly/latest/all.json.tar.gz answered 200 with a zero-byte text/html body on 2026-10-31.",
+  "limits_note": "Monthly snapshots are a Metadata Plus benefit fetched with a crossref-api-key Bearer token; the free bulk path is the annual public data file over Academic Torrents. The snapshots are very large (>200GB) and are removed after the following quarter.",
   "binding": "request-rate",
   "binding_note": "One list call a second in the public pool, or 3 in the polite pool, each of at most 1000 rows, decides how many records a day the API yields; the annual public data file is the route to the whole registry.",
   "identity_cost": {
@@ -258,10 +258,80 @@
       "proved": "Crossref staff state that a DOI record cannot be removed and its metadata can be updated",
       "capture": "sha256:7452bf760bfc15c3e7f182eef1febf9d05d865aba92c91facc1e820ea6e372c6",
       "quote": "The metadata can be changed and updated as needed, but the record can’t be removed."
+    },
+    {
+      "url": "https://www.crossref.org/documentation/retrieve-metadata/rest-api/",
+      "date": "2026-11-25",
+      "proved": "the REST API is open without registration",
+      "capture": "sha256:26a49b743326dc092777974a9567dce13182d8094a67b6d064b0d082ebad251f",
+      "quote": "No sign-up is required to use the REST API"
+    },
+    {
+      "url": "https://www.crossref.org/documentation/retrieve-metadata/rest-api/",
+      "date": "2026-11-25",
+      "proved": "the API exposes those bibliographic fields",
+      "capture": "sha256:26a49b743326dc092777974a9567dce13182d8094a67b6d064b0d082ebad251f",
+      "quote": "you will find funding data, license information, post-publication updates, ORCID and ROR IDs, and abstracts."
+    },
+    {
+      "url": "https://www.crossref.org/documentation/retrieve-metadata/rest-api/access-and-authentication/",
+      "date": "2026-11-25",
+      "proved": "the public list pool is 1 request a second, concurrency 1",
+      "capture": "sha256:8c629138739b8ede96b309471f30fb1d36006e40775907eab4ed635974424ce5",
+      "quote": "| Public | Filters and queries | 1 | 1 |"
+    },
+    {
+      "url": "https://www.crossref.org/documentation/retrieve-metadata/rest-api/access-and-authentication/",
+      "date": "2026-11-25",
+      "proved": "the polite pool allows 10 single-record requests a second, concurrency 3",
+      "capture": "sha256:8c629138739b8ede96b309471f30fb1d36006e40775907eab4ed635974424ce5",
+      "quote": "| Polite | DOI lookup | 10 | 3 |"
+    },
+    {
+      "url": "https://www.crossref.org/documentation/retrieve-metadata/rest-api/access-and-authentication/",
+      "date": "2026-11-25",
+      "proved": "an email address selects the polite pool",
+      "capture": "sha256:8c629138739b8ede96b309471f30fb1d36006e40775907eab4ed635974424ce5",
+      "quote": "| Polite | Include your email address in the `mailto` parameter or `agent` header. |"
+    },
+    {
+      "url": "https://www.crossref.org/documentation/retrieve-metadata/rest-api/access-and-authentication/",
+      "date": "2026-11-25",
+      "proved": "over-limit requests answer 429",
+      "capture": "sha256:8c629138739b8ede96b309471f30fb1d36006e40775907eab4ed635974424ce5",
+      "quote": "If you exceed the rate limits, you will receive a 429 HTTP response."
+    },
+    {
+      "url": "https://www.crossref.org/documentation/retrieve-metadata/rest-api/tips-for-using-the-crossref-rest-api/",
+      "date": "2026-11-25",
+      "proved": "at most 1000 rows per call",
+      "capture": "sha256:a50e76ab45183f2ff178f2668b8e5ebbce284fa1d79b87232b523fdba732066a",
+      "quote": "The default number of rows returned is 20 and you can increase it up to 1000."
+    },
+    {
+      "url": "https://www.crossref.org/documentation/register-maintain-records/creating-and-managing-dois/changing-or-deleting-dois/",
+      "date": "2026-11-25",
+      "proved": "a DOI record cannot be deleted",
+      "capture": "sha256:506f418f72356767d175f37454d37fe1827abdd5a7ab7a7daff5814bee91890d",
+      "quote": "Because DOIs are designed to be persistent, a DOI string can’t be changed once registered, and DOIs can’t be fully deleted."
+    },
+    {
+      "url": "https://www.crossref.org/documentation/retrieve-metadata/bulk-downloads/",
+      "date": "2026-11-25",
+      "proved": "monthly snapshots need a Metadata Plus token and the header name is now crossref-api-key",
+      "capture": "sha256:5fd337cf65792c283ab61aeaace6311b6e1902414c92d822e735b3c8b8f61247",
+      "quote": "Include your API token in the request header using the format `crossref-api-key: Bearer [API token]`."
+    },
+    {
+      "url": "https://www.crossref.org/documentation/retrieve-metadata/bulk-downloads/",
+      "date": "2026-11-25",
+      "proved": "the vendor now names the snapshot token header crossref-api-key",
+      "capture": "sha256:5fd337cf65792c283ab61aeaace6311b6e1902414c92d822e735b3c8b8f61247",
+      "quote": "Include your API token in the request header using the format `crossref-api-key: Bearer [API token]`."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-03T00:28:18.841Z",
+  "verified_at": "2026-11-25T09:47:02.742Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Metadata only: bibliographic records with funding data, licence information, ORCID and ROR IDs and some abstracts, no full text. The record data-apis/crossref is the home of this offer and adds the annual public data file.",

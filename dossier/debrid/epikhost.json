@@ -47,7 +47,7 @@
     "detail": "not applicable; nothing can be registered",
     "country": "None"
   },
-  "reliability_note": "SERVFAIL at delegation: the registry points at nameservers that refuse queries, which is a worse state than NXDOMAIN because the name still appears delegated",
+  "reliability_note": "SERVFAIL at delegation: the registry points at nameservers that refuse queries, which is a worse state than NXDOMAIN because the name still appears delegated. The delegated server 87.117.238.51:53 refused the query on 2026-11-25.",
   "confidence": "measured",
   "confidence_note": "Measured by probe on 2026-10-23: Cloudflare DoH returned Status 2 (SERVFAIL) with EDE(22) 'No Reachable Authority at delegation epikhost.com' and EDE(23) 'Network Error 87.117.238.51:53 returned REFUSED'; curl returned 'Could not resolve host'. A separate epikhost.org belongs to a different company and was not treated as the same provider.",
   "evidence": [
@@ -55,15 +55,40 @@
       "url": "probe:https://epikhost.com",
       "date": "2026-10-23",
       "proved": "DoH Status 2 SERVFAIL, EDE 'No Reachable Authority at delegation epikhost.com', delegated NS 87.117.238.51 returned REFUSED; curl exit 6 for epikhost.com and www.epikhost.net"
+    },
+    {
+      "url": "probe:https://cloudflare-dns.com/dns-query?name=epikhost.com&type=A",
+      "date": "2026-11-25",
+      "proved": "the epikhost.com zone still has no reachable authority, so no service is served",
+      "capture": "sha256:d8d02223dfc6cd77b0e3f1165d4cf0b7be4ab7aee40b85ceabcbf84748b32e67",
+      "quote": "EDE(22): No Reachable Authority at delegation epikhost.com."
+    },
+    {
+      "url": "probe:https://cloudflare-dns.com/dns-query?name=epikhost.com&type=A",
+      "date": "2026-11-25",
+      "proved": "the delegated nameserver refused the A query for epikhost.com",
+      "capture": "sha256:d8d02223dfc6cd77b0e3f1165d4cf0b7be4ab7aee40b85ceabcbf84748b32e67",
+      "quote": "EDE(23): Network Error 87.117.238.51:53 returned REFUSED for epikhost.com A"
+    },
+    {
+      "url": "probe:https://cloudflare-dns.com/dns-query?name=epikhost.com&type=A",
+      "date": "2026-11-25",
+      "proved": "the zone has no reachable authority, so the host is dead",
+      "capture": "sha256:d8d02223dfc6cd77b0e3f1165d4cf0b7be4ab7aee40b85ceabcbf84748b32e67",
+      "quote": "EDE(22): No Reachable Authority at delegation epikhost.com."
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T03:19:00.000Z",
+  "verified_at": "2026-11-25T09:46:43.323Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "The name appears in seedbox briefs but resolves to nothing. epikhost.org is a live but unrelated hosting company with a different name and no seedbox plans; treating them as one provider would be a false match. Re-probe before reuse.",
   "extras": {
     "death_evidence": "SERVFAIL, no reachable authority at delegation",
-    "probe_commands": "curl 'https://cloudflare-dns.com/dns-query?name=epikhost.com&type=A' -H 'accept: application/dns-json'; curl -sS -o /dev/null -w '%{http_code}' https://epikhost.com/"
+    "probe_commands": "curl 'https://cloudflare-dns.com/dns-query?name=epikhost.com&type=A' -H 'accept: application/dns-json'; curl -sS -o /dev/null -w '%{http_code}' https://epikhost.com/",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

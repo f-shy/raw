@@ -63,10 +63,17 @@
       "proved": "the original hostname still serves only a 301 redirect to a sibling host, so it is not a usable instance",
       "capture": "sha256:a23fb3d4443e63e8f2c7083eec567f42fc8e70c21e92770cfe411e477bf8f9be",
       "quote": "\"status\": 301"
+    },
+    {
+      "url": "probe:https://alist.20237737.xyz/api/public/settings",
+      "date": "2026-11-26",
+      "proved": "the probe record shows HTTP status 200",
+      "capture": "sha256:915719c82112c2e0f4d6538b03ded037095713b49adc1e9c770ea01981100671",
+      "quote": "\"status\": 200"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-11-19T21:12:45.102Z",
+  "verified_at": "2026-11-26T02:15:13.859Z",
   "binding": "retention-clamped",
   "binding_note": "The host is not slow or capped, it is gone; the constraint is that it stopped.",
   "notes": "七十二时, the original hostname of the 20237737 corpus. 301 to nowhere that answers",

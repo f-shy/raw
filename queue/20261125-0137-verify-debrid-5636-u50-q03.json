@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u50-q03",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "debrid/librivox: does librivox.org/api/feed/audiobooks still answer anonymous GETs, and what is the highest project id now that the feed returned 522 on 2026-11-25?",
+ "why": "The API info page was readable, but the feed itself answered 522 through the broker and every pinned provider, so the catalogue-size probe could not be repeated.",
+ "scope": {
+  "rids": [
+   "debrid/librivox"
+  ]
+ },
+ "origin": "20261125-0137-verify-debrid-5636/u50",
+ "created": "2026-11-25T09:47:00Z"
+}

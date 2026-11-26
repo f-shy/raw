@@ -258,10 +258,24 @@
       "proved": "section 25 Fair Usage Policy of the terms page states web-proxy transfers are technically unmetered and heavy activity may trigger temporary rate-limits, queuing or session pauses",
       "capture": "sha256:440cb01e1f28461df11628fb6d60f37b586cdc0e03d5946598db034f02f4b89f",
       "quote": "Although web-proxy transfers are technically unmetered, sustained or atypically heavy activity may trigger temporary rate-limits, queuing, or session pauses so that overall network capacity stays fast and reliable for every customer."
+    },
+    {
+      "url": "https://linksnappy.com/tos",
+      "date": "2026-11-25",
+      "proved": "the application asks for an email address and credit-card details before approval",
+      "capture": "sha256:440cb01e1f28461df11628fb6d60f37b586cdc0e03d5946598db034f02f4b89f",
+      "quote": "The information that you must supply on the Site in order to obtain Elite Services may include, without limitation: (i) your e-mail address; (ii) your credit card information"
+    },
+    {
+      "url": "https://linksnappy.com/index.php?act=faqs",
+      "date": "2026-11-25",
+      "proved": "generated links remain bound to the address that created them",
+      "capture": "sha256:41ebc8815648b4bcec551b3ed1254603e7fcd1b2d4bfe20d9db5dd23c73b8f2c",
+      "quote": "IP address locked"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-03T00:35:36.091Z",
+  "verified_at": "2026-11-25T09:46:54.557Z",
   "price_per_tb_month": null,
   "notes": "Candidates for the first failure: the application gate, the IP lock, or a per-host transfer limit. The gate is the earliest and the only one that can stop an account existing at all; the IP lock is the one that breaks a working account mid-download. Torrent support is absent, so the cache-behaviour question does not apply. The vendor's host status page requires a login and was not read. Merged from host-quota-matrix: The legacy myaccount/news page still lists 2021-era cap upgrades (DDL 30->35 GB, Katfile 20->25 GB), which no longer matches the current 11-host table; the table read today is the authority. Merged from seed-western: The cheapest 7-day entry in the lane at US$4.99, and the most expensive 30 days at US$12.99, which is what 75+ hosts costs. The seed marked LinkSnappy as having no torrent support; the vendor's own FAQ answers 'How long do you seed torrents for?' and the landing page advertises streaming torrents, so torrents are supported and simply not seeded - the seed is wrong on that column. Host-count claims conflict inside one site: 75+ (landing), 50 (FAQ), 11 rows (public status table). Merged from pricing-history: Flat for 37 months at USD 4.99 / 12.99 / 29.99 / 54.99, and the pricing model removes the promo-versus-renewal question entirely: every term is a one-off payment with 'No Recurring Payment'. The billed monthly rate is USD 12.99, at the highest 30-day entry price in the debrid set, against EUR 2.99-4.00 for the French services. The offer narrowed while the price did not: the FAQ answered 'Do you offer any free trials? Yes' in 2023-09 and the question is gone from 2024-10 onward, so a 37-month history that tracked only the dollar figure would have called this provider unchanged twice over. Merged from lapse: A proxy with a price, not a store. The terms and the FAQ agree, which makes this one of the cleanest zeroes in the lane. Abandonment condition: a published retention for the 100 GB torrent cloud would move it to a caveat. Merged from payment-rails: Search-engine extracts of the vendor's own checkout page (linksnappy.com/myaccount/extend) show the rail buttons 'Credit/Debit Card, Paysafecard, Bitcoin, Reseller' and linksnappy.com/landing shows 'CashtoCode Paysafecard Cryptocurrency'. Those were not opened by this lane, so they are recorded here as an extract, not as a read page. Merged from tooling-api: No torrent support, which the comparison corpus and the FAQ both imply. A missing client is not a rejection and neither is a missing document: the API exists and answers, it is just not written down. Abandonment condition: a vendor API page appearing makes the 'reported' rung wrong in the good direction.",
   "extras": {

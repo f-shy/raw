@@ -407,10 +407,38 @@
       "url": "https://support.torbox.app/en/articles/10336778-the-torbox-abuse-system",
       "date": "2026-10-23",
       "proved": "absolute abuse floors of 'Free - 5TB/month', Essential 10TB, Standard 20TB, Pro 30TB"
+    },
+    {
+      "url": "https://torbox.app/pricing",
+      "date": "2026-11-25",
+      "proved": "the Free card still shows USD 0, one slot, a 24-hour cooldown, ten downloads, a 10 GB cap and 250 Mbps",
+      "capture": "sha256:6c693f1ee81758a37c250c00cba9a5b7f824989455d935d736ec72b9819a3e81",
+      "quote": "$0/mo\n\n1 Concurrent Slot\n\n24 Hour Cool Down\n\nTen Downloads Per Month\n\n10GB Max Download Size\n\n250Mbps Speed\n\nReduced Traffic Priority"
+    },
+    {
+      "url": "https://support.torbox.app/en/articles/9836418-account-restrictions",
+      "date": "2026-11-25",
+      "proved": "the support article still states the ten-download monthly allowance on the Free plan",
+      "capture": "sha256:e0b5c667c3e72b228748e5e64108df8d8c1ba493e85523f4e3b3160e029ff8df",
+      "quote": "You can only add 10 downloads per month."
+    },
+    {
+      "url": "https://api-docs.torbox.app/",
+      "date": "2026-11-25",
+      "proved": "API rate limiting is still per token and not per address",
+      "capture": "sha256:fa8be9b054ea9212f0d99e129285462f0336b5f800f9a065fcf9bceda36a50ec",
+      "quote": "We no longer accept IP whitelisting requests due to rate limiting being API token based, rather than IP based."
+    },
+    {
+      "url": "https://support.torbox.app/en/articles/9961332-how-long-are-torbox-files-stored-for",
+      "date": "2026-11-25",
+      "proved": "the vendor still states a minimum 30-day file retention",
+      "capture": "sha256:21c847d0f894cdcf586c27ba154afea9495dd40a7ec1a972c378a56214e46bdb",
+      "quote": "TorBox stores each file for at least 30 days."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T01:57:49.000Z",
+  "verified_at": "2026-11-25T09:46:33.639Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The seed's footnote claimed 1 slot, 10 downloads, 10 GB and 250 Mbps; all four are confirmed on the vendor page. What the seed omitted is that the free plan has no usenet and no web downloads and refuses private torrents, which changes what the tier is good for. Merged from ladder-verify: Facts unchanged, evidence route changed: two earlier records cite torbox.app/pricing for 'Ten Downloads Per Month' and '24 Hour Cool Down', and that page no longer carries either string. The rules are still true, from the support article. The ladder's 100 GB therefore survives, but a re-verification that only opens the pricing page would wrongly conclude the count was dropped. Merged from hosted-stacks: This is the load-bearing piece of the free-only answer, and the weakest-evidenced record in this lane: one vendor page read, no account, no API call. The next session should create a free account and measure a 9 GB fetch, a 12 GB fetch (expected to fail) and the cache hit rate on a popular title. Merged from torbox: No host reports a zero cap, and the SDK documentation says zero means unlimited, so every host here is capped in fact. 67 of the 162 rows are streams (YouTube, Twitch, Vimeo) and are excluded from the host matrix, which leaves 95 file hosts. Merged from failure-modes: Candidates for the first failure: the resolution budget, the active-slot count, or the fair-use floor. The budget is confirmed by a dated measurement with the retry header value; the slot count is documented; the fair-use floor is 30x above a 1 TiB/month client. The Rapidgator hoster is documented by the comparison project's issue #34 as 'constantly Offline ... Links cannot be added', which is a host-level refusal the service does not signal with an error code. Merged from tooling-api: The free plan is the only tier of any provider here that combines a free key, a published per-token rate limit and a documented mount path. What it cannot do is one file over 10 GiB. Abandonment condition: if the free plan drops 'API Access', the lane's answer changes and this record must be re-read the same day. Merged from verify-ipclass: Written because the ip-class lane's table row gives TorBox 'unlimited devices, account sharing allowed', which its own July 2026 terms contradict. The IP permission is unchanged and is the load-bearing fact: this is the only seed service that states that a bare cloud address may call it. Existing records that own other angles: scratch seed-western/records/torbox-essential.json, torbox-pro.json, scratch host-quota-matrix/records/torbox.json. Merged from lapse: The closest thing to a purpose-built answer to this lane's question, and the vendor says so in its own changelog: AirLock exists for 'users who may not use TorBox constantly'. The trap is that the 30-day countdown after a purge starts at the last download, not at the lapse, so a file fetched five months ago can vanish on day 7 of the gap. Abandonment condition: if the 7-day window is removed from the terms, the 37-day figure becomes unknown. Merged from pricing-history: This is the one provider in the set whose price history is unreadable rather than unchanged, and the reason is structural: a Svelte app renders the table in the browser, so the archived HTML has no price in it. Rendering the replay through a headless browser also produced no table. Any future attempt needs a text-extraction crawler run against the live page and stored as a capture, not the Wayback replay. Merged from payment-rails: Cheapest first purchase of any service in this lane that takes crypto directly. The rail is a third-party aggregator (Sellix), not the vendor's own wallet, so the crypto leg inherits Sellix's availability. Gift-card and mail-in-cash rails are the only paths in the whole sample that need neither card nor bank nor wallet. Merged from torbox-free-tier: The strongest free torrent path that publishes a byte number, and it is still half of the 20 GiB case at the per-object level. It is also the cheapest way to test a cache: a torrent already cached by another user does not consume a slot and can be streamed or downloaded on the free plan.",

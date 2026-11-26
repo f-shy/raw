@@ -22,7 +22,7 @@
   "binding_note": "A voucher bought here is redeemed on the buyer's own account, so the IP constraint is the ordinary one-holder rule; the price is what loses, not the access.",
   "confidence": "reported",
   "confidence_note": "the seller's page was read today; a seller is not the vendor, so nothing here is at the documented rung except the vendor terms quoted in evidence",
-  "verified_at": "2026-11-03T11:28:55.821Z",
+  "verified_at": "2026-11-25T09:46:36.208Z",
   "history": [],
   "slug": "keyoneclick",
   "provider": "KeyOneClick",
@@ -60,7 +60,7 @@
     "detail": "PayPal, Visa/MasterCard, crypto and local payment methods, one-time payment, delivery by email; the buyer also needs a Real-Debrid account to redeem the voucher.",
     "country": null
   },
-  "reliability_note": "The voucher route is the least fragile resale form found: the account stays the buyer's and the seller never sees the password.",
+  "reliability_note": "unverified: shop page unreachable on 2026-11-25 (direct probe: transport error)",
   "price_per_tb_month": null,
   "evidence": [
     {
@@ -112,6 +112,13 @@
       "proved": "resale needs the vendor's explicit permission",
       "capture": "sha256:e304594fe96172746bad06bf29f97bc2973d87ec63ec9ea7f85da4a9e29cfe9a",
       "quote": "The User also acknowledges that he is not allowed to resell any Premium account nor managing it for somebody else without our explicit permission, any attempt will lead to a suspension of the User account."
+    },
+    {
+      "url": "probe:keyoneclick.com",
+      "date": "2026-11-25",
+      "proved": "a direct request to the shop page failed at the transport layer on 2026-11-25",
+      "capture": "sha256:c27fa656ba3c2fe2b65388a1cd58de2acc7b5bd3f7c7bbb1b31301677c859f80",
+      "quote": "\"error\": \"transport\""
     }
   ],
   "verdict": "paid-only",

@@ -22,7 +22,7 @@
   "binding_note": "The shop's Real-Debrid line has been withdrawn; the constraint is that there is nothing to buy.",
   "confidence": "reported",
   "confidence_note": "the seller's page was read today; a seller is not the vendor, so nothing here is at the documented rung except the vendor terms quoted in evidence",
-  "verified_at": "2026-11-03T11:28:59.771Z",
+  "verified_at": "2026-11-25T09:46:34.334Z",
   "history": [],
   "slug": "hotfilepremiumstore",
   "provider": "HotFilePremiumStore",
@@ -95,6 +95,20 @@
       "proved": "the store's home page navigation still lists a Real-debrid entry although its category page is empty",
       "capture": "sha256:428d1ceb743f0cabaa75487b62dc30eea1107f297886e67dbc39dec1d5e95a95",
       "quote": "Real-debrid"
+    },
+    {
+      "url": "probe:https://www.hotfilepremiumstore.com/en/real-debrid/",
+      "date": "2026-11-25",
+      "proved": "the Real-Debrid category URL still answers HTTP 404",
+      "capture": "sha256:e64ad91640eae8419d5c27c18bd45cfad675d873260557a596e174d764f73dd0",
+      "quote": "\"status\": 404"
+    },
+    {
+      "url": "https://www.hotfilepremiumstore.com/en/real-debrid/",
+      "date": "2026-11-25",
+      "proved": "the category page still says no products are available",
+      "capture": "sha256:c4b650d3deef44fa7a2636113109b0ace9bc5fdf9649470225fdfa1c7a91af63",
+      "quote": "No products available yet"
     }
   ],
   "verdict": "dead",

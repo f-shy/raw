@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u57-q02",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "debrid/file2share-us: has the transfer.sh-shaped upload at upd.file2share.us replaced the dead file2share.us/<name> and /upload routes, and should this record be split from its dead verdict?",
+ "why": "The old routes still answer 404, but first-party pages now advertise an anonymous curl upload at upd.file2share.us with a 50 GB free cap, 14-day retention and a 40-upload-per-hour address limit; an anonymous upload was not attempted.",
+ "scope": {
+  "rids": [
+   "debrid/file2share-us"
+  ]
+ },
+ "origin": "20261125-0137-verify-debrid-5636/u57",
+ "created": "2026-11-25T09:47:06Z"
+}

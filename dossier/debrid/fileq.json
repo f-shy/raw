@@ -76,10 +76,45 @@
       "url": "https://fileq.net/premium",
       "date": "2026-10-23",
       "proved": "'Additional Storage: $20 per TB monthly for non-webmaster accounts', the webmaster-only upload policy, 'unlimited bandwidth' on premium, and PPD on Pro and Team"
+    },
+    {
+      "url": "https://fileq.net/",
+      "date": "2026-11-25",
+      "proved": "the free path deletes uploads after 3 days and registration extends retention",
+      "capture": "sha256:8e10865a74348d44ae3b7ed2ba663ba957619f54882b73a5931f3f7f42df154a",
+      "quote": "Deleted after 3 days. [Sign up](https://fileq.net/register/) to store longer."
+    },
+    {
+      "url": "https://fileq.net/",
+      "date": "2026-11-25",
+      "proved": "the site still advertises a 110 GB per-file headline",
+      "capture": "sha256:8e10865a74348d44ae3b7ed2ba663ba957619f54882b73a5931f3f7f42df154a",
+      "quote": "Upload Large Files 110GBShare & EarnAnything.Large Files 110GB"
+    },
+    {
+      "url": "https://fileq.net/premium",
+      "date": "2026-11-25",
+      "proved": "unlimited bandwidth is stated for Premium, not for the free path",
+      "capture": "sha256:c2cb2b03c66a2688fec4a7f5a10d596eb9ae5bbf69ca9ea26547ef037832842d",
+      "quote": "Premium cloud storage with unlimited bandwidth, faster downloads, and priority support."
+    },
+    {
+      "url": "https://fileq.net/premium",
+      "date": "2026-11-25",
+      "proved": "upload privileges are still restricted to approved webmasters",
+      "capture": "sha256:c2cb2b03c66a2688fec4a7f5a10d596eb9ae5bbf69ca9ea26547ef037832842d",
+      "quote": "FileQ provides file upload privileges exclusively to verified webmasters with established websites and significant traffic."
+    },
+    {
+      "url": "https://fileq.net/premium",
+      "date": "2026-11-25",
+      "proved": "the USD 20 per TB-month additional-storage price is unchanged",
+      "capture": "sha256:c2cb2b03c66a2688fec4a7f5a10d596eb9ae5bbf69ca9ea26547ef037832842d",
+      "quote": "Additional Storage: $20 per TB monthly for non-webmaster accounts"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:42:02.709Z",
+  "verified_at": "2026-11-25T09:46:58.785Z",
   "price_per_tb_month": "USD 20 per TB-month of additional storage",
   "history": [],
   "notes": "Live host resolves at fileq.net. Three days free file retention. No programmatic path found: A web upload form at /upload with no documented API on the pages read. A referral URL pattern exists (/api/ref/<code>) which is a marketing link, not an endpoint.",

@@ -41,7 +41,7 @@
   "limits": [
     {
       "kind": "request-rate",
-      "value": "reported: 2 NZB grabs per day, no API (one listing); 2 NZBs per 24 to 36 hours (another)",
+      "value": "Free: 2 NZB grabs/day. No API support.",
       "source": "https://nzbhydra.com/indexers/"
     }
   ],
@@ -84,6 +84,13 @@
       "capture": "sha256:4928c2b5418af9bc04aa5017c78d10e2787eb1cd72619003b80b1fc7cc225bf0",
       "quote": "\"status\": 403",
       "proved": "a direct request was answered HTTP 403 with a bot challenge"
+    },
+    {
+      "url": "https://nzbhydra.com/indexers/",
+      "date": "2026-11-26",
+      "proved": "the listing states the free grab count and API support verbatim",
+      "capture": "sha256:3125b505eca26d74096a6985446593dbb6eb97637bbd1d4543eaa49be6387223",
+      "quote": "Free: 2 NZB grabs/day. No API support."
     }
   ],
   "verdict": "qualifies-with-caveat",
@@ -91,7 +98,7 @@
     "price": "USD 0 (free); USD 13 per year donation (reported)"
   },
   "notes": "No programmatic path found: A web index with a custom newznab-style interface per a listing; the same listing says there is no API.",
-  "verified_at": "2026-11-03T07:37:15.010Z",
+  "verified_at": "2026-11-26T01:59:17.872Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }

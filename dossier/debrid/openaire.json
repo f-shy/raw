@@ -73,10 +73,31 @@
       "url": "probe:https://api.openaire.eu/search/publications?title=cancer&size=100",
       "date": "2026-10-23",
       "proved": "200, 8,384,696 bytes in 4,166.8 ms - one anonymous call returns 8.4 MB"
+    },
+    {
+      "url": "https://graph.openaire.eu/docs/",
+      "date": "2026-11-25",
+      "proved": "the graph is described as one of the largest open scholarly collections",
+      "capture": "sha256:a59146774d7fdceeb8d3a54afeada332bb62a09d742f0b0e1e793689a81b6830",
+      "quote": "one of the largest open scholarly record collections worldwide"
+    },
+    {
+      "url": "https://graph.openaire.eu/docs/",
+      "date": "2026-11-25",
+      "proved": "the graph data may be reused by third parties",
+      "capture": "sha256:a59146774d7fdceeb8d3a54afeada332bb62a09d742f0b0e1e793689a81b6830",
+      "quote": "the Graph data are openly available and can be used by third-parties to create added value services."
+    },
+    {
+      "url": "https://graph.openaire.eu/docs/",
+      "date": "2026-11-25",
+      "proved": "the docs describe graph version 12.0.0",
+      "capture": "sha256:a59146774d7fdceeb8d3a54afeada332bb62a09d742f0b0e1e793689a81b6830",
+      "quote": "Version: 12.0.0"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T03:24:34.450Z",
+  "verified_at": "2026-11-25T09:47:02.741Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The highest bytes-per-call of any metadata API among debrid providers by an order of magnitude, which makes it the best candidate for filling a day with metadata when the file hosts are the bottleneck.",

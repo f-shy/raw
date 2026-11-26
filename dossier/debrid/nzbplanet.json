@@ -91,6 +91,13 @@
       "url": "https://nzbhydra.com/indexers/",
       "date": "2026-10-23",
       "proved": "third-party: VIP USD 10/year, Platinum USD 24/year, free 200 days retention, free tier '0 calls'"
+    },
+    {
+      "url": "https://nzbplanet.net/api?t=caps",
+      "date": "2026-11-25",
+      "proved": "the caps document declares a 100-result ceiling",
+      "capture": "sha256:9f1e6cd64983fc2a49e6ae8698ad3ae8f986e6cc6adb7021a0a627fc430ae3ce",
+      "quote": "<limits max=\"100\" default=\"100\"/>"
     }
   ],
   "verdict": "fails-quota",
@@ -102,7 +109,7 @@
     "free_downloads": 0
   },
   "notes": "The registerpremium page that search engines still hold returned 404 to a direct request today, so its wording is cited as a snippet and not as a page read.",
-  "verified_at": "2026-10-23T02:11:54.066Z",
+  "verified_at": "2026-11-25T22:07:34.253Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }

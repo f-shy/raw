@@ -20,10 +20,10 @@
     "notes": "the 1 GB figure is the only hard number on the vendor page"
   },
   "retention": {
-    "stated": "Not stated on the vendor page. Third-party reviews report a two-day file lifetime on free accounts and seven days on paid.",
+    "stated": "The vendor pricing page states a 2 days file lifetime on the free plan and 7 days on paid.",
     "days": 2,
-    "source_url": "https://vpnetic.com/blog/torrent-safe/",
-    "notes": "reported, not vendor-documented"
+    "source_url": "https://premium.torrentsafe.com/",
+    "notes": "the 2-day free lifetime is stated on the vendor pricing page; the 7-day premium lifetime is stated on the same page"
   },
   "egress": {
     "terms": "Free files are downloaded 'at full speed'; no byte allowance is published. Premium is advertised as having no storage or transfer rate limits.",
@@ -76,10 +76,66 @@
       "url": "https://chromewebstore.google.com/detail/torrentsafe/lokbhemjpeifblfhlmbbojahimbmdmai",
       "date": "2026-10-23",
       "proved": "the extension listing states 'Free users limited to 5 downloads per month', contradicting the homepage"
+    },
+    {
+      "url": "https://www.torrentsafe.com/",
+      "date": "2026-11-25",
+      "proved": "the vendor homepage still states unlimited files under 1 GB at full speed",
+      "capture": "sha256:b4b0f748d2a8fdc8fed43fe400b16226196eb18c8d5fb12ba527c3b1d4930dc0",
+      "quote": "Free users can download unlimited files per month under 1GB at full speed."
+    },
+    {
+      "url": "https://www.torrentsafe.com/",
+      "date": "2026-11-25",
+      "proved": "the FAQ still says no registration is needed and email is only for the licence key",
+      "capture": "sha256:b4b0f748d2a8fdc8fed43fe400b16226196eb18c8d5fb12ba527c3b1d4930dc0",
+      "quote": "No, your E-mail address is only used to send your license key."
+    },
+    {
+      "url": "https://premium.torrentsafe.com/",
+      "date": "2026-11-25",
+      "proved": "the vendor pricing page now states the free file lifetime",
+      "capture": "sha256:666629b2b6c066517da08f4353a0537e6791215a02cb2cbccdc73dcebf013f7f",
+      "quote": "- 2 days file lifetime"
+    },
+    {
+      "url": "https://premium.torrentsafe.com/",
+      "date": "2026-11-25",
+      "proved": "the vendor pricing page states the free file lifetime",
+      "capture": "sha256:666629b2b6c066517da08f4353a0537e6791215a02cb2cbccdc73dcebf013f7f",
+      "quote": "- 2 days file lifetime"
+    },
+    {
+      "url": "https://premium.torrentsafe.com/",
+      "date": "2026-11-25",
+      "proved": "the vendor pricing page states the premium file lifetime",
+      "capture": "sha256:666629b2b6c066517da08f4353a0537e6791215a02cb2cbccdc73dcebf013f7f",
+      "quote": "- 7 days file lifetime"
+    },
+    {
+      "url": "https://premium.torrentsafe.com/",
+      "date": "2026-11-25",
+      "proved": "the vendor confirms the 2-day free file lifetime",
+      "capture": "sha256:666629b2b6c066517da08f4353a0537e6791215a02cb2cbccdc73dcebf013f7f",
+      "quote": "- 2 days file lifetime"
+    },
+    {
+      "url": "https://premium.torrentsafe.com/",
+      "date": "2026-11-25",
+      "proved": "the vendor pricing page still states a 1 GB maximum free file size",
+      "capture": "sha256:666629b2b6c066517da08f4353a0537e6791215a02cb2cbccdc73dcebf013f7f",
+      "quote": "- **1 GB** max file size"
+    },
+    {
+      "url": "https://www.torrentsafe.com/",
+      "date": "2026-11-25",
+      "proved": "the vendor FAQ also states a 2-day free and 7-day premium file lifetime",
+      "capture": "sha256:b4b0f748d2a8fdc8fed43fe400b16226196eb18c8d5fb12ba527c3b1d4930dc0",
+      "quote": "How long are downloads stored?\n\nPremium users can access their files for up to 7 days, free users have 2 days."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T01:55:00.000Z",
+  "verified_at": "2026-11-25T09:47:05.724Z",
   "price_per_tb_month": "free under 1 GB per file; premium reported at about USD 4.95/month",
   "notes": "Included because it is the only service here that returns a fetched file without any account and without a published byte quota - useful as a resolver test even though the 1 GB cap rules out the 20 GiB case.",
   "extras": {

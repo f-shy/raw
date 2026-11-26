@@ -42,7 +42,7 @@
   "limits": [
     {
       "kind": "per-ip-shaping",
-      "value": "8MB/s average upload on mini; 15MB/s on 100mbit, 30MB/s on 1gbit, 80MB/s on 1gbit-ssd",
+      "value": "8MB/s average upload on mini; 15MB/s on 100mbit, 30MB/s on 1gbit-hybrid, 80MB/s on 1gbit-ssd and 30MB/s on max",
       "source": "https://seed.st/"
     }
   ],
@@ -99,10 +99,24 @@
       "proved": "the new-account dialog of the order page asks for a username, a password and a password confirmation, with no email field",
       "capture": "sha256:f1ae3094e5946f2f3c9d3d89e7bd36bcb35721718e844b4f56320b359c54f58c",
       "quote": "Enter desired username and password below."
+    },
+    {
+      "url": "https://www.seed.st/order",
+      "date": "2026-11-25",
+      "proved": "the max package now lists 30 MB/s average upload on the order table",
+      "capture": "sha256:05169c6a4b00fa16f8fa3ae694da4ba715cfd0050860f05bdd78480bddc295f9",
+      "quote": "| Average Upload1 MB/s = 8 mbit/s | 8 MB/s | 15 MB/s | 30 MB/s | 80 MB/s | 30 MB/s |"
+    },
+    {
+      "url": "https://www.seed.st/seedbox?p=mini",
+      "date": "2026-11-25",
+      "proved": "the mini package's disk, upload figure, tracker rule and protocol set are unchanged",
+      "capture": "sha256:fdfda292da71ee9b5d5f0e43e30724314762a172686d39d25fd3da11d9632836",
+      "quote": "200GB Drive Space 8MB/s Average Upload Speed Instant Activation Public trackers NOT allowed Unlimited Bandwidth Unlimited Active Transfers FTP/FTPS/FXP Access"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-03T15:25:55.920Z",
+  "verified_at": "2026-11-25T09:47:04.425Z",
   "history": [],
   "notes": "The home page lists mini $2/wk | $6/mo, 100mbit $3/wk | $10/mo, 1gbit $7/wk | $25/mo and max $15/wk | $50/mo.",
   "extras": {

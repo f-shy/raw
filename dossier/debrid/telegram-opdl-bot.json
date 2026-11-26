@@ -58,10 +58,37 @@
       "url": "https://t.me/OpDLBot",
       "date": "2026-10-23",
       "proved": "'The ultimate Bot for permanent Links to Telegram Files.' and the @OpenFileZ companion"
+    },
+    {
+      "url": "https://t.me/OpDLBot",
+      "date": "2026-11-25",
+      "proved": "the bot's own page still claims permanent links and names the @OpenFileZ companion",
+      "capture": "sha256:98f1a15079d1b74fca52162e41171c5ff956f6d6f29d65272baa9711933405ce",
+      "quote": "The ultimate Bot for permanent Links to Telegram Files."
+    },
+    {
+      "url": "probe:https://web.archive.org/web/20230110003344/https://tgdl.eu.org/",
+      "date": "2026-11-25",
+      "proved": "the archived tgdl.eu.org status page names the @OpDLBot bot, so the domain was this record's link-serving host",
+      "capture": "sha256:05684d6dd59347b462a84a18a4be7647b53e9bd606819d238044b3072ed3ce81",
+      "quote": "\"telegram_bot\": \"@OpDLBot\""
+    },
+    {
+      "url": "probe:https://tgdl.eu.org",
+      "date": "2026-11-25",
+      "proved": "a direct probe of the link host tgdl.eu.org failed DNS; the proxy route, TCP ports 80 and 443, and the broker route also failed, so the permanent-link egress path no longer resolves",
+      "capture": "sha256:cc5f48309a5311ff3b4a89dca4e021044acd6ea1e9d2b4563ca13a179f82dd70",
+      "quote": "\"error\": \"dns\""
     }
   ],
-  "verdict": "qualifies-with-caveat",
+  "verdict": "dead",
   "price_per_tb_month": null,
   "notes": "Grouped with @FileToLinkTGbot as a class: free file-to-URL bots that exist to defeat the 20 MB getFile cap. Abandon the pair together if either stops resolving, and prefer whichever states a real quota.",
-  "verified_at": "2026-10-23T01:52:23.000Z"
+  "verified_at": "2026-11-25T09:46:47.479Z",
+  "extras": {
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
+  }
 }

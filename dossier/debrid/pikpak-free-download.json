@@ -82,10 +82,38 @@
       "url": "https://mypikpak.com/en-US/help-center/file_management/space/insufficient_cloud_storage_space",
       "date": "2026-10-23",
       "proved": "'Free accounts include 6 GB of storage, and Premium includes 10 TB.'"
+    },
+    {
+      "url": "https://mypikpak.com/en-US/faq",
+      "date": "2026-11-25",
+      "proved": "The free daily downstream cap and the Connected Apps share remain 20 GB and 5 GB",
+      "capture": "sha256:a707e17c6aa38d4ee7dbe6d64b0688191f0852c5c2bfd5c15f49635a00b6e17a",
+      "quote": "Free PikPak accounts have a daily Downstream limit of 20 GB, which resets at 0:00 Singapore Time. All Connected Apps together can use up to 25% of this daily limit, or 5 GB per day."
+    },
+    {
+      "url": "https://mypikpak.com/en-US/help-center/file_management/space/insufficient_cloud_storage_space",
+      "date": "2026-11-25",
+      "proved": "The free storage allowance is still 6 GB",
+      "capture": "sha256:910871a0b7f303e43a9dc5a23a8fda1b78879b508fbe866db5d604a0652bff3a",
+      "quote": "Free accounts include 6 GB of storage, and Premium includes 10 TB."
+    },
+    {
+      "url": "https://mypikpak.com/en-US/faq",
+      "date": "2026-11-25",
+      "proved": "A free account with 12 consecutive months of inactivity may be deleted",
+      "capture": "sha256:a707e17c6aa38d4ee7dbe6d64b0688191f0852c5c2bfd5c15f49635a00b6e17a",
+      "quote": "If you are a non-Premium user and have no login activity for 12 consecutive months, PikPak may initiate the account deletion process."
+    },
+    {
+      "url": "https://mypikpak.com/en-US/faq",
+      "date": "2026-11-25",
+      "proved": "CLI, MCP, personal access tokens and WebDAV are all classified as Connected Apps",
+      "capture": "sha256:a707e17c6aa38d4ee7dbe6d64b0688191f0852c5c2bfd5c15f49635a00b6e17a",
+      "quote": "Connected Apps are tools and services that access your PikPak account outside the official PikPak apps. They include PikPak CLI, PikPak MCP for AI tools such as Claude or ChatGPT, Personal Access Tokens, WebDAV clients, and other integrations."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:15:33.000Z",
+  "verified_at": "2026-11-25T09:47:00.873Z",
   "price_per_tb_month": "USD 0",
   "notes": "Recorded because the trial-chaining ladder omitted it, not because the provider is new: it already has dossier/netdisk-pan/pikpak.json (verdict fails-quota, confidence unverified, no quota established), dossier/storage/pikpak.json (6 GB free, verdict qualifies-with-caveat, confidence reported) and scratch telegram/records/telegram-pikpak-bot.json (documented). The reconciler should fold this free-tier sub-record into the existing slug rather than create a fourth. The number that matters to the ladder is 150 GB/month programmatic, not 600: the service is driven with a script, and the vendor caps every programmatic path at 25% of the daily allowance.",
   "extras": {

@@ -1,0 +1,23 @@
+{
+ "id": "20261125-0137-verify-netdisk-pan-1601-u34-rerun",
+ "kind": "verify",
+ "topic": "netdisk-pan",
+ "question": "Re-check these netdisk-pan records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- netdisk-pan/123pan-123 $.identity_cost.kind: Quote says phone number, password, SMS code. It does not say national ID or real-name is needed to register; kind national-id is not supported (any-phone-like).\n- netdisk-pan/vyuyun $.reliability_note: Probe record is dated 2026-11-25 (status 200, bytes 6634), not 2026-10; 'tiny domestic operator with no published SLA' is not in the record.\n- netdisk-pan/weiyun $.egress.terms: Page says unlimited high-speed download is unavailable to free users; it does not say free downloads are heavily throttled. A claim is the field's whole value, and the auditor must find one span in your capture that says it. For every field named in a confirm's paths, the value must be exactly what that one quote proves. When a field's value is a synthesis of several facts, do one of these: capture a page that states all of it and quote that; or narrow the field's value to the fact your quote proves and move each other fact to its own field or limits row with its own evidence; or leave the field out of every confirm and list it in unread. Never name a field whose value goes beyond its quote.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- netdisk-pan/weiyun $.tooling: quote proves only the 48-hour QQ cookie lifetime; unmaintained status, the MCP pull request, billzhong/weiyun and no-rclone-backend are not in it\n- netdisk-pan/pikpak $.binding: quote states traffic quotas; it does not say there is no binding\n- netdisk-pan/123pan-123 $.free_tier.stated: quote covers only post-2026-09-24 registrants; the pre-2026-09-24 50 GB + 2 TB and the professional/standard definitions are not in the span\n- netdisk-pan/lanzou $.per_object_cap.bytes: source says 100M with no unit definition; 104857600 assumes MiB\n- netdisk-pan/pikpak $.binding: quote states traffic quotas; it does not say there is no binding\n- netdisk-pan/lanzou $.tooling: quote describes the OpenList Lanzou driver; the netdisk-fast-download lz driver, no WebDAV and no official API are not in it\n- netdisk-pan/uc-drive $.tooling: quote proves only that a browser cookie is used; root id 0, UC TV QR pairing, Quark family and no S3/WebDAV not proved\n- netdisk-pan/yandex-disk $.retention.stated: quote proves Trash and WebDAV permanent erase; 'files persist until deleted' not proved\n- netdisk-pan/pikpak $.chaining: quote says server downloads files into the drive; magnet fetching and 'not a store' are not in it\n- netdisk-pan/uc-drive $.egress.terms: quote proves only the SVIP unlimited-speed benefit text; the free throttling and 300-400 KB/s report are not in it\n- netdisk-pan/123pan-123 $.limits[1].value: source says 10 GB applies to historical registrants only and apps count at 50% of file size; new registrants from 2026-11-04 get none; claim says free account, all clients\n- netdisk-pan/uc-drive $.tooling: quote proves only TV driver list/download; the rest of the value is not in it\n- netdisk-pan/yandex-disk $.free_tier.stated: quote proves 5 GB without a plan; sharing with Yandex Mail is in a separate part of the page, not the same span\n- netdisk-pan/pikpak $.retention.stated: claim value is 'not established' but source states a 12-month inactivity deletion rule, so retention is stated",
+ "scope": {
+  "rids": [
+   "netdisk-pan/pikpak",
+   "netdisk-pan/uc-drive",
+   "netdisk-pan/weiyun",
+   "netdisk-pan/123pan-123",
+   "netdisk-pan/vyuyun",
+   "netdisk-pan/lanzou",
+   "netdisk-pan/mail-ru-cloud",
+   "netdisk-pan/yandex-disk"
+  ]
+ },
+ "origin": "audit u48 of 20261125-0137-verify-netdisk-pan-1601/u34 failed: 14 of 30 unsupported",
+ "created": "2026-11-25T13:31:44Z",
+ "queue_files": [
+  "queue/20261125-0137-verify-netdisk-pan-1601-u03-rerun.json"
+ ]
+}

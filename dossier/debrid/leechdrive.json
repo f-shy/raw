@@ -72,10 +72,38 @@
       "url": "https://leechdrive.com/docs/extended-faq/",
       "date": "2026-10-23",
       "proved": "'Unmetered bandwidth ... we do not monitor your data transfers'; FXP and a private HTTP(S) download URL; unlimited active torrents"
+    },
+    {
+      "url": "https://leechdrive.com/",
+      "date": "2026-11-25",
+      "proved": "the entry slot is 50 GB at USD 5/month on a 1 Gbps down / 300 Mbps up link shared by 10-16 users",
+      "capture": "sha256:784cbabd90ab2374ff97724ea58f32c8f07cc5ca9fc3fa15c06fcea5711864c1",
+      "quote": "| 50GB | Xeon® E3-1220v2 | 16GB | 10-16 | 1 Gbps | 300 Mbps | Yes** | $5/m |"
+    },
+    {
+      "url": "https://leechdrive.com/",
+      "date": "2026-11-25",
+      "proved": "public-tracker upload is capped at 1 MB/s until ratio 1.0",
+      "capture": "sha256:784cbabd90ab2374ff97724ea58f32c8f07cc5ca9fc3fa15c06fcea5711864c1",
+      "quote": "**Limited support. Unlimited download speed, 1 MB/s (8 Mbps) upload until 1.0 ratio."
+    },
+    {
+      "url": "https://leechdrive.com/docs/extended-faq/",
+      "date": "2026-11-25",
+      "proved": "bandwidth is unmetered but shared with co-tenants",
+      "capture": "sha256:f9f79ddb71d15fe9fbd181abc449ca07728621b591afae99d84f7ff322aecbf9",
+      "quote": "With unmetered bandwidth, we do not monitor your data transfers. But if you on a shared server, you will share the network with other users."
+    },
+    {
+      "url": "https://leechdrive.com/docs/extended-faq/",
+      "date": "2026-11-25",
+      "proved": "a private HTTP(S) download URL is provided alongside FTP access",
+      "capture": "sha256:f9f79ddb71d15fe9fbd181abc449ca07728621b591afae99d84f7ff322aecbf9",
+      "quote": "### HTTP(S) download site\n\nA private URL to your download folder."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:19:00.000Z",
+  "verified_at": "2026-11-25T09:47:03.627Z",
   "price_per_tb_month": "USD 5 for 50 GB = USD 100/TB/month",
   "history": [],
   "notes": "Exactly USD 5, so it sits on the line rather than under it; the per-TB price is the worst in the lane and the 50 GB disk is the reason. Sustained-rate conversion: unmetered claim, so the comparable figure is the 300 Mbit/s shared upload, 37.5 MB/s aggregate across 10-16 users. Candidates considered for what breaks at 1 TiB/month: the 50 GB disk, the 300 Mbit/s share, the 1 MB/s public-tracker upload; the disk is first, the share second.",

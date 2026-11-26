@@ -20,8 +20,8 @@
     "notes": "an article size is a protocol convention, not a vendor number"
   },
   "retention": {
-    "stated": "More than 1500 days of binary retention",
-    "days": 1500,
+    "stated": "Up to 6500 days of binary retention, with the current figure stated as up to 6642 days",
+    "days": 6500,
     "source_url": "https://www.ixinews.com/abonnement-newsgroups.html"
   },
   "egress": {
@@ -50,7 +50,7 @@
     },
     {
       "kind": "retention-clamped",
-      "value": "1500 days of binary retention",
+      "value": "6500 days of binary retention",
       "source": "https://www.ixinews.com/abonnement-newsgroups.html"
     }
   ],
@@ -59,7 +59,7 @@
   "binding_note": "All but the IXIFULL plan are bounded by a fixed volume.",
   "identity_cost": {
     "kind": "card",
-    "detail": "The monthly plans say 'Renouvellement automatique via PayPal'. The signup form was not opened, so any further fields are unverified: behind a sign-up.",
+    "detail": "The monthly plans say 'Renouvellement automatique via PayPal™'. The signup form was not opened, so any further fields are unverified: behind a sign-up.",
     "country": null
   },
   "reliability_note": "Backbone is not stated on the page read; completion is unmeasured.",
@@ -114,10 +114,38 @@
       "capture": "sha256:76f8624d53a1ae543fc7ceae8e166aaa8ac00415bf8a6191c794041528bbbf40",
       "quote": "| IXI1000Go | 1000 Go | **249,99 $** | *(0,25 $)* | [>](https://www.ixinews.com/abonnement.html?plan=IXI1000Go) |",
       "proved": "the 1000 GB one-year volume plan is USD 249.99, USD 0.25 per GB"
+    },
+    {
+      "url": "https://www.ixinews.com/abonnement-newsgroups.html",
+      "date": "2026-11-25",
+      "proved": "the page now states up to 6500 days of binary retention",
+      "capture": "sha256:a7c079c60047e3252a1b2ae3fa5894dc71a73c3f25365b867e454ec63a242b19",
+      "quote": "- **Jusqu'à 6500 jours** [1] de rétention binaire"
+    },
+    {
+      "url": "https://www.ixinews.com/abonnement-newsgroups.html",
+      "date": "2026-11-25",
+      "proved": "the retention-clamped limit is now 6500 days",
+      "capture": "sha256:a7c079c60047e3252a1b2ae3fa5894dc71a73c3f25365b867e454ec63a242b19",
+      "quote": "- **Jusqu'à 6500 jours** [1] de rétention binaire"
+    },
+    {
+      "url": "https://www.ixinews.com/abonnement-newsgroups.html",
+      "date": "2026-11-25",
+      "proved": "monthly plans renew automatically via PayPal",
+      "capture": "sha256:a7c079c60047e3252a1b2ae3fa5894dc71a73c3f25365b867e454ec63a242b19",
+      "quote": "Abonnements mensuels .: Renouvellement automatique via PayPal™ :."
+    },
+    {
+      "url": "https://www.ixinews.com/abonnement-newsgroups.html",
+      "date": "2026-11-25",
+      "proved": "the page still publishes the retention figure and the same plan table",
+      "capture": "sha256:a7c079c60047e3252a1b2ae3fa5894dc71a73c3f25365b867e454ec63a242b19",
+      "quote": "- **Jusqu'à 6500 jours** [1] de rétention binaire"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-03T07:37:14.439Z",
+  "verified_at": "2026-11-25T09:47:08.494Z",
   "price_per_tb_month": "USD 249.99 for 1000 GB on the one-year plan (USD 0.25 per GB as the page states it)",
   "notes": "Volume-metered; the one-year volume plans are USD 29.99 for 50 GB up to USD 249.99 for 1000 GB.",
   "extras": {}

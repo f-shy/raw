@@ -33,10 +33,11 @@
     "source_url": "https://www.mirrored.to/"
   },
   "interface": [
-    "browser"
+    "browser",
+    "rest"
   ],
   "interface_detail": "Web form. The site names Google Drive, Mediafire, GoFile, Yandex Disk among the 40+ destinations, and states 'The files you upload are stored on your own accounts on hosting sites'.",
-  "tooling": "Browser only as read. No API found on the page; a wrapper would have to drive the form per host.",
+  "tooling": "The vendor page states 'We also offer a simple API for secure file uploading' alongside browser and Windows-uploader methods.",
   "chaining": "The inverse of a debrid: instead of pulling one link from many hosts, it pushes one file to many hosts. That is how a client makes a file survive one host's takedown without paying for storage twice.",
   "limits": [
     {
@@ -61,10 +62,38 @@
       "url": "https://www.mirrored.to/",
       "date": "2026-10-23",
       "proved": "'Over 40 hosts to choose from', 'The files you upload are stored on your own accounts on hosting sites', and the example destinations Google Drive, Mediafire, GoFile, Yandex Disk"
+    },
+    {
+      "url": "https://www.mirrored.to/",
+      "date": "2026-11-25",
+      "proved": "the vendor now states a file-upload API exists",
+      "capture": "sha256:92b480db494e92d3c977efb64b3b10386b75d75355d32415dc40baf532ec2a10",
+      "quote": "We also offer a simple API for secure file uploading."
+    },
+    {
+      "url": "https://www.mirrored.to/",
+      "date": "2026-11-25",
+      "proved": "an upload API is offered in addition to the browser form",
+      "capture": "sha256:92b480db494e92d3c977efb64b3b10386b75d75355d32415dc40baf532ec2a10",
+      "quote": "We also offer a simple API for secure file uploading."
+    },
+    {
+      "url": "https://www.mirrored.to/",
+      "date": "2026-11-25",
+      "proved": "the upload API claim is unchanged",
+      "capture": "sha256:92b480db494e92d3c977efb64b3b10386b75d75355d32415dc40baf532ec2a10",
+      "quote": "We also offer a simple API for secure file uploading."
+    },
+    {
+      "url": "https://www.mirrored.to/",
+      "date": "2026-11-25",
+      "proved": "the 40+ host claim is unchanged",
+      "capture": "sha256:92b480db494e92d3c977efb64b3b10386b75d75355d32415dc40baf532ec2a10",
+      "quote": "Over 40 hosts to choose from"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T03:18:17.000Z",
+  "verified_at": "2026-11-25T09:46:50.794Z",
   "price_per_tb_month": "USD 0, plus the destination host's own cost",
   "history": [],
   "notes": "The domain is mirrored.to but the site brands itself Mirrorcreator, the older name; MirrorAce is a separate site on the same idea and is recorded dead. No programmatic path found: Web form. The site names Google Drive, Mediafire, GoFile, Yandex Disk among the 40+ destinations, and states 'The files you upload are stored on your own accounts on hosting sites'.",

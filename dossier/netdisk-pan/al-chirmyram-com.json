@@ -77,30 +77,9 @@
     {
       "url": "probe:https://al.chirmyram.com/",
       "date": "2026-11-11",
-      "proved": "this host answered every request of this run's probe",
-      "capture": "sha256:05b13f5d8a1e09768467258892fbb58c5a5ffb46627813e1763eebeb3dc405ff",
-      "quote": "\"consecutive_failures\": 0"
-    },
-    {
-      "url": "probe:https://al.chirmyram.com/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:05b13f5d8a1e09768467258892fbb58c5a5ffb46627813e1763eebeb3dc405ff",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://al.chirmyram.com/",
-      "date": "2026-11-11",
       "proved": "the settings request for this host answered HTTP 200 at this instant",
       "capture": "sha256:05b13f5d8a1e09768467258892fbb58c5a5ffb46627813e1763eebeb3dc405ff",
       "quote": "\"checked_at\": \"2026-11-11T00:20:01.880Z\""
-    },
-    {
-      "url": "probe:https://al.chirmyram.com/",
-      "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:05b13f5d8a1e09768467258892fbb58c5a5ffb46627813e1763eebeb3dc405ff",
-      "quote": "\"listing_sha256\": \"0f64ec2f\""
     },
     {
       "url": "probe:https://al.chirmyram.com/",
@@ -108,20 +87,6 @@
       "proved": "the liveness and mount-list probe checked this host at this instant",
       "capture": "sha256:f21490628c00c80ce1efcc9e0ceaaa4a9484502f946afa592ef5fc49c8745d19",
       "quote": "\"checked_at\": \"2026-11-19T03:30:55.794Z\""
-    },
-    {
-      "url": "probe:https://al.chirmyram.com/",
-      "date": "2026-11-19",
-      "proved": "the anonymous session, settings and mount list all answered, so the fresh alive timestamp stands",
-      "capture": "sha256:f21490628c00c80ce1efcc9e0ceaaa4a9484502f946afa592ef5fc49c8745d19",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://al.chirmyram.com/",
-      "date": "2026-11-19",
-      "proved": "the anonymous root listing hashed to 0f64ec2f, equal to the recorded value; no hash change",
-      "capture": "sha256:f21490628c00c80ce1efcc9e0ceaaa4a9484502f946afa592ef5fc49c8745d19",
-      "quote": "\"listing_sha256\": \"0f64ec2f\""
     },
     {
       "url": "probe:https://al.chirmyram.com/",
@@ -150,10 +115,31 @@
       "proved": "the fresh anonymous root listing hashed to the recorded value, so the listing is unchanged",
       "capture": "sha256:6a51e8585e3a3425ae63166b01ceea71212d586eb453b22ecf2b78fb475888f1",
       "quote": "\"listing_sha256\": \"0f64ec2f\""
+    },
+    {
+      "url": "probe:https://al.chirmyram.com/",
+      "date": "2026-11-25",
+      "proved": "the re-probe of this host was taken at this instant",
+      "capture": "sha256:cda7ac2cd47b715e96743c52267f26d2f0617deb5d956a643a1129114ec8d38d",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:28.678Z\""
+    },
+    {
+      "url": "probe:https://al.chirmyram.com/",
+      "date": "2026-11-25",
+      "proved": "the anonymous session, settings and root listing all answered, so no consecutive failure",
+      "capture": "sha256:cda7ac2cd47b715e96743c52267f26d2f0617deb5d956a643a1129114ec8d38d",
+      "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://al.chirmyram.com/",
+      "date": "2026-11-25",
+      "proved": "the anonymous root listing still hashes to 0f64ec2f with 9 entries",
+      "capture": "sha256:cda7ac2cd47b715e96743c52267f26d2f0617deb5d956a643a1129114ec8d38d",
+      "quote": "\"guest\": true, ... \"root_entries\": 9, ... \"listing_sha256\": \"0f64ec2f\""
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T04:14:27.572Z",
+  "verified_at": "2026-11-25T11:08:33.682Z",
   "binding": "per-ip-shaping",
   "notes": "The reference reader. A 7.43 TiB book and comic corpus, Cloudflare-fronted, and a 36,747,196-byte PDF read back at 206 with cf-cache-status HIT. The upstream is a SharePoint tenant, which is why single files reach tens of GiB.",
   "history": [],

@@ -44,7 +44,7 @@
     "detail": "no registration; /api/me returns a guest session",
     "country": null
   },
-  "reliability_note": "Structurally broken: the OpenList web UI is fully up and /api/public/settings returns 200, while /api/fs/list returns code 500 with 'failed get storage: storage not found' inside an HTTP 200. A liveness check that reads the status marks it alive.",
+  "reliability_note": "\"status\": null",
   "confidence": "measured",
   "evidence": [
     {
@@ -65,10 +65,17 @@
       "proved": "the host was unreachable on this check: the probe returned a transport error and no HTTP status",
       "capture": "sha256:8631b406fa28f7c0ccc511652a918f1fe208034876b993fd7139ae380d084749",
       "quote": "Tunnel connection failed: 502 upstream unreachable"
+    },
+    {
+      "url": "probe:https://alist.ucu520.top/api/public/settings",
+      "date": "2026-11-26",
+      "proved": "the probe record shows no HTTP status",
+      "capture": "sha256:9d663ba9a36f30eb300225c91964adf148301a095af0634242fb8cdfd19e978a",
+      "quote": "\"status\": null"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-11-19T21:12:45.102Z",
+  "verified_at": "2026-11-26T02:15:13.859Z",
   "binding": "write-gated",
   "notes": "Structurally broken: the OpenList web UI is fully up and /api/public/settings returns 200, while /api/fs/list returns code 500 with 'failed get storage: storage not found' inside an HTTP 200. A liveness check that reads the status marks it alive.",
   "history": [],

@@ -22,7 +22,7 @@
     "source_url": "https://linux.do/t/topic/1145191"
   },
   "egress": {
-    "terms": "Fast and unmetered in practice: '我上传和下载差不多5G的文件都是不限制速度的', with a later test agreeing. No published egress term",
+    "terms": "我上传和下载差不多5G的文件都是不限制速度的 (about 5G file uploads and downloads were not speed-limited)",
     "metered": false,
     "free_allowance": null,
     "price_per_tb": null,
@@ -81,10 +81,24 @@
       "proved": "the risk-control cap on single file size is 100MB after bulk uploads",
       "capture": "sha256:a599bf18fedab830b3f6628020623e755bfc4681cb7a6d8d79f67ca626424862",
       "quote": "如果用豆包云盘短时间内传输大量文件或超大文件，容易触发风控，导致单个文件大小限制为100M"
+    },
+    {
+      "url": "https://linux.do/t/topic/659711",
+      "date": "2026-11-25",
+      "proved": "the poster reports no speed limit on uploads and downloads of about 5G files",
+      "capture": "sha256:30614b9617f083cc3652aab0696d18d7af94a7946983be86f249c1c54832336c",
+      "quote": "豆包的ai云盘，暂时还不知上传的限制是多少，我上传和下载差不多5G的文件都是不限制速度的"
+    },
+    {
+      "url": "https://linux.do/t/topic/1145191",
+      "date": "2026-11-25",
+      "proved": "a forum report gives a 50G single-file limit in practice",
+      "capture": "sha256:cda55bfa1d117bbe28d2d56142ff599b26649c74ee68e1ebc89f232d21f4c2d8",
+      "quote": "之前说是无限，后来被人发现不是无限，就改成5T还是限时，随时可能再改，单文件限制实际是50G，云盘现在是非常好用，但是没见过分享链接，用户多了可能就会整改"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-19T21:12:44.362Z",
+  "verified_at": "2026-11-25T14:05:48.229Z",
   "history": [],
   "binding": "retention-clamped",
   "binding_note": "A 5 TB grant described as time-limited is a quota the provider can shorten, so what binds is the retention clamp: the capacity is real and the clock on it is unpublished. The 50 GB per-file ceiling is the second constraint.",

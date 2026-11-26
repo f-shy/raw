@@ -71,10 +71,17 @@
       "url": "https://stremio.zendesk.com/hc/en-us/articles/360000281532-Can-I-run-Stremio-in-my-browser",
       "date": "2026-10-23",
       "proved": "the stale official answer 'Not at the moment, but this is coming!', in a 19,387-byte page dated 2026-09-03 - the support article contradicts the vendor's own live web app"
+    },
+    {
+      "url": "https://blog.stremio.com/stremio-web-alpha-is-now-open-source/",
+      "date": "2026-11-25",
+      "proved": "the recorded tier is the browser-based web app",
+      "capture": "sha256:97290f9f9bbab701e9568c01ffe7e11b8842a0f5625fc420c3f7cf0423cd8b30",
+      "quote": "This is the first Stremio version that is a web app, which means it runs in your browser!"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T02:28:11.000Z",
+  "verified_at": "2026-11-25T22:07:38.630Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "This is the piece that makes the free floor a real floor: a browser tab replaces the user and the media player. What it cannot replace is Stremio Service, and that daemon is what a P2P-only stack needs - so in practice Stremio Web forces the debrid key rather than removing the need for one.",

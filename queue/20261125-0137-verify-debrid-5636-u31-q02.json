@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u31-q02",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Is the UsenetMax free server and its NNTP endpoint news.usenetmax.com:563 reachable at all in 2026, and what identity does a live sign-up ask for?",
+ "why": "On 2026-11-25 broker reads answered HTTP 504 and 522, a direct HTTP probe failed at the transport layer and a TCP probe of port 563 got a DNS resolution failure, so the first-party offer text and account gate could not be re-read.",
+ "scope": {
+  "rids": [
+   "debrid/usenetmax"
+  ]
+ },
+ "origin": "20261125-0137-verify-debrid-5636/u31",
+ "created": "2026-11-25T09:46:44Z"
+}

@@ -86,10 +86,24 @@
       "url": "https://dasan.co/",
       "date": "2026-10-23",
       "proved": "torrent, magnet and NZB support; 'One free job per 24 hours, up to 500 MB. No account required.'; 'Start from $2.99 and pay only for the GBs you use'"
+    },
+    {
+      "url": "https://dasan.co/",
+      "date": "2026-11-25",
+      "proved": "the landing page still states one free 500 MB job per 24 hours with no account and a USD 2.99 pay-per-GB entry",
+      "capture": "sha256:e74285e367149ea21e9a6a579a861b4c5739df29e5c80dca962b00f9d1afe1db",
+      "quote": "One free job per 24 hours, up to 500 MB. No account required."
+    },
+    {
+      "url": "https://dasan.co/register",
+      "date": "2026-11-25",
+      "proved": "the signup page offers a Google-account route; no card, phone or identity document is shown on the registration form",
+      "capture": "sha256:4f41a9ee565f499df1234982b676bb2c96cab973b3d0bb4b56ceebcb9cb3eb60",
+      "quote": "Or Sign Up With\n\n[Login with Google](https://dasan.co/plugins/sociallogin/login/Google)"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T01:52:41.420Z",
+  "verified_at": "2026-11-25T09:46:33.635Z",
   "price_per_tb_month": "from USD 2.99 entry, metered per GB; per-GB rate not published",
   "history": [],
   "notes": "The most precisely stated free tier in the premium-link class after LeechPremium, but it is a torrent/usenet trial rather than a host-link unlock. Documented as trial-only because the free path cannot fetch a host link at any size. Included because the pay-per-GB model is the only pricing shape in the sector that could beat a subscription for one 20 GiB pull, but the vendor publishes neither the rate nor the retention, so the comparison cannot be completed from its pages.",

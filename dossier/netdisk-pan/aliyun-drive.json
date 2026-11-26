@@ -22,7 +22,7 @@
     "source_url": "https://www.alipan.com"
   },
   "egress": {
-    "terms": "No per-GB charge; 0.5M/s download reported in the Wikipedia comparison table",
+    "terms": "0.5M/s",
     "metered": true,
     "free_allowance": null,
     "price_per_tb": null,
@@ -36,7 +36,7 @@
   "limits": [
     {
       "kind": "per-ip-shaping",
-      "value": "about 0.5 MB/s on a free account",
+      "value": "0.5M/s",
       "source": "https://zh.wikipedia.org/wiki/中国大陆网盘列表"
     },
     {
@@ -110,10 +110,17 @@
       "proved": "the first-party site still exposes an open platform (developer) section",
       "capture": "sha256:1e69fcee87d50c207dac60bacf3da529756d9c106ca9cc4fba2d2113f4914a9c",
       "quote": "开放平台"
+    },
+    {
+      "url": "https://zh.wikipedia.org/wiki/中国大陆网盘列表",
+      "date": "2026-11-25",
+      "proved": "the comparison table lists a 0.5M/s download rate for Aliyun Drive",
+      "capture": "sha256:aa332e531f22eb8d4aade7a812a7ad4e36c8d8d2362a892073731989dafd84db",
+      "quote": "| 阿里云盘 | 100G | 无 |  | 有 | 0.5M/s | 是 | 是 |"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-19T21:12:44.361Z",
+  "verified_at": "2026-11-25T14:05:48.229Z",
   "history": [],
   "binding": "per-ip-shaping",
   "binding_note": "100 GB free, and 0.5 MB/s is 43 GB a day at best, so the shaping binds before the identity gate is even reached. The identity gate is the second lock.",

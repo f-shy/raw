@@ -26,7 +26,7 @@
     "notes": "Deletion on expiry, exact grace period not stated"
   },
   "egress": {
-    "terms": "'неограниченный трафик' on the SSD plan; the uplink is described as 8x10 Gbit/s in total, not per client.",
+    "terms": "неограниченный трафик",
     "metered": false,
     "free_allowance": "unlimited",
     "price_per_tb": null,
@@ -72,10 +72,17 @@
       "url": "http://seedbox.org.ua/",
       "date": "2026-10-23",
       "proved": "self-reported operating figures: 458 boxes running, 4,257 clients, 9 years, 99.4% average uptime"
+    },
+    {
+      "url": "probe:http://seedbox.org.ua/",
+      "date": "2026-11-26",
+      "capture": "sha256:a7f97f94a79ab67fff453aecb7fa9810b7c42cd5e6a39704cfdb6ce116c406b0",
+      "quote": "\"status\": null",
+      "proved": "the host did not answer http or https on 2026-11-26: the probe records a transport timeout, so the page could not be read and no value here is re-verified"
     }
   ],
   "verdict": "qualifies-with-caveat",
   "verified_at": "2026-10-23T02:14:50.663Z",
   "price_per_tb_month": null,
-  "notes": "The Ukrainian equivalent the sector asked for, and the only.ua retrieval service found that still sells capacity. Payment is PayPal, WebMoney, bank transfer or card transfer - all reachable from outside Ukraine, which is the opposite of the Russian pattern. No price could be read; the vendor quotes per box in the cabinet. A direct fetch of the site returned HTTP 522 twice (server-side); the page content quoted here came from a reader that did render it."
+  "notes": "The Ukrainian equivalent the sector asked for, and the only.ua retrieval service found that still sells capacity. Payment is PayPal, WebMoney, bank transfer or card transfer - all reachable from outside Ukraine, which is the opposite of the Russian pattern. No price could be read; the vendor quotes per box in the cabinet. A direct fetch of the site returned HTTP 522 twice (server-side); the page content quoted here came from a reader that did render it. Re-probed 2026-11-26: http://seedbox.org.ua/ timed out on a plain GET, so the record keeps the 2026-10-23 reading and is filed as stale rather than re-dated."
 }

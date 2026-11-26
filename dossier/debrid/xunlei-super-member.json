@@ -133,10 +133,59 @@
       "proved": "the article lists the 30-month card at 298 yuan after the coupon",
       "capture": "sha256:57025f72ae72146ce6c1828ef192735ea79c462b84a8ad83ac8ff11f11c91b2e",
       "quote": "11.11 大促期间，30 个月券后直降至 298 元，单月约合 9.93 元官方好价："
+    },
+    {
+      "url": "https://vip.xunlei.com/vip_service/supervip_info/dist/",
+      "date": "2026-11-25",
+      "proved": "monthly cloud-drive high-speed download volume by member level",
+      "capture": "sha256:0c2db2af81ddc82ead7718a99560296ab9e221b318a5472f7620fd3ce1bb59c8",
+      "quote": "会员享更多云盘高速下载流量，根据不同的会员等级，可使用的下载流量也有所不同，超级会员等级最高12TB/月，超级会员等级1-3：2TB/月、超级会员等级4-6：6TB/月，超级会员等级7-10：12TB/月、白金会员：1TB/月、非会员：5GB/月"
+    },
+    {
+      "url": "https://vip.xunlei.com/vip_service/supervip_info/dist/",
+      "date": "2026-11-25",
+      "proved": "the vendor speed graphic lists three speeds for the tiers",
+      "capture": "sha256:0c2db2af81ddc82ead7718a99560296ab9e221b318a5472f7620fd3ce1bb59c8",
+      "quote": "15.8 MB/s 7.82 MB/s 586 KB/s"
+    },
+    {
+      "url": "https://vip.xunlei.com/vip_service/supervip_info/dist/",
+      "date": "2026-11-25",
+      "proved": "recycle-bin retention is 60, 30, 15 and 10 days across the four tiers",
+      "capture": "sha256:0c2db2af81ddc82ead7718a99560296ab9e221b318a5472f7620fd3ce1bb59c8",
+      "quote": "保留60天 | 保留30天 | 保留15天 | 保留10天 |"
+    },
+    {
+      "url": "https://vip.xunlei.com/vip_service/supervip_info/dist/",
+      "date": "2026-11-25",
+      "proved": "cloud drive space is 12T, 6T, 3T and 10GB across the four tiers",
+      "capture": "sha256:0c2db2af81ddc82ead7718a99560296ab9e221b318a5472f7620fd3ce1bb59c8",
+      "quote": "12T | 6T | 3T | 10GB"
+    },
+    {
+      "url": "https://vip.xunlei.com/vip_service/supervip_info/dist/",
+      "date": "2026-11-25",
+      "proved": "NAS remote downloads are unlimited for paid tiers and 3 per day for non-members",
+      "capture": "sha256:0c2db2af81ddc82ead7718a99560296ab9e221b318a5472f7620fd3ce1bb59c8",
+      "quote": "| NAS端特权 | [远程下载](https://vip.xunlei.com/vip_service/tqzy/index.html#icon-ycxz?referfrom=v_pc_hygw_ggong_privi_summary) | 次数无限制 | 次数无限制 | 次数无限制 | 3次/天 |"
+    },
+    {
+      "url": "probe:https://i.xunlei.com/",
+      "date": "2026-11-25",
+      "proved": "the login entry point answered 200 without showing a credential form",
+      "capture": "sha256:c2bf532465adf4e24e7abac88cb0a35d3619a3bdbb1308971fe2d0362b50da76",
+      "quote": "\"status\": 200"
+    },
+    {
+      "url": "probe:https://i.xunlei.com/",
+      "date": "2026-11-25",
+      "proved": "the login page is a redirect shell into the login app",
+      "capture": "sha256:8e76973182cb5dac7255abe1f20accaced21ff3cd49352ab711bca33e6e78436",
+      "quote": "xluser/login.html"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T11:28:53.665Z",
+  "verified_at": "2026-11-25T09:46:37.626Z",
   "price_per_tb_month": "CNY 9.93/month at the 30-month price (¥298/30mo); CNY 22/month on 连续包年",
   "history": [],
   "notes": "Drive size by source: IT之家 and 新浪 say 12 TB, the 会员省 price index says 10 TB, and the vendor privilege table lists 12T (年费超级会员), 6T (超级会员), 3T (白金会员) and 10GB (普通用户). 迅雷's 离线 function no longer exists as a standalone product; the cloud-add queue is what replaced it.",

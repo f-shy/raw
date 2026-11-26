@@ -54,7 +54,7 @@
     },
     {
       "kind": "retention-clamped",
-      "value": "6642 days of complete article retention",
+      "value": "over 6675 days of stored posts",
       "source": "https://www.usenetserver.com/pricing/"
     }
   ],
@@ -94,10 +94,52 @@
       "url": "https://support.usenetserver.com/kb/article/183-are-there-any-limits-on-the-number-of-downloads/",
       "date": "2026-10-23",
       "proved": "'UsenetServer does not impose restrictions on the number of articles accessed by users.'"
+    },
+    {
+      "url": "https://www.usenetserver.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the pricing page now states over 6675 days of stored posts, replacing 6642",
+      "capture": "sha256:7c31ca61fb2d926836ba957892ec4616d3e14fc0a8cb8c40e471297b13a4a4d1",
+      "quote": "With over 6675 days of stored posts to explore, you’ll always find what you’re looking for with the most complete searches every time."
+    },
+    {
+      "url": "https://www.usenetserver.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the pricing page states over 6675 days of stored posts",
+      "capture": "sha256:7c31ca61fb2d926836ba957892ec4616d3e14fc0a8cb8c40e471297b13a4a4d1",
+      "quote": "With over 6675 days of stored posts to explore, you’ll always find what you’re looking for with the most complete searches every time."
+    },
+    {
+      "url": "https://support.usenetserver.com/kb/article/193-i-received-a-423-no-such-article-or-a-430-no-such-article-error-when-downloading-what-is-the-problem/",
+      "date": "2026-11-25",
+      "proved": "the vendor still documents the 423 per-article failure that bounds retrieval",
+      "capture": "sha256:7038446b05495a03ae216912f90223af86921ae7a8657daac115f8bf9dbf5c7b",
+      "quote": "- **423 No Such Article**: The server acknowledges the group exists, but the article requested is not present."
+    },
+    {
+      "url": "https://www.usenetserver.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "signup takes a card through PayPal or major card networks; no identity document or phone number is named",
+      "capture": "sha256:7c31ca61fb2d926836ba957892ec4616d3e14fc0a8cb8c40e471297b13a4a4d1",
+      "quote": "When signing up for UsenetServer, we offer payment through PayPal and all major credit cards, including Visa, Mastercard, Discover, American Express, JCB, and Visa Electron."
+    },
+    {
+      "url": "https://www.usenetserver.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "signup uses a card or PayPal, with no identity document or phone number named",
+      "capture": "sha256:7c31ca61fb2d926836ba957892ec4616d3e14fc0a8cb8c40e471297b13a4a4d1",
+      "quote": "When signing up for UsenetServer, we offer payment through PayPal and all major credit cards, including Visa, Mastercard, Discover, American Express, JCB, and Visa Electron."
+    },
+    {
+      "url": "https://support.usenetserver.com/kb/article/183-are-there-any-limits-on-the-number-of-downloads/",
+      "date": "2026-11-25",
+      "proved": "article volume remains unrestricted, consistent with a paid unlimited plan and no free tier",
+      "capture": "sha256:fb2c72535ab772deef022b82ab9510a349dd26a96f558171ea9d8d623a67e7fc",
+      "quote": "UsenetServer does not impose restrictions on the number of articles accessed by users."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T02:22:02.000Z",
+  "verified_at": "2026-11-25T09:47:09.830Z",
   "price_per_tb_month": null,
   "notes": "Potential failure points: retention, indexer staleness, or a connection ceiling. The vendor gives a number for none of them; the useful part of this page is the 423/430 split, which lets a user distinguish a missing group from a missing article. A vendor KB article says article access is unrestricted and uncapped; that is the only statement about volume on the site.",
   "extras": {

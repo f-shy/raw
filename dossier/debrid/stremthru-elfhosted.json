@@ -6,7 +6,7 @@
   "category": "hosted debrid proxy and companion API for Stremio addons",
   "tier": "public instance",
   "free_tier": {
-    "stated": "Free and accountless: 'This is the public instance of StremThru, sponsored by ElfHosted. Reasonable rate limits apply so it stays fast for everyone.' Served version string 'StremThru v0.105.3'.",
+    "stated": "Free and accountless: 'This is the public instance of StremThru, sponsored by ElfHosted. Reasonable rate limits apply so it stays fast for everyone.' Served version string 'StremThru v0.105.4'.",
     "unit": "requests",
     "metered_on": "request-count",
     "source_url": "https://stremthru.elfhosted.com/",
@@ -66,15 +66,36 @@
       "url": "https://store.elfhosted.com/product/aiostreams-stremthru/",
       "date": "2026-10-23",
       "proved": "the paid pairing, USD 9.00 / month: 'Your own private AIOStreams addon with a StremThru instance alongside, so your streams reach every device through your own proxy'"
+    },
+    {
+      "url": "https://stremthru.elfhosted.com/",
+      "date": "2026-11-25",
+      "proved": "the public instance now serves version v0.105.4",
+      "capture": "sha256:8de77483dc2279e012ab2221587e328222fea645e6fc8f4212cbd555ca1cfc69",
+      "quote": "## StremThru v0.105.4"
+    },
+    {
+      "url": "https://stremthru.elfhosted.com/",
+      "date": "2026-11-25",
+      "proved": "the public instance is still free, sponsored by ElfHosted and subject to reasonable rate limits",
+      "capture": "sha256:8de77483dc2279e012ab2221587e328222fea645e6fc8f4212cbd555ca1cfc69",
+      "quote": "This is the public instance of [StremThru](https://github.com/MunifTanjim/stremthru), sponsored by [ElfHosted](https://store.elfhosted.com/?utm_source=stremthru-public&utm_medium=landing&utm_campaign=sponsor) ❤️. Reasonable rate limits apply so it stays fast for everyone."
+    },
+    {
+      "url": "https://stremthru.elfhosted.com/",
+      "date": "2026-11-25",
+      "proved": "ElfHosted sells a private StremThru instance and currently offers a USD 1 Black Friday trial",
+      "capture": "sha256:8de77483dc2279e012ab2221587e328222fea645e6fc8f4212cbd555ca1cfc69",
+      "quote": "**Want more?** Your own [private StremThru instance](https://store.elfhosted.com/product/stremthru/?utm_source=stremthru-public&utm_medium=landing&utm_campaign=upgrade) gives you a dedicated proxy for any Stremio addon, with higher rate limits. **Black Friday: start a $1 trial by 30 November and it runs until 1 January.**"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T02:28:11.000Z",
+  "verified_at": "2026-11-25T09:46:49.252Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Cheapest working answer to the multi-IP problem found: the paid version is bundled only, never sold alone at a published price, so a client who needs a stable exit IP either buys the USD 9 bundle or accepts the shared instance's rate limit.",
   "extras": {
-    "version": "v0.105.3",
+    "version": "v0.105.4",
     "sponsor": "ElfHosted"
   }
 }

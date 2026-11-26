@@ -39,7 +39,7 @@
   "limits": [
     {
       "kind": "volume-quota",
-      "value": "max 1000 GB per month (reported)",
+      "value": "max 1000 GB per Month",
       "source": "https://multio.ch/"
     },
     {
@@ -74,10 +74,17 @@
       "url": "https://multio.ch/",
       "date": "2026-10-23",
       "proved": "third-party price of '10 € / 30 Tage, 70 € / 360 Tage' and 'Max. 1000 GB pro Monat, Tageslimits je Hoster'"
+    },
+    {
+      "url": "https://www.simply-premium.com/vip",
+      "date": "2026-11-26",
+      "proved": "the vendor's premium page states a maximum of 1000 GB per month",
+      "capture": "sha256:562be73f461a3a23158c332c86a6bc45c47de5aa6169ab06f61153ba49414881",
+      "quote": "| max 1000 GB per Month | Price | Buy |"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:06:35.000Z",
+  "verified_at": "2026-11-26T04:32:35.329Z",
   "price_per_tb_month": "EUR 10.00 per 30 days (reported), capped at 1000 GB",
   "history": [],
   "notes": "The vendor's own price is not on any page reachable today: /premium and /preise both 404, so the EUR 10/30 days figure is third-party and a reader should re-check at checkout. The factor column is the part a comparison site omits: EUR 10 buys 1000 GB of counted traffic, which on k2s.cc (factor 5.0) is 200 GB of files. No programmatic path found: Web interface plus 'Multiple download managers supported' and 'Many One Click Hoster are supported'; no documented API and no protocol endpoint is named on the site."

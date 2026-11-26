@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u12-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Re-check these debrid records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/lightningusenet $.free_tier.stated: Capture is a HugeDomains sale page, not a 404; the 2026-10-23 date and 'no page was served' are not in the capture. Fresh read returned 403, not 404.\n- debrid/easynews $.free_tier.notes: Vendor KB denial of free trial is supported, but the '14 days or 10 GB' affiliate advertisement is not in this capture, so the whole value is not proved.\n- debrid/newsgroupdirect $.retention.days: Capture says 5,948+ days, not 5915.\n- debrid/usenetprime $.retention.stated: Capture shows 5,912+ days on the feature list and every plan row; '5,913+ days' on a side-by-side pricing page is not in it.\n- debrid/easynews $.interface_detail: Capture shows 60 connections and Web-to-Usenet, but retention 6676 days on every plan; no 200+ days Classic or 6432+ days Big Gig.\n- debrid/supernews $.free_tier.unit: Capture says '3 Day Trial' and unlimited access in the account, but nothing sets a free-tier unit of 'unlimited'; the trial length is stated in days.\n- debrid/easynews $.chaining: Capture shows $9.99/mo first 3 months and a 30-day money-back guarantee, but not the fallback-for-indexer framing nor that a card is needed.\n- debrid/supernews $.binding_note: Capture says unlimited, but no $11.99/month plan appears (the $5.99 first month is on another page) and the 1 TiB/month conclusion is not stated.\n- debrid/supernews $.interface: Capture never mentions NNTP; it says 'Usenet and Newsgroup access' with SSL connections.\n- debrid/supernews $.egress.terms: No-limits text is supported, but the capture says '50% off your first month ... $5.99', not that $5.99 follows a trial; the relation is not stated.\n- debrid/easynews $.retention.notes: Capture shows only 6676 days; the second, different vendor day count is not in it.\n- debrid/easynews $.retention.days: Capture says 6676 days, not 6432.",
+ "scope": {
+  "rids": [
+   "debrid/usenetprime",
+   "debrid/thundernews",
+   "debrid/supernews",
+   "debrid/newsgroupdirect",
+   "debrid/usenetnow",
+   "debrid/lightningusenet",
+   "debrid/easynews",
+   "debrid/pourcesoir"
+  ]
+ },
+ "origin": "audit u89 of 20261125-0137-verify-debrid-5636/u12 failed: 12 of 30 unsupported",
+ "created": "2026-11-25T15:10:38Z"
+}

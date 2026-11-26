@@ -86,10 +86,45 @@
       "url": "https://board.jdownloader.org/showthread.php?t=89923",
       "date": "2026-10-23",
       "proved": "user report that a Cocoleech guest can download 'bis zu 1GB/Tag' across hosts (reported)"
+    },
+    {
+      "url": "https://members.cocoleech.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the 3-month premium plan still costs USD 29.99 (USD 9.99 per month) and the page was updated 23 Nov 2026",
+      "capture": "sha256:d5572347148e86a521305d758f0c43f7bda73615d3792aa00b62993a528b8952",
+      "quote": "3 Months Premium is only $29.99 — just $9.99/month."
+    },
+    {
+      "url": "https://members.cocoleech.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the service still only generates links and does not host files",
+      "capture": "sha256:d5572347148e86a521305d758f0c43f7bda73615d3792aa00b62993a528b8952",
+      "quote": "Cocoleech does not host files."
+    },
+    {
+      "url": "https://members.cocoleech.com/pricing",
+      "date": "2026-11-25",
+      "proved": "premium payment still delivers a voucher key by email; checkout asks for an email address",
+      "capture": "sha256:d5572347148e86a521305d758f0c43f7bda73615d3792aa00b62993a528b8952",
+      "quote": "After successful payment, your voucher key will be sent to your email."
+    },
+    {
+      "url": "https://members.cocoleech.com/premium-link-generator/rapidgator",
+      "date": "2026-11-25",
+      "proved": "the Rapidgator per-host daily cap is still 30 GB",
+      "capture": "sha256:d36ee150075c8cffe6ec96d8c9802fabe76ffc712b5e4809546dabf6c07d0ff3",
+      "quote": "Up Daily limit: **30 GB**"
+    },
+    {
+      "url": "https://members.cocoleech.com/premium-link-generator/rapidgator",
+      "date": "2026-11-25",
+      "proved": "no account at the source host is needed to generate a link",
+      "capture": "sha256:d36ee150075c8cffe6ec96d8c9802fabe76ffc712b5e4809546dabf6c07d0ff3",
+      "quote": "No Rapidgator.net account needed"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T01:39:03.000Z",
+  "verified_at": "2026-11-25T09:46:53.853Z",
   "price_per_tb_month": "USD 14.99/month; USD 6.66/month on the annual term",
   "history": [],
   "notes": "Above the debrid USD 5 bar on every term except the annual equivalent, which is still USD 6.66. Included because it is the most-cited small multi-hoster in the JDownloader ecosystem and because its per-host daily caps are a worked example of the shape: a total 'unlimited' claim paired with per-host GB/day numbers. Free tier is asserted by the dashboard and contradicted by a 2021 report; both are kept.",

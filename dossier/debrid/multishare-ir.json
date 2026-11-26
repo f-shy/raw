@@ -20,7 +20,7 @@
     "notes": ""
   },
   "retention": {
-    "stated": "Files are kept on MultiShare's servers for two months ('ذخیره فایل ها در سرور برای دو ماه'). Converted links themselves do not expire while the source host still holds the file.",
+    "stated": "Files can be stored on MultiShare's servers for 30 days ('امکان ذخیره فایل ها برای مدت ۳۰ روز در سرورهای ما وجود دارد'). Converted links themselves do not expire while the source host still holds the file.",
     "days": null,
     "source_url": "https://www.mul.ir/",
     "notes": "Two months is stated in months, not days; no day count is published."
@@ -66,10 +66,45 @@
       "url": "https://www.mul.ir/faq",
       "date": "2026-10-23",
       "proved": "Links do not expire while the source holds the file; the balance is debited only when a download starts, by the downloaded amount, multiplied by the host coefficient; VPN/proxy corrupts the debit"
+    },
+    {
+      "url": "https://www.mul.ir/",
+      "date": "2026-11-25",
+      "proved": "the home page now states 30 days of server-side file storage",
+      "capture": "sha256:2597d332825435f45af34cda1c758f1b496083d6df383ab5d996d0e1fbd150a5",
+      "quote": "البته امکان ذخیره فایل ها برای مدت ۳۰ روز در سرورهای ما وجود دارد که از بخش مدیریت فایل می توانید اقدام کنید."
+    },
+    {
+      "url": "https://www.mul.ir/faq",
+      "date": "2026-11-25",
+      "proved": "converted links do not expire while the source host holds the file",
+      "capture": "sha256:e4db2ce290ced0e7b25acbdfe9c169d61c269c3648fd7db99c7b174f514ed64e",
+      "quote": "این لینک ها مدت اعتبار ندارند و تا هر زمانی که در هاست مبدا وجود داشته باشند می توان از آنها استفاده نمود."
+    },
+    {
+      "url": "https://www.mul.ir/faq",
+      "date": "2026-11-25",
+      "proved": "nothing is debited before download starts, and the debit equals the downloaded amount",
+      "capture": "sha256:e4db2ce290ced0e7b25acbdfe9c169d61c269c3648fd7db99c7b174f514ed64e",
+      "quote": "خیر، تا وقتی چیزی دانلود نکنید از حسابتان کم نمی شود و دقیقا به مقدار دانلودی از حسابتان کم می شود."
+    },
+    {
+      "url": "https://www.mul.ir/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ states a limit of 12 concurrent files and 100 open server connections",
+      "capture": "sha256:e4db2ce290ced0e7b25acbdfe9c169d61c269c3648fd7db99c7b174f514ed64e",
+      "quote": "شما در آن واحد می توانید حد اكثر در حال دانلود 12 فایل (100 كانكشن باز به سرور) باشید"
+    },
+    {
+      "url": "https://www.mul.ir/",
+      "date": "2026-11-25",
+      "proved": "the generator takes one link per line and requires an account to download",
+      "capture": "sha256:2597d332825435f45af34cda1c758f1b496083d6df383ab5d996d0e1fbd150a5",
+      "quote": "در هر خط یک لینک مجزا وارد نمایید و سپس بر روی تبدیل لینک کلیک کنید. برای دانلود نیاز به حساب کابری دارید."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T03:17:21.000Z",
+  "verified_at": "2026-11-25T09:47:00.042Z",
   "price_per_tb_month": null,
   "notes": "Third native Iranian service and the only one among debrid providers with a pay-per-byte model instead of a monthly plan. Slug carries the -ir suffix because 'multishare' alone is also a generic product name; the vendor's own domain is mul.ir."
 }

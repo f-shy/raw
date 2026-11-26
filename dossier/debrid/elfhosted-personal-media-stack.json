@@ -6,7 +6,7 @@
   "category": "managed media server plus *arr automation, hosted (no client hardware)",
   "tier": "personal-media-stack (Zurgling USD 24 to Nazgul USD 199)",
   "free_tier": {
-    "stated": "No free tier. The cheapest listed media stack is 'Zurgling - Personal Media Streamer [2xHD / 1x4K, contended, manual] USD 24.00 / month'; Starter (USD 29) and JellyGoblin (USD 24) both render 'Sold out' on the category page. The storefront advertises '7-day trials for $1' site-wide, but the Hobbit product page carries only 'Billing term Monthly' and no trial line, so a trial on a stack is not confirmed.",
+    "stated": "No free tier. The category page lists eight media stacks: Hobbit USD 39, Ranger USD 59, Starter USD 29 (sold out), JellyGoblin USD 24, JellyGoblin Pro USD 39, Halfling USD 109, Nazgul USD 199 and Tubeling USD 19; the cheapest media stack available to buy is JellyGoblin at USD 24. A Black Friday banner offers a $1 trial started by 30 November and running until 1 January, but the Hobbit product page carries only 'Billing term Monthly' and no trial line.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://store.elfhosted.com/product-category/personal-stacks/personal-media-stacks/",
@@ -65,10 +65,38 @@
       "url": "https://store.elfhosted.com/",
       "date": "2026-10-23",
       "proved": "the storefront claim 'From $19/m' for a personal stack and '7-day trials for $1'"
+    },
+    {
+      "url": "https://store.elfhosted.com/product-category/personal-stacks/personal-media-stacks/",
+      "date": "2026-11-25",
+      "proved": "the Starter stack is still marked sold out on the category page",
+      "capture": "sha256:72cd9fa57e63dc7b930da1033863296c0a53ee64742261456b097166e3737301",
+      "quote": "Sold out"
+    },
+    {
+      "url": "https://store.elfhosted.com/product/hobbit/",
+      "date": "2026-11-25",
+      "proved": "the host carries no library bytes; storage is in the debrid or Usenet account behind it",
+      "capture": "sha256:b269f6e1f11ac89905b338f6fe16789c04f2d099154f6411c4273b7af0423c51",
+      "quote": "💾 **No storage limits:** your library lives in your debrid account or comes through your chosen Usenet path — you’re never paying us for terabytes."
+    },
+    {
+      "url": "https://store.elfhosted.com/product-category/personal-stacks/personal-media-stacks/",
+      "date": "2026-11-25",
+      "proved": "the category now lists eight results rather than nine; Starter remains sold out",
+      "capture": "sha256:72cd9fa57e63dc7b930da1033863296c0a53ee64742261456b097166e3737301",
+      "quote": "Showing all 8 resultsSorted by popularity"
+    },
+    {
+      "url": "https://store.elfhosted.com/",
+      "date": "2026-11-25",
+      "proved": "the storefront now advertises a dated Black Friday $1 trial rather than an undated seven-day trial",
+      "capture": "sha256:4a260cc6fd36285fda977d1eb225a2a54c27a6667bcf6c9924ef53ee384f0648",
+      "quote": "Black Friday: start any $1 trial by 30 November and it runs until 1 January."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T02:28:11.000Z",
+  "verified_at": "2026-11-25T09:46:50.032Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "This is the only hosted product found that sells the *arr half without selling storage, so its price is comparable to nothing in the storage topic: USD 24 buys 2 concurrent streams and the app stack, and 0 TB. Candidates considered for the same job and rejected as more expensive: Ranger (USD 59) and above; EZ-Homelab's bundle (USD 29, Plex+Jellyfin+8 apps) is the nearer competitor and is recorded separately.",

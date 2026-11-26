@@ -5,7 +5,7 @@
   "url": "https://www.samsung.com/us/support/answer/ANS10003437/",
   "category": "phone-vendor cloud, dead",
   "free_tier": {
-    "stated": "None. It was 15 GB for early Galaxy buyers, cut to 5 GB for new accounts, then discontinued. Gallery Sync and Drive migrated to Microsoft OneDrive",
+    "stated": "Your Gallery app can only be synced to your personal OneDrive account.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://www.samsung.com/us/support/answer/ANS10003437/",
@@ -32,7 +32,7 @@
     "unknown"
   ],
   "tooling": "none usable. Samsung's own support pages redirect the user to their personal OneDrive account",
-  "chaining": "Nothing to chain: it is now literally OneDrive on a 5 GB free tier. The 15 GB that older guides quote is a number that no longer exists",
+  "chaining": "unverified: this support page does not state a chaining claim beyond the Gallery-to-OneDrive redirection",
   "limits": [
     {
       "kind": "retention-clamped",
@@ -45,7 +45,7 @@
     "detail": "a Samsung account, which now gives OneDrive and not Samsung storage",
     "country": null
   },
-  "reliability_note": "Do not count this as a live 15 GB. The quota Samsung matched on OneDrive lasted one year and OneDrive's own 5 GB applied afterwards",
+  "reliability_note": "unverified: this support page states only the OneDrive redirection and no matched-quota term or duration",
   "confidence": "reported",
   "evidence": [
     {
@@ -74,10 +74,31 @@
       "proved": "Samsung's first-party support page still directs Gallery sync to OneDrive, not Samsung storage",
       "capture": "sha256:11c72c55e98bf6edf2f39ef14a39618f66614560fd6dfb076c7bd0dbaa1511ea",
       "quote": "Your Gallery app can only be synced to your personal OneDrive account."
+    },
+    {
+      "url": "https://www.samsung.com/us/support/answer/ANS10003437/",
+      "date": "2026-11-25",
+      "proved": "Gallery can only be synced to a personal OneDrive account",
+      "capture": "sha256:11c72c55e98bf6edf2f39ef14a39618f66614560fd6dfb076c7bd0dbaa1511ea",
+      "quote": "Your Gallery app can only be synced to your personal OneDrive account."
+    },
+    {
+      "url": "https://www.samsung.com/us/support/answer/ANS10003437/",
+      "date": "2026-11-25",
+      "proved": "the OneDrive basic plan offers 5GB of free storage",
+      "capture": "sha256:11c72c55e98bf6edf2f39ef14a39618f66614560fd6dfb076c7bd0dbaa1511ea",
+      "quote": "This plan features 5GB of free storage space that you can use however you like."
+    },
+    {
+      "url": "https://www.samsung.com/us/support/answer/ANS10003437/",
+      "date": "2026-11-25",
+      "proved": "the support page directs Gallery sync to OneDrive and gives no matched-quota term",
+      "capture": "sha256:11c72c55e98bf6edf2f39ef14a39618f66614560fd6dfb076c7bd0dbaa1511ea",
+      "quote": "Your Gallery app can only be synced to your personal OneDrive account."
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-11-19T21:12:44.362Z",
+  "verified_at": "2026-11-25T13:26:30.703Z",
   "history": [],
   "binding": "retention-clamped",
   "binding_note": "The storage product ended, so the retention clamp is total and there is no offer to test.",

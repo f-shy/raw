@@ -114,20 +114,6 @@
     {
       "url": "probe:https://alist.shenzjd.com/",
       "date": "2026-11-19",
-      "proved": "three consecutive failed probes: no AList API, mount list or listing hash was returned",
-      "capture": "sha256:8c6dfce441df6db2bed3db672b1b477f748d615aa356d237c4120a03d563f8d4",
-      "quote": "\"consecutive_failures\": 3"
-    },
-    {
-      "url": "probe:https://alist.shenzjd.com/",
-      "date": "2026-11-19",
-      "proved": "the failure count reached three across this run's probes",
-      "capture": "sha256:8c6dfce441df6db2bed3db672b1b477f748d615aa356d237c4120a03d563f8d4",
-      "quote": "\"consecutive_failures\": 3"
-    },
-    {
-      "url": "probe:https://alist.shenzjd.com/",
-      "date": "2026-11-19",
       "proved": "every API path returned an unrelated text/html page, so the host was recorded dead at this re-check",
       "capture": "sha256:8c6dfce441df6db2bed3db672b1b477f748d615aa356d237c4120a03d563f8d4",
       "quote": "\"content_type\": \"text/html;charset=utf-8\""
@@ -166,10 +152,17 @@
       "proved": "the API path of the dead host now redirects to an unrelated panhub page rather than serving an AList API",
       "capture": "sha256:5ff5d73af331e64f67ade5ed0c1b0b3bdad46050aa43e3d04b22b61a0e851a41",
       "quote": "\"final_url\": \"https://panhub.shenzjd.com/\""
+    },
+    {
+      "url": "probe:https://alist.shenzjd.com/",
+      "date": "2026-11-25",
+      "proved": "the re-probe of this host was taken at this instant",
+      "capture": "sha256:7a7b8dfb80b81be21948c29108a2700df15a5a9fb7b93d37e75685a98018cb9a",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:28.683Z\""
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-11-25T04:14:27.571Z",
+  "verified_at": "2026-11-25T14:53:24.752Z",
   "binding": "write-gated",
   "notes": "3 root entries on AList v4.2.6; advertises write:true on one mount and denies the oracle. Re-probed 2026-11-20: the home page answered 200 with 69,408 bytes of text/html, but the AList API still returned no listing, so the host stays dead and last_verified_alive stays at the last live observation (2026-11-11).",
   "history": [],
@@ -187,7 +180,7 @@
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
     "last_verified_alive": "2026-11-11T00:20:01.882Z",
-    "last_verified_dead": "2026-11-19T03:32:53.747Z",
+    "last_verified_dead": "2026-11-25T01:38:28.683Z",
     "consecutive_failures": 4,
     "listing_hash_method": "sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters",
     "death": {

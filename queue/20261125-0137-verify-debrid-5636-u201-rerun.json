@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u201-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Minimal confirmation of the reverted attempt u159. Drop every `set` and every `confirm` from .tmp/20261125-0137-verify-debrid-5636/units/u159/changes.jsonl. Keep a `dead` op only when its evidence is a probe record whose status is 404, 410 or a transport failure; otherwise turn it into an open_question naming the rid. Keep `append_evidence` and `open_question`. Then, for each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], retention.days, per_object_cap.bytes, limits[i].value). Never confirm `$.url`, `$.topic`, `$.slug`, `$.provider`, `$.endpoint`, `$.free_tier.source_url`, `$.limits[i].source` or any system field. List every other field in unread. If no field matches, open a question for the record. No set operations.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/binsearch $.category: The capture states only 'Binary Usenet Search Engine'. The words 'NZB', 'anonymous' and 'HTML search' do not appear in it at all, so the parenthetical part of the value is not said by this source; it rests on the record's probes, not on this page. The base classification is stated.",
+ "scope": {
+  "rids": [
+   "debrid/seedbox-org-ua",
+   "debrid/nzbforyou",
+   "debrid/nzbgrabit",
+   "debrid/filesharingtalk",
+   "debrid/the-hive",
+   "debrid/big-bit-org",
+   "debrid/army-of-strangers",
+   "debrid/binsearch"
+  ]
+ },
+ "origin": "audit u217 of 20261125-0137-verify-debrid-5636/u201 failed: 1 of 2 unsupported",
+ "created": "2026-11-25T23:11:10Z"
+}

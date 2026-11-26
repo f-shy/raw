@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0137-verify-netdisk-pan-1601-u02-rerun",
+ "kind": "verify",
+ "topic": "netdisk-pan",
+ "question": "Re-check these netdisk-pan records against their first-party pages: confirm what still holds, set the fields that changed, and record a dead host as dead with the evidence. Use one `confirm` per evidence row and name only the fields that row's quote proves; list every field you did not re-read in `unread`. Set a field only when the new page states a different value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- netdisk-pan/lanzou-cloud $.identity_cost.kind: Page shows a phone number used for SMS verification and a username for login, but names no country restriction; country-phone is not stated (claim c04 itself says the foreign-number path is unverified).\n- netdisk-pan/lanzou-cloud $.egress.terms: Quote 下载不限速度，不限流量，不限次数，免登录下载 is on the page, but the capture has no ad-funded statement and no FAQ sentence 我们对下载速度不做任何限制 (it says 对下载不做任何限制); fresh read gave the identical capture hash.\n- netdisk-pan/playstation-plus-cloud-storage $.limits[1].value: Page supports the PS Plus membership requirement and console UI upload steps, but does not say uploads need a PSN-authenticated console in those words.\n- netdisk-pan/nintendo-switch-online-save-data-cloud $.limits[1].value: Page supports the NSO subscription requirement but nowhere states that the console is the only client.\n- netdisk-pan/lanzou-premium $.per_object_cap.stated: Quote is a third-party storage-capacity row (10GB, 2T for one year, 10TB); it says nothing about a per-object cap, a 100 MB legacy limit or account-gated large-file resolution.\n- netdisk-pan/naver-mybox $.free_tier.stated: Table row with 80GB, 180GB and 330GB columns is on the page, but the page does not state '国内 최대 무료 용량 30GB'; the 30GB column is a plan column, not labelled free. Fresh read gave the identical capture hash.\n- netdisk-pan/quixicloud $.identity_cost.kind: Quote says 10GB instantly and no credit card required, but neither quixicloud.in nor quixicloud.com capture names an email requirement for signup.\n- netdisk-pan/naver-mybox $.free_tier.stated: Table showing 50,000回/日 on every plan column is on the page, but the page does not state '30 GB free' or '국내 최대 무료 용량 30GB'.",
+ "scope": {
+  "rids": [
+   "netdisk-pan/lg-u-box-lg-cloud",
+   "netdisk-pan/quixicloud",
+   "netdisk-pan/pan-moe",
+   "netdisk-pan/nintendo-switch-online-save-data-cloud",
+   "netdisk-pan/playstation-plus-cloud-storage",
+   "netdisk-pan/lanzou-cloud",
+   "netdisk-pan/lanzou-premium",
+   "netdisk-pan/naver-mybox"
+  ]
+ },
+ "origin": "audit u18 of 20261125-0137-verify-netdisk-pan-1601/u02 failed: 8 of 30 unsupported",
+ "created": "2026-11-25T12:12:07Z"
+}

@@ -55,14 +55,32 @@
       "url": "https://ddl.to/",
       "date": "2026-10-23",
       "proved": "ddl.to resolves to https://ddownload.com/ and serves the DDownload homepage ('Ultimate Cloud Storage - DDownload'), so the brand is retired and the domain forwards"
+    },
+    {
+      "url": "https://ddl.to/",
+      "date": "2026-11-25",
+      "proved": "ddl.to serves the DDownload transfer service, so the old brand hosts nothing of its own",
+      "capture": "sha256:f4b3f19870489a26e1ab758724833b94d18181c14833d5d8874b617f7d5f0c1a",
+      "quote": "Drop your files into the window, wait a moment and send the link. Whoever gets it does not need an account."
+    },
+    {
+      "url": "https://ddl.to/",
+      "date": "2026-11-25",
+      "proved": "the page at the old domain is DDownload's service, not DDL.to",
+      "capture": "sha256:f4b3f19870489a26e1ab758724833b94d18181c14833d5d8874b617f7d5f0c1a",
+      "quote": "Drop your files into the window, wait a moment and send the link. Whoever gets it does not need an account."
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T03:38:10.440Z",
+  "verified_at": "2026-11-25T09:46:43.324Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "Kept as a dead record rather than deleted so the subsequent audit does not re-open the name and so the DDownload redirect is documented once. Successor: dossier/storage/ddownload.json.",
   "extras": {
-    "successor_record": "dossier/storage/ddownload.json"
+    "successor_record": "dossier/storage/ddownload.json",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

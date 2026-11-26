@@ -66,10 +66,17 @@
       "url": "https://hubdrive.space/",
       "date": "2026-10-23",
       "proved": "hubdrive.space redirects to hubdrive.bar, so the older hostname in index posts is not dead"
+    },
+    {
+      "url": "https://hubdrive.blog/sign",
+      "date": "2026-11-25",
+      "proved": "the sign-up form asks for an email address",
+      "capture": "sha256:7d460b63e2e94888bfa0e73773b47895bbdcfed515d7d8673a93040accb437e9",
+      "quote": "Enter Email:"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:34:43.873Z",
+  "verified_at": "2026-11-25T15:30:10.991Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Weakest record among debrid providers and marked as such: the public page carries no number, so it exists to stop the subsequent audit opening it again and to map the chain, not to price anything. No programmatic path found: Web only as read: 'Click the Sign In button to begin your journey with us', with a separate /sign route. The page title describes its function: 'G-Drive File Sharing Site !",

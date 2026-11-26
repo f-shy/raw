@@ -1,0 +1,17 @@
+{
+ "id": "20261126-0411-verify-debrid-979c-u02-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Final gap-fill. Every record must end with one capture dated 2026-11-25 or 2026-11-26. For each record: capture its first-party page and confirm exactly ONE field whose value appears literally in the capture text (identity_cost.kind, free_tier.unit, interface[i], retention.days, per_object_cap.bytes, limits[i].value, verdict). Never confirm $.url, $.topic, $.slug, $.provider, $.endpoint, any source_url or limits[i].source. If the field value is interpretive or the page cannot be read, use a read-only probe with `--save-body`, register it with `scripts/rq capture probe:URL --probe FILE`, and set $.reliability_note to `unverified: <what happened>` with the probe as measured evidence; do not confirm a synthesized value. List every other field in unread.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/turbobitpremium-org $.identity_cost.kind: The quoted span is a support question saying a password may arrive by SMS or email, not a statement that registration requires an email address. The page names SMS as an equal alternative and never states registration inputs; it only mentions 'your username (if you are a registered user)'. No span o",
+ "scope": {
+  "rids": [
+   "debrid/torcomet",
+   "debrid/torrentdrive-io",
+   "debrid/turbobitpremium-org",
+   "debrid/turboget-net",
+   "debrid/ulozto"
+  ]
+ },
+ "origin": "audit u04 of 20261126-0411-verify-debrid-979c/u02 failed: 1 of 4 unsupported",
+ "created": "2026-11-26T05:00:36Z"
+}

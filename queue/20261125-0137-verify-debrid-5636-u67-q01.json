@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u67-q01",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "debrid/dailyuploads $.limits[0].value is a probe-measured per-ip-shaping value (0.824-1.117 MiB/s on one connection; 4 of 8 parallel ranged requests served), but the proposed replacement is a daily download volume (5 GB free, 10 GB registered, 300 GB premium) that belongs to a volume-quota limit, not to this per-ip-shaping field. Is $.limits[0].value correct as held, and should the tiered daily volume be recorded on the existing volume-quota limit ($.limits[2]) instead?",
+ "why": "The record is measured and the proposal rests only on a documented page read; a set here would swap a probe-backed value for a weaker rung and put a volume figure in a speed field. The page row is appended as evidence; a measured-rung probe for a daily volume quota does not exist.",
+ "scope": {
+  "rids": [
+   "debrid/dailyuploads"
+  ]
+ },
+ "origin": "20261125-0137-verify-debrid-5636/u67",
+ "created": "2026-11-25T12:00:07Z"
+}

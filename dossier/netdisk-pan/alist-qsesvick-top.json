@@ -5,7 +5,7 @@
   "url": "https://alist.qsesvick.top/",
   "category": "public-instance",
   "free_tier": {
-    "stated": "anonymous guest read of 5 root entries; no account and no payment",
+    "stated": "anonymous guest read of 6 root entries; no account and no payment",
     "unit": "unlimited",
     "metered_on": "none",
     "source_url": "https://alist.qsesvick.top/",
@@ -77,30 +77,9 @@
     {
       "url": "probe:https://alist.qsesvick.top/",
       "date": "2026-11-11",
-      "proved": "this host answered every request of this run's probe",
-      "capture": "sha256:8843ab27a9e81b12ae7d93cd30c679a2c7056ae913e61134585508df346d43c3",
-      "quote": "\"consecutive_failures\": 0"
-    },
-    {
-      "url": "probe:https://alist.qsesvick.top/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:8843ab27a9e81b12ae7d93cd30c679a2c7056ae913e61134585508df346d43c3",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://alist.qsesvick.top/",
-      "date": "2026-11-11",
       "proved": "the settings request for this host answered HTTP 200 at this instant",
       "capture": "sha256:8843ab27a9e81b12ae7d93cd30c679a2c7056ae913e61134585508df346d43c3",
       "quote": "\"checked_at\": \"2026-11-11T00:20:01.877Z\""
-    },
-    {
-      "url": "probe:https://alist.qsesvick.top/",
-      "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:8843ab27a9e81b12ae7d93cd30c679a2c7056ae913e61134585508df346d43c3",
-      "quote": "\"listing_sha256\": \"ec8bc9ba\""
     },
     {
       "url": "probe:https://alist.qsesvick.top/",
@@ -108,13 +87,6 @@
       "proved": "the liveness and mount-list probe checked this host at this instant",
       "capture": "sha256:accc248bab6c79ba7701345bb6328cae00eabd06249cfc7d03bf96fde7c3eb2d",
       "quote": "\"checked_at\": \"2026-11-19T03:31:03.163Z\""
-    },
-    {
-      "url": "probe:https://alist.qsesvick.top/",
-      "date": "2026-11-19",
-      "proved": "the anonymous session, settings and mount list all answered, so the fresh alive timestamp stands",
-      "capture": "sha256:accc248bab6c79ba7701345bb6328cae00eabd06249cfc7d03bf96fde7c3eb2d",
-      "quote": "\"alive\": true"
     },
     {
       "url": "probe:https://alist.qsesvick.top/",
@@ -164,10 +136,31 @@
       "proved": "the fresh probe answered the anonymous session, settings and mount list, so the fresh listing hash stands",
       "capture": "sha256:f6c75fb7dafecb65ee7fb4ed8f4418e1ba681460bba3a55abdd957c39a1aa789",
       "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://alist.qsesvick.top/",
+      "date": "2026-11-25",
+      "proved": "the re-probe of this host was taken at this instant",
+      "capture": "sha256:b00050c87e6a68ed7155e717ba45c413fad2e95152d2f7a3d8dedb4bbf3d3cf5",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:28.682Z\""
+    },
+    {
+      "url": "probe:https://alist.qsesvick.top/",
+      "date": "2026-11-25",
+      "proved": "the anonymous root listing now returns 6 entries, not 5",
+      "capture": "sha256:b00050c87e6a68ed7155e717ba45c413fad2e95152d2f7a3d8dedb4bbf3d3cf5",
+      "quote": "\"root_entries\": 6"
+    },
+    {
+      "url": "probe:https://alist.qsesvick.top/",
+      "date": "2026-11-25",
+      "proved": "the re-probe answered as an anonymous guest, so registration is not needed",
+      "capture": "sha256:b00050c87e6a68ed7155e717ba45c413fad2e95152d2f7a3d8dedb4bbf3d3cf5",
+      "quote": "\"guest\": true"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T04:14:27.572Z",
+  "verified_at": "2026-11-25T11:08:33.683Z",
   "binding": "per-ip-shaping",
   "notes": "One of three hostnames on the 20237737 operator's corpus, and the one the community index publishes as its WebDAV endpoint. 5 root entries; the WebDAV endpoint answers PROPFIND with 207 to the published guest credential.",
   "history": [],

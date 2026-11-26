@@ -76,10 +76,31 @@
       "url": "https://gitlab.com/webstreamr",
       "date": "2026-10-23",
       "proved": "third-party/upstream confirmation in the project description: 'Stremio add-on which provides HTTP URLs from streaming websites. HTTP streams have limitations. For a better experience, I'd advise using a Debrid service'"
+    },
+    {
+      "url": "https://webstreamr-is-deprecated.elfhosted.com/",
+      "date": "2026-11-25",
+      "proved": "the hosted public instance is retired by its sponsor",
+      "capture": "sha256:ca1f66c530b0f15960cab302ad5acd365471d422bb4f7c3c722f4920a01fd770",
+      "quote": "The developer has archived Webstreamr, and in consultation, we've retired the hosted public instance donated to Hayduk."
+    },
+    {
+      "url": "https://webstreamr-is-deprecated.elfhosted.com/",
+      "date": "2026-11-25",
+      "proved": "the developer archived the project and the sponsor retired its hosted instance",
+      "capture": "sha256:ca1f66c530b0f15960cab302ad5acd365471d422bb4f7c3c722f4920a01fd770",
+      "quote": "The developer has archived Webstreamr, and in consultation, we've retired the hosted public instance donated to Hayduk."
+    },
+    {
+      "url": "https://webstreamr.hayd.uk/manifest.json",
+      "date": "2026-11-25",
+      "proved": "the Hayd instance's manifest path still serves only the retirement page",
+      "capture": "sha256:ca1f66c530b0f15960cab302ad5acd365471d422bb4f7c3c722f4920a01fd770",
+      "quote": "The developer has archived Webstreamr, and in consultation, we've retired the hosted public instance donated to Hayduk."
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T02:28:11.000Z",
+  "verified_at": "2026-11-25T09:46:44.527Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "This is the finding that decides the free floor: the no-debrid-key branch is gone, so every surviving free front end needs either a debrid key or a local streaming server.",
@@ -88,6 +109,10 @@
       "https://webstreamr-is-deprecated.elfhosted.com/",
       "https://webstreamr.hayd.uk/"
     ],
-    "upstream": "https://github.com/webstreamr/webstreamr (archived), https://gitlab.com/webstreamr"
+    "upstream": "https://github.com/webstreamr/webstreamr (archived), https://gitlab.com/webstreamr",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

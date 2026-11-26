@@ -42,7 +42,7 @@
   "limits": [
     {
       "kind": "request-rate",
-      "value": "robots.txt sets Crawl-delay: 10 for the wildcard agent (0.1 req/s) and Disallow: / for it",
+      "value": "Crawl-delay: 10 in the Bingbot group",
       "source": "https://rlsbb.cc/robots.txt"
     }
   ],
@@ -72,10 +72,17 @@
       "url": "https://rlsbb.cc/robots.txt",
       "date": "2026-10-23",
       "proved": "'User-agent: *' with 'Disallow: /' and 'Crawl-delay: 10', plus named blocks for GPTBot, Claude-Web, CCBot and FacebookBot"
+    },
+    {
+      "url": "https://rlsbb.cc/robots.txt",
+      "date": "2026-11-25",
+      "proved": "robots.txt puts Crawl-delay: 10 after the Bingbot group; the wildcard group carries Disallow: / and no crawl delay",
+      "capture": "sha256:ec1a0db686db9c1825aa2abcac4127e57d0e5b0ac159911a48d6e2b507d1b14d",
+      "quote": "User-agent: Bingbot\nAllow: /\n\n# Crawl-delay directive to slow down aggressive crawlers (not all support this)\nCrawl-delay: 10"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T01:52:28.000Z",
+  "verified_at": "2026-11-25T23:40:59.069Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The only index in the sector that publishes a request interval. The caveat is that the same file forbids the crawl, so a user that respects robots.txt has no route and one that ignores it is on its own. Documented as a technical constraint, not a judgement about use.",

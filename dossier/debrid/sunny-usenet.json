@@ -54,7 +54,7 @@
       "source": "https://www.sunnyusenet.com/en/packages/sunny-unl"
     }
   ],
-  "limits_note": "UNL: 1 week free, 1 month EUR 14.78, 3 months EUR 7.40/mo, 6 months EUR 7.01/mo, 12 months EUR 6.23/mo. Account sharing with family and friends is allowed. Payment methods per the vendor KB: credit cards, PayPal, SEPA Direct Debit, iDEAL, PaySafe Card and Bitcoin.",
+  "limits_note": "UNL: 1 week free, 1 month EUR 7.79 on the signup form. Account sharing with family and friends is allowed. Payment methods per the vendor KB: credit cards, PayPal, SEPA Direct Debit, iDEAL, PaySafe Card and Bitcoin.",
   "binding": "none",
   "binding_note": "Unlimited volume and unlimited speed, with account sharing allowed. At 1 TiB/month nothing in the vocabulary binds.",
   "identity_cost": {
@@ -75,10 +75,52 @@
       "url": "https://support.sunnyusenet.com/kb/article/930-what-payment-methods-can-i-use/",
       "date": "2026-10-23",
       "proved": "credit cards, PayPal, SEPA Direct Debit, iDEAL, PaySafe Card and Bitcoin"
+    },
+    {
+      "url": "https://www.sunnyusenet.com/en/packages/sunny-unl",
+      "date": "2026-11-25",
+      "proved": "the free trial is one week",
+      "capture": "sha256:a9a3e8fd5f07e83cd1ed07c8ab23680e2eb5377f2f64940a4d99d55b98bac8f4",
+      "quote": "Every package can be tested with a one-week free trial period"
+    },
+    {
+      "url": "https://www.sunnyusenet.com/en/packages/sunny-unl",
+      "date": "2026-11-25",
+      "proved": "unlimited downloads on UNL",
+      "capture": "sha256:a9a3e8fd5f07e83cd1ed07c8ab23680e2eb5377f2f64940a4d99d55b98bac8f4",
+      "quote": "No data transfer limit"
+    },
+    {
+      "url": "https://www.sunnyusenet.com/en/packages/sunny-unl",
+      "date": "2026-11-25",
+      "proved": "retention is 4100 days",
+      "capture": "sha256:a9a3e8fd5f07e83cd1ed07c8ab23680e2eb5377f2f64940a4d99d55b98bac8f4",
+      "quote": "- 4100 days retention"
+    },
+    {
+      "url": "https://www.sunnyusenet.com/en/packages/sunny-unl",
+      "date": "2026-11-25",
+      "proved": "account sharing is allowed",
+      "capture": "sha256:a9a3e8fd5f07e83cd1ed07c8ab23680e2eb5377f2f64940a4d99d55b98bac8f4",
+      "quote": "- Share your account with family and friends"
+    },
+    {
+      "url": "https://www.sunnyusenet.com/en/signup/form?package=SunnyUNLAnnualRecurringWithTrial",
+      "date": "2026-11-25",
+      "proved": "the signup form now lists Sunny UNL at EUR 7.79 for one month",
+      "capture": "sha256:264200f231e2e21e71970e2c3168c2ebb6be5e34c5e321fcf0c205333f6cc678",
+      "quote": "€**7,79**/mo"
+    },
+    {
+      "url": "https://support.sunnyusenet.com/kb/article/930-what-payment-methods-can-i-use/",
+      "date": "2026-11-25",
+      "proved": "the vendor accepts six named payment methods",
+      "capture": "sha256:9c98ba3a4296ad539a9eae3e43554af148e7a32ac38d71ed893193bb2d53bf14",
+      "quote": "We accept credit cards, PayPal, SEPA Direct Debit, iDEAL, PaySafe Card, and Bitcoin."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-10-23T01:52:29.000Z",
+  "verified_at": "2026-11-25T09:47:09.199Z",
   "price_per_tb_month": "EUR 6.23 (Sunny UNL, 12-month term)",
   "notes": "Bitcoin is accepted, which matters where a card is the constraint, but the trial itself still runs through the annual recurring product.",
   "extras": {

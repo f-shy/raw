@@ -20,8 +20,8 @@
     "notes": "an article size is a protocol convention, not a vendor number"
   },
   "retention": {
-    "stated": "Retention is 4096 days and counting",
-    "days": 4096,
+    "stated": "Retention is 4118 days and counting",
+    "days": 4118,
     "source_url": "https://stingyusenet.com/"
   },
   "egress": {
@@ -45,7 +45,7 @@
     },
     {
       "kind": "retention-clamped",
-      "value": "4096 days",
+      "value": "4118 days",
       "source": "https://stingyusenet.com/"
     }
   ],
@@ -88,10 +88,45 @@
       "capture": "sha256:5a74f9974f55a4a1a4280e481064937ab7eb5a183b8f3240082d59d7c40b0fea",
       "quote": "We only have three options STINGY 30, STINGY 180 and STINGY 365.",
       "proved": "three periods of 30, 180 and 365 days"
+    },
+    {
+      "url": "https://stingyusenet.com/",
+      "date": "2026-11-25",
+      "proved": "retention is now 4118 days",
+      "capture": "sha256:f484cf08e094fb57fa09319e4b317b0fd9bdffd0e51940c07a41f05cb8c8341f",
+      "quote": "Retention is 4118 days and counting."
+    },
+    {
+      "url": "https://stingyusenet.com/",
+      "date": "2026-11-25",
+      "proved": "retention is 4118 days",
+      "capture": "sha256:f484cf08e094fb57fa09319e4b317b0fd9bdffd0e51940c07a41f05cb8c8341f",
+      "quote": "Retention is 4118 days and counting."
+    },
+    {
+      "url": "https://stingyusenet.com/",
+      "date": "2026-11-25",
+      "proved": "the retention-clamped limit is 4118 days",
+      "capture": "sha256:f484cf08e094fb57fa09319e4b317b0fd9bdffd0e51940c07a41f05cb8c8341f",
+      "quote": "Retention is 4118 days and counting."
+    },
+    {
+      "url": "https://stingyusenet.com/",
+      "date": "2026-11-25",
+      "proved": "the 30-day price is unchanged at EUR 4.95",
+      "capture": "sha256:f484cf08e094fb57fa09319e4b317b0fd9bdffd0e51940c07a41f05cb8c8341f",
+      "quote": "30 days for only €4,95. It's cheap, really cheap."
+    },
+    {
+      "url": "https://stingyusenet.com/",
+      "date": "2026-11-25",
+      "proved": "unlimited speed and 50 connections are unchanged",
+      "capture": "sha256:f484cf08e094fb57fa09319e4b317b0fd9bdffd0e51940c07a41f05cb8c8341f",
+      "quote": "We offer Unlimited speed with 50 connections. Faster than the speed of light."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-03T07:37:14.439Z",
+  "verified_at": "2026-11-25T09:47:07.114Z",
   "price_per_tb_month": null,
   "notes": "Priced per period, not per terabyte.",
   "extras": {}

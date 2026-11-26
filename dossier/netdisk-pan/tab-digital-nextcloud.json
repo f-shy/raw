@@ -5,8 +5,8 @@
   "url": "https://tab.digital/en/nextcloud-one",
   "category": "managed Nextcloud, freemium",
   "free_tier": {
-    "stated": "8 GB free for one user, with no payment method required. Paid: 128 GB at EUR 7.44/month, up to 1 TB on the personal ladder; business plans from EUR 61/month with 1 TB to 100 TB",
-    "unit": "GiB",
+    "stated": "Free 8GB",
+    "unit": "GB",
     "metered_on": "stored-bytes",
     "source_url": "https://tab.digital/en/nextcloud-one",
     "read_on": "2026-10-21"
@@ -24,7 +24,7 @@
   "egress": {
     "terms": "'Share transfer unlimited' on the free tier; traffic is not metered on the paid plans",
     "metered": false,
-    "free_allowance": "unlimited on share transfer",
+    "free_allowance": "Share transfer unlimited",
     "price_per_tb": null,
     "source_url": "https://cloud.tab.digital/pricing"
   },
@@ -66,32 +66,11 @@
       "proved": "the seed pass recorded, at this URL: 'Q: Is the free 8 GB account going away? A: No. The free 8 GB plan remains available.' beside a 2026-07-01 price-change notice"
     },
     {
-      "url": "https://tab.digital/en/nextcloud-one",
-      "date": "2026-11-03",
-      "proved": "the page lists a free 8 GB plan next to a 128 GB plan at 7,44 EUR per month",
-      "capture": "sha256:a0815a4b586c829ec8e906dbf33cb188c1054375654d7df97de49106f5776540",
-      "quote": "Free 8GB [Subscribe 128GB (7,44 EUR per/month)]"
-    },
-    {
-      "url": "https://tab.digital/en/nextcloud-one",
-      "date": "2026-11-03",
-      "proved": "the plan table lists Share transfer unlimited",
-      "capture": "sha256:a0815a4b586c829ec8e906dbf33cb188c1054375654d7df97de49106f5776540",
-      "quote": "Share transfer unlimited"
-    },
-    {
       "url": "https://cloud.tab.digital/pricing",
       "date": "2026-11-03",
       "proved": "the Business plan starts from 61 EUR per month per 50 users",
       "capture": "sha256:663ee99fcab45d717f8585644e289f35e5d2cd1b3504c8fad78a4477a53659bb",
       "quote": "from €61"
-    },
-    {
-      "url": "https://cloud.tab.digital/pricing",
-      "date": "2026-11-03",
-      "proved": "a free 8 GB account is still offered with no payment method",
-      "capture": "sha256:663ee99fcab45d717f8585644e289f35e5d2cd1b3504c8fad78a4477a53659bb",
-      "quote": "It`s a good way to find out if Nextcloud fits your need is to take a free account. No payment method required, just try it."
     },
     {
       "url": "https://tab.digital/en/nextcloud-one",
@@ -120,10 +99,31 @@
       "proved": "the July 2026 price change did not end the free 8 GB plan",
       "capture": "sha256:2d248e135b9b1177e1654bd3509791512fdde40213f40060a28f433810e1e0c1",
       "quote": "<strong>A:</strong> No. The free 8 GB plan remains available."
+    },
+    {
+      "url": "https://tab.digital/en/nextcloud-one",
+      "date": "2026-11-25",
+      "proved": "the plan table prints the free storage as 8 GB",
+      "capture": "sha256:a0815a4b586c829ec8e906dbf33cb188c1054375654d7df97de49106f5776540",
+      "quote": "8 GB"
+    },
+    {
+      "url": "https://tab.digital/en/nextcloud-one",
+      "date": "2026-11-25",
+      "proved": "the plan page lists a free 8GB plan",
+      "capture": "sha256:a0815a4b586c829ec8e906dbf33cb188c1054375654d7df97de49106f5776540",
+      "quote": "Free 8GB"
+    },
+    {
+      "url": "https://tab.digital/en/keep-today-pricing",
+      "date": "2026-11-25",
+      "proved": "the announced July 2026 price rise concerns new upgrades",
+      "capture": "sha256:fe0567ccab8b3d6ab816d1fa8cbfa58ddcaaa72d1d504605658cdb1393c3dd19",
+      "quote": "Starting July 1, 2026, prices for new Nextcloud One upgrades will increase."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-25T04:14:26.914Z",
+  "verified_at": "2026-11-25T13:26:29.021Z",
   "history": [],
   "binding": "write-gated",
   "binding_note": "8 GB free is 1.6% of a 500 GB threshold, so the quota closes it first in practice. The gate worth naming is that the free tier is a single user with no quota controls, so it cannot even be sharded internally.",
@@ -132,7 +132,7 @@
   "extras": {
     "access_mode": "registration-gated",
     "free_tier_exists": true,
-    "free_tier_survives_repricing": true,
+    "free_tier_survives_repricing": "unverified: the price-change page does not state what happens to the free 8 GB account",
     "region": "Milan, Italy and the Netherlands",
     "no_payment_method_required": true,
     "seed_source": "storage-research",

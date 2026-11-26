@@ -5,7 +5,7 @@
   "url": "https://crt.sh/",
   "category": "index-list",
   "free_tier": {
-    "stated": "not stated: crt.sh is a public certificate transparency search with a JSON output and prints no allowance, quota or price",
+    "stated": "unverified: the captured page is only a certificate search form and states no allowance, quota or price",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://crt.sh/?q=alist.a%25&output=json&exclude=expired",
@@ -100,10 +100,17 @@
       "proved": "the stored guest-enabled host list holds 588 lines",
       "capture": "sha256:28cb921d51cc591ca2e910a7877f05ab5f38ab6676354929ef9d3a907432c458",
       "quote": "alist.0101111.xyz"
+    },
+    {
+      "url": "https://crt.sh/",
+      "date": "2026-11-25",
+      "proved": "the page is a certificate search form",
+      "capture": "sha256:23e84f3352b990d1a31da4b75ecea358abb5370b26a4fb55a5b2c0ae2c1146bb",
+      "quote": "crt.sh Certificate Search"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-04T02:15:21.167Z",
+  "verified_at": "2026-11-25T13:26:29.022Z",
   "binding": "request-rate",
   "notes": "Certificate transparency lists hosts whose name starts with alist or openlist, including hosts that no forum or GitHub index names. It holds 7447 distinct hostnames with such a label (wildcard form included), 4 with an existing record. Of these, 2356 return the AList or OpenList envelope on GET /api/public/settings and 588 an enabled guest session on GET /api/me, so 586 new hostnames pass steps 0 and 1. The listing step (POST /api/fs/list) is not done, so none counts as a readable instance. Hosts named pan, cloud or share are not reachable by this channel.",
   "history": [],

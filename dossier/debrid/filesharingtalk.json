@@ -5,7 +5,7 @@
   "category": "Usenet NZB index (vBulletin forum, no API)",
   "tier": "free",
   "free_tier": {
-    "stated": "Reported allowance on a free account: 2 NZBs per day; no API because it is a forum. The NZB section lists current releases and has a Register link.",
+    "stated": "unverified: no free-tier allowance or unit is stated on the NZB section",
     "unit": "objects",
     "metered_on": "request-count",
     "source_url": "https://github.com/openlemmy/reddit-backups/wiki/Indexers",
@@ -53,7 +53,7 @@
     "detail": "unverified: the register form was not read; the section shows a Register link and third-party listings call registration open. A forum sign-up normally takes an email address.",
     "country": null
   },
-  "reliability_note": "A third-party listing reports 99% uptime and a 1,776ms response time; the section loaded today.",
+  "reliability_note": "- Collections 1 to 24 of 63160",
   "confidence": "reported",
   "confidence_note": "The live release list and the Register link are first-party; the allowance, the price and the open registration are third-party.",
   "evidence": [
@@ -84,6 +84,13 @@
       "capture": "sha256:3125b505eca26d74096a6985446593dbb6eb97637bbd1d4543eaa49be6387223",
       "quote": "Donor $2-$30 for 1 month to 5 years",
       "proved": "third-party: paid donor plans run from USD 2 to USD 30 for 1 month to 5 years"
+    },
+    {
+      "url": "https://filesharingtalk.com/nzbs/",
+      "date": "2026-11-26",
+      "proved": "the live NZB section lists Collections 1 to 24 of 63160 and states no free-tier unit",
+      "capture": "sha256:9e280a7560bd5e7075173842c5a98eb40ce99cee64b3db37f3729d392558e742",
+      "quote": "- Collections 1 to 24 of 63160"
     }
   ],
   "verdict": "qualifies-with-caveat",
@@ -91,7 +98,7 @@
     "price": "USD 0 (free); USD 2 to 30 donor plans (reported)"
   },
   "notes": "No programmatic path found: A vBulletin forum with a releases section; NZBs are fetched through the web UI after login. Third-party listings state it has no API.",
-  "verified_at": "2026-11-03T07:37:15.010Z",
+  "verified_at": "2026-11-26T01:59:17.120Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }

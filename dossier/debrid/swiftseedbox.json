@@ -55,15 +55,33 @@
       "url": "probe:https://www.swiftseedbox.com",
       "date": "2026-10-23",
       "proved": "DoH 'Status: 3' (NXDOMAIN) for swiftseedbox.com, A query; curl exit 6 'Could not resolve host' for www.swiftseedbox.com and for swiftseedbox.ch"
+    },
+    {
+      "url": "probe:https://cloudflare-dns.com/dns-query?name=swiftseedbox.com&type=A",
+      "date": "2026-11-25",
+      "proved": "the swiftseedbox.com A query still returns NXDOMAIN, so the name does not resolve",
+      "capture": "sha256:3cfae839f58785d2fb02d90e6485d7c4b1c68f04b57a9e8b968ee0bccc878c7b",
+      "quote": "\"Status\":3"
+    },
+    {
+      "url": "probe:https://cloudflare-dns.com/dns-query?name=swiftseedbox.com&type=A",
+      "date": "2026-11-25",
+      "proved": "the name does not resolve, so the host is dead",
+      "capture": "sha256:3cfae839f58785d2fb02d90e6485d7c4b1c68f04b57a9e8b968ee0bccc878c7b",
+      "quote": "\"Status\":3"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T03:19:00.000Z",
+  "verified_at": "2026-11-25T09:46:43.324Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "A brief that names SwiftSeedbox should treat it as gone. The check is cheap to repeat: one DoH query. If the name is re-registered, this record is stale rather than wrong, and must be re-probed before use.",
   "extras": {
     "death_evidence": "NXDOMAIN at the .com registry",
-    "probe_commands": "curl 'https://cloudflare-dns.com/dns-query?name=swiftseedbox.com&type=A' -H 'accept: application/dns-json'; curl -sS -o /dev/null -w '%{http_code}' https://www.swiftseedbox.com/"
+    "probe_commands": "curl 'https://cloudflare-dns.com/dns-query?name=swiftseedbox.com&type=A' -H 'accept: application/dns-json'; curl -sS -o /dev/null -w '%{http_code}' https://www.swiftseedbox.com/",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

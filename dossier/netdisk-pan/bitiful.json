@@ -5,7 +5,7 @@
   "url": "https://www.bitiful.com",
   "category": "object storage, S3-compatible",
   "free_tier": {
-    "stated": "50 GB of storage and 10 GB of egress a month, free",
+    "stated": "- 前 50 GiB 存储",
     "unit": "GiB",
     "metered_on": "stored-bytes",
     "source_url": "https://linux.do/t/topic/1074108",
@@ -36,7 +36,7 @@
   "limits": [
     {
       "kind": "per-ip-shaping",
-      "value": "10 GB of egress a month on the free tier",
+      "value": "免费额度为每月每项10GB，但为防止滥用，目前限制每天用量不能超过5GB（当天超过5GB后会开始计费）",
       "source": "https://linux.do/t/topic/1074108"
     },
     {
@@ -76,10 +76,38 @@
       "proved": "a forum answer still states the Bitiful free allowance supports private read-write only",
       "capture": "sha256:d85b04eaba7e2be89eb4d3fc278e37ca80a42146393c8a827541ead742a83f58",
       "quote": "缤纷云免费额度只支持私有读写"
+    },
+    {
+      "url": "https://docs.bitiful.com/prices/basic",
+      "date": "2026-11-25",
+      "proved": "the first-party documentation states this value",
+      "capture": "sha256:348195c755b8cbfacf3f42a551c84116e06621bcdd38d8e71ff6518ebeaead31",
+      "quote": "- 前 50 GiB 存储"
+    },
+    {
+      "url": "https://docs.bitiful.com/prices/detail/transfer-prices.md",
+      "date": "2026-11-25",
+      "proved": "the first-party documentation states this value",
+      "capture": "sha256:10ec37ba48cc0cb1a883a6055a028383e2507b2df82ee553c3b4cac8ef4d383e",
+      "quote": "免费额度为每月每项10GB，但为防止滥用，目前限制每天用量不能超过5GB（当天超过5GB后会开始计费）"
+    },
+    {
+      "url": "https://docs.bitiful.com/prices/basic",
+      "date": "2026-11-25",
+      "proved": "the free storage allowance is 50 GiB",
+      "capture": "sha256:348195c755b8cbfacf3f42a551c84116e06621bcdd38d8e71ff6518ebeaead31",
+      "quote": "- 前 50 GiB 存储"
+    },
+    {
+      "url": "https://docs.bitiful.com/prices/detail/transfer-prices.md",
+      "date": "2026-11-25",
+      "proved": "the free traffic allowance is 10 GB per month per item with a 5 GB daily cap",
+      "capture": "sha256:10ec37ba48cc0cb1a883a6055a028383e2507b2df82ee553c3b4cac8ef4d383e",
+      "quote": "免费额度为每月每项10GB，但为防止滥用，目前限制每天用量不能超过5GB（当天超过5GB后会开始计费）"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-11-19T21:12:43.949Z",
+  "verified_at": "2026-11-25T13:26:30.704Z",
   "history": [],
   "binding": "per-ip-shaping",
   "binding_note": "10 GB a month is 0.3 GB a day, which is 0.06% of the serving target. The storage is irrelevant at that egress allowance.",

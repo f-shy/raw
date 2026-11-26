@@ -22,7 +22,7 @@
   "binding_note": "30 GB/month would bind long before 1 TiB, but the entitlement itself was rewritten first: the constraint that actually ends the deal is the vendor's decision to stop honouring the lifetime.",
   "confidence": "reported",
   "confidence_note": "the seller's page was read today; a seller is not the vendor, so nothing here is at the documented rung except the vendor terms quoted in evidence",
-  "verified_at": "2026-11-03T11:28:59.772Z",
+  "verified_at": "2026-11-25T09:46:36.207Z",
   "history": [],
   "slug": "offcloud-lifetime-via-stacksocial",
   "provider": "Offcloud lifetime via StackSocial",
@@ -65,7 +65,7 @@
     "detail": "marketplace account plus an Offcloud account; no identity document",
     "country": null
   },
-  "reliability_note": "Buyers report the lifetime was replaced: 'I purchased this service during their last Lifetime StackSocial sale in October 2025. Today in January 2026, they claim that a member of staff passed and they are changing everything' (2026-01-24); 'given a 1 year free premium. Now my account instead of being a lifetime premium' (2026-02-18). A Taiwanese buyer got the same answer from support on 2026-01-21: the old lifetime is invalid and the compensation is one year. Trustpilot's aggregate was 1.7/5 from 86 reviews on 2026-11-03.",
+  "reliability_note": "Buyers report the lifetime was replaced: a review dated 2026-10-21 states 'I bought lifetime plan but they converted it to one year premium.' and a review dated 2026-11-06 states 'Company offered a lifetime service and now refuses to honor it.' A Taiwanese buyer got the same answer from support on 2026-01-21: the old lifetime is invalid and the compensation is one year. Trustpilot's aggregate is 1.7 from 87 reviews on 2026-11-25. The vendor's home page states a new team took over and rebuilt the service, and offers only monthly and yearly plans, with no refund policy.",
   "price_per_tb_month": null,
   "evidence": [
     {
@@ -141,6 +141,76 @@
       "proved": "the Trustpilot page for Offcloud shows 1.7 from 86 reviews",
       "capture": "sha256:65aeb3aa7d22e27569f9c4b4a8161a60e4e365e7d90991036ada0632d8cc54a6",
       "quote": "1.7\n\n[Software Company](/categories/software_company)"
+    },
+    {
+      "url": "https://shop.pcworld.com/sales/offcloud-unlimited-lifetime-subscription",
+      "date": "2026-11-25",
+      "proved": "the reseller SKU page still describes the access length as lifetime",
+      "capture": "sha256:0839b92f861380570031123566417d2e5da7289de000b3bc88d2fca5705af32a",
+      "quote": "Length of access: lifetime"
+    },
+    {
+      "url": "https://shop.pcworld.com/sales/offcloud-unlimited-lifetime-subscription",
+      "date": "2026-11-25",
+      "proved": "the reseller SKU still states a 30 GB monthly premium-source quota",
+      "capture": "sha256:0839b92f861380570031123566417d2e5da7289de000b3bc88d2fca5705af32a",
+      "quote": "30GB of monthly quota for premium sources"
+    },
+    {
+      "url": "https://shop.pcworld.com/sales/offcloud-unlimited-lifetime-subscription",
+      "date": "2026-11-25",
+      "proved": "the reseller SKU still states a 3 IP licence limit",
+      "capture": "sha256:0839b92f861380570031123566417d2e5da7289de000b3bc88d2fca5705af32a",
+      "quote": "Max number of device(s): 3 IP addresses"
+    },
+    {
+      "url": "https://shop.pcworld.com/sales/offcloud-unlimited-lifetime-subscription",
+      "date": "2026-11-25",
+      "proved": "the reseller SKU still advertises a lifetime access length",
+      "capture": "sha256:0839b92f861380570031123566417d2e5da7289de000b3bc88d2fca5705af32a",
+      "quote": "Length of access: lifetime"
+    },
+    {
+      "url": "https://offcloud.com/",
+      "date": "2026-11-25",
+      "proved": "the vendor states that a new team took over and rebuilt the service",
+      "capture": "sha256:3c5bc39f151febde8beb82cd26606544d2b4552c87a275ecd21174950b6a89d5",
+      "quote": "A new team has taken over and rebuilt everything from scratch."
+    },
+    {
+      "url": "https://www.trustpilot.com/reviews/6ad90e39c2097c694aa8c201",
+      "date": "2026-11-25",
+      "proved": "a Trustpilot review dated 2026-10-21 reports a lifetime plan converted to one year",
+      "capture": "sha256:34897e6d11ceb8a6a37227918d83d5ec867f16fa094ec31970f7e28a515ede58",
+      "quote": "I bought lifetime plan but they converted it to one year premium."
+    },
+    {
+      "url": "https://www.trustpilot.com/reviews/6aee93c4b7452a21ccb8c020",
+      "date": "2026-11-25",
+      "proved": "a Trustpilot review dated 2026-11-06 reports the lifetime is no longer honoured",
+      "capture": "sha256:51d925d1e73d12ef654401c427b959b03dd8f1998d1c6073406cc6e7bbac6f81",
+      "quote": "Company offered a lifetime service and now refuses to honor it. Sounds like a scam. Would not recommend this service"
+    },
+    {
+      "url": "https://offcloud.com/",
+      "date": "2026-11-25",
+      "proved": "the vendor states there is no refund policy on its current plans",
+      "capture": "sha256:3c5bc39f151febde8beb82cd26606544d2b4552c87a275ecd21174950b6a89d5",
+      "quote": "no refund policy"
+    },
+    {
+      "url": "https://www.trustpilot.com/review/offcloud.com",
+      "date": "2026-11-25",
+      "proved": "the Trustpilot page shows 87 reviews on 2026-11-25",
+      "capture": "sha256:f48a9dc8e6f55fb6e2c920cc3c371ee510f28d04fe5e9caf99d0e81c72d2dd27",
+      "quote": "87 reviews"
+    },
+    {
+      "url": "https://www.ptt.cc/bbs/Free_box/M.1768979304.A.74C.html",
+      "date": "2026-11-25",
+      "proved": "support told the buyer the old lifetime plan is invalid under the new team",
+      "capture": "sha256:63b4d82a63ecef67d5a3a3ad58707168688e162e0c6b8ad44279d803bb1ba6ce",
+      "quote": "客服回覆說現在新團隊運營 舊的終身方案就是失效了 補 01/21 16:05"
     }
   ],
   "verdict": "dead",

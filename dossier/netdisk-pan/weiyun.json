@@ -71,13 +71,6 @@
     {
       "url": "https://www.weiyun.com/vip",
       "date": "2026-11-03",
-      "proved": "the free account has 5 GB of storage",
-      "capture": "sha256:30e640ff39803b6d4dbfdee35f8590081b7b2f0ad04f06c037ba80a1aee94c48",
-      "quote": "会员服务到期后，存储空间将恢复到免费账号的5GB存储空间。"
-    },
-    {
-      "url": "https://www.weiyun.com/vip",
-      "date": "2026-11-03",
       "proved": "usage over the quota must be cleared or upgraded within 180 days",
       "capture": "sha256:30e640ff39803b6d4dbfdee35f8590081b7b2f0ad04f06c037ba80a1aee94c48",
       "quote": "若您的已用容量超出可用额度，需要在180天内升级存储空间或对容量超额部分进行清理。"
@@ -123,10 +116,17 @@
       "proved": "the login panel offers a WeChat app QR scan and QQ login",
       "capture": "sha256:0007e348281b815b87ee86a7579eb56f1992cd80308fdca1a9790a06f1fdedac",
       "quote": "请使用微信App扫码登录 ... QQ登录"
+    },
+    {
+      "url": "https://www.weiyun.com/vip",
+      "date": "2026-11-26",
+      "proved": "the vendor member-centre page states the free account's storage in GB",
+      "capture": "sha256:678ccc77ce0738a8ee0fb45fb84aa2eee60cf597d80a215089cccc23214909fc",
+      "quote": "会员服务到期后，存储空间将恢复到免费账号的5GB存储空间。"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-11-25T14:57:25.808Z",
+  "verified_at": "2026-11-26T01:10:14.530Z",
   "history": [],
   "binding": "per-object-cap",
   "binding_note": "The free account is 5 GB, and the share path is closed to an unauthenticated caller even for metadata. Either number closes it; the quota is the one a reader can check without an account.",

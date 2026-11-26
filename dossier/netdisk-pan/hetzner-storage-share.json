@@ -18,12 +18,12 @@
     "source_url": "https://www.hetzner.com/storage/storage-share/"
   },
   "retention": {
-    "stated": "Until deleted. No minimum contract period and no cancellation period, and the vendor states that a plan change causes no data loss. Backups of the database and the storage backend run several times a day, to a host the instance is not running on, restorable from konsoleH",
+    "stated": "No minimum contract period. No cancellation period.",
     "days": null,
     "source_url": "https://www.hetzner.com/storage/storage-share/"
   },
   "egress": {
-    "terms": "Unlimited internal and external traffic, stated as a product feature rather than implied: 'Storage Shares have unlimited internal and external traffic'",
+    "terms": "Storage Shares have unlimited internal and external traffic, so you'll have no problem uploading and downloading all your data to and from your Storage Share.",
     "metered": false,
     "free_allowance": "unlimited",
     "price_per_tb": null,
@@ -39,7 +39,7 @@
   "limits": [
     {
       "kind": "per-object-cap",
-      "value": "not published; the JVM-free Nextcloud upload chunking limits a single object in practice and the smaller partners cap at 10 GB per file",
+      "value": "this \"unlimited\" space will actually be limited by the overall storage quota size of the Storage Share instance that you (the admin) have bought",
       "source": "https://www.hetzner.com/storage/storage-share/"
     }
   ],
@@ -48,7 +48,7 @@
     "detail": "a Hetzner account with a payment method; the order form is at konsoleH. No identity document and no phone verification was seen on the order path. A new account goes through Hetzner's own risk review, which is not the same gate as a card check",
     "country": null
   },
-  "reliability_note": "Falkenstein, Germany. RAID backend with checksummed integrity checking, several backups a day to a different host, restore from konsoleH. Managed Nextcloud inherits Nextcloud's sync semantics, which is worse for millions of small objects than a raw storage box",
+  "reliability_note": "A backup is performed automatically several times a day. The backup is always made to another host machine on which the instance is not running.",
   "confidence": "documented",
   "evidence": [
     {
@@ -103,10 +103,66 @@
       "proved": "each tier lists users as unlimited and subdomains as 3, 7 and 10",
       "capture": "sha256:cd10600a0fd4567a2c012460e373490374e273673972e4e1f082c266b1c70d08",
       "quote": "NX31 max/mo. € 27.39 per month, excl. VAT € 0.0439 per hour, excl. VAT /hr Storage 10 TB Subdomain 10 Users∞ Simultaneous Connections 200 FSN1"
+    },
+    {
+      "url": "https://www.hetzner.com/storage/storage-share/",
+      "date": "2026-11-25",
+      "proved": "the first-party page states this value",
+      "capture": "sha256:b319ef89c5383cb5e82d0910cfd412c8fc2ebafffb1b2314c5b8f97784f323b5",
+      "quote": "Storage Shares have unlimited internal and external traffic, so you'll have no problem uploading and downloading all your data to and from your Storage Share."
+    },
+    {
+      "url": "https://www.hetzner.com/storage/storage-share/",
+      "date": "2026-11-25",
+      "proved": "the first-party page states this value",
+      "capture": "sha256:b319ef89c5383cb5e82d0910cfd412c8fc2ebafffb1b2314c5b8f97784f323b5",
+      "quote": "A backup is performed automatically several times a day. The backup is always made to another host machine on which the instance is not running."
+    },
+    {
+      "url": "https://www.hetzner.com/storage/storage-share/",
+      "date": "2026-11-25",
+      "proved": "the first-party page states this value",
+      "capture": "sha256:b319ef89c5383cb5e82d0910cfd412c8fc2ebafffb1b2314c5b8f97784f323b5",
+      "quote": "No minimum contract period. No cancellation period."
+    },
+    {
+      "url": "https://www.hetzner.com/storage/storage-share/",
+      "date": "2026-11-25",
+      "proved": "the first-party page states this value",
+      "capture": "sha256:b319ef89c5383cb5e82d0910cfd412c8fc2ebafffb1b2314c5b8f97784f323b5",
+      "quote": "this \"unlimited\" space will actually be limited by the overall storage quota size of the Storage Share instance that you (the admin) have bought"
+    },
+    {
+      "url": "https://www.hetzner.com/storage/storage-share/",
+      "date": "2026-11-25",
+      "proved": "internal and external traffic remain unlimited",
+      "capture": "sha256:b319ef89c5383cb5e82d0910cfd412c8fc2ebafffb1b2314c5b8f97784f323b5",
+      "quote": "Storage Shares have unlimited internal and external traffic, so you'll have no problem uploading and downloading all your data to and from your Storage Share."
+    },
+    {
+      "url": "https://www.hetzner.com/storage/storage-share/",
+      "date": "2026-11-25",
+      "proved": "backups still run several times a day to another host",
+      "capture": "sha256:b319ef89c5383cb5e82d0910cfd412c8fc2ebafffb1b2314c5b8f97784f323b5",
+      "quote": "A backup is performed automatically several times a day. The backup is always made to another host machine on which the instance is not running."
+    },
+    {
+      "url": "https://www.hetzner.com/storage/storage-share/",
+      "date": "2026-11-25",
+      "proved": "an administrator's unlimited per-user quota is bounded by the bought instance quota",
+      "capture": "sha256:b319ef89c5383cb5e82d0910cfd412c8fc2ebafffb1b2314c5b8f97784f323b5",
+      "quote": "this \"unlimited\" space will actually be limited by the overall storage quota size of the Storage Share instance that you (the admin) have bought"
+    },
+    {
+      "url": "https://www.hetzner.com/storage/storage-share/",
+      "date": "2026-11-25",
+      "proved": "the vendor states an unlimited number of users",
+      "capture": "sha256:b319ef89c5383cb5e82d0910cfd412c8fc2ebafffb1b2314c5b8f97784f323b5",
+      "quote": "Use Storage Share with an unlimited number of users"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:12:44.737Z",
+  "verified_at": "2026-11-25T13:26:30.703Z",
   "history": [],
   "price_per_tb_month": "EUR 4.29/TB/month on NX11, falling to EUR 2.74/TB/month on NX31 at 10 TB, excluding VAT, read 2026-10-22",
   "binding": "per-object-cap",

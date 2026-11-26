@@ -69,10 +69,38 @@
       "url": "https://api2.wer.plus/doc/19",
       "date": "2026-10-23",
       "proved": "蓝奏云直链解析 on the same platform, 免费额度 1000, '直链有效期较短，记得及时使用'"
+    },
+    {
+      "url": "https://api2.wer.plus/doc/53",
+      "date": "2026-11-25",
+      "proved": "free users are still throttled to one request per three seconds",
+      "capture": "sha256:5717eb2682c489bce632a7d9144c852af69f257c401bb9dce8f839473ab55bcb",
+      "quote": "3秒1次每个免费用户的QPS总限制"
+    },
+    {
+      "url": "https://api2.wer.plus/doc/53",
+      "date": "2026-11-25",
+      "proved": "the total free allowance is still 500 calls",
+      "capture": "sha256:5717eb2682c489bce632a7d9144c852af69f257c401bb9dce8f839473ab55bcb",
+      "quote": "500 (次)"
+    },
+    {
+      "url": "https://api2.wer.plus/doc/53",
+      "date": "2026-11-25",
+      "proved": "the largest published pack is still one million calls",
+      "capture": "sha256:5717eb2682c489bce632a7d9144c852af69f257c401bb9dce8f839473ab55bcb",
+      "quote": "1000000 (次)"
+    },
+    {
+      "url": "https://api2.wer.plus/user/register",
+      "date": "2026-11-25",
+      "proved": "the signup form offers a verification-code field, so a phone or email code gate exists",
+      "capture": "sha256:ca3116363944338a69764423a3e0d3f09f58cb3262c02a9a3eafa09cdaa0b68f",
+      "quote": "获取验证码"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T01:56:12.306Z",
+  "verified_at": "2026-11-25T09:46:56.524Z",
   "price_per_tb_month": "CNY 880 per 1,000,000 resolutions; CNY 0.00088 per call",
   "history": [],
   "notes": "This is the paid counterpart of the keyless netdisk-fast-download instance already in dossier/netdisk-pan/. Its catalogue is the map of which Chinese pans still allow a third-party resolver to mint a direct link: 123 and 蓝奏 yes, Baidu/Quark/UC/115 no.",

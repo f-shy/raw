@@ -2,7 +2,7 @@
   "slug": "binsearch",
   "provider": "Binsearch",
   "url": "https://www.binsearch.info/",
-  "category": "Usenet binary search engine (HTML search, anonymous NZB build)",
+  "category": "Usenet binary search engine",
   "tier": "anonymous",
   "free_tier": {
     "stated": "No account and no key. GET /search?q=linux returned 98,890 bytes of results, paginated to 174 pages. GET /nzb?q=linux&<base64 collection id>=on returned a 4,229-byte NZB carrying 9 files. The site publishes no daily counter anywhere a reader can reach.",
@@ -76,6 +76,13 @@
       "url": "https://nzbhydra.com/indexers/",
       "date": "2026-10-23",
       "proved": "third-party claim of 1,100 days retention and 400+ groups; used only for the retention field, which Binsearch does not publish"
+    },
+    {
+      "url": "probe:https://www.binsearch.info/",
+      "date": "2026-11-25",
+      "proved": "the service's own page identifies Binsearch as a binary Usenet search engine",
+      "capture": "sha256:898850e65c61d9afafdb70bac4d9bff0b8c9a1e025fd64b42324e7eb51d95503",
+      "quote": "<title>Binsearch -- Usenet search engine</title><meta name=\"description\" content=\"BinSearch.info Binary Usenet Search Engine - Binsearch -- Usenet search engine\"/>"
     }
   ],
   "verdict": "qualifies",
@@ -101,7 +108,7 @@
     "burst": "6 sequential searches, all 200"
   },
   "notes": "The result page is a Next.js front end but the results are server-rendered, so the HTML carries them; that is why a plain GET works where NZBIndex's does not. A query string is mandatory on /nzb or the proxy's parameter append corrupts the path, which is a tooling detail documented here so the subsequent audit does not read a 404 as a dead endpoint.",
-  "verified_at": "2026-10-23T02:11:54.066Z",
+  "verified_at": "2026-11-25T23:40:59.069Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }

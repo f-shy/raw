@@ -74,10 +74,17 @@
       "url": "probe:https://upload.am/",
       "date": "2026-10-23",
       "proved": "HTTP 200, 159846 bytes, sha256 35bba2652a616824..., no challenge"
+    },
+    {
+      "url": "https://upload.am/en/features/remote-upload-from-url",
+      "date": "2026-11-25",
+      "proved": "the Free plan is metered in gigabytes of stored data",
+      "capture": "sha256:e32395f9974029189fd6a0f2eceb05e7288a62f4a15872e9e87e94353312732b",
+      "quote": "On the Free plan that means up to 25 GB of storage and 5 GB per file."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T01:52:41.420Z",
+  "verified_at": "2026-11-25T22:07:38.630Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The clearest published free URL-pull-to-storage allowance found: 25 GB stored, 5 GB per file, account required, direct links only. Useful as a staging buffer, not as the 10 TiB tier. No programmatic path found: Web cabinet only: paste an http(s) link, the server fetches it in the background, and the file appears in a folder where it can be previewed, renamed, shared or versioned. Private-range and credential-bearing URLs are refused.",

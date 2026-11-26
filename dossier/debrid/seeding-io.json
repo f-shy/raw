@@ -47,7 +47,7 @@
     "detail": "not applicable; nothing can be registered",
     "country": "None"
   },
-  "reliability_note": "parked domain: HTTPS presents a certificate for a different principal name, and HTTP 302-redirects to whoisbroker.com",
+  "reliability_note": "parked domain: DoH shows a CNAME to park.io and HTTPS presents a certificate for a different principal name",
   "confidence": "measured",
   "confidence_note": "Measured by probe on 2026-10-23: DNS over HTTPS returned 'seeding.io CNAME park.io' and A 184.196.180.154; curl followed http://seeding.io/ to https://whoisbroker.com/ with 200; https://seeding.io/ failed TLS with SEC_E_WRONG_PRINCIPAL. The instrument was curl and Cloudflare DoH, not probe.py.",
   "evidence": [
@@ -55,15 +55,40 @@
       "url": "probe:https://seeding.io",
       "date": "2026-10-23",
       "proved": "DNS answer 'seeding.io. 60 IN CNAME park.io.'; HTTP 302 to https://whoisbroker.com/; TLS certificate name mismatch on the apex"
+    },
+    {
+      "url": "probe:https://cloudflare-dns.com/dns-query?name=seeding.io&type=A",
+      "date": "2026-11-25",
+      "proved": "seeding.io is still a CNAME to park.io, a parking service, so no seedbox is served",
+      "capture": "sha256:417b7eff0d8bb61b91fefb5455d2e5db6e548b363f51b1fd33985e738b5a8577",
+      "quote": "\"data\":\"park.io.\""
+    },
+    {
+      "url": "probe:https://seeding.io/",
+      "date": "2026-11-25",
+      "proved": "the TLS certificate for seeding.io is not trusted because the name does not match",
+      "capture": "sha256:47d18998ac7718ffeaea6dae26f33bbb1a87163fdf3586bc9d71d971f26d5648",
+      "quote": "\"error\": \"tls_untrusted\""
+    },
+    {
+      "url": "probe:https://cloudflare-dns.com/dns-query?name=seeding.io&type=A",
+      "date": "2026-11-25",
+      "proved": "the domain is parked rather than serving a seedbox",
+      "capture": "sha256:417b7eff0d8bb61b91fefb5455d2e5db6e548b363f51b1fd33985e738b5a8577",
+      "quote": "\"data\":\"park.io.\""
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T03:19:00.000Z",
+  "verified_at": "2026-11-25T09:46:43.324Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "Documented as dead rather than omitted so the subsequent audit does not spend a pass on it. If the domain is bought by a new operator, the record must be rechecked rather than trusted; a parked name proves nothing about a future service.",
   "extras": {
     "death_evidence": "CNAME park.io + redirect to whoisbroker.com",
-    "probe_commands": "DoH: curl 'https://cloudflare-dns.com/dns-query?name=seeding.io&type=A' -H 'accept: application/dns-json'; HTTP: curl -sSL -o /dev/null -w '%{url_effective} %{http_code}' http://seeding.io/"
+    "probe_commands": "DoH: curl 'https://cloudflare-dns.com/dns-query?name=seeding.io&type=A' -H 'accept: application/dns-json'; HTTP: curl -sSL -o /dev/null -w '%{url_effective} %{http_code}' http://seeding.io/",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

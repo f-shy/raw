@@ -63,7 +63,7 @@
     "detail": "Premium at $15 for 30 days; the page shows no payment-method list beyond checkout. Signup is a form with an email.",
     "country": null
   },
-  "reliability_note": "The 15-day free retention is the shortest in tested services, so a free-tier link shared on 2026-10-23 can be dead in two weeks.",
+  "reliability_note": "unverified: the premium URL answered HTTP 502 on 2026-11-25; routes tried: read pins jina-keyless, browserless, cfbr, cfscan, contextdev, crawl4ai, diffbot, exa, firecrawl, flovia, scrapedo, scrapingant, tavily, tinyfish, zenrows, hyperbrowser and jina, fetch --dump-headers, and a probe; an archived 2025-10-11 copy is older than the record and cannot re-date it",
   "confidence": "documented",
   "confidence_note": "Prices and the three-column feature table read on the vendor premium page today. The free tier's actual speed is unread.",
   "evidence": [
@@ -76,10 +76,38 @@
       "url": "https://drop.download/",
       "date": "2026-10-23",
       "proved": "26.9 M+ files shared, 2000 Tb+ total disk used, 129 K+ active members"
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20251011181616/https://drop.download/premium/?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "an archived first-party premium page lists four upload caps, one per plan column",
+      "capture": "sha256:846a31c109bdd63ffca7eeada6883db6fe69081d8bc22f8fea2c858d20d26d20",
+      "quote": "5120 Mb\n\n25600 Mb\n\n51200 Mb\n\n102400 Mb"
+    },
+    {
+      "url": "probe:https://drop.download/premium",
+      "date": "2026-11-25",
+      "proved": "the live premium URL answered HTTP 502 on 2026-11-25",
+      "capture": "sha256:a073c80a7d8615949af893f758f66c75714ba587b328c66cac5ef2033f476245",
+      "quote": "\"status\": 502"
+    },
+    {
+      "url": "probe:https://drop.download/premium",
+      "date": "2026-11-25",
+      "proved": "the premium URL answered HTTP 502 on 2026-11-25",
+      "capture": "sha256:a073c80a7d8615949af893f758f66c75714ba587b328c66cac5ef2033f476245",
+      "quote": "\"status\": 502"
+    },
+    {
+      "url": "probe:https://drop.download/premium",
+      "date": "2026-11-25",
+      "proved": "the premium URL answered HTTP 502 on 2026-11-25, so no field can be re-read from the live page",
+      "capture": "sha256:a073c80a7d8615949af893f758f66c75714ba587b328c66cac5ef2033f476245",
+      "quote": "\"status\": 502"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T03:18:17.000Z",
+  "verified_at": "2026-11-25T09:46:41.070Z",
   "price_per_tb_month": "USD 15 per month for 60 GB/day",
   "history": [],
   "notes": "The $90 year is $7.50 a month. The 7-day plan at $10 is the only short trial in tested services and is the cheapest way to test whether a specific host's speed holds. No programmatic path found: Web upload with remote URL upload on premium. No API or FTP published on the page read.",

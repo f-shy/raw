@@ -6,7 +6,7 @@
   "category": "retail-ecosystem photo cloud",
   "free_tier": {
     "stated": "5 GB for every Amazon customer. Unlimited full-resolution photo storage plus 5 GB of video for Amazon Prime members",
-    "unit": "GiB",
+    "unit": "GB",
     "metered_on": "stored-bytes",
     "source_url": "https://www.amazon.com/gp/help/customer/display.html?nodeId=G6PT8TMLM9NVZCSL",
     "read_on": "2026-10-21"
@@ -82,13 +82,6 @@
       "quote": "Unlimited full-resolution photo storage, plus 5 GB of video storage, for Amazon Prime members."
     },
     {
-      "url": "https://www.amazon.com/gp/help/customer/display.html?nodeId=G6PT8TMLM9NVZCSL",
-      "date": "2026-11-03",
-      "proved": "5 GB free for every Amazon customer",
-      "capture": "sha256:cf70fe114bf2bf1b6f2d9f3f826c9975c8e432b6de305702e4c07c95feb06765",
-      "quote": "5 GB of free storage for all Amazon customers."
-    },
-    {
       "url": "https://github.com/vanessa/immich-amazon-sync",
       "date": "2026-11-03",
       "proved": "the wrapper still authenticates by browser cookie that expires",
@@ -115,10 +108,17 @@
       "proved": "unchanged: 5 GB for all customers, unlimited photos plus 5 GB video for Prime",
       "capture": "sha256:cf70fe114bf2bf1b6f2d9f3f826c9975c8e432b6de305702e4c07c95feb06765",
       "quote": "- 5 GB of free storage for all Amazon customers.\n- Unlimited full-resolution photo storage, plus 5 GB of video storage, for Amazon Prime members."
+    },
+    {
+      "url": "https://www.amazon.com/gp/help/customer/display.html?nodeId=G6PT8TMLM9NVZCSL",
+      "date": "2026-11-26",
+      "proved": "the first-party help page states 5 GB of free storage",
+      "capture": "sha256:cf70fe114bf2bf1b6f2d9f3f826c9975c8e432b6de305702e4c07c95feb06765",
+      "quote": "5 GB of free storage for all Amazon customers."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T15:23:47.350Z",
+  "verified_at": "2026-11-26T02:15:13.860Z",
   "history": [],
   "price_per_tb_month": "Bundled with Prime at about USD 139/yr; the unlimited photo tier has no standalone price",
   "binding": "write-gated",

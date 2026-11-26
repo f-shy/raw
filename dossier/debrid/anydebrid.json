@@ -64,10 +64,17 @@
       "url": "probe:html-fingerprint https://anydebrid.com/",
       "date": "2026-10-23",
       "proved": "a 'generator-container' block and the same section order as MaxDebrid, YouDebrid and MegaDownloader, which is a shared front-end template rather than a shared build (different title, different article slugs, 53,436 bytes against 51,723 on MaxDebrid)"
+    },
+    {
+      "url": "https://anydebrid.com/",
+      "date": "2026-11-25",
+      "proved": "the FAQ still publishes the 8-link-per-day cap while the feature list still claims unlimited service",
+      "capture": "sha256:27b52de717a0ca00fd7578c24b511f817b7ab8eb9a183643d3a3b133f3c0727f",
+      "quote": "With our debrid tool you can generate almost 8 premium links per day."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:06:35.000Z",
+  "verified_at": "2026-11-25T09:46:43.324Z",
   "price_per_tb_month": "EUR 0 (8 links/day)",
   "history": [],
   "notes": "The 'unlimited' headline and the 8-a-day FAQ contradict each other on the same page; the FAQ is the enforceable one. Common template with MaxDebrid, YouDebrid and MegaDownloader (same cap, same section order, same generator-container class) but different builds and different article content, so common ownership is plausible and not established - do not count these four as four independent providers until one backend is demonstrated. No programmatic path found: A single web form: paste a host link, press Generate link, receive a time-limited download URL. No API, CLI or plugin is documented."

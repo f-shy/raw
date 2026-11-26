@@ -104,10 +104,17 @@
       "proved": "the operator's limits post gives 80 GB per link on mirror",
       "capture": "sha256:22e3ae32d750b2cb259f229b435dea01d56e5c6221d2dd3cf25adb560d4713c5",
       "quote": "Mirror: upto 80 GB/link"
+    },
+    {
+      "url": "https://t.me/s/PublicMirrorLeechUpdates",
+      "date": "2026-11-26",
+      "proved": "the operator's post states the daily limit verbatim",
+      "capture": "sha256:5604bd52559e09d476a258466a374340353ae9fd37c41e2141f87ee7654ea84a",
+      "quote": "Daily Limit: Unlimited"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T11:28:50.410Z",
+  "verified_at": "2026-11-26T01:59:17.873Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Classified as a service because it resolves and fetches remote URLs rather than mirroring an account: a user hands it a URL and gets bytes back. The account-mirror bots in the same ledger were not recorded, because they only drive somebody's own cloud account. No programmatic path found: A Telegram bot, not an HTTP service: the control channel is Telegram chat with @publicmirrorbot, and there is no documented REST endpoint. The bot's preview names a fallback bot and a support group rather than an API.",

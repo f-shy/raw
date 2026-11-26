@@ -72,13 +72,6 @@
       "quote": "\"status\": 401,"
     },
     {
-      "url": "probe:https://pan.xyyh.xyz/api/fs/list",
-      "date": "2026-11-19",
-      "proved": "the anonymous 2026-11-19 listing returned 2 root entries with write:false and provider:unknown",
-      "capture": "sha256:5f8dfd280cd8a3fd93d80f6f86c5136fc86e39a2d3a63f36215297934461a999",
-      "quote": "\"total\":2,\"readme\":\"\",\"header\":\"\",\"write\":false,\"provider\":\"unknown\""
-    },
-    {
       "url": "probe:https://pan.xyyh.xyz/api/me",
       "date": "2026-11-19",
       "proved": "the 2026-11-19 session is an anonymous guest with an empty password and permission 2, so no account is needed",
@@ -91,13 +84,6 @@
       "proved": "the 2026-11-19 settings read identifies the AList instance 知网云盘 and publishes no per-object cap",
       "capture": "sha256:73017d6d8813b3aac0f62ecbfe840f102ae827df9893765ba5fea063d2d38d4c",
       "quote": "\"site_title\":\"知网云盘\",\"sso_compatibility_mode\":\"false\""
-    },
-    {
-      "url": "probe:https://pan.xyyh.xyz/dav",
-      "date": "2026-11-19",
-      "proved": "the WebDAV endpoint on 2026-11-19 answered 401 with Basic realm=alist, so the WebDAV interface exists but is gated",
-      "capture": "sha256:2d68a90cd50e458fe176e9916a28b7ef9bace1081455f8864758746ab50d8298",
-      "quote": "\"status\": 401,"
     },
     {
       "url": "probe:https://pan.xyyh.xyz/api/fs/list",
@@ -119,6 +105,41 @@
       "proved": "the root listing hash is b78ce46f, changed from the recorded 9e6193c6",
       "capture": "sha256:c47054159e2ef701793a5897e895c02222b54e4c6bf0b27219636e7d988c42f5",
       "quote": "\"listing_sha256\": \"b78ce46f\""
+    },
+    {
+      "url": "probe:https://pan.xyyh.xyz/",
+      "date": "2026-11-25",
+      "proved": "the probe checked this host at this instant",
+      "capture": "sha256:84ffc7e0468eaa627139749de9160a507047033a1881b5545f2402b7886f08db",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:34.269Z\""
+    },
+    {
+      "url": "probe:https://pan.xyyh.xyz/",
+      "date": "2026-11-25",
+      "proved": "the anonymous root listing has this entry count and hash",
+      "capture": "sha256:84ffc7e0468eaa627139749de9160a507047033a1881b5545f2402b7886f08db",
+      "quote": "\"listing_sha256\": \"b78ce46f\", ... \"root_entries\": 2,"
+    },
+    {
+      "url": "probe:https://pan.xyyh.xyz/",
+      "date": "2026-11-25",
+      "proved": "the anonymous guest session answered and the settings request returned 200, so the host is alive",
+      "capture": "sha256:84ffc7e0468eaa627139749de9160a507047033a1881b5545f2402b7886f08db",
+      "quote": "\"alive\": true, ... \"status\": 200,"
+    },
+    {
+      "url": "probe:https://pan.xyyh.xyz/",
+      "date": "2026-11-25",
+      "proved": "the session is an anonymous guest user",
+      "capture": "sha256:84ffc7e0468eaa627139749de9160a507047033a1881b5545f2402b7886f08db",
+      "quote": "\"guest\": true, ... \"username\": \"guest\","
+    },
+    {
+      "url": "probe:https://pan.xyyh.xyz/",
+      "date": "2026-11-25",
+      "proved": "the guest role has this permission bitmask, base path and advertised write flags",
+      "capture": "sha256:84ffc7e0468eaa627139749de9160a507047033a1881b5545f2402b7886f08db",
+      "quote": "\"permission\": 2, ... \"base_path\": \"/\", ... \"write_advertised\": false, ... \"write_content_bypass\": null,"
     }
   ],
   "verdict": "qualifies-with-caveat",

@@ -6,7 +6,7 @@
   "category": "usenet provider (Certida/Giganews backbone)",
   "tier": "1 Year",
   "free_tier": {
-    "stated": "A free trial is attached to every term: 14 days on the 12-month and 6-month prepaid plans and 3 days on the 1-month plan, all reached through a billing redirect.",
+    "stated": "A free trial is attached to every term: 30 days on the 12-month plan, 14 days on the 6-month prepaid plan and 14 days on the 1-month plan, all reached through a billing redirect.",
     "unit": "unlimited",
     "metered_on": "wall-clock",
     "source_url": "https://www.order.giganews.com/signup/",
@@ -49,7 +49,7 @@
       "source": "https://www.reddit.com/r/usenet/wiki/providers"
     }
   ],
-  "limits_note": "1 month $9.99, 6 months $9.17/mo, 1 year $8.33/mo billed $100.00 against a stated $217.39 regular price. All terms include VyprVPN. The trial links point at order.giganews.com/signup/billing_redirect.html, which is a payment step.",
+  "limits_note": "Black Friday 2026: 1 year $4.65/mo billed $56.00 for the first year, then $8.33/mo; 6 months $9.17/mo; 1 month $9.99/mo. All terms include VyprVPN. The trial links point at order.giganews.com/signup/billing_redirect.html, which is a payment step.",
   "binding": "retention-clamped",
   "binding_note": "Binary depth is the constraint, not volume: unlimited transfer at 100 connections never runs out, but a 550-day binary spool cannot retrieve a 2019 post however much bandwidth is left.",
   "identity_cost": {
@@ -112,10 +112,38 @@
       "proved": "100 connections unchanged",
       "capture": "sha256:54d7c037359326157665c14d0722e17853a28f20d3b4efb97d136f08dbf449b0",
       "quote": "100 Connections"
+    },
+    {
+      "url": "https://www.order.giganews.com/signup/",
+      "date": "2026-11-25",
+      "proved": "the 12-month term carries a 30-day trial",
+      "capture": "sha256:1b3734281bac1fb6a33a3ac0e0388b87e72b39a0ba88e6dfcced0196bd78e743",
+      "quote": "+ 30 days free trial"
+    },
+    {
+      "url": "https://www.order.giganews.com/signup/",
+      "date": "2026-11-25",
+      "proved": "the yearly term is $4.65/mo billed $56.00 for the first year, then $8.33/mo",
+      "capture": "sha256:1b3734281bac1fb6a33a3ac0e0388b87e72b39a0ba88e6dfcced0196bd78e743",
+      "quote": "1 Year  $4.65/mo.   BILLED YEARLY AT ~~$217.39~~ $56.00 first year, then $8.33/mo"
+    },
+    {
+      "url": "https://giganews.com/",
+      "date": "2026-11-25",
+      "proved": "the vendor still states over five years of binary retention",
+      "capture": "sha256:a41f6f4e87170c23158ae10d5130e1c3d5cde4455eaababac6f0b3220019d0e1",
+      "quote": "Over 5 Years of Binaries"
+    },
+    {
+      "url": "https://www.order.giganews.com/signup/",
+      "date": "2026-11-25",
+      "proved": "the plan still offers 100 connections",
+      "capture": "sha256:1b3734281bac1fb6a33a3ac0e0388b87e72b39a0ba88e6dfcced0196bd78e743",
+      "quote": "100 Connections"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-03T11:28:55.819Z",
+  "verified_at": "2026-11-25T09:47:07.114Z",
   "price_per_tb_month": "USD 8.33 (12-month term)",
   "notes": "Where two sources disagree the record keeps the conservative number: 550 days of binaries, not the 'Over 5 Years of Binaries' the vendor states.",
   "extras": {

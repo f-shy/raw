@@ -4,7 +4,7 @@
   "provider": "ElfHosted - Stremio addon subscriptions",
   "url": "https://store.elfhosted.com/product-category/stremio-addons/",
   "category": "managed private Stremio addon instance (debrid key passthrough, optional proxy streaming)",
-  "tier": "per-addon (USD 9) and Stremio Addons Bundle (USD 29)",
+  "tier": "per-addon (USD 9, USD 12 from 1 January 2027) and Stremio Addons Bundle (USD 29)",
   "free_tier": {
     "stated": "No free tier for a private instance, but a free public instance of each addon exists with lower limits: 'we offer free highly-available hosting for addons, with rate-limits to prevent abuse ... subscription-based instances are also available with 10 x higher rate-limits'. The paid products carry 'Free trial: 7 days' and 'Sign-up fee: $1.00'.",
     "unit": "none",
@@ -81,15 +81,50 @@
       "url": "https://store.elfhosted.com/product/prowlarr/",
       "date": "2026-10-23",
       "proved": "reported, not read by me: a search index shows 'USD 9.00 / month with a 7-day free trial and a $1.00 sign-up fee'; the same page is recorded at scratch usenet-indexers/records/elfhosted-prowlarr.json"
+    },
+    {
+      "url": "https://store.elfhosted.com/product-category/stremio-addons/",
+      "date": "2026-11-25",
+      "proved": "the AIOStreams per-addon price rises to USD 12 per month on 1 January 2027",
+      "capture": "sha256:5003544dccf1525f43a1dd4b7fed3631cc0eb81732bd5ce7570da99e261cd6a8",
+      "quote": "Price change on 1 January 2027: this plan moves to $12/month. Subscriptions started before then keep $9/month."
+    },
+    {
+      "url": "https://store.elfhosted.com/product-category/stremio-addons/",
+      "date": "2026-11-25",
+      "proved": "AIOStreams changes from USD 9 to USD 12 per month on 1 January 2027",
+      "capture": "sha256:5003544dccf1525f43a1dd4b7fed3631cc0eb81732bd5ce7570da99e261cd6a8",
+      "quote": "Price change on 1 January 2027: this plan moves to $12/month. Subscriptions started before then keep $9/month."
+    },
+    {
+      "url": "https://store.elfhosted.com/product-category/stremio-addons/",
+      "date": "2026-11-25",
+      "proved": "the per-addon price and its dated change are unchanged from this storefront row",
+      "capture": "sha256:5003544dccf1525f43a1dd4b7fed3631cc0eb81732bd5ce7570da99e261cd6a8",
+      "quote": "Price change on 1 January 2027: this plan moves to $12/month. Subscriptions started before then keep $9/month."
+    },
+    {
+      "url": "https://docs.elfhosted.com/stremio-addons/",
+      "date": "2026-11-25",
+      "proved": "free public instances still exist with rate limits",
+      "capture": "sha256:49762e8e958e0c97a9e616c91865117a1640eb44a51dfc1839147867b60a28d6",
+      "quote": "In support of the Stremio community, we offer free highly-available hosting for addons, with rate-limits to prevent abuse."
+    },
+    {
+      "url": "https://comet.elfhosted.com/configure",
+      "date": "2026-11-25",
+      "proved": "the public Comet instance still advertises rate limits",
+      "capture": "sha256:5ea43f34d8645540b552222c48277efdf019b596f815b1d4c10e5bfd36f364f6",
+      "quote": "Reasonable rate limits apply so it stays fast for everyone."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T02:28:11.000Z",
+  "verified_at": "2026-11-25T09:46:50.791Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "The bundle is the only place the vendor bundles somebody else's debrid capacity: 'Stremio Addons Bundle includes ... bundled third-party TorBox and Usenet provider accounts', and AIOStreams (with TorBox Essential) is USD 9 with the TorBox account inside. That makes USD 9 the cheapest single purchase found that includes both the addon and a debrid subscription, which is the whole pipeline in one line item.",
   "extras": {
-    "product_prices_usd_month": "AIOStreams 9, AIOStreams+Stremthru 9, AIOStreams+MediaFlow 9, AIOStreams+NzbDAV 9, AIOStreams+TorBox 9, MediaFusion+MediaFlow 9, Comet+proxy 9, Usenet Streamer 9, Stremio Addons Bundle 29, MediaFlow 2x4K booster 9, Prowlarr 9, Jackett 9, NZBHydra 9",
+    "product_prices_usd_month": "AIOStreams 9 until 1 January 2027 then 12, AIOStreams+Stremthru 9, AIOStreams+MediaFlow 9, AIOStreams+NzbDAV 9, AIOStreams+TorBox 9, MediaFusion+MediaFlow 9, Comet+proxy 9, Usenet Streamer 9, Stremio Addons Bundle 29, MediaFlow 2x4K booster 9",
     "overlaps": "the per-app Prowlarr/NZBHydra pricing is already recorded at scratch usenet-indexers/records/elfhosted-prowlarr.json; this record covers the addon line, not the indexer line"
   }
 }

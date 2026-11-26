@@ -6,7 +6,7 @@
   "category": "torrent aggregator (JSON API, Torznab, RSS, Stremio addon)",
   "tier": "free",
   "free_tier": {
-    "stated": "Anonymous reads work and are metered: x-ratelimit-limit: 10, x-ratelimit-remaining: 9, x-ratelimit-tier: anonymous on every search response. Magnets and info hashes are not in the anonymous payload.",
+    "stated": "Anonymous reads work and are metered: x-ratelimit-limit: 10 and x-ratelimit-tier: anonymous on the search response, which returned total 8 for q=ubuntu. Magnet links, info hashes and torrent downloads require a free API key.",
     "unit": "requests",
     "metered_on": "request-count",
     "source_url": "https://torrentclaw.com/api/v1/search?q=ubuntu&limit=3",
@@ -72,10 +72,52 @@
       "url": "https://torrentclaw.com/llms-full.txt",
       "date": "2026-10-23",
       "proved": "limits are per endpoint and IP-based for anonymous traffic, 429 carries Retry-After, and the free key is enough for some endpoints while anonymous is rejected on others"
+    },
+    {
+      "url": "https://torrentclaw.com/api/v1/search?q=ubuntu&limit=3",
+      "date": "2026-11-25",
+      "proved": "the anonymous search payload withholds magnets and info hashes until a free key is supplied",
+      "capture": "sha256:63fdb99708ffb4af32cae9270d877d041751e0c2249bc8e4af7ee7c666a654a0",
+      "quote": "Magnet links, info hashes, and torrent downloads require a free API key. Register at https://torrentclaw.com/register"
+    },
+    {
+      "url": "https://torrentclaw.com/api/v1/search?q=ubuntu&limit=3",
+      "date": "2026-11-25",
+      "proved": "magnets and info hashes are still withheld from anonymous searches",
+      "capture": "sha256:63fdb99708ffb4af32cae9270d877d041751e0c2249bc8e4af7ee7c666a654a0",
+      "quote": "Magnet links, info hashes, and torrent downloads require a free API key. Register at https://torrentclaw.com/register"
+    },
+    {
+      "url": "https://torrentclaw.com/api/v1/search?q=ubuntu&limit=3",
+      "date": "2026-11-25",
+      "proved": "the anonymous search response still reports a limit of 10",
+      "capture": "sha256:63fdb99708ffb4af32cae9270d877d041751e0c2249bc8e4af7ee7c666a654a0",
+      "quote": "x-ratelimit-limit: 10"
+    },
+    {
+      "url": "https://torrentclaw.com/llms-full.txt",
+      "date": "2026-11-25",
+      "proved": "the rate-limit model in the documentation is unchanged",
+      "capture": "sha256:fa2f091b237463799f723fac147c2fc7bdbb959af7e374b3ad4d8008ccbeacab",
+      "quote": "- **Rate limits**: per-endpoint, IP-based for anonymous traffic, key-based for authenticated traffic."
+    },
+    {
+      "url": "https://torrentclaw.com/llms-full.txt",
+      "date": "2026-11-25",
+      "proved": "the documented API still returns 429 with Retry-After on rate limits",
+      "capture": "sha256:fa2f091b237463799f723fac147c2fc7bdbb959af7e374b3ad4d8008ccbeacab",
+      "quote": "Rate-limit responses use HTTP 429 with `Retry-After`. Authentication failures use HTTP 401 with `{ \"error\": \"...\" }`."
+    },
+    {
+      "url": "https://torrentclaw.com/register",
+      "date": "2026-11-25",
+      "proved": "the free key registration form asks for a name and an email address and no card",
+      "capture": "sha256:d4df2fbf8cf9361364256e9f1408387ab3cd8dc4a13b1bcc94510bd3ec5ee057",
+      "quote": "Name\n\nEmail\n\nPrefer not to share your real email? Use an alias from [SimpleLogin](https://simplelogin.io/), [addy.io](https://addy.io/), [DuckDuckGo](https://duckduckgo.com/email/)."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T01:52:28.000Z",
+  "verified_at": "2026-11-25T09:47:05.722Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The only index among debrid providers that publishes its anonymous quota in the response headers, which makes it the honest answer to 'what is the rate limit': 10 per window, and the object itself needs a free key. The caveat is precisely that split.",

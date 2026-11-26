@@ -20,7 +20,7 @@
     "notes": "an article size is a protocol convention, not a vendor number"
   },
   "retention": {
-    "stated": "The vendor homepage states 'Many Articles Over 4000 Days Old' and 'Exceptional Binary and Text Retention'; no binary retention depth in days is stated. The r/usenet map records a 3,000-day backfill; that third-party figure is the recorded number.",
+    "stated": "The vendor homepage now states 'Many Articles Over 6000 Days Old' and 'Many articles over 6000+ days old'; no separate binary retention depth in days is stated. The r/usenet map records an older third-party backfill of a few thousand days.",
     "days": 3000,
     "source_url": "https://www.reddit.com/r/usenet/wiki/providers"
   },
@@ -131,10 +131,38 @@
       "proved": "money-back guarantee, not a trial, unchanged",
       "capture": "sha256:5a0578df404fb9126c6394379f10222745c199627c740d1ecf71ae8a3b7e0d87",
       "quote": "30 Day Money Back Guarantee"
+    },
+    {
+      "url": "https://www.usenetexpress.com/",
+      "date": "2026-11-25",
+      "proved": "the vendor's own retention claim rose from 4000 to 6000+ days",
+      "capture": "sha256:db65da62d2958bdb9345949643bc2d80f48408403d839911a736e223279e08d3",
+      "quote": "Many articles over 6000+ days old"
+    },
+    {
+      "url": "https://www.usenetexpress.com/",
+      "date": "2026-11-25",
+      "proved": "the connection allowance is unchanged",
+      "capture": "sha256:db65da62d2958bdb9345949643bc2d80f48408403d839911a736e223279e08d3",
+      "quote": "All plans include 50 hi-speed connections, upgradeable to 150 connections!"
+    },
+    {
+      "url": "https://usenetexpress.com/plans/",
+      "date": "2026-11-25",
+      "proved": "the yearly unlimited plan is unchanged at $90 with 50 connections",
+      "capture": "sha256:355581c489edb3bbb69346f9fa8378c69a87ce4f435bdbdbc365d497323f4ed8",
+      "quote": "Yearly\n\nUNLIMITED\n\n50 Connections\n\n256-bit SSL (TLS1.2)\n\n30 Days Risk Free\n\nVPN Account Included\n\n$90"
+    },
+    {
+      "url": "https://www.usenetexpress.com/",
+      "date": "2026-11-25",
+      "proved": "the payment methods are unchanged",
+      "capture": "sha256:db65da62d2958bdb9345949643bc2d80f48408403d839911a736e223279e08d3",
+      "quote": "- Bitcoin accepted: YES"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-03T11:28:55.822Z",
+  "verified_at": "2026-11-25T09:47:06.403Z",
   "price_per_tb_month": "USD 7.50 (unlimited, annual at $90/yr)",
   "notes": "Second independent backbone after Omicron by retention depth, and the only one whose resellers publish blocks under $50/TB.",
   "extras": {

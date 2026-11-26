@@ -75,10 +75,45 @@
       "url": "https://notes.debridmediamanager.com/providers/usenet/",
       "date": "2026-10-23",
       "proved": "'backup: true keeps the ten connections for articles every other account has already refused ... Only a real no such article does.'"
+    },
+    {
+      "url": "https://notes.debridmediamanager.com/providers/torbox-news-server/",
+      "date": "2026-11-25",
+      "proved": "the vendor retention claim is still 3900+ days and is bundled with Pro",
+      "capture": "sha256:ca65679d6a5897fe078616147dc683dca18b0314114eef9545d0f361a887fb5e",
+      "quote": "| Retention | 3900+ days claimed by TorBox for this server |"
+    },
+    {
+      "url": "https://notes.debridmediamanager.com/providers/torbox-news-server/",
+      "date": "2026-11-25",
+      "proved": "the connection cap is still 10",
+      "capture": "sha256:ca65679d6a5897fe078616147dc683dca18b0314114eef9545d0f361a887fb5e",
+      "quote": "| Connections | 10, a hard cap counted exactly, mid handshake included |"
+    },
+    {
+      "url": "https://notes.debridmediamanager.com/providers/torbox-news-server/",
+      "date": "2026-11-25",
+      "proved": "bandwidth stays unlimited on the wire but is counted in the plan usage figure",
+      "capture": "sha256:ca65679d6a5897fe078616147dc683dca18b0314114eef9545d0f361a887fb5e",
+      "quote": "| Bandwidth | unlimited but counted in the TorBox dashboard usage figure |"
+    },
+    {
+      "url": "https://notes.debridmediamanager.com/providers/torbox-news-server/",
+      "date": "2026-11-25",
+      "proved": "NNTP credentials come from the TorBox account and the password is shown once",
+      "capture": "sha256:ca65679d6a5897fe078616147dc683dca18b0314114eef9545d0f361a887fb5e",
+      "quote": "Credentials come from torbox.app under tools and View Usenet Connection Details. The username is the account auth id. The password is shown once."
+    },
+    {
+      "url": "https://torbox.app/pricing",
+      "date": "2026-11-25",
+      "proved": "Usenet and NNTP are listed on the Free, Essential, Standard and Pro tiers, so access is tied to a TorBox account",
+      "capture": "sha256:6c693f1ee81758a37c250c00cba9a5b7f824989455d935d736ec72b9819a3e81",
+      "quote": "Usenet Downloads + NNTP"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:22:02.000Z",
+  "verified_at": "2026-11-25T09:47:10.468Z",
   "price_per_tb_month": null,
   "notes": "Potential failure points: a 482 connection refusal, a password reset, or a 430 on older posts. The 430 is the one that matters for an archive pull and the coverage table quantifies it; the connection refusal is the one a careless pool meets in the first hour. The 3900-day retention claim and the measured coverage disagree, and the record keeps both rather than choosing.",
   "extras": {

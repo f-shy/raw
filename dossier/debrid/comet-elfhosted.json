@@ -41,7 +41,7 @@
   "limits": [
     {
       "kind": "request-rate",
-      "value": "unpublished 'reasonable rate limits' on the shared public instance",
+      "value": "100 stream requests up front, refilling at 1 request a minute, counted per internet connection on the public instance; private instances get 1,000 up front and 10 a minute",
       "source": "https://comet.elfhosted.com/configure"
     }
   ],
@@ -78,10 +78,38 @@
       "proved": "a GET of the unconfigured stream path /stream/movie/tt1254207.json answered HTTP 403 with a 9-byte body on 2026-10-30",
       "capture": "sha256:2f07d03fd2ad59aea7a04e075ea52d065bd3ae79fdfc5c9211aba968aca1af34",
       "quote": "\"status\": 403"
+    },
+    {
+      "url": "https://comet.elfhosted.com/configure",
+      "date": "2026-11-25",
+      "proved": "the public instance is still free, sponsored and rate limited",
+      "capture": "sha256:5ea43f34d8645540b552222c48277efdf019b596f815b1d4c10e5bfd36f364f6",
+      "quote": "This is the public instance of Comet, sponsored by ElfHosted ❤️. Reasonable rate limits apply so it stays fast for everyone."
+    },
+    {
+      "url": "https://docs.elfhosted.com/stremio-addons/guide/rate-limits/",
+      "date": "2026-11-25",
+      "proved": "the published public bucket is 100 stream requests with 1,000 for private instances",
+      "capture": "sha256:0d473798b8bc4021c5ebab506a7be009cb7c94219930a4561b4993677fb14b1a",
+      "quote": "Up front | 100 stream requests | 1,000 stream requests"
+    },
+    {
+      "url": "https://comet.elfhosted.com/manifest.json",
+      "date": "2026-11-25",
+      "proved": "the public manifest is still served and identifies the same addon",
+      "capture": "sha256:f44f746993f534a9e76d2b2910b42cd899eb29752be93f627bb909055cae7de8",
+      "quote": "{\"id\":\"comet.elfhosted.com\",\"description\":\"Stremio's fastest torrent/debrid search add-on.\",\"version\":\"2.0.0\""
+    },
+    {
+      "url": "https://comet.elfhosted.com/stream/movie/tt1254207.json",
+      "date": "2026-11-25",
+      "proved": "the bare unconfigured stream path still answers HTTP 403 without a debrid configuration",
+      "capture": "sha256:a04b66c2b243c77557dd960d9d0e059e2b4ff3c4f3df757f919f1adc5eda7d90",
+      "quote": "HTTP/2 403"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-30T13:11:55.961Z",
+  "verified_at": "2026-11-25T09:46:44.528Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Comet is the strongest free front-door found that is still alive: manifest served, configure page live, no account. Its two failures are the 403 on the unconfigured path and the absence of any way to stream peer-to-peer from a browser, which pushes the setup back to a debrid key.",

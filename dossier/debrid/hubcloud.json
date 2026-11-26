@@ -36,7 +36,7 @@
     "rest",
     "unknown"
   ],
-  "interface_detail": "REST upload endpoint `curl -X POST api.hubcloud.foo/upload`, announced as 'New: API v2.0 Released', with a dashboard at hubcloud.foo/drive/admin. The page also offers a 'Pack Manager' that combines several links into one package and a Drive integration that requires no account linking.",
+  "interface_detail": "REST upload endpoint `curl -X POST api.hubcloud.mov/upload` ... dashboard at https://hubcloud.mov/drive/admin",
   "endpoint": "https://api.hubcloud.foo/upload",
   "tooling": "No client library. The generation step is a form on the page; the API is a single documented POST. Third parties already automate it: hubcloud.cfd is a public 'HubCloud Bypass' page whose only feature is 'Extract direct download links from HubCloud video/drive pages instantly'.",
   "chaining": "The middle layer of the Indian index chain: an index site posts a HubCloud link, HubCloud re-exposes the Google Drive file as a direct link that indexers and apps can hand to a downloader, and the same file is often re-wrapped one layer down by DriveSeed or GDFlix.",
@@ -78,10 +78,24 @@
       "url": "https://hubcloud.cfd/",
       "date": "2026-10-23",
       "proved": "third parties run a dedicated bypass front for the service ('Extract direct download links from HubCloud video/drive pages instantly'), which shows the wrapper is used at volume"
+    },
+    {
+      "url": "https://hubcloud.ist/",
+      "date": "2026-11-25",
+      "proved": "the first-party page names the provider HubCloud",
+      "capture": "sha256:00e6f8da1e7800016720a2b4c0f2f7a910f6cbd4e2e95e66aaf8e4de6728cb6c",
+      "quote": "HubCloud isn't just storage; it's a teleportation device for your files."
+    },
+    {
+      "url": "https://hubcloud.ist/",
+      "date": "2026-11-25",
+      "proved": "the live page publishes the upload API as api.hubcloud.mov and the dashboard at hubcloud.mov/drive/admin",
+      "capture": "sha256:00e6f8da1e7800016720a2b4c0f2f7a910f6cbd4e2e95e66aaf8e4de6728cb6c",
+      "quote": "> curl -X POST api.hubcloud.mov/upload ... [Launch Dashboard](https://hubcloud.mov/drive/admin)"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:34:15.635Z",
+  "verified_at": "2026-11-25T15:30:10.992Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The record prices a link wrapper, not storage: nothing here can be mounted, and the bytes always belong to Google. hubcloud.xyz was the ledger's assumed host and is dead.",

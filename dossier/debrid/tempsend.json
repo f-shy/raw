@@ -18,7 +18,7 @@
     "source_url": "https://www.tempsend.com/llms.txt"
   },
   "retention": {
-    "stated": "chosen expiry from 1 second to 7 days; 604800 seconds maximum",
+    "stated": "chosen expiry from 1 second to 7 days (1 to 604800 seconds); the maximum is shortened for larger files to about 4 days at 100 MB and 1 day at 500 MB",
     "days": 7,
     "source_url": "https://www.tempsend.com/llms.txt"
   },
@@ -86,10 +86,38 @@
       "capture": "sha256:aea81ed6fd5cc17eeab28f38d04bd9a3f32b3ca3d7283187c5ebe23066051c00",
       "quote": "No ads. No sign up or registration required. Funded by the site administrator as a public service.",
       "proved": "free with no registration"
+    },
+    {
+      "url": "https://www.tempsend.com/llms.txt",
+      "date": "2026-11-25",
+      "proved": "expiry is 1 second to 7 days, shortened to 1 day for a 500 MB file and about 4 days at 100 MB",
+      "capture": "sha256:ac0fd9783baab82b711c7faae016b2b4d784dc3ea337f59fce907db19c54e5e1",
+      "quote": "Expiration: **1 second to 7 days** (1 — 604800 seconds). Larger files get a shorter maximum, falling to **1 day** for a 500 MB file (about 4 days at 100 MB)."
+    },
+    {
+      "url": "https://www.tempsend.com/llms.txt",
+      "date": "2026-11-25",
+      "proved": "the per-file cap is still 500 MB",
+      "capture": "sha256:ac0fd9783baab82b711c7faae016b2b4d784dc3ea337f59fce907db19c54e5e1",
+      "quote": "Max file size: **500 MB**"
+    },
+    {
+      "url": "https://www.tempsend.com/llms.txt",
+      "date": "2026-11-25",
+      "proved": "no account, key or script execution is needed to upload",
+      "capture": "sha256:ac0fd9783baab82b711c7faae016b2b4d784dc3ea337f59fce907db19c54e5e1",
+      "quote": "There is no signup, no JavaScript requirement, and no API key."
+    },
+    {
+      "url": "https://tempsend.com/",
+      "date": "2026-11-25",
+      "proved": "the home page confirms the service is free with no registration",
+      "capture": "sha256:4213856d284070c7abcd0dcbafe9b243ff1f9e9c3d7f25bdd6663ea654675ca6",
+      "quote": "No ads. No sign up or registration required. Funded by the site administrator as a public service."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T07:37:12.656Z",
+  "verified_at": "2026-11-25T09:47:05.105Z",
   "price_per_tb_month": null,
   "notes": "The vendor llms.txt states 500 MB per file; an aggregator list shows 2 GB, which the vendor pages do not state."
 }

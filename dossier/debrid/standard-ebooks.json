@@ -89,10 +89,31 @@
       "url": "probe:https://standardebooks.org/feeds/atom/all",
       "date": "2026-10-23",
       "proved": "401 to an anonymous client - the catalogue feed is not public"
+    },
+    {
+      "url": "https://standardebooks.org/about",
+      "date": "2026-11-25",
+      "proved": "The per-book catalogue is still distributed free of cost",
+      "capture": "sha256:0b07b003392013986d52c952ad6d989d05215a6e17701baa6eb44551e0ad9281",
+      "quote": "All the ebooks we produce are distributed free of cost and free of U.S. copyright restrictions."
+    },
+    {
+      "url": "https://standardebooks.org/bulk-downloads",
+      "date": "2026-11-25",
+      "proved": "Bulk ZIP downloads remain restricted to paying Patrons Circle members",
+      "capture": "sha256:90c858a5af5b7734e9c444b8a2e72eebc0fbb17064902003158857c74071e6ea",
+      "quote": "Access to our bulk downloads is a benefit of Patrons circle membership"
+    },
+    {
+      "url": "probe:https://standardebooks.org/feeds/atom/all",
+      "date": "2026-11-25",
+      "proved": "The Atom catalogue feed still answers 401 to an anonymous client",
+      "capture": "sha256:6167ab0c24ca356af5b96cf1ec756d7d6e0a7f3a49e486b83c4ef593c6c2dd21",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:24:34.450Z",
+  "verified_at": "2026-11-25T09:47:00.874Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The caveat is bulk only: the free path is one book at a time or one git clone at a time. The abandoned route was 'download the Atom feed and walk it' - the feed answered 401.",

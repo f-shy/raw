@@ -12,9 +12,9 @@
     "read_on": "2026-10-21"
   },
   "per_object_cap": {
-    "stated": "1 GB per file on a free account: 'UC网盘2t,但单文件就1G，相当难用'",
-    "bytes": 1000000000,
-    "source_url": "https://linux.do/t/topic/1426604"
+    "stated": "10 GB per file for free users and 100 GB after membership: '大文件单文件最大支持10GB 成为会员后支持至100GB'",
+    "bytes": 10000000000,
+    "source_url": "https://fast.uc.cn/"
   },
   "retention": {
     "stated": "Promo capacity is permanent once claimed. No retention clock on stored files is published",
@@ -36,8 +36,8 @@
   "limits": [
     {
       "kind": "per-object-cap",
-      "value": "1 GB per file on a free account",
-      "source": "https://linux.do/t/topic/1426604"
+      "value": "10 GB per file for free users; 100 GB after membership",
+      "source": "https://fast.uc.cn/"
     },
     {
       "kind": "per-ip-shaping",
@@ -110,6 +110,13 @@
       "proved": "the vendor page advertises 6 TB as part of the paid SVIP tier",
       "capture": "sha256:622c94b57c266dd2e22a3d49c272358f1804ea158fd3d87a7e12dcc81c40f822",
       "quote": "开通UC网盘SVIP畅享6TB存储空间"
+    },
+    {
+      "url": "https://fast.uc.cn/",
+      "date": "2026-11-25",
+      "proved": "the first-party page states a 10 GB per-file cap for free users and 100 GB after membership",
+      "capture": "sha256:490b8b2f5bab33429263c6b01dac846f083403218a41723e1a4d3bd344a99617",
+      "quote": "大文件单文件最大支持10GB 成为会员后支持至100GB"
     }
   ],
   "verdict": "fails-quota",

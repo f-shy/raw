@@ -20,8 +20,8 @@
     "notes": "an article size is a protocol convention, not a vendor number"
   },
   "retention": {
-    "stated": "7.785 days of retention on the home page ('derzeit 7.785 Tagen')",
-    "days": 7785,
+    "stated": "7.807 days of retention on the home page ('derzeit 7.807 Tagen')",
+    "days": 7807,
     "source_url": "https://www.iload-usenet.com/"
   },
   "egress": {
@@ -45,7 +45,7 @@
     },
     {
       "kind": "retention-clamped",
-      "value": "7.785 days of retention",
+      "value": "7.807 days of retention",
       "source": "https://www.iload-usenet.com/"
     }
   ],
@@ -102,10 +102,52 @@
       "capture": "sha256:73a194dd3c8433315e4120cb3b5efa138cf69c4fe9e38edfe316354ed29b8592",
       "quote": "- **12-240 GB** jeden Monat",
       "proved": "the volume tariffs run from 12 to 240 GB a month"
+    },
+    {
+      "url": "https://www.iload-usenet.com/",
+      "date": "2026-11-25",
+      "proved": "the home page now states 7807 days of retention",
+      "capture": "sha256:a330e70900b130bf900ef990432b7bda9d4bf56701a3b679fc931f2ff60e7a68",
+      "quote": "Wir bieten dir nicht nur die längste Vorhaltezeit von derzeit 7.807 Tagen und somit über 10 Jahren, sondern auch die höchste Vollständigkeit und die größte integrierte Suchmaschine für das Usenet weltweit, sowie gratis SSL-Verschlüsselung. Tarife, die zu dir passen - egal ob du den ganzen Tag herunterladen willst, oder nur ein paar mal im Monat."
+    },
+    {
+      "url": "https://www.iload-usenet.com/",
+      "date": "2026-11-25",
+      "proved": "the retention limit is now 7807 days",
+      "capture": "sha256:a330e70900b130bf900ef990432b7bda9d4bf56701a3b679fc931f2ff60e7a68",
+      "quote": "Wir bieten dir nicht nur die längste Vorhaltezeit von derzeit 7.807 Tagen und somit über 10 Jahren, sondern auch die höchste Vollständigkeit und die größte integrierte Suchmaschine für das Usenet weltweit, sowie gratis SSL-Verschlüsselung. Tarife, die zu dir passen - egal ob du den ganzen Tag herunterladen willst, oder nur ein paar mal im Monat."
+    },
+    {
+      "url": "https://www.iload-usenet.com/",
+      "date": "2026-11-25",
+      "proved": "the home page still carries the retention figure",
+      "capture": "sha256:a330e70900b130bf900ef990432b7bda9d4bf56701a3b679fc931f2ff60e7a68",
+      "quote": "Wir bieten dir nicht nur die längste Vorhaltezeit von derzeit 7.807 Tagen und somit über 10 Jahren, sondern auch die höchste Vollständigkeit und die größte integrierte Suchmaschine für das Usenet weltweit, sowie gratis SSL-Verschlüsselung. Tarife, die zu dir passen - egal ob du den ganzen Tag herunterladen willst, oder nur ein paar mal im Monat."
+    },
+    {
+      "url": "https://www.iload-usenet.com/",
+      "date": "2026-11-25",
+      "proved": "the free trial form still asks for an email address",
+      "capture": "sha256:a330e70900b130bf900ef990432b7bda9d4bf56701a3b679fc931f2ff60e7a68",
+      "quote": "E-Mail-Adresse:"
+    },
+    {
+      "url": "https://www.iload-usenet.com/trial",
+      "date": "2026-11-25",
+      "proved": "the trial still closes automatically after 7 days",
+      "capture": "sha256:d9b1e52897519106fd3313f2b3d0eefcece5beef5beea600114c448eee27b949",
+      "quote": "Der Zugang wird nach 7 Tagen automatisch geschlossen."
+    },
+    {
+      "url": "https://www.iload-usenet.com/prices",
+      "date": "2026-11-25",
+      "proved": "the volume tariffs still run from 12 to 240 GB a month",
+      "capture": "sha256:73a194dd3c8433315e4120cb3b5efa138cf69c4fe9e38edfe316354ed29b8592",
+      "quote": "- **12-240 GB** jeden Monat"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-03T07:37:14.439Z",
+  "verified_at": "2026-11-25T09:47:08.496Z",
   "price_per_tb_month": null,
   "notes": "The trial allowance and its card requirement are unverified.",
   "extras": {}

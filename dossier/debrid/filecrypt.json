@@ -61,7 +61,7 @@
     "detail": "No account was needed to fetch a container page or to reach the Create page. The /Login.html redirect applies to account management.",
     "country": null
   },
-  "reliability_note": "Containers rot when the underlying host files are removed: pages show an online count (e.g. '4/13 Online') so dead links are visible. Cloudflare challenges and per-container captchas break unattended resolution.",
+  "reliability_note": "unverified: HTTP 403 with a Cloudflare challenge on 2026-11-25; all first-party read routes were refused. No current container behaviour was established.",
   "confidence": "documented",
   "confidence_note": "Two container probes and the root probe are measured; the captcha and creating-without-account statements come from pages and a third-party issue comment. Solving a captcha and diffing the resolved list would raise this to measured.",
   "evidence": [
@@ -99,6 +99,13 @@
       "url": "https://filecrypt.cc/",
       "date": "2026-10-23",
       "proved": "the reader was redirected to https://filecrypt.cc/Login.html and returned 'login wall' rather than the home page"
+    },
+    {
+      "url": "probe:https://filecrypt.cc/",
+      "date": "2026-11-25",
+      "proved": "the origin answered HTTP 403 with a Cloudflare challenge on the read date",
+      "capture": "sha256:37b84ecb62a862cfbfec72503a4b56c09c5cc4a83a6773f8265276074fb7879a",
+      "quote": "\"status\": 403"
     }
   ],
   "verdict": "qualifies-with-caveat",

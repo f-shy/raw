@@ -58,10 +58,24 @@
       "url": "https://archive.web.pkgforge.dev/capture/20240601173729/https://cooldebrid.com/?provider=wayback",
       "date": "2026-10-23",
       "proved": "the service was alive on 2024-06-01: title 'Log in to your account', description 'cooldebrid is a Premium Download Manager. Get files at premium speeds from all filehosts. Stream Torrents with cooldebrid.'"
+    },
+    {
+      "url": "probe:https://cooldebrid.com/",
+      "date": "2026-11-25",
+      "proved": "an anonymous GET of the root on 2026-11-25 answered 200 with 45102 bytes and no challenge, so the previously recorded 404 is no longer the current state",
+      "capture": "sha256:a8a71faab8972d51ecc0407082ed91b0da43b2ce3bac433161aa79b5ab76bfa2",
+      "quote": "\"status\": 200,"
+    },
+    {
+      "url": "https://cooldebrid.com/",
+      "date": "2026-11-25",
+      "proved": "the root now serves a live premium link generator page advertising 63 supported filehosts",
+      "capture": "sha256:606df2097cadc0773ef67e088d5dd3c2a2212a8d718b4cc6e5a4227b09e298ba",
+      "quote": "CoolDebrid Premium Link Generator — 63 Supported Filehosts"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T02:06:35.000Z",
+  "verified_at": "2026-11-25T09:46:55.563Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "Found through an Italian-language query ('servizio debrid'), which is why the English lists never carried it. The 404 is the whole finding: no parked page, no redirect, no explanation."

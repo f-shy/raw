@@ -51,7 +51,7 @@
     "detail": "'Hesap oluşturmanıza gerek yok' (no need to create an account), with an optional per-file password.",
     "country": null
   },
-  "reliability_note": "No published operator or retention; the redirect on every path means a client must pin the canonical host.",
+  "reliability_note": "Oluşan yüklü sunucu masrafları yüzünden sistemimizi kapatmak zorunda kaldığımız için üzgünüz.",
   "confidence": "documented",
   "confidence_note": "The cap and the no-account sentence are quoted from the vendor page in Turkish; no upload was attempted.",
   "evidence": [
@@ -64,10 +64,24 @@
       "url": "probe:https://hizliyukle.com/api/upload",
       "date": "2026-10-23",
       "proved": "HTTP 307 on /api/upload, /upload, /api/files, /v1/upload and /api/v1/upload"
+    },
+    {
+      "url": "https://hizliyukle.com/",
+      "date": "2026-11-26",
+      "proved": "the first-party page announces a shutdown and names the reason without a date",
+      "capture": "sha256:fcfdecdd7a27377667433237d978daae4738df26610e5d79a3380b937b6a51d9",
+      "quote": "Oluşan yüklü sunucu masrafları yüzünden sistemimizi kapatmak zorunda kaldığımız için üzgünüz."
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20260808164501/https://www.hizliyukle.com/?provider=wayback",
+      "date": "2026-11-26",
+      "proved": "the archived first-party page states uploads up to 10GB without registration",
+      "capture": "sha256:40aac166212b0e608b486d3ca5ef60aecb878ce9e1a0c2c3b2d34eeea5dff287",
+      "quote": "Kayıt yok, ücret yok. Dosya başına 10GB’a kadar ücretsiz paylaşım."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:30:47.000Z",
+  "verified_at": "2026-11-26T01:59:17.123Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Included because the regional pass is the point: the same 10 GB offer is invisible to an English query. No programmatic path found: Browser drop zone with typed upload pages (image, video, PDF, large file). /api/upload and /upload answer 307 to another host, so the real endpoint is a redirect target that was not followed.",

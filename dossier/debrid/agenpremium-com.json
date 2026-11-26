@@ -6,7 +6,7 @@
   "category": "premium-account reseller (Indonesian: rupiah prices, six named Indonesian banks)",
   "tier": "reseller",
   "free_tier": {
-    "stated": "No free tier. Debrid-Link terms in rupiah: 'Premium 15 hari Rp 62.000', 'Premium 30 hari Rp 85.000', 'Premium 90 hari Rp 186.000', 'Premium 180 hari Rp 350.000', 'Premium 360 hari Rp 618.000'.",
+    "stated": "No free tier. Debrid-Link terms in rupiah: 'Premium 15 hari Rp 62.000', 'Premium 30 hari Rp 85.000', 'Premium 90 hari Rp 186.000', 'Premium 180 hari Rp 351.000', 'Premium 360 hari Rp 618.000'.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://agenpremium.com/id/debridlink.html",
@@ -58,7 +58,7 @@
     "detail": "Payment is by Indonesian bank only. The site's rail logos are 'BCA, Bank Mandiri, CIMB Niaga, Bank Jago, blu, SeaBank', and Debrid-Link's own reseller directory lists this shop as 'Indonesian - Bank BCA, Bank BNI, Bank CIMB, Bank Mandiri, Local Bank'. A domestic bank account is the gate.",
     "country": "Indonesia"
   },
-  "reliability_note": "Manual fulfilment with a WhatsApp confirmation path, no refunds for missing or blocked files, and a maintenance banner recording an outage that ended 30 May 2026; the shop is a payment front, not an operator.",
+  "reliability_note": "Manual fulfilment with a WhatsApp confirmation path, no refunds for missing or blocked files; a banner says 'MAINTENANCE SELESI SENIN, 9 NOV 2026' (maintenance ended); the shop is a payment front, not an operator.",
   "confidence": "documented",
   "confidence_note": "Price table and rail list read today, and the rail list is corroborated independently by Debrid-Link's own reseller directory. Whether a foreign card can be used at all is unstated; the bank-only rail list suggests not.",
   "evidence": [
@@ -76,10 +76,52 @@
       "url": "https://www.debrid-link.com/resellers",
       "date": "2026-10-23",
       "proved": "'AgenPremium | Indonesian | Bank BCA, Bank BNI, Bank CIMB, Bank Mandiri, Local Bank' - the provider's own directory confirms the rail set"
+    },
+    {
+      "url": "https://agenpremium.com/id/debridlink.html",
+      "date": "2026-11-25",
+      "proved": "the 360-day tier still has a 10-30 minute processing time",
+      "capture": "sha256:da2a9975655662c137de217916a8dd92fe2d0f2887f90678b1fc5dd2d9de5ef7",
+      "quote": "Premium 360 hariDEBRIDLINK365 Proses 10-30 mnt"
+    },
+    {
+      "url": "https://agenpremium.com/id/debridlink.html",
+      "date": "2026-11-25",
+      "proved": "the 400 GB per day bandwidth limit is unchanged",
+      "capture": "sha256:da2a9975655662c137de217916a8dd92fe2d0f2887f90678b1fc5dd2d9de5ef7",
+      "quote": "Bandwidth Limit | 400 GB/hari"
+    },
+    {
+      "url": "https://agenpremium.com/id/debridlink.html",
+      "date": "2026-11-25",
+      "proved": "the six named Indonesian banks are still the only rails listed",
+      "capture": "sha256:da2a9975655662c137de217916a8dd92fe2d0f2887f90678b1fc5dd2d9de5ef7",
+      "quote": "BCA | Bank Mandiri | CIMB Niaga | Bank Jago | blu | SeaBank"
+    },
+    {
+      "url": "https://agenpremium.com/id/debridlink.html",
+      "date": "2026-11-25",
+      "proved": "the current banner reports maintenance ended on 9 November 2026",
+      "capture": "sha256:da2a9975655662c137de217916a8dd92fe2d0f2887f90678b1fc5dd2d9de5ef7",
+      "quote": "SENIN, 9 NOV 2026"
+    },
+    {
+      "url": "https://agenpremium.com/id/debridlink.html",
+      "date": "2026-11-25",
+      "proved": "the 180-day Debrid-Link term now costs Rp 351.000",
+      "capture": "sha256:804fe09238a2975d5befc296d7c0ca0083255c4123b11c17e0fb91a3c05aa0e1",
+      "quote": "Premium 180 hariDEBRIDLINK180 Tersedia | Rp 351.000 Rp 1.950 / hari"
+    },
+    {
+      "url": "https://agenpremium.com/id/debridlink.html",
+      "date": "2026-11-25",
+      "proved": "the table lists only paid terms, from Rp 62.000 for 15 days to Rp 618.000 for 360 days",
+      "capture": "sha256:804fe09238a2975d5befc296d7c0ca0083255c4123b11c17e0fb91a3c05aa0e1",
+      "quote": "Premium 360 hariDEBRIDLINK365 Proses 10-30 mnt | Rp 618.000 Rp 1.717 / hari"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-23T02:20:00.000Z",
+  "verified_at": "2026-11-25T12:00:07.463Z",
   "price_per_tb_month": "IDR 85,000 per 30 days for Debrid-Link (Rp 2,833/day)",
   "history": [],
   "notes": "The cleanest evidence that the Indonesian gate is a bank, not a card: six named domestic banks and no card logo. Trigger condition: a card rail appears on the site or in Debrid-Link's directory.",

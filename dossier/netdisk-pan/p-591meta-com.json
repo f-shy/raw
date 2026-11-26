@@ -84,23 +84,9 @@
     {
       "url": "probe:https://p.591meta.com/",
       "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:2f97f1ef9594bb1f075885ed5917ef720f19768665de9d0cd36046fad2dd9b95",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://p.591meta.com/",
-      "date": "2026-11-11",
       "proved": "the settings request for this host answered HTTP 200 at this instant",
       "capture": "sha256:2f97f1ef9594bb1f075885ed5917ef720f19768665de9d0cd36046fad2dd9b95",
       "quote": "\"checked_at\": \"2026-11-11T00:20:04.905Z\""
-    },
-    {
-      "url": "probe:https://p.591meta.com/",
-      "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:2f97f1ef9594bb1f075885ed5917ef720f19768665de9d0cd36046fad2dd9b95",
-      "quote": "\"listing_sha256\": \"e715d3d0\""
     },
     {
       "url": "probe:https://p.591meta.com/",
@@ -136,6 +122,27 @@
       "proved": "the fresh anonymous root listing of p.591meta.com hashed to the recorded value, so the listing is unchanged",
       "capture": "sha256:4d7ebb4fde1bea08f50fc3a4087cd2cfac605f1664dc421d6716ba7431bbea7a",
       "quote": "\"listing_sha256\": \"e715d3d0\""
+    },
+    {
+      "url": "probe:https://p.591meta.com/",
+      "date": "2026-11-25",
+      "proved": "the re-probe of this host was taken at this instant",
+      "capture": "sha256:ce73d2c54e698ac36ed3da03cab86e09e3e0afe355afc6a02fd920a7754b0d95",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:30.165Z\""
+    },
+    {
+      "url": "probe:https://p.591meta.com/",
+      "date": "2026-11-25",
+      "proved": "the anonymous root listing still hashes to e715d3d0 with 26 entries",
+      "capture": "sha256:ce73d2c54e698ac36ed3da03cab86e09e3e0afe355afc6a02fd920a7754b0d95",
+      "quote": "\"guest\": true ... \"root_entries\": 26 ... \"listing_sha256\": \"e715d3d0\""
+    },
+    {
+      "url": "probe:https://p.591meta.com/",
+      "date": "2026-11-25",
+      "proved": "the re-probe answered as an anonymous guest, so registration is not needed",
+      "capture": "sha256:ce73d2c54e698ac36ed3da03cab86e09e3e0afe355afc6a02fd920a7754b0d95",
+      "quote": "\"guest\": true"
     }
   ],
   "verdict": "qualifies-with-caveat",

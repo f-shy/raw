@@ -36,7 +36,7 @@
   ],
   "interface_detail": "NNTP with encryption included",
   "tooling": "SABnzbd, NZBGet or nzbdav over NNTP/TLS; any newsreader works because the protocol is the same everywhere, and no provider SDK is needed",
-  "chaining": "Block quotas from 150 GB to 1,100 GB that do not expire are listed on a separate page (third-party index); the plans are speed-tiered.",
+  "chaining": "First-party block bundles of 150 GB (EUR 9.99), 275 GB (EUR 15.00) and 1100 GB (EUR 24.99) are paid once with no automatic renewal; the plans are speed-tiered.",
   "limits": [
     {
       "kind": "per-ip-shaping",
@@ -59,7 +59,7 @@
   "binding_note": "Data is unlimited; the speed tier and its connection count bound a month.",
   "identity_cost": {
     "kind": "card",
-    "detail": "unverified: the page offers an automatic-renewal or one-time payment choice and the payment form was not opened, so its fields are behind a sign-up.",
+    "detail": "The block order asks for name and e-mail and lists iDEAL, Visa, Mastercard, Bancontact and SEPA; no phone, ID document or institution is named. The regular plan checkout fields remain unverified: behind a sign-up.",
     "country": null
   },
   "reliability_note": "A third-party index lists the Abavia backbone; the vendor page read does not state one.",
@@ -100,10 +100,73 @@
       "capture": "sha256:b7e69be3b79712a5f5875f68db3e51c281a266031e0a8d6b232e379d5b76d1d8",
       "quote": "Spotnews is a Dutch Usenet provider with servers in the EU and retention of over eleven years. Alongside three subscription tiers with unlimited volume — from 10 Mbit/s up to unrestricted speed — there are non-expiring block quotas from 150 GB to 1,100 GB. All plans offer up to 50 connections, Abavia backbone.",
       "proved": "a third-party index lists blocks of 150 GB to 1,100 GB and the Abavia backbone"
+    },
+    {
+      "url": "https://spotnews.nl/block-accounts",
+      "date": "2026-11-25",
+      "proved": "first-party block bundles of 150 GB for EUR 9.99, 275 GB for EUR 15.00 and 1100 GB for EUR 24.99 are paid once with no renewal",
+      "capture": "sha256:9c91e26c1b19b2890ff9e811d54ab28f22f65819544999e8365bc6eee7561ac5",
+      "quote": "Usenet Block 150GB ... € 9,99 ... Usenet Block 275GB ... € 15,00 ... Usenet Block 1100GB ... € 24,99"
+    },
+    {
+      "url": "https://spotnews.nl/block-accounts",
+      "date": "2026-11-25",
+      "proved": "the block order asks for a name and e-mail and lists iDEAL, Visa, Mastercard, Bancontact and SEPA",
+      "capture": "sha256:9c91e26c1b19b2890ff9e811d54ab28f22f65819544999e8365bc6eee7561ac5",
+      "quote": "Checkout toont de betaalmethoden die voor jouw situatie beschikbaar zijn. ... iDEAL    Visa    Mastercard    Bancontact    SEPA ... Naam ... E-mail"
+    },
+    {
+      "url": "https://spotnews.nl/premium-plannen",
+      "date": "2026-11-25",
+      "proved": "the cheapest plan is EUR 4.49 a month",
+      "capture": "sha256:5bdff7faacbdfb369af3873ba64091cceef66eaeb73f654d91706ec8fec2b5bf",
+      "quote": "€ 4,49/maand"
+    },
+    {
+      "url": "https://spotnews.nl/premium-plannen",
+      "date": "2026-11-25",
+      "proved": "retention is about 4000 days",
+      "capture": "sha256:5bdff7faacbdfb369af3873ba64091cceef66eaeb73f654d91706ec8fec2b5bf",
+      "quote": "- Retentie: ± 4000 dagen"
+    },
+    {
+      "url": "https://spotnews.nl/premium-plannen",
+      "date": "2026-11-25",
+      "proved": "the cheapest plan allows 10 connections",
+      "capture": "sha256:5bdff7faacbdfb369af3873ba64091cceef66eaeb73f654d91706ec8fec2b5bf",
+      "quote": "- 10 verbindingen"
+    },
+    {
+      "url": "https://spotnews.nl/premium-plannen",
+      "date": "2026-11-25",
+      "proved": "data is unlimited on the plans",
+      "capture": "sha256:5bdff7faacbdfb369af3873ba64091cceef66eaeb73f654d91706ec8fec2b5bf",
+      "quote": "- Onbeperkte data"
+    },
+    {
+      "url": "https://spotnews.nl/premium-plannen",
+      "date": "2026-11-25",
+      "proved": "the plan page shows a payment-method choice",
+      "capture": "sha256:5bdff7faacbdfb369af3873ba64091cceef66eaeb73f654d91706ec8fec2b5bf",
+      "quote": "Je kunt betalen met"
+    },
+    {
+      "url": "https://spotnews.nl/block-accounts",
+      "date": "2026-11-25",
+      "proved": "the 1100 GB block costs EUR 24.99 one-time",
+      "capture": "sha256:9c91e26c1b19b2890ff9e811d54ab28f22f65819544999e8365bc6eee7561ac5",
+      "quote": "€ 24,99"
+    },
+    {
+      "url": "https://spotnews.nl/block-accounts",
+      "date": "2026-11-25",
+      "proved": "the block order lists iDEAL, Visa, Mastercard, Bancontact and SEPA",
+      "capture": "sha256:9c91e26c1b19b2890ff9e811d54ab28f22f65819544999e8365bc6eee7561ac5",
+      "quote": "iDEAL    Visa    Mastercard    Bancontact    SEPA"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-03T07:37:14.439Z",
+  "verified_at": "2026-11-25T09:47:07.819Z",
   "price_per_tb_month": null,
   "notes": "Priced per month and speed tier; block prices were not read.",
   "extras": {}

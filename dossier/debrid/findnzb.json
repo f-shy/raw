@@ -10,7 +10,7 @@
     "metered_on": "none",
     "source_url": "https://findnzb.net/",
     "read_on": "2026-11-03",
-    "notes": "A direct request answered HTTP 522 from the edge."
+    "notes": "Up to 750 days, 2,000 newsgroups accessible — Established 2011. No registration required. Clean, friendly interface. Almost always having downtime issues. 'Nzblord' sponsor for downloads."
   },
   "per_object_cap": {
     "stated": "not applicable: an NZB pointer file, never the payload",
@@ -53,7 +53,7 @@
     "detail": "Reported 'No registration required'; the search form and the page text show no login field. A download was not run.",
     "country": null
   },
-  "reliability_note": "A third-party listing says 'Almost always having downtime issues'; a direct request on the read date got HTTP 522 from the edge.",
+  "reliability_note": "unverified: URL answered HTTP 522 on 2026-11-26; every read route failed",
   "confidence": "reported",
   "confidence_note": "The no-registration claim and the downtime claim are third-party; the page text is first-party and the 522 is a probe. No search or NZB download was completed.",
   "evidence": [
@@ -91,6 +91,20 @@
       "capture": "sha256:c70868864008b185194ffcffa5fa248266eaaa7472cd94f7ec2e6c7c60b34b1c",
       "quote": "\"status\": 522",
       "proved": "a direct request answered HTTP 522 from the edge, so the origin timed out"
+    },
+    {
+      "url": "probe:https://findnzb.net/",
+      "date": "2026-11-26",
+      "proved": "a direct GET answered HTTP 522 on 2026-11-26",
+      "capture": "sha256:e66ec9f843a9aa121aea57f3e6544110a376fa3bf5ae9e31978cd19abe71845b",
+      "quote": "\"status\":522"
+    },
+    {
+      "url": "https://nzbhydra.com/indexers/",
+      "date": "2026-11-26",
+      "proved": "a third-party listing gives FindNZB a 750-day filter, no registration and almost always having downtime issues",
+      "capture": "sha256:3125b505eca26d74096a6985446593dbb6eb97637bbd1d4543eaa49be6387223",
+      "quote": "Up to 750 days, 2,000 newsgroups accessible — Established 2011. No registration required. Clean, friendly interface. Almost always having downtime issues. 'Nzblord' sponsor for downloads."
     }
   ],
   "verdict": "qualifies-with-caveat",
@@ -98,7 +112,7 @@
     "price": "USD 0"
   },
   "notes": "",
-  "verified_at": "2026-11-03T07:37:15.010Z",
+  "verified_at": "2026-11-26T01:59:17.121Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }

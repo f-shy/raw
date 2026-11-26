@@ -2,7 +2,7 @@
   "topic": "debrid",
   "slug": "eztv",
   "provider": "EZTV",
-  "url": "https://eztv.re/",
+  "url": "https://eztvx.to/",
   "category": "torrent index, TV only (JSON API with magnets)",
   "tier": "free",
   "free_tier": {
@@ -67,15 +67,57 @@
       "url": "https://eztv.re/api/get-torrents?limit=3",
       "date": "2026-10-23",
       "proved": "response header Cache-Control: no-store, so repeats reach the origin rather than an edge cache"
+    },
+    {
+      "url": "https://eztv.re/api/get-torrents?limit=3",
+      "date": "2026-11-25",
+      "proved": "the API now reports 1106296 torrents",
+      "capture": "sha256:a5649a42ad6877f7a694bbe26e2cb6c7e49d942b02bfb05fec53e99b92cf6d3f",
+      "quote": "{\"torrents_count\":1106296,\"limit\":3,\"page\":1"
+    },
+    {
+      "url": "https://eztv.re/api/get-torrents?limit=3",
+      "date": "2026-11-25",
+      "proved": "the reported catalogue size is 1106296",
+      "capture": "sha256:a5649a42ad6877f7a694bbe26e2cb6c7e49d942b02bfb05fec53e99b92cf6d3f",
+      "quote": "{\"torrents_count\":1106296,\"limit\":3,\"page\":1"
+    },
+    {
+      "url": "https://eztv.re/api/get-torrents?limit=3",
+      "date": "2026-11-25",
+      "proved": "the API endpoint redirects to the eztvx.to domain",
+      "capture": "sha256:a5649a42ad6877f7a694bbe26e2cb6c7e49d942b02bfb05fec53e99b92cf6d3f",
+      "quote": "x-web-final-url: https://eztvx.to/api/get-torrents?limit=3"
+    },
+    {
+      "url": "https://eztv.re/",
+      "date": "2026-11-25",
+      "proved": "the operator names eztvx.to as the domain in use",
+      "capture": "sha256:dc2a1da7f2fee73ac369354678b7365cc916f577123fc874459d4f78ed6b66f5",
+      "quote": "**EZTVx.to is the new domain in use for EZTV Group.**"
+    },
+    {
+      "url": "https://eztv.re/",
+      "date": "2026-11-25",
+      "proved": "eztvx.to is the domain now in use",
+      "capture": "sha256:dc2a1da7f2fee73ac369354678b7365cc916f577123fc874459d4f78ed6b66f5",
+      "quote": "**EZTVx.to is the new domain in use for EZTV Group.**"
+    },
+    {
+      "url": "https://eztv.re/api/get-torrents?limit=3",
+      "date": "2026-11-25",
+      "proved": "the API still sends no-store so repeats reach the origin",
+      "capture": "sha256:a5649a42ad6877f7a694bbe26e2cb6c7e49d942b02bfb05fec53e99b92cf6d3f",
+      "quote": "cache-control: no-store, no-cache, must-revalidate"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T01:52:28.000Z",
+  "verified_at": "2026-11-25T09:47:05.723Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The largest no-account magnet feed measured here by row count (1.09 million), and the narrowest by subject. It pairs with the DDL feeds badly (TV only) and with Torrentio well, because Torrentio already indexes it.",
   "extras": {
-    "torrents_count": 1095199,
+    "torrents_count": 1106296,
     "protocol": "rest-json",
     "subject": "tv"
   }

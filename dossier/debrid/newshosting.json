@@ -20,8 +20,8 @@
     "notes": "Usenet is article-based; the object size is the poster's, not the provider's."
   },
   "retention": {
-    "stated": "'6642+ Days' of article retention on every plan",
-    "days": 6642,
+    "stated": "'6676+ Days' of article retention on every plan",
+    "days": 6676,
     "source_url": "https://www.newshosting.com/usenet-plans/"
   },
   "egress": {
@@ -35,7 +35,7 @@
     "unknown"
   ],
   "tooling": "Every usenet client: SABnzbd, NZBGet, nzbget-compatible downloaders, spotweb. No provider-side API is needed or offered.",
-  "chaining": "The Unlimited plan is the feed behind a debrid or *arr stack: 100 connections and 6642 days of retention are what make an old post still downloadable, and 'Unlimited Data' is the only uncapped byte path in this whole lane.",
+  "chaining": "The Unlimited plan is the feed behind a debrid or *arr stack: 100 connections and 6676 days of retention are what make an old post still downloadable, and 'Unlimited Data' is the only uncapped byte path in this whole lane.",
   "limits": [
     {
       "kind": "volume-quota",
@@ -64,7 +64,7 @@
     },
     {
       "kind": "retention-clamped",
-      "value": "6642+ days of article retention",
+      "value": "6676+ days of article retention",
       "source": "https://www.newshosting.com/usenet-plans/"
     }
   ],
@@ -148,10 +148,52 @@
       "proved": "the vendor's article gives an article older than its current retention as the first cause of a 423 or 430 answer",
       "capture": "sha256:47cac2605b14d1cda76d44c7811ae9296cea86a163f39607bbaa052b79718c4e",
       "quote": "The article is older than our current article retention."
+    },
+    {
+      "url": "https://www.newshosting.com/usenet-plans/",
+      "date": "2026-11-25",
+      "proved": "the plan page now states 6676+ days of article retention",
+      "capture": "sha256:8e1e7f3036c4bd52fdd5e550f916db22eda21b299b56bf8596e63ff54f54d472",
+      "quote": "Days of Article Retention Rate 6676+ Days"
+    },
+    {
+      "url": "https://www.newshosting.com/usenet-plans/",
+      "date": "2026-11-25",
+      "proved": "the retention limit is now 6676 days",
+      "capture": "sha256:8e1e7f3036c4bd52fdd5e550f916db22eda21b299b56bf8596e63ff54f54d472",
+      "quote": "Days of Article Retention Rate 6676+ Days"
+    },
+    {
+      "url": "https://www.newshosting.com/usenet-plans/",
+      "date": "2026-11-25",
+      "proved": "the plan page still states the retention figure on every plan",
+      "capture": "sha256:8e1e7f3036c4bd52fdd5e550f916db22eda21b299b56bf8596e63ff54f54d472",
+      "quote": "Days of Article Retention Rate 6676+ Days"
+    },
+    {
+      "url": "https://www.newshosting.com/usenet-plans/",
+      "date": "2026-11-25",
+      "proved": "the plan page still offers a 30-day money-back guarantee and no free tier",
+      "capture": "sha256:8e1e7f3036c4bd52fdd5e550f916db22eda21b299b56bf8596e63ff54f54d472",
+      "quote": "30 Day Money Back Guarantee"
+    },
+    {
+      "url": "https://www.newshosting.com/usenet-plans/",
+      "date": "2026-11-25",
+      "proved": "the Lite plan still has a 50 GB monthly data allowance",
+      "capture": "sha256:8e1e7f3036c4bd52fdd5e550f916db22eda21b299b56bf8596e63ff54f54d472",
+      "quote": "Monthly Usenet Data 50 GB"
+    },
+    {
+      "url": "https://www.newshosting.com/usenet-plans/",
+      "date": "2026-11-25",
+      "proved": "the Unlimited and XL plans still allow 100 connections",
+      "capture": "sha256:8e1e7f3036c4bd52fdd5e550f916db22eda21b299b56bf8596e63ff54f54d472",
+      "quote": "SSL Encrypted Usenet Connections 100 Connections"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-03T00:35:36.094Z",
+  "verified_at": "2026-11-25T09:47:08.496Z",
   "history": [],
   "notes": "The charged price has not moved in 36 months; what changed is that the vendor began publishing a list price of $19.94 in 2025 that it then discounts to $12.95. The page does not say whether a renewal bills $12.95 or $19.94, and the honest reading is that $12.95 is the price as long as the promotion runs - so the exposure is 54% on renewal, not a discount that can be banked. This is the largest published promo-versus-list gap in the set after Eweka. Potential failure points: retention (refuted for time-based expiry by the vendor's own sentence), takedown removal (confirmed as a stated cause), or connection count (documented as a plan property, no number read). A client that pulls older releases meets removal far more often than age. The DMCA/NTD split is a third party's inference from server location and notices, not a published rule. Cheapest Omicron entry seen on any of its storefronts was a 15-month promo at $1.99/mo quoted by a third-party deals page, not by the vendor, so it is not documented as a price here.",
   "extras": {
@@ -260,7 +302,7 @@
     }
   },
   "interface_detail": "Access is NNTP over TLS (port 563). The schema's interface enum has no nntp token, so this is documented as unknown rather than mislabelled as rest or cli; the real interface is a standard protocol every usenet client speaks.",
-  "limits_note": "The 6642-day retention figure is the vendor's own and is the same on all three plans; it is a property of the article store, not a quota.",
+  "limits_note": "The 6676-day retention figure is the vendor's own and is the same on all three plans; it is a property of the article store, not a quota.",
   "binding": "none",
   "binding_note": "Lite's 50 GB/month is exhausted in under two hours at 1 TiB/month, so the plan choice is the binding decision. Unlimited removes the byte counter and leaves connection count as the only ceiling.",
   "confidence_note": "Four dated reads, three archived. The $12.95 has not moved; the strike-through list price appears only from 2025."

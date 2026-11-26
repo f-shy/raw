@@ -79,23 +79,9 @@
     {
       "url": "probe:https://file.i80k.com/",
       "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:8db3660ecfec0f3d869148ed26fcff90b031e8f3f6de4ea06874d2ca9343fef5",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://file.i80k.com/",
-      "date": "2026-11-11",
       "proved": "the settings request for this host answered HTTP 200 at this instant",
       "capture": "sha256:8db3660ecfec0f3d869148ed26fcff90b031e8f3f6de4ea06874d2ca9343fef5",
       "quote": "\"checked_at\": \"2026-11-11T00:20:03.950Z\""
-    },
-    {
-      "url": "probe:https://file.i80k.com/",
-      "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:8db3660ecfec0f3d869148ed26fcff90b031e8f3f6de4ea06874d2ca9343fef5",
-      "quote": "\"listing_sha256\": \"ea1383ee\""
     },
     {
       "url": "probe:https://file.i80k.com/",
@@ -131,6 +117,34 @@
       "proved": "the fresh anonymous root listing of file.i80k.com hashed to the recorded value, so the listing is unchanged",
       "capture": "sha256:d5a89fcfe1323a6af9f5647da3e4a1f2f1ddb324bf072f5becb85e20540ecdfe",
       "quote": "\"listing_sha256\": \"ea1383ee\""
+    },
+    {
+      "url": "probe:https://file.i80k.com/",
+      "date": "2026-11-25",
+      "proved": "the re-probe of this host was taken at this instant",
+      "capture": "sha256:1daeec5de9c32846920b7792ad5d50b50741ce1194315cfb8d879833d9f989d0",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:28.688Z\""
+    },
+    {
+      "url": "probe:https://file.i80k.com/",
+      "date": "2026-11-25",
+      "proved": "the anonymous root listing returns 7 entries, unchanged",
+      "capture": "sha256:1daeec5de9c32846920b7792ad5d50b50741ce1194315cfb8d879833d9f989d0",
+      "quote": "\"root_entries\": 7"
+    },
+    {
+      "url": "probe:https://file.i80k.com/",
+      "date": "2026-11-25",
+      "proved": "the anonymous root listing still hashes to ea1383ee with 7 entries",
+      "capture": "sha256:1daeec5de9c32846920b7792ad5d50b50741ce1194315cfb8d879833d9f989d0",
+      "quote": "\"guest\": true ... \"root_entries\": 7 ... \"listing_sha256\": \"ea1383ee\""
+    },
+    {
+      "url": "probe:https://file.i80k.com/",
+      "date": "2026-11-25",
+      "proved": "the re-probe answered as an anonymous guest, so registration is not needed",
+      "capture": "sha256:1daeec5de9c32846920b7792ad5d50b50741ce1194315cfb8d879833d9f989d0",
+      "quote": "\"guest\": true"
     }
   ],
   "verdict": "qualifies-with-caveat",

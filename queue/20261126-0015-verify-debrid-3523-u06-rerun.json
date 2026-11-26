@@ -1,0 +1,20 @@
+{
+ "id": "20261126-0015-verify-debrid-3523-u06-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Re-check these records that the previous pass left without a fresh captured datum. For each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], retention.days, per_object_cap.bytes, limits[i].value). Never confirm $.url, $.topic, $.slug, $.provider, $.endpoint, any source_url or any limits[i].source. List every other field in unread. If the page cannot be read through any route, run the three read-only probes, register a probe record with `scripts/rq capture probe:URL --probe FILE`, and set $.reliability_note to the unverified statement with that probe as measured evidence, then open a question. Every record must end with a captured datum dated 2026-11-25/26.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/turbobitpremium-org $.identity_cost.kind: The FAQ never says an email address is required: its only email mention is this password-delivery question ('SMS or email'), and the answer asks for a mobile phone number or e-money account. No span says registration or a guest purchase needs an email address, so identity_cost.kind = email is not es",
+ "scope": {
+  "rids": [
+   "debrid/stremio-addons-net",
+   "debrid/temp-files-com",
+   "debrid/the-hive",
+   "debrid/torcomet",
+   "debrid/torrentdrive-io",
+   "debrid/turbobitpremium-org",
+   "debrid/turboget-net",
+   "debrid/ulozto"
+  ]
+ },
+ "origin": "audit u13 of 20261126-0015-verify-debrid-3523/u06 failed: 1 of 6 unsupported",
+ "created": "2026-11-26T01:45:13Z"
+}

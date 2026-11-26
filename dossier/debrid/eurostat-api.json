@@ -73,10 +73,38 @@
       "url": "probe:https://ec.europa.eu/eurostat/estat-navtree-portlet-prod/BulkDownloadListing?file=data/nama_10_gdp.tsv.gz",
       "date": "2026-10-23",
       "proved": "404 - the legacy bulk TSV listing did not answer"
+    },
+    {
+      "url": "https://ec.europa.eu/eurostat/web/main/data/web-services",
+      "date": "2026-11-25",
+      "proved": "the web-services page still states that a revision overwrites with no versioning",
+      "capture": "sha256:ecbe5c22f06bec718c96343393ed4cee8ab785783bda8f807ea87029c0958d94",
+      "quote": "The Eurostat database always contains the latest version of the datasets, meaning that there is no versioning or documentation of past versions of the data."
+    },
+    {
+      "url": "https://ec.europa.eu/eurostat/web/main/data/web-services",
+      "date": "2026-11-25",
+      "proved": "the twice-daily update times are unchanged at 11:00 and 23:00 CET",
+      "capture": "sha256:ecbe5c22f06bec718c96343393ed4cee8ab785783bda8f807ea87029c0958d94",
+      "quote": "Eurostat datasets are updated twice a day at 11:00 and 23:00 CET, if newer data is available or for structural changes, for example for the dimensions in the dataset."
+    },
+    {
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?format=JSON&lang=EN&geo=DE&na_item=B1GQ&unit=CP_MEUR&time=2023",
+      "date": "2026-11-25",
+      "proved": "the single-series API still answers anonymously with 200 and an open CORS policy",
+      "capture": "sha256:42bd6357b97adc92512bf29a3dcc5803fc4c0ee272cdfc7b91e524becc5a4382",
+      "quote": "access-control-allow-origin: *"
+    },
+    {
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?format=JSON&lang=EN&geo=DE&na_item=B1GQ&unit=CP_MEUR&time=2023",
+      "date": "2026-11-25",
+      "proved": "the single-series response is still 2,971 bytes",
+      "capture": "sha256:42bd6357b97adc92512bf29a3dcc5803fc4c0ee272cdfc7b91e524becc5a4382",
+      "quote": "content-length: 2971"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:24:34.450Z",
+  "verified_at": "2026-11-25T09:46:55.565Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Caveat is bulk: the service is unlimited and free but ships data in small JSON-stat responses, and the old bulk file endpoint is dead. A full Eurostat mirror is millions of queries, which is slow rather than blocked.",

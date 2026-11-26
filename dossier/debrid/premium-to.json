@@ -81,10 +81,24 @@
       "url": "probe:https://premium.to/",
       "date": "2026-10-23",
       "proved": "landing page answers: HTTP 200, 4385 bytes, sha256 796b1480e67fb78a..."
+    },
+    {
+      "url": "https://premium.to/",
+      "date": "2026-11-25",
+      "proved": "the host table still marks ddownload with the no-guarantee asterisk",
+      "capture": "sha256:40d30f80cf6b74bdce2cfa25049c3bd77bcbdd419a6692d4973a6c18ef63555f",
+      "quote": "| ddownload.com | ddownload.com** |"
+    },
+    {
+      "url": "https://premium.to/premiumto.xml",
+      "date": "2026-11-25",
+      "proved": "the public GET endpoint still takes a link as a query parameter",
+      "capture": "sha256:fa5c0d8cbfce02e3509f3a5fc7d016160b43cde8a785e2fa0d20a27d4d2d0d2a",
+      "quote": "<Url type=\"text/html\" method=\"get\" template=\"https://premium.to/getfile.php?link={searchTerms}\"/>"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T01:52:41.420Z",
+  "verified_at": "2026-11-25T09:46:58.786Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "A name that recurs in old debrid lists, still resolving, with almost no published information. The endpoint existing does not make it usable: the empty 200 means a caller learns nothing without a valid host link, and the host list is the only evidence the service does anything.",

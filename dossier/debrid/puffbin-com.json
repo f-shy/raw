@@ -18,7 +18,7 @@
     "source_url": "https://puffbin.com/"
   },
   "retention": {
-    "stated": "The uploader chooses how long a file exists, and when the timer runs out the file is permanently deleted; there is no early delete, only the chosen timer. unverified: the selectable timer values and their maximum are not listed on the page.",
+    "stated": "unverified: the uploader chooses a lifetime and the file is permanently deleted when the timer runs out; the selectable timer values are not listed on the page read today",
     "days": null,
     "source_url": "https://puffbin.com/",
     "notes": "Burn-after-read is a pull-count of one, not a retention period."
@@ -97,10 +97,24 @@
       "proved": "10 GB per file, no account, password and burn-after-reading options",
       "capture": "sha256:33164bf1d394f2b578f03e643fd1f2e41da7ca4d45c1a80dfd38d95cb1fac0e6",
       "quote": "Upload files up to 10GB each. Password protect, burn after reading, or just share. No account needed."
+    },
+    {
+      "url": "https://puffbin.com/",
+      "date": "2026-11-25",
+      "proved": "the current page states the 10 GB no-account offer but no expiry duration",
+      "capture": "sha256:33164bf1d394f2b578f03e643fd1f2e41da7ca4d45c1a80dfd38d95cb1fac0e6",
+      "quote": "Upload files up to 10GB each. Password protect, burn after reading, or just share. No account needed."
+    },
+    {
+      "url": "https://puffbin.com/",
+      "date": "2026-11-25",
+      "proved": "the first-party page states the 10 GB no-account offer verbatim",
+      "capture": "sha256:33164bf1d394f2b578f03e643fd1f2e41da7ca4d45c1a80dfd38d95cb1fac0e6",
+      "quote": "Upload files up to 10GB each. Password protect, burn after reading, or just share. No account needed."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T11:28:36.943Z",
+  "verified_at": "2026-11-25T19:21:35.239Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Named for the burn-after-read primitive; the number that matters (retention) is still missing. No programmatic path found: Browser drop zone. /api/upload returned 400 (a validation answer) so a JSON endpoint answers, but no contract is published.",

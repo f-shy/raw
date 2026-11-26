@@ -46,7 +46,7 @@
     "detail": "Registration is closed. Existing credentials were migrated unchanged to reader.easyusenet.com.",
     "country": null
   },
-  "reliability_note": "Shut down after 15 years, citing staff shortages; accounts moved to EasyUsenet with the same username and password and a new hostname. The VPN product was suspended and set to close on August 31, with refunds for unused time.",
+  "reliability_note": "unverified: https://xsusenet.com/ answered HTTP 522 on 2026-11-25; every read route failed, including the archive and a direct probe. The host does not serve the old shutdown notice; the earlier migration to EasyUsenet cannot be re-read today.",
   "confidence": "documented",
   "confidence_note": "The shutdown notice is the vendor's own page, read today. The fetch reported no upstream status, so the page content is the evidence rather than an HTTP code.",
   "evidence": [
@@ -59,6 +59,20 @@
       "url": "https://www.reddit.com/r/usenet/wiki/providers",
       "date": "2026-10-23",
       "proved": "Xsusenet listed as an Abavia reseller with 'soft limits (5tb per month) ... above 5TB speed will be capped to 40Mbit'"
+    },
+    {
+      "url": "probe:https://xsusenet.com/",
+      "date": "2026-11-25",
+      "proved": "the host responds HTTP 522 and does not serve the former shutdown page",
+      "capture": "sha256:73b1d9e9987d45be7546862e96b9e760b81d3e5d52b394ce7a0a0a071de69968",
+      "quote": "\"status\": 522"
+    },
+    {
+      "url": "probe:https://xsusenet.com/",
+      "date": "2026-11-25",
+      "proved": "the host no longer serves the service",
+      "capture": "sha256:73b1d9e9987d45be7546862e96b9e760b81d3e5d52b394ce7a0a0a071de69968",
+      "quote": "\"status\": 522"
     }
   ],
   "verdict": "dead",
@@ -68,6 +82,10 @@
   "extras": {
     "backbone": "Abavia",
     "successor": "EasyUsenet (reader.easyusenet.com)",
-    "lifetime": "2009-2026"
+    "lifetime": "2009-2026",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

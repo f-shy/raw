@@ -19,10 +19,10 @@
     "source_url": "https://usenet.farm/"
   },
   "retention": {
-    "stated": "A block is prepaid and carries over: 'If you pay for a subscription while having a block active we'll move your remaining GBs to get activated once your subscription is finished', and two blocks merge. The account itself never closes: 'it remains active and after +- 1month all your traffic details are removed and the account remains available for future use'. Article retention: '3000+days on text completion' on the site and '3500+days' in the FAQ, with binaries kept 'as long as possible' rather than for a stated period.",
+    "stated": "A block is prepaid and carries over; two blocks merge and the account remains active after traffic details are removed about a month later. Article retention: '3500+days on text completion' in the FAQ, with binaries kept 'as long as possible' rather than for a stated period.",
     "days": null,
     "source_url": "https://usenet.farm/faq.html",
-    "notes": "null is indefinite for the block balance; the two article-retention figures disagree (3000 vs 3500 days) and both are text-completion claims, not binary-retention claims"
+    "notes": "null is indefinite for the block balance; the 3500-day article-retention figure is a text-completion claim, not a binary-retention claim"
   },
   "egress": {
     "terms": "Block: 500 GB for EUR 15.00, unlimited speed, 50 connections, account sharing allowed. Subscriptions are fair-use capped at 5 TB or 10 TB per month, then throttled to 6,144 KB/s for the rest of the month.",
@@ -69,7 +69,7 @@
     },
     {
       "kind": "retention-clamped",
-      "value": "3,000 days text completion; binary depth not quantified by the vendor",
+      "value": "3,500 days text completion; binary depth not quantified by the vendor",
       "source": "https://usenet.farm/"
     },
     {
@@ -93,7 +93,7 @@
   },
   "reliability_note": "Binaries are stored by a proprietary policy ('as long as possible') rather than a guaranteed window, so old binaries can be absent even inside the text-retention window.",
   "confidence": "documented",
-  "confidence_note": "The block carry-over, the account survival and the connection counts are vendor text read today. The article retention is inconsistent between two of the vendor's own pages, and the block's own expiry is implied by 'prepaid' rather than stated in one sentence.",
+  "confidence_note": "The block carry-over, the account survival and the connection counts are vendor text read today. The article retention is a text-completion claim rather than a binary-retention one, and the block's own expiry is implied by 'prepaid' rather than stated in one sentence.",
   "evidence": [
     {
       "url": "https://usenet.farm/faq.html",
@@ -139,10 +139,38 @@
       "url": "https://usenet.farm/",
       "date": "2026-10-23",
       "proved": "the text-extraction route returns 79 words with no trial, no plan and no price: the same URL read twice by two routes disagrees with itself"
+    },
+    {
+      "url": "https://usenet.farm/faq.html",
+      "date": "2026-11-25",
+      "proved": "the FAQ still states 3500+ days on text completion and binaries only as long as possible",
+      "capture": "sha256:b56761cd9cfe5a831ee0a423bc7e747866ad2120a06cc6526d1686e24b250e26",
+      "quote": "We are exchanging the full usenet feed where we have 3500+days on text completion and we store frequently requested binaries as long as possible with our unique algorithm."
+    },
+    {
+      "url": "https://usenet.farm/faq.html",
+      "date": "2026-11-25",
+      "proved": "3500+ days of text completion and unquantified binary storage are still stated",
+      "capture": "sha256:b56761cd9cfe5a831ee0a423bc7e747866ad2120a06cc6526d1686e24b250e26",
+      "quote": "We are exchanging the full usenet feed where we have 3500+days on text completion and we store frequently requested binaries as long as possible with our unique algorithm."
+    },
+    {
+      "url": "https://usenet.farm/",
+      "date": "2026-11-25",
+      "proved": "account creation still needs an email only, with a login link and no password",
+      "capture": "sha256:0efc49efdf8d570f1bb549f59b226f90e116fdfeb18e161a558e7e6a04b875fd",
+      "quote": "Creating an account? Needing to login? Enter your e-mail, click the link in the e-mail and you're ready to go."
+    },
+    {
+      "url": "https://usenet.farm/",
+      "date": "2026-11-25",
+      "proved": "no registration form or password is used",
+      "capture": "sha256:0efc49efdf8d570f1bb549f59b226f90e116fdfeb18e161a558e7e6a04b875fd",
+      "quote": "No registration forms and no passwords!"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T03:20:00.000Z",
+  "verified_at": "2026-11-25T09:47:09.832Z",
   "price_per_tb_month": "EUR 30.00 per TB one-time (500 GB block)",
   "notes": "The weakest of the four usenet blocks on paper (one size, the least precise retention, the smallest balance) and the only one that explicitly allows sharing. Trigger condition: a stated binary-retention window would replace the 'as long as possible' note. 10 GB is a fifth of the 50 GiB monthly bar, so the trial alone does not clear it. What makes the record qualify is that the trial needs nothing but an email. The step survives, and the reason it needed checking is the finding: four plausible sub-paths (/pricing, /plans, /signup, /register) all answer 404, and the text reader drops the offer, so a verifier who used one route would have recorded this trial as gone. The 10 GB is real and the signup form asks for nothing but an email.",
   "extras": {

@@ -85,10 +85,59 @@
       "url": "https://debridmaster.com/guides/keep2share-filejoker-daily-download-limits",
       "date": "2026-10-23",
       "proved": "'every host has its own published daily bandwidth per user, reset at 00:00 UTC'"
+    },
+    {
+      "url": "https://debridmaster.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the free tier still allows two files a day up to 512 MB each",
+      "capture": "sha256:10f99d66d81afa2616460fd59963d7bbb30a800d4c76278d76098adf792fbb6a",
+      "quote": "2 files a day, up to 512 MB each"
+    },
+    {
+      "url": "https://debridmaster.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the Pro plan still carries a 15 GB monthly quota",
+      "capture": "sha256:10f99d66d81afa2616460fd59963d7bbb30a800d4c76278d76098adf792fbb6a",
+      "quote": "15 GB per month"
+    },
+    {
+      "url": "https://debridmaster.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the pay-as-you-go rate is unchanged at USD 0.50 per GB on standard hosts",
+      "capture": "sha256:10f99d66d81afa2616460fd59963d7bbb30a800d4c76278d76098adf792fbb6a",
+      "quote": "$0.50 per GB on standard hosts"
+    },
+    {
+      "url": "https://debridmaster.com/pricing",
+      "date": "2026-11-25",
+      "proved": "generated links expire after 24 hours, so the record's 'generated on demand' retention statement needs no change",
+      "capture": "sha256:10f99d66d81afa2616460fd59963d7bbb30a800d4c76278d76098adf792fbb6a",
+      "quote": "Free links unlock after a short wait and stay valid for 24 hours."
+    },
+    {
+      "url": "https://debridmaster.com/login?next=/app",
+      "date": "2026-11-25",
+      "proved": "access uses an emailed one-time link to an email address, so identity costs an email",
+      "capture": "sha256:abb0b6708db470b6708c0df5e1bb0ead7091b39061bd65cd392b491b914724ef",
+      "quote": "We email you a one-time link. Your wallet and downloads live behind it."
+    },
+    {
+      "url": "https://debridmaster.com/status",
+      "date": "2026-11-25",
+      "proved": "the published per-host daily caps are unchanged, with NitroFlare at 100 GB/day",
+      "capture": "sha256:6c3047fb0035c7f7526be3303011728fc7735780ed5a5bc852331a720c97085e",
+      "quote": "| [NitroFlare](https://debridmaster.com/nitroflare-downloader)nitroflare.com | ■ Ready | Own account | Live | 100.0% · 1 download (7d) | Standard | 100 GB/day | 4 days ago |"
+    },
+    {
+      "url": "https://debridmaster.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the Premium plan still carries a 40 GB monthly quota alongside the unchanged free tier",
+      "capture": "sha256:10f99d66d81afa2616460fd59963d7bbb30a800d4c76278d76098adf792fbb6a",
+      "quote": "40 GB per month"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:37:00.000Z",
+  "verified_at": "2026-11-25T09:46:55.565Z",
   "price_per_tb_month": "USD 500/TB pay-as-you-go; USD 4.99/mo for 15 GB",
   "notes": "The site is new enough that its own comparison guides are the clearest statement of the cap policy; the status table is the machine-readable version. No programmatic path found: No public API documentation was found: /api answers 404. The service is a web flow, and the per-host table is published as an HTML status page.",
   "extras": {

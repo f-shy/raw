@@ -77,14 +77,21 @@
       "capture": "sha256:147508c4303270593971c12420fbeeb3a92e98ac649735ca2df4de2c99830ef4",
       "quote": "\"error\": \"reset\"",
       "proved": "a direct request was closed by the origin without a response"
+    },
+    {
+      "url": "probe:https://binnews.ninja/",
+      "date": "2026-11-26",
+      "proved": "the probe record states the certificate error verbatim",
+      "capture": "sha256:250856178bd3a513d79df89d1ecb0a09b6a691507d6b37418a45e1c1ba63f3ee",
+      "quote": "\"error\": \"tls_untrusted\""
     }
   ],
   "verdict": "qualifies-with-caveat",
   "extras": {
     "price": "USD 0 (free); donations EUR 5 to 50 (reported)"
   },
-  "notes": "No programmatic path found: A web index with a forum; no API was described by the source read.",
-  "verified_at": "2026-11-03T07:37:15.010Z",
+  "notes": "\"error\": \"tls_untrusted\"",
+  "verified_at": "2026-11-26T02:15:10.481Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }

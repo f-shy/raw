@@ -92,10 +92,31 @@
       "proved": "the vendor's secure payment page names Visa/Mastercard",
       "capture": "sha256:5cd1e88ab519bd54827acf47ef61e12e392bb39008e9c53c06ef2a00f76ddfa0",
       "quote": "### Using Visa/Mastercard"
+    },
+    {
+      "url": "https://premiuminrupees.com/product-by-category/alldebrid",
+      "date": "2026-11-25",
+      "proved": "the plain read of the category page still returns a Loading shell with no price",
+      "capture": "sha256:658764d04540821f7d814223b786a364bd7639c79ef4e3df667e4f65b3283182",
+      "quote": "A to Z\n\nLoading…"
+    },
+    {
+      "url": "https://premiuminrupees.com/product-by-category/alldebrid",
+      "date": "2026-11-25",
+      "proved": "the page still needs a rendering read to show its listing",
+      "capture": "sha256:658764d04540821f7d814223b786a364bd7639c79ef4e3df667e4f65b3283182",
+      "quote": "A to Z\n\nLoading…"
+    },
+    {
+      "url": "https://premiuminrupees.com/",
+      "date": "2026-11-25",
+      "proved": "the AT Solutions business identity on the shop homepage is unchanged",
+      "capture": "sha256:658764d04540821f7d814223b786a364bd7639c79ef4e3df667e4f65b3283182",
+      "quote": "www.premiuminrupees.com is a part of AT Solutions. It is a world leading provider of cloud hosting premium accounts to sites..."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T15:05:36.570Z",
+  "verified_at": "2026-11-25T09:46:59.421Z",
   "price_per_tb_month": "INR 500 per 30 days for AllDebrid",
   "history": [],
   "notes": "Kept despite the weaker rung because it sets the Indian price floor: ₹500/month for a full multi-hoster is cheaper than paying AllDebrid in euros at list. The caveat is the rung, not the price. Trigger condition: the storefront renders and the price is confirmed or corrected.",

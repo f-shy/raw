@@ -63,10 +63,31 @@
       "url": "https://core.telegram.org/bots/faq",
       "date": "2026-10-23",
       "proved": "'Use the getFile method. Please note that this will only work with files of up to 20 MB in size.' - the limit this class of bot exists to bypass"
+    },
+    {
+      "url": "https://t.me/FileToLinkTGbot",
+      "date": "2026-11-25",
+      "proved": "the bot still describes itself as producing direct download links for Telegram files",
+      "capture": "sha256:d355ec83b2b7d77003b910d42011a8d9b13685692cc5fc8b6fd7d1c50f50c910",
+      "quote": "This bot generate direct download link of Telegram Files."
+    },
+    {
+      "url": "https://t.me/FileToLinkTGbot",
+      "date": "2026-11-25",
+      "proved": "the bot is still reached as a Telegram chat with a Start action, not as an HTTP API",
+      "capture": "sha256:d355ec83b2b7d77003b910d42011a8d9b13685692cc5fc8b6fd7d1c50f50c910",
+      "quote": "[Start Bot](tg://resolve?domain=FileToLinkTGbot)"
+    },
+    {
+      "url": "https://telegram.org/faq",
+      "date": "2026-11-25",
+      "proved": "a Telegram account is logged in with a mobile phone number",
+      "capture": "sha256:db52c8ab9f1c97f8c3e07bd0bfdcad3b97224fa5ab080ee3807d1312a614ad63",
+      "quote": "Just use your main mobile phone number to log in everywhere, your cloud chats will sync instantly."
     }
   ],
   "verdict": "qualifies-with-caveat",
   "price_per_tb_month": null,
   "notes": "Abandon if the page stops resolving or loses the description. Its value is structural (an MTProto-backed URL) rather than quantitative, so do not quote a quota for it until one is measured.",
-  "verified_at": "2026-10-23T01:52:23.000Z"
+  "verified_at": "2026-11-25T09:46:45.850Z"
 }

@@ -77,10 +77,38 @@
       "url": "https://news.liga.net/economics/news/osnovatel_fayloobmennika_depositfiles_otkazalsya_pokidat_ukrainu",
       "date": "2026-10-23",
       "proved": "third-party report that the founder is a Ukrainian entrepreneur who refused to move the company to Canada (2015)"
+    },
+    {
+      "url": "https://depositfiles.com/gold/payment.php",
+      "date": "2026-11-25",
+      "proved": "the 1-month Gold price is still 11.95 USD with a 0.39 USD per-day figure",
+      "capture": "sha256:95fcc2a0084ce94fc146598c1fb6ea9df152e1f0258a5c4fbc44e0fa9b70cae9",
+      "quote": "1 个月\n\n11.95 USD*\n\n0.39 USD 每天"
+    },
+    {
+      "url": "https://depositfiles.com/gold/payment.php",
+      "date": "2026-11-25",
+      "proved": "the prices still carry an indicative-price caveat, so the charged amount can differ by payment method",
+      "capture": "sha256:95fcc2a0084ce94fc146598c1fb6ea9df152e1f0258a5c4fbc44e0fa9b70cae9",
+      "quote": "* 所示为指示性价格。 最终价格可能因所选付款方式而异。"
+    },
+    {
+      "url": "https://depositfiles.com/gold/payment.php",
+      "date": "2026-11-25",
+      "proved": "card payment is still listed as a Gold purchase route",
+      "capture": "sha256:95fcc2a0084ce94fc146598c1fb6ea9df152e1f0258a5c4fbc44e0fa9b70cae9",
+      "quote": "[信用卡 信用卡](https://depositfiles.com/pwait.php?pg=bytesl&product=p1)"
+    },
+    {
+      "url": "https://depositfiles.com/gold/payment.php",
+      "date": "2026-11-25",
+      "proved": "Gold still advertises multiple connections",
+      "capture": "sha256:95fcc2a0084ce94fc146598c1fb6ea9df152e1f0258a5c4fbc44e0fa9b70cae9",
+      "quote": "您可以有多个连接"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T02:13:58.082Z",
+  "verified_at": "2026-11-25T09:46:41.072Z",
   "price_per_tb_month": "USD 11.95 per month at the 1-month term; USD 6.25/month at the 1-year term",
   "notes": "The Ukrainian half of the debrid question: a file host founded in Ukraine that still sells to anyone with a card, at USD prices, in 2026. It is not a debrid and cannot fetch from other hosts, so its role in the stack is storage, not retrieval. Jurisdiction on 2026-10-23 is not stated on the pages read; the Ukrainian founding is a 2015 news fact, not a current registration."
 }

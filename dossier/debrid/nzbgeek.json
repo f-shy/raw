@@ -152,6 +152,13 @@
       "proved": "third-party review: plan prices are not on the public site",
       "capture": "sha256:353a2166e05f491ace74bf1619e192b82dad43b8a67665de8788ab3b3a15771b",
       "quote": "NZBgeek does not list its prices on the public site."
+    },
+    {
+      "url": "https://api.nzbgeek.info/api?t=caps",
+      "date": "2026-11-25",
+      "proved": "the caps document declares a 100-result ceiling",
+      "capture": "sha256:28b4667ef277670245eddad13f8a417b7b44c14e7f841695a800fc57e21fa96c",
+      "quote": "<limits max=\"100\" default=\"100\"/>"
     }
   ],
   "verdict": "fails-quota",
@@ -163,7 +170,7 @@
     "unkeyed_error": "102 Empty API Key"
   },
   "notes": "Two vendor signals contradict each other on registration: a served agreement form says open, caps says available=no. The conservative reading is recorded on the record and not resolved, because resolving it needs an account. The verdict rests on the API allowance, which is independent of that question.",
-  "verified_at": "2026-11-03T11:28:59.770Z",
+  "verified_at": "2026-11-25T22:07:34.254Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }

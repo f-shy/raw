@@ -6,7 +6,7 @@
   "category": "free premium-link generator with a 220-host landing list",
   "tier": "free",
   "free_tier": {
-    "stated": "'Download from 220+ file hosting sites at maximum speed today' and 'Bypass slow downloads and paywalls'. No cap, no trial, no price is stated anywhere on the page.",
+    "stated": "'Download from 220+ file hosting sites at maximum speed today!'; 'Over 220+ supported hosts'; the FAQ says the service is 'completely free and requires no registration or premium accounts'. No cap, trial or price is stated on the page.",
     "unit": "unlimited",
     "metered_on": "unstated",
     "source_url": "https://www.debrid-downloader.com/",
@@ -58,10 +58,38 @@
       "url": "https://www.zippyshare.com/",
       "date": "2026-10-23",
       "proved": "that one host on the list is dead, by the host's own memorial page: 'Here lies Zippyshare [2006 - 2023]' and 'Farewell.'"
+    },
+    {
+      "url": "https://www.debrid-downloader.com/",
+      "date": "2026-11-25",
+      "proved": "the generator requires no registration, email, phone or card",
+      "capture": "sha256:69380f885ddf24b97c776fa4af510ca5053c85e7535ff12b440c2ab25c2b36a3",
+      "quote": "Yes, our service is completely free and requires no registration or premium accounts."
+    },
+    {
+      "url": "https://www.debrid-downloader.com/",
+      "date": "2026-11-25",
+      "proved": "the current page still states over 220 supported hosts",
+      "capture": "sha256:69380f885ddf24b97c776fa4af510ca5053c85e7535ff12b440c2ab25c2b36a3",
+      "quote": "Over 220+ supported hosts"
+    },
+    {
+      "url": "https://www.zippyshare.com/",
+      "date": "2026-11-25",
+      "proved": "Zippyshare, still on the generator's host list, is dead by its own memorial page",
+      "capture": "sha256:c643388588a6169cf89d6bed1578a58d804e9238ae9b8d376f53734f313594c5",
+      "quote": "Here lies Zippyshare [2006 - 2023], once upon a time a fairly big file hosting site blessed with a loyal and loving community."
+    },
+    {
+      "url": "https://www.zippyshare.com/",
+      "date": "2026-11-25",
+      "proved": "the dead-host example in the coverage note still holds",
+      "capture": "sha256:c643388588a6169cf89d6bed1578a58d804e9238ae9b8d376f53734f313594c5",
+      "quote": "Here lies Zippyshare [2006 - 2023], once upon a time a fairly big file hosting site blessed with a loyal and loving community."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:06:35.000Z",
+  "verified_at": "2026-11-25T09:46:44.526Z",
   "price_per_tb_month": "EUR 0 (cap unstated)",
   "history": [],
   "notes": "The 220-host figure is the weakest claim of this service: the list still carries Zippyshare (whose own front page announces its 2023 death), anonfiles.com, netload.in and rapidshare.io, so a reader who counts hosts is counting graves. The generator itself was not exercised, so the service may be fine; what is wrong is the coverage number, not the service. No programmatic path found: A host picker ('Select a filehost to leech from') leading to one page per host (/premium-generator/<host>); no API, CLI or plugin documented."

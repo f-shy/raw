@@ -66,10 +66,31 @@
       "url": "https://upstore.net/premium/",
       "date": "2026-10-23",
       "proved": "premium: 'High speed downloads', 'Parallel downloads', 'Download without delay', 'No captcha', 'Upload files up to 5 GB', 'Files kept on server forever', 'Download speed - up to 1000 Mbps'; free: 'Slow speed', 'One file, one thread', 'Download files up to 2 GB', 'Limited lifetime storage'; prices 16/33/59/99 EUR"
+    },
+    {
+      "url": "https://upstore.net/premium/",
+      "date": "2026-11-25",
+      "proved": "premium raises the upload cap to 5 GB, keeps files forever and confirms age during payment",
+      "capture": "sha256:814f98935a0c6da24304f202f33e8131c4db2514ccbe7c6a0028af26cf461b3f",
+      "quote": "Upload files up to 5 GB\nFiles kept on server forever\nAge confirmed during the payment"
+    },
+    {
+      "url": "https://upstore.net/premium/",
+      "date": "2026-11-25",
+      "proved": "the free download cap is 2 GB per file",
+      "capture": "sha256:814f98935a0c6da24304f202f33e8131c4db2514ccbe7c6a0028af26cf461b3f",
+      "quote": "Download files up to 2 GB"
+    },
+    {
+      "url": "https://upstore.net/premium/",
+      "date": "2026-11-25",
+      "proved": "the free tier is speed-shaped with one file and one thread",
+      "capture": "sha256:814f98935a0c6da24304f202f33e8131c4db2514ccbe7c6a0028af26cf461b3f",
+      "quote": "Slow speed\nOne file, one thread"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:20:00.000Z",
+  "verified_at": "2026-11-25T09:46:58.091Z",
   "price_per_tb_month": "EUR 14.55 per TiB-month at the monthly rate (EUR 16 / 33 days) with no byte cap published",
   "history": [],
   "notes": "Second-cheapest flat-rate key after 1fichier Premium, and the only one whose free tier the 2026 test called 'clean' rather than a paywall. The 5 GB per-file cap is the real cost: a 60 GB archive is twelve parts before deduplication. No programmatic path found: No API page found; the account is a web login.",

@@ -66,10 +66,31 @@
       "url": "https://iseedfast.com/features/",
       "date": "2026-10-23",
       "proved": "one-click ruTorrent, Deluge, qBittorrent, Transmission, Plex, Jellyfin, Sonarr, Radarr; no retrieval protocol named"
+    },
+    {
+      "url": "https://iseedfast.com/",
+      "date": "2026-11-25",
+      "proved": "the Basic tier is still USD 3/month for 50 GB, the cheapest paid tier",
+      "capture": "sha256:0f7df19f70b8aa00d0d09f5d84f1d723faa8ecc8a556372b2bf9a842e916fee7",
+      "quote": "| Basic | $3~~ /mo~~ | 50 GB | A first box, private trackers"
+    },
+    {
+      "url": "https://iseedfast.com/features/",
+      "date": "2026-11-25",
+      "proved": "the same up-to-1 Gbps uplink and unlimited downloads apply on every plan; no retrieval protocol is named",
+      "capture": "sha256:7c015d7dd328e1a8bb9cf573c32c73877ec2090b01e07092d7614a19e9ff27a6",
+      "quote": "Every plan rides the same up-to-1 Gbps uplink with unlimited downloads — no throttling, no surprise caps."
+    },
+    {
+      "url": "https://iseedfast.com/faq/",
+      "date": "2026-11-25",
+      "proved": "payment is by PayPal on a purchased plan; no phone or document requirement is stated",
+      "capture": "sha256:8015584051002d92a5f12670e06a5b5ab3cb17e352140c180254a073da546352",
+      "quote": "You can purchase your selected plan using Paypal."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T03:19:00.000Z",
+  "verified_at": "2026-11-25T09:47:03.625Z",
   "price_per_tb_month": "USD 3 for 50 GB = USD 60/TB/month",
   "history": [],
   "notes": "The $3 tier answers 'under USD 5' on price but stores only 50 GB. Sustained-rate conversion: unlimited downloads claimed, so the comparable number is the 1 Gbit/s port, 125 MB/s; 1 TiB/month needs only 3.39 Mbit/s. Potential constraints: a hidden upload cap, an unstated protocol, or oversubscription; the first two are unstated on the page and the third is not observable without an account. cheapseedboxes.com states that EvoSeedbox and Iseedfast are its own seedbox services; they are documented as separate brands because they have separate sites, prices and plan structures. No programmatic path found: The site lists ruTorrent, Deluge, qBittorrent, Transmission, Plex, Jellyfin, Sonarr and Radarr as one-click apps but does not name SFTP, FTP, rsync or any other retrieval path anywhere on the home or features page read.",

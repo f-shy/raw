@@ -1,0 +1,13 @@
+{
+ "id": "20261125-0137-verify-debrid-5636-u171-rerun",
+ "kind": "reconcile",
+ "topic": "debrid",
+ "question": "Settle these disagreements on debrid/premiumlinkgenerator-net from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.limits_note: proposed \"The torrent page publishes a daily quota of 3; the file-generator page publishes no numeric limit and the API rate limit is not published.\" (evidence https://premiumlinkgenerator.net/torrent/, capture sha256:e7a0d52089272, quote '## Daily Torrent Quota 0 / 3'); now \"No numeric limit anywhere on the page; the API's rate limit is the thing a scripted client would hit first and it is not published.\". Why it did not apply: the value changed after the lane read it If the record's confidence is `measured`, do not set from a page capture: probe the page with `python scripts/probe/probe.py URL --dump-headers --save-body <ws>/probe/page.body --out <ws>/probe`, register the body with `scripts/rq capture --lane <ws> probe:URL --probe <ws>/probe/page.body`, and set with rung `measured`, quoting a span of the saved body. If the record is documented, a first-party page capture is enough. For a value that changed after the lane read it, read the current value with `scripts/rq show` and set old to that current value.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/premiumlinkgenerator-net $.limits_note: The cited capture is the torrent page alone; this span proves only the first clause, a daily torrent quota of 3. It does not prove that the file-generator page publishes no numeric limit, and it does not prove that the API rate limit is not published: those clauses are about other pages and appear i",
+ "scope": {
+  "rids": [
+   "debrid/premiumlinkgenerator-net"
+  ]
+ },
+ "origin": "audit u193 of 20261125-0137-verify-debrid-5636/u171 failed: 1 of 2 unsupported",
+ "created": "2026-11-25T21:29:01Z"
+}

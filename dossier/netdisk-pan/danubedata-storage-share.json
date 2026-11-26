@@ -48,7 +48,7 @@
     "detail": "a DanubeData account and a payment method. The docs do not describe the signup gate",
     "country": null
   },
-  "reliability_note": "Falkenstein, Germany, the same data centre as Hetzner, so the failure domain is shared with the Hetzner option. Dedicated CPU and memory per instance, automatic TLS renewal. The product is young and the documentation is thin: the WebDAV page returned 404 when requested",
+  "reliability_note": "unverified: the docs state the offer is retired for new instances",
   "confidence": "documented",
   "evidence": [
     {
@@ -84,10 +84,24 @@
       "proved": "the published profile table and prices are unchanged",
       "capture": "sha256:d615da094c10e1b0856d36c3896c5b1bf40b21455c7cbf78ca546e37d4f1eaac",
       "quote": "| **DD1** | Sulina | 1 TB | 3 | 50 | **EUR 4.99** |"
+    },
+    {
+      "url": "https://docs.danubedata.ro/storage-share",
+      "date": "2026-11-25",
+      "proved": "the first-party docs mark the offer retired for new instances",
+      "capture": "sha256:d615da094c10e1b0856d36c3896c5b1bf40b21455c7cbf78ca546e37d4f1eaac",
+      "quote": "**Retired.** Storage Share is no longer offered for new instances. Projects that already have an instance can keep using and managing it."
+    },
+    {
+      "url": "https://docs.danubedata.ro/storage-share",
+      "date": "2026-11-25",
+      "proved": "the first-party docs state the offer is retired for new instances",
+      "capture": "sha256:d615da094c10e1b0856d36c3896c5b1bf40b21455c7cbf78ca546e37d4f1eaac",
+      "quote": "**Retired.** Storage Share is no longer offered for new instances. Projects that already have an instance can keep using and managing it."
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-11-19T21:12:44.736Z",
+  "verified_at": "2026-11-25T13:26:29.023Z",
   "history": [],
   "price_per_tb_month": "EUR 4.99/TB/month at 1 TB falling to EUR 3.00/TB/month at 10 TB, read 2026-10-22",
   "binding": "request-rate",
@@ -119,7 +133,7 @@
     "seed_wave": "C-C7-browser-and-wasm-storage.json",
     "verified_at_basis": "read live in this session",
     "death": {
-      "on": "2026-11-19",
+      "on": "2026-11-25",
       "cause": "registration-closed"
     }
   }

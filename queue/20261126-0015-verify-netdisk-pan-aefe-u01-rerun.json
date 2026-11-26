@@ -1,0 +1,20 @@
+{
+ "id": "20261126-0015-verify-netdisk-pan-aefe-u01-rerun",
+ "kind": "verify",
+ "topic": "netdisk-pan",
+ "question": "Re-check these records that the previous pass left without a fresh captured datum. For each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], retention.days, per_object_cap.bytes, limits[i].value). Never confirm $.url, $.topic, $.slug, $.provider, $.endpoint, any source_url or any limits[i].source. List every other field in unread. If the page cannot be read through any route, run the three read-only probes, register a probe record with `scripts/rq capture probe:URL --probe FILE`, and set $.reliability_note to the unverified statement with that probe as measured evidence, then open a question. Every record must end with a captured datum dated 2026-11-25/26.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- netdisk-pan/alist-20237737-xyz $.limits[0].value: the 301 redirects to alist.qsesvick.top, which answers 200 with a 2,572-byte AList settings JSON and usable true, so the host still serves and the redirect does not go to nowhere that answers; a fresh probe on 2026-11-26 reproduced the same record",
+ "scope": {
+  "rids": [
+   "netdisk-pan/115-team-drive-rental",
+   "netdisk-pan/123pan-123",
+   "netdisk-pan/1yunpan",
+   "netdisk-pan/alist-20237737-xyz",
+   "netdisk-pan/alist-advanced360-top",
+   "netdisk-pan/alist-ucu520-top",
+   "netdisk-pan/alist-zlion-top",
+   "netdisk-pan/amazon-photos"
+  ]
+ },
+ "origin": "audit u06 of 20261126-0015-verify-netdisk-pan-aefe/u01 failed: 1 of 8 unsupported",
+ "created": "2026-11-26T01:45:14Z"
+}

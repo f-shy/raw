@@ -77,30 +77,9 @@
     {
       "url": "probe:https://alist-cdn.20237737.xyz/",
       "date": "2026-11-11",
-      "proved": "this host answered every request of this run's probe",
-      "capture": "sha256:350c19a7b4f65afb44e0743bb05ac106d6aa8aae95cc676d219e0f17483a18ce",
-      "quote": "\"consecutive_failures\": 0"
-    },
-    {
-      "url": "probe:https://alist-cdn.20237737.xyz/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:350c19a7b4f65afb44e0743bb05ac106d6aa8aae95cc676d219e0f17483a18ce",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://alist-cdn.20237737.xyz/",
-      "date": "2026-11-11",
       "proved": "the settings request for this host answered HTTP 200 at this instant",
       "capture": "sha256:350c19a7b4f65afb44e0743bb05ac106d6aa8aae95cc676d219e0f17483a18ce",
       "quote": "\"checked_at\": \"2026-11-11T00:20:01.875Z\""
-    },
-    {
-      "url": "probe:https://alist-cdn.20237737.xyz/",
-      "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:350c19a7b4f65afb44e0743bb05ac106d6aa8aae95cc676d219e0f17483a18ce",
-      "quote": "\"listing_sha256\": \"1c50d65f\""
     },
     {
       "url": "probe:https://alist-cdn.20237737.xyz/",
@@ -108,20 +87,6 @@
       "proved": "the liveness and mount-list probe checked this host at this instant",
       "capture": "sha256:ff69a298c29b1c8515e4d05f9c410be112c06e2876bf696d82d2f5826fc44960",
       "quote": "\"checked_at\": \"2026-11-19T03:30:59.644Z\""
-    },
-    {
-      "url": "probe:https://alist-cdn.20237737.xyz/",
-      "date": "2026-11-19",
-      "proved": "the anonymous session, settings and mount list all answered, so the fresh alive timestamp stands",
-      "capture": "sha256:ff69a298c29b1c8515e4d05f9c410be112c06e2876bf696d82d2f5826fc44960",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://alist-cdn.20237737.xyz/",
-      "date": "2026-11-19",
-      "proved": "the anonymous root listing hashed to 1c50d65f, equal to the recorded value; no hash change",
-      "capture": "sha256:ff69a298c29b1c8515e4d05f9c410be112c06e2876bf696d82d2f5826fc44960",
-      "quote": "\"listing_sha256\": \"1c50d65f\""
     },
     {
       "url": "probe:https://alist-cdn.20237737.xyz/",
@@ -150,10 +115,31 @@
       "proved": "the fresh anonymous root listing hashed to the recorded value, so the listing is unchanged",
       "capture": "sha256:ae424c287609cfa28027e0489258934bca8addd8494fd640d9fd65a3a38a373a",
       "quote": "\"listing_sha256\": \"1c50d65f\""
+    },
+    {
+      "url": "probe:https://alist-cdn.20237737.xyz/",
+      "date": "2026-11-25",
+      "proved": "the re-probe of this host was taken at this instant",
+      "capture": "sha256:1b377cb6da305d98a793b6ccd93b76695a61fb1aea4a24eb00e16ca57fa58fdb",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:28.681Z\""
+    },
+    {
+      "url": "probe:https://alist-cdn.20237737.xyz/",
+      "date": "2026-11-25",
+      "proved": "the anonymous session, settings and root listing all answered, so no consecutive failure",
+      "capture": "sha256:1b377cb6da305d98a793b6ccd93b76695a61fb1aea4a24eb00e16ca57fa58fdb",
+      "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://alist-cdn.20237737.xyz/",
+      "date": "2026-11-25",
+      "proved": "the anonymous root listing still hashes to 1c50d65f with 4 entries",
+      "capture": "sha256:1b377cb6da305d98a793b6ccd93b76695a61fb1aea4a24eb00e16ca57fa58fdb",
+      "quote": "\"guest\": true, ... \"root_entries\": 4, ... \"listing_sha256\": \"1c50d65f\""
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T04:14:27.572Z",
+  "verified_at": "2026-11-25T11:08:33.682Z",
   "binding": "per-ip-shaping",
   "notes": "Edge-fronted hostname for instance 20237737. It advertised write permission while rejecting zero-byte test uploads, and failed to answer API requests on one of two verification runs on 2026-10-22.",
   "history": [],

@@ -87,10 +87,24 @@
       "url": "https://torbox.app/policies/terms",
       "date": "2026-10-23",
       "proved": "'Unlimited' does not mean unlimited automation, resale or commercial exploitation; fair-use limits and throttling are reserved"
+    },
+    {
+      "url": "https://torbox.app/pricing",
+      "date": "2026-11-25",
+      "proved": "the Pro card still shows USD 10, ten slots, a 1 TB object cap, 30-day seeding and 1 TB AirLock",
+      "capture": "sha256:6c693f1ee81758a37c250c00cba9a5b7f824989455d935d736ec72b9819a3e81",
+      "quote": "$10/mo\n\n10 Concurrent Slots\n\nUnlimited Downloads\n\n1TB Max Per Download Size\n\n80Gbps Speed\n\n30 Day Seeding Time\n\n1TB Permanent Storage"
+    },
+    {
+      "url": "https://api-docs.torbox.app/",
+      "date": "2026-11-25",
+      "proved": "the API error table still gives the Pro object cap as 536870912000 bytes",
+      "capture": "sha256:fa8be9b054ea9212f0d99e129285462f0336b5f800f9a065fcf9bceda36a50ec",
+      "quote": "Pro Plan Limit: **536870912000** bytes"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T01:57:49.000Z",
+  "verified_at": "2026-11-25T09:46:33.637Z",
   "price_per_tb_month": "USD 10.00 per 30 days, flat, usenet included",
   "history": [],
   "notes": "The 500 GiB versus 1 TB conflict is the interesting part: the same vendor publishes both, and the API table is the one an automated client will actually hit. Published listings listed TorBox's tiers correctly and described usenet as included, which is right for Pro only. Annual plans exist (a November 2025 promotion sold them at 30% off: Essential US$23.10, Standard US$38.50, Pro US$77, implying list prices near US$33 / US$55 / US$110) but the pricing page read on 2026-10-23 shows monthly only.",

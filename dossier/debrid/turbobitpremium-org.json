@@ -71,10 +71,24 @@
       "url": "https://turbobitpremium.org/news/free-turbobit-premium-account-generators/",
       "date": "2026-10-23",
       "proved": "the reseller's own warning that 'free Turbobit premium account generators' are not a legitimate route"
+    },
+    {
+      "url": "probe:https://turbobitpremium.org/",
+      "date": "2026-11-26",
+      "proved": "the home page answered HTTP 200 on 2026-11-26",
+      "capture": "sha256:2ebea8532a4beec1f6c2ffd44e4d23314123ae3312b508e12ceeebfc9efa70d4",
+      "quote": "\"status\": 200"
+    },
+    {
+      "url": "probe:https://turbobitpremium.org/",
+      "date": "2026-11-26",
+      "proved": "the probe record names the target URL and answered HTTP 200",
+      "capture": "sha256:2ebea8532a4beec1f6c2ffd44e4d23314123ae3312b508e12ceeebfc9efa70d4",
+      "quote": "\"url\": \"https://turbobitpremium.org/\""
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T02:10:00.226Z",
+  "verified_at": "2026-11-26T05:03:28.069Z",
   "price_per_tb_month": "USD 9.95 per month at the 1-month term; USD 3.75/month at the 24-month term",
   "notes": "This is the only page in the sector where a Turbobit price is stated in plain HTML at a stable URL, which is why it carries the price other records refer to. It is not in Turbobit's own reseller filter as far as the pages read could show, so 'reseller' here means 'a shop that sells Turbo codes', not 'an officially listed partner'. Payment methods: unverified."
 }

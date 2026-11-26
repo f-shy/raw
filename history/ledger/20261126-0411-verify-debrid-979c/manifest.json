@@ -1,0 +1,164 @@
+{
+ "manifest": 1,
+ "written": "2026-11-26T05:18:45Z",
+ "run": {
+  "run": "20261126-0411-verify-debrid-979c",
+  "kind": "verify",
+  "topic": "debrid",
+  "request": "last 11 hosted records without a run capture",
+  "created": "2026-11-26T04:11:30Z",
+  "base": "9b9b249f0335227fadb45cbc3f4a3baf4fdccbb9",
+  "branch": "rq/20261126-0411-verify-debrid-979c",
+  "issue": null,
+  "rounds": 0,
+  "research_issue": null
+ },
+ "units": [
+  {
+   "id": "u01",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "debrid",
+   "tally": {
+    "applied": 5,
+    "questions": 4,
+    "confirmed": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Final gap-fill. Every record must end with one capture dated 2026-11-25 or 2026-11-26. For each record: capture its first-party page and confirm exactly ONE field whose value appears literally in the capture text (identity_cost.kind, free_tier.unit, interface[i], retention.days, per_object_cap.bytes",
+   "scope": {
+    "rids": [
+     "debrid/nzbgrabit",
+     "debrid/simply-nzbs",
+     "debrid/simply-premium",
+     "debrid/stremio-addons-net",
+     "debrid/temp-files-com",
+     "debrid/the-hive"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u02",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "debrid",
+   "tally": {
+    "confirmed": 4,
+    "applied": 1,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Final gap-fill. Every record must end with one capture dated 2026-11-25 or 2026-11-26. For each record: capture its first-party page and confirm exactly ONE field whose value appears literally in the capture text (identity_cost.kind, free_tier.unit, interface[i], retention.days, per_object_cap.bytes",
+   "scope": {
+    "rids": [
+     "debrid/torcomet",
+     "debrid/torrentdrive-io",
+     "debrid/turbobitpremium-org",
+     "debrid/turboget-net",
+     "debrid/ulozto"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u03",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u01",
+   "score": {
+    "supported": 3,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 3,
+    "upper95": 0.562,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 3 claim(s) integrated by unit u01 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u04",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u02",
+   "score": {
+    "supported": 3,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 4,
+    "upper95": 0.699,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 4 claim(s) integrated by unit u02 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u05",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "debrid",
+   "tally": {
+    "confirmed": 4,
+    "applied": 1,
+    "questions": 2,
+    "evidence": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-apply the four literal confirms of u02, drop the turbobitpremium-org identity_cost.kind confirm the auditor rejected, and give turbobitpremium-org a probe evidence row plus an open question.",
+   "scope": {
+    "rids": [
+     "debrid/torcomet",
+     "debrid/torrentdrive-io",
+     "debrid/turbobitpremium-org",
+     "debrid/turboget-net",
+     "debrid/ulozto"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u06",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "debrid",
+   "audits": "u05",
+   "score": {
+    "supported": 4,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 4,
+    "upper95": 0.49,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 4 claim(s) integrated by unit u05 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  }
+ ],
+ "report": [
+  "run 20261126-0411-verify-debrid-979c (verify debrid): last 11 hosted records without a run capture",
+  "units 6: integrated 5, reverted 1",
+  "applied 6, confirmed 6, added 0, corroborated 0, dead 0, related 0, rejected 0, conflicts 0, open questions 6, evidence rows dropped 0",
+  "ledger lines 23, captures cited 12, conflicts logged 0 (0 handled by reconcile units)",
+  "audit of u01 by u03: 3 supported, 0 unsupported, 0 cannot tell; upper95 0.562 -> kept",
+  "audit of u02 by u04: 3 supported, 1 unsupported, 0 cannot tell; upper95 0.699 -> reverted",
+  "audit of u05 by u06: 4 supported, 0 unsupported, 0 cannot tell; upper95 0.490 -> kept"
+ ],
+ "merged": {},
+ "undo_skipped": [],
+ "conflicts": []
+}

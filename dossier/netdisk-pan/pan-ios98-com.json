@@ -115,10 +115,24 @@
       "proved": "the fresh probe found no anonymous settings response and records this as the first consecutive liveness failure at pan.ios98.com",
       "capture": "sha256:7ae0a9aaf72b7a75db310b6e883967af50ac6e6b6105fddf602f827f9d80b923",
       "quote": "\"alive\": false,\n \"requests\": {\n  \"settings\": {\n   \"url\": \"https://pan.ios98.com/api/public/settings\",\n   \"method\": \"GET\",\n   \"status\": null,"
+    },
+    {
+      "url": "probe:https://pan.ios98.com/",
+      "date": "2026-11-25",
+      "proved": "the settings request of the probe received no HTTP status",
+      "capture": "sha256:48c6e49fa274def1d9548703aa527871fed7adc859bdca7d350bd5b5bfb16e56",
+      "quote": "\"status\": 0"
+    },
+    {
+      "url": "probe:https://pan.ios98.com/",
+      "date": "2026-11-25",
+      "proved": "the probe record was checked at this instant, when the host did not answer",
+      "capture": "sha256:48c6e49fa274def1d9548703aa527871fed7adc859bdca7d350bd5b5bfb16e56",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:31.417Z\""
     }
   ],
-  "verdict": "fails-egress",
-  "verified_at": "2026-11-19T21:12:07.394Z",
+  "verdict": "dead",
+  "verified_at": "2026-11-25T11:08:34.600Z",
   "binding": "write-gated",
   "notes": "The read-gated write. PUT returns code 200 with message success, and GET /p/ then returns 51 bytes of code 401 expire missing: the instance signs its raw path and a guest cannot mint the signature. Provider 139Yun. The bytes went in and cannot come out.",
   "history": [],
@@ -138,7 +152,11 @@
     "last_verified_alive": "2026-11-19T03:33:30.444Z",
     "last_verified_dead": null,
     "consecutive_failures": 1,
-    "listing_hash_method": "sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters"
+    "listing_hash_method": "sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   },
   "stale": false,
   "stale_checked_at": "2026-10-22T00:00:00.000Z"

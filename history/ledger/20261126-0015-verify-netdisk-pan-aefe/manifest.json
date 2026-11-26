@@ -1,0 +1,436 @@
+{
+ "manifest": 1,
+ "written": "2026-11-26T03:57:51Z",
+ "run": {
+  "run": "20261126-0015-verify-netdisk-pan-aefe",
+  "kind": "verify",
+  "topic": "netdisk-pan",
+  "request": "gap-fill: every hosted record without a fresh captured datum",
+  "created": "2026-11-26T00:15:41Z",
+  "base": "9b9b249f0335227fadb45cbc3f4a3baf4fdccbb9",
+  "branch": "rq/20261126-0015-verify-netdisk-pan-aefe",
+  "issue": null,
+  "rounds": 2,
+  "research_issue": null
+ },
+ "units": [
+  {
+   "id": "u01",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "netdisk-pan",
+   "tally": {
+    "confirmed": 6,
+    "questions": 4,
+    "applied": 4,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check these records that the previous pass left without a fresh captured datum. For each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], reten",
+   "scope": {
+    "rids": [
+     "netdisk-pan/115-team-drive-rental",
+     "netdisk-pan/123pan-123",
+     "netdisk-pan/1yunpan",
+     "netdisk-pan/alist-20237737-xyz",
+     "netdisk-pan/alist-advanced360-top",
+     "netdisk-pan/alist-ucu520-top",
+     "netdisk-pan/alist-zlion-top",
+     "netdisk-pan/amazon-photos"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u02",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "netdisk-pan",
+   "tally": {
+    "confirmed": 7,
+    "applied": 1,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check these records that the previous pass left without a fresh captured datum. For each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], reten",
+   "scope": {
+    "rids": [
+     "netdisk-pan/china-mobile-cloud",
+     "netdisk-pan/china-unicom-wopan",
+     "netdisk-pan/cstcloud-data-capsule",
+     "netdisk-pan/lanzou",
+     "netdisk-pan/lark-drive-via-multi-tenant-app-credentials",
+     "netdisk-pan/mail-ru-cloud",
+     "netdisk-pan/media-advanced360-top",
+     "netdisk-pan/mmpan-net"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u03",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "netdisk-pan",
+   "tally": {
+    "confirmed": 8,
+    "conflict": 1,
+    "applied": 2,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check these records that the previous pass left without a fresh captured datum. For each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], reten",
+   "scope": {
+    "rids": [
+     "netdisk-pan/netdisk-fast-download-anonymous-multi-pan-parser",
+     "netdisk-pan/nikon-image-space-nikon-imaging-cloud",
+     "netdisk-pan/pan-iosrxwy-com",
+     "netdisk-pan/pan-t-satoru-top",
+     "netdisk-pan/pikpak",
+     "netdisk-pan/public-alist-fronting-139yun",
+     "netdisk-pan/seven-so-cloud",
+     "netdisk-pan/tianyi-cloud-drive"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u04",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "netdisk-pan",
+   "tally": {
+    "confirmed": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check these records that the previous pass left without a fresh captured datum. For each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], reten",
+   "scope": {
+    "rids": [
+     "netdisk-pan/vyuyun",
+     "netdisk-pan/weiyun",
+     "netdisk-pan/yandex-disk"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u05",
+   "kind": "reconcile",
+   "status": "integrated",
+   "topic": "netdisk-pan",
+   "tally": {
+    "applied": 1,
+    "confirmed": 1,
+    "rejected": 0
+   },
+   "origin": "conflict",
+   "question": "Settle these disagreements on netdisk-pan/pan-iosrxwy-com from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.limits[0].value: proposed \"\\\"write\\\":true\" (evidence https://pan.iosrxwy.com/api/fs/list, capture sha256:7fef1a0",
+   "scope": {
+    "rids": [
+     "netdisk-pan/pan-iosrxwy-com"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u06",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "netdisk-pan",
+   "audits": "u01",
+   "score": {
+    "supported": 7,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 8,
+    "upper95": 0.471,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 8 claim(s) integrated by unit u01 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u07",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "netdisk-pan",
+   "audits": "u02",
+   "score": {
+    "supported": 4,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 7,
+    "upper95": 0.75,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 7 claim(s) integrated by unit u02 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u08",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "netdisk-pan",
+   "audits": "u03",
+   "score": {
+    "supported": 4,
+    "unsupported": 2,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 6,
+    "upper95": 0.7,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 6 claim(s) integrated by unit u03 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u09",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "netdisk-pan",
+   "audits": "u04",
+   "score": {
+    "supported": 3,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 3,
+    "upper95": 0.562,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 3 claim(s) integrated by unit u04 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u10",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "netdisk-pan",
+   "audits": "u05",
+   "score": {
+    "supported": 2,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 2,
+    "upper95": 0.658,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 2 claim(s) integrated by unit u05 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u11",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "netdisk-pan",
+   "tally": {
+    "confirmed": 8,
+    "applied": 5,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Second attempt after the audit. For every finding below, replace the interpretive text with the literal thing the capture shows: a quoted sentence, the page title, the exact status, or `unverified: <what happened>`. A field that says what a page IS, means or implies is unsupported. Keep only values ",
+   "scope": {
+    "rids": [
+     "netdisk-pan/115-team-drive-rental",
+     "netdisk-pan/123pan-123",
+     "netdisk-pan/1yunpan",
+     "netdisk-pan/alist-20237737-xyz",
+     "netdisk-pan/alist-advanced360-top",
+     "netdisk-pan/alist-ucu520-top",
+     "netdisk-pan/alist-zlion-top",
+     "netdisk-pan/amazon-photos"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u12",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "netdisk-pan",
+   "tally": {
+    "applied": 4,
+    "confirmed": 8,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Second attempt after the audit. For every finding below, replace the interpretive text with the literal thing the capture shows: a quoted sentence, the page title, the exact status, or `unverified: <what happened>`. A field that says what a page IS, means or implies is unsupported. Keep only values ",
+   "scope": {
+    "rids": [
+     "netdisk-pan/china-mobile-cloud",
+     "netdisk-pan/china-unicom-wopan",
+     "netdisk-pan/cstcloud-data-capsule",
+     "netdisk-pan/lanzou",
+     "netdisk-pan/lark-drive-via-multi-tenant-app-credentials",
+     "netdisk-pan/mail-ru-cloud",
+     "netdisk-pan/media-advanced360-top",
+     "netdisk-pan/mmpan-net"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u13",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "netdisk-pan",
+   "tally": {
+    "confirmed": 8,
+    "applied": 5,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Second attempt after the audit. For every finding below, replace the interpretive text with the literal thing the capture shows: a quoted sentence, the page title, the exact status, or `unverified: <what happened>`. A field that says what a page IS, means or implies is unsupported. Keep only values ",
+   "scope": {
+    "rids": [
+     "netdisk-pan/netdisk-fast-download-anonymous-multi-pan-parser",
+     "netdisk-pan/nikon-image-space-nikon-imaging-cloud",
+     "netdisk-pan/pan-iosrxwy-com",
+     "netdisk-pan/pan-t-satoru-top",
+     "netdisk-pan/pikpak",
+     "netdisk-pan/public-alist-fronting-139yun",
+     "netdisk-pan/seven-so-cloud",
+     "netdisk-pan/tianyi-cloud-drive"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u14",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "netdisk-pan",
+   "audits": "u11",
+   "score": {
+    "supported": 12,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 13,
+    "upper95": 0.333,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 13 claim(s) integrated by unit u11 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u15",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "netdisk-pan",
+   "audits": "u12",
+   "score": {
+    "supported": 12,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 12,
+    "upper95": 0.243,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 12 claim(s) integrated by unit u12 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u16",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "netdisk-pan",
+   "audits": "u13",
+   "score": {
+    "supported": 9,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 9,
+    "upper95": 0.299,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 9 claim(s) integrated by unit u13 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u17",
+   "kind": "reconcile",
+   "status": "integrated",
+   "topic": "netdisk-pan",
+   "tally": {
+    "applied": 1,
+    "confirmed": 1,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "conflict",
+   "question": "Settle these disagreements on netdisk-pan/alist-zlion-top from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.limits[0].value: proposed \"the host stopped serving: no TCP service\" (evidence probe:https://alist.zlion.top/api",
+   "scope": {
+    "rids": [
+     "netdisk-pan/alist-zlion-top"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u18",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "netdisk-pan",
+   "audits": "u17",
+   "score": {
+    "supported": 2,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 2,
+    "upper95": 0.658,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 2 claim(s) integrated by unit u17 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  }
+ ],
+ "report": [
+  "run 20261126-0015-verify-netdisk-pan-aefe (verify netdisk-pan): gap-fill: every hosted record without a fresh captured datum",
+  "units 18: integrated 15, reverted 3",
+  "applied 16, confirmed 29, added 0, corroborated 0, dead 0, related 0, rejected 0, conflicts 0, open questions 3, evidence rows dropped 0",
+  "ledger lines 100, captures cited 40, conflicts logged 2 (2 handled by reconcile units)",
+  "audit of u01 by u06: 7 supported, 1 unsupported, 0 cannot tell; upper95 0.471 -> reverted",
+  "audit of u02 by u07: 4 supported, 3 unsupported, 0 cannot tell; upper95 0.750 -> reverted",
+  "audit of u03 by u08: 4 supported, 2 unsupported, 0 cannot tell; upper95 0.700 -> reverted",
+  "audit of u04 by u09: 3 supported, 0 unsupported, 0 cannot tell; upper95 0.562 -> kept",
+  "audit of u05 by u10: 2 supported, 0 unsupported, 0 cannot tell; upper95 0.658 -> kept",
+  "audit of u11 by u14: 12 supported, 1 unsupported, 0 cannot tell; upper95 0.333 -> kept",
+  "audit of u12 by u15: 12 supported, 0 unsupported, 0 cannot tell; upper95 0.243 -> kept",
+  "audit of u13 by u16: 9 supported, 0 unsupported, 0 cannot tell; upper95 0.299 -> kept",
+  "audit of u17 by u18: 2 supported, 0 unsupported, 0 cannot tell; upper95 0.658 -> kept"
+ ],
+ "merged": {},
+ "undo_skipped": [],
+ "conflicts": []
+}

@@ -20,8 +20,8 @@
     "notes": "an article size is a protocol convention, not a vendor number"
   },
   "retention": {
-    "stated": "6,642+ days of article retention, in the plan table",
-    "days": 6642,
+    "stated": "6,676+ days of article retention, in the plan table",
+    "days": 6676,
     "source_url": "https://www.newsgroup.ninja/en/signup"
   },
   "egress": {
@@ -45,7 +45,7 @@
     },
     {
       "kind": "retention-clamped",
-      "value": "6,642+ days of article retention",
+      "value": "6,676+ days of article retention",
       "source": "https://www.newsgroup.ninja/en/signup"
     }
   ],
@@ -70,10 +70,45 @@
       "url": "https://www.newsgroup.ninja/en/signup",
       "date": "2026-10-23",
       "proved": "Account Information block asks for Email Address and Country before payment"
+    },
+    {
+      "url": "https://www.newsgroup.ninja/en/signup",
+      "date": "2026-11-25",
+      "proved": "the signup page now states 6,676+ days of retention",
+      "capture": "sha256:7fa5e66e77d8d6d2651314de7d004bd5f7a8ab3db43fd0d2228206ad32fb9c83",
+      "quote": "- 6,676+ Days Article Retention"
+    },
+    {
+      "url": "https://www.newsgroup.ninja/en/signup",
+      "date": "2026-11-25",
+      "proved": "the monthly plan is USD 7.99 per month",
+      "capture": "sha256:7fa5e66e77d8d6d2651314de7d004bd5f7a8ab3db43fd0d2228206ad32fb9c83",
+      "quote": "$7.99 /mo"
+    },
+    {
+      "url": "https://www.newsgroup.ninja/en/signup",
+      "date": "2026-11-25",
+      "proved": "the yearly plan carries a 55% discount",
+      "capture": "sha256:7fa5e66e77d8d6d2651314de7d004bd5f7a8ab3db43fd0d2228206ad32fb9c83",
+      "quote": "55% Special Discount"
+    },
+    {
+      "url": "https://www.newsgroup.ninja/en/signup",
+      "date": "2026-11-25",
+      "proved": "50 connections on both plans",
+      "capture": "sha256:7fa5e66e77d8d6d2651314de7d004bd5f7a8ab3db43fd0d2228206ad32fb9c83",
+      "quote": "- 50 Connections"
+    },
+    {
+      "url": "https://www.newsgroup.ninja/en/signup",
+      "date": "2026-11-25",
+      "proved": "unlimited data and speed are still published",
+      "capture": "sha256:7fa5e66e77d8d6d2651314de7d004bd5f7a8ab3db43fd0d2228206ad32fb9c83",
+      "quote": "- Unlimited Data"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T01:52:29.000Z",
+  "verified_at": "2026-11-25T09:47:09.200Z",
   "price_per_tb_month": "USD 5.83 (yearly)",
   "notes": "",
   "extras": {

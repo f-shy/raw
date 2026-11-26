@@ -1,0 +1,20 @@
+{
+ "id": "20261126-0015-verify-debrid-3523-u05-rerun",
+ "kind": "verify",
+ "topic": "debrid",
+ "question": "Re-check these records that the previous pass left without a fresh captured datum. For each record, capture its first-party page and confirm exactly ONE field whose value appears in the capture text, preferring a content field or a short token (identity_cost.kind, free_tier.unit, interface[i], retention.days, per_object_cap.bytes, limits[i].value). Never confirm $.url, $.topic, $.slug, $.provider, $.endpoint, any source_url or any limits[i].source. List every other field in unread. If the page cannot be read through any route, run the three read-only probes, register a probe record with `scripts/rq capture probe:URL --probe FILE`, and set $.reliability_note to the unverified statement with that probe as measured evidence, then open a question. Every record must end with a captured datum dated 2026-11-25/26.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- debrid/qiwi-wallet $.limits[0].value: The span says top-ups and transfers from Qiwi wallets became impossible after the licence was revoked, but it gives neither 2024-02-21 nor the Central Bank: the dateline (21 февраля 2024 г.) and the 'Банк России отозвал лицензию' sentence are separate spans, and this span says transfers from wallets\n- debrid/releasebb $.free_tier.stated: The fresh fetch is the same parking interstitial and carries that title and the POST to https://router.parklogic.com/, but no span states 5,591 bytes (this capture's body is 7,497 bytes; the original capture's is 6,993) or that the script posts browser fingerprints. The title alone is not the whole \n- debrid/scenenzbs $.free_tier.stated: The notice supports the rename only. No span says 'None under this name' or that every request is redirected; 'every request' is broader than one root fetch.\n- debrid/scnlog $.limits_note: The robots file has the three Disallow lines, the Allow line and the four bot blocks, but it does not state 'The forum is a separate login.'; the value is a summary of separate lines plus a sentence that is not in the capture.\n- debrid/simply-nzbs $.free_tier.unit: The capture is a parking page with 'Related Searches:' and five sponsored links. It states no free tier at all, so 'none' is an inference from absence, not a span on the page. A fresh fetch at 01:32Z returned a 'Loading...' JavaScript redirect, also with no free-tier statement.\n- debrid/simply-premium $.limits[1].value: The table says ddownload.com is 50 GB, not 250 GB; the 250 GB rows are 1fichier.com, filefactory.com, filestore.to, mega.co.nz and youtube.com. The value also omits filefactory.com.",
+ "scope": {
+  "rids": [
+   "debrid/qiwi-wallet",
+   "debrid/releasebb",
+   "debrid/scenenzbs",
+   "debrid/scnlog",
+   "debrid/seedbox-org-ua",
+   "debrid/simply-nzbs",
+   "debrid/simply-premium",
+   "debrid/spots-xenetix-nl"
+  ]
+ },
+ "origin": "audit u12 of 20261126-0015-verify-debrid-3523/u05 failed: 6 of 6 unsupported",
+ "created": "2026-11-26T01:45:13Z"
+}

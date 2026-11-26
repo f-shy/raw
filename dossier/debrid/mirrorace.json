@@ -53,7 +53,7 @@
     "detail": "Historical: registration existed at mirrorace.com/account/types. No account can be created usefully now.",
     "country": null
   },
-  "reliability_note": "The news table stops at 3 Aug 2023 with 'We are working on the upload speed issue. It will be fixed soon.', after two maintenance notices in the preceding eight months. No fix arrived.",
+  "reliability_note": "The news table still ends at 3 Aug 2023: '| 3 Aug 2023 | Notice | We are working on the upload speed issue. It will be fixed soon. |'",
   "confidence": "documented",
   "confidence_note": "The disabled-upload state and the empty-server counter are read from the live page on 2026-10-23. An existing mirror link confirms whether the read side still works.",
   "evidence": [
@@ -61,10 +61,24 @@
       "url": "https://mirrorace.com/",
       "date": "2026-10-23",
       "proved": "'Uploading has been disabled.', 'Upload servers are totally empty.', '0.00%', and a news table whose last entry is '3 Aug 2023 ... We are working on the upload speed issue.'"
+    },
+    {
+      "url": "https://mirrorace.com/",
+      "date": "2026-11-25",
+      "proved": "home page still shows uploads disabled, empty servers at 0.00% and a registration link",
+      "capture": "sha256:6eb9f10f4aea5bdd5d8f16dec57797f8e438d67e17ddfafd24dfd987e2fa6947",
+      "quote": "Want **more features**? Just register on MirrorAce [Register](https://mirrorace.com/account/types) ... Upload servers are totally empty. ... 0.00% ... Uploading has been disabled. ... | 3 Jan 2023 | Notice | Site maintenance is complete now. All the links have been restored. Feel free to contact us if you have any queries. |"
+    },
+    {
+      "url": "https://mirrorace.com/",
+      "date": "2026-11-25",
+      "proved": "latest news entry is still 3 Aug 2023",
+      "capture": "sha256:6eb9f10f4aea5bdd5d8f16dec57797f8e438d67e17ddfafd24dfd987e2fa6947",
+      "quote": "| 3 Aug 2023 | Notice | We are working on the upload speed issue. It will be fixed soon. |"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T03:18:17.000Z",
+  "verified_at": "2026-11-25T09:46:51.629Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "Inactive mirror service. New file uploads are disabled and backend servers report empty capacity.",

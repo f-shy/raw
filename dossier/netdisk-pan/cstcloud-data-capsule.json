@@ -75,10 +75,17 @@
       "proved": "the 20GB after identity verification, 1G on registration, unlimited traffic and request count, and S3/WebDAV/MCP behind national ID are unchanged",
       "capture": "sha256:811e607181fbc89f976c5e5f9894a9dc27d85dc40f144a041675a78821690800",
       "quote": "中科院免费提供的20GB对象存储服务，不限流量、不限读写次数，支持多协议接入，含金量直接拉满！注册赠送1G存储。需要20G和S3、WebDAV、MCP需要使用 【国家网络身份认证】app 进行认证"
+    },
+    {
+      "url": "https://data.cstcloud.cn",
+      "date": "2026-11-26",
+      "proved": "the first-party page states support for the standard S3 protocol",
+      "capture": "sha256:74cdf82c926964b850d252c3fce6ec1162bb160238f1b5a598fdc380b8cf8da9",
+      "quote": "支持标准S3协议的软件、代码连接数据空间，实现数据在本地与云端各个环节的自由流动，Rclone、S3Drive等均可连接。"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-19T21:12:44.362Z",
+  "verified_at": "2026-11-26T02:15:14.532Z",
   "history": [],
   "binding": "write-gated",
   "binding_note": "Unlimited traffic and no request metering, and the gate is a national identity app. Only 1 GB is available without verification, so the identity decision is the only one that matters.",

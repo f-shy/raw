@@ -54,7 +54,7 @@
   "binding_note": "2 GB per file is the only published number.",
   "identity_cost": {
     "kind": "email",
-    "detail": "unverified: the sign-up form was not read; the FAQ calls it a free cloud file storage service and the homepage lists an upgrade link.",
+    "detail": "The sign-up form asks for an email address, a username and a password; it also requires accepting the terms and passing a CAPTCHA. It asks for no phone number and no card.",
     "country": null
   },
   "reliability_note": "The FAQ states ads cover the running cost.",
@@ -81,10 +81,52 @@
       "capture": "sha256:dee862c0e87ec8ef385939f8c42fcfcb52e6a55e152ea20f2fde42e7bdc7c40f",
       "quote": "Yes, Our service is 100% Free for all users. We rely on advertising to cover the running fee. We may offer premium accounts which allows for greater flexibility with uploading/downloading.",
       "proved": "the service is free and ad-supported with possible premium accounts"
+    },
+    {
+      "url": "https://doodrive.com/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ still states a 2 GB per-file cap",
+      "capture": "sha256:dee862c0e87ec8ef385939f8c42fcfcb52e6a55e152ea20f2fde42e7bdc7c40f",
+      "quote": "Each file you upload must be less than 2 GB in size. If it is greater than that amount, your file will be rejected."
+    },
+    {
+      "url": "https://doodrive.com/faq",
+      "date": "2026-11-25",
+      "proved": "the inactivity deletion still has no stated day count",
+      "capture": "sha256:dee862c0e87ec8ef385939f8c42fcfcb52e6a55e152ea20f2fde42e7bdc7c40f",
+      "quote": "Files may also be removed after a period of inactivity."
+    },
+    {
+      "url": "https://doodrive.com/faq",
+      "date": "2026-11-25",
+      "proved": "the service is still free and ad-supported with possible premium accounts",
+      "capture": "sha256:dee862c0e87ec8ef385939f8c42fcfcb52e6a55e152ea20f2fde42e7bdc7c40f",
+      "quote": "Yes, Our service is 100% Free for all users. We rely on advertising to cover the running fee. We may offer premium accounts which allows for greater flexibility with uploading/downloading."
+    },
+    {
+      "url": "https://doodrive.com/register",
+      "date": "2026-11-25",
+      "proved": "the sign-up form asks for an email address",
+      "capture": "sha256:c622720495f81d8e786c22b9e60b17974baa9b090a42badbe0512d7a69685e49",
+      "quote": "<input class=\"uk-input form-input-alternative \" name=\"email\" placeholder=\"Email\" type=\"text\" required>"
+    },
+    {
+      "url": "https://doodrive.com/register",
+      "date": "2026-11-25",
+      "proved": "the sign-up form asks for an email address and does not ask for a phone number or card",
+      "capture": "sha256:c622720495f81d8e786c22b9e60b17974baa9b090a42badbe0512d7a69685e49",
+      "quote": "<input class=\"uk-input form-input-alternative \" name=\"email\" placeholder=\"Email\" type=\"text\" required>"
+    },
+    {
+      "url": "https://doodrive.com/upgrade",
+      "date": "2026-11-25",
+      "proved": "the patron and standard plan rows state a 5 GB per-file cap, while the FAQ states 2 GB",
+      "capture": "sha256:98687303255d2e107f265bea45d967b6362ea4ace8a646a7aec1bb4dc4dbadf8",
+      "quote": "- **5 GB** Max File Size"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T07:37:12.225Z",
+  "verified_at": "2026-11-25T09:46:39.735Z",
   "price_per_tb_month": "unverified: no premium price page was readable",
   "history": [],
   "notes": "No programmatic path found: Web upload; the footer links Upgrade Account, Speedtest and Report File.",

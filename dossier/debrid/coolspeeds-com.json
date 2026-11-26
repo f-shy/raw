@@ -86,10 +86,38 @@
       "url": "https://docs.coolspeeds.com/books/rabota-s-fayloobmennikami/page/skachivanie-faylov-s-fayloobmennikov",
       "date": "2026-10-23",
       "proved": "the service downloads either through the account's own premium host accounts or through 'premium traffic' bought from external link-unrestricting services"
+    },
+    {
+      "url": "https://coolspeeds.com/en",
+      "date": "2026-11-25",
+      "proved": "Premium-pool traffic is sold in 10 GB packs and charged by bytes actually downloaded",
+      "capture": "sha256:6333f0273aec955a5e7d518d01c42bbd7c803f028e3c3c042ff9c401c62aed0d",
+      "quote": "When a file host requires a premium account and you do not have one — buy premium traffic in 10 GB packs and the service will download through its own premium pool. Billed strictly by bytes actually downloaded."
+    },
+    {
+      "url": "https://coolspeeds.com/en",
+      "date": "2026-11-25",
+      "proved": "There is still no free trial, and plans can be paid for 10, 20 or 30 days",
+      "capture": "sha256:6333f0273aec955a5e7d518d01c42bbd7c803f028e3c3c042ff9c401c62aed0d",
+      "quote": "There is no free trial, but any plan can be paid for 10, 20 or 30 days. The 10-day price is one third of monthly — enough to build your automation chains, try media processing, and decide if the service fits."
+    },
+    {
+      "url": "https://coolspeeds.com/en",
+      "date": "2026-11-25",
+      "proved": "Payment is by cryptocurrency or WebMoney, with no card method listed",
+      "capture": "sha256:6333f0273aec955a5e7d518d01c42bbd7c803f028e3c3c042ff9c401c62aed0d",
+      "quote": "Bitcoin, Litecoin, USDT (7 networks: TRC20, BEP20, Polygon, Optimism, Base, Avalanche, Solana), WebMoney. The pricing page shows the exact amount per payment method."
+    },
+    {
+      "url": "https://coolspeeds.com/en",
+      "date": "2026-11-25",
+      "proved": "The advertised download ceiling is 10 Gbit/s and the seed ceiling is 16 Mbit/s",
+      "capture": "sha256:6333f0273aec955a5e7d518d01c42bbd7c803f028e3c3c042ff9c401c62aed0d",
+      "quote": "Download up to 10 Gbit/s, seed up to 16 Mbit/s."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T02:04:35.999Z",
+  "verified_at": "2026-11-25T09:47:00.874Z",
   "price_per_tb_month": "USD 36.86 per TiB of premium-pool download, plus USD 34.80/month for the 100 GB disk plan",
   "notes": "The cheapest per-GB figure found among debrid providers. The caveat is payment: crypto or WebMoney only, so a user without either cannot buy it at all. Candidate explanations considered for the price gap between the docs page ($0.30/GB) and the live page ($0.36/10 GB): (1) the docs page is a 2021 capture never updated - supported by its image timestamps uploads/images/gallery/2021-02 and by the pricing page being the later artefact; (2) the two pages price different pools; no evidence. The record keeps the live pricing page. No programmatic path found: Browser cockpit at coolspeeds.com/{en,ru}/cabinet.html; ruTorrent 3.x with 19 plugins for torrents; FTP for uploads; a Firefox extension (LeechGrab) routes browser downloads through the vendor's MITM proxy. No public API documented on the pages read."
 }

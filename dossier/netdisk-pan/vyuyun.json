@@ -163,10 +163,17 @@
       "proved": "the site settings set the default account storage to 50 GB, so a new account's free allocation is 50 GB",
       "capture": "sha256:57e2473bbb5ff8c0125f01054dc03de188fd0b77001529bf93da50a63e6c8de9",
       "quote": "\"storageDefaultSpace\":50,\"storageDefaultSpaceFormatted\":\"50GB\""
+    },
+    {
+      "url": "https://docs.vyuyun.com/",
+      "date": "2026-11-26",
+      "proved": "the vendor's own API documentation describes a WebDAV route and its upload limit",
+      "capture": "sha256:74aadf1dfd902cc93ab23ecc1e39247020383e601533ff46f6b584385fca7bfa",
+      "quote": "使用webdav请注意api请求频率限制，因系统限制webdav单文件最大上传为：50MB"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-09T13:21:34.865Z",
+  "verified_at": "2026-11-26T01:10:14.530Z",
   "history": [],
   "binding": "per-object-cap",
   "binding_note": "50 GB free with a 500 MB per-file cap, and an email-only sign-up. The REST API and WebDAV are VIP only, so a free account has no programmatic route.",

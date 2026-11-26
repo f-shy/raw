@@ -91,10 +91,17 @@
       "proved": "the README still warns not to depend on lz.qaiu.top and that heavy use gets the server restricted",
       "capture": "sha256:baddab9015359dcc2d2efefd3d005b678f617108b38c6a3062fbaa3f92e319ed",
       "quote": "请不要过度依赖 lz.qaiu.top，建议本地搭建或者云服务器自行搭建。请求量过多的话服务器可能会被云盘厂商限制"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/qaiu/netdisk-fast-download/main/README.md",
+      "date": "2026-11-25",
+      "proved": "the README names 189.qaiu.top as the Professional endpoint",
+      "capture": "sha256:fa782304219f2cc962dd77ead2d6615672bce125f352c7ba971e5945a7c82122",
+      "quote": "[专业版](https://189.qaiu.top)"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:45.102Z",
+  "verified_at": "2026-11-25T14:05:51.157Z",
   "binding": "per-object-cap",
   "notes": "The free tier and the Professional tier split exactly along the pans that are hard: Lanzou, iLanzou, Ctfile, FeijiPan, ecpan, Fangcloud and 123pan resolve without a key, while Baidu, Xunlei, Quark, UC, 139 and 189 sit behind the key and return 401. That split is the map of which pans still resist programmatic access.",
   "history": [],

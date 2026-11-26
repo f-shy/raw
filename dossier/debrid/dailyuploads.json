@@ -16,13 +16,13 @@
     "notes": ""
   },
   "per_object_cap": {
-    "stated": "not stated on the premium page read; a 17,269,804 byte object served intact",
+    "stated": "Max download file size is 2 GB on free, 4 GB registered and 80 GB premium; max upload file size is 4 GB free, 6 GB registered and 80 GB premium.",
     "bytes": null,
     "source_url": "https://dailyuploads.net/premium/",
     "notes": ""
   },
   "retention": {
-    "stated": "not stated on the pages read; the object measured was uploaded 2024-07-07 and still served",
+    "stated": "Files are kept after the last download for 3 days on free, 30 days registered and 60 days premium.",
     "days": null,
     "source_url": "https://dailyuploads.net/premium/"
   },
@@ -107,10 +107,45 @@
       "url": "https://filehostreviews.com/best-file-hosting-services/",
       "date": "2026-10-23",
       "proved": "JD2 34.0 MB/s, browser 12.6 MB/s, free 3.0 MB/s"
+    },
+    {
+      "url": "https://dailyuploads.net/premium/",
+      "date": "2026-11-25",
+      "proved": "the 30-day Standard plan still costs USD 12.99 as a one-time payment",
+      "capture": "sha256:0b39c903ac61de3cbbe37b93d54f9ea40a31592e9e7bd782b85e0df3b3d4fea8",
+      "quote": "30 Days $12.99 one-time payment Download speedStandard"
+    },
+    {
+      "url": "https://dailyuploads.net/premium/",
+      "date": "2026-11-25",
+      "proved": "the premium comparison table states per-file upload caps by tier",
+      "capture": "sha256:0b39c903ac61de3cbbe37b93d54f9ea40a31592e9e7bd782b85e0df3b3d4fea8",
+      "quote": "Max upload file size | 4 GB | 6 GB | 80 GB"
+    },
+    {
+      "url": "https://dailyuploads.net/premium/",
+      "date": "2026-11-25",
+      "proved": "the premium table now publishes a retention row per tier",
+      "capture": "sha256:0b39c903ac61de3cbbe37b93d54f9ea40a31592e9e7bd782b85e0df3b3d4fea8",
+      "quote": "Files kept after last download | 3 days | 30 days | 60 days"
+    },
+    {
+      "url": "https://dailyuploads.net/premium/",
+      "date": "2026-11-25",
+      "proved": "the premium comparison table publishes a daily download volume of 5 GB free, 10 GB registered and 300 GB premium",
+      "capture": "sha256:0b39c903ac61de3cbbe37b93d54f9ea40a31592e9e7bd782b85e0df3b3d4fea8",
+      "quote": "Download volume per day | 5 GB | 10 GB | 300 GB"
+    },
+    {
+      "url": "https://dailyuploads.net/premium/",
+      "date": "2026-11-25",
+      "proved": "the premium comparison table publishes a max download file size of 2 GB free, 4 GB registered and 80 GB premium",
+      "capture": "sha256:0b39c903ac61de3cbbe37b93d54f9ea40a31592e9e7bd782b85e0df3b3d4fea8",
+      "quote": "Max download file size | 2 GB | 4 GB | 80 GB"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T03:31:02.558Z",
+  "verified_at": "2026-11-25T09:46:57.295Z",
   "price_per_tb_month": "USD 12.99 per 30 days (Standard)",
   "notes": "Single connection speeds measured at 0.824-1.117 MiB/s, while 4 connections achieve approximately 2.5 MiB/s. Free tier allows high-volume downloads, though the file network is smaller than major file hosts.",
   "extras": {

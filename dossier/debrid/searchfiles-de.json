@@ -61,10 +61,24 @@
       "url": "https://searchfiles.de/",
       "date": "2026-10-23",
       "proved": "the per-host engines it advertises (Mediafire, Keep2share/K2s, MediaFire, Mega.nz) and the file-content search claim"
+    },
+    {
+      "url": "https://searchfiles.de/",
+      "date": "2026-11-25",
+      "proved": "the site is still a file search tool rather than a file host",
+      "capture": "sha256:7998a1a09af66bc7d1a4a6a176f0577a31367358d867360aa68af00f56ad1488",
+      "quote": "SearchFiles file search engine is a search tool which can search for information in files."
+    },
+    {
+      "url": "https://searchfiles.de/",
+      "date": "2026-11-25",
+      "proved": "the per-host Mega.nz engine is still advertised",
+      "capture": "sha256:7998a1a09af66bc7d1a4a6a176f0577a31367358d867360aa68af00f56ad1488",
+      "quote": "Mega.nz is a file hoster for music, movies, software and documents."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-23T03:18:17.000Z",
+  "verified_at": "2026-11-25T09:46:41.783Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "File search engine indexing links across multiple file hosts. Does not provide debrid link unlocking. No programmatic path found: Web search form with per-host engines. No API is published on the page read.",

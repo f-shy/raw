@@ -6,7 +6,7 @@
   "category": "usenet provider (UsenetExpress backbone, retail)",
   "tier": "Unlimited annual",
   "free_tier": {
-    "stated": "No free tier and no free trial, stated explicitly: 'NewsDemon does not offer a free trial. We used to, but payment processing partners discourage trial-to-paid conversion flows'.",
+    "stated": "No free tier and no free trial: 'NewsDemon does not offer a free trial. We used to, but payment processing partners discourage trial-to-paid conversion flows, and we decided to keep things simple instead.'",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://www.newsdemon.com/usenet-access",
@@ -20,8 +20,8 @@
     "notes": "an article size is a protocol convention, not a vendor number"
   },
   "retention": {
-    "stated": "5,914+ days of binary and text retention on the plans page; the block page prints 5,854++ days. The conservative figure is recorded.",
-    "days": 5854,
+    "stated": "5,948+ days of binary and text retention on the plans page and the free-trial page; the block page still prints a lower figure. The figure on the main plans page is recorded.",
+    "days": 5948,
     "source_url": "https://www.newsdemon.com/usenet-access"
   },
   "egress": {
@@ -50,7 +50,7 @@
     },
     {
       "kind": "retention-clamped",
-      "value": "5,854 to 5,914 days depending on the page",
+      "value": "5,854 to 5,948 days depending on the page",
       "source": "https://www.newsdemon.com/block-accounts"
     }
   ],
@@ -80,10 +80,66 @@
       "url": "https://www.newsdemon.com/block-accounts",
       "date": "2026-10-23",
       "proved": "blocks 10 GB $4.00, 25 GB $7.00, 50 GB $12.00, 100 GB $17.00, 500 GB $49.00, 1000 GB $89.00, against a second column $2.50/$5.00/$10.00/$15.00/$47.00/$87.00; 5,854++ days; 50 connections"
+    },
+    {
+      "url": "https://www.newsdemon.com/usenet-access",
+      "date": "2026-11-25",
+      "proved": "the plans page now states 5,948+ days of retention",
+      "capture": "sha256:4f80487cfc7601f6008f34b083243d57180c0d14e37f2008da7c3c674574456b",
+      "quote": "5,948+"
+    },
+    {
+      "url": "https://www.newsdemon.com/usenet-access",
+      "date": "2026-11-25",
+      "proved": "50 SSL connections are listed on the plans page",
+      "capture": "sha256:4f80487cfc7601f6008f34b083243d57180c0d14e37f2008da7c3c674574456b",
+      "quote": "50 SSL Connections"
+    },
+    {
+      "url": "https://www.newsdemon.com/usenet-access",
+      "date": "2026-11-25",
+      "proved": "unlimited speed and downloads on the unlimited plans",
+      "capture": "sha256:4f80487cfc7601f6008f34b083243d57180c0d14e37f2008da7c3c674574456b",
+      "quote": "- ✓ Unlimited speed & downloads"
+    },
+    {
+      "url": "https://www.newsdemon.com/free-trial",
+      "date": "2026-11-25",
+      "proved": "the vendor states there is no free trial",
+      "capture": "sha256:838a39180cf26f09ca8e7a9592bbd2fbff507b0f1eced2ffa284e8a261f4dc76",
+      "quote": "NewsDemon does not offer a free trial. We used to, but payment processing partners discourage trial-to-paid conversion flows, and we decided to keep things simple instead."
+    },
+    {
+      "url": "https://www.newsdemon.com/free-trial",
+      "date": "2026-11-25",
+      "proved": "50 SSL connections on every plan including the metered tier",
+      "capture": "sha256:838a39180cf26f09ca8e7a9592bbd2fbff507b0f1eced2ffa284e8a261f4dc76",
+      "quote": "50 SSL connections. On every plan, including the $3/month metered plan."
+    },
+    {
+      "url": "https://www.newsdemon.com/free-trial",
+      "date": "2026-11-25",
+      "proved": "the unlimited annual plan is USD 5 per month",
+      "capture": "sha256:838a39180cf26f09ca8e7a9592bbd2fbff507b0f1eced2ffa284e8a261f4dc76",
+      "quote": "Unlimited Annual — $5/month"
+    },
+    {
+      "url": "https://www.newsdemon.com/block-accounts",
+      "date": "2026-11-25",
+      "proved": "the block page still states 5,854++ days",
+      "capture": "sha256:4abce159155cda12ce446c546ef6307f348805b11728ce3c0ddc37cb1d9db794",
+      "quote": "- 5854++ Days Retention"
+    },
+    {
+      "url": "https://www.newsdemon.com/refund-policy",
+      "date": "2026-11-25",
+      "proved": "the refund policy names card and PayPal",
+      "capture": "sha256:9412a47a0b41b5e874f3b951410fab73fc6e8bdeb68ceee9e356a343cb19cf6f",
+      "quote": "Refunds are typically processed within 1-3 business days. The refund goes back to the original payment method. If you paid by credit card, the refund appears on your statement. If you paid by PayPal, it goes back to your PayPal account."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T01:52:29.000Z",
+  "verified_at": "2026-11-25T09:47:09.201Z",
   "price_per_tb_month": "USD 5.00 (unlimited, annual at $60/yr)",
   "notes": "The $3 metered plan is the cheapest paid entry of any provider among debrid providers and carries the same 50 connections as the unlimited plans.",
   "extras": {

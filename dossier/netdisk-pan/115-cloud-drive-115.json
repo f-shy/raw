@@ -17,12 +17,12 @@
     "source_url": "https://vip.115.com/?ac=page&ct=info&page_name=privilege_details"
   },
   "retention": {
-    "stated": "Free 原石用户: files in the recycle bin are restorable within 15 days, then permanently deleted; paid VIP tiers get 30 days",
+    "stated": "回收站有效期 30天/15天",
     "days": 15,
     "source_url": "https://vip.115.com/?ac=page&ct=info&page_name=privilege_details"
   },
   "egress": {
-    "terms": "No per-GB fee. Free accounts get 普通速度, the ordinary channel; VIP gets the priority channel. Share downloads require a login, so the egress path could not be tested anonymously",
+    "terms": "原石用户使用普通速度传输，成为VIP后可享专属传输通道，下载文件更快。",
     "metered": true,
     "free_allowance": null,
     "price_per_tb": null,
@@ -126,10 +126,24 @@
       "proved": "an anonymous share-download call still returns the login-timeout error errno 990001, so bytes remain gated",
       "capture": "sha256:bd2e10c515c6460b76388a4df26ba36c1105f1a94225bdded0b82de2d3aef319",
       "quote": "{\"state\":false,\"error\":\"\\u767b\\u5f55\\u8d85\\u65f6\\uff0c\\u8bf7\\u91cd\\u65b0\\u767b\\u5f55\\u3002\",\"errNo\":990001,\"errno\":990001,\"request\":\"\\/share\\/downurl\"}"
+    },
+    {
+      "url": "https://vip.115.com/?ac=page&ct=info&page_name=privilege_details",
+      "date": "2026-11-25",
+      "proved": "free 原石用户 use ordinary transfer speed and VIP get a priority channel",
+      "capture": "sha256:325cd5cb2871e5753d9fa13dbdbf68a309a214d27e9db0e8290e5a3d4c57e492",
+      "quote": "原石用户使用普通速度传输，成为VIP后可享专属传输通道，下载文件更快。"
+    },
+    {
+      "url": "https://vip.115.com/?ac=page&ct=info&page_name=privilege_details",
+      "date": "2026-11-25",
+      "proved": "the recycle-bin row lists 30天 and 15天 periods",
+      "capture": "sha256:325cd5cb2871e5753d9fa13dbdbf68a309a214d27e9db0e8290e5a3d4c57e492",
+      "quote": "| 回收站有效期 | 30天 | 30天 | 30天 | 30天 | 30天 | 30天 | 15天 | 15天 | 15天 |"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-11-19T21:12:43.948Z",
+  "verified_at": "2026-11-25T14:05:48.228Z",
   "history": [],
   "binding": "write-gated",
   "binding_note": "15 GB is free and more capacity is paid, but the gate that actually closes it is the identity one: a real-name document for the open platform, or a cookie lifted from a browser session for everything else.",

@@ -86,6 +86,13 @@
       "url": "https://www.bestnzbsites.com/sites/ninjacentral/",
       "date": "2026-10-23",
       "proved": "third-party, checked 2026-10-06: 'Registration closed / site offline'"
+    },
+    {
+      "url": "https://ninjacentral.co.za/api?t=caps",
+      "date": "2026-11-25",
+      "proved": "the vendor caps declare 100 results per request, the exact numeric value of $.extras.caps_limits",
+      "capture": "sha256:99262d6afa398ffd409bcde62b557f6a306f5d081e8ee4ad067ca4b826138024",
+      "quote": "<limits max=\"100\" default=\"100\"/>"
     }
   ],
   "verdict": "fails-identity",
@@ -96,7 +103,7 @@
     "registration_open": false
   },
   "notes": "",
-  "verified_at": "2026-10-23T02:11:54.066Z",
+  "verified_at": "2026-11-25T22:07:33.442Z",
   "topic": "debrid",
   "price_per_tb_month": null
 }
