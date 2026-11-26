@@ -5,7 +5,7 @@
   "url": "https://www.zenlayer.com/virtual-machine/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "USD 8.72 per month is the stated floor for a cloud server with the vendor's 30 percent code, printed by the review site as a floor of USD 8.72 for a cloud server; the same offer prices bare metal from USD 134 a month across 59 data centres. The vendor page states elastic compute in 20 or more countries, hourly or monthly billing, deployment through a web interface, an API and Terraform, a free virtual firewall, and three bandwidth modes: data transfer, flat-rate capped bandwidth, and aggregated burstable at the 95th percentile. Traffic within a virtual private cloud is free. No plan table and no shape are printed on either page read.",
+    "stated": "The review site offers a 7折 recurring discount code: elastic cloud servers start at USD 8.72 a month and bare-metal servers at USD 134 a month, across 59 countries or regions in Asia, the Americas, Europe and Africa; the cheapest cloud-server row is 1 GB RAM, 1 core and 20 GB NVMe at USD 8.72 a month. Credit card, PayPal, Alipay and cryptocurrency payment is stated.",
     "unit": "unlimited",
     "metered_on": "wall-clock",
     "source_url": "https://www.zenlayer.com/virtual-machine/",
@@ -65,10 +65,31 @@
       "url": "https://www.zenlayer.com/virtual-machine/",
       "date": "2026-10-23",
       "proved": "vendor page quoted: 'Cost-effective compute in 20+ countries', 'Use our web interface, API, or Terraform to deploy and manage your virtual machines', 'Pay by hour', 'Data transfer', 'Flat rate  -  capped bandwidth: Unlimited data transfer', 'Aggregated burstable 95th', 'Data transfer within a virtual private cloud is free'; no price and no plan row on the page"
+    },
+    {
+      "url": "https://www.zhujiceping.com/98819.html",
+      "date": "2026-11-25",
+      "proved": "the review site states the 7折 recurring code, the USD 8.72 cloud-server and USD 134 bare-metal floors, and 59 countries or regions",
+      "capture": "sha256:0809cee8c8b5cb6935360e4b56f6c68da920b7497d12c2e46be63c70eedfb784",
+      "quote": "[zenlayer](https://www.zhujiceping.com/tag/zenlayer)为主机测评/zhujiceping.com独家定制了7折循环优惠码，购买云服务器低至8.72美元/月、独立服务器/物理机低至134美元/月，机房可选亚洲/美洲/欧洲/非洲：香港、韩国、日本、新加坡、泰国、越南、巴基斯坦、印度尼西亚、菲律宾、阿联酋、美国、巴西、墨西哥、德国、法国、英国、荷兰、芬兰、尼日利亚等59个国家或者地区… 支持信用卡、PayPal、支付宝、加密货币等多种付款方式。"
+    },
+    {
+      "url": "https://www.zhujiceping.com/98819.html",
+      "date": "2026-11-25",
+      "proved": "the cheapest paid cloud server is USD 8.72 a month with a recurring 30 percent code, bare metal starts at USD 134, across 59 regions",
+      "capture": "sha256:0809cee8c8b5cb6935360e4b56f6c68da920b7497d12c2e46be63c70eedfb784",
+      "quote": "[zenlayer](https://www.zhujiceping.com/tag/zenlayer)为主机测评/zhujiceping.com独家定制了7折循环优惠码，购买云服务器低至8.72美元/月、独立服务器/物理机低至134美元/月，机房可选亚洲/美洲/欧洲/非洲：香港、韩国、日本、新加坡、泰国、越南、巴基斯坦、印度尼西亚、菲律宾、阿联酋、美国、巴西、墨西哥、德国、法国、英国、荷兰、芬兰、尼日利亚等59个国家或者地区… 支持信用卡、PayPal、支付宝、加密货币等多种付款方式。"
+    },
+    {
+      "url": "https://www.zenlayer.com/virtual-machine/",
+      "date": "2026-11-25",
+      "proved": "the vendor documents web interface, API and Terraform deployment",
+      "capture": "sha256:5e7ae5311be0cfcdc934cf7a0e7588d3b2daf4a035af5270bd2caff87042bfac",
+      "quote": "Use our web interface, API, or Terraform to deploy and manage your virtual machines."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:38.826Z",
   "notes": "Source: zhujiceping offer listing, then the vendor page. Neither page prints a plan row, so the record is reported and the shape is empty rather than guessed. The 30 percent code is the review site's exclusive and may not be available through other channels. Unverified: the console's price for the cheapest hourly shape in Hong Kong. Rendering and provenance: currency written as USD.",
   "extras": {
     "wave2": {

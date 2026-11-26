@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u285-rerun",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "Re-check these compute records against their own sources. Keep every clause the captured page supports, correct or remove only a clause it does not, then confirm each record with a quote from the page.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/together-code-sandbox $.free_tier.stated: Prices are stated, but the page never says there is no free tier; it shows free models (Ternary Bonsai 27B 'Free') and the description says 'Start for free, scale on demand.' The 'no free tier' part is not supported.\n- compute/together-code-sandbox $.free_tier.stated: Prices are stated, but the page never says there is no free tier; it shows free models (Ternary Bonsai 27B 'Free') and the description says 'Start for free, scale on demand.' The 'no free tier' part is not supported.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/together-code-sandbox $.free_tier.stated: Page text is the generic Together AI platform description (inference, endpoints, fine-tuning, clusters); it does not mention the code sandbox, and gives no free amount.\n- compute/together-code-sandbox $.free_tier.stated: Page text is the generic Together AI platform description (inference, endpoints, fine-tuning, clusters); it does not mention the code sandbox, and gives no free amount.\n- compute/voltage-park $.free_tier.stated: Pricing page lists on-demand H100 as 'Contact for pricing'; 'Pay only for what you need' is pay-as-you-go wording, not a free tier or credit.\n- compute/voltage-park $.free_tier.stated: Pricing page lists on-demand H100 as 'Contact for pricing'; 'Pay only for what you need' is pay-as-you-go wording, not a free tier or credit.",
+ "scope": {
+  "rids": [
+   "compute/together-code-sandbox",
+   "compute/use-computer",
+   "compute/upcloud",
+   "compute/ubicloud",
+   "compute/voltage-park"
+  ]
+ },
+ "origin": "audit u340 of 20261125-0107-research-compute-5c82/u285 failed: 4 of 10 unsupported",
+ "created": "2026-11-25T15:16:10Z",
+ "queue_files": [
+  "queue/20261125-0107-research-compute-5c82-u80-rerun.json"
+ ]
+}

@@ -5,7 +5,7 @@
   "url": "https://www.egi.eu/services/cloud-compute/",
   "category": "GPU cloud",
   "free_tier": {
-    "stated": "\"Trial access: Try the service, prototype and validate applications and services. The EGI grant includes up to 4 vCPU cores, 8GB of RAM and 100GB of block storage.\" The service runs on the federated infrastructure of the EGI Federation and is part of the EGI EOSC Node offering, with standard API access to virtual machines carrying guaranteed resources.",
+    "stated": "\"Trial access: Try the service, prototype and validate applications and services. The EGI grant includes up to 4 vCPU cores, 8GB of RAM and 100GB of block storage.\"",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://www.egi.eu/services/cloud-compute/",
@@ -69,10 +69,17 @@
       "url": "https://www.egi.eu/services/cloud-compute/",
       "date": "2026-10-22",
       "proved": "custom access is described as \"Long-term access, service level guarantees, dedicated support\" and both routes point at the same service-contact form, quoted"
+    },
+    {
+      "url": "https://www.egi.eu/services/cloud-compute/",
+      "date": "2026-11-25",
+      "proved": "the trial grant states up to 4 vCPU cores, 8GB RAM and 100GB block storage",
+      "capture": "sha256:78d44d4c799cc590a41b5e027649ceecbe5b65fcd238ecb2023adf758a04482d",
+      "quote": "[Trial access Try the service, prototype and validate applications and services. The EGI grant includes up to 4 vCPU cores, 8GB of RAM and 100GB of block storage.](https://www.egi.eu/service-contact/)"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:24.731Z",
   "notes": "Duration and renewal terms for the trial are not published in documentation.",
   "extras": {
     "wave2": {

@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u83-q01",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "compute/aiven: after $.free_tier.stated was corrected from $300 to $50 from https://aiven.io/developer-tier, the record's limits[0].value, extras.credit_usd and notes still carry USD 300. Should those fields be corrected to $50 in a later unit?",
+ "why": "this verify lane confirms only $.free_tier.stated per the packet, so the remaining $300 clauses were left untouched rather than changed without a quote in this unit",
+ "scope": {
+  "rids": [
+   "compute/aiven"
+  ]
+ },
+ "origin": "20261125-0107-research-compute-5c82/u83",
+ "created": "2026-11-25T11:17:43Z"
+}

@@ -5,7 +5,7 @@
   "url": "https://deepinfra.com/deepstart",
   "category": "inference API",
   "free_tier": {
-    "stated": "50,000,000,000 free inference tokens for an approved startup, priced at DeepSeek V4 Flash rates and expiring one year after approval. At the DeepSeek-V4-Flash-0731 rate of USD 0.06 per million input tokens the grant is worth USD 3,000 of input, or USD 9,000 at the USD 0.18 output rate.",
+    "stated": "Startups founded in the last 2 years that raised $250K to $10M can apply for about 50B free tokens on DeepInfra. Credits expire 1 year after approval.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://deepinfra.com/deepstart",
@@ -64,10 +64,17 @@
       "url": "https://deepinfra.com/pricing",
       "date": "2026-10-22",
       "proved": "DeepSeek-V4-Flash-0731 at USD 0.06 per 1M input and USD 0.18 per 1M output tokens, used for the conversion, quoted"
+    },
+    {
+      "url": "https://deepinfra.com/deepstart",
+      "date": "2026-11-25",
+      "proved": "the DeepStart page states the approximately 50B free-token grant, the funding and founding gate, and the one-year expiry",
+      "capture": "sha256:b6c4a2bb798bc51c2b6a0e229bb412a95e9ee9d1e8d14ab183de7f1fa8c9260b",
+      "quote": "Startups founded in the last 2 years that raised $250K to $10M can apply for about 50B free tokens on DeepInfra. Credits expire 1 year after approval."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:40.581Z",
   "notes": "50,000,000,000 tokens / 1,000,000 = 50,000 units of a million tokens; 50,000 x USD 0.06 = USD 3,000 input-equivalent; 50,000 x USD 0.18 = USD 9,000 output-equivalent. A third-party list circulating on 2026-10-22 states the grant is 1,000,000,000 tokens, which the vendor page contradicts by a factor of 50; the vendor figure is recorded. This is the largest per-entity inference credit found among evaluated providers and it is closed to a person without a funded company. It is a separate programme from the signup record above: the same provider carries both a closed grant and a card-gated API.",
   "extras": {
     "wave2": {

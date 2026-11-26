@@ -1,166 +1,232 @@
 {
-  "topic": "compute",
-  "slug": "browserstack-app-automate",
-  "provider": "BrowserStack",
-  "url": "https://www.browserstack.com/pricing?product=app-automate",
-  "category": "hosted real-device test automation cloud",
-  "tier": "App Automate Device Cloud (annual, 1 parallel test)",
-  "free_tier": {
-    "stated": "A free trial includes 100 minutes of automated mobile application testing on different mobile devices, plus 30 minutes each of interactive browser and mobile app testing and 5000 screenshots/month for visual testing with Percy.",
-    "unit": "minutes",
-    "metered_on": "wall-clock",
-    "source_url": "https://www.browserstack.com/support/faq/plans-pricing/plans/what-do-i-get-with-a-free-trial",
-    "read_on": "2026-11-24",
-    "notes": "The trial is a sign-up offer, not a recurring free plan. Paid App Automate Device Cloud is USD 199 per month billed annually for 1 parallel test (USD 249 month-to-month)."
+ "topic": "compute",
+ "slug": "browserstack-app-automate",
+ "provider": "BrowserStack App Automate",
+ "url": "https://www.browserstack.com/app-automate",
+ "category": "mobile device cloud",
+ "tier": "App Automate - Device Cloud (1 parallel test)",
+ "free_tier": {
+  "stated": "100 minutes of automated mobile application testing on different mobile devices, given at signup as part of the BrowserStack Free Trial; not a recurring monthly allowance. The signup page also lists 100 mins of automated mobile app testing among what is included.",
+  "unit": "minutes",
+  "metered_on": "wall-clock",
+  "source_url": "https://www.browserstack.com/support/faq/plans-pricing/plans/what-do-i-get-with-a-free-trial",
+  "read_on": "2026-11-25",
+  "notes": "one-time trial allowance of 100 minutes, not a monthly pool; the signup FAQ on the free trial is the page that states the number"
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a hosted test device session, not a stored object",
+  "bytes": null,
+  "source_url": "https://www.browserstack.com/app-automate"
+ },
+ "retention": {
+  "stated": "not published on the pages read: the App Automate page and the trial FAQ state no retention period for test logs, videos or screenshots",
+  "days": null,
+  "source_url": "https://www.browserstack.com/app-automate"
+ },
+ "egress": {
+  "terms": "not published on the pages read: the pricing page, the product page and the trial FAQ state no egress allowance or price for device sessions",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://www.browserstack.com/pricing?product=app-automate"
+ },
+ "interface": [
+  "rest"
+ ],
+ "interface_detail": "Automated mobile app tests driven by Appium, Espresso, XCUITest and EarlGrey against physical iOS and Android devices; REST API to mark statuses and fetch session logs; vendor SDK and CI/CD integrations.",
+ "endpoint": "https://www.browserstack.com/app-automate",
+ "tooling": "Appium, Espresso, XCUITest and EarlGrey test suites with BrowserStack SDKs and a REST API; integrations with Jenkins, GitHub, GitLab, CircleCI, Jira and Slack; no rclone or generic shell access, the device is reached through the test automation frameworks.",
+ "chaining": "A hosted real-device lab for running mobile test suites in CI without owning handsets; 100 free minutes at signup sizes a first suite, and at scale the 1-parallel device tier costs USD 199 a month billed annually, so the paid tier is a subscription rather than a per-minute meter.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "100 minutes of automated mobile app testing in the Free Trial, a one-time allowance rather than a recurring monthly pool",
+   "source": "https://www.browserstack.com/support/faq/plans-pricing/plans/what-do-i-get-with-a-free-trial"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a device test session, not a stored object"
-  },
-  "retention": {
-    "stated": "Test-session duration is capped by the trial minutes and by the idle session timeout; no object retention is published.",
-    "days": null,
-    "source_url": "https://www.browserstack.com/pricing?product=app-automate"
-  },
-  "egress": {
-    "terms": "No egress volume allowance or per-GB price for test traffic is published on the pricing or FAQ pages. IP whitelisting for inbound and outbound traffic is an enterprise-add-on feature.",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://www.browserstack.com/pricing?product=app-automate"
-  },
-  "interface": [
-    "rest",
-    "cli"
-  ],
-  "interface_detail": "Appium, Espresso, XCUITest, Maestro and Flutter test frameworks drive sessions on real devices; the pricing comparison lists a REST API for test status, session info and logs, plus CI/CD and workflow integrations.",
-  "endpoint": "https://app-automate.browserstack.com/",
-  "tooling": "An Appium, Espresso, XCUITest, Maestro or Flutter test suite, SDK plugins and CI/CD integrations; a REST API for test status and logs.",
-  "chaining": "An automated mobile test suite runs against a cloud device lab in CI, with a REST API for results and local testing for staging endpoints; logs and reports stay in the BrowserStack dashboard.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "100 minutes of automated mobile application testing on different mobile devices in the free trial; paid tier billed per parallel test, 1 parallel test at USD 199/month annually",
-      "source": "https://www.browserstack.com/support/faq/plans-pricing/plans/what-do-i-get-with-a-free-trial"
-    },
-    {
-      "kind": "request-rate",
-      "value": "1 parallel test at the entry paid tier; 2, 5 or more than 5 parallel tests at higher tiers",
-      "source": "https://www.browserstack.com/pricing?product=app-automate"
-    }
-  ],
-  "limits_note": "Unlimited testing minutes on paid plans, subject to fair usage on certain Automate plans; idle sessions time out.",
-  "binding": "volume-quota",
-  "binding_note": "The 100 trial minutes are the first constraint an unregistered evaluation exhausts; after sign-up the entry paid tier's 1 parallel test is the binding constraint.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The sign-up page offers 'Sign up with Google' and an email-and-password form with an optional role and discovery question; no card, phone number or ID document is requested at sign-up.",
-    "country": null
-  },
-  "reliability_note": "Certain Automate plans are subject to fair usage; idle sessions time out and paid plans meter parallel tests.",
-  "confidence": "documented",
-  "confidence_note": "The rate, parallel-test tiers and features come from the first-party pricing page, the 100 trial minutes from the first-party FAQ, and the registration fields from the first-party sign-up page read on 2026-11-24; the raw signup form input labels were not exposed to the page reader, so the exact email field wording is unverified.",
-  "evidence": [
-    {
-      "url": "https://www.browserstack.com/pricing?product=app-automate",
-      "date": "2026-11-24",
-      "proved": "the App Automate Device Cloud entry tier is USD 199 per month billed annually and is metered in parallel tests",
-      "capture": "sha256:52584efb5d9e7e5e0a90ac0fdd72f0f1fd994eb2a00e18229cdd791acae5f9ff",
-      "quote": "199"
-    },
-    {
-      "url": "https://www.browserstack.com/pricing?product=app-automate",
-      "date": "2026-11-24",
-      "proved": "the entry App Automate tier includes one parallel test and higher tiers offer two, five or more than five",
-      "capture": "sha256:52584efb5d9e7e5e0a90ac0fdd72f0f1fd994eb2a00e18229cdd791acae5f9ff",
-      "quote": "Parallel tests indicate the number of automated tests that can be run simultaneously."
-    },
-    {
-      "url": "https://www.browserstack.com/pricing?product=app-automate",
-      "date": "2026-11-24",
-      "proved": "the paid tier includes unlimited users and testing minutes and over 30,000 real iOS and Android devices",
-      "capture": "sha256:52584efb5d9e7e5e0a90ac0fdd72f0f1fd994eb2a00e18229cdd791acae5f9ff",
-      "quote": "Unlimited Users & testing minutes"
-    },
-    {
-      "url": "https://www.browserstack.com/pricing?product=app-automate",
-      "date": "2026-11-24",
-      "proved": "the automation frameworks supported include Appium, Espresso, XCUITest, Maestro and Flutter",
-      "capture": "sha256:52584efb5d9e7e5e0a90ac0fdd72f0f1fd994eb2a00e18229cdd791acae5f9ff",
-      "quote": "Integrate with testing Frameworks like Espresso, XCUITest, Maestro and Flutter"
-    },
-    {
-      "url": "https://www.browserstack.com/support/faq/plans-pricing/plans/what-do-i-get-with-a-free-trial",
-      "date": "2026-11-24",
-      "proved": "the free trial grants 100 minutes of automated mobile application testing",
-      "capture": "sha256:1817957da1d3f97e33773fd6e8099b22c031f9a0bab61670efd06fb9ad218126",
-      "quote": "App Automate: 100 minutes of automated mobile application testing on different mobile devices."
-    },
-    {
-      "url": "https://www.browserstack.com/support/faq/plans-pricing/usage-plans-pricing/is-usage-limited-and-if-so-what-are-those-limits",
-      "date": "2026-11-24",
-      "proved": "certain Automate plans are subject to fair usage",
-      "capture": "sha256:bd776429e3d7689fcec24779ee4e4c017c21f28407bea042df703f4de5ddf35c",
-      "quote": "certain Automate plans are subject to Fair Usage"
-    },
-    {
-      "url": "https://www.browserstack.com/users/sign_up",
-      "date": "2026-11-24",
-      "proved": "registration offers a Google sign-up and an email-and-password form, and the trial includes 100 minutes of automated mobile app testing",
-      "capture": "sha256:0114ff07ff24a8d42d967b8aee6cb404b6d2bdb4b5c532a0a1627e52760e655f",
-      "quote": "Sign up with Google"
-    },
-    {
-      "url": "https://www.browserstack.com/users/sign_up",
-      "date": "2026-11-24",
-      "proved": "the sign-up page states the trial's automated mobile app testing allowance",
-      "capture": "sha256:0114ff07ff24a8d42d967b8aee6cb404b6d2bdb4b5c532a0a1627e52760e655f",
-      "quote": "100 mins of automated mobile app testing"
-    },
-    {
-      "url": "https://www.browserstack.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the pricing comparison lists a REST API for test status, session info and logs",
-      "capture": "sha256:18a4c5359b0503277f333255561ea93b96d841cf492fd6a40a01be2f2902a69d",
-      "quote": "REST API light info icon Mark test statuses, access session info, view logs, and more"
-    },
-    {
-      "url": "https://www.browserstack.com/app-automate",
-      "date": "2026-11-24",
-      "proved": "the App Automate product page advertises real-device automation and Appium support",
-      "capture": "sha256:789172c4b41ce3e19698a336d315549f9c82d85cf61de2b3b554064449aaa8d1",
-      "quote": "Appium"
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T10:11:14.655Z",
-  "price_per_tb_month": null,
-  "notes": "The free trial is a short evaluation allowance, not a recurring free tier. Paid App Automate Device Cloud starts at USD 199 per month billed annually for one parallel test; Device Cloud Pro is USD 249 per month billed annually. The sign-up form's exact email field wording was not exposed by the page reader and is unverified.",
-  "extras": {
-    "shape": {
-      "vcpu": null,
-      "ram_gib": null,
-      "disk_gib": null,
-      "gpu_class": "real iOS and Android devices",
-      "gpu_count": null,
-      "note": "a hosted device lab; resources of each device are not stated on the pricing page"
-    },
-    "billing_model": "annual or monthly subscription per parallel test",
-    "free_tier_kind": "trial",
-    "term": "annual or monthly, no commitment stated for the trial",
-    "price_arithmetic": "USD 199 per month billed annually for 1 parallel test; USD 249 per month billed annually for Device Cloud Pro",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": null,
-      "ports": "not stated",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": 100,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "100 free trial minutes; idle sessions time out"
-    }
+  {
+   "kind": "request-rate",
+   "value": "1 parallel test at USD 199 per month billed annually; the pricing page lists 1, 2 and 5 parallel-test tiers but publishes no per-tier price above 1 parallel test",
+   "source": "https://www.browserstack.com/pricing?product=app-automate"
   }
+ ],
+ "limits_note": "Access is by concurrent App Automate sessions, not by a per-minute meter on the paid tier; unlimited testing minutes are listed as included in the paid device plans.",
+ "binding": "volume-quota",
+ "binding_note": "The 100 trial minutes are spent once and do not renew, so that one-time allowance is what runs out first before any paid subscription begins.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "unverified: the sign-up page offers only 'Sign up with Google' and role and discovery dropdowns; no email field, email, card or phone text appears on it, and an original and a fresh read of the page both showed only Google OAuth. The email/password form is rendered by JavaScript and is not in the captured text, so the exact identifier gate is not established from the sign-up page. The sign-in page does show 'Enter your business email' and 'Enter your password' for an existing account, but that is not a sign-up gate.",
+  "country": null
+ },
+ "reliability_note": "No reliability event observed on the pages read; the trial allowance is a one-time 100 minutes and the page gives no SLA for the free trial.",
+ "confidence": "documented",
+ "confidence_note": "The trial minutes, the App Automate tier price and the signup gate were read from first-party BrowserStack pages on 2026-11-25; the price came from the pricing page's plan comparison table.",
+ "evidence": [
+  {
+   "url": "https://www.browserstack.com/support/faq/plans-pricing/plans/what-do-i-get-with-a-free-trial",
+   "date": "2026-11-25",
+   "proved": "the signup free trial gives 100 minutes of App Automate automated mobile testing",
+   "capture": "sha256:0e876d2d14dd332bf61d0045de1321fd6784de7150f8ccf7eef2c10ee4efe186",
+   "quote": "- App Automate: 100 minutes of automated mobile application testing on different mobile devices."
+  },
+  {
+   "url": "https://www.browserstack.com/users/sign_up",
+   "date": "2026-11-25",
+   "proved": "the signup page lists 100 minutes of automated mobile app testing as included and offers a free account with Google sign-in",
+   "capture": "sha256:935b6279926a04afda17fe3b1933be34d55145ccf00fe41f6ae627762e2d2ef2",
+   "quote": "- 100 mins of automated mobile app testing"
+  },
+  {
+   "url": "https://www.browserstack.com/users/sign_up",
+   "date": "2026-11-25",
+   "proved": "the signup gate shows only Google OAuth and no email field, card or phone text",
+   "capture": "sha256:935b6279926a04afda17fe3b1933be34d55145ccf00fe41f6ae627762e2d2ef2",
+   "quote": "[Sign up with Google](https://www.browserstack.com/users/auth/google_oauth2?state=eyJ2NF9hdXRoX3BhZ2VfZXhwIjpmYWxzZX0=)"
+  },
+  {
+   "url": "https://www.browserstack.com/users/sign_up",
+   "date": "2026-11-25",
+   "proved": "a fresh read of the signup page again shows only Google OAuth and no email field, card or phone text",
+   "capture": "sha256:34f4488159a1b350b3a2b0a581f4dd33f1ac0e20285d8ff85a386524a531f7ec",
+   "quote": "[Sign up with Google](https://www.browserstack.com/users/auth/google_oauth2?state=eyJ2NF9hdXRoX3BhZ2VfZXhwIjpmYWxzZX0=)"
+  },
+  {
+   "url": "https://www.browserstack.com/users/sign_in",
+   "date": "2026-11-25",
+   "proved": "the sign-in page for an existing account takes a business email and a password alongside Google sign-in",
+   "capture": "sha256:bcdf2ddd12d62eb6b58b6582fca636af64a48ec7d1a0375afe0cd72421153245",
+   "quote": "Enter your business email "
+  },
+  {
+   "url": "https://www.browserstack.com/pricing?product=app-automate",
+   "date": "2026-11-25",
+   "proved": "the App Automate Device Cloud tier is USD 199 per month billed annually for 1 parallel test",
+   "capture": "sha256:35b034dd60dad08b0fab807bb4dff28106b86d2d9f40d714a310dc0340968d3d",
+   "quote": "| ### Feature List<br>![App Automate Icon](https://www.browserstack.com/images/static/simplification/sidenav/products/grey/app-automate-grey.svg)<br>App Automate | ### Device Cloud<br>$199/month<br>(billed annually)"
+  },
+  {
+   "url": "https://www.browserstack.com/app-automate",
+   "date": "2026-11-25",
+   "proved": "the product is a hosted real-device automation cloud with 30,000+ devices running a million tests daily",
+   "capture": "sha256:1e42a2653530233e2fc2061b3ce3f5208e12f5222d042d1f7af31605e795d126",
+   "quote": "Scale effortlessly for AI-driven development with 30,000+ real devices and infrastructure running 1 million tests daily."
+  },
+  {
+   "url": "https://www.browserstack.com/pricing?product=app-automate",
+   "date": "2026-11-24",
+   "proved": "the App Automate Device Cloud entry tier is USD 199 per month billed annually and is metered in parallel tests",
+   "capture": "sha256:52584efb5d9e7e5e0a90ac0fdd72f0f1fd994eb2a00e18229cdd791acae5f9ff",
+   "quote": "199"
+  },
+  {
+   "url": "https://www.browserstack.com/pricing?product=app-automate",
+   "date": "2026-11-24",
+   "proved": "the entry App Automate tier includes one parallel test and higher tiers offer two, five or more than five",
+   "capture": "sha256:52584efb5d9e7e5e0a90ac0fdd72f0f1fd994eb2a00e18229cdd791acae5f9ff",
+   "quote": "Parallel tests indicate the number of automated tests that can be run simultaneously."
+  },
+  {
+   "url": "https://www.browserstack.com/pricing?product=app-automate",
+   "date": "2026-11-24",
+   "proved": "the paid tier includes unlimited users and testing minutes and over 30,000 real iOS and Android devices",
+   "capture": "sha256:52584efb5d9e7e5e0a90ac0fdd72f0f1fd994eb2a00e18229cdd791acae5f9ff",
+   "quote": "Unlimited Users & testing minutes"
+  },
+  {
+   "url": "https://www.browserstack.com/pricing?product=app-automate",
+   "date": "2026-11-24",
+   "proved": "the automation frameworks supported include Appium, Espresso, XCUITest, Maestro and Flutter",
+   "capture": "sha256:52584efb5d9e7e5e0a90ac0fdd72f0f1fd994eb2a00e18229cdd791acae5f9ff",
+   "quote": "Integrate with testing Frameworks like Espresso, XCUITest, Maestro and Flutter"
+  },
+  {
+   "url": "https://www.browserstack.com/support/faq/plans-pricing/plans/what-do-i-get-with-a-free-trial",
+   "date": "2026-11-24",
+   "proved": "the free trial grants 100 minutes of automated mobile application testing",
+   "capture": "sha256:1817957da1d3f97e33773fd6e8099b22c031f9a0bab61670efd06fb9ad218126",
+   "quote": "App Automate: 100 minutes of automated mobile application testing on different mobile devices."
+  },
+  {
+   "url": "https://www.browserstack.com/support/faq/plans-pricing/usage-plans-pricing/is-usage-limited-and-if-so-what-are-those-limits",
+   "date": "2026-11-24",
+   "proved": "certain Automate plans are subject to fair usage",
+   "capture": "sha256:bd776429e3d7689fcec24779ee4e4c017c21f28407bea042df703f4de5ddf35c",
+   "quote": "certain Automate plans are subject to Fair Usage"
+  },
+  {
+   "url": "https://www.browserstack.com/users/sign_up",
+   "date": "2026-11-24",
+   "proved": "registration offers a Google sign-up and an email-and-password form, and the trial includes 100 minutes of automated mobile app testing",
+   "capture": "sha256:0114ff07ff24a8d42d967b8aee6cb404b6d2bdb4b5c532a0a1627e52760e655f",
+   "quote": "Sign up with Google"
+  },
+  {
+   "url": "https://www.browserstack.com/users/sign_up",
+   "date": "2026-11-24",
+   "proved": "the sign-up page states the trial's automated mobile app testing allowance",
+   "capture": "sha256:0114ff07ff24a8d42d967b8aee6cb404b6d2bdb4b5c532a0a1627e52760e655f",
+   "quote": "100 mins of automated mobile app testing"
+  },
+  {
+   "url": "https://www.browserstack.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the pricing comparison lists a REST API for test status, session info and logs",
+   "capture": "sha256:18a4c5359b0503277f333255561ea93b96d841cf492fd6a40a01be2f2902a69d",
+   "quote": "REST API light info icon Mark test statuses, access session info, view logs, and more"
+  },
+  {
+   "url": "https://www.browserstack.com/app-automate",
+   "date": "2026-11-24",
+   "proved": "the App Automate product page advertises real-device automation and Appium support",
+   "capture": "sha256:789172c4b41ce3e19698a336d315549f9c82d85cf61de2b3b554064449aaa8d1",
+   "quote": "Appium"
+  },
+  {
+   "url": "https://www.browserstack.com/pricing?product=app-automate",
+   "date": "2026-11-25",
+   "proved": "the pricing page names the parallel-test tiers and publishes a price only for 1 parallel test at USD 199 per month billed annually",
+   "capture": "sha256:35b034dd60dad08b0fab807bb4dff28106b86d2d9f40d714a310dc0340968d3d",
+   "quote": "1 parallel test2 parallel tests5 parallel testsMore than 5 parallel tests"
+  },
+  {
+   "url": "https://www.browserstack.com/pricing?product=app-automate",
+   "date": "2026-11-25",
+   "proved": "the pricing page lists USD 249 per month billed annually as the next tier above the USD 199 tier",
+   "capture": "sha256:35b034dd60dad08b0fab807bb4dff28106b86d2d9f40d714a310dc0340968d3d",
+   "quote": "$249/month"
+  }
+ ],
+ "verdict": "trial-only",
+ "verified_at": "2026-11-25T11:55:06.479Z",
+ "price_per_tb_month": null,
+ "notes": "A hosted real-device cloud for mobile app automation: Appium, Espresso, XCUITest and EarlGrey tests run on physical iOS and Android devices. The free trial is 100 one-time minutes of App Automate, not a recurring allowance; the paid App Automate Device Cloud tier is USD 199 a month billed annually for one parallel device test, and the next listed tier is USD 249 a month billed annually. No general-purpose shell VM is offered; the compute is a managed device session. The signup page's only visible identity gate is OAuth; an email-and-password field appears on the sign-in page, but the exact registration identifier is not established from the sign-up capture.",
+ "extras": {
+  "shape": {
+   "vcpu": null,
+   "ram_gib": null,
+   "disk_gib": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "hosted physical iOS and Android devices; per-device hardware specification not stated on the pages read"
+  },
+  "billing_model": "monthly subscription per parallel device test",
+  "free_tier_kind": "one-time-trial-minutes",
+  "term": "monthly or annual billing; the annual rate is USD 199/month and the monthly rate USD 249",
+  "price_arithmetic": "USD 199 / month billed annually / 730 hours = USD 0.273 per hour for 1 parallel real device",
+  "derived": "USD 199 / 730 hours = USD 0.273 per hour",
+  "network_out": {
+   "allow_outbound": null,
+   "allow_inbound_listen": null,
+   "ports": null,
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null,
+   "note": "no egress allowance or price stated on the pages read"
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": null,
+   "note": "the pages read give no per-session wall-clock cap for App Automate; the trial allowance is 100 minutes total"
+  }
+ }
 }

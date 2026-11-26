@@ -5,7 +5,7 @@
   "url": "https://hosthatch.com/products",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "The cheapest NVMe compute VM in the standing catalogue is 'NVMe 2 GB' at 'from $4.00 / month': 1 AMD EPYC core on fair share, 2 GB DDR4, 10 GB NVMe, 1 TB monthly transfer. The ladder above it, all quoted from the same table: 4 GB / 20 GB NVMe / 1 TB at $6.00; 8 GB / 35 GB / 2 TB at $9.00; 12 GB / 50 GB / 3 TB at $12.00 (4 cores, 1 dedicated); 16 GB / 75 GB / 4 TB at $15.00; 24 GB / 100 GB / 6 TB at $22.00; 32 GB / 125 GB / 8 TB at $29.00; 48 GB / 150 GB / 12 TB at $39.00; 64 GB / 200 GB / 15 TB at $49.00; 96 GB / 250 GB / 20 TB at $69.00. A second product line, Storage VMs on spinning disk, starts at 'Storage 1TB from $5.00 / month' with 1 vCPU core, 1024 MB RAM, 1000 GB disk and 2500 GB transfer, up to 10 TB disk with 25000 GB transfer for $38.00, in 8 locations. The homepage states the entry price twice over: 'Our smallest plan costs $4 per month (less than a cup of coffee).'",
+    "stated": "The cheapest NVMe compute VM in the standing catalogue is 'NVMe 2 GB' at 'from $4.00 / month': 1 AMD EPYC core on fair share, 2 GB DDR4, 10 GB NVMe, 1 TB monthly transfer. The ladder above it, all quoted from the same table: 4 GB / 20 GB NVMe / 1 TB at $6.00; 8 GB / 35 GB / 2 TB at $9.00; 12 GB / 50 GB / 3 TB at $12.00 (4 cores, 1 dedicated); 16 GB / 75 GB / 4 TB at $15.00; 24 GB / 100 GB / 6 TB at $22.00; 32 GB / 125 GB / 8 TB at $29.00; 48 GB / 150 GB / 12 TB at $39.00; 64 GB / 200 GB / 15 TB at $49.00; 96 GB / 250 GB / 20 TB at $69.00. A second product line, Storage VMs on spinning disk, starts at 'Storage 1TB from $5.00 / month' with 1 vCPU core, 1024 MB RAM, 1000 GB disk and 2500 GB transfer, up to 10 TB disk with 25000 GB transfer for $38.00, in 8 locations.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://hosthatch.com/products",
@@ -130,10 +130,17 @@
       "url": "https://hosthatch.com/storage-vps",
       "date": "2026-10-22",
       "proved": "the storage path redirects to /products, which is the page carrying both the compute and the storage tables; there is no separate storage page"
+    },
+    {
+      "url": "https://hosthatch.com/products",
+      "date": "2026-11-25",
+      "proved": "the cheapest NVMe compute plan is NVMe 2 GB from $4.00 a month with 1 fair-share AMD EPYC core, 2 GB DDR4, 10 GB NVMe and 1 TB transfer",
+      "capture": "sha256:eb05a4760c129cc5c9337994b46d569c0907cee78ad63b123d5089d190f0a16e",
+      "quote": "**NVMe 2 GB** from **$4.00** / month 1 AMD EPYC core ( fair share ) 2 GB DDR4 10 GB NVMe 1 TB"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:27.647Z",
   "notes": "Every price here is the vendor's standing catalogue, not a third-party table. What is unresolved and what would settle it: the '$4.00' is a 'from' figure, and the per-location monthly and annual amounts live in the product catalogue behind the console login, so a session with an account should read GET /projects/{slug}/products/ and replace price_usd_month with the real per-location number. No trial and no signup credit exist on any page read: the documentation bundle has zero occurrences of 'trial', and credit appears only as a balance the customer funds. A coupon aggregator advertises a '$100 Free Trial for 30 Days on VPS Hosting' against HostHatch, which is a template line repeated across that site's coupon pages and appears on no HostHatch page; it is unverified and contradicted by the vendor's own documentation, so it is not recorded as an offer. The login wall is recorded, not worked around. Two further observations: the vendor's own pages disagree on how many locations exist (16 on the products page, 13 on the homepage and features page, 16 data centers on the company page, and 14 rows including Seoul in the docs matrix), and console.hosthatch.com/products/ answered 404. Not in dossier/compute (searched by filename: no hosthatch record; the only hosthatch record anywhere in the tree is a storage snapshot under .tmp/work, which was not used as evidence).",
   "extras": {
     "wave2": {

@@ -5,7 +5,7 @@
   "url": "https://education.github.com/pack",
   "category": "dev environment",
   "free_tier": {
-    "stated": "Aggregator of about 60 partner offers, most of them software licences rather than compute. The compute-relevant ones in the live October 2026 list are: Microsoft Azure 'Free access to 25+ Microsoft Azure cloud services plus $100 in Azure credit. For students aged 18+'; Camber 'Free Camber Student plan while you are enrolled, including 40 CPU hours, 5 GPU hours, 50 GB of storage, and 50 agent messages per month'; Heroku 'a credit of $13 USD per month for 24 months'; MongoDB '$50 in MongoDB Atlas Credits'; Datadog 'Pro Account, including 10 servers. Free for 2 years'; GitHub Codespaces 'Free Pro level access to Codespaces to use anywhere in your account'; Deepnote 'unlimited basic machines with up to 5GB RAM and 2vCPU'.",
+    "stated": "Aggregator of student partner offers, most of them software licences rather than compute. The compute-relevant ones in the pack are: Microsoft Azure 'Free access to 25+ Microsoft Azure cloud services plus $100 in Azure credit. For students aged 18+'; Camber 'Free Camber Student plan for as long as you're enrolled ... Includes 40 compute hours, 50 GB storage, and 50 agent messages per month'; Heroku 'a credit of $13 USD per month for 24 months'; MongoDB '$50 in MongoDB Atlas Credits'; Datadog 'Pro Account, including 10 servers. Free for 2 years'; GitHub Codespaces 'Free Pro level access to Codespaces to use anywhere in your account'; Deepnote 'unlimited basic machines with up to 5GB RAM and 2vCPU'.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://education.github.com/pack",
@@ -69,10 +69,24 @@
       "url": "https://docs.github.com/en/education/about-github-education/github-education-for-students/github-terms-and-conditions-for-the-student-developer-pack",
       "date": "2026-10-22",
       "proved": "'All users must be actively verified as a student by the GitHub Education team'; 'Student validation lasts for 2 years, after which you will need to revalidate your student status'; 'Offers may not be redeemed multiple times'."
+    },
+    {
+      "url": "https://education.github.com/pack",
+      "date": "2026-11-25",
+      "proved": "the pack offers 25+ Azure cloud services and USD 100 in Azure credit to students aged 18+",
+      "capture": "sha256:ccefc53d59920cbd930f1515764a76b9490c50a667f97ffc59ff64f585e32282",
+      "quote": "Free access to 25+ Microsoft Azure cloud services plus $100 in Azure credit. For students aged 18+."
+    },
+    {
+      "url": "https://education.github.com/pack",
+      "date": "2026-11-25",
+      "proved": "the pack states Deepnote's free Team plan includes unlimited basic machines with up to 5 GB RAM and 2 vCPU",
+      "capture": "sha256:ccefc53d59920cbd930f1515764a76b9490c50a667f97ffc59ff64f585e32282",
+      "quote": "The Deepnote Team Plan includes: Unlimited team members & projects, 30-day version history, unlimited basic machines with up to 5GB RAM and 2vCPU, premium integrations (Snowflake, SQL Server, BigQuery, Redshift, and more), and 30-day revision history."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:26.440Z",
   "notes": "The student developer pack requires academic enrollment verification.",
   "extras": {
     "wave2": {

@@ -1,168 +1,231 @@
 {
-  "topic": "compute",
-  "slug": "agental",
-  "provider": "agental",
-  "url": "https://agental.io/pricing",
-  "category": "agent sandbox",
-  "tier": "Free",
-  "free_tier": {
-    "stated": "$5 free every month; save a card, charged nothing, and the first $5 of each month's use is free: 370 tiny hours, 185 small hours, or 11,100 CI minutes on small, or any mix. It starts again each month on the day you signed up.",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://agental.io/pricing",
-    "read_on": "2026-11-24",
-    "notes": "Recurring monthly credit, denominated in dollars of usage and metered by the running second. The rate card: tiny 1 vCPU / 2 GiB / 20 GiB at $0.0135/hour standard and $0.00675/hour spot; small 2 vCPU / 4 GiB / 40 GiB at $0.027/hour standard; medium 4 vCPU / 8 GiB / 80 GiB at $0.054/hour; large 8 vCPU / 16 GiB / 160 GiB at $0.108/hour."
+ "topic": "compute",
+ "slug": "agental",
+ "provider": "agental",
+ "url": "https://agental.io/pricing",
+ "category": "container and VM sandbox",
+ "tier": "Free",
+ "free_tier": {
+  "stated": "A free plan with $5 of use free every month after saving a card charged $0, equal to 370 tiny hours, 185 small hours or 11,100 CI minutes on small, with 2 small sandboxes running at once until the first top-up; after that, 40 units.",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://agental.io/pricing",
+  "read_on": "2026-11-25",
+  "notes": "The month starts on the day the account was made and does not carry over. A small sandbox is 2 vCPU, 4 GiB and 40 GiB at $0.027 an hour standard or $0.0135 spot, so $5 buys 185 standard small-hours, matching the published figure."
+ },
+ "per_object_cap": {
+  "stated": "not stated: the unit is a machine, not a stored object",
+  "bytes": null,
+  "source_url": "https://agental.io/pricing"
+ },
+ "retention": {
+  "stated": "A stopped sandbox keeps files and, on request, running programs free for 14 days after each stop, then $0.05 per GB a month until it is started or deleted. The 10 oldest snapshots are free; extras are $1.70 a month each. Until the first top-up, a stop keeps the disk but not memory, with at most 20 GB stored in all.",
+  "days": 14,
+  "source_url": "https://agental.io/docs/billing"
+ },
+ "egress": {
+  "terms": "unverified: no egress price or allowance is published for sandboxes; mail is billed at $0.50 per 1,000 messages",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://agental.io/pricing"
+ },
+ "interface": [
+  "rest",
+  "cli"
+ ],
+ "interface_detail": "A REST API at agental.io with an OpenAPI 3.1 spec, an agental CLI and npx agental@latest sh, plus integrations for Claude Code, Codex, Cursor, opencode, the OpenAI Agents SDK, MCP and GitHub.",
+ "endpoint": "https://agental.io/v1",
+ "tooling": "npx agental@latest sh signs in the terminal; the agental CLI and the REST API create, run and stop sandboxes. The Python and TypeScript flows use the same API.",
+ "chaining": "A small sandbox at $0.027 an hour gives a coding agent a whole Linux VM with Chrome and Docker; a stopped sandbox keeps its disk for later runs, and the $5 monthly credit can be spent across sandboxes, mail and stopped storage from one balance.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "$5 of list-price use free every month, or 185 hours of a small sandbox; unused credit does not carry over",
+   "source": "https://agental.io/docs/billing"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a whole Linux virtual machine with its own kernel, not a stored object",
-    "notes": "Each sandbox has a full disk: tiny 20 GiB, small 40 GiB, medium 80 GiB, large 160 GiB."
+  {
+   "kind": "write-gated",
+   "value": "a card must be saved before any sandbox runs; sign-up is by email, GitHub or Google and Stripe checks the card without a charge",
+   "source": "https://agental.io/docs/billing"
   },
-  "retention": {
-    "stated": "Stop a sandbox and it keeps its files and running programs, free for 14 days. After that, $0.05 a GB a month, until you delete it. A sandbox whose time limit runs out is deleted, unless you ask to keep it.",
-    "days": 14,
-    "source_url": "https://agental.io/pricing"
+  {
+   "kind": "request-rate",
+   "value": "120 free starts per 15 minutes on the free plan, 3 times the running count; each start past it costs one hour of the size's price",
+   "source": "https://agental.io/docs/billing"
   },
-  "egress": {
-    "terms": "Outbound traffic is open by default: a sandbox can reach the whole internet unless its template's rule says otherwise, with open, blocked or IPv4 allowlist rules enforced outside the VM. A sandbox can register 5 public ports (HTTP and WebSocket) reachable by anyone with the link while it runs. No per-GB egress price is published; email is priced at $0.50 per 1,000 messages.",
-    "metered": false,
-    "free_allowance": "no per-GB egress allowance stated; outbound is open by default and public ports are included",
-    "price_per_tb": null,
-    "source_url": "https://agental.io/docs/outbound-rules"
-  },
-  "interface": [
-    "rest",
-    "ssh",
-    "cli",
-    "browser",
-    "chat"
-  ],
-  "interface_detail": "Plain HTTP and JSON at https://agental.io/v1; a CLI, MCP server and agent skills; SSH, a terminal and a desktop with a screen; public URLs for published ports. OAuth sign-in through the browser for ChatGPT and other MCP apps.",
-  "endpoint": "https://agental.io/v1",
-  "tooling": "REST API with a bearer API key, `npx agental@latest` onboarding, an `agental` CLI, TypeScript and Python SDKs, an MCP server, Claude Code / Codex / Cursor / opencode integrations and Docker inside the sandbox.",
-  "chaining": "A whole Linux VM reachable by REST, SSH and a browser, with a full disk kept after stop, can be paired with object-storage records for durable state; outbound allowlists and private public-port gating let it call other records' endpoints without exposing keys.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "$5 of included use per month (370 tiny hours, 185 small hours or 11,100 CI minutes on small), billed by the second at the per-size rates",
-      "source": "https://agental.io/pricing"
-    },
-    {
-      "kind": "request-rate",
-      "value": "4 units running at once on Free, two small sandboxes; 40 units after the first top-up. Free starts: 120 per 15 minutes.",
-      "source": "https://agental.io/pricing"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "stopped sandboxes keep files free for 14 days, then $0.05 a GB a month; 10 snapshots free, then $1.70 a month each",
-      "source": "https://agental.io/pricing"
-    }
-  ],
-  "limits_note": "Spot sandboxes run at half rate in spare room, are not counted in the running limit and can be taken back; a spot run lasts at most 24 hours. A sandbox can register 5 public ports; time limits up to 86400 seconds (24 hours). Preview analytics keep figures at most 7 days. Sign-up currently takes an invite.",
-  "binding": "volume-quota",
-  "binding_note": "The $5 monthly usage allowance runs out first at the published per-hour rates, before the running-count and retention limits; the card is charged nothing until top-ups.",
-  "identity_cost": {
-    "kind": "card",
-    "detail": "The signup page states 'Sign up, save a card (charged $0) for $5 of free use every month'. The onboarding page adds 'Sign-up takes an invite for now: ask for one on X.' Browser OAuth sign-in is used for MCP clients.",
-    "country": null
-  },
-  "reliability_note": "Spot sandboxes are stopped with their disk kept or deleted when a standard sandbox needs the room; a stopped sandbox is free 14 days then billed for storage, and its files are deleted after credits run out unless topped up. Sandboxes older than a time limit are deleted with their disk unless configured to stop.",
-  "confidence": "documented",
-  "confidence_note": "All rates, the free allowance, concurrency, retention, identity gate and egress posture are quoted from the vendor's own pricing, signup, onboarding and docs pages captured 2026-11-24.",
-  "evidence": [
-    {
-      "url": "https://agental.io/pricing",
-      "date": "2026-11-24",
-      "proved": "the free tier is USD 5 of use every month, recurring, with no charge to the saved card",
-      "capture": "sha256:b18fb6fe7c8c854dc2c748fe71e024c41feed0adc8c1331752937dcd70936de1",
-      "quote": "$5 free every month"
-    },
-    {
-      "url": "https://agental.io/pricing",
-      "date": "2026-11-24",
-      "proved": "the free plan runs two small sandboxes at once until the first top-up",
-      "capture": "sha256:b18fb6fe7c8c854dc2c748fe71e024c41feed0adc8c1331752937dcd70936de1",
-      "quote": "4 units, two small sandboxes, run at once until your first top-up, of any amount. Then 40."
-    },
-    {
-      "url": "https://agental.io/pricing",
-      "date": "2026-11-24",
-      "proved": "the standard and spot hourly rate card at published shape",
-      "capture": "sha256:b18fb6fe7c8c854dc2c748fe71e024c41feed0adc8c1331752937dcd70936de1",
-      "quote": "| tiny | 1 vCPU2 GiB20 GiB | **$0.0135** | **$0.00675** | $1.07 |"
-    },
-    {
-      "url": "https://agental.io/pricing",
-      "date": "2026-11-24",
-      "proved": "a stopped sandbox keeps its files free for 14 days",
-      "capture": "sha256:b18fb6fe7c8c854dc2c748fe71e024c41feed0adc8c1331752937dcd70936de1",
-      "quote": "Stop a sandbox and it keeps its files and running programs, free for 14 days"
-    },
-    {
-      "url": "https://agental.io/signup",
-      "date": "2026-11-24",
-      "proved": "signup asks for a card charged $0 to receive the monthly free use",
-      "capture": "sha256:b45d5c4ad6ebe5234d8f190f055e5332d39f544f48e003dc19b4c67a7f7b4fbd",
-      "quote": "Sign up, save a card (charged $0) for $5 of free use every month, and set up your agents with one command."
-    },
-    {
-      "url": "https://agental.io/onboard",
-      "date": "2026-11-24",
-      "proved": "sign-up is invite-only at present",
-      "capture": "sha256:068cfb7f7f84b8358db5a6887ec4913b37d6142270427255b93052d5892089fb",
-      "quote": "Sign-up takes an invite for now: ask for one on X."
-    },
-    {
-      "url": "https://agental.io/docs/outbound-rules",
-      "date": "2026-11-24",
-      "proved": "sandboxes have unrestricted outbound internet by default, with server-enforced address rules",
-      "capture": "sha256:8d409bd4146df3b9d8c4fba22b98f09e6fc8d125af84adfd5baf831ed7440a90",
-      "quote": "A sandbox can reach the whole internet unless its template's rule says otherwise"
-    },
-    {
-      "url": "https://agental.io/docs/ports",
-      "date": "2026-11-24",
-      "proved": "a published port gets a public HTTP and WebSocket URL reachable without an API key",
-      "capture": "sha256:c79eb034c882f905cb1e8dd47d98f8a4b492722fa4c199f6c1f97fd9cd1b3763",
-      "quote": "With `public: true`, the response has a `url`. Anyone can open it without an API key while the sandbox is running. It carries HTTP and WebSocket."
-    },
-    {
-      "url": "https://agental.io/docs",
-      "date": "2026-11-24",
-      "proved": "the interface is a JSON HTTP API with API keys and the per-second rate card",
-      "capture": "sha256:da7cafe601a07df03e7975b2d9b1e4875fb33542db7c202f7ad5e49d004f9342",
-      "quote": "Every call starts here."
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.573Z",
-  "notes": "A whole Linux VM per agent with a full disk kept after stop, REST/SSH/MCP access and open outbound by default. The free tier is a recurring USD 5 of monthly usage gated by a saved card charged $0 and currently an invite; spot instances halve the rate but can be reclaimed.",
-  "extras": {
-    "shape": {
-      "vcpu": 1,
-      "ram_gib": 2,
-      "disk_gib": 20,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "tiny size on Free; small 2 vCPU / 4 GiB / 40 GiB also available on Free"
-    },
-    "billing_model": "monthly included credit with per-second overage at published hourly rates",
-    "free_tier_kind": "recurring-allowance",
-    "term": "monthly, no commitment",
-    "price_arithmetic": "$5 free a month covers 370 tiny hours at $0.0135/hour or 185 small hours at $0.027/hour; a small run of 90 seconds costs $0.0007",
-    "status": "live, invite-gated signup",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "5 public ports per sandbox, HTTP and WebSocket; public by default or API-key proxied",
-      "static_ip": null,
-      "ipv6": false,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": 1440,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "time limit up to 86400 seconds (24 hours); stopped sandboxes archived after 6 hours"
-    }
+  {
+   "kind": "retention-clamped",
+   "value": "a stopped sandbox is free for 14 days, then $0.05 per GB a month; with credit gone it is deleted after an email",
+   "source": "https://agental.io/docs/billing"
   }
+ ],
+ "limits_note": "The free plan makes only tiny and small sandboxes; a medium needs the $100 plan and a large the $500 plan. Until the account has paid for a top-up it runs at most 4 units at once (two small sandboxes), then 40. One allowance per card: a second account saving the same card pays from its first minute.",
+ "binding": "write-gated",
+ "binding_note": "The card saved at sign-up is what unlocks the $5 monthly allowance; without it no sandbox can run, so it binds before the monthly credit or the 120-starts-per-15-minutes rate.",
+ "identity_cost": {
+  "kind": "card",
+  "detail": "Sign-up is by email, GitHub or Google (https://agental.io/signup), and a card must be saved before anything runs: 'Sign up, save a card (charged $0) for $5 of free use every month' and 'Every account starts on the free plan, and saves a card before it runs anything.' Stripe checks the card and charges nothing. No phone or identity document is asked for.",
+  "country": null
+ },
+ "reliability_note": "When the monthly allowance and top-ups run out, running sandboxes stop within a minute with disks kept; after a payment the stopped sandboxes and snapshots are kept 30 days, before that a stop keeps files only up to 20 GB and deletes with an email three days before. A second account on the same card loses the free allowance.",
+ "confidence": "documented",
+ "confidence_note": "The free allowance, size prices, card gate, limits and retention are read from the vendor's pricing, billing and signup pages on 2026-11-25 and quoted below. No egress price was published and is left unverified.",
+ "evidence": [
+  {
+   "url": "https://paste.ajam.dev/raw/WCLUsa",
+   "date": "2026-11-25",
+   "proved": "the operator's list places agental at $0.027 an hour with a 185-hour monthly free tier; a lead, not the basis for the record's values",
+   "capture": "sha256:4d220f8008ed2a6126e4b7f8bc4639bd9e625605ec428846fde2bdf593cc5c95",
+   "quote": "20. agental → $0.027/h · billed per second"
+  },
+  {
+   "url": "https://agental.io/pricing",
+   "date": "2026-11-25",
+   "proved": "the free plan gives $5 a month after a card is saved, equal to 185 small hours or 11,100 CI minutes",
+   "capture": "sha256:b18fb6fe7c8c854dc2c748fe71e024c41feed0adc8c1331752937dcd70936de1",
+   "quote": "Save a card, charged nothing, and the first $5 of each month's use is free: 370 tiny hours, 185 small hours, or 11,100 CI minutes on small, or any mix."
+  },
+  {
+   "url": "https://agental.io/pricing",
+   "date": "2026-11-25",
+   "proved": "a small sandbox is 2 vCPU and 4 GiB at $0.027 an hour standard and $0.0135 spot, billed by the second",
+   "capture": "sha256:b18fb6fe7c8c854dc2c748fe71e024c41feed0adc8c1331752937dcd70936de1",
+   "quote": "| small | 2 vCPU4 GiB40 GiB | **$0.027** | **$0.0135** | $2.15 |"
+  },
+  {
+   "url": "https://agental.io/pricing",
+   "date": "2026-11-25",
+   "proved": "before the first top-up only 2 small sandboxes run at once, then 20 units",
+   "capture": "sha256:b18fb6fe7c8c854dc2c748fe71e024c41feed0adc8c1331752937dcd70936de1",
+   "quote": "2 small sandboxes run at once until your first top-up, then 20."
+  },
+  {
+   "url": "https://agental.io/docs/billing",
+   "date": "2026-11-25",
+   "proved": "a card must be saved before any sandbox runs and Stripe checks it without charging",
+   "capture": "sha256:6ad51010b5be409f19809ef3a8ebffd39992ebfc51384bc040ac08c5607ca252",
+   "quote": "Every account starts on the free plan, and saves a card before it runs anything."
+  },
+  {
+   "url": "https://agental.io/docs/billing",
+   "date": "2026-11-25",
+   "proved": "the free starts are 120 units in 15 minutes and a start past them costs one hour of the size's price",
+   "capture": "sha256:6ad51010b5be409f19809ef3a8ebffd39992ebfc51384bc040ac08c5607ca252",
+   "quote": "| Free | $0 | 40 | 120 | tiny and small |"
+  },
+  {
+   "url": "https://agental.io/docs/billing",
+   "date": "2026-11-25",
+   "proved": "a stopped sandbox is free for 14 days and then costs $0.05 per GB a month",
+   "capture": "sha256:6ad51010b5be409f19809ef3a8ebffd39992ebfc51384bc040ac08c5607ca252",
+   "quote": "It is free for 14 days after each stop, whatever it stores. After that it costs $0.05 a GB a month of what it stores, by the second, until you start it or delete it."
+  },
+  {
+   "url": "https://agental.io/signup",
+   "date": "2026-11-25",
+   "proved": "the signup page states the card is charged $0 for $5 of free use every month",
+   "capture": "sha256:b45d5c4ad6ebe5234d8f190f055e5332d39f544f48e003dc19b4c67a7f7b4fbd",
+   "quote": "Sign up, save a card (charged $0) for $5 of free use every month, and set up your agents with one command."
+  },
+  {
+   "url": "https://agental.io/",
+   "date": "2026-11-25",
+   "proved": "the hosted sandbox is a whole Linux VM with its own kernel, priced from $0.00675 an hour for spot",
+   "capture": "sha256:9befb66eb1f24c3d803e7b52ea6d303e1083abc04d0ae3923b34716fcd0e29f2",
+   "quote": "A whole machine with its own kernel, not a container, that keeps its work when it stops. From $0.00675/hour for a spot sandbox"
+  },
+  {
+   "url": "https://agental.io/pricing",
+   "date": "2026-11-24",
+   "proved": "the free tier is USD 5 of use every month, recurring, with no charge to the saved card",
+   "capture": "sha256:b18fb6fe7c8c854dc2c748fe71e024c41feed0adc8c1331752937dcd70936de1",
+   "quote": "$5 free every month"
+  },
+  {
+   "url": "https://agental.io/pricing",
+   "date": "2026-11-24",
+   "proved": "the free plan runs two small sandboxes at once until the first top-up",
+   "capture": "sha256:b18fb6fe7c8c854dc2c748fe71e024c41feed0adc8c1331752937dcd70936de1",
+   "quote": "4 units, two small sandboxes, run at once until your first top-up, of any amount. Then 40."
+  },
+  {
+   "url": "https://agental.io/pricing",
+   "date": "2026-11-24",
+   "proved": "the standard and spot hourly rate card at published shape",
+   "capture": "sha256:b18fb6fe7c8c854dc2c748fe71e024c41feed0adc8c1331752937dcd70936de1",
+   "quote": "| tiny | 1 vCPU2 GiB20 GiB | **$0.0135** | **$0.00675** | $1.07 |"
+  },
+  {
+   "url": "https://agental.io/pricing",
+   "date": "2026-11-24",
+   "proved": "a stopped sandbox keeps its files free for 14 days",
+   "capture": "sha256:b18fb6fe7c8c854dc2c748fe71e024c41feed0adc8c1331752937dcd70936de1",
+   "quote": "Stop a sandbox and it keeps its files and running programs, free for 14 days"
+  },
+  {
+   "url": "https://agental.io/signup",
+   "date": "2026-11-24",
+   "proved": "signup asks for a card charged $0 to receive the monthly free use",
+   "capture": "sha256:b45d5c4ad6ebe5234d8f190f055e5332d39f544f48e003dc19b4c67a7f7b4fbd",
+   "quote": "Sign up, save a card (charged $0) for $5 of free use every month, and set up your agents with one command."
+  },
+  {
+   "url": "https://agental.io/onboard",
+   "date": "2026-11-24",
+   "proved": "sign-up is invite-only at present",
+   "capture": "sha256:068cfb7f7f84b8358db5a6887ec4913b37d6142270427255b93052d5892089fb",
+   "quote": "Sign-up takes an invite for now: ask for one on X."
+  },
+  {
+   "url": "https://agental.io/docs/outbound-rules",
+   "date": "2026-11-24",
+   "proved": "sandboxes have unrestricted outbound internet by default, with server-enforced address rules",
+   "capture": "sha256:8d409bd4146df3b9d8c4fba22b98f09e6fc8d125af84adfd5baf831ed7440a90",
+   "quote": "A sandbox can reach the whole internet unless its template's rule says otherwise"
+  },
+  {
+   "url": "https://agental.io/docs/ports",
+   "date": "2026-11-24",
+   "proved": "a published port gets a public HTTP and WebSocket URL reachable without an API key",
+   "capture": "sha256:c79eb034c882f905cb1e8dd47d98f8a4b492722fa4c199f6c1f97fd9cd1b3763",
+   "quote": "With `public: true`, the response has a `url`. Anyone can open it without an API key while the sandbox is running. It carries HTTP and WebSocket."
+  },
+  {
+   "url": "https://agental.io/docs",
+   "date": "2026-11-24",
+   "proved": "the interface is a JSON HTTP API with API keys and the per-second rate card",
+   "capture": "sha256:da7cafe601a07df03e7975b2d9b1e4875fb33542db7c202f7ad5e49d004f9342",
+   "quote": "Every call starts here."
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T02:12:34.610Z",
+ "price_per_tb_month": null,
+ "notes": "The $5 monthly allowance matches 185 hours of the 2 vCPU, 4 GiB small sandbox at the published $0.027 an hour. It requires a saved card, so the identity cost is a card even though the charge is $0. The spot rate half-price sandbox can be reclaimed when a standard sandbox needs the room.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 4,
+   "disk_gib": 40,
+   "gpu_class": null,
+   "gpu_count": null
+  },
+  "billing_model": "monthly credit allowance at list price, then non-expiring top-ups",
+  "free_tier_kind": "recurring-allowance",
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "a sandbox ends at the time limit set when it is made, or runs until stopped; the free month resets on the signup day"
+  },
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": null,
+   "ports": "not stated on the pages read",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  }
+ }
 }

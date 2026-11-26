@@ -1,185 +1,243 @@
 {
-  "topic": "compute",
-  "slug": "openscale-sandboxes",
-  "provider": "OpenScale Sandboxes",
-  "url": "https://openscale.so/sandboxes",
-  "category": "microVM sandbox",
-  "tier": "Pay-as-you-go sandbox (4 vCPU, 8 GB)",
-  "free_tier": {
-    "stated": "New accounts get free credit to try the API, and a first top-up within 7 days of signing up adds up to $100 in credit on top: $10 gets $2, $50 gets $15, $250 gets $100. The landing page advertises 'Get up to $100 in free credits' and the startup program offers up to $5,000 in credits to accepted early-stage startups.",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://openscale.so/pricing",
-    "read_on": "2026-11-24",
-    "notes": "The size of the signup credit before a top-up is not stated on the pricing or sandbox page, so it is unverified; the advertised $100 requires a paid top-up within 7 days and the startup program requires an application. Add credit from $5; credits never expire."
+ "topic": "compute",
+ "slug": "openscale-sandboxes",
+ "provider": "OpenScale Sandboxes",
+ "url": "https://openscale.so/sandboxes",
+ "category": "microVM sandbox",
+ "tier": "Pay-as-you-go sandbox",
+ "free_tier": {
+  "stated": "New accounts get free credit to try the API; the first top-up within 7 days adds up to USD 100 more: USD 10 gets USD 2, USD 50 gets USD 15, USD 250 gets USD 100. Paused sandboxes cost nothing.",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://openscale.so/pricing",
+  "read_on": "2026-11-25",
+  "notes": "The size of the starting free credit is not stated on either page, so it is unverified: behind a sign-up. No recurring sandbox allowance is published. Credits bought never expire; card top-ups add a processing fee."
+ },
+ "per_object_cap": {
+  "stated": "Each sandbox has 25 GB of disk included and supports 1-8 vCPU and up to 16 GB of memory; no larger disk option is published.",
+  "bytes": null,
+  "source_url": "https://openscale.so/sandboxes"
+ },
+ "retention": {
+  "stated": "A sandbox lives until the user deletes it, with no session time limit; after 5 idle minutes it pauses itself with memory and files intact, and paused sandboxes are free and kept. No maximum paused duration is published.",
+  "days": null,
+  "source_url": "https://openscale.so/sandboxes"
+ },
+ "egress": {
+  "terms": "The sandbox page states no egress allowance or per-GB price; preview URLs are published per port and the sandbox has a network of its own.",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://openscale.so/sandboxes"
+ },
+ "interface": [
+  "rest",
+  "cli"
+ ],
+ "interface_detail": "E2B-compatible JS and Python SDKs and CLI work unchanged after setting E2B_DOMAIN=sandbox.openscale.so and E2B_API_KEY to the OpenScale key; commands, streaming, stdin, an interactive terminal, files, preview URLs and a headless browser are listed.",
+ "tooling": "E2B SDKs for JavaScript and Python and an E2B-style CLI, with two environment variables changed; REST access is implied by the SDK compatibility.",
+ "chaining": "The same API key works for models and sandboxes, so an agent can switch between inference and compute without a second credential; files and memory survive pause and resume.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "one-time free credit of unstated size for new accounts, plus up to USD 100 of top-up matching credit",
+   "source": "https://openscale.so/pricing"
   },
-  "per_object_cap": {
-    "stated": "25 GB of disk is included per sandbox; no per-object cap is stated",
-    "bytes": null,
-    "source_url": "https://openscale.so/sandboxes",
-    "notes": "The sandbox is a filesystem rather than an object store; the 25 GB figure is a disk allowance, not a single-object cap."
+  {
+   "kind": "volume-quota",
+   "value": "USD 0.0065 per vCPU-hour plus USD 0.001 per GiB-hour; USD 0.034 an hour for 4 vCPU and 8 GB",
+   "source": "https://openscale.so/sandboxes"
   },
-  "retention": {
-    "stated": "A sandbox lives until the user deletes it, with no session time limit; paused sandboxes sleep after 5 idle minutes and are kept free with memory and files intact. For the model API, Chat and Messages requests are never stored, Responses API responses are kept 30 days unless zero data retention is switched on, and only 30 days of metadata is kept for billing.",
-    "days": null,
-    "source_url": "https://openscale.so/sandboxes",
-    "notes": "Sandbox lifetime is unbounded by policy; only the model API retention windows are stated as numbers."
-  },
-  "egress": {
-    "terms": "unverified: the pricing page and sandbox page publish no egress price, transfer allowance or traffic quota; the sandbox offers a preview URL per port and outbound commands, but no per-GB rate is stated",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://openscale.so/sandboxes"
-  },
-  "interface": [
-    "rest",
-    "cli"
-  ],
-  "interface_detail": "One API key works for models and sandboxes. The OpenAI-compatible endpoint is https://api.openscale.so/v1 and the Anthropic endpoint is https://api.openscale.so/anthropic; E2B-compatible SDKs switch with E2B_DOMAIN=sandbox.openscale.so and E2B_API_KEY. Commands, streaming, an interactive terminal, files, preview URLs, a headless browser, pause and resume are included.",
-  "endpoint": "https://api.openscale.so/v1",
-  "tooling": "npm i -g openscale-cli for the openscale/osc CLI, or set E2B_DOMAIN and E2B_API_KEY and use an existing E2B JS or Python SDK. The user installs and runs the SDK or CLI against the hosted sandbox fleet.",
-  "chaining": "Hosted Firecracker sandboxes share one key and balance with hosted model inference, so an agent can run code and call models from one account; E2B compatibility lets existing agent code switch with two environment variables.",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "100 requests a minute and 10,000,000 tokens a minute per account, shared across its API keys",
-      "source": "https://openscale.so/docs/rate-limits"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "100 sandboxes at once by default, more on request; 25 GB disk included per sandbox; 1-8 vCPU and up to 16 GB memory",
-      "source": "https://openscale.so/sandboxes"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "a sandbox auto-pauses after 5 idle minutes with auto-pause on; paused sandboxes cost nothing and a busy sandbox never sleeps mid-task",
-      "source": "https://openscale.so/sandboxes"
-    },
-    {
-      "kind": "write-gated",
-      "value": "an API key is required; a missing or revoked key returns 401, and an account must be created before a key can be made",
-      "source": "https://openscale.so/docs"
-    }
-  ],
-  "limits_note": "A plan key waits for a free agent slot when all of the plan's agents are busy unless X-Wait-For-Slot: false is sent, in which case the call returns 429 plan_slots_busy. Volumes, secrets, fork and the snapshots API are not supported yet, and no GPU is offered in the sandbox shape.",
-  "binding": "request-rate",
-  "binding_note": "The 100-requests-a-minute per-account ceiling binds an agent loop before the 100-concurrent-sandbox default, and the rate budget is shared across every key on the account.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "An account is created at app.openscale.so/signup to get an API key, and a card is needed for the first top-up that unlocks the advertised credit match; add credit from $5 and card top-ups carry a processing fee, so $10 in credits costs $11.05 by card. The exact signup form fields were not opened, so the email and password requirements beyond the account creation step are unverified.",
-    "country": null
-  },
-  "reliability_note": "A request that crosses its per-minute budget returns 429 with Retry-After; plan keys wait for a free agent slot or can fail fast with plan_slots_busy. Sandboxes run in Singapore only for now, and volumes, secrets, fork and the snapshots API are not supported.",
-  "confidence": "documented",
-  "confidence_note": "The sandbox rate, included resources, billing model, retention, rate limits and credit terms are quoted from openscale.so's own pricing, sandbox and docs pages read 2026-11-24. The signup credit amount and egress terms are not published and are unverified.",
-  "evidence": [
-    {
-      "url": "https://openscale.so/sandboxes",
-      "date": "2026-11-24",
-      "proved": "a 4-vCPU 8-GB sandbox costs $0.034 an hour with no platform fee and no minimum",
-      "capture": "sha256:9a1db03456a3e77908a783c9b515b35c828510a27440f301ba61ac18f3b0c367",
-      "quote": "4 vCPU and 8 GB for $0.034 an hour. No platform fee, no minimum."
-    },
-    {
-      "url": "https://openscale.so/sandboxes",
-      "date": "2026-11-24",
-      "proved": "billing is $0.0065 per vCPU-hour plus $0.001 per GiB-hour of memory, per second, with paused sandboxes free",
-      "capture": "sha256:9a1db03456a3e77908a783c9b515b35c828510a27440f301ba61ac18f3b0c367",
-      "quote": "Per second while a sandbox runs, on its allocated size: $0.0065 per vCPU-hour plus $0.001 per GiB-hour of memory. No platform fee, no minimum. Paused sandboxes cost nothing."
-    },
-    {
-      "url": "https://openscale.so/sandboxes",
-      "date": "2026-11-24",
-      "proved": "100 sandboxes run at once by default, with 1-8 vCPU, up to 16 GB memory and 25 GB disk included and no GPU",
-      "capture": "sha256:9a1db03456a3e77908a783c9b515b35c828510a27440f301ba61ac18f3b0c367",
-      "quote": "1–8 vCPU and up to 16 GB of memory, with 25 GB of disk included. No GPU."
-    },
-    {
-      "url": "https://openscale.so/sandboxes",
-      "date": "2026-11-24",
-      "proved": "a sandbox has no time limit and lives until deleted, with auto-pause after 5 idle minutes",
-      "capture": "sha256:9a1db03456a3e77908a783c9b515b35c828510a27440f301ba61ac18f3b0c367",
-      "quote": "After 5 idle minutes it pauses itself. The next call wakes it, memory and files intact."
-    },
-    {
-      "url": "https://openscale.so/sandboxes",
-      "date": "2026-11-24",
-      "proved": "existing E2B SDKs switch with two environment variables",
-      "capture": "sha256:9a1db03456a3e77908a783c9b515b35c828510a27440f301ba61ac18f3b0c367",
-      "quote": "E2B_DOMAIN=sandbox.openscale.so"
-    },
-    {
-      "url": "https://openscale.so/pricing",
-      "date": "2026-11-24",
-      "proved": "a first top-up within 7 days of signing up adds up to $100 in credit, and add credit starts from $5",
-      "capture": "sha256:9f8b3d6f77e5944e789d20e84903dfd54a778c338e2637a9d4ec132d335ced68",
-      "quote": "New accounts get free credit to try the API. Your first top-up within 7 days of signing up adds up to $100 in credit on top: $10 gets $2, $50 gets $15, $250 gets $100."
-    },
-    {
-      "url": "https://openscale.so/pricing",
-      "date": "2026-11-24",
-      "proved": "card top-ups carry a processing fee and an account and API key are needed to buy credit",
-      "capture": "sha256:9f8b3d6f77e5944e789d20e84903dfd54a778c338e2637a9d4ec132d335ced68",
-      "quote": "Card top-ups add a processing fee that covers the card network's cost, shown before you pay: $10 in credits costs $11.05 by card."
-    },
-    {
-      "url": "https://openscale.so/",
-      "date": "2026-11-24",
-      "proved": "the landing page advertises up to $100 in free credits and 100 sandboxes at 4 vCPU 8 GB for $3.40 per 100 running hours",
-      "capture": "sha256:1f7087149611d885a477a06648f28e8dffdbc37dc91bed9329b8428b5ac198f4",
-      "quote": "Get up to $100 in free creditsView Pricing"
-    },
-    {
-      "url": "https://openscale.so/",
-      "date": "2026-11-24",
-      "proved": "Chat and Messages bodies are never stored and Responses API responses are kept 30 days unless zero data retention is enabled",
-      "capture": "sha256:1f7087149611d885a477a06648f28e8dffdbc37dc91bed9329b8428b5ac198f4",
-      "quote": "Chat and Messages requests are processed in memory and never stored. Responses API responses are kept 30 days for multi-turn state, and one switch turns that off."
-    },
-    {
-      "url": "https://openscale.so/docs/rate-limits",
-      "date": "2026-11-24",
-      "proved": "the account-wide rate budgets are 100 requests and 10,000,000 tokens per minute",
-      "capture": "sha256:0b91a29b39d4451cb8789af813b0742619c260d67ac14373097cf829324ea8bd",
-      "quote": "| Requests | 100 |\n| Tokens (prompt, cached prompt and completion combined) | 10,000,000 |"
-    },
-    {
-      "url": "https://openscale.so/docs",
-      "date": "2026-11-24",
-      "proved": "an API key is created in the dashboard after signup and a missing or revoked key returns 401",
-      "capture": "sha256:4fe22305d1ac4321a56eb563013d7d6ab72b947d01e8c2cae94f708e42c1b76f",
-      "quote": "Create a key in the dashboard ([sign up](https://app.openscale.so/signup?utm_source=api_reference&utm_medium=docs) if you have no account yet) and send it on every request:\n\n```\nAuthorization: Bearer sk-openscale-...\n```\n\nKeys are shown once when created. A missing or revoked key returns `401`."
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.969Z",
-  "price_per_tb_month": null,
-  "notes": "Hosted Firecracker sandboxes at $0.0065 per vCPU-hour plus $0.001 per GiB-hour, billed per second with paused sandboxes free. The signup credit size is not published, the advertised $100 needs a paid top-up, and egress terms are not published.",
-  "extras": {
-    "shape": {
-      "vcpu": "1-8 per sandbox",
-      "ram_gib": "up to 16 per sandbox",
-      "disk_gib": 25,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "the example shape is 4 vCPU and 8 GB; no GPU is offered in the sandbox product"
-    },
-    "billing_model": "per-second PAYG on allocated vCPU and memory, paused sandboxes free",
-    "free_tier_kind": "signup-credit-with-matched-topup",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "a preview URL per port",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": 300,
-      "restart_required": false,
-      "note": "no session time limit; auto-pause after 5 idle minutes and resumes with memory and files intact"
-    }
+  {
+   "kind": "volume-quota",
+   "value": "100 sandboxes running at once by default, raised on request",
+   "source": "https://openscale.so/sandboxes"
   }
+ ],
+ "limits_note": "No platform fee, no minimum and no session time limit; a sandbox sleeps after 5 idle minutes. Volumes, secrets, fork and the snapshots API are not supported yet, and there is no GPU.",
+ "binding": "volume-quota",
+ "binding_note": "The free credit is the first limit a new account meets, since there is no session cap and no platform fee; its size is not published, so the number of free hours is unverified.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "unverified: no captured or fresh first-party page states what the sign-up requires; the pricing page says only 'Create an account' to get an API key and the sandbox page says 'Sign in and copy it', while app.openscale.so/signup renders a startups marketing page with no form. The sign-up fields are unverified: behind a sign-up. Card top-ups from USD 5 with a processing fee are stated on the pricing page, but no card is shown at registration.",
+  "country": null
+ },
+ "reliability_note": "Sandboxes run in Singapore only; volumes, secrets, fork and the snapshots API are not supported, no GPU is offered, the free credit's amount is not published, and no page read states the registration identity.",
+ "confidence": "documented",
+ "confidence_note": "The per-second rate, shape, concurrency, pause behaviour and lack of session cap were read from the first-party sandbox page today. No page read states the sign-up identity, so identity_cost.kind is a defaulted placeholder with an unverified detail; the free credit amount and signup fields are also unverified.",
+ "evidence": [
+  {
+   "url": "https://openscale.so/sandboxes",
+   "date": "2026-11-25",
+   "proved": "the sandbox price is USD 0.0065 per vCPU-hour plus USD 0.001 per GiB-hour with no platform fee or minimum and paused sandboxes free",
+   "capture": "sha256:9a1db03456a3e77908a783c9b515b35c828510a27440f301ba61ac18f3b0c367",
+   "quote": "Per second while a sandbox runs, on its allocated size: $0.0065 per vCPU-hour plus $0.001 per GiB-hour of memory. No platform fee, no minimum. Paused sandboxes cost nothing."
+  },
+  {
+   "url": "https://openscale.so/sandboxes",
+   "date": "2026-11-25",
+   "proved": "a sandbox pauses itself after 5 idle minutes",
+   "capture": "sha256:9a1db03456a3e77908a783c9b515b35c828510a27440f301ba61ac18f3b0c367",
+   "quote": "After 5 idle minutes it pauses itself."
+  },
+  {
+   "url": "https://openscale.so/sandboxes",
+   "date": "2026-11-25",
+   "proved": "100 sandboxes run at once by default",
+   "capture": "sha256:9a1db03456a3e77908a783c9b515b35c828510a27440f301ba61ac18f3b0c367",
+   "quote": "100 by default."
+  },
+  {
+   "url": "https://openscale.so/sandboxes",
+   "date": "2026-11-25",
+   "proved": "the shape is 1-8 vCPU, up to 16 GB memory and 25 GB disk included",
+   "capture": "sha256:9a1db03456a3e77908a783c9b515b35c828510a27440f301ba61ac18f3b0c367",
+   "quote": "1–8 vCPU and up to 16 GB of memory, with 25 GB of disk included."
+  },
+  {
+   "url": "https://openscale.so/sandboxes",
+   "date": "2026-11-25",
+   "proved": "there is no session time limit and a sandbox lives until deleted",
+   "capture": "sha256:9a1db03456a3e77908a783c9b515b35c828510a27440f301ba61ac18f3b0c367",
+   "quote": "No session time limit"
+  },
+  {
+   "url": "https://openscale.so/pricing",
+   "date": "2026-11-25",
+   "proved": "new accounts get free credit to try the API",
+   "capture": "sha256:d34ee3fabb84ecbc41552f1397bcc3f25732e29128eae5baa4587a291cb367dd",
+   "quote": "New accounts get free credit to try the API."
+  },
+  {
+   "url": "https://openscale.so/pricing",
+   "date": "2026-11-25",
+   "proved": "an account is created at app.openscale.so/signup to get an API key",
+   "capture": "sha256:d34ee3fabb84ecbc41552f1397bcc3f25732e29128eae5baa4587a291cb367dd",
+   "quote": "Create an account"
+  },
+  {
+   "url": "https://openscale.so/sandboxes",
+   "date": "2026-11-25",
+   "proved": "the sandbox is reached by setting two E2B environment variables and runs SDK code unchanged",
+   "capture": "sha256:9a1db03456a3e77908a783c9b515b35c828510a27440f301ba61ac18f3b0c367",
+   "quote": "E2B_DOMAIN=sandbox.openscale.so"
+  },
+  {
+   "url": "https://app.openscale.so/signup",
+   "date": "2026-11-25",
+   "proved": "the sign-up URL renders a startups marketing page with no account form text",
+   "capture": "sha256:226b0fde9802d317d08b463e5ffab2eddec6dda09a4e3b4dc828ebb4c5c270de",
+   "quote": "OpenScale gives early stage startups up to $5,000 in free credits to build things."
+  },
+  {
+   "url": "https://openscale.so/sandboxes",
+   "date": "2026-11-24",
+   "proved": "a 4-vCPU 8-GB sandbox costs $0.034 an hour with no platform fee and no minimum",
+   "capture": "sha256:9a1db03456a3e77908a783c9b515b35c828510a27440f301ba61ac18f3b0c367",
+   "quote": "4 vCPU and 8 GB for $0.034 an hour. No platform fee, no minimum."
+  },
+  {
+   "url": "https://openscale.so/sandboxes",
+   "date": "2026-11-24",
+   "proved": "billing is $0.0065 per vCPU-hour plus $0.001 per GiB-hour of memory, per second, with paused sandboxes free",
+   "capture": "sha256:9a1db03456a3e77908a783c9b515b35c828510a27440f301ba61ac18f3b0c367",
+   "quote": "Per second while a sandbox runs, on its allocated size: $0.0065 per vCPU-hour plus $0.001 per GiB-hour of memory. No platform fee, no minimum. Paused sandboxes cost nothing."
+  },
+  {
+   "url": "https://openscale.so/sandboxes",
+   "date": "2026-11-24",
+   "proved": "100 sandboxes run at once by default, with 1-8 vCPU, up to 16 GB memory and 25 GB disk included and no GPU",
+   "capture": "sha256:9a1db03456a3e77908a783c9b515b35c828510a27440f301ba61ac18f3b0c367",
+   "quote": "1–8 vCPU and up to 16 GB of memory, with 25 GB of disk included. No GPU."
+  },
+  {
+   "url": "https://openscale.so/sandboxes",
+   "date": "2026-11-24",
+   "proved": "a sandbox has no time limit and lives until deleted, with auto-pause after 5 idle minutes",
+   "capture": "sha256:9a1db03456a3e77908a783c9b515b35c828510a27440f301ba61ac18f3b0c367",
+   "quote": "After 5 idle minutes it pauses itself. The next call wakes it, memory and files intact."
+  },
+  {
+   "url": "https://openscale.so/sandboxes",
+   "date": "2026-11-24",
+   "proved": "existing E2B SDKs switch with two environment variables",
+   "capture": "sha256:9a1db03456a3e77908a783c9b515b35c828510a27440f301ba61ac18f3b0c367",
+   "quote": "E2B_DOMAIN=sandbox.openscale.so"
+  },
+  {
+   "url": "https://openscale.so/pricing",
+   "date": "2026-11-24",
+   "proved": "a first top-up within 7 days of signing up adds up to $100 in credit, and add credit starts from $5",
+   "capture": "sha256:9f8b3d6f77e5944e789d20e84903dfd54a778c338e2637a9d4ec132d335ced68",
+   "quote": "New accounts get free credit to try the API. Your first top-up within 7 days of signing up adds up to $100 in credit on top: $10 gets $2, $50 gets $15, $250 gets $100."
+  },
+  {
+   "url": "https://openscale.so/pricing",
+   "date": "2026-11-24",
+   "proved": "card top-ups carry a processing fee and an account and API key are needed to buy credit",
+   "capture": "sha256:9f8b3d6f77e5944e789d20e84903dfd54a778c338e2637a9d4ec132d335ced68",
+   "quote": "Card top-ups add a processing fee that covers the card network's cost, shown before you pay: $10 in credits costs $11.05 by card."
+  },
+  {
+   "url": "https://openscale.so/",
+   "date": "2026-11-24",
+   "proved": "the landing page advertises up to $100 in free credits and 100 sandboxes at 4 vCPU 8 GB for $3.40 per 100 running hours",
+   "capture": "sha256:1f7087149611d885a477a06648f28e8dffdbc37dc91bed9329b8428b5ac198f4",
+   "quote": "Get up to $100 in free creditsView Pricing"
+  },
+  {
+   "url": "https://openscale.so/",
+   "date": "2026-11-24",
+   "proved": "Chat and Messages bodies are never stored and Responses API responses are kept 30 days unless zero data retention is enabled",
+   "capture": "sha256:1f7087149611d885a477a06648f28e8dffdbc37dc91bed9329b8428b5ac198f4",
+   "quote": "Chat and Messages requests are processed in memory and never stored. Responses API responses are kept 30 days for multi-turn state, and one switch turns that off."
+  },
+  {
+   "url": "https://openscale.so/docs/rate-limits",
+   "date": "2026-11-24",
+   "proved": "the account-wide rate budgets are 100 requests and 10,000,000 tokens per minute",
+   "capture": "sha256:0b91a29b39d4451cb8789af813b0742619c260d67ac14373097cf829324ea8bd",
+   "quote": "| Requests | 100 |\n| Tokens (prompt, cached prompt and completion combined) | 10,000,000 |"
+  },
+  {
+   "url": "https://openscale.so/docs",
+   "date": "2026-11-24",
+   "proved": "an API key is created in the dashboard after signup and a missing or revoked key returns 401",
+   "capture": "sha256:4fe22305d1ac4321a56eb563013d7d6ab72b947d01e8c2cae94f708e42c1b76f",
+   "quote": "Create a key in the dashboard ([sign up](https://app.openscale.so/signup?utm_source=api_reference&utm_medium=docs) if you have no account yet) and send it on every request:\n\n```\nAuthorization: Bearer sk-openscale-...\n```\n\nKeys are shown once when created. A missing or revoked key returns `401`."
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T11:55:06.271Z",
+ "price_per_tb_month": null,
+ "notes": "The rate card gives USD 0.0065 per vCPU-hour plus USD 0.001 per GiB-hour, so a 4 vCPU / 8 GB sandbox is USD 0.034 an hour and 100 for one hour is USD 3.40, matching the page's comparison table. The headline free credit has no published size, so the number of free hours is unverified: behind a sign-up. The hosted sandbox is the offer; no self-hosted variant is priced here.",
+ "extras": {
+  "shape": {
+   "vcpu": 4,
+   "ram_gib": 8,
+   "disk_gib": 25,
+   "gpu_class": null,
+   "gpu_count": null
+  },
+  "billing_model": "per-second, prepaid credit",
+  "free_tier_kind": "one-time-credit",
+  "term": "no minimum, no session limit",
+  "price_arithmetic": "4 x USD 0.0065 + 8 x USD 0.001 = USD 0.034/hour; 100 x 1 h = USD 3.40",
+  "status": "live hosted service",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "a preview URL per port",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": 300,
+   "restart_required": false,
+   "note": "auto-pause after 5 idle minutes, resume with memory and files intact; no session time limit"
+  }
+ },
+ "endpoint": "https://api.openscale.so/v1"
 }

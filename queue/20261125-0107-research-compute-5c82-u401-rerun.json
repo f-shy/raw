@@ -1,0 +1,13 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u401-rerun",
+ "kind": "reconcile",
+ "topic": "compute",
+ "question": "Settle these disagreements on compute/scaleway-2 from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.free_tier.unit: proposed \"GB\" (evidence https://www.scaleway.com/en/pricing/virtual-instances/, capture sha256:66102778e6363, quote 'List prices include egress and IPv6 addresses. Storage (local, block) and attached public IPv4 addresses are excluded. .'); now \"GB\". Why it did not apply: audit u193 judged it unsupported: Page lists STARDUST1-S as a paid instance (1 GB RAM, EUR 0.0006/hour); it states no free-tier quantity, so a free_tier unit of GB has no support.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/scaleway-2 $.free_tier.unit: The page states no free-tier allowance or quantity. STARDUST1-S is a paid instance: the row prices it at EUR 0.0006/hour, about EUR 0.43/month, and the column is RAM (GB), so the GB is the machine's memory unit, not a free-tier unit; the record's own verdict is paid-only with free_tier_kind none, an",
+ "scope": {
+  "rids": [
+   "compute/scaleway-2"
+  ]
+ },
+ "origin": "audit u423 of 20261125-0107-research-compute-5c82/u401 failed: 1 of 1 unsupported",
+ "created": "2026-11-25T22:05:45Z"
+}

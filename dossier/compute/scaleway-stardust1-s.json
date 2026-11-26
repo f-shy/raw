@@ -69,10 +69,17 @@
       "url": "https://www.scaleway.com/en/pricing/virtual-instances/",
       "date": "2026-10-24",
       "proved": "quoted for the 4 GiB rungs: 'DEV1-M | 3 vCPUs | 4 GB | 300 Mbps | EUR 0.0202 /HOUR | ~EUR 14.74 /MONTH' and 'PLAY2-NANO | 2 vCPUs | 4 GB | 200 Mbps | EUR 0.02754 /HOUR | ~EUR 20.10 /MONTH'"
+    },
+    {
+      "url": "https://www.scaleway.com/en/pricing/virtual-instances/",
+      "date": "2026-11-25",
+      "proved": "the Development instances price table lists STARDUST1-S at EUR 0.0006 an hour and about EUR 0.43 a month with 1 vCPU, 1 GB and 100 Mbps; no free tier is listed",
+      "capture": "sha256:2ca1d04e663fb70a51a2e27684b66f23154b40e422ea89fe067bbd531987ddb7",
+      "quote": "STARDUST1-S | 1 vCPU | 1 GB | 100 Mbps | €0.0006 /HOUR | ~€0.43 /MONTH"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-24T01:56:00.000Z",
+  "verified_at": "2026-11-25T11:17:45.896Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "Every Scaleway rung with 4 GiB or more is at least EUR 14.74 a month, so the provider has nothing among documented hosts above 1 GiB. The trap in the headline is the IPv4: the instance is EUR 0.43 but a public IPv4 is EUR 0.005 an hour, roughly EUR 3.65 a month, so a usable IPv4 machine is about EUR 4.45 plus the 10 GB disk. The distance between the advertised number and the usable number is the reason this row is recorded at all.",

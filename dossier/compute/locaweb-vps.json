@@ -6,7 +6,7 @@
   "category": "VPS",
   "tier": "VPS 1 GB Linux",
   "free_tier": {
-    "stated": "no free tier; R$ 15,90 a month on a 24-month contract, renewing at R$ 23,92 a month",
+    "stated": "Valor equivalente mensal para contratação por 24 meses, por R$ 15,90. Renovação: R$ 23,92/mês.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://www.locaweb.com.br/vps/",
@@ -62,10 +62,24 @@
       "url": "https://www.locaweb.com.br/ajuda/wiki/tudo-sobre-dados-cadastrais-e-de-cobranca-central-do-cliente/",
       "date": "2026-10-24",
       "proved": "quoted: 'Dados solicitados no momento da compra: 1. Nome completo / Razão social 2. CPF / CNPJ 3. RG 4. Endereço 5. Telefone 6. E-mail'"
+    },
+    {
+      "url": "https://www.locaweb.com.br/vps/",
+      "date": "2026-11-25",
+      "proved": "the monthly equivalent for a 24-month contract is R$ 15,90 and renewal is R$ 23,92 a month",
+      "capture": "sha256:4d660509c6e3e73a15f7cc17136d3d3fbfb698352eb6dac6650c29f3cad77217",
+      "quote": "Valor equivalente mensal para contratação por 24 meses, por R$ 15,90. Renovação: R$ 23,92/mês."
+    },
+    {
+      "url": "https://www.locaweb.com.br/vps/",
+      "date": "2026-11-25",
+      "proved": "the 24-month monthly equivalent and the renewal price are unchanged on the vendor's VPS page",
+      "capture": "sha256:4d660509c6e3e73a15f7cc17136d3d3fbfb698352eb6dac6650c29f3cad77217",
+      "quote": "Valor equivalente mensal para contratação por 24 meses, por R$ 15,90. Renovação: R$ 23,92/mês."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-24T02:05:00.000Z",
+  "verified_at": "2026-11-25T15:03:54.276Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "R$ 23,92 renewing / 5.04284 = USD 4.74, under the line even after the promotion ends, and R$ 15,90 on the 24-month term is USD 3.15. The CPF is a tax number rather than a photographed document, but it is issued only to Brazilian residents and the checkout requires RG as well, so it is recorded as national-id.",

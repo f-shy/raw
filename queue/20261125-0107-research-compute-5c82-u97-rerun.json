@@ -1,0 +1,17 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u97-rerun",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "Re-check these compute records against their own sources. Keep every clause the captured page supports, correct or remove only a clause it does not, then confirm each record with a quote from the page.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/contabo $.free_tier.stated: Price and specs match and Cloud VPS 4 is the cheapest row. But the page never says there is no free tier (no 'free' or 'trial' text at all); that part is an inference from absence.\n- compute/contabo $.free_tier.stated: Price and specs match and Cloud VPS 4 is the cheapest row. But the page never says there is no free tier (no 'free' or 'trial' text at all); that part is an inference from absence.\n- compute/digitalocean $.free_tier.stated: Quoted example is accurate, but the page heading names a '$5 free credit' and the FAQ says DigitalOcean 'often provides promotional credits for new users', so 'no current signup credit amount is published' is not what the page says.\n- compute/digitalocean $.free_tier.stated: Quoted example is accurate, but the page heading names a '$5 free credit' and the FAQ says DigitalOcean 'often provides promotional credits for new users', so 'no current signup credit amount is published' is not what the page says.",
+ "scope": {
+  "rids": [
+   "compute/amazon-web-services-free-tier",
+   "compute/contabo",
+   "compute/digitalocean",
+   "compute/fly-io",
+   "compute/ibm-cloud"
+  ]
+ },
+ "origin": "audit u237 of 20261125-0107-research-compute-5c82/u97 failed: 4 of 10 unsupported",
+ "created": "2026-11-25T11:52:15Z"
+}

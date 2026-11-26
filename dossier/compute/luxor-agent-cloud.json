@@ -1,0 +1,149 @@
+{
+  "topic": "compute",
+  "slug": "luxor-agent-cloud",
+  "provider": "Luxor Agent Cloud",
+  "url": "https://luxor.ai/docs/pricing",
+  "category": "VM sandbox",
+  "free_tier": {
+    "stated": "Every workspace starts on Starter at USD 0 with USD 100 in free credits on first adding a payment method; Starter allows 5 concurrent sessions and machines up to 4 cores / 8 GB.",
+    "unit": "credits",
+    "metered_on": "wall-clock",
+    "source_url": "https://luxor.ai/docs/pricing",
+    "read_on": "2026-11-25",
+    "notes": "The USD 100 is one-time and requires a payment method: Stripe verifies the card with a USD 0 authorization before granting it. The free Starter plan also exists without the credit once the balance runs out."
+  },
+  "per_object_cap": {
+    "stated": "The unit is a VM, not an object. The default Small sandbox is 2 vCPU / 4 GiB / 5 GiB root disk; the Starter plan caps machines at 4 cores / 8 GB RAM and storage at 100 GiB per workspace.",
+    "bytes": null,
+    "source_url": "https://luxor.ai/docs/pricing"
+  },
+  "retention": {
+    "stated": "A sandbox can be paused and resumed with its files and memory kept for later; storage on Starter is 100 GiB per workspace with snapshots, volumes and sticky disks drawing from that pool.",
+    "days": null,
+    "source_url": "https://luxor.ai/docs/pricing"
+  },
+  "egress": {
+    "terms": "No egress allowance or price per TB is stated on the pricing page; storage is priced at USD 0.20 per GiB per month from the first byte and serving the runner cache is included in the runner rate.",
+    "metered": false,
+    "free_allowance": null,
+    "price_per_tb": null,
+    "source_url": "https://luxor.ai/docs/pricing"
+  },
+  "interface": [
+    "cli",
+    "rest",
+    "ssh"
+  ],
+  "interface_detail": "A CLI installed from luxor.ai/install.sh with luxor onboard, plus Go, TypeScript and Python SDKs; sandbox sessions expose command execution, file I/O, preview URLs and SSH.",
+  "tooling": "luxor CLI (curl -fsSL https://luxor.ai/install.sh | sh), npm @luxorai/sandbox, go.luxor.ai/sandbox and pip luxor-ai SDKs.",
+  "chaining": "A sandbox can expose a preview URL and mount a workspace volume, so a coding agent can run a service and keep its files between sessions within the same workspace credit pool.",
+  "limits": [
+    {
+      "kind": "volume-quota",
+      "value": "USD 100 one-time free credits on adding a payment method; sandbox vCPU USD 0.000014 per second, memory USD 0.0000045 per GiB-second and disk USD 0.00000003 per GiB-second with 5 GiB free",
+      "source": "https://luxor.ai/docs/pricing"
+    },
+    {
+      "kind": "volume-quota",
+      "value": "Starter: 5 concurrent sessions, 4 cores / 8 GB machine limit, 100 GiB storage and 5 members per workspace",
+      "source": "https://luxor.ai/docs/pricing"
+    },
+    {
+      "kind": "write-gated",
+      "value": "the USD 100 credit is granted only after adding a card or Link wallet, and each new CLI key needs a device approval click in the browser",
+      "source": "https://luxor.ai/docs/account/free-credits"
+    }
+  ],
+  "limits_note": "Billing is per second of active session time; paused sandboxes stop charging and keep files and memory. When the balance runs out, the platform stops starting new sessions until a top-up of at least USD 20 or auto-reload.",
+  "binding": "volume-quota",
+  "binding_note": "The USD 100 one-time credit is the first constraint to run out at sustained use; the Starter five-session and 4-core caps are plan limits, and a card is required before the credit even exists.",
+  "identity_cost": {
+    "kind": "card",
+    "detail": "The free credits page states that after creating an account you add a card or Link wallet from the Billing tab and Stripe verifies it with a USD 0 authorization before the one-time USD 100 credit is granted; the onboarding docs say sign-in or registration is at app.luxor.ai/auth/registration with Google or GitHub, and CLI login requires a browser device approval click. No phone or ID document is stated.",
+    "country": null
+  },
+  "reliability_note": "When credits run out, Luxor Agent Cloud stops starting new jobs and sessions until the workspace is topped up by at least USD 20 or auto-reload is enabled; an unpaid invoice interrupts service and cancels running jobs.",
+  "confidence": "documented",
+  "confidence_note": "Plan limits, per-second rates, the card-gated credit and the sign-in flow are quoted from vendor pricing, free-credits and onboarding pages read on 2026-11-25.",
+  "evidence": [
+    {
+      "url": "https://luxor.ai/docs/pricing",
+      "date": "2026-11-25",
+      "capture": "sha256:4cebd1c97738451d206a926972e1e90ad848cff127b06e4435f893ea3a1ccdf6",
+      "quote": "Sandbox vCPU   | $0.000014 per second                     |",
+      "proved": "the sandbox vCPU rate"
+    },
+    {
+      "url": "https://luxor.ai/docs/pricing",
+      "date": "2026-11-25",
+      "capture": "sha256:4cebd1c97738451d206a926972e1e90ad848cff127b06e4435f893ea3a1ccdf6",
+      "quote": "Every workspace starts on Starter. Numeric limits below are per-workspace maximums, and every plan adds usage-based billing once its included credits are spent.",
+      "proved": "the Starter plan is the default and adds usage billing after credits"
+    },
+    {
+      "url": "https://luxor.ai/docs/account/free-credits",
+      "date": "2026-11-25",
+      "capture": "sha256:2237470eba1fc18c502ca9f6fc8416ca097720be36696c5cd86aaa25da474ead",
+      "quote": "New accounts get **$100 in free credits** the first time they add a payment method.",
+      "proved": "the USD 100 free credit is one-time and tied to adding a payment method"
+    },
+    {
+      "url": "https://luxor.ai/docs/account/free-credits",
+      "date": "2026-11-25",
+      "capture": "sha256:2237470eba1fc18c502ca9f6fc8416ca097720be36696c5cd86aaa25da474ead",
+      "quote": "Stripe verifies the card with a $0 authorization, and the workspace receives a one-time **$100 credit**.",
+      "proved": "a card is verified with a USD 0 authorization to grant the credit"
+    },
+    {
+      "url": "https://luxor.ai/",
+      "date": "2026-11-25",
+      "capture": "sha256:4442004dd705d2289b401ac7e69d5b9cc99ed7333ed82ea9c3d222d7dc3742a3",
+      "quote": "Billing is metered per second, so users pay only while a session is active.",
+      "proved": "sandbox sessions are billed by the second while active"
+    },
+    {
+      "url": "https://luxor.ai/",
+      "date": "2026-11-25",
+      "capture": "sha256:4442004dd705d2289b401ac7e69d5b9cc99ed7333ed82ea9c3d222d7dc3742a3",
+      "quote": "The hourly figures aggregate those per-second rates: Nano $0.08/hr, Small $0.17/hr (default: 2 vCPU / 4 GiB / 5 GiB), Medium $0.33/hr, Large $0.66/hr, XLarge $1.32/hr.",
+      "proved": "the sandbox size ladder and the default 2 vCPU / 4 GiB shape"
+    },
+    {
+      "url": "https://luxor.ai/",
+      "date": "2026-11-25",
+      "capture": "sha256:4442004dd705d2289b401ac7e69d5b9cc99ed7333ed82ea9c3d222d7dc3742a3",
+      "quote": "Sign in or create a Luxor Agent Cloud account (Google or GitHub) at https://app.luxor.ai/auth/registration/.",
+      "proved": "registration uses a Google or GitHub account"
+    }
+  ],
+  "verdict": "qualifies-with-caveat",
+  "verified_at": "2026-11-25T02:12:34.732Z",
+  "price_per_tb_month": null,
+  "notes": "Luxor Agent Cloud (formerly Tenki) sells disposable Linux VM sandboxes, GitHub Actions runners and a code reviewer from one workspace balance. The default Small sandbox is 2 vCPU / 4 GiB / 5 GiB at USD 0.17 per running hour from the per-second rate card, and the free Starter plan allows 5 concurrent sessions with a USD 100 one-time credit that requires adding a card. A paid Team plan raises the limits but does not change the per-second rates. The card requirement to unlock the free credit, and the USD 20 minimum top-up when the balance runs out, are the caveats.",
+  "extras": {
+    "shape": {
+      "vcpu": 2,
+      "ram_gib": 4,
+      "disk_gib": 5,
+      "gpu_class": null,
+      "gpu_count": null
+    },
+    "billing_model": "per-second active session with one-time card-gated credit",
+    "free_tier_kind": "one-time-credit",
+    "status": "hosted, available after the 2026-11-16 rename from Tenki",
+    "network_out": {
+      "allow_outbound": true,
+      "allow_inbound_listen": true,
+      "ports": "a preview URL is exposed with luxor sandbox expose",
+      "static_ip": null,
+      "ipv6": null,
+      "per_session_bytes": null
+    },
+    "session_cap": {
+      "wall_clock_min": null,
+      "idle_reap_s": null,
+      "restart_required": false,
+      "note": "a session runs until terminated or paused; --sticky discards --max-duration"
+    }
+  }
+}

@@ -5,7 +5,7 @@
   "url": "https://www.wholesaleinternet.net/dedicated/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "Preconfigured dedicated servers with free setup, listed monthly: a Core 2 Duo at 2 cores / 2 threads with 4 GB DDR2, a 250 GB SATA disk, 100 Mbit unmetered and 1 usable IPv4 for USD 9.00 a month, and an i7-2600 at 4 cores / 8 threads with 16 GB DDR3, 1 TB SATA, 1 Gbit unmetered and 5 usable IPv4 for USD 25.00. The top of the list is a Dual Xeon E5-2696v3 at 36 cores / 72 threads with 128 GB DDR4 and 2 x 4 TB SSD for USD 199.00, also with free setup and 1 Gbit unmetered.",
+    "stated": "Preconfigured dedicated servers with free setup, listed monthly: an Intel Core 2 Duo at 2 cores / 2 threads with 4 GB DDR2, a 250 GB SATA disk, 100 Mbit unmetered and 1 usable IPv4 for USD 9.00 a month, an i7-2600 at 4 cores / 8 threads with 16 GB DDR3, 1 TB SATA, 1 Gbit unmetered and 5 usable IPv4 for USD 22.00 a month, and a Dual Xeon E5-2696v3 at 36 cores / 72 threads with 128 GB DDR4 and 2 x 1 TB SSD for USD 149.00 a month, also with free setup and 1 Gbit unmetered.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://www.wholesaleinternet.net/dedicated/",
@@ -74,10 +74,38 @@
       "url": "https://www.wholesaleinternet.net/dedicated/",
       "date": "2026-10-22",
       "proved": "'i7-8700K 32GB RAM 1TB NVME Preconfig 3.7GHz / 4.7GHz Turbo 6 Cores / 12 Threads | 32GB DDR4 | 1TB NVME | 1Gbit unmetered | $59.00/month'"
+    },
+    {
+      "url": "https://www.wholesaleinternet.net/dedicated/",
+      "date": "2026-11-25",
+      "proved": "the Core 2 Duo entry server is 2 cores / 2 threads, 4 GB DDR2, 250 GB SATA, 100 Mbit unmetered, 1 usable IPv4 at USD 9.00 a month with free setup",
+      "capture": "sha256:b7e99b97dfd2986aba64c170e27a8f5b3194280964731e31ee7095c560ba1844",
+      "quote": "Intel Core 2 Duo Preconfigured 1.6GHz or faster - 1 processor 2 Cores / 2 Threads | 4GB DDR2 | 250GB SATA | • 100mbit Unmetered • 1 usable IPv4 Address • /64 IPv6 Address Block | $9.00/month | FREE Setup"
+    },
+    {
+      "url": "https://www.wholesaleinternet.net/dedicated/",
+      "date": "2026-11-25",
+      "proved": "the i7-2600 server is 4 cores / 8 threads, 16 GB DDR3, 1 TB SATA, 1 Gbit unmetered, 5 usable IPv4 at USD 22.00 a month with free setup",
+      "capture": "sha256:b7e99b97dfd2986aba64c170e27a8f5b3194280964731e31ee7095c560ba1844",
+      "quote": "I7-2600 Preconfigured 2.8 GHz / 3.8 Turbo - 1 processor 4 cores / 8 threads | 16GB DDR3 | 1TB SATA | • 1Gbit unmetered • 5 usable IPv4 Address • /64 IPv6 Address Block** | $22.00/month | FREE Setup"
+    },
+    {
+      "url": "https://www.wholesaleinternet.net/dedicated/",
+      "date": "2026-11-25",
+      "proved": "the 36-core E5-2696v3 with 128 GB DDR4 and 2 x 1 TB SSD is USD 149.00 a month with free setup and 1 Gbit unmetered transfer",
+      "capture": "sha256:b7e99b97dfd2986aba64c170e27a8f5b3194280964731e31ee7095c560ba1844",
+      "quote": "Dual Xeon E5-2696v3 128GB 2x1TB SSD Preconfig 2.30GHz / 3.6GHz Turbo 36 Cores / 72 threads | 128GB DDR4 | 2x 1TB SSD | • 1Gbit Unmetered Transfer • 5 usable IPv4 Address • /64 IPv6 Address Block** | $149.00/month | FREE Setup"
+    },
+    {
+      "url": "https://www.wholesaleinternet.net/dedicated/",
+      "date": "2026-11-25",
+      "proved": "the USD 9.00 entry server with free setup and its shape is unchanged",
+      "capture": "sha256:b7e99b97dfd2986aba64c170e27a8f5b3194280964731e31ee7095c560ba1844",
+      "quote": "Intel Core 2 Duo Preconfigured 1.6GHz or faster - 1 processor 2 Cores / 2 Threads | 4GB DDR2 | 250GB SATA | • 100mbit Unmetered • 1 usable IPv4 Address • /64 IPv6 Address Block | $9.00/month | FREE Setup"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:26.148Z",
   "notes": "no wholesaleinternet file exists in dossier/compute. This is the lowest published monthly price documented for a whole machine, and it is a 2007-era Core 2 Duo with DDR2, so the comparison this category asks for is unforgiving: documented records prices Hetzner Cloud CX23 at USD 6.49 with 20 TB of egress included, so USD 9 buys 33 percent more money and nothing more that a compute-bound job wants. The USD 25 i7-2600 tier is the first row where a dedicated box beats a VPS on raw threads per dollar. The USD 199 36-core tier is USD 0.114 per thread-month, which is the number worth carrying to a scheduling decision. Nothing on the page states a minimum term, a power allowance or an IPMI policy, and those three remain unestablished.",
   "extras": {
     "wave2": {

@@ -5,7 +5,7 @@
   "url": "https://www.qovery.com/pricing",
   "category": "platform host",
   "free_tier": {
-    "stated": "No free plan. Starter is USD 299 a month billed yearly with a 14-day free trial and no credit card, and it runs one managed cluster in the customer's own cloud, so the compute is a separate invoice from AWS, GCP or Azure.",
+    "stated": "Free: $0, 3 users plus unlimited AI agents, 1 cluster of your own, 1,000 deployment minutes a month, no credit card.",
     "unit": "minutes",
     "metered_on": "wall-clock",
     "source_url": "https://www.qovery.com/pricing",
@@ -58,10 +58,24 @@
       "url": "https://www.qovery.com/pricing",
       "date": "2026-10-22",
       "proved": "Growth USD 899 per month with 2 managed clusters; the page describes the product as running in the customer's cloud account, quoted"
+    },
+    {
+      "url": "https://www.qovery.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page states a permanent Free plan at $0 with 3 users, unlimited AI agents, one own cluster, 1,000 deployment minutes and no credit card",
+      "capture": "sha256:e4a158f5e840effc09322cb9087fb635cd296ff28f0ab1ab83da88d51b1236de",
+      "quote": "Free: $0, 3 users plus unlimited AI agents, 1 cluster of your own, 1,000 deployment minutes a month, no credit card."
+    },
+    {
+      "url": "https://www.qovery.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page still states the Free $0 plan and its limits",
+      "capture": "sha256:e4a158f5e840effc09322cb9087fb635cd296ff28f0ab1ab83da88d51b1236de",
+      "quote": "Free: $0, 3 users plus unlimited AI agents, 1 cluster of your own, 1,000 deployment minutes a month, no credit card."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:45.876Z",
   "notes": "Qovery cloud deployment platform starts at USD 299 monthly with a 14-day trial period. Cloud infrastructure costs bill directly to the user's cloud provider account.",
   "extras": {
     "wave2": {

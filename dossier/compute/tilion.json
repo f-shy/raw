@@ -5,7 +5,7 @@
   "url": "https://tilion.com/pricing",
   "category": "browser host",
   "free_tier": {
-    "stated": "no free tier: $2,000 a month, with a machine that differs on every launch by GPU, screen, fonts, timezone, canvas and audio",
+    "stated": "a free plan with $5 of credit once at sign-up, no card needed: 3 browsers at once, unlimited actions and CAPTCHA solves, datacenter and premium proxy; the cheapest paid plan is Developer at $40/month with 20 browsers at once and $40 of credit every month",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://tilion.com/pricing",
@@ -67,10 +67,24 @@
       "url": "https://tilion.com/pricing",
       "date": "2026-10-22",
       "proved": "'A different, coherent machine on every launch: GPU, screen, fonts, timezone, canvas, audio' with '$2,000/month' and '24-hour Slack support', quoted"
+    },
+    {
+      "url": "https://tilion.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page states a $0 Free plan with $5 sign-up credit and no card, and a Developer plan at $40/month with 20 browsers and $40 monthly credit",
+      "capture": "sha256:fc54b5824462c35531a4b9790c3c32581c5be8ebe15f453ab584662a99470f19",
+      "quote": "Every account gets $5 of free credit when you sign up. No card needed. ... $0/month ... - 3 browsers at once - $5 of credit once, at sign-up - Unlimited actions and CAPTCHA solves - Datacenter and premium proxy ... $40/month ... - 20 browsers at once - $40 of credit every month"
+    },
+    {
+      "url": "https://tilion.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page still states the free plan's credit, no-card condition and 3-browser allowance and the $40/month Developer plan",
+      "capture": "sha256:fc54b5824462c35531a4b9790c3c32581c5be8ebe15f453ab584662a99470f19",
+      "quote": "Every account gets $5 of free credit when you sign up. No card needed. ... $0/month ... - 3 browsers at once - $5 of credit once, at sign-up - Unlimited actions and CAPTCHA solves - Datacenter and premium proxy ... $40/month ... - 20 browsers at once - $40 of credit every month"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:48:14.020Z",
+  "verified_at": "2026-11-25T11:17:42.693Z",
   "price_per_tb_month": null,
   "notes": "",
   "extras": {

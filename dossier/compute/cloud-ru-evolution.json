@@ -5,7 +5,7 @@
   "url": "https://cloud.ru/docs/billing/ug/topics/concepts__start_grant",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "RUB 4,000 starter grant credited when the first bank card is attached, valid 60 days, with GPU compute, ML Inference, Foundation Models, GPU notebooks and Container Apps on the exclusion list.",
+    "stated": "После регистрации в личном кабинете Cloud.ru вы можете [получить стартовый грант](https://cloud.ru/docs/billing/ug/topics/guides__billing_bonus?source-platform=Evolution) «Тест Evolution» номиналом 4 000 бонусов. Это поможет начать знакомство с облачными сервисами без собственных трат.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://cloud.ru/docs/billing/ug/topics/concepts__start_grant",
@@ -64,10 +64,24 @@
       "url": "https://habr.com/ru/articles/987984/",
       "date": "2026-10-22",
       "proved": "the page also states that a user who does not receive the grant on those conditions can sign in through Sber ID or T-ID to check eligibility, and that paid consumption is available without the grant"
+    },
+    {
+      "url": "https://cloud.ru/docs/billing/ug/topics/concepts__start_grant",
+      "date": "2026-11-25",
+      "proved": "the page states the Test Evolution starter grant of 4,000 bonuses on registration",
+      "capture": "sha256:8656d5f41ff9ba41d64085da2c9d8f14ea8414979363dd6e0360cca197f12a59",
+      "quote": "После регистрации в личном кабинете Cloud.ru вы можете получить стартовый грант «Тест Evolution» номиналом 4 000 бонусов. Это поможет начать знакомство с облачными сервисами без собственных трат."
+    },
+    {
+      "url": "https://cloud.ru/docs/billing/ug/topics/concepts__start_grant",
+      "date": "2026-11-25",
+      "proved": "the page states the Test Evolution starter grant of 4,000 bonuses on registration",
+      "capture": "sha256:8656d5f41ff9ba41d64085da2c9d8f14ea8414979363dd6e0360cca197f12a59",
+      "quote": "После регистрации в личном кабинете Cloud.ru вы можете [получить стартовый грант](https://cloud.ru/docs/billing/ug/topics/guides__billing_bonus?source-platform=Evolution) «Тест Evolution» номиналом 4 000 бонусов. Это поможет начать знакомство с облачными сервисами без собственных трат."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:39.491Z",
   "notes": "The Russian free lane is thin and shrinking: Yandex withdrew its grant, Selectel states in its own FAQ that cloud servers have no free test, Timeweb Cloud has no fixed-length trial, and cloud.ru's RUB 4,000 is the largest general-purpose entry found. VK Cloud's RUB 2,000,000 startup grant needs a legal entity and is a discount schedule rather than credit. Corrected 2026-10-22: the campaign rules approved on 2026-06-30 require the account to be registered in the Russian Federation, and the 2 vCPU / 4 GiB free VM is closed to accounts registered after 2026-06-30. What survives is 25 vCPU-hours a month of Container Apps and the object-storage egress allowance.",
   "extras": {
     "wave2": {

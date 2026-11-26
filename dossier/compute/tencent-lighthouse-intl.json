@@ -6,7 +6,7 @@
   "category": "VPS",
   "tier": "Linux Starter",
   "free_tier": {
-    "stated": "no free tier; Linux Starter is USD 4.2 per month, or USD 10.08 for the first year against a stated original of USD 50.4 per year",
+    "stated": "Linux Starter $4.2/month ... Transfer 0.5 TB/month ... Linux Starter Plan ... $10.08/year ... originally$50.4/year ... Transfer 0.5TB/month",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://www.tencentcloud.com/products/lighthouse",
@@ -102,10 +102,24 @@
       "url": "https://www.tencentcloud.com/document/product/378/80429",
       "date": "2026-10-24",
       "proved": "quoted: 'Identity Verification is required when you purchase or use cloud services in the Chinese Mainland' on the international site, against 'Identity Verification must be completed to purchase or use cloud services' on the China site"
+    },
+    {
+      "url": "https://www.tencentcloud.com/products/lighthouse",
+      "date": "2026-11-25",
+      "proved": "the product page lists a Linux Starter plan at 4.2 dollars a month and a Linux Starter Plan at 10.08 dollars a year originally 50.4 dollars a year, both with 0.5 TB of transfer",
+      "capture": "sha256:ce39ec82e1812dbd602e4948828253895e8b7c7663aa96f9c317354e00cf89c1",
+      "quote": "Linux Starter $4.2/month ... Transfer 0.5 TB/month ... Linux Starter Plan ... $10.08/year ... originally$50.4/year ... Transfer 0.5TB/month"
+    },
+    {
+      "url": "https://www.tencentcloud.com/products/lighthouse",
+      "date": "2026-11-25",
+      "proved": "the product page still states both plan prices with their transfer allowance",
+      "capture": "sha256:ce39ec82e1812dbd602e4948828253895e8b7c7663aa96f9c317354e00cf89c1",
+      "quote": "Linux Starter $4.2/month ... Transfer 0.5 TB/month ... Linux Starter Plan ... $10.08/year ... originally$50.4/year ... Transfer 0.5TB/month"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-24T03:19:16.612Z",
+  "verified_at": "2026-11-25T15:03:55.553Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "Tencent Cloud Lighthouse offers lightweight application servers starting at USD 10.08 annually (USD 0.84 monthly) for 2 vCPU and 2 GB RAM in overseas regions. Standard credit and debit cards are supported for billing.",

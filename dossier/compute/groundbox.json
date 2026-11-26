@@ -1,143 +1,257 @@
 {
-  "topic": "compute",
-  "slug": "groundbox",
-  "provider": "Groundbox",
-  "url": "https://groundbox.io/",
-  "category": "self-hosted shared-filesystem and agent-memory server",
-  "tier": "MIT open-source server",
-  "free_tier": {
-    "stated": "The MIT open-source distribution is the whole product at no charge: server, macOS client, BRAIN and the seven MCP tools, installed on the user's own machine and server. A licensed enterprise edition adds SSO, directory sync, enforced MFA, audit export and retention, and managed upgrades, priced per organization and never per seat with terms on request. The enterprise price is unverified: terms on request, not published.",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://groundbox.io/",
-    "read_on": "2026-11-24",
-    "notes": "The MIT tier has no hosted allocation: the user installs and runs the server. The /pricing page is a login-walled SPA whose own rates could not be read; see the probe evidence."
+ "topic": "compute",
+ "slug": "groundbox",
+ "provider": "Groundbox",
+ "url": "https://groundbox.dev/pricing",
+ "category": "sandbox",
+ "tier": "Free plan / Pro",
+ "free_tier": {
+  "stated": "Free plan: 3,000 CI minutes a month, $5 of usage to start and small sandboxes until a card is added; an agent can sign itself up with $5.00 of free usage and no card. Billed by the second.",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://groundbox.dev/pricing",
+  "read_on": "2026-11-25"
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a 20 GB sandbox disk, not a stored object; retained disks and volumes are billed per GB-month"
+ },
+ "retention": {
+  "stated": "On the free plan each sandbox lives at most 60 minutes from its start and pausing does not stop that clock; a link nobody claims stops working after a month.",
+  "days": null,
+  "source_url": "https://groundbox.dev/docs/api"
+ },
+ "egress": {
+  "terms": "not published for sandboxes: the pricing page names previews and public URLs but states no egress allowance or per-GB price",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://groundbox.dev/pricing"
+ },
+ "interface": [
+  "rest",
+  "cli",
+  "ssh"
+ ],
+ "interface_detail": "REST API at https://api.groundbox.dev/v1, a Node CLI, SDKs and a hosted MCP server; a sandbox is a Linux VM with exec and file endpoints.",
+ "endpoint": "https://api.groundbox.dev/v1",
+ "tooling": "curl against the REST API, the groundbox CLI, Python and TypeScript SDKs, and MCP clients; a sandbox command runs with sh -c and a WebSocket streams output.",
+ "chaining": "$0.04 per vCPU-hour running and $0.05 per GB-month paused make a two-vCPU sandbox about $0.08 an hour, which can hand off to S3-compatible buckets and an image registry on the same account.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "$5.00 of free usage on the free plan, then $0.04 per vCPU-hour running and $0.05 per GB-month paused or stopped",
+   "source": "https://groundbox.dev/pricing"
   },
-  "per_object_cap": {
-    "stated": "No object-size cap is published. A Space can be larger than the local disk through on-demand hydration; blobs are content-addressed with FastCDC chunks of about 1 MiB and BLAKE3-256.",
-    "bytes": null,
-    "source_url": "https://groundbox.io/"
+  {
+   "kind": "retention-clamped",
+   "value": "on the free plan each sandbox lives at most 60 minutes from its start, including while paused; a paid sandbox can run up to 720 hours",
+   "source": "https://groundbox.dev/docs/api"
   },
-  "retention": {
-    "stated": "Real files in a Git-style commit log with content-addressed chunks are authoritative; the index is rebuildable. Conflict copies are kept rather than merged. No automatic deletion period is published.",
-    "days": null,
-    "source_url": "https://groundbox.io/"
-  },
-  "egress": {
-    "terms": "No egress price or allowance is published: the server and object store are installed and run by the user, so outbound traffic is the user's own infrastructure and is not metered by Groundbox.",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://groundbox.io/"
-  },
-  "interface": [
-    "cli",
-    "git",
-    "unknown"
-  ],
-  "interface_detail": "Seven MCP tools (spaces_list, search, get, history, events, write, promote) plus a macOS File Provider that mounts a synced folder; the sync protocol is client-neutral. No remote HTTP API shape is published for the MIT tier.",
-  "tooling": "The user installs and runs one Go binary, Postgres with pgvector, and an S3 or MinIO object store, plus the macOS File Provider client (18 MiB, macOS 14+). Agents reach it through seven MCP tools and manifests; no harness-side plugin is needed.",
-  "chaining": "Groundbox exposes a folder of ordinary Markdown, Office and PDF files, so any agent that can read a file can use it, and export is a folder copy. It is self-hosted software: the user installs and runs the server. Hosted sandboxes such as Gravix Layer and Google Developer Device Platform are separate records and come first in any list.",
-  "limits": [
-    {
-      "kind": "write-gated",
-      "value": "a curated Space turns every write into a proposal awaiting maintainer approval",
-      "source": "https://groundbox.io/"
-    },
-    {
-      "kind": "write-gated",
-      "value": "an agent has no permissions of its own; it acts only within the grants of the person it serves, and an ungranted file returns not_found",
-      "source": "https://groundbox.io/"
-    }
-  ],
-  "limits_note": "No numeric quota, rate or object cap is published on the public site; the binding constraint is that the reader installs and operates the server, not a meter.",
-  "binding": "write-gated",
-  "binding_note": "There is no published hosted quota: the first constraint a new user meets is the grant model and, in a curated Space, maintainer approval before a write lands.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The MIT download asks for no registration on the public site. The /pricing page's sign-in route was probed: the app's login form asks for an Organization slug, Email and Password; no card is named for the MIT tier. The enterprise edition is 'licensed per organization, never per seat · terms on request', so its sign-up fields are unverified: terms on request and behind a login wall.",
-    "country": null
-  },
-  "reliability_note": "Conflicts produce conflict copies rather than merges. The index is derived and rebuildable from the files. The pricing page is a JavaScript SPA behind a login wall, so its own rates are unverified.",
-  "confidence": "documented",
-  "confidence_note": "The MIT terms, enterprise pricing shape, interface and identity gate are quoted from the vendor's own homepage read 2026-11-24; the /pricing page's own rates are unverified because it is a login-walled JavaScript shell with no pricing numbers in its body, registered as a probe row.",
-  "evidence": [
-    {
-      "url": "https://groundbox.io/",
-      "date": "2026-11-24",
-      "proved": "the MIT distribution is free and runs on the user's own machine and server",
-      "capture": "sha256:da203e2b63088537ffd65beb024e995e3cb99dce2a3c90f2d4a8e013320928a2",
-      "quote": "Open source · MIT · your machine · your server · export by copying a folder"
-    },
-    {
-      "url": "https://groundbox.io/",
-      "date": "2026-11-24",
-      "proved": "the enterprise edition is licensed per organization with no published price",
-      "capture": "sha256:da203e2b63088537ffd65beb024e995e3cb99dce2a3c90f2d4a8e013320928a2",
-      "quote": "licensed per organization, never per seat · terms on request"
-    },
-    {
-      "url": "https://groundbox.io/",
-      "date": "2026-11-24",
-      "proved": "what the user installs and runs",
-      "capture": "sha256:da203e2b63088537ffd65beb024e995e3cb99dce2a3c90f2d4a8e013320928a2",
-      "quote": "One Go binary, Postgres and an object store, all of it MIT."
-    },
-    {
-      "url": "https://groundbox.io/",
-      "date": "2026-11-24",
-      "proved": "the seven MCP tools are the full agent interface",
-      "capture": "sha256:da203e2b63088537ffd65beb024e995e3cb99dce2a3c90f2d4a8e013320928a2",
-      "quote": "Seven MCP tools and no more. No database identifiers, no raw SQL, no admin mode."
-    },
-    {
-      "url": "https://groundbox.io/",
-      "date": "2026-11-24",
-      "proved": "the client and server build and the platform requirement",
-      "capture": "sha256:da203e2b63088537ffd65beb024e995e3cb99dce2a3c90f2d4a8e013320928a2",
-      "quote": "MIT · macOS client · self-hosted server · 0.1 (43), 18 MiB, macOS 14+"
-    },
-    {
-      "url": "https://groundbox.io/",
-      "date": "2026-11-24",
-      "proved": "an agent's writes are scoped to the person's grants",
-      "capture": "sha256:da203e2b63088537ffd65beb024e995e3cb99dce2a3c90f2d4a8e013320928a2",
-      "quote": "An agent has no permissions of its own"
-    },
-    {
-      "url": "https://groundbox.io/",
-      "date": "2026-11-24",
-      "proved": "the open-source tier includes the whole product and is run by the user",
-      "capture": "sha256:da203e2b63088537ffd65beb024e995e3cb99dce2a3c90f2d4a8e013320928a2",
-      "quote": "The complete product: server, macOS client, BRAIN, the seven MCP tools. Clone it, run it on your own hardware and never talk to us."
-    },
-    {
-      "url": "https://groundbox.io/pricing",
-      "date": "2026-11-24",
-      "proved": "the pricing URL returns a JavaScript shell with no rates in its body; the SPA needs JavaScript",
-      "capture": "sha256:06a326caeab8773968b57397dea532bcf51c35cd3e5f98b59a343eefd24172bf",
-      "quote": "Groundbox needs JavaScript to be enabled."
-    },
-    {
-      "url": "probe:https://groundbox.io/pricing",
-      "date": "2026-11-24",
-      "proved": "the pricing URL answered HTTP 200 with a 1,988-byte HTML shell and no challenge under the direct probe",
-      "capture": "sha256:e4611dce9f1a6d4a790c4e7888f4d7e6ecd74c160b7ce0f4ba5caf55163ae33e",
-      "quote": "\"status\": 200"
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.804Z",
-  "price_per_tb_month": null,
-  "self_hosted": true,
-  "notes": "Self-hosted MIT software: the user installs and runs the Go server, Postgres and an object store plus the macOS client. The enterprise layer is licensed per organization on request. The /pricing page is a login-walled SPA whose body carries no rates, so the enterprise price is unverified. Listed after every hosted offer.",
-  "extras": {
-    "billing_model": "MIT software at no charge; enterprise edition licensed per organization on request",
-    "free_tier_kind": "self-hosted-software",
-    "status": "released; version 0.1 (43) macOS client",
-    "network_out": {
-      "allow_outbound": null,
-      "note": "the user's own server and object store; no vendor-metered egress"
-    }
+  {
+   "kind": "request-rate",
+   "value": "2 sandboxes at a time until a card is on file; one more gets 429 concurrency_limit",
+   "source": "https://groundbox.dev/docs/sandboxes"
   }
+ ],
+ "binding": "volume-quota",
+ "binding_note": "The $5.00 of usage is what runs out first at $0.04 per vCPU-hour; the 60-minute free life and the two-sandbox cap bound a session, not the account balance.",
+ "identity_cost": {
+  "kind": "anonymous",
+  "detail": "An agent can sign itself up with POST /signup and no person and no card, getting an API key and a claim link for a person; a person signs up in the dashboard with GitHub, Google, GitLab or email and a verified email, and the free credit comes once per person. A card is needed only for full-size sandboxes, CI installation and auto top-up.",
+  "country": null
+ },
+ "reliability_note": "At a spend cap, creating or starting a sandbox is refused and running sandboxes are stopped; a sandbox older than 60 minutes on the free plan is deleted with its save points, and a team may be suspended.",
+ "confidence": "documented",
+ "confidence_note": "Prices, the free credit, the sign-up gates and the session caps are quoted from the vendor's own pricing page, API reference and sandbox guide read on 2026-11-25.",
+ "evidence": [
+  {
+   "url": "https://groundbox.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "the free plan gives 3,000 CI minutes a month and $5 of usage to start, and the $20 Pro plan includes $20 of usage",
+   "capture": "sha256:93a40e92e6791bf17b654132dfdb0089164b5b596fe77a0ff67b0ff7e66d9d58",
+   "quote": "Free to start: 3,000 CI minutes a month and $5 of usage to start."
+  },
+  {
+   "url": "https://groundbox.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "a running sandbox is $0.04 per vCPU-hour and a paused or stopped one is $0.05 per GB-month",
+   "capture": "sha256:93a40e92e6791bf17b654132dfdb0089164b5b596fe77a0ff67b0ff7e66d9d58",
+   "quote": "| Running | $0.04 / vCPU-hour |"
+  },
+  {
+   "url": "https://groundbox.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "paused or stopped sandboxes are billed per GB of disk per month",
+   "capture": "sha256:93a40e92e6791bf17b654132dfdb0089164b5b596fe77a0ff67b0ff7e66d9d58",
+   "quote": "| Paused or stopped | $0.05 / GB-month |"
+  },
+  {
+   "url": "https://groundbox.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "a young GitHub account gets only 4 jobs at once and 30-minute jobs on the free plan",
+   "capture": "sha256:93a40e92e6791bf17b654132dfdb0089164b5b596fe77a0ff67b0ff7e66d9d58",
+   "quote": "A GitHub account that is under 7 days old or has no public repositories gets 4 jobs at once and 30-minute jobs on the free plan."
+  },
+  {
+   "url": "https://groundbox.dev/docs/api",
+   "date": "2026-11-25",
+   "proved": "an agent can obtain a trial key without a person or a card",
+   "capture": "sha256:efd9f4acffac10f5e56454f16cbdebcf597a1fb8298120fe3821294b4ae400a0",
+   "quote": "An agent can sign itself up and test Groundbox with no person and no card."
+  },
+  {
+   "url": "https://groundbox.dev/docs/api",
+   "date": "2026-11-25",
+   "proved": "the trial key starts with $5 of free usage and returns a claim link",
+   "capture": "sha256:efd9f4acffac10f5e56454f16cbdebcf597a1fb8298120fe3821294b4ae400a0",
+   "quote": "The answer has `api_key` (shown once), `status: \"trial\"`, `trial` (credit and limits), `claim_url` and `message_for_human`."
+  },
+  {
+   "url": "https://groundbox.dev/docs/api",
+   "date": "2026-11-25",
+   "proved": "before a card a team runs two sandboxes with up to 2 vCPU, 4 GB and a 20 GB disk",
+   "capture": "sha256:efd9f4acffac10f5e56454f16cbdebcf597a1fb8298120fe3821294b4ae400a0",
+   "quote": "2 sandboxes at a time, forks and fork group copies included, up to 2 vCPU, 4 GB of memory and a 20 GB disk."
+  },
+  {
+   "url": "https://groundbox.dev/docs/api",
+   "date": "2026-11-25",
+   "proved": "a free sandbox is deleted after 60 minutes even if paused",
+   "capture": "sha256:efd9f4acffac10f5e56454f16cbdebcf597a1fb8298120fe3821294b4ae400a0",
+   "quote": "Each sandbox lives at most 60 minutes from its start. Pausing does not stop that clock: a paused sandbox is deleted at the same mark, with its save points."
+  },
+  {
+   "url": "https://groundbox.dev/docs/api",
+   "date": "2026-11-25",
+   "proved": "a person can sign up with GitHub, Google, GitLab or a verified email and gets the credit once per person",
+   "capture": "sha256:efd9f4acffac10f5e56454f16cbdebcf597a1fb8298120fe3821294b4ae400a0",
+   "quote": "Someone who signs up in the dashboard (GitHub, Google, GitLab or email) has it on their first team, once per person, with a verified email"
+  },
+  {
+   "url": "https://groundbox.dev/docs/sandboxes",
+   "date": "2026-11-25",
+   "proved": "the sandbox is a Linux VM reached through a REST API",
+   "capture": "sha256:fe84a974fdec9ad568cf0d3a66c578204831cadc43b8027a6af457b9915de070",
+   "quote": "A sandbox is a Linux VM of its own, with its own kernel, memory and disk. The API lives at `https://api.groundbox.dev/v1`."
+  },
+  {
+   "url": "https://groundbox.dev/docs/sandboxes",
+   "date": "2026-11-25",
+   "proved": "a third concurrent sandbox is refused with 429 concurrency_limit",
+   "capture": "sha256:fe84a974fdec9ad568cf0d3a66c578204831cadc43b8027a6af457b9915de070",
+   "quote": "A team runs 2 of them at once; one more gets `429 concurrency_limit`."
+  },
+  {
+   "url": "https://groundbox.io/",
+   "date": "2026-11-24",
+   "proved": "the MIT distribution is free and runs on the user's own machine and server",
+   "capture": "sha256:da203e2b63088537ffd65beb024e995e3cb99dce2a3c90f2d4a8e013320928a2",
+   "quote": "Open source · MIT · your machine · your server · export by copying a folder"
+  },
+  {
+   "url": "https://groundbox.io/",
+   "date": "2026-11-24",
+   "proved": "the enterprise edition is licensed per organization with no published price",
+   "capture": "sha256:da203e2b63088537ffd65beb024e995e3cb99dce2a3c90f2d4a8e013320928a2",
+   "quote": "licensed per organization, never per seat · terms on request"
+  },
+  {
+   "url": "https://groundbox.io/",
+   "date": "2026-11-24",
+   "proved": "what the user installs and runs",
+   "capture": "sha256:da203e2b63088537ffd65beb024e995e3cb99dce2a3c90f2d4a8e013320928a2",
+   "quote": "One Go binary, Postgres and an object store, all of it MIT."
+  },
+  {
+   "url": "https://groundbox.io/",
+   "date": "2026-11-24",
+   "proved": "the seven MCP tools are the full agent interface",
+   "capture": "sha256:da203e2b63088537ffd65beb024e995e3cb99dce2a3c90f2d4a8e013320928a2",
+   "quote": "Seven MCP tools and no more. No database identifiers, no raw SQL, no admin mode."
+  },
+  {
+   "url": "https://groundbox.io/",
+   "date": "2026-11-24",
+   "proved": "the client and server build and the platform requirement",
+   "capture": "sha256:da203e2b63088537ffd65beb024e995e3cb99dce2a3c90f2d4a8e013320928a2",
+   "quote": "MIT · macOS client · self-hosted server · 0.1 (43), 18 MiB, macOS 14+"
+  },
+  {
+   "url": "https://groundbox.io/",
+   "date": "2026-11-24",
+   "proved": "an agent's writes are scoped to the person's grants",
+   "capture": "sha256:da203e2b63088537ffd65beb024e995e3cb99dce2a3c90f2d4a8e013320928a2",
+   "quote": "An agent has no permissions of its own"
+  },
+  {
+   "url": "https://groundbox.io/",
+   "date": "2026-11-24",
+   "proved": "the open-source tier includes the whole product and is run by the user",
+   "capture": "sha256:da203e2b63088537ffd65beb024e995e3cb99dce2a3c90f2d4a8e013320928a2",
+   "quote": "The complete product: server, macOS client, BRAIN, the seven MCP tools. Clone it, run it on your own hardware and never talk to us."
+  },
+  {
+   "url": "https://groundbox.io/pricing",
+   "date": "2026-11-24",
+   "proved": "the pricing URL returns a JavaScript shell with no rates in its body; the SPA needs JavaScript",
+   "capture": "sha256:06a326caeab8773968b57397dea532bcf51c35cd3e5f98b59a343eefd24172bf",
+   "quote": "Groundbox needs JavaScript to be enabled."
+  },
+  {
+   "url": "probe:https://groundbox.io/pricing",
+   "date": "2026-11-24",
+   "proved": "the pricing URL answered HTTP 200 with a 1,988-byte HTML shell and no challenge under the direct probe",
+   "capture": "sha256:e4611dce9f1a6d4a790c4e7888f4d7e6ecd74c160b7ce0f4ba5caf55163ae33e",
+   "quote": "\"status\": 200"
+  },
+  {
+   "url": "https://groundbox.dev/docs/api",
+   "date": "2026-11-25",
+   "proved": "the agent sign-up uses the anonymous identity flow, so no email, phone, card or person is required for the cheapest identity",
+   "capture": "sha256:65bd43eb1efb3fe69571ef043225ba0cc7356d1fead3a28e692eacf1b631d546",
+   "quote": "Groundbox supports its `anonymous` flow: it is the sign-up above, with the same account, credit and limits."
+  },
+  {
+   "url": "https://groundbox.dev/docs/api",
+   "date": "2026-11-25",
+   "proved": "the agent identity route is anonymous, confirming identity_cost.kind is anonymous",
+   "capture": "sha256:65bd43eb1efb3fe69571ef043225ba0cc7356d1fead3a28e692eacf1b631d546",
+   "quote": "Groundbox supports its `anonymous` flow: it is the sign-up above, with the same account, credit and limits."
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T16:38:10.902Z",
+ "price_per_tb_month": null,
+ "notes": "The free plan's $5 of usage covers the per-second sandbox meter; at $0.04 per vCPU-hour a two-vCPU box costs $0.08 an hour. A card is not needed to start but is needed for full-size or long-running sandboxes, and the 60-minute free life is a hard session ceiling. A separate file-sync product on groundbox.io is not this offer.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 4,
+   "disk_gb": 20,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "free-plan limits before a card: 2 vCPU, 4 GB memory, a 20 GB disk and at most 2 sandboxes"
+  },
+  "billing_model": "per-second usage against a $5 free credit, then per-vCPU-hour while running and per-GB-month while stopped",
+  "free_tier_kind": "one-time-credit",
+  "term": "free until the $5 credit is spent or the sandbox reaches 60 minutes",
+  "price_arithmetic": "$5 of usage to start; $0.04 per vCPU-hour running; $0.05 per GB-month paused; $20 Pro plan with $20 included",
+  "derived": "$0.04 per vCPU-hour x 2 vCPU = $0.08 per hour for the two-vCPU sandbox in the operator list; $5 / $0.08 per hour = 62.5 hours of usage",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "previews and public URLs are documented; no per-GB egress price is stated",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": 60,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "a free sandbox is deleted 60 minutes after its start, paused or not; a paid one can be set up to 720 hours"
+  }
+ },
+ "limits_note": "No numeric quota, rate or object cap is published on the public site; the binding constraint is that the reader installs and operates the server, not a meter.",
+ "self_hosted": true
 }

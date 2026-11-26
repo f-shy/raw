@@ -1,171 +1,219 @@
 {
-  "topic": "compute",
-  "slug": "e2b-desktop",
-  "provider": "E2B",
-  "url": "https://docs.e2b.dev/use-cases/computer-use",
-  "category": "container and VM desktop sandbox",
-  "tier": "Desktop Sandbox on Hobby",
-  "free_tier": {
-    "stated": "The E2B Desktop Sandbox is a hosted Ubuntu 22.04/XFCE graphical sandbox driven through the E2B Desktop SDK with VNC streaming. It has no separate price or allowance: it runs on the Hobby plan, which is $0 a month with a one-time $100 in usage credits, 10 concurrent sandboxes and up to 1 hour of continuous runtime per sandbox. Sandboxes are billed per second for provisioned CPU and RAM; sandbox disk is included at no extra cost. Some accounts are asked to verify with a one-time $5 card payment, added back as usage credits.",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://e2b.dev/pricing",
-    "read_on": "2026-11-24",
-    "notes": "No Desktop-only price is published: the E2B pricing page prices sandboxes by vCPU-second and GiB-second with disk free, and the Desktop docs describe a sandbox built from the stock desktop template. The credit is one-time, not a monthly allowance; the default sandbox is 2 vCPU and 4 GiB."
+ "topic": "compute",
+ "slug": "e2b-desktop",
+ "provider": "E2B Desktop",
+ "url": "https://e2b.dev/docs/use-cases/computer-use",
+ "category": "desktop sandbox",
+ "free_tier": {
+  "stated": "E2B Desktop runs on the E2B Sandbox plan: Hobby is USD 0 a month with a one-time USD 100 in usage credits, up to 10 concurrently running sandboxes and up to 1 hour of continuous runtime per sandbox; no credit card is required to start, though some accounts are asked to verify with a one-time USD 5 card payment.",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://e2b.dev/pricing",
+  "read_on": "2026-11-25",
+  "notes": "The SDK docs state the Desktop Sandbox is built on top of E2B Sandbox, so the same account, credits and per-second CPU/RAM rates apply; no separate Desktop price is published."
+ },
+ "per_object_cap": {
+  "stated": "The desktop sandbox is an Ubuntu 22.04 environment with an XFCE desktop; a create example sets resolution 1024x720 at 96 dpi. The E2B plan table states up to 8 vCPUs and 10 GiB of sandbox disk on Hobby, with 1 to 8 vCPUs and 1 to 8 GiB of RAM configurable.",
+  "bytes": null,
+  "source_url": "https://e2b.dev/pricing"
+ },
+ "retention": {
+  "stated": "Paused sandbox retention is unlimited on every plan: a paused sandbox keeps its filesystem and memory with no time-to-live and no automatic deletion; the default timeout is 5 minutes and on timeout the sandbox is killed unless onTimeout is set to pause.",
+  "days": null,
+  "source_url": "https://e2b.dev/docs/billing"
+ },
+ "egress": {
+  "terms": "No egress charge or allowance is stated; the pricing page bills CPU and RAM per second and states sandbox disk is included at no extra cost.",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://e2b.dev/pricing"
+ },
+ "interface": [
+  "rest",
+  "cli",
+  "browser"
+ ],
+ "interface_detail": "The @e2b/desktop (npm) and e2b-desktop (pip) SDKs expose mouse, keyboard, screenshot and VNC streaming on a Linux desktop; E2B Surf is an open-source computer-use agent using it.",
+ "tooling": "npm i @e2b/desktop or pip install e2b-desktop; sandbox.stream.start() gives a browser-viewable VNC URL; E2B provides Python, JavaScript and TypeScript SDKs and a CLI.",
+ "chaining": "The desktop sandbox shares one E2B account and its USD 100 credits with the ordinary code sandbox, so an agent can switch between shell work and computer use while drawing on the same one-time balance.",
+ "limits": [
+  {
+   "kind": "retention-clamped",
+   "value": "1 hour maximum continuous runtime per sandbox on the Hobby plan; 24 hours on Pro",
+   "source": "https://e2b.dev/docs/billing"
   },
-  "per_object_cap": {
-    "stated": "Not an object store: a desktop sandbox is a machine with 1 to 8 vCPUs and 1 to 8 GiB of RAM, 10 GiB of sandbox disk on Hobby and 20 GiB on Pro. The stock desktop template starts at 1024x768 resolution and 96 DPI.",
-    "bytes": null,
-    "source_url": "https://e2b.dev/pricing",
-    "notes": "The hard cap on the hosted desktop is time, not file size: 1 hour of continuous runtime per session on Hobby."
+  {
+   "kind": "volume-quota",
+   "value": "USD 100 one-time usage credit on Hobby; vCPU USD 0.000014 per vCPU-second and RAM USD 0.0000045 per GiB-second",
+   "source": "https://e2b.dev/pricing"
   },
-  "retention": {
-    "stated": "A desktop sandbox is killed when its timeout expires, 5 minutes by default, and its in-memory state is lost. Setting onTimeout to pause saves the filesystem and memory; a paused sandbox has no time-to-live and is kept indefinitely until killed explicitly.",
-    "days": null,
-    "source_url": "https://docs.e2b.dev/faq/sandbox-lifetime.md",
-    "notes": "Paused sandboxes are not billed and do not count toward the concurrency limit."
+  {
+   "kind": "volume-quota",
+   "value": "10 concurrent sandboxes on Hobby",
+   "source": "https://e2b.dev/pricing"
   },
-  "egress": {
-    "terms": "No egress charge or allowance is stated: the pricing page bills CPU and RAM per second and lists Disk as Free. The Desktop SDK's Sandbox.create() takes allow_internet_access, which defaults to True, and the desktop template exposes VNC via noVNC on port 6080 and a public URL for browser viewing.",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://e2b.dev/pricing"
-  },
-  "interface": [
-    "rest",
-    "cli",
-    "browser"
-  ],
-  "interface_detail": "E2B Desktop SDK (npm i @e2b/desktop; pip install e2b-desktop) drives mouse, keyboard, screenshots and commands over a sandbox REST API; stream.start() gives a noVNC URL for browser viewing.",
-  "endpoint": "https://api.e2b.dev",
-  "tooling": "E2B Desktop SDK in JavaScript/TypeScript and Python, the e2b CLI, and a buildable desktop template with xdotool and scrot for programmatic control.",
-  "chaining": "A desktop sandbox can be paused and resumed for a long computer-use agent loop, with checkpoints written to separate object storage because a killed desktop loses its in-memory state.",
-  "limits": [
-    {
-      "kind": "retention-clamped",
-      "value": "1 hour maximum continuous runtime per desktop sandbox on Hobby; 5-minute default timeout when none is set; resets on pause and resume",
-      "source": "https://e2b.dev/pricing"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "one-time USD 100 in usage credits on Hobby; vCPU USD 0.000014 per second, RAM USD 0.0000045 per GiB-second, disk free",
-      "source": "https://e2b.dev/pricing"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "10 concurrently running sandboxes on Hobby",
-      "source": "https://e2b.dev/pricing"
-    },
-    {
-      "kind": "request-rate",
-      "value": "sandbox creation rate 1 per second on Hobby; GET /sandboxes 10 requests per second per project",
-      "source": "https://docs.e2b.dev/billing"
-    },
-    {
-      "kind": "write-gated",
-      "value": "with no payment method on file, every project in the workspace is blocked shortly after the credits run out",
-      "source": "https://docs.e2b.dev/billing"
-    }
-  ],
-  "limits_note": "The Desktop SDK's create() accepts a timeout in seconds; the maximum a sandbox can be kept alive is 1 hour on Hobby and 24 hours on Pro.",
-  "binding": "retention-clamped",
-  "binding_note": "The 1-hour continuous runtime cap decides the hosted desktop: a computer-use loop that exceeds it must pause and resume, because the credit alone does not buy an uninterrupted multi-hour session.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The console signup page renders 'Sign up with your email and a password or a social provider' with E-Mail, Name and Password fields; no phone or card field is part of the form. The pricing page states 'No credit card required to start' but 'Some accounts are asked to verify with a one-time $5 card payment to help prevent abuse', added back as usage credits.",
-    "country": null
-  },
-  "reliability_note": "On timeout the default action kills the sandbox and its in-memory state is lost; the noVNC/WebSocket connection is not guaranteed for more than an hour and clients must reconnect. The Desktop Sandbox is documented as launched in beta.",
-  "confidence": "documented",
-  "confidence_note": "The Desktop SDK surface, timeout and internet access flag come from first-party E2B docs; the rates, credit, concurrency, session cap and card verification come from the first-party pricing and billing pages read on 2026-11-24. The signup gate is read from the console registration form the same day. No Desktop-only price is published, so this record prices the Desktop Sandbox at the Hobby sandbox rates.",
-  "evidence": [
-    {
-      "url": "https://docs.e2b.dev/use-cases/computer-use",
-      "date": "2026-11-24",
-      "proved": "E2B supplies a hosted Ubuntu/XFCE desktop sandbox with VNC streaming for computer-use agents, driven by the E2B Desktop SDK",
-      "capture": "sha256:9f925a8f4255bbd4d44d9c00fd5398f55a4f1a7e72998d4643341b8fb5391b25",
-      "quote": "E2B provides the sandboxed desktop environment where these agents operate safely, with [VNC](https://en.wikipedia.org/wiki/Virtual_Network_Computing) streaming for real-time visual feedback."
-    },
-    {
-      "url": "https://e2b.dev/pricing",
-      "date": "2026-11-24",
-      "proved": "Hobby is free with a one-time 100 dollar credit, 10 concurrent sandboxes and a 1-hour continuous runtime cap; the same applies to the Desktop Sandbox, which has no separate published price",
-      "capture": "sha256:86fcafc82a5f8cd27ffe94f81c955dcac3829b1a3f27a68901f9f852b68ada68",
-      "quote": "Hobby includes a one-time $100 in usage credits, 10 concurrent sandboxes, and up to 1 hour of continuous runtime per sandbox."
-    },
-    {
-      "url": "https://e2b.dev/pricing",
-      "date": "2026-11-24",
-      "proved": "no card is required to start, but some accounts are asked for a one-time 5 dollar card verification",
-      "capture": "sha256:86fcafc82a5f8cd27ffe94f81c955dcac3829b1a3f27a68901f9f852b68ada68",
-      "quote": "No credit card required to start. Some accounts are asked to verify with a one-time $5 card payment to help prevent abuse."
-    },
-    {
-      "url": "https://e2b.dev/pricing",
-      "date": "2026-11-24",
-      "proved": "the published compute rate is 0.000014 dollars per vCPU-second and disk is free",
-      "capture": "sha256:86fcafc82a5f8cd27ffe94f81c955dcac3829b1a3f27a68901f9f852b68ada68",
-      "quote": "| vCPU | $0.000014 per vCPU-second |"
-    },
-    {
-      "url": "https://e2b.dev/pricing",
-      "date": "2026-11-24",
-      "proved": "sandbox disk is included with every plan at no extra cost, so the Desktop Sandbox's disk is not separately metered",
-      "capture": "sha256:86fcafc82a5f8cd27ffe94f81c955dcac3829b1a3f27a68901f9f852b68ada68",
-      "quote": "Sandbox disk is included with every plan at no extra cost."
-    },
-    {
-      "url": "https://docs.e2b.dev/sdk-reference/desktop-python-sdk/v2.4.2/desktop",
-      "date": "2026-11-24",
-      "proved": "the Desktop SDK sandbox can be kept alive at most 1 hour on Hobby and 24 hours on Pro, and internet access defaults to on",
-      "capture": "sha256:297c634fa4c76125053307be6308348b00badc4ef819c2c610c60153aa0603cd",
-      "quote": "allow_internet_access"
-    },
-    {
-      "url": "https://docs.e2b.dev/billing",
-      "date": "2026-11-24",
-      "proved": "with no payment method the workspace is blocked once credits run out, which gates continued desktop use",
-      "capture": "sha256:2427e1ba578625ead05b9b4e3d105eee2edb00fb6986437b146ab832ab540d49",
-      "quote": "If you have no payment method, every project in your [workspace](https://docs.e2b.dev/workspaces.md#billing) is blocked shortly afterwards."
-    },
-    {
-      "url": "https://console.e2b.dev/sign-up",
-      "date": "2026-11-24",
-      "proved": "registration asks for an email and password or a social provider, with no phone or card field",
-      "capture": "sha256:9b9b4c03af068350083816bfdca19701c3657938456217a39490eb51aba625cb",
-      "quote": "Sign up with your email and a password or a social provider"
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.726Z",
-  "price_per_tb_month": null,
-  "notes": "E2B Desktop Sandbox is a hosted graphical sandbox, not software the user installs; its published price is the ordinary Hobby sandbox rate with the desktop template, and no separate Desktop price or allowance is published. The binding constraint is the 1-hour continuous runtime, not the one-time credit. The already-present compute/e2b record prices the general Hobby sandbox; this record prices the distinct Desktop Sandbox offer.",
-  "extras": {
-    "shape": {
-      "vcpu": 2,
-      "ram_gib": 4,
-      "disk_gib": 10,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "default sandbox 2 vCPU and 4 GiB; configurable 1 to 8 vCPU and 1 to 8 GiB; 10 GiB disk on Hobby"
-    },
-    "free_tier_kind": "one-time-credit",
-    "session_cap": {
-      "wall_clock_min": 60,
-      "idle_reap_s": 300,
-      "restart_required": false,
-      "note": "1 hour continuous runtime on Hobby, 5-minute default timeout, resets on pause and resume"
-    },
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "VNC over noVNC on port 6080; browser viewing via a public URL",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "price_arithmetic": "2 vCPU x $0.000014/s x 3600 = $0.1008/h; 4 GiB x $0.0000045/s x 3600 = $0.0648/h; disk free; total $0.1656/h. $100 / $0.1656 = 603.9 h of default desktop time, in sessions of at most 1 hour.",
-    "derived": "$0.000014 per vCPU-second x 3600 = $0.0504 per vCPU-hour; $0.0000045 per GiB-second x 3600 = $0.0162 per GiB-hour; 2 x 0.0504 + 4 x 0.0162 = $0.1656/hour; 100 / 0.1656 = 603.9 hours"
+  {
+   "kind": "write-gated",
+   "value": "with no payment method on file, every project in the workspace is blocked shortly after the credits are spent",
+   "source": "https://e2b.dev/docs/billing"
   }
+ ],
+ "limits_note": "Continuous runtime resets on pause and resume; a paused sandbox is not billed and does not count toward the concurrency limit.",
+ "binding": "retention-clamped",
+ "binding_note": "The Hobby one-hour continuous runtime cap ends a desktop session first at sustained use; the USD 100 credit is one-time and larger, and pausing resets the clock.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "The E2B console sign-up page renders 'Sign up with your email and a password or a social provider' with E-Mail, Name and Password fields; the pricing page states 'No credit card required to start', with an optional one-time USD 5 card verification for some accounts that is added to project credits.",
+  "country": null
+ },
+ "reliability_note": "The default timeout is 5 minutes and the default on-timeout action is kill, which loses in-memory state; a stream may drop after about an hour because of load-balancer drains even while the sandbox keeps running, so clients reconnect.",
+ "confidence": "documented",
+ "confidence_note": "The Desktop SDK, its dependence on E2B Sandbox and the computer-use flow are quoted from the vendor docs and PyPI page read on 2026-11-25; prices, limits and signup gate are from the vendor pricing and billing pages on the same date.",
+ "evidence": [
+  {
+   "url": "https://pypi.org/project/e2b-desktop/",
+   "date": "2026-11-25",
+   "capture": "sha256:b01466b516454871e8e5c84b37a4c182da3b4f3214cb82f0480c292de1e812c5",
+   "quote": "The E2B Desktop Sandbox is built on top of [E2B Sandbox](https://e2b.dev/docs).",
+   "proved": "E2B Desktop uses the same hosted E2B Sandbox platform and billing account"
+  },
+  {
+   "url": "https://e2b.dev/docs/use-cases/computer-use",
+   "date": "2026-11-25",
+   "capture": "sha256:9f925a8f4255bbd4d44d9c00fd5398f55a4f1a7e72998d4643341b8fb5391b25",
+   "quote": "Agent creates a desktop sandbox — an Ubuntu 22.04 environment with XFCE desktop and pre-installed applications",
+   "proved": "the desktop sandbox is a hosted Ubuntu XFCE environment driven by an SDK"
+  },
+  {
+   "url": "https://e2b.dev/pricing",
+   "date": "2026-11-25",
+   "capture": "sha256:86fcafc82a5f8cd27ffe94f81c955dcac3829b1a3f27a68901f9f852b68ada68",
+   "quote": "Hobby includes a one-time $100 in usage credits, 10 concurrent sandboxes, and up to 1 hour of continuous runtime per sandbox.",
+   "proved": "the Hobby free credit, concurrency and continuous runtime cap"
+  },
+  {
+   "url": "https://e2b.dev/pricing",
+   "date": "2026-11-25",
+   "capture": "sha256:86fcafc82a5f8cd27ffe94f81c955dcac3829b1a3f27a68901f9f852b68ada68",
+   "quote": "No credit card required to start. Some accounts are asked to verify with a one-time $5 card payment to help prevent abuse.",
+   "proved": "no card is required to start, with an optional one-time USD 5 card verification"
+  },
+  {
+   "url": "https://e2b.dev/pricing",
+   "date": "2026-11-25",
+   "capture": "sha256:86fcafc82a5f8cd27ffe94f81c955dcac3829b1a3f27a68901f9f852b68ada68",
+   "quote": "Sandboxes can be configured with 1 to 8 vCPUs and 1 to 8 GiB of RAM. The default sandbox has 2 vCPUs and 4 GiB of RAM.",
+   "proved": "the configurable and default sandbox shape"
+  },
+  {
+   "url": "https://e2b.dev/docs/billing",
+   "date": "2026-11-25",
+   "capture": "sha256:2427e1ba578625ead05b9b4e3d105eee2edb00fb6986437b146ab832ab540d49",
+   "quote": "Max continuous runtime (Time a sandbox can run without being paused.) | 1 hour | 24 hours | Custom |",
+   "proved": "the per-plan continuous runtime limits"
+  },
+  {
+   "url": "https://e2b.dev/docs/billing",
+   "date": "2026-11-25",
+   "capture": "sha256:2427e1ba578625ead05b9b4e3d105eee2edb00fb6986437b146ab832ab540d49",
+   "quote": "Paused sandbox retention | Unlimited | Unlimited | Unlimited |",
+   "proved": "a paused sandbox has unlimited retention"
+  },
+  {
+   "url": "https://console.e2b.dev/sign-up",
+   "date": "2026-11-25",
+   "capture": "sha256:cdd68bca32295d0fe4318f6f0165fc51beab63a051b05afe4a7c8cc4a58b063a",
+   "quote": "Sign up with your email and a password or a social provider",
+   "proved": "signup asks for an email and password or a social provider, not a phone number"
+  },
+  {
+   "url": "https://docs.e2b.dev/use-cases/computer-use",
+   "date": "2026-11-24",
+   "proved": "E2B supplies a hosted Ubuntu/XFCE desktop sandbox with VNC streaming for computer-use agents, driven by the E2B Desktop SDK",
+   "capture": "sha256:9f925a8f4255bbd4d44d9c00fd5398f55a4f1a7e72998d4643341b8fb5391b25",
+   "quote": "E2B provides the sandboxed desktop environment where these agents operate safely, with [VNC](https://en.wikipedia.org/wiki/Virtual_Network_Computing) streaming for real-time visual feedback."
+  },
+  {
+   "url": "https://e2b.dev/pricing",
+   "date": "2026-11-24",
+   "proved": "Hobby is free with a one-time 100 dollar credit, 10 concurrent sandboxes and a 1-hour continuous runtime cap; the same applies to the Desktop Sandbox, which has no separate published price",
+   "capture": "sha256:86fcafc82a5f8cd27ffe94f81c955dcac3829b1a3f27a68901f9f852b68ada68",
+   "quote": "Hobby includes a one-time $100 in usage credits, 10 concurrent sandboxes, and up to 1 hour of continuous runtime per sandbox."
+  },
+  {
+   "url": "https://e2b.dev/pricing",
+   "date": "2026-11-24",
+   "proved": "no card is required to start, but some accounts are asked for a one-time 5 dollar card verification",
+   "capture": "sha256:86fcafc82a5f8cd27ffe94f81c955dcac3829b1a3f27a68901f9f852b68ada68",
+   "quote": "No credit card required to start. Some accounts are asked to verify with a one-time $5 card payment to help prevent abuse."
+  },
+  {
+   "url": "https://e2b.dev/pricing",
+   "date": "2026-11-24",
+   "proved": "the published compute rate is 0.000014 dollars per vCPU-second and disk is free",
+   "capture": "sha256:86fcafc82a5f8cd27ffe94f81c955dcac3829b1a3f27a68901f9f852b68ada68",
+   "quote": "| vCPU | $0.000014 per vCPU-second |"
+  },
+  {
+   "url": "https://e2b.dev/pricing",
+   "date": "2026-11-24",
+   "proved": "sandbox disk is included with every plan at no extra cost, so the Desktop Sandbox's disk is not separately metered",
+   "capture": "sha256:86fcafc82a5f8cd27ffe94f81c955dcac3829b1a3f27a68901f9f852b68ada68",
+   "quote": "Sandbox disk is included with every plan at no extra cost."
+  },
+  {
+   "url": "https://docs.e2b.dev/sdk-reference/desktop-python-sdk/v2.4.2/desktop",
+   "date": "2026-11-24",
+   "proved": "the Desktop SDK sandbox can be kept alive at most 1 hour on Hobby and 24 hours on Pro, and internet access defaults to on",
+   "capture": "sha256:297c634fa4c76125053307be6308348b00badc4ef819c2c610c60153aa0603cd",
+   "quote": "allow_internet_access"
+  },
+  {
+   "url": "https://docs.e2b.dev/billing",
+   "date": "2026-11-24",
+   "proved": "with no payment method the workspace is blocked once credits run out, which gates continued desktop use",
+   "capture": "sha256:2427e1ba578625ead05b9b4e3d105eee2edb00fb6986437b146ab832ab540d49",
+   "quote": "If you have no payment method, every project in your [workspace](https://docs.e2b.dev/workspaces.md#billing) is blocked shortly afterwards."
+  },
+  {
+   "url": "https://console.e2b.dev/sign-up",
+   "date": "2026-11-24",
+   "proved": "registration asks for an email and password or a social provider, with no phone or card field",
+   "capture": "sha256:9b9b4c03af068350083816bfdca19701c3657938456217a39490eb51aba625cb",
+   "quote": "Sign up with your email and a password or a social provider"
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T02:12:34.732Z",
+ "price_per_tb_month": null,
+ "notes": "E2B Desktop is a graphical variant of the same hosted E2B Sandbox, not a separately priced product: its SDK creates a desktop sandbox with mouse, keyboard, screenshot and VNC streaming against the same API key and the same USD 100 one-time Hobby credit. At the default 2 vCPU / 4 GiB shape the published rates give USD 0.1656 per running hour, so the credit buys about 604 one-hour-or-shorter sessions. Hobby caps each session at one hour of continuous runtime; pausing resets it and is free. The existing compute/e2b record covers the same plan for code sandboxes; this record is the desktop computer-use tier.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 4,
+   "disk_gib": 10,
+   "gpu_class": null,
+   "gpu_count": null
+  },
+  "billing_model": "per-second vCPU and RAM with a one-time credit",
+  "free_tier_kind": "one-time-credit",
+  "status": "hosted, beta desktop product",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "not stated for desktop sandboxes",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": 60,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "one hour continuous runtime on Hobby, reset by pause and resume; default SDK timeout is 5 minutes"
+  }
+ },
+ "tier": "Desktop Sandbox on Hobby",
+ "endpoint": "https://api.e2b.dev"
 }

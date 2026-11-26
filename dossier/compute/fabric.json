@@ -5,7 +5,7 @@
   "url": "https://portal.fabric-testbed.net/about/about-fabric",
   "category": "GPU cloud",
   "free_tier": {
-    "stated": "FABRIC is an NSF-funded instrument of 29 sites across commercial collocation, national laboratories and campuses, connecting configurable compute with SmartNICs, GPUs, FPGAs and NVMe, plus P4-programmable switches at selected sites. Experimenters build project-scoped slices of virtual machines, network services and storage across sites, through the portal, a JupyterHub, or the FABlib API.",
+    "stated": "FABRIC is an NSF-funded, nationwide research infrastructure for at-scale experimentation in networking, cybersecurity, distributed computing and storage, machine learning, and science applications.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://portal.fabric-testbed.net/about/about-fabric",
@@ -79,10 +79,24 @@
       "url": "https://teaching-on-testbeds.github.io/hello-fabric/",
       "date": "2026-10-22",
       "proved": "the portal's identity provider dropdown defaults to ORCID, and the instructions say to change it to a university affiliation, quoted"
+    },
+    {
+      "url": "https://support.access-ci.org/documentation/resources/fabric",
+      "date": "2026-11-25",
+      "proved": "FABRIC is an NSF-funded research infrastructure for at-scale experimentation",
+      "capture": "sha256:56a24234091abb1c5c465d19ccf7858c8a011317adc402a4bf6aa57017767dad",
+      "quote": "FABRIC is an NSF-funded, nationwide research infrastructure for at-scale experimentation in networking, cybersecurity, distributed computing and storage, machine learning, and science applications."
+    },
+    {
+      "url": "https://support.access-ci.org/documentation/resources/fabric",
+      "date": "2026-11-25",
+      "proved": "the description of FABRIC is unchanged",
+      "capture": "sha256:56a24234091abb1c5c465d19ccf7858c8a011317adc402a4bf6aa57017767dad",
+      "quote": "FABRIC is an NSF-funded, nationwide research infrastructure for at-scale experimentation in networking, cybersecurity, distributed computing and storage, machine learning, and science applications."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:41.089Z",
   "notes": "Self-sign-up workflow with ORCID remains unverified without staff intervention.",
   "extras": {
     "wave2": {

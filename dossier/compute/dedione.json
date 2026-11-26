@@ -5,8 +5,8 @@
   "url": "https://dedione.com/store/los-angeles-kvm-vps-global",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "Los Angeles KVM at USD 3.99 a month for 2 vCPU, 1 GiB RAM, 20 GB SSD, 1 TB monthly transfer on a 1 Gbps port with one IPv4 and two IPv6, quoted from the order page. The ladder above it is USD 7.99 for 2 vCPU / 2 GiB / 40 GB / 2 TB, USD 15.99 for 2 vCPU / 4 GiB / 80 GB / 3 TB, USD 29.99 for 4 vCPU / 8 GiB / 160 GB / 4 TB, and an unmetered 200 Mbps shape at USD 39.",
-    "unit": "GiB",
+    "stated": "LAX.VPS.INTL.2C1G20G\n\n$3.99 USD\n\nMonthly\n\n- **2 CPU** vCores\n- **1GB** RAM\n- **20GB** SSD Storage\n- **1TB** Monthly Transfer\n- **1Gbps** Port Speed\n- **1 IPv4 + 2 IPv6**",
+    "unit": "GB",
     "metered_on": "wall-clock",
     "source_url": "https://dedione.com/store/los-angeles-kvm-vps-global",
     "read_on": "2026-10-22",
@@ -69,10 +69,24 @@
       "url": "https://www.nodeseek.com/post-473404-58",
       "date": "2026-10-22",
       "proved": "the vendor's own lottery post states the free machine renews at $12.99/yr and that an unrenewed machine is suspended two days after expiry and deleted three days after"
+    },
+    {
+      "url": "https://dedione.com/store/los-angeles-kvm-vps-global",
+      "date": "2026-11-25",
+      "proved": "the order page lists the LAX.VPS.INTL.2C1G20G plan at $3.99 USD Monthly with 2 CPU, 1GB RAM, 20GB SSD, 1TB transfer, 1Gbps port and 1 IPv4 plus 2 IPv6",
+      "capture": "sha256:04c94b2fa9b18c3b52b1d57fa76a83770b6830519a987a40e50fbe26c309aee0",
+      "quote": "LAX.VPS.INTL.2C1G20G\n\n$3.99 USD\n\nMonthly\n\n- **2 CPU** vCores\n- **1GB** RAM\n- **20GB** SSD Storage\n- **1TB** Monthly Transfer\n- **1Gbps** Port Speed\n- **1 IPv4 + 2 IPv6**"
+    },
+    {
+      "url": "https://dedione.com/store/los-angeles-kvm-vps-global",
+      "date": "2026-11-25",
+      "proved": "the order page prints the disk size as 20GB, a decimal unit",
+      "capture": "sha256:04c94b2fa9b18c3b52b1d57fa76a83770b6830519a987a40e50fbe26c309aee0",
+      "quote": "- **20GB** SSD Storage"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:40.580Z",
   "notes": "New to earlier readings. This is evaluated offerings's cheapest monthly dedicated-IPv4 machine that is documented on the vendor's own order page, and the China-optimised twin at double the price is the honest comparison for a mainland audience. Whether the USD 12.99 annual plan still exists on 2026-10-22 is not established: the forum post that states it is from 2025 and the current store shows monthly terms only.",
   "extras": {
     "wave2": {

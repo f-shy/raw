@@ -1,165 +1,172 @@
 {
-  "topic": "compute",
-  "slug": "tencent-agent-runtime",
-  "provider": "Tencent Cloud Agent Runtime  -  Agent Sandbox",
-  "url": "https://cloud.tencent.com/document/product/1814/133249",
-  "category": "container and VM sandbox",
-  "free_tier": {
-    "stated": "no free tier: CPU 0.000081 元/核/秒 and memory 0.000025 元/GiB/秒 from a successful start to a stop; the system disk is free up to 15 GiB while running, and a paused instance stops CPU and memory billing but pays for its state storage with no 15 GiB free allowance",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://cloud.tencent.com/document/product/1814/133249",
-    "read_on": "2026-10-22"
+ "topic": "compute",
+ "slug": "tencent-agent-runtime",
+ "provider": "Tencent Cloud Agent Runtime  -  Agent Sandbox",
+ "url": "https://cloud.tencent.com/document/product/1814/133249",
+ "category": "container and VM sandbox",
+ "free_tier": {
+  "stated": "CPU bills at CNY 0.000081 a core-second, charged from a successful start to a stop; a paused instance stops CPU and memory billing and pays only the storage its state needs; the system disk has a 15 GiB free allowance while an instance runs, but no free allowance while it is paused",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://cloud.tencent.com/document/product/1814/133249",
+  "read_on": "2026-10-22"
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://cloud.tencent.com/document/product/1814/133249",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "the rootfs system disk is released automatically when the instance is destroyed and its data is then unrecoverable; no fixed retention period is stated",
+  "days": null,
+  "source_url": "https://cloud.tencent.com/document/product/1814/133249",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "not published",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://cloud.tencent.com/document/product/1814/133249"
+ },
+ "interface": [
+  "unknown"
+ ],
+ "interface_detail": "Access interface not documented in published terms.",
+ "tooling": "not stated",
+ "chaining": "not established",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "CNY 0.000081 a core-second, billed from a successful start to a stop",
+   "source": "https://cloud.tencent.com/document/product/1814/133249"
   },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://cloud.tencent.com/document/product/1814/133249",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+  {
+   "kind": "retention-clamped",
+   "value": "a paused instance stops CPU and memory billing but pays state storage at 0.0021 元/GiB/小时 with no 15 GiB free allowance; waking resumes compute billing",
+   "source": "https://cloud.tencent.com/document/product/1814/133249"
   },
-  "retention": {
-    "stated": "the rootfs system disk is released automatically when the instance is destroyed and its data is then unrecoverable; no fixed retention period is stated",
-    "days": null,
-    "source_url": "https://cloud.tencent.com/document/product/1814/133249",
-    "notes": "Disk durability across instance stops and deletions is not documented."
+  {
+   "kind": "per-object-cap",
+   "value": "the document's own 30-day example for 1 core always-on is CNY 69.98, and for 2 cores CNY 419.90",
+   "source": "https://cloud.tencent.com/document/product/1814/133249"
+  }
+ ],
+ "limits_note": "Session cap, idle-reap and network policy are not documented.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "unverified: no signup gate is stated on the billing document read; the identity kind is not established",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "documented",
+ "confidence_note": "the billing document was read on 2026-10-22 (Chinese, updated 2026-10-10) and states the per-second CPU rate, the pause semantics and a 30-day worked example. There is no free tier, so the claim is contradicted and the verdict moves to paid-only",
+ "evidence": [
+  {
+   "url": "https://cloud.tencent.com/document/product/1814/133249",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
   },
-  "egress": {
-    "terms": "not published",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://cloud.tencent.com/document/product/1814/133249"
+  {
+   "url": "https://cloud.tencent.com/document/product/1814/133249",
+   "date": "2026-10-22",
+   "proved": "'按 **实际运行时长** 及 **资源规格** 计费。实例 **启动成功后开始计费**，**停止后停止计费**'  -  billed on actual runtime and spec, from a successful start to a stop  -  with 'CPU 0.000081 元 / 核 / 秒' and '暂停期间 CPU、内存停止计费，保留状态所需存储继续计费，唤醒后计算资源重新计费', quoted"
   },
-  "interface": [
-    "unknown"
-  ],
-  "interface_detail": "Access interface not documented in published terms.",
-  "tooling": "not stated",
-  "chaining": "not established",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "CNY 0.000081 a core-second, billed from a successful start to a stop",
-      "source": "https://cloud.tencent.com/document/product/1814/133249"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "a paused instance stops CPU and memory billing but pays state storage at 0.0021 元/GiB/小时 with no 15 GiB free allowance; waking resumes compute billing",
-      "source": "https://cloud.tencent.com/document/product/1814/133249"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "the document's own 30-day example for 1 core always-on is CNY 69.98, and for 2 cores CNY 419.90",
-      "source": "https://cloud.tencent.com/document/product/1814/133249"
-    }
-  ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "unverified: no signup gate is stated on the billing document read; the identity kind is not established",
-    "country": null
+  {
+   "url": "https://cloud.tencent.com/document/product/1814/133249",
+   "date": "2026-11-25",
+   "proved": "the page states the CNY 0.000081 per core-second CPU rate, start-to-stop billing, the pause rule and the 15 GiB system-disk free allowance that applies only while running",
+   "capture": "sha256:ef2680505ccab98847d42322a8be077a309b82acbecfb60a20eae166f5a04b88",
+   "quote": "按 **实际运行时长** 及 **资源规格** 计费。实例 **启动成功后开始计费**，**停止后停止计费**；暂停期间不计 CPU 和内存费用。 ... | CPU | 0.000081 元 / 核 / 秒 | 按沙箱分配的 CPU 核数 × 运行秒数计费 | ... 沙箱实例处于运行中状态时，系统盘**实际使用容量在 15 GiB 内免费。** ... Agent 沙箱服务支持暂停恢复功能，**对于暂停后处于休眠状态的沙箱实例，系统盘无免费额度，15 GiB 内及超出的部分均会计费。**"
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "documented",
-  "confidence_note": "the billing document was read on 2026-10-22 (Chinese, updated 2026-10-10) and states the per-second CPU rate, the pause semantics and a 30-day worked example. There is no free tier, so the claim is contradicted and the verdict moves to paid-only",
-  "evidence": [
-    {
-      "url": "https://cloud.tencent.com/document/product/1814/133249",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://cloud.tencent.com/document/product/1814/133249",
-      "date": "2026-10-22",
-      "proved": "'按 **实际运行时长** 及 **资源规格** 计费。实例 **启动成功后开始计费**，**停止后停止计费**'  -  billed on actual runtime and spec, from a successful start to a stop  -  with 'CPU 0.000081 元 / 核 / 秒' and '暂停期间 CPU、内存停止计费，保留状态所需存储继续计费，唤醒后计算资源重新计费', quoted"
-    },
-    {
-      "url": "https://cloud.tencent.com/document/product/1814/133249",
-      "date": "2026-11-24",
-      "proved": "the CPU rate and that billing runs with the instance",
-      "capture": "sha256:ef2680505ccab98847d42322a8be077a309b82acbecfb60a20eae166f5a04b88",
-      "quote": "| 计算资源 | CPU | 0.000081 元/核/秒，按实例运行时长计费。 |"
-    },
-    {
-      "url": "https://cloud.tencent.com/document/product/1814/133249",
-      "date": "2026-11-24",
-      "proved": "pause stops compute billing and keeps state-storage billing",
-      "capture": "sha256:ef2680505ccab98847d42322a8be077a309b82acbecfb60a20eae166f5a04b88",
-      "quote": "暂停期间 CPU、内存停止计费，保留状态所需存储继续计费，唤醒后计算资源重新计费。"
-    },
-    {
-      "url": "https://cloud.tencent.com/document/product/1814/133249",
-      "date": "2026-11-24",
-      "proved": "system disk data is released and unrecoverable on instance destruction",
-      "capture": "sha256:ef2680505ccab98847d42322a8be077a309b82acbecfb60a20eae166f5a04b88",
-      "quote": "实例销毁后自动释放，释放后系统盘数据将不可恢复"
-    },
-    {
-      "url": "https://cloud.tencent.com/document/product/1814/133249",
-      "date": "2026-11-24",
-      "proved": "the billing document was updated on 2026-10-27 and states no signup gate",
-      "capture": "sha256:ef2680505ccab98847d42322a8be077a309b82acbecfb60a20eae166f5a04b88",
-      "quote": "最近更新时间：2026-10-27 16:59:00"
-    },
-    {
-      "url": "https://cloud.tencent.com/document/product/1814/133249",
-      "date": "2026-11-24",
-      "proved": "the worked example in the current billing document",
-      "capture": "sha256:ef2680505ccab98847d42322a8be077a309b82acbecfb60a20eae166f5a04b88",
-      "quote": "| 间歇运行 | 1 核 / 2 GiB / 系统盘实际使用量 20 GiB，每天 8 小时，共 30 天。 |"
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T13:21:05.670Z",
-  "price_per_tb_month": null,
-  "notes": "",
-  "extras": {
-    "seed_status": "ranked",
-    "talaria_m10h_usd": 42.17,
-    "talaria_m24h_usd": 101.2,
-    "nemo_m10h_usd": 42.64,
-    "keep_rate": 1.0,
-    "keep_rate_basis": "billed for uptime (no suspension feature published)",
-    "billing_model": "unclassified",
-    "shape": {
-      "vcpu": 1,
-      "ram": null,
-      "disk": null,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "the document's worked example bills 1 core for 28,800 seconds a day at CNY 69.98 a month"
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "no vendor reap: billing runs from start to stop, and pause keeps state for a storage charge"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "granularity": {
-      "min_billed_s": 1,
-      "rounding_s": null
-    },
-    "burst_x": 1.0,
-    "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "ps": {
-      "gib": null,
-      "price": "state storage is billed while an instance is paused",
-      "durability": "paused state kept on storage",
-      "on_stop": true,
-      "on_destroy": false,
-      "retention": "while the state is kept"
-    },
-    "net": null
+  {
+   "url": "https://cloud.tencent.com/document/product/1814/133249",
+   "date": "2026-11-24",
+   "proved": "the CPU rate and that billing runs with the instance",
+   "capture": "sha256:ef2680505ccab98847d42322a8be077a309b82acbecfb60a20eae166f5a04b88",
+   "quote": "| 计算资源 | CPU | 0.000081 元/核/秒，按实例运行时长计费。 |"
   },
-  "stale": true,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding": "request-rate",
-  "history": [
-    "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
-  ]
+  {
+   "url": "https://cloud.tencent.com/document/product/1814/133249",
+   "date": "2026-11-24",
+   "proved": "pause stops compute billing and keeps state-storage billing",
+   "capture": "sha256:ef2680505ccab98847d42322a8be077a309b82acbecfb60a20eae166f5a04b88",
+   "quote": "暂停期间 CPU、内存停止计费，保留状态所需存储继续计费，唤醒后计算资源重新计费。"
+  },
+  {
+   "url": "https://cloud.tencent.com/document/product/1814/133249",
+   "date": "2026-11-24",
+   "proved": "system disk data is released and unrecoverable on instance destruction",
+   "capture": "sha256:ef2680505ccab98847d42322a8be077a309b82acbecfb60a20eae166f5a04b88",
+   "quote": "实例销毁后自动释放，释放后系统盘数据将不可恢复"
+  },
+  {
+   "url": "https://cloud.tencent.com/document/product/1814/133249",
+   "date": "2026-11-24",
+   "proved": "the billing document was updated on 2026-10-27 and states no signup gate",
+   "capture": "sha256:ef2680505ccab98847d42322a8be077a309b82acbecfb60a20eae166f5a04b88",
+   "quote": "最近更新时间：2026-10-27 16:59:00"
+  },
+  {
+   "url": "https://cloud.tencent.com/document/product/1814/133249",
+   "date": "2026-11-24",
+   "proved": "the worked example in the current billing document",
+   "capture": "sha256:ef2680505ccab98847d42322a8be077a309b82acbecfb60a20eae166f5a04b88",
+   "quote": "| 间歇运行 | 1 核 / 2 GiB / 系统盘实际使用量 20 GiB，每天 8 小时，共 30 天。 |"
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T11:17:42.692Z",
+ "price_per_tb_month": null,
+ "notes": "",
+ "extras": {
+  "seed_status": "ranked",
+  "talaria_m10h_usd": 42.17,
+  "talaria_m24h_usd": 101.2,
+  "nemo_m10h_usd": 42.64,
+  "keep_rate": 1.0,
+  "keep_rate_basis": "billed for uptime (no suspension feature published)",
+  "billing_model": "unclassified",
+  "shape": {
+   "vcpu": 1,
+   "ram": null,
+   "disk": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "the document's worked example bills 1 core for 28,800 seconds a day at CNY 69.98 a month"
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "no vendor reap: billing runs from start to stop, and pause keeps state for a storage charge"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "granularity": {
+   "min_billed_s": 1,
+   "rounding_s": null
+  },
+  "burst_x": 1.0,
+  "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "ps": {
+   "gib": null,
+   "price": "state storage is billed while an instance is paused",
+   "durability": "paused state kept on storage",
+   "on_stop": true,
+   "on_destroy": false,
+   "retention": "while the state is kept"
+  },
+  "net": null
+ },
+ "stale": true,
+ "stale_checked_at": "2026-10-22T00:00:00.000Z",
+ "binding": "request-rate",
+ "history": [
+  "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
+ ]
 }

@@ -5,7 +5,7 @@
   "url": "https://allocations.access-ci.org/allocations-policy",
   "category": "national HPC allocation",
   "free_tier": {
-    "stated": "Explore ACCESS provides up to 400,000 ACCESS Credits, accepted anytime with no deadline, reviewed in one to two business days, lasting 12 months; Discover ACCESS 1,500,000 and Accelerate ACCESS 3,000,000 credit tiers sit above it.",
+    "stated": "| ACCESS Credit limit | 400,000 | 1,500,000 | 3,000,000 | Awarded in resource units | | Project duration | Supporting grant duration or 12 months, whichever period is greater | Supporting grant duration or 12 months, whichever period is greater | Supporting grant duration or 12 months, whichever period is greater | 12 months | | Requests accepted | Anytime | Anytime | Anytime | Every 6 months |",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://allocations.access-ci.org/allocations-policy",
@@ -79,10 +79,24 @@
       "url": "https://docs.jetstream-cloud.org/alloc/overview/",
       "date": "2026-10-22",
       "proved": "credit thresholds by tier: Explore 400,000, Discover 1,500,000, Accelerate 3,000,000, reported by the Jetstream2 provider documentation"
+    },
+    {
+      "url": "https://allocations.access-ci.org/project-types",
+      "date": "2026-11-25",
+      "proved": "the first-party project-types table states the 400,000/1,500,000/3,000,000 credit limits, the supporting-grant-or-12-month duration and the anytime request window",
+      "capture": "sha256:5a8339d8220838a90f70c59bec25bea0bbb65c5693d8d2c04eb327f0eb7af5cb",
+      "quote": "| ACCESS Credit limit | 400,000 | 1,500,000 | 3,000,000 | Awarded in resource units | | Project duration | Supporting grant duration or 12 months, whichever period is greater | Supporting grant duration or 12 months, whichever period is greater | Supporting grant duration or 12 months, whichever period is greater | 12 months | | Requests accepted | Anytime | Anytime | Anytime | Every 6 months |"
+    },
+    {
+      "url": "https://allocations.access-ci.org/project-types",
+      "date": "2026-11-25",
+      "proved": "the credit limits, duration and anytime request window are unchanged",
+      "capture": "sha256:5a8339d8220838a90f70c59bec25bea0bbb65c5693d8d2c04eb327f0eb7af5cb",
+      "quote": "| ACCESS Credit limit | 400,000 | 1,500,000 | 3,000,000 | Awarded in resource units | | Project duration | Supporting grant duration or 12 months, whichever period is greater | Supporting grant duration or 12 months, whichever period is greater | Supporting grant duration or 12 months, whichever period is greater | 12 months | | Requests accepted | Anytime | Anytime | Anytime | Every 6 months |"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:33.096Z",
   "notes": "Refutation of the common claim that ACCESS is open to anyone with an email. Before July 2025 the programme was far more open; NSF Important Notice No. 149 tightened affiliation, email domain and international restrictions. Tier sizes come from a resource provider's documentation rather than the ACCESS site itself, so the 400K/1.5M/3M figures sit one rung below the policy quotes. No GPU-hour figure is published because credits convert to different resource units per provider; a conversion would be invented, so the field is null.",
   "extras": {
     "wave2": {

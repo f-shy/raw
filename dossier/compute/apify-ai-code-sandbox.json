@@ -1,174 +1,245 @@
 {
-  "topic": "compute",
-  "slug": "apify-ai-code-sandbox",
-  "provider": "Apify AI Code Sandbox",
-  "url": "https://apify.com/apify/ai-code-sandbox",
-  "category": "code sandbox Actor",
-  "tier": "Free",
-  "free_tier": {
-    "stated": "The Actor is free to use and the user pays only for Apify platform usage; the Free plan is $0 a month with $5 of included usage a month, $0.2 per compute unit, 16 GB maximum RAM and 5 concurrent runs.",
-    "unit": "credits",
-    "metered_on": "request-count",
-    "source_url": "https://apify.com/pricing",
-    "read_on": "2026-11-24",
-    "notes": "The $5 allowance is dollars of platform usage, not a fixed run count. 1 CU = 1 GB of RAM running for 1 hour."
+ "topic": "compute",
+ "slug": "apify-ai-code-sandbox",
+ "provider": "Apify AI Code Sandbox",
+ "url": "https://apify.com/apify/ai-code-sandbox",
+ "category": "container sandbox (Apify Store Actor)",
+ "tier": "Free plan / pay-per-usage Actor",
+ "free_tier": {
+  "stated": "USD 5 of platform usage a month on the Free plan, renewing every month, no credit card; the Actor itself is free to use and the sandbox bills the Apify platform usage (compute units at USD 0.2 per CU on Free, where 1 CU = 1 GB RAM for 1 hour)",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://apify.com/pricing",
+  "read_on": "2026-11-25",
+  "notes": "USD 5 a month of prepaid platform usage, not a fixed number of sandbox hours: how many hours it buys depends on the memory allocated. Unused credits expire at the end of the billing cycle; on the free plan access is blocked until the next cycle instead of billing."
+ },
+ "per_object_cap": {
+  "stated": "not an object-storage offer; the sandbox filesystem write API accepts files up to 500 MB",
+  "bytes": null,
+  "source_url": "https://apify.com/apify/ai-code-sandbox",
+  "notes": "The per-file ceiling from the /fs write endpoint, not a total volume cap."
+ },
+ "retention": {
+  "stated": "filesystem changes are backed up to the Actor key-value store and restored after a container migration; an idle container shuts down after 900 seconds by default and can be set to never",
+  "days": null,
+  "source_url": "https://apify.com/apify/ai-code-sandbox",
+  "notes": "No fixed retention period is published; the idle timeout controls the container's lifetime."
+ },
+ "egress": {
+  "terms": "data transfer is a metered platform service charged against the same prepaid usage; bridges expose a sandbox's internal HTTP server at a public URL",
+  "metered": true,
+  "free_allowance": "included in the USD 5 monthly platform-usage credit on Free",
+  "price_per_tb": null,
+  "source_url": "https://apify.com/pricing"
+ },
+ "interface": [
+  "rest",
+  "cli",
+  "browser"
+ ],
+ "interface_detail": "a streamable-HTTP MCP endpoint with execute, read-file, write-file and list-files tools; a /exec code execution API; a /fs filesystem API; an interactive browser shell at /shell; the Apify CLI and REST API start and manage the Actor run",
+ "tooling": "an Apify account and token, the Apify CLI, the JavaScript or Python apify-client, or any MCP client; the sandbox ships Claude Code, Codex CLI and OpenCode, installed on first use",
+ "chaining": "the USD 5 monthly platform credit can fund small Python and Node jobs exposed over MCP or REST, with bridges for a service launched inside the sandbox; jobs needing more than the monthly credit need a paid plan.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "USD 5 of platform usage a month on Free; excess blocks access until the next billing cycle; compute is USD 0.2 per CU on Free (1 CU = 1 GB RAM for 1 hour)",
+   "source": "https://apify.com/pricing"
   },
-  "per_object_cap": {
-    "stated": "Files written through the sandbox filesystem API are capped at 500 MB per file; the Actor's build/run disk is 2 times the job memory limit.",
-    "bytes": 524288000,
-    "source_url": "https://apify.com/apify/ai-code-sandbox"
+  {
+   "kind": "retention-clamped",
+   "value": "the container shuts down after 900 seconds of inactivity by default; set to 0 to disable",
+   "source": "https://apify.com/apify/ai-code-sandbox"
   },
-  "retention": {
-    "stated": "Filesystem changes are backed up to the Actor's key-value store and restored after a container migration; the sandbox shuts down after 900 seconds of inactivity by default, and unused prepaid usage expires at the end of the billing cycle.",
-    "days": null,
-    "source_url": "https://apify.com/apify/ai-code-sandbox",
-    "notes": "Idle timeout is 900 seconds by default and can be set to 0 to disable it; each Actor request has a 5-minute ceiling."
-  },
-  "egress": {
-    "terms": "Pay-per-usage Actor: the user pays for platform usage including compute units, data transfer, storage operations and residential or SERP proxies, drawn on the plan's prepaid usage. Free-plan access is blocked until the next monthly cycle when the $5 is spent. A per-GB data-transfer price is not stated on the pricing page read.",
-    "metered": true,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://apify.com/pricing"
-  },
-  "interface": [
-    "rest",
-    "chat",
-    "browser",
-    "cli"
-  ],
-  "interface_detail": "Connect to the running sandbox over a Streamable-HTTP MCP endpoint, a REST API (/exec, /fs, /bridges, /health) and an interactive ttyd browser shell; the Actor itself is launched from the Apify Console, API, CLI or MCP server.",
-  "endpoint": "https://UNIQUE-ID.runs.apify.net",
-  "tooling": "apify-cli, apify-client for JavaScript and Python, the hosted Apify MCP server at mcp.apify.com, or a direct REST call; no local server is installed by the user, the Actor runs on Apify's platform.",
-  "chaining": "A managed container for running agent-generated code with MCP and REST access, bridges to expose a local dev server at a public URL, and state backed up across migrations; bind it to an object-storage record for results that must outlive the sandbox's idle shutdown.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "$5 of included platform usage a month on Free; overage blocks access until the next monthly cycle",
-      "source": "https://apify.com/pricing"
-    },
-    {
-      "kind": "request-rate",
-      "value": "$0.2 per compute unit on Free, where 1 CU = 1 GB of RAM running for 1 hour; 5 concurrent runs and 16 GB maximum RAM",
-      "source": "https://apify.com/pricing"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "500 MB per file written through /fs; 5-minute ceiling on every Actor request",
-      "source": "https://apify.com/apify/ai-code-sandbox"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "Idle timeout shuts the container down after 900 seconds of inactivity by default",
-      "source": "https://apify.com/apify/ai-code-sandbox"
-    }
-  ],
-  "limits_note": "Maximum combined memory of all running jobs on Free is 16,384 MB; build timeout is 1800 seconds and build memory is 4,096 MB. Prepaid usage does not roll over.",
-  "binding": "volume-quota",
-  "binding_note": "The $5 monthly platform-usage allowance is what runs out first: at $0.2 per compute unit it funds 25 compute-unit hours of 1 GB RAM before all free access stops for the cycle.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "Running the Actor requires an Apify account; the Free plan needs no credit card. An autonomous agent with a crypto wallet can instead pay once at agi.apify.com through x402 or MPP and get a temporary token with a fixed spend cap, with no account and no human sign-up.",
-    "country": null
-  },
-  "reliability_note": "Free-plan access is blocked until the next billing cycle when prepaid usage runs out, and the container shuts down after the idle timeout; each request has a 5-minute ceiling. Prepaid usage does not carry over.",
-  "confidence": "documented",
-  "confidence_note": "The rates, idle timeout and interface are quoted from Apify's own Actor page and pricing page read on 2026-11-24.",
-  "evidence": [
-    {
-      "url": "https://apify.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the Free plan price and included monthly usage",
-      "capture": "sha256:4cd21942523469e99322ddf2ddf67f6db86349eacf15b163d88902cf95c63e31",
-      "quote": "| Free     | $0            | $0                   | $5                     | No Apify Store discount     | Community support     |"
-    },
-    {
-      "url": "https://apify.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the Free plan compute-unit price, memory ceiling and concurrent-run limit",
-      "capture": "sha256:4cd21942523469e99322ddf2ddf67f6db86349eacf15b163d88902cf95c63e31",
-      "quote": "| Free     | $0.2 / CU  | 16 GB   | 5                   |"
-    },
-    {
-      "url": "https://apify.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the definition of a compute unit",
-      "capture": "sha256:4cd21942523469e99322ddf2ddf67f6db86349eacf15b163d88902cf95c63e31",
-      "quote": "1 CU = 1 GB of RAM running for 1 hour."
-    },
-    {
-      "url": "https://apify.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the free plan needs no credit card and its proxy is platform-only",
-      "capture": "sha256:4cd21942523469e99322ddf2ddf67f6db86349eacf15b163d88902cf95c63e31",
-      "quote": "No credit card is required. The free plan includes Apify Proxy, which is limited to use within the platform and does not extend to external clients."
-    },
-    {
-      "url": "https://apify.com/pricing",
-      "date": "2026-11-24",
-      "proved": "data transfer is a metered platform service and free access stops when usage runs out",
-      "capture": "sha256:4cd21942523469e99322ddf2ddf67f6db86349eacf15b163d88902cf95c63e31",
-      "quote": "The Apify platform has a number of services that are charged based on usages, such as Actors, proxies, data transfer, and storage."
-    },
-    {
-      "url": "https://apify.com/apify/ai-code-sandbox",
-      "date": "2026-11-24",
-      "proved": "the Actor is pay-per-usage with no developer charge on top",
-      "capture": "sha256:433b53224ae6374f949e604c6eb43d63ac0608c8000b57cd22cee529717870cc",
-      "quote": "This Actor is paid per platform usage. The Actor is free to use, and you only pay for the Apify platform usage, which gets cheaper the higher subscription plan you have."
-    },
-    {
-      "url": "https://apify.com/apify/ai-code-sandbox",
-      "date": "2026-11-24",
-      "proved": "the interfaces are MCP, REST and a browser shell",
-      "capture": "sha256:433b53224ae6374f949e604c6eb43d63ac0608c8000b57cd22cee529717870cc",
-      "quote": "Connect over **MCP**, a **REST API**, or an **interactive browser shell**."
-    },
-    {
-      "url": "https://apify.com/apify/ai-code-sandbox",
-      "date": "2026-11-24",
-      "proved": "the default idle timeout",
-      "capture": "sha256:433b53224ae6374f949e604c6eb43d63ac0608c8000b57cd22cee529717870cc",
-      "quote": "Seconds of inactivity before automatic shutdown (default `900`; `0` disables). Activity includes HTTP requests and shell interaction."
-    },
-    {
-      "url": "https://apify.com/apify/ai-code-sandbox",
-      "date": "2026-11-24",
-      "proved": "the 500 MB cap per file written through the filesystem API",
-      "capture": "sha256:433b53224ae6374f949e604c6eb43d63ac0608c8000b57cd22cee529717870cc",
-      "quote": "PUT /fs/{path}` — write/replace a file (creates parent dirs; up to 500 MB)."
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.590Z",
-  "price_per_tb_month": null,
-  "notes": "The AI Code Sandbox is a pay-per-usage Actor: $0 developer charge, billed for Apify platform usage on top of the plan. Free is $0 with $5 of monthly usage and no card; the sandbox is a Debian Trixie container with Node.js 26 and Python 3, preconfigured with Claude Code, Codex CLI and OpenCode.",
-  "extras": {
-    "shape": {
-      "vcpu": null,
-      "ram_gib": 16,
-      "disk_gib": null,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "16 GB is the Free plan's maximum Actor RAM; the build/run disk is 2 times the job memory limit"
-    },
-    "billing_model": "pay-per-usage Actor on a monthly plan with prepaid platform usage",
-    "free_tier_kind": "recurring-allowance",
-    "term": "monthly, no commitment",
-    "status": "live",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "bridges forward a public container URL path to a local server on 127.0.0.1 over HTTP and WebSocket",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": 900,
-      "restart_required": false,
-      "note": "idle timeout defaults to 900 seconds and can be disabled; each request has a 5-minute ceiling"
-    }
+  {
+   "kind": "write-gated",
+   "value": "running the Actor and reading private run or storage data needs an authenticated Apify account; searching Actors and reading documentation works without one",
+   "source": "https://docs.apify.com/platform/actors"
   }
+ ],
+ "limits_note": "5 concurrent runs and 16 GB maximum RAM on Free. Every request to the running Actor has a 5-minute ceiling. The setup script has a 5-minute timeout. Each filesystem write accepts up to 500 MB.",
+ "binding": "volume-quota",
+ "binding_note": "The USD 5 monthly platform-usage credit is what runs out first; the free account pauses until the next cycle rather than being billed.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "The signup page offers Continue with Google, Continue with GitHub or an Email field; the account quickstart says creating an account is free and requires no credit card. The free plan renews USD 5 of usage credit a month and pauses access rather than billing when it runs out.",
+  "country": null
+ },
+ "reliability_note": "An idle container shuts down after 900 seconds by default; idle shutdown can be disabled. Every request to the Actor has a 5-minute ceiling and the startup script has a 5-minute timeout. Free-account access pauses when the monthly usage credit runs out.",
+ "confidence": "documented",
+ "confidence_note": "The Actor page, pricing page, account quickstart and signup page were read on 2026-11-25; the quoted sentences establish the pay-per-usage model, the USD 5 monthly credit, the CU rate and the signup gate. The rung stays documented because no live run was measured.",
+ "evidence": [
+  {
+   "url": "https://apify.com/apify/ai-code-sandbox",
+   "date": "2026-11-25",
+   "proved": "the Actor provides a secure execution environment for AI-generated code and is paid per platform usage",
+   "capture": "sha256:54675272eaff5d5561769ea39cbb1fdbca6952291ba868e04d47e57e4cc9d2a0",
+   "quote": "Provides a secure execution environment for code generated by AI agents. Interact with the sandbox through web shell, REST API, or MCP. Supports Python and Node.js runtimes, Claude Code, Codex CLI, and OpenCode coding agents, and persists state."
+  },
+  {
+   "url": "https://apify.com/apify/ai-code-sandbox",
+   "date": "2026-11-25",
+   "proved": "the Actor itself charges nothing on top and only the Apify platform usage is billed",
+   "capture": "sha256:54675272eaff5d5561769ea39cbb1fdbca6952291ba868e04d47e57e4cc9d2a0",
+   "quote": "This Actor is paid per platform usage. The Actor is free to use, and you only pay for the Apify platform usage, which gets cheaper the higher subscription plan you have."
+  },
+  {
+   "url": "https://apify.com/pricing",
+   "date": "2026-11-25",
+   "proved": "the Free plan is USD 0 a month and includes USD 5 of usage a month",
+   "capture": "sha256:4cd21942523469e99322ddf2ddf67f6db86349eacf15b163d88902cf95c63e31",
+   "quote": "| Free     | $0            | $0                   | $5                     |"
+  },
+  {
+   "url": "https://apify.com/pricing",
+   "date": "2026-11-25",
+   "proved": "compute is measured in compute units of 1 GB RAM for 1 hour and bills at USD 0.2 per CU on Free with 16 GB maximum RAM and 5 concurrent runs",
+   "capture": "sha256:4cd21942523469e99322ddf2ddf67f6db86349eacf15b163d88902cf95c63e31",
+   "quote": "| Free     | $0.2 / CU  | 16 GB   | 5                   |"
+  },
+  {
+   "url": "https://apify.com/pricing",
+   "date": "2026-11-25",
+   "proved": "the free plan needs no credit card",
+   "capture": "sha256:4cd21942523469e99322ddf2ddf67f6db86349eacf15b163d88902cf95c63e31",
+   "quote": "No credit card is required. The free plan includes Apify Proxy, which is limited to use within the platform and does not extend to external clients."
+  },
+  {
+   "url": "https://apify.com/pricing",
+   "date": "2026-11-25",
+   "proved": "unused usage credits expire at the end of the billing cycle and the free account is blocked until the next cycle when credit runs out",
+   "capture": "sha256:4cd21942523469e99322ddf2ddf67f6db86349eacf15b163d88902cf95c63e31",
+   "quote": "**Note that unused usage credits are not rolled over to the next billing cycle, and they expire at the end of the billing cycle.**"
+  },
+  {
+   "url": "https://console.apify.com/sign-up",
+   "date": "2026-11-25",
+   "proved": "signup offers Google, GitHub or an email address and no card field",
+   "capture": "sha256:4631182c9f4b927f497a94777649bf9516e61c2b6541c44f2c516b2073305789",
+   "quote": "or\n\nEmail\n\nNext"
+  },
+  {
+   "url": "https://apify.com/agents.md",
+   "date": "2026-11-25",
+   "proved": "creating an account is free, needs no card, renews USD 5 of usage credit monthly, and pauses access rather than billing when exhausted",
+   "capture": "sha256:3bee9c9c2441d0806dd7a684d33a104be42547290eeb675b9da30467f7359c26",
+   "quote": "Creating an account is free and requires no credit card: the free plan renews $5 of usage credit every month, and if that credit runs out, access pauses until the next month instead of being billed. There is nothing to cancel."
+  },
+  {
+   "url": "https://apify.com/apify/ai-code-sandbox",
+   "date": "2026-11-25",
+   "proved": "a filesystem write accepts up to 500 MB",
+   "capture": "sha256:54675272eaff5d5561769ea39cbb1fdbca6952291ba868e04d47e57e4cc9d2a0",
+   "quote": "PUT /fs/{path} — write/replace a file (creates parent dirs; up to 500 MB)."
+  },
+  {
+   "url": "https://apify.com/apify/ai-code-sandbox",
+   "date": "2026-11-25",
+   "proved": "the container shuts down after inactivity by default",
+   "capture": "sha256:54675272eaff5d5561769ea39cbb1fdbca6952291ba868e04d47e57e4cc9d2a0",
+   "quote": "The container shuts down automatically after this many seconds of inactivity (no requests or shell interaction). Set to 0 to disable."
+  },
+  {
+   "url": "https://apify.com/agents.md",
+   "date": "2026-11-25",
+   "proved": "running Actors needs authentication while searching Actors and reading schemas works without an account",
+   "capture": "sha256:3bee9c9c2441d0806dd7a684d33a104be42547290eeb675b9da30467f7359c26",
+   "quote": "Running Actors and reading private run or storage data requires authentication. Searching Actors, inspecting their schemas, and searching documentation can be done without an account through the restricted discovery connection below."
+  },
+  {
+   "url": "https://apify.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the Free plan price and included monthly usage",
+   "capture": "sha256:4cd21942523469e99322ddf2ddf67f6db86349eacf15b163d88902cf95c63e31",
+   "quote": "| Free     | $0            | $0                   | $5                     | No Apify Store discount     | Community support     |"
+  },
+  {
+   "url": "https://apify.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the Free plan compute-unit price, memory ceiling and concurrent-run limit",
+   "capture": "sha256:4cd21942523469e99322ddf2ddf67f6db86349eacf15b163d88902cf95c63e31",
+   "quote": "| Free     | $0.2 / CU  | 16 GB   | 5                   |"
+  },
+  {
+   "url": "https://apify.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the definition of a compute unit",
+   "capture": "sha256:4cd21942523469e99322ddf2ddf67f6db86349eacf15b163d88902cf95c63e31",
+   "quote": "1 CU = 1 GB of RAM running for 1 hour."
+  },
+  {
+   "url": "https://apify.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the free plan needs no credit card and its proxy is platform-only",
+   "capture": "sha256:4cd21942523469e99322ddf2ddf67f6db86349eacf15b163d88902cf95c63e31",
+   "quote": "No credit card is required. The free plan includes Apify Proxy, which is limited to use within the platform and does not extend to external clients."
+  },
+  {
+   "url": "https://apify.com/pricing",
+   "date": "2026-11-24",
+   "proved": "data transfer is a metered platform service and free access stops when usage runs out",
+   "capture": "sha256:4cd21942523469e99322ddf2ddf67f6db86349eacf15b163d88902cf95c63e31",
+   "quote": "The Apify platform has a number of services that are charged based on usages, such as Actors, proxies, data transfer, and storage."
+  },
+  {
+   "url": "https://apify.com/apify/ai-code-sandbox",
+   "date": "2026-11-24",
+   "proved": "the Actor is pay-per-usage with no developer charge on top",
+   "capture": "sha256:433b53224ae6374f949e604c6eb43d63ac0608c8000b57cd22cee529717870cc",
+   "quote": "This Actor is paid per platform usage. The Actor is free to use, and you only pay for the Apify platform usage, which gets cheaper the higher subscription plan you have."
+  },
+  {
+   "url": "https://apify.com/apify/ai-code-sandbox",
+   "date": "2026-11-24",
+   "proved": "the interfaces are MCP, REST and a browser shell",
+   "capture": "sha256:433b53224ae6374f949e604c6eb43d63ac0608c8000b57cd22cee529717870cc",
+   "quote": "Connect over **MCP**, a **REST API**, or an **interactive browser shell**."
+  },
+  {
+   "url": "https://apify.com/apify/ai-code-sandbox",
+   "date": "2026-11-24",
+   "proved": "the default idle timeout",
+   "capture": "sha256:433b53224ae6374f949e604c6eb43d63ac0608c8000b57cd22cee529717870cc",
+   "quote": "Seconds of inactivity before automatic shutdown (default `900`; `0` disables). Activity includes HTTP requests and shell interaction."
+  },
+  {
+   "url": "https://apify.com/apify/ai-code-sandbox",
+   "date": "2026-11-24",
+   "proved": "the 500 MB cap per file written through the filesystem API",
+   "capture": "sha256:433b53224ae6374f949e604c6eb43d63ac0608c8000b57cd22cee529717870cc",
+   "quote": "PUT /fs/{path}` — write/replace a file (creates parent dirs; up to 500 MB)."
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T02:12:34.836Z",
+ "price_per_tb_month": null,
+ "notes": "The operator's provider list prices this offer at USD 1.60/h billed per second at 2 vCPU/4 GB, a workload figure that the vendor page does not publish; the vendor publishes a compute-unit rate instead. A 4 GB sandbox at USD 0.2/CU draws 1 CU per wall-clock hour, so USD 5 of monthly credit covers 6.25 hours at that size (derived: USD 5 / USD 0.2 per CU = 25 CU; 4 GB = 4 CU/hour, so 25 CU / 4 CU per hour = 6.25 hours). The 100% CPU figure in the list is not confirmed by a vendor page.",
+ "extras": {
+  "shape": {
+   "vcpu": null,
+   "ram_gib": 4,
+   "disk_gib": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "the vendor publishes memory as the billing unit and a 16 GB maximum on Free; the list uses a 2 vCPU/4 GB workload that the Actor page does not state"
+  },
+  "billing_model": "pay per platform usage against a recurring monthly credit",
+  "free_tier_kind": "recurring-allowance",
+  "price_arithmetic": "USD 5 of platform usage a month; USD 0.2 per compute unit on Free; 1 CU = 1 GB RAM for 1 hour",
+  "session_cap": {
+   "wall_clock_min": 5,
+   "idle_reap_s": 900,
+   "restart_required": false,
+   "note": "each request to the Actor has a 5-minute ceiling; idle timeout defaults to 900 seconds and can be disabled"
+  },
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "bridges expose a sandbox HTTP server at a public path",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  }
+ },
+ "endpoint": "https://UNIQUE-ID.runs.apify.net"
 }

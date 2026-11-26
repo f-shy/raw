@@ -1,0 +1,161 @@
+{
+  "topic": "compute",
+  "slug": "testmu-ai-real-device-automation",
+  "provider": "TestMu AI (formerly LambdaTest)",
+  "url": "https://www.testmuai.com/pricing/",
+  "category": "mobile device cloud",
+  "tier": "Real Device Plus Automation Cloud (1 parallel test)",
+  "free_tier": {
+    "stated": "100 free minutes of 2 parallel web+mobile automation testing, valid for lifetime, on all browsers and OS for selenium, playwright, puppeteer, cypress or JavaScript based automation tests. The Live Testing freemium plan separately gives 5 free sessions of up to 2 minutes each on real devices every month; no credit card required.",
+    "unit": "minutes",
+    "metered_on": "wall-clock",
+    "source_url": "https://www.testmuai.com/pricing/",
+    "read_on": "2026-11-25",
+    "notes": "the 100 automation minutes are a one-time lifetime allowance, not a monthly pool; the real-device live sessions (5 x 2 minutes per month) do renew monthly but are interactive live sessions, not automation capacity"
+  },
+  "per_object_cap": {
+    "stated": "not applicable: the unit is a hosted test device session, not a stored object",
+    "bytes": null,
+    "source_url": "https://www.testmuai.com/pricing/"
+  },
+  "retention": {
+    "stated": "Test execution data on the VM or real device is deleted as soon as the test completes; logs, videos and screenshots generated during a test are stored encrypted for 30 days by default.",
+    "days": 30,
+    "source_url": "https://www.testmuai.com/legal/privacy/",
+    "notes": "section 4 Information Retention of the privacy policy states both the immediate deletion of execution state and the 30-day default for logs, videos and screenshots"
+  },
+  "egress": {
+    "terms": "not published on the pages read: the pricing page and privacy policy state no separate egress allowance or price per TB for device sessions",
+    "metered": false,
+    "free_allowance": null,
+    "price_per_tb": null,
+    "source_url": "https://www.testmuai.com/pricing/"
+  },
+  "interface": [
+    "rest"
+  ],
+  "interface_detail": "Automation Cloud driven by Selenium, Playwright, Cypress, Puppeteer and Appium, Espresso and XCUITest against real iOS and Android devices; a Lambda Tunnel reaches locally hosted apps; REST APIs and SDKs for pipelines.",
+  "endpoint": "https://www.testmuai.com/pricing/",
+  "tooling": "Selenium, Playwright, Cypress, Puppeteer, Appium, Espresso and XCUITest suites via hosted grids; REST APIs including a Screenshot API; CI integrations with GitHub, GitLab and CircleCI; Lambda Tunnel for private apps; no shell-level device access or rclone backend.",
+  "chaining": "A hosted real-device cloud for running mobile and web test suites in CI without owning handsets; the 100 lifetime minutes size a first suite, and at scale the Real Device Plus Automation Cloud tier is USD 199 a month billed annually for one parallel device, billed by concurrency rather than by minutes.",
+  "limits": [
+    {
+      "kind": "volume-quota",
+      "value": "100 free automation minutes, one-time and valid for lifetime, with 2 parallel sessions",
+      "source": "https://www.testmuai.com/pricing/"
+    },
+    {
+      "kind": "request-rate",
+      "value": "1 parallel test at USD 199 per month billed annually for Real Device Plus Automation Cloud",
+      "source": "https://www.testmuai.com/pricing/"
+    },
+    {
+      "kind": "retention-clamped",
+      "value": "logs, videos and screenshots retained 30 days by default; test execution data deleted when the test completes",
+      "source": "https://www.testmuai.com/legal/privacy/"
+    }
+  ],
+  "limits_note": "Live Testing freemium gives 5 real-device sessions of up to 2 minutes each per month, renewed monthly; it is interactive live testing and not automation capacity. Paid plans meter by parallel session and include unlimited testing minutes.",
+  "binding": "volume-quota",
+  "binding_note": "The 100 automation minutes are one-time and do not renew, so that lifetime allowance is what runs out first before paid concurrency is needed.",
+  "identity_cost": {
+    "kind": "email",
+    "detail": "The registration page offers 'Work email' with Continue, or 'Continue with Google' and 'Continue with Github'; no card, phone number, ID document or institution is asked for at signup, and the pricing page FAQ states 'no credit card required' for the free plan.",
+    "country": null
+  },
+  "reliability_note": "VMs and real devices are cleaned between runs: test execution data is deleted as soon as a test completes and a device is returned to the public pool only after cleanup; generated logs, videos and screenshots expire after 30 days by default.",
+  "confidence": "documented",
+  "confidence_note": "The free minutes, the USD 199 real-device automation tier, the signup gate and the retention period were read from first-party TestMu AI pricing, registration and privacy pages on 2026-11-25.",
+  "evidence": [
+    {
+      "url": "https://www.testmuai.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the Automation free plan gives 100 free minutes of testing with 2 parallel sessions",
+      "capture": "sha256:977a2363bf1f47810f43142339b402a20be3eef16dad787fd91a3e047bc01b16",
+      "quote": "100 free minutes testing"
+    },
+    {
+      "url": "https://www.testmuai.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the 100 automation minutes are a lifetime allowance, not a monthly one",
+      "capture": "sha256:977a2363bf1f47810f43142339b402a20be3eef16dad787fd91a3e047bc01b16",
+      "quote": "100 Minutes of access to all browsers and OS for running selenium, playwright, puppeteer, cypress or JavaScript based automation tests, valid for lifetime"
+    },
+    {
+      "url": "https://www.testmuai.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the free plan needs no credit card and the 100 minutes do not renew monthly",
+      "capture": "sha256:977a2363bf1f47810f43142339b402a20be3eef16dad787fd91a3e047bc01b16",
+      "quote": "Yes. The free plan gives 100 lifetime minutes (not monthly) with 2 parallel sessions, no credit card required. It suits evaluation and a first suite, not continuous integration - once those minutes run out, continued execution requires a paid plan."
+    },
+    {
+      "url": "https://www.testmuai.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the Live freemium plan gives 5 real-device sessions of 2 minutes each per month",
+      "capture": "sha256:977a2363bf1f47810f43142339b402a20be3eef16dad787fd91a3e047bc01b16",
+      "quote": "Get 5 sessions up to 2 minutes each, every month"
+    },
+    {
+      "url": "https://www.testmuai.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the Real Device Plus Automation Cloud tier costs USD 199 per month billed annually",
+      "capture": "sha256:977a2363bf1f47810f43142339b402a20be3eef16dad787fd91a3e047bc01b16",
+      "quote": "## Real Device Plus Automation Cloud\n\n### $199\n\n/month\n\nbilled annually"
+    },
+    {
+      "url": "https://www.testmuai.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the real-device automation plan supports Appium, Espresso and XCUITest",
+      "capture": "sha256:977a2363bf1f47810f43142339b402a20be3eef16dad787fd91a3e047bc01b16",
+      "quote": "Support for Appium, Espresso and XCUITest"
+    },
+    {
+      "url": "https://www.testmuai.com/register/",
+      "date": "2026-11-25",
+      "proved": "the signup gate asks for a work email or offers Google and GitHub OAuth, with no card or phone asked",
+      "capture": "sha256:4629057df2fcbd233320d37365d5a11bcf7273c1e0be789ea621a7197b33a62c",
+      "quote": "Work emailContinue"
+    },
+    {
+      "url": "https://www.testmuai.com/legal/privacy/",
+      "date": "2026-11-25",
+      "proved": "generated logs, videos and screenshots are stored 30 days by default",
+      "capture": "sha256:0d3b7a2c41d177c6305750526434e9cde95f3528e3104181ea733f0b862b2f22",
+      "quote": "TestMu stores the encrypted Test execution data, such as logs, videos, and screenshots that are actually generated while running the test at TestMu for 30 days by default."
+    }
+  ],
+  "verdict": "trial-only",
+  "verified_at": "2026-11-25T11:55:06.479Z",
+  "price_per_tb_month": null,
+  "notes": "A hosted real-device cloud for web and mobile app automation: Selenium, Playwright, Cypress, Puppeteer and Appium, Espresso and XCUITest tests run on physical iOS and Android devices. The free plan gives 100 lifetime minutes with 2 parallel sessions; the paid Real Device Plus Automation Cloud tier is USD 199 a month billed annually for one parallel real device, which the operator's list converts to USD 0.273/h over 730 hours. No general-purpose shell VM is offered; the compute is a managed device session. Formerly branded LambdaTest; the company states it rebranded to TestMu AI on 2026-01-12.",
+  "extras": {
+    "shape": {
+      "vcpu": null,
+      "ram_gib": null,
+      "disk_gib": null,
+      "gpu_class": null,
+      "gpu_count": null,
+      "note": "hosted physical iOS and Android devices; per-device hardware specification not stated on the pages read"
+    },
+    "billing_model": "monthly subscription per parallel device test",
+    "free_tier_kind": "one-time-trial-minutes",
+    "term": "monthly or annual billing; the annual rate is USD 199/month for the real-device automation tier",
+    "price_arithmetic": "USD 199 / month billed annually / 730 hours = USD 0.273 per hour for 1 parallel real device",
+    "derived": "USD 199 / 730 hours = USD 0.273 per hour",
+    "network_out": {
+      "allow_outbound": null,
+      "allow_inbound_listen": null,
+      "ports": null,
+      "static_ip": null,
+      "ipv6": null,
+      "per_session_bytes": null,
+      "note": "no egress allowance or price stated on the pages read"
+    },
+    "session_cap": {
+      "wall_clock_min": 2,
+      "idle_reap_s": null,
+      "restart_required": null,
+      "note": "the free Live real-device sessions are capped at 2 minutes each; no per-session wall-clock cap for paid automation is stated on the pages read"
+    }
+  }
+}

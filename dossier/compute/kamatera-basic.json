@@ -6,7 +6,7 @@
   "category": "VPS",
   "tier": "Basic (recommended configuration)",
   "free_tier": {
-    "stated": "no free tier on the pricing page; 'Our servers start at $4 a month, with no long-term contracts'",
+    "stated": "Kamatera offers a free 30-day trial period. This free trial offers services worth up to $100 on 1 server.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://www.kamatera.com/pricing/",
@@ -69,10 +69,24 @@
       "url": "https://www.kamatera.com/faq/answer/what-are-the-terms-of-the-free-trial/",
       "date": "2026-10-24",
       "proved": "quoted, the trial this paid plan follows: 'if you do not cancel before the trial ends, we will begin charging for services used.' - so the USD 4.00 rate is what the Basic configuration costs once the trial ends, not a separate product"
+    },
+    {
+      "url": "https://www.kamatera.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the pricing page offers a free 30-day trial worth up to USD 100 on one server",
+      "capture": "sha256:8fee3df42d6d1ebc8a7048d0d6a30a2ed3c29f56d725bf0c7ba2dee4229e570f",
+      "quote": "Kamatera offers a free 30-day trial period. This free trial offers services worth up to $100 on 1 server."
+    },
+    {
+      "url": "https://www.kamatera.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the pricing page still offers the free 30-day trial on 2026-11-25",
+      "capture": "sha256:8fee3df42d6d1ebc8a7048d0d6a30a2ed3c29f56d725bf0c7ba2dee4229e570f",
+      "quote": "Kamatera offers a free 30-day trial period. This free trial offers services worth up to $100 on 1 server."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-24T04:09:20.000Z",
+  "verified_at": "2026-11-25T15:03:33.429Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "USD 4.00 for 1 GiB is poor value against every other row in the lane, but it is the only row here that prices a shape per configuration with no contract, so the money buys flexibility rather than capacity. Nothing on the page shows a 4 GiB configuration at or below USD 5. PAYMENT CORRECTION 2026-10-24: this record previously said the payment page 'was not read this session, so debit acceptance and any hold are unverified'. The payment FAQ was read today and accepts debit, prepaid and virtual cards by name; no hold amount is published. RE-VERIFIED 2026-10-24: the prepaid sentence was read verbatim on the vendor's own FAQ answer page today, not from a snippet, and it is the one unambiguous 'prepaid works' statement in this corpus. No hold amount is published.",

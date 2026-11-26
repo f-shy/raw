@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u259-rerun",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "Re-check these compute records against their own sources. Keep every clause the captured page supports, correct or remove only a clause it does not, then confirm each record with a quote from the page.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/gabia-cloud-gen1 $.free_tier.stated: Micro(HDD) 5,000원/7원 (was 7.5원) confirmed in the table. But the cheapest block-storage line is not HDD 5,000원/10원: that row is HDD 50GB; the add-on row '| 10GB 추가 당 | 1,000원 | 2.1원 | **1,000****원** | **2****원** |' is cheaper (1,000원/month, 2원/hour). The claim omits the 50GB capacity and misnames the\n- compute/gabia-cloud-gen1 $.free_tier.stated: Micro(HDD) 5,000원/7원 (was 7.5원) confirmed in the table. But the cheapest block-storage line is not HDD 5,000원/10원: that row is HDD 50GB; the add-on row '| 10GB 추가 당 | 1,000원 | 2.1원 | **1,000****원** | **2****원** |' is cheaper (1,000원/month, 2원/hour). The claim omits the 50GB capacity and misnames the\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/gabia-cloud-gen1 $.free_tier.stated: Paid price row from the Classic price-change notice (columns 변경 전 / 변경 후, monthly and hourly). No free tier or free allowance appears on the page (no 무료/free).\n- compute/gabia-cloud-gen1 $.free_tier.stated: Paid price row from the Classic price-change notice (columns 변경 전 / 변경 후, monthly and hourly). No free tier or free allowance appears on the page (no 무료/free).\n- compute/gabia-cloud-gen1 $.free_tier.unit: 20GB is the root-volume size of a paid server, not a free-tier unit; no free tier on page.",
+ "scope": {
+  "rids": [
+   "compute/fugaku-trial-access",
+   "compute/furiosaai-furiosa-access",
+   "compute/gabia-cloud-gen1",
+   "compute/geant-testbeds-service",
+   "compute/gensyn"
+  ]
+ },
+ "origin": "audit u314 of 20261125-0107-research-compute-5c82/u259 failed: 3 of 11 unsupported",
+ "created": "2026-11-25T15:16:09Z",
+ "queue_files": [
+  "queue/20261125-0107-research-compute-5c82-u24-rerun.json"
+ ]
+}

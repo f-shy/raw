@@ -1,176 +1,201 @@
 {
-  "topic": "compute",
-  "slug": "codewire",
-  "provider": "Codewire",
-  "url": "https://codewire.sh/pricing",
-  "category": "agent sandbox cloud",
-  "tier": "Hosted sandbox, metered per second",
-  "free_tier": {
-    "stated": "Local VMs are free forever with no account needed and unlimited VMs limited only by the machine; the hosted sandbox has no free allowance, is billed per second only while running, and adding a card tops up EUR 20 of credit when the balance is empty, with automatic top-ups of EUR 20 at a time.",
-    "unit": "none",
-    "metered_on": "wall-clock",
-    "source_url": "https://codewire.sh/pricing",
-    "read_on": "2026-11-24",
-    "notes": "The free offer is software the user installs and runs locally: 'Run sandboxes as VMs on your own machine. No account needed.' The hosted cloud lane has no free tier; credit requires a card."
+ "topic": "compute",
+ "slug": "codewire",
+ "provider": "Codewire",
+ "url": "https://codewire.sh/pricing",
+ "category": "cloud sandbox",
+ "tier": "Cloud (private beta, pay as you go)",
+ "free_tier": {
+  "stated": "Local VMs are free forever. Cloud VMs bill per second, only while they run, with no plans and no seats. Local sandboxes are always free. In the cloud you pay only while your sandboxes run.",
+  "unit": "none",
+  "metered_on": "wall-clock",
+  "source_url": "https://codewire.sh/pricing",
+  "read_on": "2026-11-25",
+  "notes": "The only free capacity is local, on the user's own machine, and needs no account. The hosted cloud lane has no published free allowance: a card tops up €20 of credit when the balance is empty, with automatic €20 top-ups; the cloud lane is a private beta requiring a signup request. Rates are €0.0438 per vCPU-hour, €0.0141 per GB-hour of memory and €0.000087 per GB-hour of disk."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the billed unit is vCPU, memory and disk while a sandbox runs, not an object; a sandbox can have up to 16 vCPU, 32 GB memory and 200 GB disk",
+  "bytes": null,
+  "source_url": "https://codewire.sh/pricing"
+ },
+ "retention": {
+  "stated": "Storage is kept when a sandbox stops; running sandboxes stop after 24 hours without a card or a failed top-up, and their storage is kept. Credits do not expire.",
+  "days": null,
+  "source_url": "https://codewire.sh/pricing"
+ },
+ "egress": {
+  "terms": "not published: the pricing page states no egress allowance or price; outbound traffic passes through the credential proxy under per-sandbox network policies",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://codewire.sh/pricing"
+ },
+ "interface": [
+  "cli",
+  "ssh",
+  "rest"
+ ],
+ "interface_detail": "One CLI and SDK (TypeScript, Python, Go) drive local and cloud sandboxes with the same commands; cw info NAME shows a hosted sandbox's policy and enforcement status, preview URLs expose services, and SSH is available from any device.",
+ "tooling": "the open-source Codewire CLI (curl -fsSL https://get.codewire.sh | sh), SDKs for TypeScript, Python and Go, and integrations for Rex, Orca, Claude, Codex, Cursor, Kimi, Pi and Gemini CLI.",
+ "chaining": "The hosted cloud lane is the offer for readers without their own machine: sandboxes run on private bare-metal machines in Amsterdam and Frankfurt, with a credential proxy and an encrypted agent-to-agent mesh. Running Codewire locally or on a Kubernetes cluster is the self-hosted last resort and is not the answer while the hosted lane is available.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "no hosted free allowance: a card tops up €20 of credit when the balance is empty, with automatic €20 top-ups",
+   "source": "https://codewire.sh/pricing"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a running sandbox, not an object; a hosted sandbox disk grows up to 200 GiB, and up to 50 GiB for a confidential sandbox",
-    "bytes": null,
-    "source_url": "https://codewire.sh/docs/environments/resources",
-    "notes": "The cap is on the disk of one sandbox, not on an object."
+  {
+   "kind": "retention-clamped",
+   "value": "without a card or after a failed top-up, new sandboxes and starts are refused and running sandboxes stop after 24 hours",
+   "source": "https://codewire.sh/pricing"
   },
-  "retention": {
-    "stated": "A stopped sandbox keeps its disk, settings and agent conversations and is not billed; a sandbox whose time to live ends is removed unless protected; credits do not expire.",
-    "days": null,
-    "source_url": "https://codewire.sh/docs/environments/resources"
-  },
-  "egress": {
-    "terms": "A hosted sandbox may reach the public Internet; private, loopback, link-local and carrier-grade NAT ranges are excluded. Organization network policies are stored but not enforced yet, and a hosted sandbox can still reach anything public whatever it selects. No egress price or allowance is published.",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://codewire.sh/docs/networking/egress"
-  },
-  "interface": [
-    "cli",
-    "ssh",
-    "browser",
-    "rest"
-  ],
-  "interface_detail": "The cw CLI, SSH, scp, sftp, rsync and VS Code over an encrypted tunnel, a browser dashboard terminal, HTTPS preview URLs for published ports, and an HTTP API for organizations.",
-  "endpoint": "https://codewire.sh",
-  "tooling": "the cw CLI installed with 'curl -fsSL https://get.codewire.sh | sh'; SSH, scp, sftp and rsync; VS Code; a browser dashboard; an HTTP API; Docker inside every VM; Claude Code and Codex integrated by default",
-  "chaining": "A hosted sandbox with a per-second meter and HTTPS preview URLs chains into a build or agent workflow, and a stopped sandbox keeps its disk; a job that must survive removal needs a separate object-storage record.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "EUR 0.0438 per vCPU-hour, EUR 0.0141 per GB-hour of memory, EUR 0.000087 per GB-hour of disk, billed per second; a default 2 vCPU and 8 GB sandbox costs EUR 0.2091 per hour",
-      "source": "https://codewire.sh/pricing"
-    },
-    {
-      "kind": "request-rate",
-      "value": "10 creates and 10 starts per minute, per person",
-      "source": "https://codewire.sh/docs/environments/resources"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "32 vCPU and 64 GiB of memory across active sandboxes; 10 sandboxes included in the cloud plan",
-      "source": "https://codewire.sh/docs/environments/resources"
-    }
-  ],
-  "limits_note": "A sandbox can have up to 16 vCPU, 32 GB of memory and 200 GB of disk on the calculator; the resources page permits up to 256 vCPU and 1 TiB of memory on a hosted sandbox. Disks only grow. Without a card, or if a top-up fails, new sandboxes and starts are refused at once, and running sandboxes stop after 24 hours. Human developer seats are USD 18 per developer per month; agents are not seats.",
-  "binding": "volume-quota",
-  "binding_note": "The hosted lane has no free allowance and draws metered credit per second, so the card-funded balance runs out before any request or sandbox-count limit is reached.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The signup form asks for Name, Email, Password of at least 12 characters with uppercase, lowercase, a number and a symbol, a Confirm password field, an optional invite code, and 'What would you like to build?' for review. A hosted sandbox needs an organization; adding a card tops up EUR 20 of credit. The local VM path needs no account. No phone number, ID document or institution is asked for on the signup page.",
-    "country": null
-  },
-  "reliability_note": "The provider states Codewire is pre-1.0 and breaking changes can land between releases. Without a card, or if a top-up fails, new sandboxes and starts are refused at once and running sandboxes stop after 24 hours; their storage is kept. Hosted network policies are stored but not enforced yet.",
-  "confidence": "documented",
-  "confidence_note": "The per-second rates, the EUR 20 card top-up, the 24-hour stop, the signup fields, the egress terms and the organization limits are quoted from Codewire's own pricing, signup and documentation pages read on 2026-11-24.",
-  "evidence": [
-    {
-      "url": "https://codewire.sh/pricing",
-      "date": "2026-11-24",
-      "proved": "local VMs are free forever with no plans or seats and hosted VMs bill per second only while running",
-      "capture": "sha256:7836e12ed1d249fc6c2866598e76db739ce49fc8bbc70aeb6ace589d0603b685",
-      "quote": "Local VMs are free forever. Cloud VMs bill per second, only while they run, with no plans and no seats."
-    },
-    {
-      "url": "https://codewire.sh/pricing",
-      "date": "2026-11-24",
-      "proved": "the per-second rate card is EUR 0.0438 per vCPU-hour, EUR 0.0141 per GB-hour of memory and EUR 0.000087 per GB-hour of disk",
-      "capture": "sha256:de33267a107c7e6b3857ae3ed1b7dbeedf51385ec696fb7393811316da9694f7",
-      "quote": "<tr><td>vCPU</td><td class=\"m\">€0.0438 per vCPU-hour</td><td class=\"m r\" data-pricing-cost=\"cpu\">€0.0876</td></tr>"
-    },
-    {
-      "url": "https://codewire.sh/pricing",
-      "date": "2026-11-24",
-      "proved": "a default 2 vCPU and 8 GB sandbox costs EUR 0.2091 per hour and a month is 730 hours",
-      "capture": "sha256:de33267a107c7e6b3857ae3ed1b7dbeedf51385ec696fb7393811316da9694f7",
-      "quote": "Billed per second on the sandbox’s size while it runs. A month is 730 hours."
-    },
-    {
-      "url": "https://codewire.sh/pricing",
-      "date": "2026-11-24",
-      "proved": "adding a card tops up EUR 20 of credit when the balance is empty, with automatic EUR 20 top-ups",
-      "capture": "sha256:7836e12ed1d249fc6c2866598e76db739ce49fc8bbc70aeb6ace589d0603b685",
-      "quote": "Adding a card tops up €20 of credit when your balance is empty; automatic top-ups add €20 at a time."
-    },
-    {
-      "url": "https://codewire.sh/pricing",
-      "date": "2026-11-24",
-      "proved": "without a card, creates are refused at once and running sandboxes stop after 24 hours with storage kept",
-      "capture": "sha256:7836e12ed1d249fc6c2866598e76db739ce49fc8bbc70aeb6ace589d0603b685",
-      "quote": "Without a card, or if a top-up fails, new sandboxes and starts are refused at once, and running sandboxes stop after 24 hours. Their storage is kept."
-    },
-    {
-      "url": "https://codewire.sh/pricing",
-      "date": "2026-11-24",
-      "proved": "the cloud plan includes 10 sandboxes at 2 vCPU and 8 GB RAM and 100 GB disk each",
-      "capture": "sha256:7836e12ed1d249fc6c2866598e76db739ce49fc8bbc70aeb6ace589d0603b685",
-      "quote": "10 sandboxes included"
-    },
-    {
-      "url": "https://codewire.sh/docs/networking/egress",
-      "date": "2026-11-24",
-      "proved": "a hosted sandbox may reach the public Internet and private, loopback, link-local and carrier-grade NAT ranges are excluded",
-      "capture": "sha256:a30629bdede84e5b2e01b40b9f5b8a3e01c5500acf9969dbb95d792beaaff272",
-      "quote": "A hosted sandbox may reach the public Internet; private, loopback, link-local and carrier-grade NAT ranges are excluded."
-    },
-    {
-      "url": "https://codewire.sh/docs/environments/resources",
-      "date": "2026-11-24",
-      "proved": "organization limits are 10 creates and starts per minute per person and 32 vCPU and 64 GiB across active sandboxes",
-      "capture": "sha256:4a474c8b8cadea60824b2ba8fb132cb63f7f8c38c24c2faacbb38f0f4610c59c",
-      "quote": "Creates and starts | 10 of each per minute, per person"
-    },
-    {
-      "url": "https://codewire.sh/signup",
-      "date": "2026-11-24",
-      "proved": "the signup form asks for a name, email, password, optional invite code and a free-text purpose",
-      "capture": "sha256:c1c788c6ca9532f4b510016d7e40e04436708fd5b2aaee05b9cb2593cac4d1b3",
-      "quote": "Invite code (optional)"
-    },
-    {
-      "url": "https://codewire.sh/signup",
-      "date": "2026-11-24",
-      "proved": "the signup password must have at least 12 characters with uppercase, lowercase, a number and a symbol",
-      "capture": "sha256:c1c788c6ca9532f4b510016d7e40e04436708fd5b2aaee05b9cb2593cac4d1b3",
-      "quote": "Use at least 12 characters with uppercase, lowercase, a number, and a symbol."
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T14:30:00.000Z",
-  "price_per_tb_month": null,
-  "notes": "The hosted sandbox has no free tier and bills EUR 0.0438 per vCPU-hour, EUR 0.0141 per GB-hour of memory and EUR 0.000087 per GB-hour of disk, so a default 2 vCPU and 8 GB sandbox with 100 GB disk costs EUR 0.2091 an hour. The free offer is local software the user installs and runs, listed last: 'Run sandboxes as VMs on your own machine. No account needed.' A hosted card adds EUR 20 of credit when the balance is empty. Human developer seats are USD 18 a month; agents are not seats.",
-  "extras": {
-    "shape": {
-      "vcpu": 2,
-      "ram_gib": 8,
-      "disk_gib": 100,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "the default hosted sandbox in the cloud plan; the calculator allows up to 16 vCPU, 32 GB memory and 200 GB disk"
-    },
-    "billing_model": "per-second metered credit, prepaid by card top-up of EUR 20",
-    "free_tier_kind": "local-software-only",
-    "term": "no plans, seats or minimums",
-    "price_arithmetic": "2 x EUR 0.0438 + 8 x EUR 0.0141 + 100 x EUR 0.000087 = EUR 0.2091 per hour",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "HTTPS preview URLs for published application ports; SSH into a sandbox",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "runs until the user stops it or its time to live ends; without credit, running sandboxes stop after 24 hours"
-    }
+  {
+   "kind": "volume-quota",
+   "value": "10 sandboxes included on the cloud plan; several can run at once up to the organization's limit",
+   "source": "https://codewire.sh/pricing"
   }
+ ],
+ "binding": "volume-quota",
+ "binding_note": "The hosted lane has no free credit, so a balance topped up by card binds first, ahead of the 24-hour stop without a card and the organization's sandbox limit.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "The signup form asks for Name, Email and Password (at least 12 characters with uppercase, lowercase, a number and a symbol), then an optional invite code and 'What would you like to build?' for review; the cloud lane is a private beta accessed by request. Local VMs need no account. Billing needs a card to top up €20 of credit.",
+  "country": null
+ },
+ "reliability_note": "Hosted cloud is in private beta with an access-request form; without a card or after a failed top-up new sandboxes are refused and running ones stop after 24 hours; no published SLA.",
+ "confidence": "documented",
+ "confidence_note": "The hosted rates, free-local-only statement, 24-hour stop, top-up amount and signup fields are quoted from Codewire's own pricing and signup pages read 2026-11-25.",
+ "evidence": [
+  {
+   "url": "https://codewire.sh/pricing",
+   "date": "2026-11-25",
+   "proved": "local sandboxes are always free and cloud sandboxes are billed only while running",
+   "capture": "sha256:fc7b30ae37bbd1531b496a96908fdba68ebcd4234f6b1e85f05665b1a9a4bcf6",
+   "quote": "Local sandboxes are always free. In the cloud you pay only while your sandboxes run."
+  },
+  {
+   "url": "https://codewire.sh/pricing",
+   "date": "2026-11-25",
+   "proved": "the hosted vCPU rate is €0.0438 per vCPU-hour",
+   "capture": "sha256:2132ecf0976305d0c1e07ea3570b30bc74bca29236f0765a489daca0a5db2856",
+   "quote": "<tr><td>vCPU</td><td class=\"m\">€0.0438 per vCPU-hour</td>"
+  },
+  {
+   "url": "https://codewire.sh/pricing",
+   "date": "2026-11-25",
+   "proved": "running sandboxes stop after 24 hours without a card or a failed top-up but storage is kept",
+   "capture": "sha256:fc7b30ae37bbd1531b496a96908fdba68ebcd4234f6b1e85f05665b1a9a4bcf6",
+   "quote": "Without a card, or if a top-up fails, new sandboxes and starts are refused at once, and running sandboxes stop after 24 hours."
+  },
+  {
+   "url": "https://codewire.sh/signup",
+   "date": "2026-11-25",
+   "proved": "the signup form asks for name, email, password and an optional invite code",
+   "capture": "sha256:c1c788c6ca9532f4b510016d7e40e04436708fd5b2aaee05b9cb2593cac4d1b3",
+   "quote": "Invite code (optional)"
+  },
+  {
+   "url": "https://codewire.sh/pricing",
+   "date": "2026-11-24",
+   "proved": "local VMs are free forever with no plans or seats and hosted VMs bill per second only while running",
+   "capture": "sha256:7836e12ed1d249fc6c2866598e76db739ce49fc8bbc70aeb6ace589d0603b685",
+   "quote": "Local VMs are free forever. Cloud VMs bill per second, only while they run, with no plans and no seats."
+  },
+  {
+   "url": "https://codewire.sh/pricing",
+   "date": "2026-11-24",
+   "proved": "the per-second rate card is EUR 0.0438 per vCPU-hour, EUR 0.0141 per GB-hour of memory and EUR 0.000087 per GB-hour of disk",
+   "capture": "sha256:de33267a107c7e6b3857ae3ed1b7dbeedf51385ec696fb7393811316da9694f7",
+   "quote": "<tr><td>vCPU</td><td class=\"m\">€0.0438 per vCPU-hour</td><td class=\"m r\" data-pricing-cost=\"cpu\">€0.0876</td></tr>"
+  },
+  {
+   "url": "https://codewire.sh/pricing",
+   "date": "2026-11-24",
+   "proved": "a default 2 vCPU and 8 GB sandbox costs EUR 0.2091 per hour and a month is 730 hours",
+   "capture": "sha256:de33267a107c7e6b3857ae3ed1b7dbeedf51385ec696fb7393811316da9694f7",
+   "quote": "Billed per second on the sandbox’s size while it runs. A month is 730 hours."
+  },
+  {
+   "url": "https://codewire.sh/pricing",
+   "date": "2026-11-24",
+   "proved": "adding a card tops up EUR 20 of credit when the balance is empty, with automatic EUR 20 top-ups",
+   "capture": "sha256:7836e12ed1d249fc6c2866598e76db739ce49fc8bbc70aeb6ace589d0603b685",
+   "quote": "Adding a card tops up €20 of credit when your balance is empty; automatic top-ups add €20 at a time."
+  },
+  {
+   "url": "https://codewire.sh/pricing",
+   "date": "2026-11-24",
+   "proved": "without a card, creates are refused at once and running sandboxes stop after 24 hours with storage kept",
+   "capture": "sha256:7836e12ed1d249fc6c2866598e76db739ce49fc8bbc70aeb6ace589d0603b685",
+   "quote": "Without a card, or if a top-up fails, new sandboxes and starts are refused at once, and running sandboxes stop after 24 hours. Their storage is kept."
+  },
+  {
+   "url": "https://codewire.sh/pricing",
+   "date": "2026-11-24",
+   "proved": "the cloud plan includes 10 sandboxes at 2 vCPU and 8 GB RAM and 100 GB disk each",
+   "capture": "sha256:7836e12ed1d249fc6c2866598e76db739ce49fc8bbc70aeb6ace589d0603b685",
+   "quote": "10 sandboxes included"
+  },
+  {
+   "url": "https://codewire.sh/docs/networking/egress",
+   "date": "2026-11-24",
+   "proved": "a hosted sandbox may reach the public Internet and private, loopback, link-local and carrier-grade NAT ranges are excluded",
+   "capture": "sha256:a30629bdede84e5b2e01b40b9f5b8a3e01c5500acf9969dbb95d792beaaff272",
+   "quote": "A hosted sandbox may reach the public Internet; private, loopback, link-local and carrier-grade NAT ranges are excluded."
+  },
+  {
+   "url": "https://codewire.sh/docs/environments/resources",
+   "date": "2026-11-24",
+   "proved": "organization limits are 10 creates and starts per minute per person and 32 vCPU and 64 GiB across active sandboxes",
+   "capture": "sha256:4a474c8b8cadea60824b2ba8fb132cb63f7f8c38c24c2faacbb38f0f4610c59c",
+   "quote": "Creates and starts | 10 of each per minute, per person"
+  },
+  {
+   "url": "https://codewire.sh/signup",
+   "date": "2026-11-24",
+   "proved": "the signup form asks for a name, email, password, optional invite code and a free-text purpose",
+   "capture": "sha256:c1c788c6ca9532f4b510016d7e40e04436708fd5b2aaee05b9cb2593cac4d1b3",
+   "quote": "Invite code (optional)"
+  },
+  {
+   "url": "https://codewire.sh/signup",
+   "date": "2026-11-24",
+   "proved": "the signup password must have at least 12 characters with uppercase, lowercase, a number and a symbol",
+   "capture": "sha256:c1c788c6ca9532f4b510016d7e40e04436708fd5b2aaee05b9cb2593cac4d1b3",
+   "quote": "Use at least 12 characters with uppercase, lowercase, a number, and a symbol."
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T02:12:34.709Z",
+ "notes": "Codewire sells hosted cloud sandboxes billed per second in a private beta, with no hosted free tier; only local VMs on the user's own machine are free. The hosted lane is the offer recorded here; the open-source CLI and Kubernetes control plane are a self-hosted last resort, not the answer while the hosted lane exists.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 8,
+   "disk_gib": 100,
+   "gpu_class": "not published",
+   "gpu_count": 0,
+   "note": "the default cloud sandbox is 2 vCPU / 8 GB / 100 GB; sizes up to 16 vCPU, 32 GB and 200 GB are offered"
+  },
+  "billing_model": "per-second vCPU, memory and disk charges drawn from a card-topped balance",
+  "free_tier_kind": "none-hosted",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "named hosts and ports via network policy; preview URLs",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "running sandboxes stop after 24 hours without card credit"
+  }
+ },
+ "self_hosted": false,
+ "endpoint": "https://codewire.sh",
+ "limits_note": "A sandbox can have up to 16 vCPU, 32 GB of memory and 200 GB of disk on the calculator; the resources page permits up to 256 vCPU and 1 TiB of memory on a hosted sandbox. Disks only grow. Without a card, or if a top-up fails, new sandboxes and starts are refused at once, and running sandboxes stop after 24 hours. Human developer seats are USD 18 per developer per month; agents are not seats.",
+ "price_per_tb_month": null
 }

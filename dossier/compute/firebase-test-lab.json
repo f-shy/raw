@@ -1,161 +1,275 @@
 {
-  "topic": "compute",
-  "slug": "firebase-test-lab",
-  "provider": "Firebase Test Lab",
-  "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
-  "category": "hosted device-testing lab",
-  "tier": "Spark (no-cost) / Blaze (pay-as-you-go)",
-  "free_tier": {
-    "stated": "Spark plan (no-cost): 10 test runs per day on virtual devices and 5 test runs per day on physical devices, 15 test runs per day in total; Blaze plan: 30 minutes of test time per day on physical devices and 60 minutes of test time per day on virtual devices at no cost, then USD 5 per hour for each physical device and USD 1 per hour for each virtual device, charged per minute rounded up; Android Device Streaming adds 30 no-cost minutes per project per month.",
-    "unit": "minutes",
-    "metered_on": "wall-clock",
-    "source_url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
-    "read_on": "2026-11-24",
-    "notes": "The Spark allowance is denominated in test runs per day, not in minutes; the Blaze allowance is denominated in test minutes per day. The two shapes are stated separately by the vendor. Android Device Streaming is a separate per-minute meter: 30 no-cost minutes per project per month, then USD 0.15 per additional minute on Blaze."
+ "topic": "compute",
+ "slug": "firebase-test-lab",
+ "provider": "Firebase Test Lab",
+ "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
+ "category": "hosted mobile-device test lab",
+ "tier": "Spark (no-cost) / Blaze virtual-device tests",
+ "free_tier": {
+  "stated": "Spark plan: 15 test runs a day in total (10 virtual-device and 5 physical-device runs). Blaze plan: 60 minutes of test time a day on virtual devices and 30 minutes a day on physical devices at no cost before per-hour charges.",
+  "unit": "minutes",
+  "metered_on": "wall-clock",
+  "source_url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
+  "read_on": "2026-11-25",
+  "notes": "The Spark allowance is counted in test runs per day rather than minutes; the Blaze allowance is 60 no-cost virtual-device minutes a day, after which virtual devices are USD 1 per device-hour."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the metered unit is device test time, not an object"
+ },
+ "retention": {
+  "stated": "Raw test results are held in a Google Cloud bucket; a bucket the user does not specify is created at no cost, and virtual device instances are deleted after each test run.",
+  "days": null,
+  "source_url": "https://firebase.google.com/docs/test-lab/overview"
+ },
+ "egress": {
+  "terms": "not published as a Test Lab allowance: test execution time is billed, not traffic; the Firebase pricing table lists no separate Test Lab egress price",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://firebase.google.com/pricing"
+ },
+ "interface": [
+  "rest",
+  "cli",
+  "browser"
+ ],
+ "interface_detail": "Tests are started from the Firebase console, Android Studio or the gcloud CLI; the Cloud Testing API and Tool Results API are available for automation.",
+ "tooling": "gcloud CLI (gcloud firebase test android ...), the Firebase console, Android Studio integration and the Cloud Testing and Tool Results APIs.",
+ "chaining": "A CI job uploads an APK and runs a test matrix on Google-hosted virtual Android devices, with raw results written to a Cloud Storage bucket; the paid continuation is USD 1 per virtual device-hour until the service shutdown on 2027-09-30.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "10 virtual-device test runs and 5 physical-device test runs per day on Spark; on Blaze 60 no-cost virtual-device minutes and 30 physical-device minutes per day",
+   "source": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a device test, not an object; an APK uploaded to a test matrix is test input rather than a stored object",
-    "bytes": null,
-    "source_url": "https://firebase.google.com/docs/test-lab/overview"
+  {
+   "kind": "write-gated",
+   "value": "60 minutes maximum test duration on virtual devices and 45 minutes on physical devices",
+   "source": "https://firebase.google.com/docs/test-lab/overview"
   },
-  "retention": {
-    "stated": "Test result summary is stored in the Firebase console and raw results in a Google Cloud bucket; no retention period is stated for either",
-    "days": null,
-    "source_url": "https://firebase.google.com/docs/test-lab/overview"
+  {
+   "kind": "request-rate",
+   "value": "Cloud Testing API 10,000,000 calls per day and 120,000 calls per minute per project; Tool Results API 200,000 calls per day and 2,400 per minute",
+   "source": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing"
+  }
+ ],
+ "limits_note": "Charges are calculated per minute rounded up: a 22-second test bills for one minute. Test Lab is deprecated and will be fully shut down on 2027-09-30.",
+ "binding": "volume-quota",
+ "binding_note": "The 60 no-cost virtual-device minutes a day, and the 60-minute cap per test run, bind before the much larger API request quotas.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "The Firebase console sign-in asks to use a Google Account. The Spark plan needs no payment method; running Test Lab from the console requires a Firebase project on the Blaze plan, which links a Cloud Billing account, and a Cloud Billing account requires a payment method such as a major credit card.",
+  "country": null
+ },
+ "reliability_note": "Test Lab is deprecated and fully shuts down on 2027-09-30; the console and API stop then. Virtual device instances are deleted after each run, and API quotas are shared across test types.",
+ "confidence": "documented",
+ "confidence_note": "Prices, quotas, the card gate and the shutdown date are quoted from first-party Firebase pages read on 2026-11-25. The exact sign-up form fields of a new Google Account were not read; the console asks for a Google Account and the Spark plan states no payment method needed.",
+ "evidence": [
+  {
+   "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
+   "date": "2026-11-25",
+   "proved": "virtual device tests cost USD 1 per device-hour above the no-cost daily allowance",
+   "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
+   "quote": "- $1 per hour for each virtual device"
   },
-  "egress": {
-    "terms": "not published as a quota or price: the page states that all network traffic generated by Test Lab devices originates from published IP address blocks, and that the user is responsible for the cost of a Cloud Storage bucket specified for raw results; if no bucket is specified, Test Lab creates one at no cost",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://firebase.google.com/docs/test-lab/overview"
+  {
+   "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
+   "date": "2026-11-25",
+   "proved": "the Blaze plan includes 60 no-cost virtual-device minutes a day, billed by the minute rounded up",
+   "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
+   "quote": "60 minutes of test time per day on virtual devices"
   },
-  "interface": [
-    "rest",
-    "cli",
-    "browser"
-  ],
-  "interface_detail": "The Firebase console, Android Studio integration, and the gcloud CLI run tests; the Cloud Testing API and Cloud Tool Results API are the programmatic surfaces, reached through the Google Cloud console for quota monitoring.",
-  "tooling": "gcloud CLI, Android Studio, the Firebase console, and the Cloud Testing and Tool Results APIs; the gcloud beta firebase test ip-blocks list command prints the device egress ranges.",
-  "chaining": "A device test is a short-lived compute job: the APK is supplied by a build pipeline, results land in a Cloud Storage bucket, and a matrix of devices multiplies the per-device hourly rate; the free daily test-run count is the quota that binds a Spark project.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "Spark: 10 virtual-device test runs and 5 physical-device test runs per day, 15 in total; Blaze: 60 virtual-device minutes and 30 physical-device minutes per day at no cost",
-      "source": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing"
-    },
-    {
-      "kind": "request-rate",
-      "value": "Cloud Testing API: 10,000,000 calls per day and 120,000 calls per 1-minute interval; Cloud Tool Results API: 200,000 calls per day and 2,400 calls per 1-minute interval",
-      "source": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing"
-    }
-  ],
-  "limits_note": "All test types are limited to 45 minutes on physical devices and 60 minutes on virtual devices; charges are per minute rounded up, so a 22-second test bills one minute and a 75-second test bills two. Quotas are project-level, shared across instrumentation, Robo and Game Loop tests and test matrices.",
-  "binding": "volume-quota",
-  "binding_note": "The per-day test-run count (Spark) or the no-cost test-minute allowance (Blaze) is consumed by each device in a matrix before the much larger API call-rate ceilings are reached, and a matrix multiplies the count by the number of devices selected.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "A Firebase account is needed: on the no-cost Spark plan no payment information is needed to get started; the pay-as-you-go Blaze plan links a Cloud Billing account and, if eligible, offers USD 300 in free credit. Sign-in methods are Google, Apple, or email and password. No phone number or ID document is stated on the pricing pages.",
-    "country": null
+  {
+   "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
+   "date": "2026-11-25",
+   "proved": "the Spark plan allows 10 virtual-device test runs a day",
+   "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
+   "quote": "- 10 test runs per day on virtual devices"
   },
-  "reliability_note": "Firebase Test Lab is deprecated and will be fully shut down as of September 30, 2027; Google directs users to the Developer Device Platform on Google Cloud. Physical devices are wiped and, where possible, flashed between test runs; virtual device instances are deleted after use; test types are capped at 45 minutes on physical and 60 minutes on virtual devices.",
-  "confidence": "documented",
-  "confidence_note": "The rate card, the Spark and Blaze no-cost allowances, the per-minute rounding and the API ceilings are quoted from Google's own Test Lab usage, quotas and pricing page read 2026-11-24; the Spark/Blaze identity gate is from Firebase's own pricing-plans page; the shutdown date is from Google's release notes and deprecation FAQ.",
-  "evidence": [
-    {
-      "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
-      "date": "2026-11-24",
-      "proved": "Blaze charges USD 5 per hour for each physical device above the no-cost time limit",
-      "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
-      "quote": "- $5 per hour for each physical device"
-    },
-    {
-      "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
-      "date": "2026-11-24",
-      "proved": "Blaze charges USD 1 per hour for each virtual device above the no-cost time limit",
-      "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
-      "quote": "- $1 per hour for each virtual device"
-    },
-    {
-      "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
-      "date": "2026-11-24",
-      "proved": "the Spark no-cost plan allows 10 virtual-device test runs per day",
-      "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
-      "quote": "- 10 test runs per day on virtual devices"
-    },
-    {
-      "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
-      "date": "2026-11-24",
-      "proved": "the Spark no-cost plan allows 5 physical-device test runs per day",
-      "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
-      "quote": "- 5 test runs per day on physical devices"
-    },
-    {
-      "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
-      "date": "2026-11-24",
-      "proved": "the Blaze plan begins with 30 no-cost physical-device minutes per day",
-      "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
-      "quote": "- 30 minutes of test time per day on physical devices"
-    },
-    {
-      "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
-      "date": "2026-11-24",
-      "proved": "the Cloud Testing API ceiling is 10,000,000 calls per day and 120,000 per minute",
-      "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
-      "quote": "- 10,000,000 calls per day\n  - 120,000 calls per 1-minute interval"
-    },
-    {
-      "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
-      "date": "2026-11-24",
-      "proved": "the Cloud Tool Results API ceiling is 200,000 calls per day and 2,400 per minute",
-      "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
-      "quote": "- 200,000 calls per day\n  - 2,400 calls per 1-minute interval"
-    },
-    {
-      "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
-      "date": "2026-11-24",
-      "proved": "Android Device Streaming adds 30 no-cost minutes per project per month at USD 0.15 per additional minute on Blaze",
-      "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
-      "quote": "- (no cost) Spark plan: 30 no cost minutes per project, per month\n- Blaze plan: 30 no cost minutes per project, per month, 15 cents for each additional minute"
-    },
-    {
-      "url": "https://firebase.google.com/docs/test-lab/overview",
-      "date": "2026-11-24",
-      "proved": "test types are capped at 45 minutes on physical devices and 60 minutes on virtual devices",
-      "capture": "sha256:1c124b4ed0bc0d0d35aa2248f274e4e6e89ce6a54b785cf401a2c3decb35cae3",
-      "quote": "Note that all test types are limited to running 45 minutes on physical devices and 60 minutes on virtual devices. Any uncaught exception will cause a test failure."
-    },
-    {
-      "url": "https://firebase.google.com/docs/test-lab/overview",
-      "date": "2026-11-24",
-      "proved": "raw results go to a Cloud Storage bucket that Test Lab creates at no cost when none is specified; the stated egress fact is the device IP source ranges",
-      "capture": "sha256:1c124b4ed0bc0d0d35aa2248f274e4e6e89ce6a54b785cf401a2c3decb35cae3",
-      "quote": "All network traffic generated by Test Lab devices originates from the following"
-    },
-    {
-      "url": "https://firebase.google.com/docs/projects/billing/firebase-pricing-plans",
-      "date": "2026-11-24",
-      "proved": "the Spark plan needs no payment information while Blaze links a billing account",
-      "capture": "sha256:4af2d0ab75bbbb5a29c12bf1f88a88ac5ccd684128c3d6fa4e3bd4aee41517b6",
-      "quote": "| Spark pricing plan *No payment information needed to get started or to use only the no-cost Firebase products* | Blaze pricing plan *Link a billing account to access more services and usage levels beyond the no-cost usage quota* |"
-    },
-    {
-      "url": "https://firebase.google.com/support/releases",
-      "date": "2026-11-24",
-      "proved": "Firebase Test Lab shuts down on September 30, 2027",
-      "capture": "sha256:182ebbc4615ee1065556b1a5d111ddd30fef5293c93356ab4456337c43343807",
-      "quote": "- Firebase Test Lab is deprecated and will be fully shut down as of September 30, 2027. To maintain your testing workflows, you can migrate to the [Developer Device Platform](https://cloud.google.com/products/developer-device-platform) on Google Cloud. See the [Developer Device Platform migration"
-    },
-    {
-      "url": "https://firebase.google.com/docs/test-lab/migrate-faq",
-      "date": "2026-11-24",
-      "proved": "test executions are supported in Firebase Test Lab until September 30, 2027",
-      "capture": "sha256:d2119ced40c125b059cfd1c004f794ec16d65aa15fae6d572f1570063298c3aa",
-      "quote": "test executions will be supported in Firebase Test Lab until **September 30, 2027**"
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.747Z",
-  "price_per_tb_month": null,
-  "notes": "The no-cost quota is per project per day, not per identity, and it is shared across instrumentation, Robo and Game Loop tests. Each device in a test matrix consumes its own allowance, so a matrix of 10 virtual devices exhausts the Spark daily allowance in one run. The offer is deprecated with a full shutdown on 2027-09-30, so a new dependency has a fixed end date."
+  {
+   "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
+   "date": "2026-11-25",
+   "proved": "the Cloud Testing API is capped at 10,000,000 calls a day per project",
+   "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
+   "quote": "10,000,000 calls per day"
+  },
+  {
+   "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
+   "date": "2026-11-25",
+   "proved": "charges are per minute rounded up to the nearest minute",
+   "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
+   "quote": "Charges are calculated on a per-minute basis, rounded up to the nearest minute."
+  },
+  {
+   "url": "https://firebase.google.com/pricing",
+   "date": "2026-11-25",
+   "proved": "the Spark plan requires no payment method",
+   "capture": "sha256:5e4acc1e87970021c88cbeb99d6f3c3002bb7ae2e9e7662162b3bc662b749995",
+   "quote": "No-cost (Spark plan) Generous no-cost usage limits No payment method needed"
+  },
+  {
+   "url": "https://firebase.google.com/docs/projects/billing/firebase-pricing-plans",
+   "date": "2026-11-25",
+   "proved": "a Cloud Billing account requires a payment method such as a major credit card",
+   "capture": "sha256:4af2d0ab75bbbb5a29c12bf1f88a88ac5ccd684128c3d6fa4e3bd4aee41517b6",
+   "quote": "Cloud Billing accounts require a payment method. This includes most major credit cards as well as other payment methods."
+  },
+  {
+   "url": "https://firebase.google.com/support/releases",
+   "date": "2026-11-25",
+   "proved": "Test Lab is deprecated and fully shuts down on 2027-09-30",
+   "capture": "sha256:182ebbc4615ee1065556b1a5d111ddd30fef5293c93356ab4456337c43343807",
+   "quote": "Firebase Test Lab is deprecated and will be fully shut down as of September 30, 2027."
+  },
+  {
+   "url": "https://firebase.google.com/docs/test-lab/android/avds",
+   "date": "2026-11-25",
+   "proved": "a virtual-device test run lasts at most 60 minutes",
+   "capture": "sha256:c9982e53fb0b2fec6565a7540a304b840e1907a9b0e02d9b2202bc6c0ca154cd",
+   "quote": "Virtual devices support a test duration of up to 60 minutes."
+  },
+  {
+   "url": "https://firebase.google.com/docs/test-lab/overview",
+   "date": "2026-11-25",
+   "proved": "virtual device instances are deleted after each test run",
+   "capture": "sha256:1c124b4ed0bc0d0d35aa2248f274e4e6e89ce6a54b785cf401a2c3decb35cae3",
+   "quote": "For the virtual devices used by Test Lab, device instances are deleted after they are used so that each test run uses a new virtual device instance."
+  },
+  {
+   "url": "https://firebase.google.com/docs/test-lab/android/firebase-console",
+   "date": "2026-11-25",
+   "proved": "running a test from the console requires the Blaze plan linked to a Cloud Billing account",
+   "capture": "sha256:2cd8acbadb3eb9620e14fc4932ceb49b8bb35a9906d885734f20557f9b87fba7",
+   "quote": "Your Firebase project must be on the pay-as-you-go Blaze pricing plan, which means that your project is linked to a Cloud Billing account."
+  },
+  {
+   "url": "https://console.firebase.google.com/",
+   "date": "2026-11-25",
+   "proved": "the Firebase console sign-in asks for a Google Account",
+   "capture": "sha256:05a86e5c7df8f040565528aa3cacf29db29bc7adc02232d8a05d52841f023d5a",
+   "quote": "Use your Google Account"
+  },
+  {
+   "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
+   "date": "2026-11-24",
+   "proved": "Blaze charges USD 5 per hour for each physical device above the no-cost time limit",
+   "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
+   "quote": "- $5 per hour for each physical device"
+  },
+  {
+   "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
+   "date": "2026-11-24",
+   "proved": "Blaze charges USD 1 per hour for each virtual device above the no-cost time limit",
+   "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
+   "quote": "- $1 per hour for each virtual device"
+  },
+  {
+   "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
+   "date": "2026-11-24",
+   "proved": "the Spark no-cost plan allows 10 virtual-device test runs per day",
+   "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
+   "quote": "- 10 test runs per day on virtual devices"
+  },
+  {
+   "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
+   "date": "2026-11-24",
+   "proved": "the Spark no-cost plan allows 5 physical-device test runs per day",
+   "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
+   "quote": "- 5 test runs per day on physical devices"
+  },
+  {
+   "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
+   "date": "2026-11-24",
+   "proved": "the Blaze plan begins with 30 no-cost physical-device minutes per day",
+   "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
+   "quote": "- 30 minutes of test time per day on physical devices"
+  },
+  {
+   "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
+   "date": "2026-11-24",
+   "proved": "the Cloud Testing API ceiling is 10,000,000 calls per day and 120,000 per minute",
+   "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
+   "quote": "- 10,000,000 calls per day\n  - 120,000 calls per 1-minute interval"
+  },
+  {
+   "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
+   "date": "2026-11-24",
+   "proved": "the Cloud Tool Results API ceiling is 200,000 calls per day and 2,400 per minute",
+   "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
+   "quote": "- 200,000 calls per day\n  - 2,400 calls per 1-minute interval"
+  },
+  {
+   "url": "https://firebase.google.com/docs/test-lab/usage-quotas-pricing",
+   "date": "2026-11-24",
+   "proved": "Android Device Streaming adds 30 no-cost minutes per project per month at USD 0.15 per additional minute on Blaze",
+   "capture": "sha256:b11a35c0a6188438b49e06f977f71d8adaa7a796d60405977e719ffb77664094",
+   "quote": "- (no cost) Spark plan: 30 no cost minutes per project, per month\n- Blaze plan: 30 no cost minutes per project, per month, 15 cents for each additional minute"
+  },
+  {
+   "url": "https://firebase.google.com/docs/test-lab/overview",
+   "date": "2026-11-24",
+   "proved": "test types are capped at 45 minutes on physical devices and 60 minutes on virtual devices",
+   "capture": "sha256:1c124b4ed0bc0d0d35aa2248f274e4e6e89ce6a54b785cf401a2c3decb35cae3",
+   "quote": "Note that all test types are limited to running 45 minutes on physical devices and 60 minutes on virtual devices. Any uncaught exception will cause a test failure."
+  },
+  {
+   "url": "https://firebase.google.com/docs/test-lab/overview",
+   "date": "2026-11-24",
+   "proved": "raw results go to a Cloud Storage bucket that Test Lab creates at no cost when none is specified; the stated egress fact is the device IP source ranges",
+   "capture": "sha256:1c124b4ed0bc0d0d35aa2248f274e4e6e89ce6a54b785cf401a2c3decb35cae3",
+   "quote": "All network traffic generated by Test Lab devices originates from the following"
+  },
+  {
+   "url": "https://firebase.google.com/docs/projects/billing/firebase-pricing-plans",
+   "date": "2026-11-24",
+   "proved": "the Spark plan needs no payment information while Blaze links a billing account",
+   "capture": "sha256:4af2d0ab75bbbb5a29c12bf1f88a88ac5ccd684128c3d6fa4e3bd4aee41517b6",
+   "quote": "| Spark pricing plan *No payment information needed to get started or to use only the no-cost Firebase products* | Blaze pricing plan *Link a billing account to access more services and usage levels beyond the no-cost usage quota* |"
+  },
+  {
+   "url": "https://firebase.google.com/support/releases",
+   "date": "2026-11-24",
+   "proved": "Firebase Test Lab shuts down on September 30, 2027",
+   "capture": "sha256:182ebbc4615ee1065556b1a5d111ddd30fef5293c93356ab4456337c43343807",
+   "quote": "- Firebase Test Lab is deprecated and will be fully shut down as of September 30, 2027. To maintain your testing workflows, you can migrate to the [Developer Device Platform](https://cloud.google.com/products/developer-device-platform) on Google Cloud. See the [Developer Device Platform migration"
+  },
+  {
+   "url": "https://firebase.google.com/docs/test-lab/migrate-faq",
+   "date": "2026-11-24",
+   "proved": "test executions are supported in Firebase Test Lab until September 30, 2027",
+   "capture": "sha256:d2119ced40c125b059cfd1c004f794ec16d65aa15fae6d572f1570063298c3aa",
+   "quote": "test executions will be supported in Firebase Test Lab until **September 30, 2027**"
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T02:12:34.899Z",
+ "price_per_tb_month": null,
+ "notes": "Hosted virtual Android device test time at USD 1 per device-hour above a 60-minute daily no-cost Blaze allowance; the Spark plan caps virtual-device use at 10 test runs a day. The service is deprecated and fully shuts down on 2027-09-30; the successor Developer Device Platform requires billing enabled.",
+ "extras": {
+  "shape": {
+   "vcpu": null,
+   "ram_gib": null,
+   "disk_gib": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "Google-hosted Android virtual devices; the published price is per device-hour, not per vCPU"
+  },
+  "billing_model": "no-cost test runs on Spark; on Blaze, USD 1 per virtual device-hour after 60 no-cost minutes a day",
+  "free_tier_kind": "daily-allowance",
+  "term": "no commitment; service deprecated with shutdown on 2027-09-30",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": null,
+   "ports": null,
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": 60,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "tests limited to 60 minutes on virtual devices and 45 minutes on physical devices"
+  }
+ }
 }

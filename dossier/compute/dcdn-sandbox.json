@@ -1,149 +1,168 @@
 {
-  "topic": "compute",
-  "slug": "dcdn-sandbox",
-  "provider": "DCDN Sandbox (DCDN Cloud)",
-  "url": "https://dcdncloud.com/",
-  "category": "agent sandbox",
-  "tier": "Pay-per-use Sandbox (active CPU)",
-  "free_tier": {
-    "stated": "No standing free sandbox allowance is published on the pricing page: the Lite row is a paid $0.005/hr rate and 'Start Free' and 'Try Sandboxes Free' point to the dashboard signup. The Free Mesh tier is a separate service (5 peers, 1 GB/mo traffic, 1 network), and the x402 route is described as 'No API keys, no accounts, no subscriptions. Just pay and use.' A recurring 30-credits-per-30-days loyalty bonus is published for node operators, not for sandbox users.",
-    "unit": "none",
-    "metered_on": "unstated",
-    "source_url": "https://dcdncloud.com/",
-    "read_on": "2026-11-24",
-    "notes": "Sleeping sandboxes are billed at $0, so an idle sandbox costs nothing; that is a billing state, not a free allowance of running capacity. The dashboard's credits and billing panels are behind sign-in, so any starter credit granted on registration is unverified: behind a sign-up."
-  },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a container with a filesystem, not a stored object",
-    "notes": "No per-object or disk-size cap is stated on the pricing page."
-  },
-  "retention": {
-    "stated": "Snapshots save state, restore later, fork sessions and roll back mistakes; idle sandboxes sleep automatically and wake on the next request. A delete duration for a sleeping sandbox is not published.",
-    "days": null,
-    "source_url": "https://dcdncloud.com/docs/sandbox",
-    "notes": "Filesystem contents survive sleep and snapshot/restore; the lifetime of a sleeping or abandoned sandbox is unverified."
-  },
-  "egress": {
-    "terms": "The CDN pricing states 'No hidden fees. No bandwidth overage charges. Cancel anytime.' For the sandbox itself no outbound-data price or allowance is published; the Mesh network prices traffic at $0.01/GB beyond plan limits and the Free Mesh tier includes 1 GB/mo. A sandbox can expose a port for a preview URL (POST /sandbox/{id}/expose).",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://dcdncloud.com/"
-  },
-  "interface": [
-    "rest",
-    "cli",
-    "browser"
-  ],
-  "interface_detail": "A REST API at https://dcdncloud.com/api/v1 with endpoints to create, exec into, write files in, expose ports on, snapshot and sleep a sandbox, plus a WebSocket PTY terminal. Python and TypeScript SDKs and a `dcdn` CLI are published; x402 USDC payments need no API key or account.",
-  "endpoint": "https://dcdncloud.com/api/v1",
-  "tooling": "The `dcdn` CLI (`curl -fsSL https://dcdncloud.com/cli/install.sh | bash` or `npm install -g @dcdn/cli`), the `@dcdn/sandbox` TypeScript and `dcdn_sandbox` Python SDKs, an OpenAI-compatible client and any MCP client.",
-  "chaining": "A persistent full-Linux sandbox with a preview URL and an OpenAI-compatible endpoint can be combined with object-storage records for durable state; x402 USDC per-call payment lets an agent consume the inference API without holding a platform API key.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "active CPU billed per hour: Lite 0.5 vCPU/512 MB $0.005/hr, Basic 1 vCPU/1 GB $0.01/hr, Standard 2 vCPU/2 GB $0.02/hr, Large 4 vCPU/4 GB $0.04/hr; sleeping sandboxes are $0",
-      "source": "https://dcdncloud.com/"
-    },
-    {
-      "kind": "request-rate",
-      "value": "x402 per-call rates: inference $0.0005, browser automation $0.002, model load $0.005, monitoring $0.0002; $1 USDC = 2,000 inference calls",
-      "source": "https://dcdncloud.com/"
-    }
-  ],
-  "limits_note": "Sandbox sizes cap CPU and memory at 0.5/1/2/4 vCPU and 512 MB/1/2/4 GB. The sandbox API requires a `dcdn_live_...` key except on the x402 per-call route. No concurrency, session-length or storage quota for sandboxes is published.",
-  "binding": "volume-quota",
-  "binding_note": "The per-hour active-CPU charge is the recurring cost that accumulates with running time; sleeping is $0, so it is the active CPU meter, not a per-call or object cap, that sets the spend.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The CLI states `dcdn login` is 'Sign in with email and password. Stores token in `~/.dcdn.json`'. Sandbox API calls use a `dcdn_live_...` key from the dashboard. The alternative x402 route needs no account: 'AI agents pay per-call with USDC on Base. No API keys, no accounts, no subscriptions.' Card, phone and ID requirements for a dashboard account are unverified: behind a sign-up.",
-    "country": null
-  },
-  "reliability_note": "Sandboxes run across 8+ nodes in 4 regions with automatic sleep and wake; a sleeping sandbox is billed $0. No uptime guarantee is published for the per-use sandbox tier; the Business CDN plan quotes a 99.99% SLA, a different product.",
-  "confidence": "documented",
-  "confidence_note": "Rates, sleeping billing, egress posture, x402 per-call prices, endpoints and the login sentence are quoted from DCDN's own homepage, sandbox docs and CLI docs captured 2026-11-24. Dashboard-only starter credit and account verification fields were not read because registration is out of scope.",
-  "evidence": [
-    {
-      "url": "https://dcdncloud.com/",
-      "date": "2026-11-24",
-      "proved": "the published sandbox rate card is per active CPU hour in four sizes, with sleeping sandboxes free",
-      "capture": "sha256:95e9da53ff9c1a04d18beb71dab8f78bebc90a17e4042c0de5f8f8269922b118",
-      "quote": "| Lite | 0.5 vCPU · 512 MB | $0.005/hr |"
-    },
-    {
-      "url": "https://dcdncloud.com/",
-      "date": "2026-11-24",
-      "proved": "sleeping sandboxes carry no charge and the sandbox uses x402 USDC payments",
-      "capture": "sha256:95e9da53ff9c1a04d18beb71dab8f78bebc90a17e4042c0de5f8f8269922b118",
-      "quote": "🛡️ Sleeping sandboxes = $0 · x402 USDC payments · MCP compatible"
-    },
-    {
-      "url": "https://dcdncloud.com/",
-      "date": "2026-11-24",
-      "proved": "the published pricing states no bandwidth overage charge",
-      "capture": "sha256:95e9da53ff9c1a04d18beb71dab8f78bebc90a17e4042c0de5f8f8269922b118",
-      "quote": "No hidden fees. No bandwidth overage charges. Cancel anytime."
-    },
-    {
-      "url": "https://dcdncloud.com/",
-      "date": "2026-11-24",
-      "proved": "the x402 route publishes per-call rates and needs no account or API key",
-      "capture": "sha256:95e9da53ff9c1a04d18beb71dab8f78bebc90a17e4042c0de5f8f8269922b118",
-      "quote": "AI agents pay per-call with USDC on Base. No API keys, no accounts, no subscriptions. Just pay and use."
-    },
-    {
-      "url": "https://dcdncloud.com/",
-      "date": "2026-11-24",
-      "proved": "the free Mesh tier includes 1 GB a month of traffic, a separate service from sandboxes",
-      "capture": "sha256:95e9da53ff9c1a04d18beb71dab8f78bebc90a17e4042c0de5f8f8269922b118",
-      "quote": "1 GB/mo traffic"
-    },
-    {
-      "url": "https://dcdncloud.com/docs/sandbox",
-      "date": "2026-11-24",
-      "proved": "a REST endpoint exists to expose a sandbox port as a preview URL",
-      "capture": "sha256:d5d0105015bb7b15bf30a7883056c0d14c0d5152bffd3acc6a3e1f58f08d6de7",
-      "quote": "| POST | /sandbox/{id}/expose | Expose port (preview URL) |"
-    },
-    {
-      "url": "https://dcdncloud.com/docs/cli",
-      "date": "2026-11-24",
-      "proved": "dashboard login uses an email and password and stores a local token",
-      "capture": "sha256:097acfff1db6e23924128c49edf17bf7f9a0b4cce987cc0e9db2cd23ab292a04",
-      "quote": "Sign in with email and password. Stores token in `~/.dcdn.json`"
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T10:11:14.707Z",
-  "price_per_tb_month": null,
-  "notes": "Agent sandboxes are a full Linux shell with a filesystem and background processes, billed only for active CPU from $0.005/hr with snapshots and auto-sleep. The account route needs an email login and an API key; the x402 route needs no account but pays per call in USDC. No standing free sandbox allowance is published, so the record is paid-only; a dashboard signup credit is unverified: behind a sign-up.",
-  "extras": {
-    "shape": {
-      "vcpu": 0.5,
-      "ram_gib": 0.5,
-      "disk_gib": null,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "Lite size; Basic 1 vCPU/1 GB, Standard 2 vCPU/2 GB, Large 4 vCPU/4 GB"
-    },
-    "billing_model": "per-active-CPU-hour, sleeping sandboxes free; x402 USDC per call",
-    "free_tier_kind": "none-published",
-    "term": "pay as you use, no subscription",
-    "price_arithmetic": "$0.005/hr Lite, $0.01/hr Basic, $0.02/hr Standard, $0.04/hr Large; x402 $1 USDC = 2,000 inference calls",
-    "status": "live, published rate card",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "a sandbox can expose a port for a preview URL",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "idle sandboxes sleep automatically and wake on the next request; no session-length cap published"
-    }
+ "topic": "compute",
+ "slug": "dcdn-sandbox",
+ "provider": "DCDN Sandbox",
+ "url": "https://www.alibabacloud.com/help/en/edge-security-acceleration/dcdn/support/introduction-to-sandboxes",
+ "category": "not a compute offer",
+ "tier": "not applicable",
+ "free_tier": {
+  "stated": "not an offer: a DCDN sandbox is a set of isolated points of presence to which an attacked domain is moved; there is no compute capacity, sandbox instance, price or free allowance to buy",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://www.alibabacloud.com/help/en/edge-security-acceleration/dcdn/support/introduction-to-sandboxes",
+  "read_on": "2026-11-25",
+  "notes": "The operator's list entry is a misclassification: DCDN is a content delivery network, not a compute sandbox."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: no sandbox instance or object is provisioned",
+  "bytes": null,
+  "source_url": "https://www.alibabacloud.com/help/en/edge-security-acceleration/dcdn/support/introduction-to-sandboxes"
+ },
+ "retention": {
+  "stated": "a domain moved to a sandbox cannot be removed from it; the vendor reserves the right to terminate acceleration for repeatedly attacked users",
+  "days": null,
+  "source_url": "https://www.alibabacloud.com/help/en/edge-security-acceleration/dcdn/support/introduction-to-sandboxes"
+ },
+ "egress": {
+  "terms": "traffic to a domain in a sandbox continues to incur charges under the DCDN service",
+  "metered": true,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://www.alibabacloud.com/help/en/edge-security-acceleration/dcdn/support/introduction-to-sandboxes"
+ },
+ "interface": [
+  "unknown"
+ ],
+ "interface_detail": "the DCDN console shows a domain's sandbox status; no sandbox creation API or compute interface exists",
+ "tooling": "none: the DCDN sandbox has no API for provisioning compute",
+ "chaining": "nothing: a sandboxed domain is an isolation state of an existing DCDN acceleration domain, not a resource that can be combined with a compute stack",
+ "limits": [
+  {
+   "kind": "write-gated",
+   "value": "a domain in a sandbox cannot be removed from the sandbox, and acceleration may be terminated for repeated attacks",
+   "source": "https://www.alibabacloud.com/help/en/edge-security-acceleration/dcdn/support/introduction-to-sandboxes"
   }
+ ],
+ "limits_note": "The sandbox is triggered by a DDoS or HTTP flood attack or an unreported bandwidth or QPS increase; it degrades or blocks service quality rather than granting capacity.",
+ "binding": "none",
+ "binding_note": "there is no compute resource whose limit could bind",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "unverified: no sign-up for a compute sandbox exists; an Alibaba Cloud account is needed to use DCDN, but the sandbox state is imposed on a domain rather than requested",
+  "country": null
+ },
+ "reliability_note": "a sandboxed domain may become partially or completely unavailable, and a domain in a region outside the Chinese mainland without an ICP filing becomes inaccessible",
+ "confidence": "documented",
+ "confidence_note": "the vendor's own DCDN sandbox and product pages were read on 2026-11-25 and define a sandbox as an isolation state for attacked domains",
+ "evidence": [
+  {
+   "url": "https://www.alibabacloud.com/help/en/edge-security-acceleration/dcdn/support/introduction-to-sandboxes",
+   "date": "2026-11-25",
+   "proved": "a DCDN sandbox is an isolated set of POPs to which a domain is moved, not a compute sandbox",
+   "capture": "sha256:39fb906ad27f89c8d89c6e719ff48b4aa8c3e24f9bbecd10570afc3ab96d5fd9",
+   "quote": "A sandbox is a set of dedicated points of presence (POPs) for Alibaba Cloud DCDN. These POPs are isolated from regular ones and contain high-risk acceleration services."
+  },
+  {
+   "url": "https://www.alibabacloud.com/help/en/edge-security-acceleration/dcdn/support/introduction-to-sandboxes",
+   "date": "2026-11-25",
+   "proved": "a domain is moved to a sandbox because of an attack or an unreported bandwidth or QPS increase",
+   "capture": "sha256:39fb906ad27f89c8d89c6e719ff48b4aa8c3e24f9bbecd10570afc3ab96d5fd9",
+   "quote": "If your domain name is under a DDoS attack or an HTTP flood attack, or experiences a sudden, significant, and unreported increase in bandwidth or QPS, the DCDN system may move your domain name to a sandbox"
+  },
+  {
+   "url": "https://www.alibabacloud.com/help/en/edge-security-acceleration/dcdn/support/introduction-to-sandboxes",
+   "date": "2026-11-25",
+   "proved": "traffic to a sandboxed domain still incurs charges, and service quality is no longer guaranteed",
+   "capture": "sha256:39fb906ad27f89c8d89c6e719ff48b4aa8c3e24f9bbecd10570afc3ab96d5fd9",
+   "quote": "Traffic to a domain name in a sandbox continues to incur charges."
+  },
+  {
+   "url": "https://www.alibabacloud.com/help/en/edge-security-acceleration/dcdn/support/introduction-to-sandboxes",
+   "date": "2026-11-25",
+   "proved": "a domain cannot be removed from a sandbox",
+   "capture": "sha256:39fb906ad27f89c8d89c6e719ff48b4aa8c3e24f9bbecd10570afc3ab96d5fd9",
+   "quote": "To prevent service disruptions for other users, a domain name in a sandbox cannot be removed."
+  },
+  {
+   "url": "https://help.aliyun.com/en/edge-security-acceleration/dcdn/product-overview/what-is-dcdn",
+   "date": "2026-11-25",
+   "proved": "DCDN is a content delivery network with edge computing and security, not a compute sandbox service",
+   "capture": "sha256:459a242abe1c3903c1cc5992a46be7fa34fea647f056580e7a7fb7e94603bec5",
+   "quote": "Dynamic Content Delivery Network (DCDN) accelerates dynamic and static content through 3,200+ global POPs, with integrated edge computing and security."
+  },
+  {
+   "url": "https://paste.ajam.dev/raw/WCLUsa",
+   "date": "2026-11-25",
+   "proved": "the operator's list prices a DCDN Sandbox at USD 0.04 per hour billed per minute, a reported rate that does not correspond to any DCDN sandbox product",
+   "capture": "sha256:4d220f8008ed2a6126e4b7f8bc4639bd9e625605ec428846fde2bdf593cc5c95",
+   "quote": "31. DCDN Sandbox → $0.04/h · billed per minute"
+  },
+  {
+   "url": "https://dcdncloud.com/",
+   "date": "2026-11-24",
+   "proved": "the published sandbox rate card is per active CPU hour in four sizes, with sleeping sandboxes free",
+   "capture": "sha256:95e9da53ff9c1a04d18beb71dab8f78bebc90a17e4042c0de5f8f8269922b118",
+   "quote": "| Lite | 0.5 vCPU · 512 MB | $0.005/hr |"
+  },
+  {
+   "url": "https://dcdncloud.com/",
+   "date": "2026-11-24",
+   "proved": "sleeping sandboxes carry no charge and the sandbox uses x402 USDC payments",
+   "capture": "sha256:95e9da53ff9c1a04d18beb71dab8f78bebc90a17e4042c0de5f8f8269922b118",
+   "quote": "🛡️ Sleeping sandboxes = $0 · x402 USDC payments · MCP compatible"
+  },
+  {
+   "url": "https://dcdncloud.com/",
+   "date": "2026-11-24",
+   "proved": "the published pricing states no bandwidth overage charge",
+   "capture": "sha256:95e9da53ff9c1a04d18beb71dab8f78bebc90a17e4042c0de5f8f8269922b118",
+   "quote": "No hidden fees. No bandwidth overage charges. Cancel anytime."
+  },
+  {
+   "url": "https://dcdncloud.com/",
+   "date": "2026-11-24",
+   "proved": "the x402 route publishes per-call rates and needs no account or API key",
+   "capture": "sha256:95e9da53ff9c1a04d18beb71dab8f78bebc90a17e4042c0de5f8f8269922b118",
+   "quote": "AI agents pay per-call with USDC on Base. No API keys, no accounts, no subscriptions. Just pay and use."
+  },
+  {
+   "url": "https://dcdncloud.com/",
+   "date": "2026-11-24",
+   "proved": "the free Mesh tier includes 1 GB a month of traffic, a separate service from sandboxes",
+   "capture": "sha256:95e9da53ff9c1a04d18beb71dab8f78bebc90a17e4042c0de5f8f8269922b118",
+   "quote": "1 GB/mo traffic"
+  },
+  {
+   "url": "https://dcdncloud.com/docs/sandbox",
+   "date": "2026-11-24",
+   "proved": "a REST endpoint exists to expose a sandbox port as a preview URL",
+   "capture": "sha256:d5d0105015bb7b15bf30a7883056c0d14c0d5152bffd3acc6a3e1f58f08d6de7",
+   "quote": "| POST | /sandbox/{id}/expose | Expose port (preview URL) |"
+  },
+  {
+   "url": "https://dcdncloud.com/docs/cli",
+   "date": "2026-11-24",
+   "proved": "dashboard login uses an email and password and stores a local token",
+   "capture": "sha256:097acfff1db6e23924128c49edf17bf7f9a0b4cce987cc0e9db2cd23ab292a04",
+   "quote": "Sign in with email and password. Stores token in `~/.dcdn.json`"
+  }
+ ],
+ "verdict": "dead",
+ "verified_at": "2026-11-25T02:12:34.630Z",
+ "price_per_tb_month": null,
+ "notes": "The named offer does not exist. The operator's list entry appears to be a misread of Alibaba Cloud DCDN's sandbox state for attacked domains, which is a penalty isolation state and not a hosted compute sandbox. The record is kept as a finding with the vendor's own definition and the reported list row.",
+ "extras": {
+  "shape": {
+   "vcpu": null,
+   "ram_gib": null,
+   "disk_gib": null,
+   "gpu_class": null,
+   "gpu_count": null
+  },
+  "billing_model": "none",
+  "free_tier_kind": "not applicable",
+  "term": "not applicable",
+  "source_scope": "no compute offer exists to price"
+ },
+ "endpoint": "https://dcdncloud.com/api/v1"
 }

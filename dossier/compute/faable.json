@@ -5,7 +5,7 @@
   "url": "https://faable.com/docs/deploy/pricing",
   "category": "platform host",
   "free_tier": {
-    "stated": "Free plan, quoted: 'up to 3 projects per account (2 in your first 48 hours) - apps run on bi.xs (0.6 vCPU - 512 MB) - managed Node, Python and PHP buildpacks only - up to 50 successful deployments per day per project - build artifacts up to 512 MB - 10 GB egress / month included (1 GB / day)'. Idle apps 'scale to zero' after '30 minutes' on Free. Paid Hobby is EUR 15 a month for bi.small '1 vCPU - 1.5 GB' and 'always-on: apps under traffic never sleep'.",
+    "stated": "Free plan: up to 3 projects per account (2 in your first 48 hours), apps run on bi.xs (0.6 vCPU / 512 MB), managed Node, Python and PHP buildpacks only, up to 50 successful deployments per day per project, build artifacts up to 512 MB, 10 GB egress / month included (1 GB / day).",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://faable.com/docs/deploy/pricing",
@@ -74,10 +74,24 @@
       "url": "https://faable.com/docs/platform/pricing",
       "date": "2026-10-22",
       "proved": "'Free | 0 EUR | ... Up to 3 projects per account, 1 free instance, up to 50 successful deployments per day ... no credit card' and 'Hobby | 15 EUR | ... 1 vCPU - 1.5 GB per app', quoted"
+    },
+    {
+      "url": "https://faable.com/docs/deploy/pricing",
+      "date": "2026-11-25",
+      "proved": "the Free plan's compute, buildpack, deployment, artifact and egress entitlements",
+      "capture": "sha256:49cf947163b702c4caa97db7efccf38d593116a91c08bc239c942c158b2215d1",
+      "quote": "| **Free** | **up to 3 projects per account** (2 in your first 48 hours) · apps run on `bi.xs` (0.6 vCPU · 512 MB) · **managed Node, Python and PHP buildpacks only** · **up to 50 successful deployments per day per project** (resets at 00:00 UTC) · **pushes build at most once every 5 minutes** · **build artifacts up to 512 MB** · custom domains per app · **10 GB egress / month included (1 GB / day)** · **up to 60 GiB-hours of compute / month** |"
+    },
+    {
+      "url": "https://faable.com/docs/deploy/pricing",
+      "date": "2026-11-25",
+      "proved": "the Free-plan entitlements are unchanged",
+      "capture": "sha256:49cf947163b702c4caa97db7efccf38d593116a91c08bc239c942c158b2215d1",
+      "quote": "| **Free** | **up to 3 projects per account** (2 in your first 48 hours) · apps run on `bi.xs` (0.6 vCPU · 512 MB) · **managed Node, Python and PHP buildpacks only** · **up to 50 successful deployments per day per project** (resets at 00:00 UTC) · **pushes build at most once every 5 minutes** · **build artifacts up to 512 MB** · custom domains per app · **10 GB egress / month included (1 GB / day)** · **up to 60 GiB-hours of compute / month** |"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:41.088Z",
   "notes": "Aggregator claim checked: free-for.dev says 'one 0.5 CPU / 1 GB RAM instance per project, 10 GB bandwidth, 10 successful deploys per day ... Apps sleep after 2 hours without traffic'. Three of those four claims are wrong against the vendor: the instance is 0.6 vCPU and 512 MB, the deploy cap is 50 a day, and the idle timer is 30 minutes, not 2 hours. Omitted by the aggregator: Dockerfile deploys are paid-only, and external uptime monitors are answered by the platform so they do not keep a Free app awake.",
   "extras": {
     "wave2": {

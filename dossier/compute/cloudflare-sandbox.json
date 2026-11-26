@@ -1,179 +1,186 @@
 {
-  "topic": "compute",
-  "slug": "cloudflare-sandbox",
-  "provider": "Cloudflare Sandbox SDK / Containers",
-  "url": "https://developers.cloudflare.com/containers/platform/pricing/",
-  "category": "container and VM sandbox",
-  "free_tier": {
-    "stated": "no free tier: the Free plan row reads N/A for memory and CPU. The included allowance is 25 GiB-hours, 375 vCPU-minutes and 200 GB-hours a month inside the $5 Workers Paid plan",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://developers.cloudflare.com/containers/platform/pricing/",
-    "read_on": "2026-10-22"
+ "topic": "compute",
+ "slug": "cloudflare-sandbox",
+ "provider": "Cloudflare Sandbox SDK / Containers",
+ "url": "https://developers.cloudflare.com/containers/platform/pricing/",
+ "category": "container and VM sandbox",
+ "free_tier": {
+  "stated": "no free tier: the Free plan row reads N/A for memory and CPU. The included allowance is 25 GiB-hours, 375 vCPU-minutes and 200 GB-hours a month inside the $5 Workers Paid plan",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://developers.cloudflare.com/containers/platform/pricing/",
+  "read_on": "2026-10-22"
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://developers.cloudflare.com/containers/platform/pricing/",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "not stated",
+  "days": null,
+  "source_url": "https://developers.cloudflare.com/containers/platform/pricing/",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "Egress from Containers is priced at $0.025 a GB past 1 TB a month in North America and Europe, $0.05 a GB past 500 GB in Oceania, Korea and Taiwan, and $0.04 a GB past 500 GB elsewhere.",
+  "metered": true,
+  "free_allowance": "1 TB a month in North America and Europe; 500 GB a month elsewhere",
+  "price_per_tb": null,
+  "source_url": "https://developers.cloudflare.com/containers/platform/pricing/"
+ },
+ "interface": [
+  "unknown"
+ ],
+ "interface_detail": "Access interface not documented in published terms.",
+ "tooling": "not stated",
+ "chaining": "not established",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "375 vCPU-minutes a month included in Workers Paid, then $0.000020 a vCPU-second",
+   "source": "https://developers.cloudflare.com/containers/platform/pricing/"
   },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://developers.cloudflare.com/containers/platform/pricing/",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+  {
+   "kind": "per-object-cap",
+   "value": "25 GiB-hours and 200 GB-hours a month included; memory and disk bill on provisioned size, CPU on active use only",
+   "source": "https://developers.cloudflare.com/containers/platform/pricing/"
   },
-  "retention": {
-    "stated": "not stated",
-    "days": null,
-    "source_url": "https://developers.cloudflare.com/containers/platform/pricing/",
-    "notes": "Disk durability across instance stops and deletions is not documented."
+  {
+   "kind": "per-ip-shaping",
+   "value": "egress is $0.025 a GB past 1 TB a month in North America and Europe, and $0.04 or $0.05 a GB past 500 GB elsewhere",
+   "source": "https://developers.cloudflare.com/containers/platform/pricing/"
+  }
+ ],
+ "limits_note": "Session cap, idle-reap and network policy are not documented.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "unverified: dash.cloudflare.com/sign-up answered HTTP 403 to a direct probe on 2026-11-24 and to every broker pin, fetch and archive route; the signup fields could not be read",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "documented",
+ "confidence_note": "the Containers pricing page was read on 2026-10-22. Its Free row is N/A and the included allowance requires the $5 Workers Paid plan, so the record's free-tier claim is wrong and the verdict moves to paid-only",
+ "evidence": [
+  {
+   "url": "https://developers.cloudflare.com/containers/platform/pricing/",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
   },
-  "egress": {
-    "terms": "Egress from Containers is priced at $0.025 a GB past 1 TB a month in North America and Europe, $0.05 a GB past 500 GB in Oceania, Korea and Taiwan, and $0.04 a GB past 500 GB elsewhere.",
-    "metered": true,
-    "free_allowance": "1 TB a month in North America and Europe; 500 GB a month elsewhere",
-    "price_per_tb": null,
-    "source_url": "https://developers.cloudflare.com/containers/platform/pricing/"
+  {
+   "url": "https://developers.cloudflare.com/containers/platform/pricing/",
+   "date": "2026-10-22",
+   "proved": "'Containers are billed for every 10ms that they are actively running ... with included monthly usage as part of the $5 USD per month Workers Paid plan' and the Free row reads 'N/A / N/A', with '25 GiB-hours/month included', '375 vCPU-minutes/month' and '200 GB-hours/month' on Workers Paid, quoted"
   },
-  "interface": [
-    "unknown"
-  ],
-  "interface_detail": "Access interface not documented in published terms.",
-  "tooling": "not stated",
-  "chaining": "not established",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "375 vCPU-minutes a month included in Workers Paid, then $0.000020 a vCPU-second",
-      "source": "https://developers.cloudflare.com/containers/platform/pricing/"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "25 GiB-hours and 200 GB-hours a month included; memory and disk bill on provisioned size, CPU on active use only",
-      "source": "https://developers.cloudflare.com/containers/platform/pricing/"
-    },
-    {
-      "kind": "per-ip-shaping",
-      "value": "egress is $0.025 a GB past 1 TB a month in North America and Europe, and $0.04 or $0.05 a GB past 500 GB elsewhere",
-      "source": "https://developers.cloudflare.com/containers/platform/pricing/"
-    }
-  ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "unverified: dash.cloudflare.com/sign-up answered HTTP 403 to a direct probe on 2026-11-24 and to every broker pin, fetch and archive route; the signup fields could not be read",
-    "country": null
+  {
+   "url": "https://developers.cloudflare.com/containers/platform/pricing/",
+   "date": "2026-11-25",
+   "proved": "billing is by 10ms of active running and included usage is part of the $5 USD per month Workers Paid plan",
+   "capture": "sha256:bfe8bbfd0905be6ea38480ebb82ae1c8623ff3876715eadabe453d3d73ef7f44",
+   "quote": "Containers are billed for every 10ms that they are actively running at the following rates, with included monthly usage as part of the $5 USD per month [Workers Paid plan](https://developers.cloudflare.com/workers/platform/pricing/):"
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "documented",
-  "confidence_note": "the Containers pricing page was read on 2026-10-22. Its Free row is N/A and the included allowance requires the $5 Workers Paid plan, so the record's free-tier claim is wrong and the verdict moves to paid-only",
-  "evidence": [
-    {
-      "url": "https://developers.cloudflare.com/containers/platform/pricing/",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://developers.cloudflare.com/containers/platform/pricing/",
-      "date": "2026-10-22",
-      "proved": "'Containers are billed for every 10ms that they are actively running ... with included monthly usage as part of the $5 USD per month Workers Paid plan' and the Free row reads 'N/A / N/A', with '25 GiB-hours/month included', '375 vCPU-minutes/month' and '200 GB-hours/month' on Workers Paid, quoted"
-    },
-    {
-      "url": "https://developers.cloudflare.com/containers/platform/pricing/",
-      "date": "2026-11-24",
-      "proved": "the egress price per GB and the included monthly allotment are published by region",
-      "capture": "sha256:582e31fb615fa622aa766613384e90fd7ce432e67d6276af5c69969962984134",
-      "quote": "| North America & Europe | $0.025 | 1 TB |\n| Oceania, Korea, Taiwan | $0.05 | 500 GB |\n| Everywhere Else | $0.04 | 500 GB |"
-    },
-    {
-      "url": "https://developers.cloudflare.com/containers/platform/pricing/",
-      "date": "2026-11-24",
-      "proved": "egress has a price past the included allotment",
-      "capture": "sha256:582e31fb615fa622aa766613384e90fd7ce432e67d6276af5c69969962984134",
-      "quote": "| North America & Europe | $0.025 | 1 TB |"
-    },
-    {
-      "url": "https://developers.cloudflare.com/containers/platform/pricing/",
-      "date": "2026-11-24",
-      "proved": "1 TB a month is included in North America and Europe",
-      "capture": "sha256:582e31fb615fa622aa766613384e90fd7ce432e67d6276af5c69969962984134",
-      "quote": "| North America & Europe | $0.025 | 1 TB |"
-    },
-    {
-      "url": "https://developers.cloudflare.com/containers/platform/pricing/",
-      "date": "2026-11-24",
-      "proved": "the page publishes a regional egress price table",
-      "capture": "sha256:582e31fb615fa622aa766613384e90fd7ce432e67d6276af5c69969962984134",
-      "quote": "Egress from Containers is priced at the following rates:"
-    },
-    {
-      "url": "https://developers.cloudflare.com/containers/platform/pricing/",
-      "date": "2026-11-24",
-      "proved": "the Free plan has no memory or CPU allowance",
-      "capture": "sha256:582e31fb615fa622aa766613384e90fd7ce432e67d6276af5c69969962984134",
-      "quote": "| **Free** | N/A | N/A |  |"
-    },
-    {
-      "url": "probe:dash.cloudflare.com/sign-up",
-      "date": "2026-11-24",
-      "proved": "the sign-up page answered 403 to a direct probe",
-      "capture": "sha256:de1f0d33a5674a306aa61441ebe212c7dcbe4ecdbfb6ec50caed599f106bbc9b",
-      "quote": "\"status\": 403"
-    },
-    {
-      "url": "probe:dash.cloudflare.com/sign-up",
-      "date": "2026-11-24",
-      "proved": "the sign-up page was walled, so its registration fields are unknown",
-      "capture": "sha256:de1f0d33a5674a306aa61441ebe212c7dcbe4ecdbfb6ec50caed599f106bbc9b",
-      "quote": "\"status\": 403"
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T11:38:11.670Z",
-  "price_per_tb_month": null,
-  "notes": "",
-  "extras": {
-    "seed_status": "ranked",
-    "talaria_m10h_usd": 59.0,
-    "talaria_m24h_usd": 134.6,
-    "nemo_m10h_usd": 43.59,
-    "keep_rate": 1.0,
-    "keep_rate_basis": "billed for uptime (no suspension feature published)",
-    "billing_model": "unclassified",
-    "shape": null,
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "billing is by 10ms of active running; a container that is not handling a request costs nothing, which is the sleep behaviour"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "granularity": {
-      "min_billed_s": 0,
-      "rounding_s": null
-    },
-    "burst_x": 1.001,
-    "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "ps": {
-      "gib": null,
-      "price": "$0.00000007 a GB-second past 200 GB-hours a month",
-      "durability": "instance disk",
-      "on_stop": true,
-      "on_destroy": false,
-      "retention": "while the instance exists"
-    },
-    "net": {
-      "out": true,
-      "in": true,
-      "ports": "Workers and HTTP",
-      "static_ip": false,
-      "ipv6": null,
-      "allowance": "1 TB a month in North America and Europe, 500 GB elsewhere"
-    }
+  {
+   "url": "https://developers.cloudflare.com/containers/platform/pricing/",
+   "date": "2026-11-25",
+   "proved": "the Free plan row reads N/A for memory and CPU",
+   "capture": "sha256:bfe8bbfd0905be6ea38480ebb82ae1c8623ff3876715eadabe453d3d73ef7f44",
+   "quote": "| **Free** | N/A | N/A | |"
   },
-  "stale": true,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding": "request-rate",
-  "history": [
-    "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
-  ]
+  {
+   "url": "https://developers.cloudflare.com/containers/platform/pricing/",
+   "date": "2026-11-25",
+   "proved": "the page states the 10ms billing, the $5 Workers Paid plan gate, the N/A Free row and the three included allowances",
+   "capture": "sha256:bfe8bbfd0905be6ea38480ebb82ae1c8623ff3876715eadabe453d3d73ef7f44",
+   "quote": "Containers are billed for every 10ms that they are actively running at the following rates, with included monthly usage as part of the $5 USD per month [Workers Paid plan](https://developers.cloudflare.com/workers/platform/pricing/): | **Free** | N/A | N/A | | | **Workers Paid** | 25 GiB-hours/month included <br> +$0.0000025 per additional GiB-second | 375 vCPU-minutes/month <br>+ $0.000020 per additional vCPU-second | 200 GB-hours/month <br> +$0.00000007 per additional GB-second |"
+  },
+  {
+   "url": "https://developers.cloudflare.com/containers/platform/pricing/",
+   "date": "2026-11-24",
+   "proved": "the egress price per GB and the included monthly allotment are published by region",
+   "capture": "sha256:582e31fb615fa622aa766613384e90fd7ce432e67d6276af5c69969962984134",
+   "quote": "| North America & Europe | $0.025 | 1 TB |\n| Oceania, Korea, Taiwan | $0.05 | 500 GB |\n| Everywhere Else | $0.04 | 500 GB |"
+  },
+  {
+   "url": "https://developers.cloudflare.com/containers/platform/pricing/",
+   "date": "2026-11-24",
+   "proved": "egress has a price past the included allotment",
+   "capture": "sha256:582e31fb615fa622aa766613384e90fd7ce432e67d6276af5c69969962984134",
+   "quote": "| North America & Europe | $0.025 | 1 TB |"
+  },
+  {
+   "url": "https://developers.cloudflare.com/containers/platform/pricing/",
+   "date": "2026-11-24",
+   "proved": "the page publishes a regional egress price table",
+   "capture": "sha256:582e31fb615fa622aa766613384e90fd7ce432e67d6276af5c69969962984134",
+   "quote": "Egress from Containers is priced at the following rates:"
+  },
+  {
+   "url": "https://developers.cloudflare.com/containers/platform/pricing/",
+   "date": "2026-11-24",
+   "proved": "the Free plan has no memory or CPU allowance",
+   "capture": "sha256:582e31fb615fa622aa766613384e90fd7ce432e67d6276af5c69969962984134",
+   "quote": "| **Free** | N/A | N/A |  |"
+  },
+  {
+   "url": "probe:dash.cloudflare.com/sign-up",
+   "date": "2026-11-24",
+   "proved": "the sign-up page answered 403 to a direct probe",
+   "capture": "sha256:de1f0d33a5674a306aa61441ebe212c7dcbe4ecdbfb6ec50caed599f106bbc9b",
+   "quote": "\"status\": 403"
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T11:17:39.908Z",
+ "price_per_tb_month": null,
+ "notes": "",
+ "extras": {
+  "seed_status": "ranked",
+  "talaria_m10h_usd": 59.0,
+  "talaria_m24h_usd": 134.6,
+  "nemo_m10h_usd": 43.59,
+  "keep_rate": 1.0,
+  "keep_rate_basis": "billed for uptime (no suspension feature published)",
+  "billing_model": "unclassified",
+  "shape": null,
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "billing is by 10ms of active running; a container that is not handling a request costs nothing, which is the sleep behaviour"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "granularity": {
+   "min_billed_s": 0,
+   "rounding_s": null
+  },
+  "burst_x": 1.001,
+  "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "ps": {
+   "gib": null,
+   "price": "$0.00000007 a GB-second past 200 GB-hours a month",
+   "durability": "instance disk",
+   "on_stop": true,
+   "on_destroy": false,
+   "retention": "while the instance exists"
+  },
+  "net": {
+   "out": true,
+   "in": true,
+   "ports": "Workers and HTTP",
+   "static_ip": false,
+   "ipv6": null,
+   "allowance": "1 TB a month in North America and Europe, 500 GB elsewhere"
+  }
+ },
+ "stale": true,
+ "stale_checked_at": "2026-10-22T00:00:00.000Z",
+ "binding": "request-rate",
+ "history": [
+  "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
+ ]
 }

@@ -1,0 +1,13 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u400-rerun",
+ "kind": "reconcile",
+ "topic": "compute",
+ "question": "Settle these disagreements on compute/sakura-cloud-2 from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.free_tier.notes: proposed \"It is stated outright that Sakura Cloud does not offer a free trial; coupons are distributed at seminars and campaigns and through the Sakura Cloud certificati (evidence https://cloud.sakura.ad.jp/faq/free-trial/, capture sha256:32bc72b17d074, quote '無料トライアルを提供しておりません。'); now \"It is stated outright that Sakura Cloud does not offer a free trial; coupons are distributed at seminars and campaigns and through the Sakura Cloud certificati. Why it did not apply: audit u326 judged it unsupported: Page confirms no free trial and coupons via seminars/campaigns, but nothing about coupons through the Sakura Cloud certification exam.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/sakura-cloud-2 $.free_tier.notes: The certification page supports the exam-coupon route and its closure with the third 2026 exam, but it does not state that Sakura Cloud offers no free trial or that coupons are distributed at seminars and campaigns; the value's first sentence is not on this page.\n- compute/sakura-cloud-2 $.free_tier.notes: The FAQ supports no free trial and coupons at seminars and campaigns, but it does not state that coupons are distributed through the Sakura Cloud certification exam or that the certification route ended with the third 2026 exam; the value's certification-exam clauses are not on this page.\n- compute/sakura-cloud-2 $.free_tier.notes: The FAQ supports coupons at seminars and campaigns, but it does not state the certification-exam route or its closure with the third 2026 exam; those clauses of the value are not on this page.\n- compute/sakura-cloud-2 $.free_tier.notes: The certification page supports the exam-coupon route and its closure with the third 2026 exam, but it does not state that Sakura Cloud offers no free trial or that coupons are distributed at seminars and campaigns; the value's first sentence is not on this page.",
+ "scope": {
+  "rids": [
+   "compute/sakura-cloud-2"
+  ]
+ },
+ "origin": "audit u422 of 20261125-0107-research-compute-5c82/u400 failed: 4 of 4 unsupported",
+ "created": "2026-11-25T22:05:45Z"
+}

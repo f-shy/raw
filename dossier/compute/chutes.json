@@ -5,7 +5,7 @@
   "url": "https://chutes.ai/news/community-announcement-february",
   "category": "inference API",
   "free_tier": {
-    "stated": "The free tier is retired. Announcement quoted: 'we introduced an Early Access perk that provided 200 requests per day for free ... the program is no longer sustainable in its current form and will be discontinued', with the 200-request quota removed for TEE models on 27 February 2026 and 'fully retired' on 15 March 2026. The pricing page now lists pay-as-you-go with 'no subscription, no minimum' plus Plus at USD 10 per month and Pro at USD 20 per month.",
+    "stated": "The free tier is retired. An Early Access perk that provided 200 requests per day for free was discontinued: access to TEE models was removed for Early Access users on February 27, 2026, and the 200 daily request quota remained available for all non-TEE models until March 15, at which point the plan was fully retired.",
     "unit": "requests",
     "metered_on": "wall-clock",
     "source_url": "https://chutes.ai/news/community-announcement-february",
@@ -74,10 +74,17 @@
       "url": "https://chutes.ai/llms.txt",
       "date": "2026-10-22",
       "proved": "catalog of 14 models as of 2026-10-22, all reporting confidential_compute true; cheapest Mistral-Nemo at USD 0.0245 per million input and USD 0.0978 per million output tokens"
+    },
+    {
+      "url": "https://chutes.ai/news/community-announcement-february",
+      "date": "2026-11-25",
+      "proved": "the announcement states the 200 daily request quota ended on March 15 and the plan was fully retired",
+      "capture": "sha256:bbd3f339860b557945910e9d924b1c28634edd531cde4bec4be1e0c0622fa2b5",
+      "quote": "- The **200 daily request quota** will remain available for all non-TEE models until **March 15**, at which point the plan will be fully retired."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:10.321Z",
   "notes": "REFUTATION plus a documentation contradiction notable. Chutes' own starter guide says a Bittensor wallet is optional, while its GitHub README and its CLI reference still say 'you must have a Bittensor wallet and hotkey' for registration. The web signup path is the one that works without a wallet; the CLI path is the one that assumes one. A reader who follows the CLI first will wrongly conclude this is wallet-gated. The free tier, however, is genuinely gone, which is the fact that matters for a zero-budget client.",
   "extras": {
     "wave2": {

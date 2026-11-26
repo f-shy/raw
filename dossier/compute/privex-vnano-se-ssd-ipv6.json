@@ -6,7 +6,7 @@
  "category": "IPv6-only VPS",
  "tier": "VNANO-SE-SSD",
  "free_tier": {
-  "stated": "No free tier. VNANO-SE-SSD is USD 0.99 a month with a USD 0.00 setup fee, printed '$0.00 setup fee $0.99 / mo'. A 7-day refund policy applies to VPS products.",
+  "stated": "No free tier. VNANO-SE-SSD is USD 0.99 a month with a USD 0.00 setup fee.",
   "unit": "none",
   "metered_on": "none",
   "source_url": "https://pay.privex.io/order/package/vnano-se-ssd",
@@ -95,6 +95,20 @@
    "url": "https://stat.ripe.net/data/as-overview/data.json?resource=AS210083",
    "date": "2026-10-24",
    "proved": "quoted JSON: \"holder\":\"Privex Privex Inc.\", \"announced\":true - an allocated AS whose registered holder name matches the trading company"
+  },
+  {
+   "url": "https://pay.privex.io/order/package/vnano-se-ssd",
+   "date": "2026-11-25",
+   "proved": "the order form names the VNANO-SE-SSD package and states a USD 0.00 setup fee and a USD 0.99 monthly price",
+   "capture": "sha256:b54cd2f68de8b584cb1e902da7a1d2564e29be06a3e83c93005197fc07743213",
+   "quote": "VNANO-SE-SSD ... $0.00 setup fee $0.99 / mo"
+  },
+  {
+   "url": "https://pay.privex.io/order/package/vnano-se-ssd",
+   "date": "2026-11-25",
+   "proved": "the VNANO-SE-SSD package is still priced at USD 0.99 per month with a USD 0.00 setup fee",
+   "capture": "sha256:b54cd2f68de8b584cb1e902da7a1d2564e29be06a3e83c93005197fc07743213",
+   "quote": "VNANO-SE-SSD ... $0.00 setup fee $0.99 / mo"
   }
  ],
  "verdict": "qualifies",
@@ -146,5 +160,5 @@
   "other_plans": "VNANO-SE-HDD USD 0.99 for 256 MB and 40 GB HDD; VNANO-SE-NVME USD 1.49 for 256 MB and 5 GB NVMe; VMICRO-SE-HDD and VMICRO-SE-SSD USD 1.99 for 512 MB and 80 GB HDD or 10 GB SSD; VMICRO-SE-NVME USD 3.49; V1-IPV6-SE-SSD USD 3.99 for 1 GB and 1 TB a month. All IPv6-only, all Sweden.",
   "regions": "Sweden, The Netherlands, Germany, Finland and the USA (North Carolina) for the wider catalogue; the IPv6-only micro family read today is Sweden"
  },
- "verified_at": "2026-10-24T06:03:49.000Z"
+ "verified_at": "2026-11-25T15:03:33.810Z"
 }

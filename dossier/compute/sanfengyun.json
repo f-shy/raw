@@ -5,7 +5,7 @@
   "url": "https://www.sanfengyun.com/freeServer/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "A free cloud server at 1 core, 1 GiB RAM, 5 Mbps bandwidth and a 10 GiB data disk, on BGP multi-line with an independent IP address, plus a free 免备案 (no ICP filing) service for domains pointed at it. The vendor states it has run the free product for eighteen years. Activation requires a mobile-number account and 实名认证 (real-name verification) that costs CNY 0.3. The first activation is 24 hours only. A renewal is earned by posting on a recommended site and submitting a screenshot for review, and each approved extension adds 5 days. A server that expires and is re-opened costs CNY 2.",
+    "stated": "A free cloud server at 1 core, 1G RAM, 5M bandwidth and a 10G data disk, on BGP multi-line with an independent IP address, plus a free 免备案 (no ICP filing) service.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://www.sanfengyun.com/freeServer/",
@@ -108,10 +108,17 @@
       "url": "https://www.abeiyun.com/free/",
       "date": "2026-10-22",
       "proved": "the free virtual host is 1 GiB of web space, 5 GB of monthly traffic, a 50 MB MySQL database, a shared IP, and ASP or PHP"
+    },
+    {
+      "url": "https://www.sanfengyun.com/freeServer/",
+      "date": "2026-11-25",
+      "proved": "the free server page states the BGP multi-line, independent IP and 免备案 offer and the 1-core, 1G, 5M, 10G configuration",
+      "capture": "sha256:f8d1e0924365ef41b7bae264b8a782f294d0e2084a1417c50c6810eb12a040f0",
+      "quote": "免费云服务器采用BGP多线路，速度快，独立IP地址，送免备案服务 ... 免费云服务器配置 CPU 1核 内存 1G 带宽 5M 数据盘 10G"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:35.328Z",
   "notes": "no open question recorded The provider name was recorded only in Chinese and the promoter's ASCII fold emptied it; the ASCII transliteration is used here and the original is in the free-tier sentence.",
   "extras": {
     "wave2": {

@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u256-q01",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "Should compute/dedione free_tier.unit be GB rather than GiB given its order page prints 20GB, and should the other four records' unit fields be reviewed against their reworded stated values?",
+ "why": "the unit-system lint (C07) requires free_tier.unit and the stated text to use the same unit system; the confirmed values are verbatim captures whose units the unit fields were not re-read to match",
+ "scope": {
+  "rids": [
+   "compute/dedione",
+   "compute/dedirock-storage-vps",
+   "compute/deepgram-startup-program",
+   "compute/deepinfra-deepstart",
+   "compute/deepnote-education-plan"
+  ]
+ },
+ "origin": "20261125-0107-research-compute-5c82/u256",
+ "created": "2026-11-25T15:03:40Z"
+}

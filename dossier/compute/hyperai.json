@@ -5,7 +5,7 @@
   "url": "https://hyper.ai/en/docs/membership",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "A membership whose monthly fee buys a fixed block of GPU hours, which is the cheapest denominator found anywhere among evaluated providers. Quoted: HyperAI Pro at USD 4.99 per month includes 30 GPU hours per month usable on a single RTX 5090, so a fully used month is USD 0.1663 per 32 GB GPU-hour, with no carry-over: 'Any remaining quota will be cleared at the beginning of the following month'. On-demand rates on the same site: RTX 5090 32GB USD 0.35/hr, RTX PRO 6000 96GB USD 0.80/hr, H100 PCIe 80GB USD 1.80/hr. Basic is quoted at USD 0.00 to get started with 20 GB of storage and a free CPU container of 2 vCPU and 4 GB RAM.",
+    "stated": "HyperAI Pro at US$4.99/Month: 'Receive 30 GPU hours per month (supports Single RTX 5090)'; Basic gets 'No free quota; Pay As You Go'. 'Any remaining quota will be cleared at the beginning of the following month, cannot be carried over, and cannot be transferred to other accounts or organizations.' 'Free CPU runtime': up to 8 consecutive hours per session on Pro and up to 2 on Basic. 'Storage Space': 'Free 20 GB + Extra 50 GB for Pro members', 'Free 20 GB' on Basic.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://hyper.ai/en/docs/membership",
@@ -73,10 +73,24 @@
       "url": "https://gpurentalprices.com/",
       "date": "2026-10-22",
       "proved": "independent tracker checked 2026-10-22 names HyperAI as the cheapest on-demand H100 at USD 1.80/hr across 38 providers and the cheapest RTX PRO 6000 at USD 0.80/hr"
+    },
+    {
+      "url": "https://hyper.ai/en/docs/membership",
+      "date": "2026-11-25",
+      "proved": "the benefits table states the Pro price, its 30 monthly GPU hours on a single RTX 5090, Basic's pay-as-you-go with no free quota, and the free CPU and storage allowances for both tiers",
+      "capture": "sha256:ba4ff9b050e0fef5e0a905978b1376f17fdd675aeb17e217f85d9cf2ba7a6861",
+      "quote": "| Project | HyperAI Pro (US$4.99/Month) [Join Now!](https://hyper.ai/en/docs/membership#membership-subscription-process) | HyperAI Basic |\n| --- | --- | --- |\n| **Free CPU runtime** | Run for up to 8 consecutive hours per session | Run for up to 2 consecutive hours per session |\n| **GPU Computing Resource** | Receive 30 GPU hours per month (supports Single RTX 5090) | No free quota; Pay As You Go |\n| **Storage Space** | Free 20 GB + Extra 50 GB for Pro members | Free 20 GB |"
+    },
+    {
+      "url": "https://hyper.ai/en/docs/membership",
+      "date": "2026-11-25",
+      "proved": "the granted GPU quota does not carry over between months or accounts",
+      "capture": "sha256:ba4ff9b050e0fef5e0a905978b1376f17fdd675aeb17e217f85d9cf2ba7a6861",
+      "quote": "Pro Members receive 30 GPU hours per month, which can be used on Single RTX 5090. Any remaining quota will be cleared at the beginning of the following month, cannot be carried over, and cannot be transferred to other accounts or organizations."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:28.100Z",
   "notes": "no open question recorded",
   "extras": {
     "wave2": {

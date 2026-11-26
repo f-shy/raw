@@ -6,7 +6,7 @@
   "category": "VPS",
   "tier": "VPS S+ (VPS+ range)",
   "free_tier": {
-    "stated": "no free tier; the entry plan is 'VPS S+' at USD 6 a month, discounted to USD 2 a month for 3 months with a 1-year term",
+    "stated": "no free tier; the entry plan is 'VPS S+' at USD 6 a month with 1 vCore, 2 GB RAM and 60 GB NVMe, and the page says 'Cancel anytime'",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://www.ionos.com/servers/vps",
@@ -63,10 +63,17 @@
       "url": "https://www.ionos.com/servers/vps",
       "date": "2026-10-24",
       "proved": "quoted: 'Unlimited traffic and no setup fees'"
+    },
+    {
+      "url": "https://www.ionos.com/servers/vps",
+      "date": "2026-11-25",
+      "proved": "the VPS S+ plan card states USD 6 a month and cancel anytime, with 1 vCore, 2 GB RAM and 60 GB NVMe; no free tier appears",
+      "capture": "sha256:a90fa5d3a531dd4b9a59a1fcd6a8f237eec277c4dadb31860375c564df6a2b0d",
+      "quote": "VPS S+ Only $6 /month Cancel anytime 1 vCore CPU 2 GB RAM 60 GB NVMe"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-24T01:56:00.000Z",
+  "verified_at": "2026-11-25T11:17:45.894Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "A textbook first-term promo: USD 2 for three months, USD 6 thereafter, on a one-year contract. The 4 GiB rung is USD 5 for three months and USD 14 after, which is the row a careless table would list as '4 GB for USD 5'. Recorded as over_line at its renewal rate.",

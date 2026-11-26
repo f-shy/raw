@@ -6,7 +6,7 @@
  "category": "NAT VPS",
  "tier": "Micro",
  "free_tier": {
-  "stated": "No free tier, but a free startup credit that needs no card. The Micro card is USD 0.10 a month, billed at 0.000135 an hour: 128 MB RAM, 1 GB NVMe, Economy CPU, IOPS and network tiers, NAT IPv4 with 2 TCP and 2 UDP ports, and an IPv6 /64 per location. A minimum account top-up of USD 3 applies after registration, so USD 0.10 is the run rate and USD 3 is the first payment.",
+  "stated": "No free tier. The Micro card is USD 0.10 a month, billed at USD 0.000135 an hour: 128 MB RAM, 1 GB NVMe SSD, Economy CPU.",
   "unit": "none",
   "metered_on": "none",
   "source_url": "https://tierhive.com/",
@@ -130,6 +130,13 @@
    "url": "https://tierhive.com/status/",
    "date": "2026-10-24",
    "proved": "quoted: 'All locations operational', with 'Amsterdam, NL Operational 99.98 % uptime', 'Frankfurt, DE Operational 100 % uptime' and 'London, UK Operational 99.99 % uptime' over 90 days"
+  },
+  {
+   "url": "https://tierhive.com/",
+   "date": "2026-11-25",
+   "proved": "the homepage price card states the Micro plan's hourly rate, monthly rate, RAM, disk and CPU tier",
+   "capture": "sha256:624c775c6f26ffa03b6e52fd71358240714d4c566258b1ca6f9433ddd7c909da",
+   "quote": "Micro\n\n* RAM128 MB\n* NVMe SSD1 GB\n* CPUEconomy\n\n$0.10/mo\n\n0.000135/hr"
   }
  ],
  "verdict": "qualifies-with-caveat",
@@ -215,5 +222,5 @@
   "cart_evidence": "pricing page renders 'Micro RAM 128 MB NVMe SSD 1 GB CPU Economy $ 0.10 /mo 0.000135 /hr Deploy'; every Deploy button is href https://control.tierhive.com/register, so no price is rendered before an account exists",
   "needs_account_first": true
  },
- "verified_at": "2026-10-24T04:26:37.000Z"
+ "verified_at": "2026-11-25T05:17:52.949Z"
 }

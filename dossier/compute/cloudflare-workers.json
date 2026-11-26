@@ -15,7 +15,7 @@
   "limits_note": "there is no duration limit for an HTTP-triggered Worker while the connection stays open; cron and queue handlers are capped at 15 minutes",
   "reliability_note": "no reliability event observed",
   "confidence": "documented",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:39.492Z",
   "price_per_tb_month": null,
   "history": [],
   "slug": "cloudflare-workers",
@@ -23,7 +23,7 @@
   "url": "https://developers.cloudflare.com/workers/platform/limits/",
   "category": "serverless runtime",
   "free_tier": {
-    "stated": "Workers Free: 100,000 requests a day, 10 ms of CPU time per request, 128 MB memory, 50 subrequests per request",
+    "stated": "| [Requests](#daily-requests) | 100,000/day | No limit |\n| [CPU time](#cpu-time) | 10 ms | 5 min |\n| [Memory](#memory) | 128 MB | 128 MB |\n| [Subrequests](#subrequests) | 50/request | 10,000/request |",
     "unit": "requests",
     "metered_on": "request-count",
     "source_url": "https://developers.cloudflare.com/workers/platform/limits/",
@@ -78,6 +78,20 @@
       "url": "https://developers.cloudflare.com/workers/platform/limits/",
       "date": "2026-10-22",
       "proved": "Paid raises CPU time to 5 minutes and subrequests to 1,000 per request"
+    },
+    {
+      "url": "https://developers.cloudflare.com/workers/platform/limits/",
+      "date": "2026-11-25",
+      "proved": "the account-plan limits table states the Workers Free request, CPU, memory and subrequest values",
+      "capture": "sha256:b48752e4bb8d56cf4b01ab46ec3b18c37be846927027950d901faac4dcdfa9d5",
+      "quote": "| [Requests](#daily-requests) | 100,000/day | No limit | ... | [CPU time](#cpu-time) | 10 ms | 5 min | ... | [Memory](#memory) | 128 MB | 128 MB | ... | [Subrequests](#subrequests) | 50/request | 10,000/request |"
+    },
+    {
+      "url": "https://developers.cloudflare.com/workers/platform/limits/",
+      "date": "2026-11-25",
+      "proved": "the limits page still states 100,000 requests a day, 10 ms CPU, 128 MB memory and 50 subrequests on Workers Free",
+      "capture": "sha256:b48752e4bb8d56cf4b01ab46ec3b18c37be846927027950d901faac4dcdfa9d5",
+      "quote": "| [Requests](#daily-requests) | 100,000/day | No limit | ... | [CPU time](#cpu-time) | 10 ms | 5 min | ... | [Memory](#memory) | 128 MB | 128 MB | ... | [Subrequests](#subrequests) | 50/request | 10,000/request |"
     }
   ],
   "verdict": "qualifies-with-caveat",

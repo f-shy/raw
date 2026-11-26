@@ -1,174 +1,181 @@
 {
-  "topic": "compute",
-  "slug": "sealos-devbox",
-  "provider": "Sealos DevBox",
-  "url": "https://sealos.io/pricing/",
-  "category": "dev environment",
-  "free_tier": {
-    "stated": "no free tier: fixed monthly resource packages from USD 7 for the first Starter month (regular USD 34), then USD 34; Starter includes 2 vCPU, 2 GiB RAM, 10 GiB disk and 10 GB traffic; no USD 0 plan",
+ "topic": "compute",
+ "slug": "sealos-devbox",
+ "provider": "Sealos DevBox",
+ "url": "https://sealos.io/pricing/",
+ "category": "dev environment",
+ "free_tier": {
+  "stated": "No free tier: fixed monthly resource packages, with a new-user discount on the first paid plan. The Starter package is the entry point: regular price $34, new user price $7/ month on the first paid plan, with 2 vCPU, 2Gi RAM, 10Gi Disk, 10GB Traffic, 4 NodePorts and 100 AI Credits. There is no USD 0 plan.",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://sealos.io/pricing/",
+  "read_on": "2026-10-24"
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://sealos.io/pricing/",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "not stated",
+  "days": null,
+  "source_url": "https://sealos.io/pricing/",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "not published",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://sealos.io/pricing/"
+ },
+ "interface": [
+  "unknown"
+ ],
+ "interface_detail": "Access interface not documented in published terms.",
+ "tooling": "not stated",
+ "chaining": "not established",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "a fixed monthly package rather than metered billing: the entry Starter package is 2 vCPU, 2 GiB RAM, 10 GiB disk and 10 GB traffic; the Hobby package is 4 vCPU, 4 GiB RAM, 20 GiB disk and 50 GB traffic",
+   "source": "https://sealos.io/pricing/"
+  },
+  {
+   "kind": "per-object-cap",
+   "value": "the package's disk and traffic are the ceilings, and platform credits are spent separately",
+   "source": "https://sealos.io/pricing/"
+  }
+ ],
+ "limits_note": "Session cap, idle-reap and network policy are not documented. No rate published.",
+ "identity_cost": {
+  "kind": "card",
+  "detail": "a card for the first paid plan: the cheapest entry is USD 7 for the first Starter month, then USD 34 a month; first-paid-plan eligibility is confirmed in Cost Center; no free tier or trial is published. Details of what the signup form asks for are unverified from the pages read.",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "documented",
+ "confidence_note": "the pricing page was read on 2026-10-22 and states fixed monthly packages with the resource mix. There is no free tier, so the verdict moves to paid-only, and the fixed-package model is the opposite of per-second billing",
+ "evidence": [
+  {
+   "url": "https://sealos.io/pricing/",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
+  },
+  {
+   "url": "https://sealos.io/pricing/",
+   "date": "2026-10-22",
+   "proved": "'Choose a fixed monthly resource package' and 'Every plan shows the CPU, memory, storage, traffic, and platform credits included in its monthly price', with 'Includes 4 vCPU, 4Gi RAM, 20Gi disk, and 50GB traffic' and '100 / 300 / 800 AI Credits', quoted"
+  },
+  {
+   "url": "https://sealos.io/pricing/",
+   "date": "2026-10-24",
+   "proved": "quoted: 'Starter ... Regular price $34 ... New user price $7/ month ... First paid plan purchase - Eligibility confirmed in Cost Center'"
+  },
+  {
+   "url": "https://sealos.io/pricing/",
+   "date": "2026-11-25",
+   "proved": "the Starter plan's regular price, new-user price and first-paid-plan condition are stated",
+   "capture": "sha256:15f4c1daa8764c405a0f2b25e0409b21150cdb51bcc91a5284dd6ab1cf71730e",
+   "quote": "Regular price\n\n$34\n\nNew user price\n\n$7/ month\n\nFirst paid plan purchase · Eligibility confirmed in Cost Center"
+  },
+  {
+   "url": "https://sealos.io/pricing/",
+   "date": "2026-11-24",
+   "proved": "the first-paid-plan discount and regular price",
+   "capture": "sha256:15f4c1daa8764c405a0f2b25e0409b21150cdb51bcc91a5284dd6ab1cf71730e",
+   "quote": "Starter For lightweight experiments and existing container workloads. Regular price $34 New user price $7/ month First paid plan purchase"
+  },
+  {
+   "url": "https://sealos.io/pricing/",
+   "date": "2026-11-24",
+   "proved": "the Starter package resources",
+   "capture": "sha256:15f4c1daa8764c405a0f2b25e0409b21150cdb51bcc91a5284dd6ab1cf71730e",
+   "quote": "Included resources 2 vCPU 2Gi RAM 10Gi Disk 10GB Traffic 4 NodePorts 100 AI Credits"
+  },
+  {
+   "url": "https://sealos.io/pricing/",
+   "date": "2026-11-24",
+   "proved": "the first-paid-plan discount is gated on eligibility in Cost Center",
+   "capture": "sha256:15f4c1daa8764c405a0f2b25e0409b21150cdb51bcc91a5284dd6ab1cf71730e",
+   "quote": "First paid plan purchase · Eligibility confirmed in Cost Center"
+  },
+  {
+   "url": "https://sealos.io/pricing/",
+   "date": "2026-11-24",
+   "proved": "the Hobby package resources",
+   "capture": "sha256:15f4c1daa8764c405a0f2b25e0409b21150cdb51bcc91a5284dd6ab1cf71730e",
+   "quote": "Included resources 4 vCPU 4Gi RAM 20Gi Disk 50GB Traffic 8 NodePorts 300 AI Credits"
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T11:17:49.025Z",
+ "price_per_tb_month": null,
+ "notes": "Re-read 2026-10-24: the page publishes the package prices now, so the record no longer needs to describe them as unstated. Still no free tier.",
+ "extras": {
+  "seed_status": "no-rate",
+  "talaria_m10h_usd": null,
+  "talaria_m24h_usd": null,
+  "nemo_m10h_usd": 70.0,
+  "keep_rate": null,
+  "keep_rate_basis": "no field in the source",
+  "billing_model": "unclassified",
+  "shape": {
+   "vcpu": 4,
+   "ram": 4,
+   "disk": 20,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "the page's reference package, including 50 GB of traffic"
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "a monthly package with no session clock; the package is the bound"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "burst_x": 1.0,
+  "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "ps": {
+   "gib": 20,
+   "price": "included in the monthly package",
+   "durability": "package disk",
+   "on_stop": true,
+   "on_destroy": false,
+   "retention": "the billing month"
+  },
+  "net": {
+   "out": true,
+   "in": true,
+   "ports": "any",
+   "static_ip": null,
+   "ipv6": null,
+   "allowance": "50 GB of traffic in the reference package"
+  },
+  "superseded": {
+   "free_tier": {
+    "stated": "no free tier: fixed monthly resource packages that include CPU, memory, storage, traffic and platform credits, with a 4 vCPU, 4 GiB and 20 GiB package as the reference",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://sealos.io/pricing/",
-    "read_on": "2026-10-24"
-  },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://sealos.io/pricing/",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
-  },
-  "retention": {
-    "stated": "not stated",
-    "days": null,
-    "source_url": "https://sealos.io/pricing/",
-    "notes": "Disk durability across instance stops and deletions is not documented."
-  },
-  "egress": {
-    "terms": "not published",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://sealos.io/pricing/"
-  },
-  "interface": [
-    "unknown"
-  ],
-  "interface_detail": "Access interface not documented in published terms.",
-  "tooling": "not stated",
-  "chaining": "not established",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "a fixed monthly package rather than metered billing: the entry Starter package is 2 vCPU, 2 GiB RAM, 10 GiB disk and 10 GB traffic; the Hobby package is 4 vCPU, 4 GiB RAM, 20 GiB disk and 50 GB traffic",
-      "source": "https://sealos.io/pricing/"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "the package's disk and traffic are the ceilings, and platform credits are spent separately",
-      "source": "https://sealos.io/pricing/"
-    }
-  ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented. No rate published.",
-  "identity_cost": {
-    "kind": "card",
-    "detail": "a card for the first paid plan: the cheapest entry is USD 7 for the first Starter month, then USD 34 a month; first-paid-plan eligibility is confirmed in Cost Center; no free tier or trial is published. Details of what the signup form asks for are unverified from the pages read.",
+    "read_on": "2026-10-22"
+   },
+   "identity_cost": {
+    "kind": "email",
+    "detail": "unverified: not stated in the source card. `email` is the assumed value because every priced host in the set requires an account, and no signup was performed, so the kind is not established for this provider",
     "country": null
-  },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "documented",
-  "confidence_note": "the pricing page was read on 2026-10-22 and states fixed monthly packages with the resource mix. There is no free tier, so the verdict moves to paid-only, and the fixed-package model is the opposite of per-second billing",
-  "evidence": [
-    {
-      "url": "https://sealos.io/pricing/",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://sealos.io/pricing/",
-      "date": "2026-10-22",
-      "proved": "'Choose a fixed monthly resource package' and 'Every plan shows the CPU, memory, storage, traffic, and platform credits included in its monthly price', with 'Includes 4 vCPU, 4Gi RAM, 20Gi disk, and 50GB traffic' and '100 / 300 / 800 AI Credits', quoted"
-    },
-    {
-      "url": "https://sealos.io/pricing/",
-      "date": "2026-10-24",
-      "proved": "quoted: 'Starter ... Regular price $34 ... New user price $7/ month ... First paid plan purchase - Eligibility confirmed in Cost Center'"
-    },
-    {
-      "url": "https://sealos.io/pricing/",
-      "date": "2026-11-24",
-      "proved": "the first-paid-plan discount and regular price",
-      "capture": "sha256:15f4c1daa8764c405a0f2b25e0409b21150cdb51bcc91a5284dd6ab1cf71730e",
-      "quote": "Starter For lightweight experiments and existing container workloads. Regular price $34 New user price $7/ month First paid plan purchase"
-    },
-    {
-      "url": "https://sealos.io/pricing/",
-      "date": "2026-11-24",
-      "proved": "the Starter package resources",
-      "capture": "sha256:15f4c1daa8764c405a0f2b25e0409b21150cdb51bcc91a5284dd6ab1cf71730e",
-      "quote": "Included resources 2 vCPU 2Gi RAM 10Gi Disk 10GB Traffic 4 NodePorts 100 AI Credits"
-    },
-    {
-      "url": "https://sealos.io/pricing/",
-      "date": "2026-11-24",
-      "proved": "the first-paid-plan discount is gated on eligibility in Cost Center",
-      "capture": "sha256:15f4c1daa8764c405a0f2b25e0409b21150cdb51bcc91a5284dd6ab1cf71730e",
-      "quote": "First paid plan purchase · Eligibility confirmed in Cost Center"
-    },
-    {
-      "url": "https://sealos.io/pricing/",
-      "date": "2026-11-24",
-      "proved": "the Hobby package resources",
-      "capture": "sha256:15f4c1daa8764c405a0f2b25e0409b21150cdb51bcc91a5284dd6ab1cf71730e",
-      "quote": "Included resources 4 vCPU 4Gi RAM 20Gi Disk 50GB Traffic 8 NodePorts 300 AI Credits"
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T13:21:04.001Z",
-  "price_per_tb_month": null,
-  "notes": "Re-read 2026-10-24: the page publishes the package prices now, so the record no longer needs to describe them as unstated. Still no free tier.",
-  "extras": {
-    "seed_status": "no-rate",
-    "talaria_m10h_usd": null,
-    "talaria_m24h_usd": null,
-    "nemo_m10h_usd": 70.0,
-    "keep_rate": null,
-    "keep_rate_basis": "no field in the source",
-    "billing_model": "unclassified",
-    "shape": {
-      "vcpu": 4,
-      "ram": 4,
-      "disk": 20,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "the page's reference package, including 50 GB of traffic"
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "a monthly package with no session clock; the package is the bound"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "burst_x": 1.0,
-    "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "ps": {
-      "gib": 20,
-      "price": "included in the monthly package",
-      "durability": "package disk",
-      "on_stop": true,
-      "on_destroy": false,
-      "retention": "the billing month"
-    },
-    "net": {
-      "out": true,
-      "in": true,
-      "ports": "any",
-      "static_ip": null,
-      "ipv6": null,
-      "allowance": "50 GB of traffic in the reference package"
-    },
-    "superseded": {
-      "free_tier": {
-        "stated": "no free tier: fixed monthly resource packages that include CPU, memory, storage, traffic and platform credits, with a 4 vCPU, 4 GiB and 20 GiB package as the reference",
-        "unit": "none",
-        "metered_on": "none",
-        "source_url": "https://sealos.io/pricing/",
-        "read_on": "2026-10-22"
-      },
-      "identity_cost": {
-        "kind": "email",
-        "detail": "unverified: not stated in the source card. `email` is the assumed value because every priced host in the set requires an account, and no signup was performed, so the kind is not established for this provider",
-        "country": null
-      },
-      "verified_at": "2026-10-22T04:47:57.829Z"
-    }
-  },
-  "binding": "request-rate",
-  "history": [
-    "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
-  ]
+   },
+   "verified_at": "2026-10-22T04:47:57.829Z"
+  }
+ },
+ "binding": "request-rate",
+ "history": [
+  "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
+ ]
 }

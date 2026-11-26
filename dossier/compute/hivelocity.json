@@ -5,7 +5,7 @@
   "url": "https://www.vpsbenchmarks.com/hosters/hivelocity",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "USD 10.00/month for PRO.SM.AMD: 2 shared CPU cores with guaranteed minimums, 4 GB RAM, 40 GB NVMe. Next rows: PRO.MD.AMD at USD 20.00 with 4 cores, 8 GB and 80 GB; PRO.LG.AMD at USD 39.00 with 8 cores, 16 GB and 160 GB; and the VDS line, which is dedicated-resource and starts at USD 21.00 for 2 cores, 4 GB and 80 GB. The page names 'United States' as the data-center country and reports three data centers.",
+    "stated": "There is no free tier: the cheapest paid plan listed is PRO.SM.AMD at USD 10.00 / month for 2 CPU cores, 4.0GB RAM and 40GB storage.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://www.vpsbenchmarks.com/hosters/hivelocity",
@@ -64,10 +64,17 @@
       "url": "https://www.vpsbenchmarks.com/hosters/hivelocity",
       "date": "2026-10-22",
       "proved": "the extra-services table marks 'GPU instances' green, so the provider sells GPU time as a separate product line that this page does not price"
+    },
+    {
+      "url": "https://www.vpsbenchmarks.com/hosters/hivelocity",
+      "date": "2026-11-25",
+      "proved": "the cheapest listed paid plan PRO.SM.AMD is USD 10.00 per month for 2 cores, 4.0GB RAM and 40GB storage",
+      "capture": "sha256:e9275f1d9beb6af1ef1b8bd1e99afd4aa2d541d465ada4ecdfee9a5e5a3eef2c",
+      "quote": "[PRO.SM.AMD](https://www.vpsbenchmarks.com/hosters/hivelocity/plans/pro-sm-amd) 2 4.0GB 40GB  $10.00 / month"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:27.269Z",
   "notes": "Found on both serverhunter and vpsbenchmarks; the vpsbenchmarks page is documented because it carries the plan table. verification criteria: the vendor's pricing page with computeType=virtual-server, which the benchmark page links, for the transfer allowance that this record cannot state.",
   "extras": {
     "wave2": {

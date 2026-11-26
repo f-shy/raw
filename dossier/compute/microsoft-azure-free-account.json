@@ -26,7 +26,7 @@
   "limits_note": "a USD 1 authorisation hold is placed at signup and removed",
   "reliability_note": "no reliability event observed",
   "confidence": "documented",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:30.539Z",
   "price_per_tb_month": null,
   "notes": "Twelve months is longer than AWS's six and it is still a trial. The 65 or more always-free services on the same page are the durable ones, and the VM hours are not among them.",
   "slug": "microsoft-azure-free-account",
@@ -34,7 +34,7 @@
   "url": "https://azure.microsoft.com/en-us/free/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "USD 200 of credit for 30 days plus 750 hours each of B1s, B2pts v2 and B2ats v2 burstable VMs for 12 months",
+    "stated": "Get free services and a $200 credit to explore Azure for up to 30 days. 750 hours each of B1s, B2pts v2 (Arm-based), and B2ats v2 (AMD-based) burstable VMs are free for 12 months to new customers.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://azure.microsoft.com/en-us/free/",
@@ -73,6 +73,20 @@
       "url": "https://azure.microsoft.com/en-us/free/",
       "date": "2026-10-22",
       "proved": "the phone number and card are used for identity verification to validate that account holders are real people"
+    },
+    {
+      "url": "https://azure.microsoft.com/en-us/free/",
+      "date": "2026-11-25",
+      "proved": "the free account states a $200 credit usable for up to 30 days; the VM-hours clause is a separate sentence of the same page captured below",
+      "capture": "sha256:905ed2c8165a8145de0bacfa59d4a0f757768f315ec0c99a2b20c6a5ec547736",
+      "quote": "Get free services and a $200 credit to explore Azure for up to 30 days."
+    },
+    {
+      "url": "https://azure.microsoft.com/en-us/free/",
+      "date": "2026-11-25",
+      "proved": "the page still states a $200 credit for up to 30 days alongside its free services",
+      "capture": "sha256:905ed2c8165a8145de0bacfa59d4a0f757768f315ec0c99a2b20c6a5ec547736",
+      "quote": "Get free services and a $200 credit to explore Azure for up to 30 days."
     }
   ],
   "verdict": "trial-only",

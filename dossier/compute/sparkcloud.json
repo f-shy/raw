@@ -5,7 +5,7 @@
   "url": "https://sparkden.org/cloud",
   "category": "platform host",
   "free_tier": {
-    "stated": "SparkCloud publishes a six-part free stack on one account: root Linux containers on Ubuntu 24.04 with real SSH, auto-hibernating browser dev Spaces, managed Postgres 16 with daily backups, static hosting with custom domains, an OpenAI-compatible endpoint fronting Claude, GPT and Gemini, and object storage with global edge caching. The page states 'Free forever, no credit card' and 'Free for every teen, no credit card, because a nonprofit covers the cost', run by a 501(c)(3). The registration page states 'Sparkden is for teenagers. Every account is age-verified.' No credit figure, container shape, or monthly hour allowance is published on either page read.",
+    "stated": "Real Linux servers with root and SSH, managed Postgres, an editor in your browser, and a live URL for whatever you make. Free for every teen, no credit card, because a nonprofit covers the cost.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://sparkden.org/cloud",
@@ -89,10 +89,24 @@
       "url": "https://sparkden.org/",
       "date": "2026-10-24",
       "proved": "quoted on the allowance: 'Every teen account gets a standing monthly allotment, granted automatically' and 'Your allotment resets at the start of each month'"
+    },
+    {
+      "url": "https://sparkden.org/cloud",
+      "date": "2026-11-25",
+      "proved": "the cloud page's opening states the free stack and that it is free for every teen with no credit card",
+      "capture": "sha256:b9d595ae3db88729db4d36fd2754994a37859c6ed113e425757065f6d016fb64",
+      "quote": "Real Linux servers with root and SSH, managed Postgres, an editor in your browser, and a live URL for whatever you make. Free for every teen, no credit card, because a nonprofit covers the cost."
+    },
+    {
+      "url": "https://sparkden.org/cloud",
+      "date": "2026-11-25",
+      "proved": "the cloud page's opening still states the free stack and that it is free for every teen with no credit card",
+      "capture": "sha256:b9d595ae3db88729db4d36fd2754994a37859c6ed113e425757065f6d016fb64",
+      "quote": "Real Linux servers with root and SSH, managed Postgres, an editor in your browser, and a live URL for whatever you make. Free for every teen, no credit card, because a nonprofit covers the cost."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:47.493Z",
   "notes": "Recorded because the corpus stops the next session from chasing it, and because the shape is instructive: a nonprofit can publish a stack that no commercial provider matches on breadth, and gate it on an attribute rather than on money. The quota is unknown, which matters if the age policy ever widens; the page publishes no credit number, no container shape and no monthly hour allowance, so a reader who found the door open would still not know what was behind it. FreeTierWatch and a Hacker News thread both discuss Oracle's halving in the same week, which is how this lead was found.",
   "extras": {
     "wave2": {

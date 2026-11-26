@@ -1,0 +1,177 @@
+{
+  "topic": "compute",
+  "slug": "expo-simulators-eas",
+  "provider": "Expo Simulators (EAS)",
+  "url": "https://expo.dev/pricing",
+  "category": "cloud iOS simulator and Android emulator",
+  "tier": "Starter, with 60 simulator minutes included until 2027",
+  "free_tier": {
+    "stated": "Starter, Production and Enterprise plans include 60 simulator minutes a month until 2027; the Free plan lists Simulators as coming soon, and sessions start only on paid plans.",
+    "unit": "minutes",
+    "metered_on": "wall-clock",
+    "source_url": "https://expo.dev/pricing",
+    "read_on": "2026-11-25",
+    "notes": "Starter is $19/month plus additional usage cost. Usage beyond the included minutes is $0.10 per simulator minute, billed per second."
+  },
+  "per_object_cap": {
+    "stated": "not applicable: the unit is a simulator session, not an object; one artifact can be up to about 5 GiB.",
+    "source_url": "https://docs.expo.dev/eas/simulators/reference/security-and-data.md"
+  },
+  "retention": {
+    "stated": "Job logs on the session page are available for 30 days after the session is created; session artifacts such as screenshots and recordings are kept until the session is deleted.",
+    "days": 30,
+    "source_url": "https://docs.expo.dev/eas/simulators/reference/security-and-data.md",
+    "notes": "Artifact retention on the pricing table is 30 days; the security page says artifacts survive until the user deletes the session."
+  },
+  "egress": {
+    "terms": "Without local egress, all traffic from the simulator exits from Expo infrastructure; with --egress local, device traffic exits from the user's computer and the egress client refuses local, private, link-local and multicast addresses.",
+    "metered": false,
+    "free_allowance": null,
+    "price_per_tb": null,
+    "source_url": "https://docs.expo.dev/eas/simulators/reference/security-and-data.md"
+  },
+  "interface": [
+    "rest",
+    "graphql",
+    "cli",
+    "browser",
+    "chat"
+  ],
+  "interface_detail": "Sessions start with the `eas simulator` CLI, the REST API or a browser live view; agents drive the device with agent-device, Argent or Appium commands, including MCP.",
+  "endpoint": "https://api.expo.dev/v2/device-run-sessions",
+  "tooling": "The EAS CLI and REST API start and stop sessions; Claude Code, Codex, Cursor, agent-device, Argent, Appium and Maestro drive the simulator.",
+  "chaining": "A coding agent can install a build into an isolated cloud simulator, drive it, and attach a recording to a pull request without a local Mac.",
+  "limits": [
+    {
+      "kind": "volume-quota",
+      "value": "60 simulator minutes a month included until 2027 on Starter, Production and Enterprise; then $0.10 per iOS Simulator or Android Emulator minute",
+      "source": "https://expo.dev/pricing"
+    },
+    {
+      "kind": "request-rate",
+      "value": "115 minutes maximum session duration; 5 concurrencies on Starter up to 2 on macOS",
+      "source": "https://expo.dev/pricing"
+    }
+  ],
+  "limits_note": "The session timer starts when the session is ready; the job running the session has a hard limit of the maximum duration plus five minutes. An unnamed session has no idle timeout until --max-idle-time-minutes is set. Sessions wait in the account's job concurrency queue.",
+  "binding": "volume-quota",
+  "binding_note": "The 60 included minutes a month, then the $0.10 per-minute meter, bind before the 115-minute per-session cap for a single agent.",
+  "identity_cost": {
+    "kind": "email",
+    "detail": "The Expo signup page asks the user to accept the Terms and Privacy Policy and marketing emails; sessions require a paid Starter, Production or Enterprise plan. Whether a card is collected at signup is unverified: behind a sign-up.",
+    "country": null
+  },
+  "reliability_note": "A session that is not stopped runs until its maximum duration or idle limit; the REST API returns controller tokens only while the session is in-progress, and every session is isolated in its own VM.",
+  "confidence": "documented",
+  "confidence_note": "Price, included minutes, session cap and retention are quoted from Expo's own pricing and documentation pages read on 2026-11-25; the signup gate is from the signup page.",
+  "evidence": [
+    {
+      "url": "https://expo.dev/pricing",
+      "date": "2026-11-25",
+      "proved": "Starter costs $19 a month plus usage",
+      "capture": "sha256:f9be4a65ff1a2fdae3d8f7e04f69d66750d7026a0f2875d2f731551782aa834a",
+      "quote": "### Starter — $19/month plus additional usage cost"
+    },
+    {
+      "url": "https://expo.dev/pricing",
+      "date": "2026-11-25",
+      "proved": "60 simulator minutes a month are included until 2027 on paid plans and the Free plan lists Simulators as coming soon",
+      "capture": "sha256:f9be4a65ff1a2fdae3d8f7e04f69d66750d7026a0f2875d2f731551782aa834a",
+      "quote": "Simulator minutes | Coming soon | Usage-based pricing (60 min/month included until 2027) | Usage-based pricing (60 min/month included until 2027) | Custom (60 min/month included until 2027) _(Custom pricing available. [Contact us](https://expo.dev/contact) for more information.)_"
+    },
+    {
+      "url": "https://expo.dev/pricing",
+      "date": "2026-11-25",
+      "proved": "the iOS Simulator rate is $0.10 a minute",
+      "capture": "sha256:f9be4a65ff1a2fdae3d8f7e04f69d66750d7026a0f2875d2f731551782aa834a",
+      "quote": "| iOS Simulator | $0.10 |"
+    },
+    {
+      "url": "https://expo.dev/pricing",
+      "date": "2026-11-25",
+      "proved": "the rate is billed per second and applies to Starter and Production",
+      "capture": "sha256:f9be4a65ff1a2fdae3d8f7e04f69d66750d7026a0f2875d2f731551782aa834a",
+      "quote": "Billed per second while a session runs. These rates apply to Starter and Production. Custom pricing available for Enterprise plans. [Contact us](https://expo.dev/contact) for more information."
+    },
+    {
+      "url": "https://docs.expo.dev/eas/simulators/reference/usage-and-billing/",
+      "date": "2026-11-25",
+      "proved": "Simulators are available on paid plans only",
+      "capture": "sha256:34790800b8746bdd77e05181991619caf802dbe527472a49c7230928a7c8100b",
+      "quote": "Expo Simulators is available on the Starter, Production, and Enterprise plans. Check the account of the current project:"
+    },
+    {
+      "url": "https://docs.expo.dev/eas/simulators/reference/usage-and-billing/",
+      "date": "2026-11-25",
+      "proved": "sessions stop at a 115-minute maximum",
+      "capture": "sha256:34790800b8746bdd77e05181991619caf802dbe527472a49c7230928a7c8100b",
+      "quote": "Only paid plans can start sessions. Each session has a maximum duration of 115 minutes. When the session reaches it, Expo Simulators stops the session."
+    },
+    {
+      "url": "https://docs.expo.dev/eas/simulators/reference/security-and-data.md",
+      "date": "2026-11-25",
+      "proved": "simulator traffic exits Expo infrastructure by default, or the user's computer with local egress",
+      "capture": "sha256:5cf0ae105920cbb28a40d00ae96696adb9ff0aae73a8734205c6cdf4315af4f7",
+      "quote": "-   **Default egress:** without local egress, all traffic from the simulator exits from Expo infrastructure."
+    },
+    {
+      "url": "https://docs.expo.dev/eas/simulators/reference/security-and-data.md",
+      "date": "2026-11-25",
+      "proved": "job logs are available for 30 days and artifacts survive until the session is deleted",
+      "capture": "sha256:5cf0ae105920cbb28a40d00ae96696adb9ff0aae73a8734205c6cdf4315af4f7",
+      "quote": "-   Job logs on the session page are available for 30 days after the session is created."
+    },
+    {
+      "url": "https://expo.dev/signup",
+      "date": "2026-11-25",
+      "proved": "signup accepts the Terms and Privacy Policy and marketing emails",
+      "capture": "sha256:b5dabe55b4d9361e5429478ca86530722ac2e62671630e583108901df9c2115d",
+      "quote": "By continuing, you agree to the Terms and Privacy Policy, and to receive marketing emails from Expo. Unsubscribe anytime."
+    },
+    {
+      "url": "https://expo.dev/services/simulators",
+      "date": "2026-11-25",
+      "proved": "the product is on-demand cloud iOS simulators and Android emulators for agents",
+      "capture": "sha256:b35a80c4a78c73eeac551561df497b2787c6fa5479fe1098e21fff3b6033654e",
+      "quote": "Spin up secure cloud iOS simulators and android emulators on demand. Your agents install a build, drive it, and verify their own work, running as many in parallel as you need."
+    },
+    {
+      "url": "https://expo.dev/signup",
+      "date": "2026-11-25",
+      "proved": "the Expo signup form labels its email input \"Email\", so an email address is the identity required to register",
+      "capture": "sha256:5fc842a8f9e515da9fc2e6950c76173b94f9651dc4eb2421ac85047965eba14c",
+      "quote": "data-form-field-label=\"true\" for=\"email\"><div class=\"flex items-center\"><span class=\"text-sm font-medium\">Email</span></div></label>"
+    },
+    {
+      "url": "https://expo.dev/changelog/sign-in-with-github",
+      "date": "2026-11-25",
+      "proved": "even the GitHub sign-up route on Expo requires the user's email address, so email is the identity gate",
+      "capture": "sha256:70fe7dee2ba75cc7a83c795a23290659c5d7d50a5d0e8f2ab6fe9801ddfd2738",
+      "quote": "We require permission to view your email address in order to offer GitHub Sign In as an authentication method."
+    }
+  ],
+  "verdict": "paid-only",
+  "verified_at": "2026-11-25T16:38:10.532Z",
+  "price_per_tb_month": null,
+  "notes": "Expo Simulators is a hosted simulator/emulator service, not user-run software. The Free plan has no Simulators access (listed as coming soon); paid plans include 60 minutes a month until 2027 and then bill $0.10 a simulator minute. Session artifacts survive until the session is deleted; job logs are kept 30 days.",
+  "extras": {
+    "billing_model": "monthly plan with included minutes then per-second usage",
+    "free_tier_kind": "included minutes on a paid plan",
+    "term": "monthly",
+    "price_arithmetic": "$0.10 per minute is $6.00 an hour",
+    "session_cap": {
+      "wall_clock_min": 115,
+      "idle_reap_s": null,
+      "note": "no idle timeout unless --max-idle-time-minutes is set"
+    },
+    "network_out": {
+      "allow_outbound": true,
+      "allow_inbound_listen": null,
+      "ports": "not stated",
+      "static_ip": null,
+      "per_session_bytes": null,
+      "default_egress": "Expo infrastructure"
+    },
+    "artifacts": "one artifact up to about 5 GiB; artifact download URL needs no login but contains a long random key"
+  }
+}

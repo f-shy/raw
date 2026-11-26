@@ -5,7 +5,7 @@
   "url": "https://docs.cloud.vessl.ai/ko/pricing/gpu-instances",
   "category": "GPU cloud",
   "free_tier": {
-    "stated": "Korean GPU cloud with an on-demand rate table in Korean, last updated 2026-09-26: H100 SXM 80GB at USD 2.98 per hour, A100 SXM 80GB at USD 1.48 per hour, L40S 48GB at USD 1.80 per hour. H200 SXM 141GB, B200 192GB, B300 288GB and GB300 288GB are reserved-only and priced by sales quote. The page states the prices are for reference and the billed amount may differ slightly.",
+    "stated": "| A100 SXM | 80 GB | \\$1.77/시간 | 영업팀 문의 |",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://docs.cloud.vessl.ai/ko/pricing/gpu-instances",
@@ -58,10 +58,17 @@
       "url": "https://docs.cloud.vessl.ai/ko/pricing/gpu-instances",
       "date": "2026-10-22",
       "proved": "quoted notes: prices are for reference and the actual billed amount may differ slightly; last updated 2026-09-26"
+    },
+    {
+      "url": "https://docs.cloud.vessl.ai/ko/pricing/gpu-instances",
+      "date": "2026-11-25",
+      "proved": "the A100 SXM 80 GB on-demand rate is USD 1.77 per hour",
+      "capture": "sha256:59abd94f1890324acf501d90221452a037440e497dc3c4c5a41b9c9d434b4636",
+      "quote": "| A100 SXM | 80 GB | \\$1.77/시간 | 영업팀 문의 |"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:48.362Z",
   "notes": "no record in dossier/compute/. Recorded from the Korean documentation because the English pricing page was not the source of these numbers; the vendor also states the figures are indicative, which is a caveat on the price rather than on the capacity. Whether a Korean entity or phone is required to open an account was not established, and that is what would move this from paid-only to fails-identity.",
   "extras": {
     "wave2": {

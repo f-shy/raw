@@ -59,10 +59,17 @@
       "url": "https://cloud.google.com/free/docs/free-cloud-features",
       "date": "2026-10-23",
       "proved": "'Signing up for the Free Trial creates a Free Trial billing account that is preloaded with $300 in free Welcome credit which is valid for 90 days', quoted; the same page states the card requirement, the 90-day expiry after upgrade, and the Gemini API and GPU exclusions"
+    },
+    {
+      "url": "https://cloud.google.com/free/docs/free-cloud-features",
+      "date": "2026-11-25",
+      "proved": "the Free Trial billing account is preloaded with $300 in Welcome credit valid for 90 days",
+      "capture": "sha256:fb586488a217a0ff0238444a87a475f4707979c7264530c727094822a4e15d70",
+      "quote": "Signing up for the Free Trial creates a Free Trial billing account that is preloaded with $300 in free Welcome credit which is valid for 90 days."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-10-23T11:22:37.000Z",
+  "verified_at": "2026-11-25T11:17:43.853Z",
   "price_per_tb_month": null,
   "notes": "This is a different record from google-cloud-free-tier, which carries the e2-micro allowance that has no end date. The trial is the largest single balance Google publishes to an individual, and the exclusions decide what it is worth: no GPU on a trial billing account, and no Gemini API spend. A workload that plans to train on a GPU cannot use this credit for it.",
   "extras": {

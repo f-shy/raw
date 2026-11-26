@@ -24,7 +24,7 @@
   "limits_note": "this record exists so the free hardware row is not mistaken for a free machine",
   "reliability_note": "a free-hardware Space sleeps after inactivity and wakes on request, so the first visitor after a quiet period waits for a cold start",
   "confidence": "documented",
-  "verified_at": "2026-10-24T01:52:00.000Z",
+  "verified_at": "2026-11-25T11:17:44.306Z",
   "price_per_tb_month": null,
   "notes": "This is the sharpest price-list trap in evaluated offerings: the hardware row says FREE and the same page's docs say a paid plan is required to use it. A reader who only reads the price table gets it wrong.",
   "slug": "huggingface-spaces-cpu-basic",
@@ -32,7 +32,7 @@
   "url": "https://huggingface.co/docs/hub/en/spaces-overview",
   "category": "platform host",
   "free_tier": {
-    "stated": "CPU Basic is listed at 2 vCPU / 16 GB for FREE, but creating a Gradio or Docker Space requires a paid plan; a free account may host up to 2 Gradio Spaces on ZeroGPU instead",
+    "stated": "CPU Basic is listed at 2 vCPU / 16 GB at FREE hourly price, but creating a Gradio or Docker Space that runs on compute requires a paid plan: PRO for personal accounts, Team or Enterprise for organizations; Static Spaces are free for everyone and a free personal account in good standing may still host up to 2 Gradio Spaces running on ZeroGPU.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://huggingface.co/docs/hub/en/spaces-overview",
@@ -90,6 +90,20 @@
       "url": "https://huggingface.co/pricing",
       "date": "2026-10-24",
       "proved": "quoted: 'Upgrade your HF experience for $9/month.' — the PRO price that the compute-Space gate costs"
+    },
+    {
+      "url": "https://huggingface.co/docs/hub/en/spaces-overview",
+      "date": "2026-11-25",
+      "proved": "the paid-plan gate for compute Spaces and the ZeroGPU exception for free personal accounts",
+      "capture": "sha256:d2e33dff669a1c1d6f44bcdaba0263dfd5178b57d705772ca68bafaa0a78bcbb",
+      "quote": "Static Spaces are free for everyone. Gradio and Docker Spaces run on compute and require a paid plan to create: PRO for personal accounts, Team or Enterprise for organizations. Free personal accounts in good standing can still host up to 2 Gradio Spaces running on [ZeroGPU](./spaces-zerogpu)."
+    },
+    {
+      "url": "https://huggingface.co/docs/hub/en/spaces-overview",
+      "date": "2026-11-25",
+      "proved": "the paid-plan gate for compute Spaces and the free Static and ZeroGPU lanes are unchanged",
+      "capture": "sha256:d2e33dff669a1c1d6f44bcdaba0263dfd5178b57d705772ca68bafaa0a78bcbb",
+      "quote": "Static Spaces are free for everyone. Gradio and Docker Spaces run on compute and require a paid plan to create: PRO for personal accounts, Team or Enterprise for organizations. Free personal accounts in good standing can still host up to 2 Gradio Spaces running on [ZeroGPU](./spaces-zerogpu)."
     }
   ],
   "verdict": "paid-only",

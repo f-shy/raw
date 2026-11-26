@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u356-q04",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "Which clauses of $.free_tier.stated are supported: are the third-party directory claims (east-China RTX 4090 at CNY 2.00/hour, 免实名, Alipay/WeChat accepted, and the north-west 4090D at CNY 1.10) part of this offer, and is the CNY 50GB /hy-tmp allotment a free tier rather than a paid-instance storage allowance?",
+ "why": "The vendor capture (sha256:3e1e33f28479e0b34b3e81796e0458663290f787773263009da16082861ccaa2) supports the top-up ladder, per-second billing, hourly settlement, 50GB /hy-tmp and CNY 0.0004/GB-hour but not the directory claims; the gpu114 capture (sha256:ef2bfbc5f00cd93bc6cde6e1766954fb62491dbc89684455781a243fef95f955) is a third-party directory for a different vendor listing, and the dxnt capture (sha256:3f08b064967ae0a483fd5de7c5d681c2612f83f10aab5ca5ea6739f988c050c3) is HTTP 404. No single capture supports the whole value, so the record is left alone.",
+ "scope": {
+  "rids": [
+   "compute/gpushare"
+  ]
+ },
+ "origin": "20261125-0107-research-compute-5c82/u356",
+ "created": "2026-11-25T15:40:39Z"
+}

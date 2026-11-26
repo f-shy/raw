@@ -1,161 +1,161 @@
 {
-  "topic": "compute",
-  "slug": "tama",
-  "provider": "tama",
-  "url": "https://tama.computer/",
-  "category": "container and VM sandbox",
-  "free_tier": {
-    "stated": "no free tier: machines from 1 to 32 vCPU and 1 to 128 GB of RAM billed by the second, with a GPU attached on request and a persistent kernel that keeps state on stop",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://tama.computer/",
-    "read_on": "2026-10-22"
+ "topic": "compute",
+ "slug": "tama",
+ "provider": "tama",
+ "url": "https://tama.computer/",
+ "category": "container and VM sandbox",
+ "free_tier": {
+  "stated": "No charge for snapshots or stopped machines.",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://tama.computer/",
+  "read_on": "2026-10-22"
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://tama.computer/",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "not stated",
+  "days": null,
+  "source_url": "https://tama.computer/",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "not published",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://tama.computer/"
+ },
+ "interface": [
+  "cli"
+ ],
+ "interface_detail": "CLI installed by a shell installer and driven with tama commands such as `tama new base --gpu H100`; no other interface is documented on the page",
+ "tooling": "not stated",
+ "chaining": "not established",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "billed by the second; the metered CPU-only rate is $0.0117 per vCPU-hour plus $0.0055 per GiB-hour and a dedicated instance reserved for a month is $4.82/hr × 730 h",
+   "source": "https://tama.computer/"
   },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://tama.computer/",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+  {
+   "kind": "retention-clamped",
+   "value": "a persistent kernel bills at 1.08 times its running rate while stopped, so a stop is a surcharge rather than a saving",
+   "source": "https://tama.computer/"
   },
-  "retention": {
-    "stated": "not stated",
-    "days": null,
-    "source_url": "https://tama.computer/",
-    "notes": "Disk durability across instance stops and deletions is not documented."
+  {
+   "kind": "per-object-cap",
+   "value": "machines run from 1 to 32 vCPU and 1 to 128 GB of RAM, with a GPU attached per machine",
+   "source": "https://tama.computer/"
+  }
+ ],
+ "limits_note": "Session cap, idle-reap and network policy are not documented.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "unverified: no signup gate is stated on the page read; the CLI installer and machine commands are published, but the identity kind is not established",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "documented",
+ "confidence_note": "the site was read on 2026-10-22 and states per-second billing, the shape range and the persistent-kernel behaviour. There is no free tier, so the verdict moves to paid-only, and the stopped-machine multiplier is the keeper cost",
+ "evidence": [
+  {
+   "url": "https://tama.computer/",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
   },
-  "egress": {
-    "terms": "not published",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://tama.computer/"
+  {
+   "url": "https://tama.computer/",
+   "date": "2026-10-22",
+   "proved": "'Give your agent a machine to hack on and pay by the second' with 'tama new base --gpu H100', '1-32 vCPU · 1-128 GB RAM', 'Reserving a dedicated instance for a month $4.82/hr × 730 h', and 'persistent-kernel 1.08× stopped', quoted"
   },
-  "interface": [
-    "cli"
-  ],
-  "interface_detail": "CLI installed by a shell installer and driven with tama commands such as `tama new base --gpu H100`; no other interface is documented on the page",
-  "tooling": "not stated",
-  "chaining": "not established",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "billed by the second; the metered CPU-only rate is $0.0117 per vCPU-hour plus $0.0055 per GiB-hour and a dedicated instance reserved for a month is $4.82/hr × 730 h",
-      "source": "https://tama.computer/"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "a persistent kernel bills at 1.08 times its running rate while stopped, so a stop is a surcharge rather than a saving",
-      "source": "https://tama.computer/"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "machines run from 1 to 32 vCPU and 1 to 128 GB of RAM, with a GPU attached per machine",
-      "source": "https://tama.computer/"
-    }
-  ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "unverified: no signup gate is stated on the page read; the CLI installer and machine commands are published, but the identity kind is not established",
-    "country": null
+  {
+   "url": "https://tama.computer/",
+   "date": "2026-11-25",
+   "proved": "stopped machines and snapshots carry no charge; the 1.08x row is an optimisation speedup in a fork demo",
+   "capture": "sha256:52a2d48956fb688a54ff84667c7ceb35811a19c1230c67e500651fc3f9beb74e",
+   "quote": "No charge for snapshots or stopped machines."
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "documented",
-  "confidence_note": "the site was read on 2026-10-22 and states per-second billing, the shape range and the persistent-kernel behaviour. There is no free tier, so the verdict moves to paid-only, and the stopped-machine multiplier is the keeper cost",
-  "evidence": [
-    {
-      "url": "https://tama.computer/",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://tama.computer/",
-      "date": "2026-10-22",
-      "proved": "'Give your agent a machine to hack on and pay by the second' with 'tama new base --gpu H100', '1-32 vCPU · 1-128 GB RAM', 'Reserving a dedicated instance for a month $4.82/hr × 730 h', and 'persistent-kernel 1.08× stopped', quoted"
-    },
-    {
-      "url": "https://tama.computer/",
-      "date": "2026-11-24",
-      "proved": "the machine is reached by an installed CLI",
-      "capture": "sha256:52a2d48956fb688a54ff84667c7ceb35811a19c1230c67e500651fc3f9beb74e",
-      "quote": "`curl -fsSL https://tama.computer/install | sh`"
-    },
-    {
-      "url": "https://tama.computer/",
-      "date": "2026-11-24",
-      "proved": "a tama CLI provisions machines",
-      "capture": "sha256:52a2d48956fb688a54ff84667c7ceb35811a19c1230c67e500651fc3f9beb74e",
-      "quote": "`tama new base --gpu H100`"
-    },
-    {
-      "url": "https://tama.computer/",
-      "date": "2026-11-24",
-      "proved": "the current metered CPU-only rate",
-      "capture": "sha256:52a2d48956fb688a54ff84667c7ceb35811a19c1230c67e500651fc3f9beb74e",
-      "quote": "$0.0117 per vCPU-hour + $0.0055 per GiB-hour"
-    },
-    {
-      "url": "https://tama.computer/",
-      "date": "2026-11-24",
-      "proved": "per-second billing and no charge for snapshots or stopped machines",
-      "capture": "sha256:52a2d48956fb688a54ff84667c7ceb35811a19c1230c67e500651fc3f9beb74e",
-      "quote": "## You only pay for the seconds a machine is running.\n\nNo charge for snapshots or stopped machines."
-    },
-    {
-      "url": "https://tama.computer/",
-      "date": "2026-11-24",
-      "proved": "paid per second with no charge for snapshots or stopped machines",
-      "capture": "sha256:52a2d48956fb688a54ff84667c7ceb35811a19c1230c67e500651fc3f9beb74e",
-      "quote": "## You only pay for the seconds a machine is running.\n\nNo charge for snapshots or stopped machines."
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T13:21:05.669Z",
-  "price_per_tb_month": null,
-  "notes": "",
-  "extras": {
-    "seed_status": "ranked",
-    "talaria_m10h_usd": 13.62,
-    "talaria_m24h_usd": 32.7,
-    "nemo_m10h_usd": 13.62,
-    "keep_rate": 1.0,
-    "keep_rate_basis": "billed for uptime (no suspension feature published)",
-    "billing_model": "unclassified",
-    "shape": {
-      "vcpu": 6,
-      "ram": 17,
-      "disk": null,
-      "gpu_class": "NVIDIA H100",
-      "gpu_count": 1,
-      "note": "the H100 shape is 24 GB of VRAM, 6 vCPU and 17 GB of RAM; CPU machines go to 32 vCPU and 128 GB"
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "a persistent kernel keeps state and bills at 1.08 times the running rate while stopped"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "burst_x": 1.0,
-    "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "ps": {
-      "gib": null,
-      "price": "state is kept by a persistent kernel at 1.08 times the running rate",
-      "durability": "persistent kernel",
-      "on_stop": true,
-      "on_destroy": false,
-      "retention": "while the kernel is kept"
-    },
-    "net": null
+  {
+   "url": "https://tama.computer/",
+   "date": "2026-11-24",
+   "proved": "the machine is reached by an installed CLI",
+   "capture": "sha256:52a2d48956fb688a54ff84667c7ceb35811a19c1230c67e500651fc3f9beb74e",
+   "quote": "`curl -fsSL https://tama.computer/install | sh`"
   },
-  "stale": true,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding": "request-rate",
-  "history": [
-    "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
-  ]
+  {
+   "url": "https://tama.computer/",
+   "date": "2026-11-24",
+   "proved": "a tama CLI provisions machines",
+   "capture": "sha256:52a2d48956fb688a54ff84667c7ceb35811a19c1230c67e500651fc3f9beb74e",
+   "quote": "`tama new base --gpu H100`"
+  },
+  {
+   "url": "https://tama.computer/",
+   "date": "2026-11-24",
+   "proved": "the current metered CPU-only rate",
+   "capture": "sha256:52a2d48956fb688a54ff84667c7ceb35811a19c1230c67e500651fc3f9beb74e",
+   "quote": "$0.0117 per vCPU-hour + $0.0055 per GiB-hour"
+  },
+  {
+   "url": "https://tama.computer/",
+   "date": "2026-11-24",
+   "proved": "per-second billing and no charge for snapshots or stopped machines",
+   "capture": "sha256:52a2d48956fb688a54ff84667c7ceb35811a19c1230c67e500651fc3f9beb74e",
+   "quote": "## You only pay for the seconds a machine is running.\n\nNo charge for snapshots or stopped machines."
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T15:03:52.090Z",
+ "price_per_tb_month": null,
+ "notes": "",
+ "extras": {
+  "seed_status": "ranked",
+  "talaria_m10h_usd": 13.62,
+  "talaria_m24h_usd": 32.7,
+  "nemo_m10h_usd": 13.62,
+  "keep_rate": 1.0,
+  "keep_rate_basis": "billed for uptime (no suspension feature published)",
+  "billing_model": "unclassified",
+  "shape": {
+   "vcpu": 6,
+   "ram": 17,
+   "disk": null,
+   "gpu_class": "NVIDIA H100",
+   "gpu_count": 1,
+   "note": "the H100 shape is 24 GB of VRAM, 6 vCPU and 17 GB of RAM; CPU machines go to 32 vCPU and 128 GB"
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "a persistent kernel keeps state and bills at 1.08 times the running rate while stopped"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "burst_x": 1.0,
+  "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "ps": {
+   "gib": null,
+   "price": "state is kept by a persistent kernel at 1.08 times the running rate",
+   "durability": "persistent kernel",
+   "on_stop": true,
+   "on_destroy": false,
+   "retention": "while the kernel is kept"
+  },
+  "net": null
+ },
+ "stale": true,
+ "stale_checked_at": "2026-10-22T00:00:00.000Z",
+ "binding": "request-rate",
+ "history": [
+  "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
+ ]
 }

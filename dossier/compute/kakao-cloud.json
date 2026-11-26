@@ -5,7 +5,7 @@
   "url": "https://www.kakaocloud.com/services/virtual-machine/pricing",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "no free tier: pay-as-you-go instances across general-purpose and accelerator families, with root and additional volumes billed separately as Block Storage",
+    "stated": "서비스 요금은 사용한 만큼만 지불하는 방식(Pay-as-you-go)으로, 운영 효율성과 비용 관리를 극대화할 수 있습니다.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://www.kakaocloud.com/services/virtual-machine/pricing",
@@ -67,12 +67,33 @@
       "url": "https://www.kakaocloud.com/services/virtual-machine/pricing",
       "date": "2026-10-22",
       "proved": "the pricing page was read on 2026-10-22 (Korean, 200 with the broker reporting no numeric status) and lists general-purpose instance families m1ix, m3az, t1i and c1ix with accelerator families gn1i (NVIDIA T4) and p2i (NVIDIA A100), billing per use and charging root and additional volumes separately as Block Storage"
+    },
+    {
+      "url": "https://www.kakaocloud.com/services/virtual-machine/pricing",
+      "date": "2026-11-25",
+      "proved": "the page states pay-as-you-go billing for Virtual Machine service",
+      "capture": "sha256:7e2984c8f4641b0099b416285294dfabb91e2897965de2817bce08b986825881",
+      "quote": "서비스 요금은 사용한 만큼만 지불하는 방식(Pay-as-you-go)으로, 운영 효율성과 비용 관리를 극대화할 수 있습니다."
+    },
+    {
+      "url": "https://www.kakaocloud.com/services/virtual-machine/pricing",
+      "date": "2026-11-25",
+      "proved": "the page was read on 2026-11-25 and still states pay-as-you-go instance billing",
+      "capture": "sha256:7e2984c8f4641b0099b416285294dfabb91e2897965de2817bce08b986825881",
+      "quote": "서비스 요금은 사용한 만큼만 지불하는 방식(Pay-as-you-go)으로, 운영 효율성과 비용 관리를 극대화할 수 있습니다."
+    },
+    {
+      "url": "https://www.kakaocloud.com/services/virtual-machine/pricing",
+      "date": "2026-11-25",
+      "proved": "the page states that Windows images are excluded from free credits",
+      "capture": "sha256:7e2984c8f4641b0099b416285294dfabb91e2897965de2817bce08b986825881",
+      "quote": "Windows 계열 이미지에는 무료 크레딧이 적용되지 않습니다."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:47:15.211Z",
+  "verified_at": "2026-11-25T15:03:50.407Z",
   "price_per_tb_month": null,
-  "notes": "",
+  "notes": "Root and additional volumes are billed separately as Block Storage. Instance families cover general-purpose and accelerator types. Windows images do not get free credits; Ubuntu and other listed Linux images are shown as 무료 (free) in the OS image table. The page does not state that no free tier exists.",
   "extras": {
     "seed_status": "ranked",
     "talaria_m10h_usd": 9.77,

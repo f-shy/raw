@@ -6,7 +6,7 @@
   "category": "container-PaaS",
   "tier": "Free plan",
   "free_tier": {
-    "stated": "'The free plan never expires', 'no credit card needed', 'Free subdomain for every server', 'Unmetered bandwidth on every plan'. The live panel mock on the home page shows 'CPU 0.3 vCPU', 'Memory 74 / 256 MB', 'Disk 120 / 512 MB'.",
+    "stated": "'The free plan never expires', 'No credit card, no expiry', 'Free subdomain on every server', 'Unmetered bandwidth on every plan'. The free plan includes 0.3 vCPU, 256 MB RAM, 512 MB disk, 3 free server slots and a free subdomain. The live panel mock shows 'CPU0.3 vCPU', 'Memory74 / 256 MB', 'Disk120 / 512 MB'.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://hokas.net/",
@@ -83,10 +83,24 @@
       "url": "https://status.hokas.net/",
       "date": "2026-10-24",
       "proved": "quoted: 'All services are online', 'Last updated on Oct 24, 2026 at 4:05am UTC'"
+    },
+    {
+      "url": "https://hokas.net/",
+      "date": "2026-11-25",
+      "proved": "the home page states the full free-plan allocation, including three free server slots",
+      "capture": "sha256:0df04b101233ca515a72f455cd37dcd61d1bb52666ee3e909d23dec8cd5ecdf5",
+      "quote": "The free plan includes 0.3 vCPU, 256 MB RAM, 512 MB disk, 3 free server slots and a free subdomain."
+    },
+    {
+      "url": "https://hokas.net/",
+      "date": "2026-11-25",
+      "proved": "the free-plan allocation is unchanged and still listed on the home page",
+      "capture": "sha256:0df04b101233ca515a72f455cd37dcd61d1bb52666ee3e909d23dec8cd5ecdf5",
+      "quote": "The free plan includes 0.3 vCPU, 256 MB RAM, 512 MB disk, 3 free server slots and a free subdomain."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-24T04:12:03.000Z",
+  "verified_at": "2026-11-25T11:17:20.282Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "Documented because it is the clearest example among evaluated providers of a free tier whose marketing says 'never expires' while its own documentation says the server 'runs for a limited time' and is renewed by completing an advertising or link flow in 12 or 24 hour blocks. The contradiction is the finding: the marketing sentence and the documentation sentence are both on the vendor's own site, read today. That renewal loop is a human action, so the machine does not survive a tab closing, which is the bar evaluated providers set. Everything else about it is reasonable: a real dashboard, seven runtimes, a free subdomain, unmetered bandwidth, no card.",

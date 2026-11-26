@@ -1,161 +1,161 @@
 {
-  "topic": "compute",
-  "slug": "unikraft-cloud",
-  "provider": "Unikraft Cloud",
-  "url": "https://unikraft.com/pricing",
-  "category": "container and VM sandbox",
-  "free_tier": {
-    "stated": "no free tier stated: capacity with millisecond cold boots where idle infrastructure is not billed",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://unikraft.com/pricing",
-    "read_on": "2026-10-22"
+ "topic": "compute",
+ "slug": "unikraft-cloud",
+ "provider": "Unikraft Cloud",
+ "url": "https://unikraft.com/pricing",
+ "category": "container and VM sandbox",
+ "free_tier": {
+  "stated": "no free tier stated: millisecond cold boots where idle infrastructure is not billed",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://unikraft.com/pricing",
+  "read_on": "2026-10-22"
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://unikraft.com/pricing",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "not stated",
+  "days": null,
+  "source_url": "https://unikraft.com/pricing",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "not published",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://unikraft.com/pricing"
+ },
+ "interface": [
+  "cli"
+ ],
+ "interface_detail": "The unikraft CLI deploys unikernel images and manages instances, with machine-readable JSON output; REST is not stated on the captured pages.",
+ "tooling": "the user installs and runs the unikraft CLI to log in and deploy instances; the hosted lane needs no hardware the user owns",
+ "chaining": "the hosted lane bills no idle infrastructure and uses millisecond cold boots, so an intermittent workload pays only for run time; a dedicated-hosted and an on-prem lane are also listed with no published rate",
+ "limits": [
+  {
+   "kind": "retention-clamped",
+   "value": "idle infrastructure is not billed; a millisecond cold boot is what makes that possible",
+   "source": "https://unikraft.com/pricing"
   },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://unikraft.com/pricing",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+  {
+   "kind": "write-gated",
+   "value": "the page refers to plans without pricing them in the extracted body",
+   "source": "https://unikraft.com/pricing"
+  }
+ ],
+ "limits_note": "Session cap, idle-reap and network policy are not documented. No rate published.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "Sign in with GitHub or Google; by signing up the user agrees to the Terms of Service and Privacy Policy. No card, phone number or identity document is stated on the sign-in page.",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "reported",
+ "confidence_note": "the pricing page was read on 2026-10-22 and its extracted body carries the idle-billing promise and a plan reference, but no plan table or price, so the free-tier field keeps its earlier source",
+ "evidence": [
+  {
+   "url": "https://unikraft.com/pricing",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
   },
-  "retention": {
-    "stated": "not stated",
-    "days": null,
-    "source_url": "https://unikraft.com/pricing",
-    "notes": "Disk durability across instance stops and deletions is not documented."
+  {
+   "url": "https://unikraft.com/pricing",
+   "date": "2026-10-22",
+   "proved": "'## Never Pay for Idle Again' and '### You don't pay for idle infrastructure' with 'Millisecond cold boots = lower overhead' and 'Whether you're testing, scaling, or deploying enterprise workloads, we've got a plan that fits.', quoted"
   },
-  "egress": {
-    "terms": "not published",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://unikraft.com/pricing"
+  {
+   "url": "https://unikraft.com/pricing",
+   "date": "2026-11-25",
+   "proved": "the pricing page states that idle infrastructure is not billed, with no free tier or plan price printed",
+   "capture": "sha256:15f4ec5fdb2269a6faf116dca445a6b1cf82e61ee71e23aa3a14a4a86314f361",
+   "quote": "You don't pay for idle infrastructure"
   },
-  "interface": [
-    "cli"
-  ],
-  "interface_detail": "The unikraft CLI deploys unikernel images and manages instances, with machine-readable JSON output; REST is not stated on the captured pages.",
-  "tooling": "the user installs and runs the unikraft CLI to log in and deploy instances; the hosted lane needs no hardware the user owns",
-  "chaining": "the hosted lane bills no idle infrastructure and uses millisecond cold boots, so an intermittent workload pays only for run time; a dedicated-hosted and an on-prem lane are also listed with no published rate",
-  "limits": [
-    {
-      "kind": "retention-clamped",
-      "value": "idle infrastructure is not billed; a millisecond cold boot is what makes that possible",
-      "source": "https://unikraft.com/pricing"
-    },
-    {
-      "kind": "write-gated",
-      "value": "the page refers to plans without pricing them in the extracted body",
-      "source": "https://unikraft.com/pricing"
-    }
-  ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented. No rate published.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "Sign in with GitHub or Google; by signing up the user agrees to the Terms of Service and Privacy Policy. No card, phone number or identity document is stated on the sign-in page.",
-    "country": null
+  {
+   "url": "https://console.unikraft.cloud/auth/signin",
+   "date": "2026-11-24",
+   "proved": "registration uses a GitHub or Google account; no card or phone is asked for on the sign-in page",
+   "capture": "sha256:07d892d5ea287fe71f5e0adc55b094734fd3f5882a9550e28590b211500aa90d",
+   "quote": "[Continue with GitHub](https://console.unikraft.com/auth/github/signin) [Continue with Google](https://console.unikraft.com/auth/google/signin)"
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "reported",
-  "confidence_note": "the pricing page was read on 2026-10-22 and its extracted body carries the idle-billing promise and a plan reference, but no plan table or price, so the free-tier field keeps its earlier source",
-  "evidence": [
-    {
-      "url": "https://unikraft.com/pricing",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://unikraft.com/pricing",
-      "date": "2026-10-22",
-      "proved": "'## Never Pay for Idle Again' and '### You don't pay for idle infrastructure' with 'Millisecond cold boots = lower overhead' and 'Whether you're testing, scaling, or deploying enterprise workloads, we've got a plan that fits.', quoted"
-    },
-    {
-      "url": "https://console.unikraft.cloud/auth/signin",
-      "date": "2026-11-24",
-      "proved": "registration uses a GitHub or Google account; no card or phone is asked for on the sign-in page",
-      "capture": "sha256:07d892d5ea287fe71f5e0adc55b094734fd3f5882a9550e28590b211500aa90d",
-      "quote": "[Continue with GitHub](https://console.unikraft.com/auth/github/signin) [Continue with Google](https://console.unikraft.com/auth/google/signin)"
-    },
-    {
-      "url": "https://unikraft.com/docs/cli/kraft/overview",
-      "date": "2026-11-24",
-      "proved": "the vendor publishes a CLI that deploys instances, so the interface is no longer unknown",
-      "capture": "sha256:d438ffcf1417e502d48be01e8215a18fe810d8289af034a3224e055cfddc2cd6",
-      "quote": "- **Deploy Instantly** - Run unikernel images as serverless instances with `unikraft run`"
-    },
-    {
-      "url": "https://unikraft.com/docs/cli/kraft/overview",
-      "date": "2026-11-24",
-      "proved": "the CLI supports machine-readable output",
-      "capture": "sha256:d438ffcf1417e502d48be01e8215a18fe810d8289af034a3224e055cfddc2cd6",
-      "quote": "- **Output Formats** - Machine-readable JSON or human-friendly text output"
-    },
-    {
-      "url": "https://unikraft.com/docs/cli/kraft/overview",
-      "date": "2026-11-24",
-      "proved": "the vendor distributes an installable CLI",
-      "capture": "sha256:d438ffcf1417e502d48be01e8215a18fe810d8289af034a3224e055cfddc2cd6",
-      "quote": "curl --proto '=https' --tlsv1.2 -fsSL https://unikraft.com/cli/install.sh | sh"
-    },
-    {
-      "url": "https://unikraft.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the hosted lane does not bill idle time",
-      "capture": "sha256:15f4ec5fdb2269a6faf116dca445a6b1cf82e61ee71e23aa3a14a4a86314f361",
-      "quote": "### You don't pay for idle infrastructure"
-    },
-    {
-      "url": "https://unikraft.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the hosted lane needs no infrastructure management by the user",
-      "capture": "sha256:15f4ec5fdb2269a6faf116dca445a6b1cf82e61ee71e23aa3a14a4a86314f361",
-      "quote": "- No infrastructure management"
-    },
-    {
-      "url": "https://unikraft.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the idle-not-billed pricing model is unchanged; the page still publishes no price or free tier",
-      "capture": "sha256:15f4ec5fdb2269a6faf116dca445a6b1cf82e61ee71e23aa3a14a4a86314f361",
-      "quote": "### You don't pay for idle infrastructure"
-    },
-    {
-      "url": "https://unikraft.com/pricing",
-      "date": "2026-11-24",
-      "proved": "scale-to-zero remains on the pricing page",
-      "capture": "sha256:15f4ec5fdb2269a6faf116dca445a6b1cf82e61ee71e23aa3a14a4a86314f361",
-      "quote": "### Scale-to-zero saves real money"
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T13:21:07.386Z",
-  "price_per_tb_month": null,
-  "notes": "No free tier exists; the verdict is paid-only. Idle infrastructure is not billed and cold boots are milliseconds, so an intermittent workload pays only for the time it runs. The page lists Hosted, Dedicated Hosted and On-Prem lanes; the priced offer here is the hosted one. No rate, session cap, egress charge or free allowance is published.",
-  "extras": {
-    "seed_status": "no-rate",
-    "talaria_m10h_usd": null,
-    "talaria_m24h_usd": null,
-    "nemo_m10h_usd": 0.0,
-    "keep_rate": null,
-    "keep_rate_basis": "no field in the source",
-    "billing_model": "unclassified",
-    "shape": null,
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "idle infrastructure is not billed, which makes the reap question moot; cold boots are milliseconds"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "allowance",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "ps": null,
-    "net": null,
-    "wave2": {
-      "verdict_change": "qualifies-with-caveat -> paid-only on 2026-10-22"
-    }
+  {
+   "url": "https://unikraft.com/docs/cli/kraft/overview",
+   "date": "2026-11-24",
+   "proved": "the vendor publishes a CLI that deploys instances, so the interface is no longer unknown",
+   "capture": "sha256:d438ffcf1417e502d48be01e8215a18fe810d8289af034a3224e055cfddc2cd6",
+   "quote": "- **Deploy Instantly** - Run unikernel images as serverless instances with `unikraft run`"
   },
-  "stale": true,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding": "retention-clamped"
+  {
+   "url": "https://unikraft.com/docs/cli/kraft/overview",
+   "date": "2026-11-24",
+   "proved": "the CLI supports machine-readable output",
+   "capture": "sha256:d438ffcf1417e502d48be01e8215a18fe810d8289af034a3224e055cfddc2cd6",
+   "quote": "- **Output Formats** - Machine-readable JSON or human-friendly text output"
+  },
+  {
+   "url": "https://unikraft.com/docs/cli/kraft/overview",
+   "date": "2026-11-24",
+   "proved": "the vendor distributes an installable CLI",
+   "capture": "sha256:d438ffcf1417e502d48be01e8215a18fe810d8289af034a3224e055cfddc2cd6",
+   "quote": "curl --proto '=https' --tlsv1.2 -fsSL https://unikraft.com/cli/install.sh | sh"
+  },
+  {
+   "url": "https://unikraft.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the hosted lane does not bill idle time",
+   "capture": "sha256:15f4ec5fdb2269a6faf116dca445a6b1cf82e61ee71e23aa3a14a4a86314f361",
+   "quote": "### You don't pay for idle infrastructure"
+  },
+  {
+   "url": "https://unikraft.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the hosted lane needs no infrastructure management by the user",
+   "capture": "sha256:15f4ec5fdb2269a6faf116dca445a6b1cf82e61ee71e23aa3a14a4a86314f361",
+   "quote": "- No infrastructure management"
+  },
+  {
+   "url": "https://unikraft.com/pricing",
+   "date": "2026-11-24",
+   "proved": "scale-to-zero remains on the pricing page",
+   "capture": "sha256:15f4ec5fdb2269a6faf116dca445a6b1cf82e61ee71e23aa3a14a4a86314f361",
+   "quote": "### Scale-to-zero saves real money"
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T11:17:43.457Z",
+ "price_per_tb_month": null,
+ "notes": "No free tier exists; the verdict is paid-only. Idle infrastructure is not billed and cold boots are milliseconds, so an intermittent workload pays only for the time it runs. The page lists Hosted, Dedicated Hosted and On-Prem lanes; the priced offer here is the hosted one. No rate, session cap, egress charge or free allowance is published.",
+ "extras": {
+  "seed_status": "no-rate",
+  "talaria_m10h_usd": null,
+  "talaria_m24h_usd": null,
+  "nemo_m10h_usd": 0.0,
+  "keep_rate": null,
+  "keep_rate_basis": "no field in the source",
+  "billing_model": "unclassified",
+  "shape": null,
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "idle infrastructure is not billed, which makes the reap question moot; cold boots are milliseconds"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "allowance",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "ps": null,
+  "net": null,
+  "wave2": {
+   "verdict_change": "qualifies-with-caveat -> paid-only on 2026-10-22"
+  }
+ },
+ "stale": true,
+ "stale_checked_at": "2026-10-22T00:00:00.000Z",
+ "binding": "retention-clamped"
 }

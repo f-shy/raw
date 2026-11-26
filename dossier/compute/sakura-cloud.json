@@ -5,7 +5,7 @@
   "url": "https://cloud.sakura.ad.jp/products/server/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "no free tier: servers bill monthly, daily or hourly, from JPY 1,540 a month or JPY 7 an hour for 1 core and 1 GB",
+    "stated": "| 1コア | 1GB | 1,540円 | 77円 | 7円 |",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://cloud.sakura.ad.jp/products/server/",
@@ -62,10 +62,24 @@
       "url": "https://cloud.sakura.ad.jp/products/server/",
       "date": "2026-10-22",
       "proved": "the server price table was read on 2026-10-22 and lists vCPU, memory and 月額/日額/時間額 (monthly, daily, hourly) columns: '1コア 1GB 1,540円 77円 7円' and '2コア 5GB' upward"
+    },
+    {
+      "url": "https://cloud.sakura.ad.jp/products/server/",
+      "date": "2026-11-25",
+      "proved": "the entry server row is a paid monthly, daily and hourly price: 1 core, 1 GB at JPY 1,540 a month, JPY 77 a day and JPY 7 an hour",
+      "capture": "sha256:74bb09938f983cc3f00a95a51389535e088de6b2c474f3f32a3b92bd53b12f1e",
+      "quote": "| 仮想コア（vCPU） | メモリ | 月額 | 日額 | 時間額 |\n| 1コア | 1GB | 1,540円 | 77円 | 7円 |"
+    },
+    {
+      "url": "https://cloud.sakura.ad.jp/products/server/",
+      "date": "2026-11-25",
+      "proved": "the entry server row still lists JPY 1,540 a month, JPY 77 a day and JPY 7 an hour for 1 core and 1 GB",
+      "capture": "sha256:74bb09938f983cc3f00a95a51389535e088de6b2c474f3f32a3b92bd53b12f1e",
+      "quote": "| 仮想コア（vCPU） | メモリ | 月額 | 日額 | 時間額 |\n| 1コア | 1GB | 1,540円 | 77円 | 7円 |"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:47:51.912Z",
+  "verified_at": "2026-11-25T15:03:51.743Z",
   "price_per_tb_month": null,
   "notes": "",
   "extras": {

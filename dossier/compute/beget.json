@@ -5,7 +5,7 @@
   "url": "https://beget.com/ru/hosting/free",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "A perpetual free shared-hosting account: 1 GiB SSD, one site, one FTP account and one database, unlimited domains, 10 CP of load, 25,000 file limit, PHP, Python, MySQL and Perl, with no advertising inserted. No technical support is provided on the free tier.",
+    "stated": "Для размещения контента на Сервисе Пользователю отводится 1Гб дискового пространства. На Сервисе Пользователь может создать не более 25 000 файлов. На Сервисе Пользователь может создать только один сайт. На Сервисе Пользователь может создать только одну базу данных MySQL. На Сервисе Пользователь может запускать скрипты на языках PHP, Python.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://beget.com/ru/hosting/free",
@@ -74,10 +74,24 @@
       "url": "https://beget-info.ru/besvyatnyy-hosting/",
       "date": "2026-10-22",
       "proved": "a Russian review site states ' Beget , , ' (free-tariff registration is open to residents of Russia, Belarus, Ukraine and Kazakhstan), reported"
+    },
+    {
+      "url": "https://beget.com/ru/rulesfree",
+      "date": "2026-11-25",
+      "proved": "the free-hosting rules allocate 1 GB of disk space for content on the service",
+      "capture": "sha256:393bb337a18a7149bfe7b7fc9b553ca424038be0d42334433a9c4b01967fb13d",
+      "quote": "3.4. Для размещения контента на Сервисе Пользователю отводится 1Гб дискового пространства."
+    },
+    {
+      "url": "https://beget.com/ru/rulesfree",
+      "date": "2026-11-25",
+      "proved": "the free-hosting rules still allocate 1 GB of disk space for content on the service",
+      "capture": "sha256:393bb337a18a7149bfe7b7fc9b553ca424038be0d42334433a9c4b01967fb13d",
+      "quote": "3.4. Для размещения контента на Сервисе Пользователю отводится 1Гб дискового пространства."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:32.751Z",
   "notes": "The URL in the fourth evidence row is a mis-transcription of the source path and should be re-checked before promotion; the quoted sentence is what the page said, but the slug on the live site is /besplatnyy-hosting/. The persistent free tier is real and unusually generous for a shared host, and the whole finding turns on the phone. Beget also sells a 30-day full-tariff trial to the same restricted audience.",
   "extras": {
     "wave2": {

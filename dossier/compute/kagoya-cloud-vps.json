@@ -5,7 +5,7 @@
   "url": "https://www.kagoya.jp/vps/function-plan/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "Day-rate billing with a monthly ceiling: the 1 GB plan is JPY 20 a day with a JPY 550 monthly cap, 2 GB with 2 cores and 200 GB NVMe is JPY 28 a day capped at JPY 770, and 4 GB with 4 cores and 600 GB NVMe is JPY 63 a day capped at JPY 1,760. Annual prepayment on the smallest plan is JPY 6,072, which the vendor presents as JPY 506 a month. The vendor states that no metered charge arises from increased data transfer.",
+    "stated": "The cheapest paid plan is the 1GB VPS: '日額 20 円', '月額上限 550 円', '1 コア', '1 GB' memory, '100 GB' SSD. Every plan uses NVMe SSD, and reaching the daily cap does not restrict use.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://www.kagoya.jp/vps/function-plan/",
@@ -68,10 +68,24 @@
       "url": "https://www.serversus.work/services/kagoya-cloud-vps/",
       "date": "2026-10-22",
       "proved": "a third-party comparison states that KAGOYA CLOUD VPS has no free or trial period, and that the day rate makes the minimum commitment 24 hours; reported, not vendor-confirmed"
+    },
+    {
+      "url": "https://www.kagoya.jp/vps/function-plan/",
+      "date": "2026-11-25",
+      "proved": "the cheapest plan is 1 GB, 1 core, 100 GB SSD at JPY 20 a day with a JPY 550 monthly cap",
+      "capture": "sha256:f9f28533e2e27df3d3e443f455a3f5ac390d10bd9d37946d108bd970057934ba",
+      "quote": "1GB\n\n日額 20 円\n\n月額上限 550 円\n\nCPU\n\n1 コア\n\nメモリー\n\n1 GB\n\nSSD※\n\n100 GB"
+    },
+    {
+      "url": "https://www.kagoya.jp/vps/function-plan/",
+      "date": "2026-11-25",
+      "proved": "the cheapest plan remains JPY 20 a day capped at JPY 550 for 1 core, 1 GB and 100 GB SSD",
+      "capture": "sha256:f9f28533e2e27df3d3e443f455a3f5ac390d10bd9d37946d108bd970057934ba",
+      "quote": "1GB\n\n日額 20 円\n\n月額上限 550 円\n\nCPU\n\n1 コア\n\nメモリー\n\n1 GB\n\nSSD※\n\n100 GB"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:12.887Z",
   "notes": "Kagoya has no free trial on VPS; its two-week free trial is on the shared rental server product, not this one, and the support FAQ says plans other than the shared and mail products carry a setup fee and cannot be trialled free. The JPY 506 monthly figure is annual prepayment divided by twelve, which the vendor itself does, and the JPY 550 figure is the monthly-billing cap; both are recorded because they are different prices for the same box. The absence of metered transfer billing is the vendor's claim on its own news page and is not probed.",
   "extras": {
     "wave2": {

@@ -5,7 +5,7 @@
   "url": "https://eco.ovhcloud.com/en-gb/kimsufi/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "The KS range is advertised from EUR 9.99 ex VAT a month: KS-B, Intel Xeon E5-1620v2 at 4 cores / 8 threads, 32 GB DDR3 ECC, 1 x 120 GB SATA SSD, 500 Mbps public bandwidth, plus a one-month installation fee. On 2026-10-22 that machine cannot be ordered in any datacenter. Nineteen of the twenty-six KS plan codes in the OVH catalogue return unavailable everywhere; the seven with stock are all either North American or Asia-Pacific: KS-4 at EUR 16.99 in Singapore, KS-3 at EUR 18.99 in Singapore and Sydney, KS-5 at EUR 17.99 in Beauharnois, Gravelines and Warsaw, KS-GAME at EUR 28.99 in Beauharnois and Sydney, and KS-A at EUR 54.99 in Singapore. The cheapest orderable Kimsufi is therefore KS-4 at EUR 16.99 in Singapore, and the vendor's own page states that the Asia-Pacific locations carry a 25 TB monthly traffic limit instead of the unlimited term the European, US and Canadian ones get.",
+    "stated": "The page lists KS-B at GBP 8.89 ex. VAT/month or GBP 10.67 incl. VAT/month, with a GBP 8.89 ex. VAT installation fee: Intel Xeon E5-1620v2 4 c / 8 t, 32 GB memory, 1 x 120 GB storage, 500 Mbps public bandwidth. Servers in Europe, the United States and Canada have guaranteed and unlimited 500 Mbps public bandwidth with unlimited and free ingress and egress traffic; in the Asia-Pacific region there is a 25 TB monthly limit (included).",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://eco.ovhcloud.com/en-gb/kimsufi/",
@@ -94,10 +94,24 @@
       "url": "https://www.kimsufi.com/en/",
       "date": "2026-10-22",
       "proved": "RISE rows quoted: 'RISE-1 ... 2 x 512 GB - 4 x 3.84 TB ... Public 1 Gbps ... US$64.00', 'RISE-2 ... US$72.00'"
+    },
+    {
+      "url": "https://eco.ovhcloud.com/en-gb/kimsufi/",
+      "date": "2026-11-25",
+      "proved": "the Kimsufi page states the KS-B price, installation fee, machine shape and traffic terms",
+      "capture": "sha256:9f412d4ad93356a6c3aaef4c001d88f31736a503c45d84fbb58d04fc5f8cbe39",
+      "quote": "KS-B £8.89 ex. VAT/month or £10.67 incl. VAT/month ... Installation fees: £8.89 ex. VAT ... Intel Xeon E5-1620v2 ... 32 GB ... 1 x 120 GB ... 500 Mbps ... Our servers in Europe, the United States and Canada all have a guaranteed bandwidth of 500 Mbps, with unlimited and free ingress and egress traffic. In the Asia-Pacific region, the default bandwidth is , with a 25 TB monthly limit (included)."
+    },
+    {
+      "url": "https://eco.ovhcloud.com/en-gb/kimsufi/",
+      "date": "2026-11-25",
+      "proved": "the Kimsufi page still states the KS-B price and shape with unlimited traffic in Europe, the US and Canada and a 25 TB monthly limit in Asia-Pacific",
+      "capture": "sha256:9f412d4ad93356a6c3aaef4c001d88f31736a503c45d84fbb58d04fc5f8cbe39",
+      "quote": "KS-B £8.89 ex. VAT/month or £10.67 incl. VAT/month ... Installation fees: £8.89 ex. VAT ... Intel Xeon E5-1620v2 ... 32 GB ... 1 x 120 GB ... 500 Mbps ... Our servers in Europe, the United States and Canada all have a guaranteed bandwidth of 500 Mbps, with unlimited and free ingress and egress traffic. In the Asia-Pacific region, the default bandwidth is , with a 25 TB monthly limit (included)."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:21.036Z",
   "notes": "Kimsufi dedicated servers are integrated into the OVH Eco catalog alongside Rise and Advance servers. Entry-level European configurations frequently experience stock shortages, with availability concentrated in North America and Asia-Pacific datacenters.",
   "extras": {
     "wave2": {

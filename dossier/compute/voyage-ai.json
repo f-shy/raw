@@ -5,7 +5,7 @@
   "url": "https://docs.voyageai.com/docs/pricing",
   "category": "inference API",
   "free_tier": {
-    "stated": "The first 200 million tokens for voyage-4-large, voyage-4, voyage-4-lite, voyage-context-4 and voyage-code-4, and the first 50 million tokens for voyage-multilingual-2, voyage-finance-2, voyage-law-2 and voyage-code-2, are free for every account. For the multimodal endpoint the first 200 million text tokens and 150 billion pixels for voyage-multimodal-3.5 and voyage-multimodal-3 are free for every account.",
+    "stated": "The first 200 million tokens for voyage-4-large, voyage-4, voyage-4-lite, voyage-context-4 and voyage-code-3, or the first 50 million tokens for voyage-multilingual-2, voyage-finance-2, voyage-law-2 and voyage-code-2, are free for every account.",
     "unit": "tokens",
     "metered_on": "wall-clock",
     "source_url": "https://docs.voyageai.com/docs/pricing",
@@ -64,10 +64,31 @@
       "url": "https://docs.voyageai.com/docs/pricing",
       "date": "2026-10-22",
       "proved": "'The first 200M text tokens and 150B pixels for voyage-multimodal-3.5 and voyage-multimodal-3 are free for every account', quoted; after that USD 0.12 per million tokens and USD 0.60 per billion pixels"
+    },
+    {
+      "url": "https://docs.voyageai.com/docs/pricing",
+      "date": "2026-11-25",
+      "proved": "200 million free tokens for the voyage-4 family and voyage-code-3; 50 million for the -2 models",
+      "capture": "sha256:0edd42c2be66a948a64eaf6b513c4e5412727c56dc6656c2a32ade235f31abf8",
+      "quote": "The first 200 million tokens for `voyage-4-large`, `voyage-4`, `voyage-4-lite`, `voyage-context-4`, and `voyage-code-3`, or the first 50 million tokens for `voyage-multilingual-2`, `voyage-finance-2`, `voyage-law-2`, and `voyage-code-2`, are free for every account."
+    },
+    {
+      "url": "https://docs.voyageai.com/docs/pricing",
+      "date": "2026-11-25",
+      "proved": "200M text tokens and 150B pixels free per account on voyage-multimodal-3.5 and -3",
+      "capture": "sha256:0edd42c2be66a948a64eaf6b513c4e5412727c56dc6656c2a32ade235f31abf8",
+      "quote": "The first 200M text tokens and 150B pixels for `voyage-multimodal-3.5` and `voyage-multimodal-3` are free for every account."
+    },
+    {
+      "url": "https://docs.voyageai.com/docs/pricing",
+      "date": "2026-11-25",
+      "proved": "the first 200 million or 50 million tokens per model are free for every account",
+      "capture": "sha256:0edd42c2be66a948a64eaf6b513c4e5412727c56dc6656c2a32ade235f31abf8",
+      "quote": "are free for every account"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:37.952Z",
   "notes": "Absent from dossier/inference/ and dossier/compute/ before this record (checked against 2,395 provider names). Found in amitpandeytiktok/awesome-free-compute-2026 STACK.md, which is a June 2026 snapshot, so the vendor page was read to confirm the figure still holds on 2026-10-22. The marketing page voyageai.com/pricing returned a redirect loop (broker 508); the docs page answered, so the vendor figure is documented and not inferred.",
   "extras": {
     "wave2": {

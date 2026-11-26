@@ -5,7 +5,7 @@
   "url": "https://docs.marimo.io/guides/molab/",
   "category": "notebook runtime",
   "free_tier": {
-    "stated": "free: 4 CPUs and 32 GB RAM per notebook, an NVIDIA RTX Pro 6000 Blackwell with 96 GB VRAM attachable to any notebook, sessions up to 12 hours, 90-minute idle shutdown",
+    "stated": "molab is a free cloud-hosted marimo notebook environment: by default each notebook runs with 4 CPUs and 32 GB of RAM, an NVIDIA RTX Pro 6000 Blackwell GPU with 96 GB of VRAM can be attached to any notebook, notebooks can run for as long as 12 hours, and notebooks idle for more than 90 minutes are automatically shut down.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://docs.marimo.io/guides/molab/",
@@ -109,10 +109,24 @@
       "url": "https://docs.marimo.io/guides/molab/",
       "date": "2026-10-24",
       "proved": "quoted: 'notebooks are public but undiscoverable by default'"
+    },
+    {
+      "url": "https://docs.marimo.io/guides/molab/",
+      "date": "2026-11-25",
+      "proved": "the default compute per notebook is 4 CPUs and 32 GB of RAM",
+      "capture": "sha256:0be13795b093b45e407a08fa50abe4ad0e4b1e815bbad70863a37999c7c86980",
+      "quote": "By default, each notebook runs with **4 CPUs and 32 GB of\nRAM**."
+    },
+    {
+      "url": "https://docs.marimo.io/guides/molab/",
+      "date": "2026-11-25",
+      "proved": "the default 4 CPUs and 32 GB of RAM per notebook are unchanged",
+      "capture": "sha256:0be13795b093b45e407a08fa50abe4ad0e4b1e815bbad70863a37999c7c86980",
+      "quote": "By default, each notebook runs with **4 CPUs and 32 GB of\nRAM**."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-24T01:52:00.000Z",
+  "verified_at": "2026-11-25T11:17:44.307Z",
   "notes": "No monthly GPU-hour quota is published, which is the one number a planner needs. The idle rule (90 minutes) is far more generous than Colab's or Kaggle's, and 12 hours matches Colab's cap with much better hardware.",
   "extras": {
     "wave2": {

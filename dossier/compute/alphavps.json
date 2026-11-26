@@ -5,12 +5,12 @@
   "url": "https://alphavps.com/cheap-vps",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "Entry plan c2g: 2 GB ECC DDR4, 2 vCPU on Intel Xeon Scalable, 30 GB NVMe RAID-10, IPv4 plus /64 IPv6, at EUR 2.54/month on annual billing, 'flat at renewal'. C8G: 8 GB, 4 vCPU, 75 GB NVMe, 8 TB transfer, EUR 5.52/month billed EUR 66.20 a year. 14-day money-back, 7 locations, up to 10 Gbit ports.",
+    "stated": "Entry plan C2G: 2 GB ECC DDR4 RAM, 2 vCPU on Intel Xeon Scalable, 30 GB NVMe RAID-10 storage and 3 TB transfer at EUR 2.54 per month billed EUR 30.50 a year on annual billing (EUR 2.99 monthly). C8G: 8 GB RAM, 4 vCPU, 75 GB NVMe RAID-10, 8 TB transfer, EUR 5.52 per month billed EUR 66.20 a year (EUR 6.49 monthly). KVM slices on Intel Xeon Scalable with ECC RAM and ports up to 10 Gbit in 7 cities, IPv4 plus /64 IPv6 included, root shell in 60 seconds, 14-day money-back; renewal is flat.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://alphavps.com/cheap-vps",
     "read_on": "2026-10-22",
-    "notes": "none"
+    "notes": "The entry tier runs on Intel Xeon Scalable with ECC memory and NVMe RAID-10 in 7 cities; ports reach up to 10 Gbit. IPv4 and /64 IPv6 are included, with root shell in 60 seconds and a 14-day money-back guarantee."
   },
   "per_object_cap": {
     "stated": "not applicable: the unit is a machine, not an object",
@@ -69,10 +69,24 @@
       "url": "https://alphavps.com/",
       "date": "2026-10-22",
       "proved": "navigation prices: Cheap VPS from EUR 2.54/mo, High-Performance VPS from EUR 4.24/mo, Ryzen VPS from EUR 2.54/mo, Storage VPS from EUR 1.67/mo"
+    },
+    {
+      "url": "https://alphavps.com/cheap-vps",
+      "date": "2026-11-25",
+      "proved": "the entry C2G and C8G plans, their prices, locations, ports, deploy time and guarantee are stated on the pricing page",
+      "capture": "sha256:78484d8dbc068ef2745460c8ccd0849665df721e4bf3397b1838dcc36db1dedc",
+      "quote": "ENTRY PLAN2 GB · 2 VCORES FROM€2.54/MO STORAGENVME RAID-10 MAX PLAN32 GB · 8 VCORES LOCATIONS7 - EU + US PORTUP TO 10 GBIT DEPLOY60 SECONDS GUARANTEE14 DAYS"
+    },
+    {
+      "url": "https://alphavps.com/cheap-vps",
+      "date": "2026-11-25",
+      "proved": "the page states the included IPs, deploy time and money-back guarantee",
+      "capture": "sha256:78484d8dbc068ef2745460c8ccd0849665df721e4bf3397b1838dcc36db1dedc",
+      "quote": "IPv4 + /64 IPv6 included, root shell in 60 seconds, 14-day money-back."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:21.727Z",
   "notes": "EUR, ex-VAT rest-of-world rate (the page carries a VAT and currency selector), and it stays an ISO amount with no conversion. Storage VPS from EUR 1.67/mo belongs to the storage topic, not this one. Open corner: the c2g transfer allowance is not printed, only the C8G's 8 TB.",
   "extras": {
     "wave2": {

@@ -1,0 +1,13 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u399-rerun",
+ "kind": "reconcile",
+ "topic": "compute",
+ "question": "Settle these disagreements on compute/rainyun from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.free_tier.stated: proposed \"可7天内无理由退款（每个账号限3次），云服务器/游戏云产品可1元试用一天（每款限1次，部分较贵的产品试用价格高一点）。\" (evidence https://forum.rainyun.com/t/topic/12461, capture sha256:497f1b9d31dc4, quote '可7天内无理由退款（每个账号限3次），云服务器/游戏云产品可1元试用一天（每款限1次，部分较贵的产品试用价格高一点）。'); now \"A one-yuan one-day trial of each product, quoted 一元试用 and 我们为您提供一元试用体验保障, with a seven-day no-reason refund stated as 7天无理由, on a ladder whose lowest cloud ser. Why it did not apply: weaker rung (reported) than the record (documented)\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/rainyun $.free_tier.stated: The storefront capture states 一元试用 and 我们为您提供一元试用体验保障 only: it gives no one-day period, no once-per-product limit, no three-refunds-per-account limit and no higher trial price for costlier products, all of which the value's first sentence asserts. Those four facts are in the vendor-forum row https:/",
+ "scope": {
+  "rids": [
+   "compute/rainyun"
+  ]
+ },
+ "origin": "audit u421 of 20261125-0107-research-compute-5c82/u399 failed: 1 of 1 unsupported",
+ "created": "2026-11-25T22:05:45Z"
+}

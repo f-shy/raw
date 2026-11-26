@@ -1,193 +1,186 @@
 {
-  "topic": "compute",
-  "slug": "aws-ec2-mac",
-  "provider": "AWS EC2 Mac (Dedicated Host)",
-  "url": "https://aws.amazon.com/ec2/instance-types/mac/",
-  "category": "macOS host",
-  "free_tier": {
-    "stated": "up to USD 200 in account-wide Free Tier credit over 6 months; the Mac page states no Mac-specific free allowance",
-    "unit": "mixed",
-    "metered_on": "wall-clock",
-    "source_url": "https://aws.amazon.com/ec2/instance-types/mac/",
-    "read_on": "2026-10-02",
-    "notes": "Historical research record."
+ "topic": "compute",
+ "slug": "aws-ec2-mac",
+ "provider": "AWS EC2 Mac (Dedicated Host)",
+ "url": "https://aws.amazon.com/ec2/instance-types/mac/",
+ "category": "macOS host",
+ "free_tier": {
+  "stated": "Billing for EC2 Mac instances is per second with a 24-hour minimum allocation period to comply with the Apple macOS Software License Agreement.",
+  "unit": "mixed",
+  "metered_on": "wall-clock",
+  "source_url": "https://aws.amazon.com/ec2/instance-types/mac/",
+  "read_on": "2026-10-02",
+  "notes": "Historical research record."
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://aws.amazon.com/ec2/instance-types/mac/",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "not stated",
+  "days": null,
+  "source_url": "https://aws.amazon.com/ec2/instance-types/mac/",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "not published",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://aws.amazon.com/ec2/instance-types/mac/"
+ },
+ "interface": [
+  "ssh"
+ ],
+ "interface_detail": "SSH or Apple Remote Desktop (ARD); the AWS CLI launches the instance",
+ "tooling": "AWS Management Console, AWS CLI, SSH client or Apple Remote Desktop",
+ "chaining": "not established",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "no free allowance: a Mac instance bills on the same on-demand model as any other EC2 instance, with a 24-hour minimum allocation",
+   "source": "https://aws.amazon.com/ec2/instance-types/mac/"
+  }
+ ],
+ "limits_note": "Session cap, idle-reap and network policy are not documented.",
+ "identity_cost": {
+  "kind": "card",
+  "detail": "the advanced AWS sign-up takes a root user email address, an account name, a contact and billing address, a payment method ('You can't proceed with the sign-up process until you add a valid payment method.') and a phone number that receives calls and SMS for identity verification; the new AWS experience accepts an email or an existing Google, Apple, GitHub or Amazon login ('Enter your email or choose a login such as Google, Apple, GitHub, or Amazon.'), and 'Fast sign up: Create an account with a sign-in method you already have, such as Google or GitHub. No credit card required to start for most new customers.' The new signup may still request payment information held for fraud verification, as the captured sign-up docs state.",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "reported",
+ "confidence_note": "the EC2 Mac page was read on 2026-10-22 and offers the instance class with no free allowance of its own. The USD 100 credit and the 6-month window still come from earlier readings card, so the rung stays `reported`.",
+ "evidence": [
+  {
+   "url": "https://aws.amazon.com/ec2/instance-types/mac/",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
   },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://aws.amazon.com/ec2/instance-types/mac/",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+  {
+   "url": "https://aws.amazon.com/ec2/instance-types/mac/",
+   "date": "2026-10-22",
+   "proved": "the dedicated-Mac page is live and still sells EC2 Mac instances for building and signing Apple apps; it states no free allowance for a Mac instance"
   },
-  "retention": {
-    "stated": "not stated",
-    "days": null,
-    "source_url": "https://aws.amazon.com/ec2/instance-types/mac/",
-    "notes": "Disk durability across instance stops and deletions is not documented."
+  {
+   "url": "https://aws.amazon.com/ec2/instance-types/mac/",
+   "date": "2026-11-25",
+   "proved": "the dedicated-Mac page states per-second billing with a 24-hour minimum and no free allowance",
+   "capture": "sha256:d8be832da4d3744e00bc1fab029d749859dedb998e6791c5894d9ab689599450",
+   "quote": "Billing for EC2 Mac instances is per second with a 24-hour minimum allocation period to comply with the Apple macOS Software License Agreement."
   },
-  "egress": {
-    "terms": "not published",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://aws.amazon.com/ec2/instance-types/mac/"
+  {
+   "url": "https://aws.amazon.com/free/",
+   "date": "2026-11-24",
+   "proved": "the AWS account-wide Free Tier credit is up to USD 200 over 6 months",
+   "capture": "sha256:efe50e26f77a55bfa95991cb579bcc5a3680202b29105c51b557258e4539335a",
+   "quote": "When you create a new AWS Free Tier account, you get $100 in credits immediately. As you explore key services, you can earn up to $100 more. That's up to $200 over 6 months"
   },
-  "interface": [
-    "ssh"
-  ],
-  "interface_detail": "SSH or Apple Remote Desktop (ARD); the AWS CLI launches the instance",
-  "tooling": "AWS Management Console, AWS CLI, SSH client or Apple Remote Desktop",
-  "chaining": "not established",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "no free allowance: a Mac instance bills on the same on-demand model as any other EC2 instance, with a 24-hour minimum allocation",
-      "source": "https://aws.amazon.com/ec2/instance-types/mac/"
-    }
-  ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented.",
-  "identity_cost": {
-    "kind": "card",
-    "detail": "the advanced AWS sign-up takes a root user email address, an account name, a contact and billing address, a payment method ('You can't proceed with the sign-up process until you add a valid payment method.') and a phone number that receives calls and SMS for identity verification; the new AWS experience accepts an email or an existing Google, Apple, GitHub or Amazon login ('Enter your email or choose a login such as Google, Apple, GitHub, or Amazon.'), and 'Fast sign up: Create an account with a sign-in method you already have, such as Google or GitHub. No credit card required to start for most new customers.' The new signup may still request payment information held for fraud verification, as the captured sign-up docs state.",
-    "country": null
+  {
+   "url": "https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html",
+   "date": "2026-11-24",
+   "proved": "an AWS account requires a payment method at sign-up",
+   "capture": "sha256:88f466dd7471c854615919418a49a3e71ba094285cc356de16ba1757c3b0cb70",
+   "quote": "You can't proceed with the sign-up process until you add a valid payment method."
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "reported",
-  "confidence_note": "the EC2 Mac page was read on 2026-10-22 and offers the instance class with no free allowance of its own. The USD 100 credit and the 6-month window still come from earlier readings card, so the rung stays `reported`.",
-  "evidence": [
-    {
-      "url": "https://aws.amazon.com/ec2/instance-types/mac/",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://aws.amazon.com/ec2/instance-types/mac/",
-      "date": "2026-10-22",
-      "proved": "the dedicated-Mac page is live and still sells EC2 Mac instances for building and signing Apple apps; it states no free allowance for a Mac instance"
-    },
-    {
-      "url": "https://aws.amazon.com/free/",
-      "date": "2026-11-24",
-      "proved": "the AWS account-wide Free Tier credit is up to USD 200 over 6 months",
-      "capture": "sha256:efe50e26f77a55bfa95991cb579bcc5a3680202b29105c51b557258e4539335a",
-      "quote": "When you create a new AWS Free Tier account, you get $100 in credits immediately. As you explore key services, you can earn up to $100 more. That's up to $200 over 6 months"
-    },
-    {
-      "url": "https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html",
-      "date": "2026-11-24",
-      "proved": "an AWS account requires a payment method at sign-up",
-      "capture": "sha256:88f466dd7471c854615919418a49a3e71ba094285cc356de16ba1757c3b0cb70",
-      "quote": "You can't proceed with the sign-up process until you add a valid payment method."
-    },
-    {
-      "url": "https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html",
-      "date": "2026-11-24",
-      "proved": "the advanced AWS sign-up verifies identity with a phone number that receives calls and SMS",
-      "capture": "sha256:88f466dd7471c854615919418a49a3e71ba094285cc356de16ba1757c3b0cb70",
-      "quote": "This number is used for identity verification purposes and to confirm the ownership of your account. You must be able to receive calls and SMS messages at this phone number."
-    },
-    {
-      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html",
-      "date": "2026-11-24",
-      "proved": "a Mac instance is reached over SSH",
-      "capture": "sha256:fcad2e2d2f93305490ab6b0693eddeeb9a1f5d03cf81055b505745a1ca3b33ef",
-      "quote": "You can connect to your Mac instance using SSH or Apple Remote Desktop (ARD)."
-    },
-    {
-      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html",
-      "date": "2026-11-24",
-      "proved": "the Mac instance access paths are SSH and ARD",
-      "capture": "sha256:fcad2e2d2f93305490ab6b0693eddeeb9a1f5d03cf81055b505745a1ca3b33ef",
-      "quote": "You can connect to your Mac instance using SSH or Apple Remote Desktop (ARD)."
-    },
-    {
-      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html",
-      "date": "2026-11-24",
-      "proved": "the console and CLI launch the instance, and SSH or ARD connects to it",
-      "capture": "sha256:fcad2e2d2f93305490ab6b0693eddeeb9a1f5d03cf81055b505745a1ca3b33ef",
-      "quote": "Launch a Mac instance using the AWS Management Console or the AWS CLI"
-    },
-    {
-      "url": "https://aws.amazon.com/ec2/instance-types/mac/",
-      "date": "2026-11-24",
-      "proved": "the Mac page still states per-second billing with a 24-hour minimum allocation",
-      "capture": "sha256:d8be832da4d3744e00bc1fab029d749859dedb998e6791c5894d9ab689599450",
-      "quote": "Billing for EC2 Mac instances is per second with a 24-hour minimum allocation period to comply with the Apple macOS Software License Agreement."
-    },
-    {
-      "url": "https://aws.amazon.com/ec2/instance-types/mac/",
-      "date": "2026-11-24",
-      "proved": "the Mac page states network bandwidth and does not publish an egress allowance or price",
-      "capture": "sha256:d8be832da4d3744e00bc1fab029d749859dedb998e6791c5894d9ab689599450",
-      "quote": "Amazon EC2 M3 Ultra Mac instances are powered by the AWS Nitro System, providing up to 10 Gbps network bandwidth and 8 Gbps of Amazon Elastic Block Store (Amazon EBS) storage bandwidth."
-    },
-    {
-      "url": "https://aws.amazon.com/start-here/",
-      "date": "2026-11-24",
-      "proved": "the first-party AWS signup page states new customers can start with an existing Google or GitHub login and no credit card",
-      "capture": "sha256:a1a1547884ce37eed31ea15faf82a2323ba5849c13c479da9a5910996af145f0",
-      "quote": "Fast sign up: Create an account with a sign-in method you already have, such as Google or GitHub. No credit card required to start for most new customers."
-    },
-    {
-      "url": "https://docs.aws.amazon.com/accounts/latest/reference/sign-in-new.html",
-      "date": "2026-11-24",
-      "proved": "the new AWS signup accepts an email or an existing social login",
-      "capture": "sha256:9c551fa9d91e7634131dae32021d5b18887644a423eebe3b185cc49f87d8cce0",
-      "quote": "Enter your email or choose a login such as Google, Apple, GitHub, or Amazon."
-    },
-    {
-      "url": "https://docs.aws.amazon.com/accounts/latest/reference/sign-in-new.html",
-      "date": "2026-11-24",
-      "proved": "the new AWS signup may still request payment information, held as a USD 1 verification hold for 3-5 days",
-      "capture": "sha256:9c551fa9d91e7634131dae32021d5b18887644a423eebe3b185cc49f87d8cce0",
-      "quote": "When you sign up for AWS, we might request payment information. Our verification process holds USD $1 (or equivalent) for 3-5 days to verify your account and prevent fraud."
-    },
-    {
-      "url": "https://aws.amazon.com/start-here/",
-      "date": "2026-11-24",
-      "proved": "the first-party AWS signup page states no credit card is required to start for most new customers",
-      "capture": "sha256:a1a1547884ce37eed31ea15faf82a2323ba5849c13c479da9a5910996af145f0",
-      "quote": "Fast sign up: Create an account with a sign-in method you already have, such as Google or GitHub. No credit card required to start for most new customers."
-    }
-  ],
-  "verdict": "trial-only",
-  "verified_at": "2026-11-24T18:27:26.888Z",
-  "price_per_tb_month": null,
-  "notes": "A one-time credit inside a closing account is evaluated as a trial.",
-  "extras": {
-    "seed_status": "ranked",
-    "talaria_m10h_usd": 195.0,
-    "talaria_m24h_usd": 468.0,
-    "nemo_m10h_usd": null,
-    "keep_rate": 1.0,
-    "keep_rate_basis": "billed for uptime (no suspension feature published)",
-    "billing_model": "unclassified",
-    "shape": {
-      "vcpu": null,
-      "ram": null,
-      "disk": null,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "dedicated Mac mini and Mac Studio hardware"
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "Apple's licence forces a 24-hour minimum allocation per dedicated host; the page states no shorter clock"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "granularity": {
-      "min_billed_s": 86400,
-      "rounding_s": null
-    },
-    "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "net": null
+  {
+   "url": "https://docs.aws.amazon.com/accounts/latest/reference/getting-started.html",
+   "date": "2026-11-24",
+   "proved": "the advanced AWS sign-up verifies identity with a phone number that receives calls and SMS",
+   "capture": "sha256:88f466dd7471c854615919418a49a3e71ba094285cc356de16ba1757c3b0cb70",
+   "quote": "This number is used for identity verification purposes and to confirm the ownership of your account. You must be able to receive calls and SMS messages at this phone number."
   },
-  "stale": true,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding": "request-rate"
+  {
+   "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html",
+   "date": "2026-11-24",
+   "proved": "a Mac instance is reached over SSH",
+   "capture": "sha256:fcad2e2d2f93305490ab6b0693eddeeb9a1f5d03cf81055b505745a1ca3b33ef",
+   "quote": "You can connect to your Mac instance using SSH or Apple Remote Desktop (ARD)."
+  },
+  {
+   "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html",
+   "date": "2026-11-24",
+   "proved": "the console and CLI launch the instance, and SSH or ARD connects to it",
+   "capture": "sha256:fcad2e2d2f93305490ab6b0693eddeeb9a1f5d03cf81055b505745a1ca3b33ef",
+   "quote": "Launch a Mac instance using the AWS Management Console or the AWS CLI"
+  },
+  {
+   "url": "https://aws.amazon.com/ec2/instance-types/mac/",
+   "date": "2026-11-24",
+   "proved": "the Mac page still states per-second billing with a 24-hour minimum allocation",
+   "capture": "sha256:d8be832da4d3744e00bc1fab029d749859dedb998e6791c5894d9ab689599450",
+   "quote": "Billing for EC2 Mac instances is per second with a 24-hour minimum allocation period to comply with the Apple macOS Software License Agreement."
+  },
+  {
+   "url": "https://aws.amazon.com/ec2/instance-types/mac/",
+   "date": "2026-11-24",
+   "proved": "the Mac page states network bandwidth and does not publish an egress allowance or price",
+   "capture": "sha256:d8be832da4d3744e00bc1fab029d749859dedb998e6791c5894d9ab689599450",
+   "quote": "Amazon EC2 M3 Ultra Mac instances are powered by the AWS Nitro System, providing up to 10 Gbps network bandwidth and 8 Gbps of Amazon Elastic Block Store (Amazon EBS) storage bandwidth."
+  },
+  {
+   "url": "https://aws.amazon.com/start-here/",
+   "date": "2026-11-24",
+   "proved": "the first-party AWS signup page states new customers can start with an existing Google or GitHub login and no credit card",
+   "capture": "sha256:a1a1547884ce37eed31ea15faf82a2323ba5849c13c479da9a5910996af145f0",
+   "quote": "Fast sign up: Create an account with a sign-in method you already have, such as Google or GitHub. No credit card required to start for most new customers."
+  },
+  {
+   "url": "https://docs.aws.amazon.com/accounts/latest/reference/sign-in-new.html",
+   "date": "2026-11-24",
+   "proved": "the new AWS signup accepts an email or an existing social login",
+   "capture": "sha256:9c551fa9d91e7634131dae32021d5b18887644a423eebe3b185cc49f87d8cce0",
+   "quote": "Enter your email or choose a login such as Google, Apple, GitHub, or Amazon."
+  },
+  {
+   "url": "https://docs.aws.amazon.com/accounts/latest/reference/sign-in-new.html",
+   "date": "2026-11-24",
+   "proved": "the new AWS signup may still request payment information, held as a USD 1 verification hold for 3-5 days",
+   "capture": "sha256:9c551fa9d91e7634131dae32021d5b18887644a423eebe3b185cc49f87d8cce0",
+   "quote": "When you sign up for AWS, we might request payment information. Our verification process holds USD $1 (or equivalent) for 3-5 days to verify your account and prevent fraud."
+  }
+ ],
+ "verdict": "trial-only",
+ "verified_at": "2026-11-25T05:18:26.643Z",
+ "price_per_tb_month": null,
+ "notes": "A one-time credit inside a closing account is evaluated as a trial.",
+ "extras": {
+  "seed_status": "ranked",
+  "talaria_m10h_usd": 195.0,
+  "talaria_m24h_usd": 468.0,
+  "nemo_m10h_usd": null,
+  "keep_rate": 1.0,
+  "keep_rate_basis": "billed for uptime (no suspension feature published)",
+  "billing_model": "unclassified",
+  "shape": {
+   "vcpu": null,
+   "ram": null,
+   "disk": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "dedicated Mac mini and Mac Studio hardware"
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "Apple's licence forces a 24-hour minimum allocation per dedicated host; the page states no shorter clock"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "granularity": {
+   "min_billed_s": 86400,
+   "rounding_s": null
+  },
+  "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "net": null
+ },
+ "stale": true,
+ "stale_checked_at": "2026-10-22T00:00:00.000Z",
+ "binding": "request-rate"
 }

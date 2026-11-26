@@ -5,12 +5,12 @@
   "url": "https://www.sakura.ad.jp/certification/student-ambassador/",
   "category": "dev environment",
   "free_tier": {
-    "stated": "'アンバサダーには、毎月10万円分のクラウドリソースが無償で提供されます' (ambassadors are given JPY 100,000 worth of cloud resources free every month), usable for '学習用の環境構築はもちろん、自作したWebアプリケーションやサービスの公開・運用にも活用できます' (building learning environments and also publishing and running your own web application). Eligibility: 'さくらのクラウド検定（ベーシック試験またはアドバンスド試験）の合格者' (a pass in the Sakura Cloud certification) and '大学・大学院・高等専門学校・専門学校・高校に在籍する学生' (enrolled at a university, graduate school, college of technology, vocational school or high school).",
+    "stated": "アンバサダーには、毎月10万円分のクラウドリソースが無償で提供されます。",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://www.sakura.ad.jp/certification/student-ambassador/",
     "read_on": "2026-10-22",
-    "notes": "recurring-allowance"
+    "notes": "recurring-allowance. The page says the resources can also be used to publish and run a self-made web application or service. Eligibility: a pass in the Sakura Cloud certification (basic or advanced) and enrollment at a university, graduate school, college of technology, vocational school or high school."
   },
   "per_object_cap": {
     "stated": "not applicable: the unit is a machine, not an object",
@@ -64,10 +64,24 @@
       "url": "https://www.kknews.co.jp/news/20240903o02",
       "date": "2026-10-22",
       "proved": "a separate, narrower Sakura program: ' ' (free cloud for college-of-technology students), '1 ' (free for one year), reported"
+    },
+    {
+      "url": "https://www.sakura.ad.jp/certification/student-ambassador/",
+      "date": "2026-11-25",
+      "proved": "the page states ambassadors receive 100,000 yen of cloud resources free every month",
+      "capture": "sha256:bec15b795d300d2574da8794017a36dd0b623567de2541c04cb9be1b148c9579",
+      "quote": "アンバサダーには、毎月10万円分のクラウドリソースが無償で提供されます。"
+    },
+    {
+      "url": "https://www.sakura.ad.jp/certification/student-ambassador/",
+      "date": "2026-11-25",
+      "proved": "the page adds the permitted uses for the monthly free resources",
+      "capture": "sha256:bec15b795d300d2574da8794017a36dd0b623567de2541c04cb9be1b148c9579",
+      "quote": "アンバサダーには、毎月10万円分のクラウドリソースが無償で提供されます。学習用の環境構築はもちろん、自作したWebアプリケーションやサービスの公開・運用にも活用できます。"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:47.060Z",
   "notes": "Recorded as a refutation with the number kept, per the brief. JPY 100,000 a month is roughly the cost of thirty 2-core Sakura Cloud instances, and the door is school enrollment plus an exam, not a card. A third Sakura-linked program is folded here rather than given its own record: (kosen-career.tech/mirai-server), a free Sakura Cloud VPS for one year for students of Japanese , renewable while enrolled, also requiring membership of the Kosen Career Slack. Its spec sheet sits behind an application form and is not on the page, so its shape is unverified.",
   "extras": {
     "wave2": {

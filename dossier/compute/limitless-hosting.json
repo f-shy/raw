@@ -5,7 +5,7 @@
   "url": "https://limitlesshost.net/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "USD 25.20/year for KVM VPS Starter in Chicago with coupon 10THVPS: 1 vCPU, 1 GB RAM, 10 GB SSD, 250 GB monthly bandwidth, 1 IPv4. KVM VPS 1 is USD 50.40/year for 2 vCPU, 2 GB, 20 GB and 500 GB; KVM VPS 2 is USD 86.40/year for 3 vCPU, 4 GB, 40 GB and 1 TB. The same sale prices shared hosting from USD 2.40/year for 1 GB of SSD and 50 GB of monthly bandwidth, and premium shared hosting from USD 4.32/year. All coupons are recurring for as long as the account renews annually, and every discount applies to annual plans only.",
+    "stated": "- Shared Hosting starting at **$2.40/year**",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://limitlesshost.net/",
@@ -65,10 +65,24 @@
       "url": "https://limitlesshost.net/",
       "date": "2026-10-22",
       "proved": "the vendor homepage was read and carries no plan table or price: it is a marketing page with product cards, '99% Uptime', and a history section; so the VPS prices rest on the offer post alone"
+    },
+    {
+      "url": "https://lowendbox.com/blog/limitless-hosting-10th-anniversary-sale-shared-hosting-reseller-hosting-and-vps-from-just-2-40-year/",
+      "date": "2026-11-25",
+      "proved": "the cheapest paid plan on the sale page is shared hosting starting at USD 2.40 per year, not the USD 25.20 VPS",
+      "capture": "sha256:1827da8af2939ad7c58d4bcbee28b06579a1fb9abf78728c3fbb5a9b1f3eb08e",
+      "quote": "- Shared Hosting starting at **$2.40/year**"
+    },
+    {
+      "url": "https://lowendbox.com/blog/limitless-hosting-10th-anniversary-sale-shared-hosting-reseller-hosting-and-vps-from-just-2-40-year/",
+      "date": "2026-11-25",
+      "proved": "the cheapest paid offer is shared hosting starting at USD 2.40 per year",
+      "capture": "sha256:1827da8af2939ad7c58d4bcbee28b06579a1fb9abf78728c3fbb5a9b1f3eb08e",
+      "quote": "- Shared Hosting starting at **$2.40/year**"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:43.688Z",
   "notes": "json mentions the word for an unrelated reason). The record is reported because the vendor page carries no prices at all. verification criteria: whether 10THVPS still applies after the anniversary sale closes, and whether the Chicago VPS is the only location, since the post lists Frankfurt only for the EU shared and reseller lines. The post prices the same sale's shared plans in USD while the company describes itself as trading since 2015 and 2016 in two different paragraphs, which is a discrepancy in the prose and not in a number.",
   "extras": {
     "wave2": {

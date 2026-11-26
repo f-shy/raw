@@ -5,7 +5,7 @@
   "url": "https://eco.ovhcloud.com/en-gb/soyoustart/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "soyoustart.com no longer sells to new customers: the site now says the brand was grouped into OVHcloud and that the migration was 'planned after the discontinuation of So you Start services on this website'. The SYS SKUs still order: SYS-1 is EUR 29.99 ex VAT a month plus a EUR 29.99 setup fee for an Intel Xeon-E 2136 at 6 cores / 12 threads, 32 GB DDR4 ECC 2666, 2 x 512 GB NVMe in soft RAID and a 1 Gbps guaranteed unmetered port. On 2026-10-22 the OVH availability API returns stock at Beauharnois (1H-high) and London (1H-low).",
+    "stated": "The So you Start range starts at GBP 18.99 ex. VAT/month with guaranteed and unlimited 1 Gbps public bandwidth, free unlimited ingress and egress traffic in Europe, the United States and Canada, a 25 TB monthly limit (included) in Asia-Pacific, and 100 GB of backup storage space included.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://eco.ovhcloud.com/en-gb/soyoustart/",
@@ -84,10 +84,24 @@
       "url": "https://eco.ovhcloud.com/en-gb/soyoustart/",
       "date": "2026-10-22",
       "proved": "'From GBP 26.69 ex. VAT/month' and 'Guaranteed and unlimited 1 Gbps public bandwidth' with free unlimited ingress and egress in Europe, the US and Canada, 25 TB a month in Asia-Pacific, and 100 GB of backup storage included"
+    },
+    {
+      "url": "https://eco.ovhcloud.com/en-gb/soyoustart/",
+      "date": "2026-11-25",
+      "proved": "the So you Start page states the from-price, the 1 Gbps guarantee, the traffic terms and the backup allowance",
+      "capture": "sha256:7aa5ed99c779144e227f9914943f2ba1e8acdb2c5d6e45e9707095d77e9961e3",
+      "quote": "From £18.99 ex. VAT/month ... Guaranteed and unlimited 1 Gbps public bandwidth Our servers in Europe, the United States and Canada all have a guaranteed bandwidth of 1 Gbps, with free, unlimited ingress and egress traffic. In the Asia-Pacific region, the default bandwidth is , with a 25 TB monthly limit (included). ... 100 GB of backup storage space"
+    },
+    {
+      "url": "https://eco.ovhcloud.com/en-gb/soyoustart/",
+      "date": "2026-11-25",
+      "proved": "the So you Start page still states the from-price, the 1 Gbps guarantee, the traffic terms and the backup allowance",
+      "capture": "sha256:7aa5ed99c779144e227f9914943f2ba1e8acdb2c5d6e45e9707095d77e9961e3",
+      "quote": "From £18.99 ex. VAT/month ... Guaranteed and unlimited 1 Gbps public bandwidth Our servers in Europe, the United States and Canada all have a guaranteed bandwidth of 1 Gbps, with free, unlimited ingress and egress traffic. In the Asia-Pacific region, the default bandwidth is , with a 25 TB monthly limit (included). ... 100 GB of backup storage space"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:21.037Z",
   "notes": "no soyoustart file exists in dossier/compute. This is the cheapest orderable modern dedicated machine documented: 6 cores and NVMe for EUR 29.99 beats the Hetzner auction's EUR 64 floor on price by half, and loses on memory (32 GiB against 128 GiB). Refutation to record: the historic advice to buy So you Start for cheap bare metal is stale as a website, because the domain sells nothing new; the product behind it still sells under the SYS SKU. One disagreement is left open: ovheco.com lists 24sys01-v1 as 'Currently out of stock' on the same date while the OVH API returns 1H-high and 1H-low stock, and the API is the vendor's own answer, so the finding follows the API.",
   "extras": {
     "wave2": {

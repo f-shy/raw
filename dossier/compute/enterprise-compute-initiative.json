@@ -5,7 +5,7 @@
   "url": "https://www.disg.gov.sg/eci/cloud-service-providers/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "A SGD 150 million programme that passes cloud credits through four providers to Singapore-based companies: AWS 'Up to S$350,000 in dedicated AI Springboard cloud credits and training, with support of up to S$600,000 through complementary AWS support programmes'; Microsoft 'Up to S$250,000 of Azure cloud credits ... with support of up to S$700,000 in services'; Oracle 'Up to S$250,000 per company through Oracle Cloud Universal Credits ... and up to S$1.9 million for enterprises that require private cloud infrastructure'; Google 'Up to S$200,000 worth of on-demand training licences and additional financial incentives'. Consultancy is separately capped at SGD 150,000 with 70 percent support up to SGD 105,000 per company.",
+    "stated": "ECI cloud service provider offerings: Google Cloud AI Cloud Takeoff Program (AI CTO) 'Up to S$200,000 worth of on-demand training licences and additional financial incentives, AI workshops and enablement: 2-week interactive technical workshops on various aspects of AI, upskilling and Certification on AI and GenAI, and an AI showcase opportunity.'; Amazon Web Services (AWS) AI Springboard Program 'Up to S$350,000 in dedicated AI Springboard cloud credits and training, with support of up to S$600,000 through complementary AWS support programmes for qualifying companies, such as AWS Migration Acceleration Program and AWS Lift.'; Microsoft Agentic AI Accelerator 'Up to S$250,000 of Azure cloud credits, AI training and tools, with support of up to S$700,000 in services to help select businesses co-develop their agentic AI roadmap with Microsoft technology partners, subject to approval.'; Oracle ECI Program 'Up to S$250,000 per company through Oracle Cloud Universal Credits, training, certification and discovery workshops and up to S$1.9 million for enterprises that require private cloud infrastructure and access to Oracle Private Cloud Appliance and Oracle Exadata.'",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://www.disg.gov.sg/eci/cloud-service-providers/",
@@ -79,10 +79,24 @@
       "url": "https://www.disg.gov.sg/enterprise-compute-initiative/",
       "date": "2026-10-22",
       "proved": "'The programme will run for one year from the respective launch dates of each CSP, with multiple cohorts being deployed by different CSPs on a staggered timeline', quoted"
+    },
+    {
+      "url": "https://www.disg.gov.sg/eci/cloud-service-providers/",
+      "date": "2026-11-25",
+      "proved": "the page states the Oracle ECI offering of S$250,000 in credits and up to S$1.9 million for private cloud infrastructure",
+      "capture": "sha256:5f68ef7a1fe2a711b95f2a2d857f41232260f3726f8da69c83c2286a1007bc7e",
+      "quote": "**Offerings:** Up to S$250,000 per company through Oracle Cloud Universal Credits, training, certification and discovery workshops and up to S$1.9 million for enterprises that require private cloud infrastructure and access to Oracle Private Cloud Appliance and Oracle Exadata."
+    },
+    {
+      "url": "https://www.disg.gov.sg/eci/cloud-service-providers/",
+      "date": "2026-11-25",
+      "proved": "the CSP page still states a published ECI cloud-credit offering",
+      "capture": "sha256:5f68ef7a1fe2a711b95f2a2d857f41232260f3726f8da69c83c2286a1007bc7e",
+      "quote": "**Offerings:** Up to S$250,000 per company through Oracle Cloud Universal Credits, training, certification and discovery workshops and up to S$1.9 million for enterprises that require private cloud infrastructure and access to Oracle Private Cloud Appliance and Oracle Exadata."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:25.149Z",
   "notes": "A company cannot claim more than one CSP package: the programme pairs each participant with one CSP and its partners. The SGD 350,000 is plausibly a credit on a billing account: the text says 'dedicated AI Springboard cloud credits', though the AWS page is the authoritative source and was not read. Whether the 10-person headcount is waivable for a high-impact use case is unresolved: the baseline criteria are listed without an exception clause, but the assessment section is explicitly discretionary on use-case impact. The headcount rule is the highest personnel gate among the programmes read and it disqualifies a single-person operator.",
   "extras": {
     "wave2": {

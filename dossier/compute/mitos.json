@@ -6,7 +6,7 @@
   "category": "microVM (Firecracker), forked sandboxes",
   "tier": "pay-as-you-go, 1 vCPU / 1 GiB / no storage",
   "free_tier": {
-    "stated": "USD 100 of signup credit, no card; prepaid top-ups after that.",
+    "stated": "USD 5 of signup credit, no card; prepaid top-ups after that.",
     "unit": "mixed",
     "metered_on": "wall-clock",
     "source_url": "https://mitos.run/pricing",
@@ -65,10 +65,17 @@
       "url": "https://mitos.run/pricing",
       "date": "2026-10-24",
       "proved": "quoted: '$100 to start. Free signup credit, no card. Prepaid top-ups after that.'"
+    },
+    {
+      "url": "https://mitos.run/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page states a USD 5 signup credit with no card and prepaid top-ups after that",
+      "capture": "sha256:edcaa0f919991ce1b10aeecb888d925b9f8a332b01c01d260788961b5f1dd3e4",
+      "quote": "### $5 to start\nFree signup credit, no card. Prepaid top-ups after that."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-24T02:11:00.000Z",
+  "verified_at": "2026-11-25T11:17:47.281Z",
   "price_per_tb_month": "USD 0.00 per TB (egress free)",
   "history": [],
   "notes": "730-hour arithmetic at 1 vCPU / 1 GiB: 0.046 x 730 = USD 33.58 compute + 0.012 x 730 = USD 8.76 memory = USD 42.34, before storage. That is 14.5x Krova's 1 vCPU / 1 GiB. The product is designed for the opposite workload: pay nothing while paused, so a 24/7 box is the worst case for it.",

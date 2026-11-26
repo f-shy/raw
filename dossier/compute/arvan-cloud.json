@@ -5,12 +5,12 @@
   "url": "https://www.arvancloud.ru/pricing/free",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "Quoted, translated from Russian: free products are limited to four services, CDN, Object Storage, Video Platform and Support. Base plans renew automatically every 30 days at no cost, but no compute product has a base plan.",
+    "stated": "Quoted and translated from Russian: choosing the Basic Plan lets the user use the provider's free products and functions with no extra charge. Basic packages of the various products are intended to meet basic needs in a limited volume and are recommended for new enterprises and startups. Basic packages renew automatically after a 30-day period, and higher packages can be bought at any time. Free services exclude dedicated support, an SLA and compensation for breach; a Basic Support package is offered for free cloud services.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://www.arvancloud.ru/pricing/free",
     "read_on": "2026-10-22",
-    "notes": "none"
+    "notes": "The Basic Plan renews automatically after a 30-day period; higher Growth or Professional packages can be bought at any time."
   },
   "per_object_cap": {
     "stated": "not applicable: the unit is a machine, not an object",
@@ -63,10 +63,24 @@
       "url": "https://t.me/s/arvancloud/1629",
       "date": "2026-10-22",
       "proved": "cloud servers are promoted with a 40 percent discount, free traffic up to 500 GB and hourly or daily billing, which is a paid product"
+    },
+    {
+      "url": "https://www.arvancloud.ru/pricing/free",
+      "date": "2026-11-25",
+      "proved": "the free-tier page states that Basic packages renew automatically after 30 days",
+      "capture": "sha256:7fbf250a5e45ff017a228ca60e1a80c68b4b98e51245e5de6e27d6dcbb8f23f3",
+      "quote": "Да, базовые пакеты автоматически продляются после 30-дневного периода."
+    },
+    {
+      "url": "https://www.arvancloud.ru/pricing/free",
+      "date": "2026-11-25",
+      "proved": "the page states the 30-day renewal and that higher packages can be bought at any time",
+      "capture": "sha256:7fbf250a5e45ff017a228ca60e1a80c68b4b98e51245e5de6e27d6dcbb8f23f3",
+      "quote": "Да, базовые пакеты автоматически продляются после 30-дневного периода. Но вы можете купить более высокие пакеты в любое время."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:21.728Z",
   "notes": "The site previously carried a URL at /products/vps/free which now redirects to the marketing homepage, which is why some lists still attribute a free VPS to Arvan. 500 GB of free traffic on a paid server is a useful egress term and belongs in an egress record, not this one. The registration identity step was not verified on 2026-10-22.",
   "extras": {
     "wave2": {

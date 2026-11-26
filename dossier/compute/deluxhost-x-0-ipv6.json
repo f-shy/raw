@@ -6,7 +6,7 @@
  "category": "IPv6-only VPS",
  "tier": "X-0",
  "free_tier": {
-  "stated": "No free tier. Offer X-0 is EUR 5.40 a year against a EUR 6.00 list price: 1 vCore, 512 MB DDR4, 10 GB SSD, 1 Gbit/s, unlimited traffic at fair use. The IPv4/IPv6 split is chosen in the cart, where the cart strings include an 'IPv6 only · 1× /64' network option.",
+  "stated": "No free tier. Offer X-0 is EUR 6.00 a year: 1 vCore, 512 MB DDR4, 10 GB SSD, 1 Gbit/s, unlimited traffic at fair use.",
   "unit": "none",
   "metered_on": "none",
   "source_url": "https://deluxhost.net/en/deals/x",
@@ -80,10 +80,24 @@
    "url": "https://deluxhost.net/en/legal/tos",
    "date": "2026-10-24",
    "proved": "the terms state that DeluxHost is a business owned by a sole trader, and carry an Italian VAT number"
+  },
+  {
+   "url": "https://deluxhost.net/en/deals/x",
+   "date": "2026-11-25",
+   "proved": "the deal page lists X-0 at 6.00 EUR per year with this shape and unlimited fair-use traffic",
+   "capture": "sha256:d9d27f5e993408aadc8e013f1216fc22d796f3238d8080980d928c870dbb3558",
+   "quote": "X-0 ... 1 vCore ... RAM 512MB DDR4 ... Storage 10GB SSD ... Bandwidth 1Gbit/s ... Unlimited Traffic, fair usage ... 6.00€ per year"
+  },
+  {
+   "url": "https://deluxhost.net/en/deals/x",
+   "date": "2026-11-25",
+   "proved": "the deal page still states X-0 at EUR 6.00 a year with this shape",
+   "capture": "sha256:d9d27f5e993408aadc8e013f1216fc22d796f3238d8080980d928c870dbb3558",
+   "quote": "X-0 ... 1 vCore ... RAM 512MB DDR4 ... Storage 10GB SSD ... Bandwidth 1Gbit/s ... Unlimited Traffic, fair usage ... 6.00€ per year"
   }
  ],
  "verdict": "qualifies-with-caveat",
- "verified_at": "2026-10-24T06:16:40.000Z",
+ "verified_at": "2026-11-25T11:17:21.264Z",
  "price_per_tb_month": null,
  "history": [],
  "notes": "The cheapest annual row found, and the one whose evidence is weakest exactly where it matters. The vendor page proves the price (EUR 5.40 discounted, EUR 6.00 list, in stock, annual), and the cart's own strings prove an IPv6-only-with-/64 option exists in the product. What no first-party page says is that X-0 is the IPv6-only variant: the vendor's FAQ claims all plans are dual-stack and IPv6 is free, while the forum post that put this row on the list says 0x IPv4. Both can be true if the cart defaults to IPv6-only and IPv4 is an add-on, but that is an inference and is recorded as one. A buyer should open the cart and read the network selector before paying. Not established: the rendered cart, the price of the extra-IPv4 add-on, payment rails, card hold, and the renewal price on the vendor's own page (the forum says EUR 6, which is the list price).",

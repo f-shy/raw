@@ -1,0 +1,13 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u395-rerun",
+ "kind": "reconcile",
+ "topic": "compute",
+ "question": "Settle these disagreements on compute/mobilerun from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.identity_cost.kind: proposed \"email\" (evidence https://mobilerun.ai/pricing/, capture sha256:9d81a4f924c50, quote 'No overage, top up any time'); now \"email\". Why it did not apply: audit u150 judged it unsupported: Cited sign-in page says email signup is disabled (emailSignUpEnabled false); it does not show what signup asks for, so kind email is contradicted, not supported.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/mobilerun $.identity_cost.detail: the privacy capture carries the Twilio clause, but the detail's 'no card, ID document or institution is named for registration' is contradicted by the terms: the service is directed exclusively at business customers and DroidRun may require proof of that status before the contract, which section 2.1\n- compute/mobilerun $.identity_cost.detail: the sign-in capture carries the route list, but the confirmed detail asserts 'no card, ID document or institution is named for registration', which the terms 1.3 contradicts: the service is directed exclusively at business customers and proof of that status may be required before the contract, which\n- compute/mobilerun $.identity_cost.detail: the privacy capture carries the Twilio clause, but the confirmed detail's 'no card, ID document or institution is named for registration' is contradicted by the terms 1.3: the service is directed exclusively at business customers and proof of that status may be required before the contract, which se",
+ "scope": {
+  "rids": [
+   "compute/mobilerun"
+  ]
+ },
+ "origin": "audit u417 of 20261125-0107-research-compute-5c82/u395 failed: 3 of 4 unsupported",
+ "created": "2026-11-25T22:05:44Z"
+}

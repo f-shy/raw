@@ -6,7 +6,7 @@
   "category": "PaaS app and sandbox compute on managed regions",
   "tier": "Direct",
   "free_tier": {
-    "stated": "No free zCloud allowance on Direct: zCloud compute has no included amount and runs $7.50 per zCloud-month in standard Quave regions. The separate Hobby account is unbilled and needs no credit card, but it is limited to the US-1 Hobby region for testing and evaluation.",
+    "stated": "No free zCloud allowance on Direct: zCloud compute has no included amount and runs $9.50 per zCloud-month in standard Quave regions. The separate Hobby account is unbilled and needs no credit card, but it is limited to the US-1 Hobby region for testing and evaluation.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://docs.quave.one/billing/pricing",
@@ -40,7 +40,7 @@
   "limits": [
     {
       "kind": "volume-quota",
-      "value": "$7.50 per zCloud-month in standard Quave regions; each zCloud is 0.5 vCPU and 0.5 GB RAM, with no included compute amount",
+      "value": "$9.50 per zCloud-month in standard Quave regions; each zCloud is 0.5 vCPU and 0.5 GB RAM, with no included compute amount",
       "source": "https://docs.quave.one/billing/pricing"
     },
     {
@@ -147,12 +147,26 @@
       "proved": "US-1 Hobby is the only region available to Hobby accounts and production regions require Professional",
       "capture": "sha256:a3f90734dab8bd273a35e95c0e1d27046063d682b3bb12a121e2ca151fb115f4",
       "quote": "Hobby accounts:"
+    },
+    {
+      "url": "https://docs.quave.one/billing/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page lists zCloud compute at USD 9.50 per zCloud-month in standard regions",
+      "capture": "sha256:5e9cae828c81d754958e865dc7132325ab70007dd6f053c42804040cf789c7d2",
+      "quote": "**$9.50 per zCloud-month** in standard Quave regions"
+    },
+    {
+      "url": "https://docs.quave.one/billing/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page was read again on 2026-11-25 and lists zCloud compute at USD 9.50 per zCloud-month",
+      "capture": "sha256:5e9cae828c81d754958e865dc7132325ab70007dd6f053c42804040cf789c7d2",
+      "quote": "**$9.50 per zCloud-month** in standard Quave regions"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-11-24T10:11:15.022Z",
+  "verified_at": "2026-11-26T02:52:45.909Z",
   "price_per_tb_month": null,
-  "notes": "Direct has no free compute allowance: zCloud compute is $7.50 per zCloud-month in standard regions, and a zCloud is 0.5 vCPU and 0.5 GB RAM. The separate Hobby account is unbilled with no card but is evaluation-only in US-1 Hobby. Connect is a separate paid platform license from $399/month, and sandbox compute is 3x the regional zCloud rate.",
+  "notes": "Direct has no free compute allowance: zCloud compute is $9.50 per zCloud-month in standard regions, and a zCloud is 0.5 vCPU and 0.5 GB RAM. The separate Hobby account is unbilled with no card but is evaluation-only in US-1 Hobby. Connect is a separate paid platform license from $399/month, and sandbox compute is 3x the regional zCloud rate.",
   "extras": {
     "connect_license": "from $399/month, billed on a daily tier with a 12-month minimum contract; monthly tier prices are in the Adhesion Agreement rather than on the pricing page",
     "sandbox_rate": "3x the regional zCloud rate on allocated zClouds, billed by the second with no minimum; paused states are not billed",

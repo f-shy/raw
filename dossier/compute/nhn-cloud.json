@@ -5,7 +5,7 @@
   "url": "https://docs.nhncloud.com/ko/nhncloud/ko/user-guide/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "KRW 200,000 signup credit after registering a payment method, valid one year, usable on Compute instances, with GPU Instance, Notification and marketplace products explicitly excluded.",
+    "stated": "New members receive a KRW 200,000 signup credit after registering a payment method, usable toward NHN Cloud service payments; Compute Instance is among the services the credit can be used on.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://docs.nhncloud.com/ko/nhncloud/ko/user-guide/",
@@ -69,10 +69,24 @@
       "url": "https://docs.nhncloud.com/ko/nhncloud/ko/user-guide/",
       "date": "2026-10-22",
       "proved": "the user guide lists the payment methods by signup country, in Korean: Korea personal is PAYCO credit card or credit card, Japan is credit card only"
+    },
+    {
+      "url": "https://m.blog.naver.com/nhncloud_official/222982284804",
+      "date": "2026-11-25",
+      "proved": "new members get a KRW 200,000 credit after registering a payment method, usable toward NHN Cloud charges",
+      "capture": "sha256:2f3a7d6990caf3d7250177718e030a5254c57b68dac77bbc3f118c04a3e0f19e",
+      "quote": "**NHN Cloud 서비스 이용 요금을 결제할 수 있는 20만 원 상당의 크레딧**입니다. 신규 회원 가입 후 결제 수단을 등록하여 ‘가입 축하 크레딧’을 받을 수 있습니다."
+    },
+    {
+      "url": "https://m.blog.naver.com/nhncloud_official/222982284804",
+      "date": "2026-11-25",
+      "proved": "the KRW 200,000 signup credit after registering a payment method is still stated",
+      "capture": "sha256:2f3a7d6990caf3d7250177718e030a5254c57b68dac77bbc3f118c04a3e0f19e",
+      "quote": "**NHN Cloud 서비스 이용 요금을 결제할 수 있는 20만 원 상당의 크레딧**입니다. 신규 회원 가입 후 결제 수단을 등록하여 ‘가입 축하 크레딧’을 받을 수 있습니다."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:13.620Z",
   "notes": "The Korean cloud signup credits cluster at KRW 100,000 to KRW 300,000 and all sit behind a business registration or a domestically verifiable phone. The GPU exclusion is the detail that matters, because the headline figure would otherwise read as GPU credit. The corpus records NHN Cloud as paid-only on the VM ladder; this adds the credit the ladder page does not show.",
   "extras": {
     "wave2": {

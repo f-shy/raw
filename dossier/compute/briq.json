@@ -1,145 +1,194 @@
 {
-  "topic": "compute",
-  "slug": "briq",
-  "provider": "briq",
-  "url": "https://briq.cloud/docs/cost",
-  "category": "microVM sandbox and services",
-  "tier": "Hobby (free plan)",
-  "free_tier": {
-    "stated": "Every new account gets €10 of credits on its personal team; every new team starts on Hobby, which is free, with no monthly fee and €20 of usage on paid Pro",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://briq.cloud/docs/cost",
-    "read_on": "2026-11-24",
-    "notes": "Credits are prepaid and usage draws them down per second. Hobby runs five sandboxes and services at once with 16 GB of live memory and 10 GB of disk; sizes pico, micro, nano, small and medium are available, and always-on is not."
+ "topic": "compute",
+ "slug": "briq",
+ "provider": "briq",
+ "url": "https://briq.cloud/docs/cost",
+ "category": "container and VM sandbox",
+ "tier": "Hobby, medium briq",
+ "free_tier": {
+  "stated": "EUR 10 of credits for every new account on its personal team; the Hobby plan itself is free with no monthly fee",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://briq.cloud/docs/cost",
+  "read_on": "2026-11-25",
+  "notes": "Credits are prepaid and usage draws them down as it runs; a sleeping or stopped briq is not billed for compute."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a microVM with a volume, not an object; the Hobby plan holds 10 GB of disk across the whole team",
+  "bytes": null,
+  "source_url": "https://briq.cloud/docs/cost",
+  "notes": "Volumes start at 2 GB unless the spec sets gb; a recipe takes 1 to 5 GB."
+ },
+ "retention": {
+  "stated": "a sleeping or stopped briq keeps its volume until the user destroys it; a disposable screen is not used here; a Hobby briq goes to sleep after its sleep window, an hour by default",
+  "days": null,
+  "source_url": "https://briq.cloud/docs/cost"
+ },
+ "egress": {
+  "terms": "Disk and outbound traffic are not billed today",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://briq.cloud/docs/cost"
+ },
+ "interface": [
+  "rest",
+  "cli",
+  "chat"
+ ],
+ "interface_detail": "CLI, REST API and MCP; a briq MCP server at https://api.briq.cloud/mcp",
+ "endpoint": "https://api.briq.cloud/mcp",
+ "tooling": "@briq-cloud/cli with briq login and briq run sandbox, a REST API with a BRIQ_API_KEY bearer token, and MCP clients including Claude Code, Cursor, VS Code, Codex and OpenCode",
+ "chaining": "a hosted Firecracker microVM that runs a sandbox or an OCI image beside a database, with per-second billing and an idle sleep that stops compute charges",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "Hobby: 5 sandboxes and services at once, 16 GB of memory across live briqs, 10 GB of disk held, pico through medium sizes only",
+   "source": "https://briq.cloud/docs/cost"
   },
-  "per_object_cap": {
-    "stated": "no object unit: the offer is a microVM; a recipe volume is 1 to 5 GB and a plain volume starts at 2 GB unless the spec sets gb",
-    "source_url": "https://briq.cloud/docs/cost"
+  {
+   "kind": "per-object-cap",
+   "value": "the medium size is shared 2 vCPU and 4 GB of RAM at EUR 0.03 per hour; a briq needs credits for its first hour before it starts",
+   "source": "https://briq.cloud/docs/cost"
   },
-  "retention": {
-    "stated": "A briq goes to sleep after its sleep window unused, one hour by default; it keeps its disk and is not billed while asleep. Nothing is deleted because of time.",
-    "days": null,
-    "source_url": "https://briq.cloud/docs/cost"
-  },
-  "egress": {
-    "terms": "Disk and outbound traffic are not billed today. Egress is open except outbound mail: SMTP ports 25, 465 and 587 are forbidden by the abuse policy. A private TCP endpoint takes TLS 1.2 or later; inbound traffic reaches a briq only after it is published with expose.",
-    "metered": false,
-    "free_allowance": "outbound traffic is not billed today",
-    "price_per_tb": null,
-    "source_url": "https://briq.cloud/docs/security"
-  },
-  "interface": [
-    "rest",
-    "cli"
-  ],
-  "interface_detail": "Remote MCP server at https://api.briq.cloud/mcp (Streamable HTTP, OAuth sign-in or API key), CLI installed with npm install -g @briq-cloud/cli, and REST API at https://api.briq.cloud/v1. MCP is not a term in the interface vocabulary.",
-  "endpoint": "https://api.briq.cloud/v1",
-  "tooling": "The briq CLI, the REST API and the MCP server; an API key is a BRIQ_API_KEY bearer token, and clients connect from Claude, Cursor, VS Code, Codex, Gemini CLI or OpenCode.",
-  "chaining": "A briq runs a sandbox, a database or any OCI image beside the agent, with a private stack network between them and a preview URL when a service is published, so an agent can apply migrations or run tests against real services and hand back results.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "Hobby: 5 sandboxes and services at once, 16 GB memory across live briqs, 10 GB disk held, sizes pico to medium, no always-on briqs",
-      "source": "https://briq.cloud/docs/cost"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "sleep after 1 hour unused by default, 5 minutes to 7 days configurable; a sleeping briq keeps its disk and is not billed",
-      "source": "https://briq.cloud/docs/cost"
-    }
-  ],
-  "limits_note": "A start, fork or wake needs available capacity; each credential's policy can set a lower concurrency limit, and dailySpendCapCents limits each agent per day. A call the plan does not allow fails with plan_limit (403).",
-  "binding": "volume-quota",
-  "binding_note": "The Hobby plan's five concurrent briqs, 16 GB of live memory and 10 GB of disk are exhausted before the €10 credit runs out at the published per-hour rates, and sleeping keeps the disk but does not free the plan allowance for a sixth live briq.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The sign-up page offers Continue with Google, Continue with GitHub, or Name, Email and Password with at least 8 characters; the terms grant the €10 credit once the email address is confirmed. No card is required for Hobby or the credit, though pay-as-you-go past the credit needs a card on file.",
-    "country": null
-  },
-  "reliability_note": "A briq stops at zero balance without a card and nothing wakes until a top-up; an agent's daily spend cap stops its briqs when crossed; outbound SMTP is forbidden; a sleeping briq keeps its disk and nothing is deleted because of time.",
-  "confidence": "documented",
-  "confidence_note": "The per-second euro rates, €10 credit, plan table and egress terms are quoted from the vendor's own cost, security and sign-up pages read on 2026-11-24; the sleep behaviour is from the vendor's lifecycle page on the same day.",
-  "evidence": [
-    {
-      "url": "https://briq.cloud/docs/cost",
-      "date": "2026-11-24",
-      "proved": "a new account gets €10 of credits and disk and outbound traffic are not billed today",
-      "capture": "sha256:ee3e9323e28c1b495154bb66585920698050c7c26dd836f28c6b9873cef7caf2",
-      "quote": "Every new account gets **€10** of credits on its personal team. Credits are prepaid; usage draws"
-    },
-    {
-      "url": "https://briq.cloud/docs/cost",
-      "date": "2026-11-24",
-      "proved": "briq bills per second with published hourly rates and does not bill disk or outbound traffic",
-      "capture": "sha256:ee3e9323e28c1b495154bb66585920698050c7c26dd836f28c6b9873cef7caf2",
-      "quote": "Disk and outbound traffic are not billed today."
-    },
-    {
-      "url": "https://briq.cloud/docs/cost",
-      "date": "2026-11-24",
-      "proved": "the small size is shared 1 vCPU and 2 GB at €0.016 an hour",
-      "capture": "sha256:ee3e9323e28c1b495154bb66585920698050c7c26dd836f28c6b9873cef7caf2",
-      "quote": "| `small` | shared 1 | 2 GB | €0.016 |"
-    },
-    {
-      "url": "https://briq.cloud/docs/cost",
-      "date": "2026-11-24",
-      "proved": "the Hobby plan is free with five concurrent sandboxes, 16 GB live memory, 10 GB disk and no always-on briqs",
-      "capture": "sha256:ee3e9323e28c1b495154bb66585920698050c7c26dd836f28c6b9873cef7caf2",
-      "quote": "| Price | Free | €20 / month | €100 / month |\n| Included | No monthly fee | €20 of usage included every month | €100 of usage included every month |\n| Sandboxes & services at once | 5 | 50 | 200 |\n| Memory across live briqs | 16 GB | 80 GB | 256 GB |"
-    },
-    {
-      "url": "https://briq.cloud/docs/security",
-      "date": "2026-11-24",
-      "proved": "egress is open except outbound SMTP ports 25, 465 and 587",
-      "capture": "sha256:71f435aa81d7ff04b3af936b306f06d395708e354aafc32f0993bb2f52732d57",
-      "quote": "* **Egress is open**, except outbound mail (SMTP ports 25, 465, 587), which the"
-    },
-    {
-      "url": "https://briq.cloud/sign-up",
-      "date": "2026-11-24",
-      "proved": "sign-up accepts Google, GitHub, or a name, email and password, and the personal team starts with €10 of credits",
-      "capture": "sha256:f89a7871d41a6672bf047730d55f5bf1f31e953ccff3387a6f6958f0fd86ea6e",
-      "quote": "Your personal team starts with €10 of credits.\n\nContinue with GoogleContinue with GitHub\n\nor with email\n\nName\n\nEmail\n\nPassword"
-    },
-    {
-      "url": "https://briq.cloud/docs/concepts/lifecycle-and-sleep",
-      "date": "2026-11-24",
-      "proved": "a briq sleeps after its window unused, keeps its disk and is not billed while asleep",
-      "capture": "sha256:ae9648a0d44d099c47a2a14934f00afbf174c0e8740f3be602f376fefdb832cf",
-      "quote": "Every briq has one setting that decides when it stops on its own: `sleep`. After that long without"
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.640Z",
-  "price_per_tb_month": null,
-  "notes": "Hobby is free and starts with €10 of prepaid credits; compute bills per second from €0.003 an hour for pico, and outbound traffic and disk are not billed. The plan's five concurrent briqs, 16 GB live memory and 10 GB disk bind before the credit does; a sleeping briq keeps its disk.",
-  "extras": {
-    "shape": {
-      "vcpu": 1,
-      "ram_gib": 2,
-      "disk_gib": 10,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "small is shared 1 vCPU and 2 GB; pico is shared 0.25 vCPU and 128 MB; Hobby disk allowance is 10 GB for the team"
-    },
-    "billing_model": "per-second euro billing against prepaid credits",
-    "free_tier_kind": "one-time credit on a free plan",
-    "status": "live",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": false,
-      "ports": "private by default; published with expose when a URL is needed",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": 60,
-      "idle_reap_s": 3600,
-      "restart_required": false,
-      "note": "sleep window 1 hour by default, 5 minutes to 7 days configurable; sleeping keeps the disk"
-    }
+  {
+   "kind": "write-gated",
+   "value": "Hobby pay-as-you-go needs a card on file; with no card the team stops at zero credits",
+   "source": "https://briq.cloud/docs/cost"
   }
+ ],
+ "limits_note": "Compute concurrency and memory are shared by every API key, CLI and MCP client in the team. A dailySpendCapCents policy limits each agent per day. An EU-based team can run large on Hobby with a card on file.",
+ "binding": "volume-quota",
+ "binding_note": "The 5 concurrent briqs and 16 GB shared memory on Hobby bind before the EUR 10 credit, which is drawn down per second.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "the sign-up page offers Continue with Google or Continue with GitHub, or Name, Email and Password with a minimum of 8 characters; no phone number or ID document is asked at sign-up. The EUR 10 credits are claimed from an account; a card is needed only to run past zero credits or to use the large size",
+  "country": null
+ },
+ "reliability_note": "a briq goes to sleep after its sleep window and is not billed while asleep; at zero credits running briqs stop and visits do not wake them",
+ "confidence": "documented",
+ "confidence_note": "the vendor's cost, quickstart and sign-up pages were read on 2026-11-25; the price and free credit come from the cost page and the sign-up gate from the sign-up page",
+ "evidence": [
+  {
+   "url": "https://briq.cloud/docs/cost",
+   "date": "2026-11-25",
+   "proved": "the medium briq is shared 2 vCPU and 4 GB at EUR 0.03 per hour, billed per second",
+   "capture": "sha256:ee3e9323e28c1b495154bb66585920698050c7c26dd836f28c6b9873cef7caf2",
+   "quote": "| `medium` | shared 2 | 4 GB | €0.03 |"
+  },
+  {
+   "url": "https://briq.cloud/docs/cost",
+   "date": "2026-11-25",
+   "proved": "every new account gets EUR 10 of prepaid credits on its personal team",
+   "capture": "sha256:ee3e9323e28c1b495154bb66585920698050c7c26dd836f28c6b9873cef7caf2",
+   "quote": "Every new account gets **€10** of credits on its personal team. Credits are prepaid; usage draws them down as it runs."
+  },
+  {
+   "url": "https://briq.cloud/docs/cost",
+   "date": "2026-11-25",
+   "proved": "the Hobby plan is free with 5 concurrent sandboxes, 16 GB shared memory, 10 GB disk and pico through medium sizes",
+   "capture": "sha256:ee3e9323e28c1b495154bb66585920698050c7c26dd836f28c6b9873cef7caf2",
+   "quote": "| Price | Free | €20 / month | €100 / month |"
+  },
+  {
+   "url": "https://briq.cloud/docs/cost",
+   "date": "2026-11-25",
+   "proved": "disk and outbound traffic are not billed, and a sleeping or stopped briq is not billed for compute",
+   "capture": "sha256:ee3e9323e28c1b495154bb66585920698050c7c26dd836f28c6b9873cef7caf2",
+   "quote": "A sleeping or stopped briq is not billed for compute, and its volume is kept until you destroy it. Disk and outbound traffic are not billed today."
+  },
+  {
+   "url": "https://briq.cloud/docs/getting-started",
+   "date": "2026-11-25",
+   "proved": "briq is reached over CLI, REST API and an MCP server at https://api.briq.cloud/mcp",
+   "capture": "sha256:6704385b216decac85f6487925d4e19a54985fcad03eabd52b3c616bd73cc95c",
+   "quote": "Create an account from the [dashboard](https://briq.cloud/sign-up), then open **API keys** and create a key."
+  },
+  {
+   "url": "https://briq.cloud/sign-up",
+   "date": "2026-11-25",
+   "proved": "sign-up offers Google, GitHub or email with name, email and password, and no phone or ID field",
+   "capture": "sha256:f89a7871d41a6672bf047730d55f5bf1f31e953ccff3387a6f6958f0fd86ea6e",
+   "quote": "Continue with GoogleContinue with GitHub\n\nor with email\n\nName\n\nEmail\n\nPassword"
+  },
+  {
+   "url": "https://paste.ajam.dev/raw/WCLUsa",
+   "date": "2026-11-25",
+   "proved": "the operator's list prices briq at USD 0.035 per hour billed per second and 333 hours free one time, a reported rate about a third party and not a reading of the vendor's own page",
+   "capture": "sha256:4d220f8008ed2a6126e4b7f8bc4639bd9e625605ec428846fde2bdf593cc5c95",
+   "quote": "26. briq → $0.035/h · billed per second"
+  },
+  {
+   "url": "https://briq.cloud/docs/cost",
+   "date": "2026-11-24",
+   "proved": "a new account gets €10 of credits and disk and outbound traffic are not billed today",
+   "capture": "sha256:ee3e9323e28c1b495154bb66585920698050c7c26dd836f28c6b9873cef7caf2",
+   "quote": "Every new account gets **€10** of credits on its personal team. Credits are prepaid; usage draws"
+  },
+  {
+   "url": "https://briq.cloud/docs/cost",
+   "date": "2026-11-24",
+   "proved": "briq bills per second with published hourly rates and does not bill disk or outbound traffic",
+   "capture": "sha256:ee3e9323e28c1b495154bb66585920698050c7c26dd836f28c6b9873cef7caf2",
+   "quote": "Disk and outbound traffic are not billed today."
+  },
+  {
+   "url": "https://briq.cloud/docs/cost",
+   "date": "2026-11-24",
+   "proved": "the small size is shared 1 vCPU and 2 GB at €0.016 an hour",
+   "capture": "sha256:ee3e9323e28c1b495154bb66585920698050c7c26dd836f28c6b9873cef7caf2",
+   "quote": "| `small` | shared 1 | 2 GB | €0.016 |"
+  },
+  {
+   "url": "https://briq.cloud/docs/cost",
+   "date": "2026-11-24",
+   "proved": "the Hobby plan is free with five concurrent sandboxes, 16 GB live memory, 10 GB disk and no always-on briqs",
+   "capture": "sha256:ee3e9323e28c1b495154bb66585920698050c7c26dd836f28c6b9873cef7caf2",
+   "quote": "| Price | Free | €20 / month | €100 / month |\n| Included | No monthly fee | €20 of usage included every month | €100 of usage included every month |\n| Sandboxes & services at once | 5 | 50 | 200 |\n| Memory across live briqs | 16 GB | 80 GB | 256 GB |"
+  },
+  {
+   "url": "https://briq.cloud/docs/security",
+   "date": "2026-11-24",
+   "proved": "egress is open except outbound SMTP ports 25, 465 and 587",
+   "capture": "sha256:71f435aa81d7ff04b3af936b306f06d395708e354aafc32f0993bb2f52732d57",
+   "quote": "* **Egress is open**, except outbound mail (SMTP ports 25, 465, 587), which the"
+  },
+  {
+   "url": "https://briq.cloud/sign-up",
+   "date": "2026-11-24",
+   "proved": "sign-up accepts Google, GitHub, or a name, email and password, and the personal team starts with €10 of credits",
+   "capture": "sha256:f89a7871d41a6672bf047730d55f5bf1f31e953ccff3387a6f6958f0fd86ea6e",
+   "quote": "Your personal team starts with €10 of credits.\n\nContinue with GoogleContinue with GitHub\n\nor with email\n\nName\n\nEmail\n\nPassword"
+  },
+  {
+   "url": "https://briq.cloud/docs/concepts/lifecycle-and-sleep",
+   "date": "2026-11-24",
+   "proved": "a briq sleeps after its window unused, keeps its disk and is not billed while asleep",
+   "capture": "sha256:ae9648a0d44d099c47a2a14934f00afbf174c0e8740f3be602f376fefdb832cf",
+   "quote": "Every briq has one setting that decides when it stops on its own: `sleep`. After that long without"
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T02:12:34.630Z",
+ "price_per_tb_month": null,
+ "notes": "The operator's list quotes USD 0.035 per hour for briq at 2 vCPU and 4 GB and 333 hours free one time; the vendor's cost page quotes EUR 0.03 per hour for the medium size and EUR 10 of account credits. The amounts are in different currencies and the free allowances differ; the vendor's own figures are the ones used here.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 4,
+   "disk_gib": 2,
+   "gpu_class": null,
+   "gpu_count": null
+  },
+  "billing_model": "per-second while running; sleeping is not billed; prepaid euro credits with optional card",
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": 3600,
+   "restart_required": false,
+   "note": "a briq sleeps after its sleep window, an hour by default, and wakes on the next use"
+  },
+  "free_tier_kind": "one-time account credit",
+  "term": "per-second",
+  "source_scope": "the medium size is the closest published shape to 2 vCPU / 4 GB"
+ }
 }

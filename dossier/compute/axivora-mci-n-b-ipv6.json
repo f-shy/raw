@@ -75,10 +75,17 @@
    "url": "https://store.axivora.net/cart",
    "date": "2026-10-24",
    "proved": "the cart page renders 'Your cart is empty' at 200, so the store is live; the add-to-cart itself is a Livewire wire:click action on the product page, not a link with a product id"
+  },
+  {
+   "url": "https://store.axivora.net/products/MCI-IPv6-Only",
+   "date": "2026-11-25",
+   "proved": "MCI-N-B is EUR 1.25 a month with the stated shape and one /128, and MCI-N-C is EUR 1.25 a quarter with 384 MiB and 5 GB",
+   "capture": "sha256:7626bd4a12d3117bbafe3ab475d67446da7fbc5329acee686f14ac797cab343b",
+   "quote": "MCI-N-B (IPv6 Only) Starting at €1.25 per month ... 1 Shared vCPU ... 1024 MiB RAM ... 20 GB HDD ... 10000 Mbps (10Gbps) Fair Use bandwidth ... Each instance is assigned one dedicated IPv6 address (/128) ... MCI-N-C (IPv6 Only) Starting at €1.25 per quarter ... 384 MiB RAM ... 5 GB HDD"
   }
  ],
  "verdict": "qualifies-with-caveat",
- "verified_at": "2026-10-24T06:16:40.000Z",
+ "verified_at": "2026-11-25T11:17:21.263Z",
  "price_per_tb_month": null,
  "history": [],
  "notes": "The best RAM-per-euro among the rows whose cart can be found, and the only one that states the delivery form outright: a single /128. That is enough for a WireGuard endpoint or a monitor (one address, every port open) but it is not a routed prefix, so the 'every port on the guest's own address' advantage stops at one address. The caveats stack: no data-safety guarantee, no published traffic ceiling, no published payment rails, and an entity that the store does not name on any page reached. BGP up to 20 routes on a /128 is a routing-lab feature rather than a requirement. Not established: who operates Axivora, the registration and checkout fields, payment rails, card hold, and whether 'per quarter' on MCI-N-C is the minimum term for MCI-N-B too.",

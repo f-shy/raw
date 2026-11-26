@@ -5,7 +5,7 @@
   "url": "https://docs.magalu.cloud/docs/onboarding/get-credit",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "R$ 100 in promotional credits in the first two months (R$ 50 in month 1, R$ 50 in month 2) after billing activation, and a separate R$ 300 / 30-day trial for Magalu Marketplace sellers. Egress from public IPs, NAT and NAT Gateway is currently priced 'Sem custo' (no charge) in both regions.",
+    "stated": "R$ 100 in promotional credits in the first two months (R$ 50 in month 1, R$ 50 in month 2), released automatically after activation of any resource.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://docs.magalu.cloud/docs/onboarding/get-credit",
@@ -79,10 +79,17 @@
       "url": "https://universo.magalu.com/blog/artigo/magalucloud",
       "date": "2026-10-22",
       "proved": "a separate seller promotion gives 'R$300 em creditos para experimentar a Magalu Cloud por 30 dias', restricted to sellers with sales in the last 12 months contracting on the registered CNPJ, quoted"
+    },
+    {
+      "url": "https://docs.magalu.cloud/docs/onboarding/get-credit",
+      "date": "2026-11-25",
+      "proved": "the onboarding page states R$100 in credits, R$50 in month 1 and R$50 in month 2, released after activation of any resource",
+      "capture": "sha256:58a66bebf06a6754111f36c39101c72f4363d34ff9aeab70c20c4f01a4fd6dee",
+      "quote": "Os R$100 em créditos são liberados automaticamente após a ativação de qualquer recurso: R$50 no 1º mês + R$50 no 2º."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:13.234Z",
   "notes": "The R$ 300 seller credit is the larger number and it is institution-gated twice: an active Marketplace seller account and a CNPJ. The free-egress term is the real prize here, because it removes the usual per-GiB egress cost on a regional cloud; it is stated as currently free with no commitment, so it can be withdrawn at any time. A Brazilian CPF is obtainable by a resident only; that is what makes this fails-identity rather than qualifies-with-caveat.",
   "extras": {
     "wave2": {

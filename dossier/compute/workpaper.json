@@ -1,284 +1,341 @@
 {
-  "topic": "compute",
-  "slug": "workpaper",
-  "provider": "Workpaper",
-  "url": "https://workpaper.co/",
-  "category": "sandbox",
-  "tier": "Free trial",
-  "free_tier": {
-    "stated": "USD 0 free trial: 60 minutes on one small computer (2 vCPU, 4 GB memory, 10 GB disk), no signup and no card.",
-    "unit": "minutes",
-    "metered_on": "wall-clock",
-    "source_url": "https://workpaper.co/",
-    "read_on": "2026-11-24",
-    "notes": "Every new account also gets a free hour of credit with full internet. The anonymous trial's internet is limited to code, package and model sites."
+ "topic": "compute",
+ "slug": "workpaper",
+ "provider": "Workpaper",
+ "url": "https://workpaper.co/",
+ "category": "VM sandbox",
+ "tier": "Pro / pay-as-you-go",
+ "free_tier": {
+  "stated": "Free trial: 60 minutes on one small computer, no sign-up, no card; one hour of credit with full internet also comes with every new account.",
+  "unit": "minutes",
+  "metered_on": "wall-clock",
+  "source_url": "https://workpaper.co/",
+  "read_on": "2026-11-25",
+  "notes": "The anonymous trial is one small computer for 60 minutes in total, counted only while it runs. One trial per device every 30 days and one new trial per internet connection per day. The free computer is kept for 3 days after last use before deletion, and a signed-in account inherits it."
+ },
+ "per_object_cap": {
+  "stated": "A small computer has 10 GB of disk and a large one 20 GB; no larger single-disk size is published.",
+  "bytes": null,
+  "source_url": "https://docs.workpaper.co/limits"
+ },
+ "retention": {
+  "stated": "Stopping keeps files, installed software and processes; an idle computer is stopped after an hour, and a trial computer is deleted after 3 days without use. No backup exists and files can be lost if hardware fails.",
+  "days": 3,
+  "source_url": "https://docs.workpaper.co/free-trial",
+  "notes": "The 3 days apply to an unused free-trial computer; paid computers are kept until the user deletes them, with no published retention period."
+ },
+ "egress": {
+  "terms": "Full internet access on paid computers; the anonymous trial limits internet to code and package sites and AI model APIs. No egress allowance or per-GB price is published.",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://docs.workpaper.co/free-trial"
+ },
+ "interface": [
+  "cli"
+ ],
+ "interface_detail": "A CLI with run, exec, stop and auth commands drives the computers; the SDKs and the browser sign-in flow are documented. Incoming connections and hosting a website are not supported.",
+ "tooling": "workpaper CLI, installed with a shell script, with SDKs for scripts and agents.",
+ "chaining": "A CLI-driven computer can run agent tasks and keep files across stops; without incoming connections or backups, results must be copied out or kept in git.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "60 minutes on one small computer for the anonymous trial; 1,500 small-VM hours a month on Pro",
+   "source": "https://workpaper.co/"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a computer, not a stored object",
-    "source_url": "https://docs.workpaper.co/limits"
+  {
+   "kind": "volume-quota",
+   "value": "4 running computers per account, shared across small and large sizes",
+   "source": "https://docs.workpaper.co/limits"
   },
-  "retention": {
-    "stated": "A stopped computer keeps its files; the trial computer is kept for 3 days after last use and is then deleted. There are no backups.",
-    "days": 3,
-    "source_url": "https://docs.workpaper.co/free-trial",
-    "notes": "Signed in within the three days, the computer moves into the account."
-  },
-  "egress": {
-    "terms": "Outgoing internet works on paid tiers; the anonymous trial limits it to code and package sites (GitHub, npm, PyPI, Docker Hub) and AI model APIs (Anthropic, OpenAI). Incoming connections are not supported: a port cannot be opened or a website hosted, and listeners are reachable only through the CLI. No per-GB egress price is published.",
-    "metered": false,
-    "free_allowance": "unmetered outbound traffic on paid tiers; allowlisted destinations on the trial",
-    "price_per_tb": null,
-    "source_url": "https://docs.workpaper.co/limits"
-  },
-  "interface": [
-    "cli",
-    "rest",
-    "browser"
-  ],
-  "interface_detail": "A CLI starts and drives computers (workpaper run, workpaper exec); TypeScript and Python SDKs and a REST API are documented. A headless browser is installed on the computer.",
-  "endpoint": "https://workpaper.co/api",
-  "tooling": "curl -fsSL https://workpaper.co/install | sh installs the CLI; workpaper run and workpaper exec start a computer and run commands; TypeScript and Python SDKs are available.",
-  "chaining": "An agent runs a computer for a task with the CLI, keeps it stopped between tasks and signs into the account to keep files past the trial's three-day window.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "60 minutes of runtime on one small computer on the free trial",
-      "source": "https://docs.workpaper.co/free-trial"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "4 running computers per account on paid tiers; 1 computer and no forks on the trial",
-      "source": "https://docs.workpaper.co/limits"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "trial computer deleted 3 days after last use; idle computers pause after 1 hour",
-      "source": "https://docs.workpaper.co/free-trial"
-    }
-  ],
-  "limits_note": "Pro bills USD 0.010 per small-VM hour and USD 0.020 per large-VM hour; pay as you go is USD 5 once for 150 small-VM hours. One trial per device every 30 days and one per internet connection per day.",
-  "binding": "volume-quota",
-  "binding_note": "The 60-minute runtime on one computer is what runs out first on the free trial; capacity can also stop a trial computer to make room for a paying user.",
-  "identity_cost": {
-    "kind": "anonymous",
-    "detail": "The free trial installs the CLI and runs a computer with no signup and no card: 'No sign-up, no card'. An account asks for a real email address, and one free trial is allowed per person; paid tiers are paid through Dodo Payments.",
-    "country": null
-  },
-  "reliability_note": "No backups: a hardware failure can lose a computer's files. No uptime guarantee, capacity can run out, and a running free computer may be stopped to make room for a paying user.",
-  "confidence": "documented",
-  "confidence_note": "Rates, trial limits, egress restrictions and the signup gate are quoted from first-party pages read on 2026-11-24.",
-  "evidence": [
-    {
-      "url": "https://workpaper.co/",
-      "date": "2026-11-24",
-      "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
-      "quote": "Free trial",
-      "proved": "the landing page shows a free trial tier"
-    },
-    {
-      "url": "https://workpaper.co/",
-      "date": "2026-11-24",
-      "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
-      "quote": "Free trial",
-      "proved": "the landing page lists a free trial tier"
-    },
-    {
-      "url": "https://workpaper.co/",
-      "date": "2026-11-24",
-      "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
-      "quote": "No sign-up, no card",
-      "proved": "the free trial needs no signup and no card"
-    },
-    {
-      "url": "https://workpaper.co/",
-      "date": "2026-11-24",
-      "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
-      "quote": "1 hour on one computer",
-      "proved": "the free trial is one hour on one computer"
-    },
-    {
-      "url": "https://workpaper.co/",
-      "date": "2026-11-24",
-      "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
-      "quote": "$0.010 per small-VM hour",
-      "proved": "the Pro rate is USD 0.010 per small-VM hour"
-    },
-    {
-      "url": "https://workpaper.co/",
-      "date": "2026-11-24",
-      "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
-      "quote": "$15 / month",
-      "proved": "the Pro monthly fee is USD 15"
-    },
-    {
-      "url": "https://workpaper.co/",
-      "date": "2026-11-24",
-      "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
-      "quote": "1,500 hours every month",
-      "proved": "Pro includes 1,500 small-VM hours a month"
-    },
-    {
-      "url": "https://workpaper.co/",
-      "date": "2026-11-24",
-      "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
-      "quote": "Up to 4 running VMs per account",
-      "proved": "an account runs at most four computers at once"
-    },
-    {
-      "url": "https://workpaper.co/",
-      "date": "2026-11-24",
-      "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
-      "quote": "60 free minutes, and you don't need an account",
-      "proved": "a computer can be started with 60 free minutes and no account"
-    },
-    {
-      "url": "https://docs.workpaper.co/pricing",
-      "date": "2026-11-24",
-      "capture": "sha256:786b9ba40ea00aa2c8001baab9ec0ff9da804d21c89837952267bf922eb0313d",
-      "quote": "**Small** (default): 2 vCPU · 4 GB · 10 GB disk",
-      "proved": "the default small computer has 2 vCPU, 4 GB RAM and 10 GB disk"
-    },
-    {
-      "url": "https://docs.workpaper.co/pricing",
-      "date": "2026-11-24",
-      "capture": "sha256:786b9ba40ea00aa2c8001baab9ec0ff9da804d21c89837952267bf922eb0313d",
-      "quote": "Billed by the second, only while a computer is running. Stopped computers cost nothing.",
-      "proved": "billing is per second while running and stops when the computer stops"
-    },
-    {
-      "url": "https://docs.workpaper.co/pricing",
-      "date": "2026-11-24",
-      "capture": "sha256:786b9ba40ea00aa2c8001baab9ec0ff9da804d21c89837952267bf922eb0313d",
-      "quote": "The free trial costs nothing and needs no card.",
-      "proved": "the free trial has no fee and no card requirement"
-    },
-    {
-      "url": "https://docs.workpaper.co/pricing",
-      "date": "2026-11-24",
-      "capture": "sha256:786b9ba40ea00aa2c8001baab9ec0ff9da804d21c89837952267bf922eb0313d",
-      "quote": "**Pay as you go**: $5 once for 150 hours of the small size, or 75 of the large (about ₹3 or $0.033 an hour for small), with **no subscription**.",
-      "proved": "the PAYG pack is USD 5 once for 150 small-VM hours"
-    },
-    {
-      "url": "https://docs.workpaper.co/limits",
-      "date": "2026-11-24",
-      "capture": "sha256:00b0bcfe5eb5c261c9d391300541a332849a58d30e9b822b520f5932a912f026",
-      "quote": "4 running computers per account",
-      "proved": "the concurrency cap is four running computers per account"
-    },
-    {
-      "url": "https://docs.workpaper.co/limits",
-      "date": "2026-11-24",
-      "capture": "sha256:00b0bcfe5eb5c261c9d391300541a332849a58d30e9b822b520f5932a912f026",
-      "quote": "Paying users go before free trials.",
-      "proved": "a running free computer may be displaced by a paying user"
-    },
-    {
-      "url": "https://docs.workpaper.co/limits",
-      "date": "2026-11-24",
-      "capture": "sha256:00b0bcfe5eb5c261c9d391300541a332849a58d30e9b822b520f5932a912f026",
-      "quote": "Incoming connections | Not supported. You can't open a port or host a website on a computer yet; programs listening on a computer can only be reached by you, through the CLI. Outgoing internet works.",
-      "proved": "inbound connections are not supported and outgoing internet works"
-    },
-    {
-      "url": "https://docs.workpaper.co/limits",
-      "date": "2026-11-24",
-      "capture": "sha256:00b0bcfe5eb5c261c9d391300541a332849a58d30e9b822b520f5932a912f026",
-      "quote": "Backups | **None.** If our hardware fails, a computer's files can be lost.",
-      "proved": "there are no backups and files can be lost on hardware failure"
-    },
-    {
-      "url": "https://docs.workpaper.co/limits",
-      "date": "2026-11-24",
-      "capture": "sha256:00b0bcfe5eb5c261c9d391300541a332849a58d30e9b822b520f5932a912f026",
-      "quote": "Uptime | No guarantee yet.",
-      "proved": "no uptime guarantee is published"
-    },
-    {
-      "url": "https://docs.workpaper.co/limits",
-      "date": "2026-11-24",
-      "capture": "sha256:00b0bcfe5eb5c261c9d391300541a332849a58d30e9b822b520f5932a912f026",
-      "quote": "A computer pauses after an hour idle and keeps everything",
-      "proved": "an idle computer pauses after one hour and keeps its files"
-    },
-    {
-      "url": "https://docs.workpaper.co/free-trial",
-      "date": "2026-11-24",
-      "capture": "sha256:ff94952580652745c9da228eed088aaac8ddbc1deee747bb074c702944a18a90",
-      "quote": "60 minutes of runtime in total.",
-      "proved": "the anonymous trial is 60 minutes of runtime in total"
-    },
-    {
-      "url": "https://docs.workpaper.co/free-trial",
-      "date": "2026-11-24",
-      "capture": "sha256:ff94952580652745c9da228eed088aaac8ddbc1deee747bb074c702944a18a90",
-      "quote": "Internet is limited to code and package sites (GitHub, npm, PyPI, Docker Hub and similar) and AI model APIs (Anthropic, OpenAI).",
-      "proved": "the anonymous trial limits outbound internet to code, package and model sites"
-    },
-    {
-      "url": "https://docs.workpaper.co/free-trial",
-      "date": "2026-11-24",
-      "capture": "sha256:ff94952580652745c9da228eed088aaac8ddbc1deee747bb074c702944a18a90",
-      "quote": "One trial per device every 30 days, and one new trial per internet connection per day.",
-      "proved": "trial issuance is one per device per 30 days and one per connection per day"
-    },
-    {
-      "url": "https://docs.workpaper.co/free-trial",
-      "date": "2026-11-24",
-      "capture": "sha256:ff94952580652745c9da228eed088aaac8ddbc1deee747bb074c702944a18a90",
-      "quote": "Your free computer is kept for 3 days after you last used it.",
-      "proved": "the trial computer is deleted three days after last use"
-    },
-    {
-      "url": "https://docs.workpaper.co/free-trial",
-      "date": "2026-11-24",
-      "capture": "sha256:ff94952580652745c9da228eed088aaac8ddbc1deee747bb074c702944a18a90",
-      "quote": "No forks and no second computer.",
-      "proved": "the trial has no forks and only one computer"
-    },
-    {
-      "url": "https://workpaper.co/terms",
-      "date": "2026-11-24",
-      "capture": "sha256:8ea9512da70ce743e4c0eb794fbe8ada3b7b81f5bc3eba5bb2217c5686805e1a",
-      "quote": "Give us a real email address and keep it up to date.",
-      "proved": "an account requires a real email address"
-    },
-    {
-      "url": "https://workpaper.co/terms",
-      "date": "2026-11-24",
-      "capture": "sha256:8ea9512da70ce743e4c0eb794fbe8ada3b7b81f5bc3eba5bb2217c5686805e1a",
-      "quote": "One free trial per person.",
-      "proved": "the free trial is limited to one per person"
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:15.148Z",
-  "price_per_tb_month": null,
-  "notes": "The 60-minute anonymous trial is the free route; Pro is USD 15 a month for 1,500 small-VM hours and PAYG is USD 5 once for 150 hours. The Pro rate is USD 0.010 per small-VM hour, or INR 1 an hour in India. No per-GB egress price is published.",
-  "extras": {
-    "shape": {
-      "vcpu": 2,
-      "ram_gib": 4,
-      "disk_gib": 10,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "large is 4 vCPU, 8 GB and 20 GB disk with Docker at double the price"
-    },
-    "billing_model": "per-second VM runtime, monthly credit or prepaid hour pack",
-    "free_tier_kind": "one-hour anonymous trial per device",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": false,
-      "ports": "cannot open a port or host a website",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": 60,
-      "idle_reap_s": 3600,
-      "restart_required": false,
-      "note": "one hour total on the trial; one hour idle pauses a paid computer"
-    }
+  {
+   "kind": "retention-clamped",
+   "value": "one trial per device every 30 days and one new trial per internet connection per day",
+   "source": "https://docs.workpaper.co/free-trial"
   }
+ ],
+ "limits_note": "New Pro sign-ups join a waitlist when the operator is at capacity; paying users run before free trials, and a running free computer may be stopped to make room.",
+ "binding": "volume-quota",
+ "binding_note": "The 60-minute anonymous trial runs out first: a single small computer at USD 0.010 an hour would cost USD 0.60 for that hour, before the 4-computer account limit or the waitlist.",
+ "identity_cost": {
+  "kind": "anonymous",
+  "detail": "The anonymous free trial needs no sign-up and no card: the CLI starts it directly. Paid plans and keeping the computer need an account, created with Google or a 6-digit code sent to email; Pro is paid by subscription or a one-time top-up.",
+  "country": null
+ },
+ "reliability_note": "Computers run on privately operated hardware in India with limited capacity and occasional 'no free computers right now' errors; no backups, no uptime guarantee, no GPUs, and no incoming connections.",
+ "confidence": "documented",
+ "confidence_note": "The rate card, free-trial terms, account limits, sign-in methods and reliability caveats were read from first-party pages today.",
+ "evidence": [
+  {
+   "url": "https://workpaper.co/",
+   "date": "2026-11-25",
+   "proved": "the Pro small-VM rate is USD 0.010 an hour",
+   "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
+   "quote": "$0.010 per small-VM hour"
+  },
+  {
+   "url": "https://workpaper.co/",
+   "date": "2026-11-25",
+   "proved": "the anonymous trial is free, needs no sign-up or card and gives one hour on one computer",
+   "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
+   "quote": "No sign-up, no card"
+  },
+  {
+   "url": "https://workpaper.co/",
+   "date": "2026-11-25",
+   "proved": "the trial duration is one hour",
+   "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
+   "quote": "1 hour on one computer"
+  },
+  {
+   "url": "https://docs.workpaper.co/free-trial",
+   "date": "2026-11-25",
+   "proved": "the trial is limited to one per device every 30 days and one per connection per day",
+   "capture": "sha256:ff94952580652745c9da228eed088aaac8ddbc1deee747bb074c702944a18a90",
+   "quote": "One trial per device every 30 days, and one new trial per internet connection per day."
+  },
+  {
+   "url": "https://docs.workpaper.co/free-trial",
+   "date": "2026-11-25",
+   "proved": "trial internet is limited to code, package and AI model sites",
+   "capture": "sha256:ff94952580652745c9da228eed088aaac8ddbc1deee747bb074c702944a18a90",
+   "quote": "Internet is limited"
+  },
+  {
+   "url": "https://docs.workpaper.co/sign-in",
+   "date": "2026-11-25",
+   "proved": "an account uses Google sign-in or a 6-digit code sent to email",
+   "capture": "sha256:9131c0ca3f9fe0f1dc82d9b39ae9c62b602d4352c43b41085514560f4ce44aac",
+   "quote": "Sign in with Google, or with a 6-digit code sent to your email."
+  },
+  {
+   "url": "https://docs.workpaper.co/limits",
+   "date": "2026-11-25",
+   "proved": "the account limit is 4 running computers",
+   "capture": "sha256:00b0bcfe5eb5c261c9d391300541a332849a58d30e9b822b520f5932a912f026",
+   "quote": "4 running computers per account"
+  },
+  {
+   "url": "https://docs.workpaper.co/limits",
+   "date": "2026-11-25",
+   "proved": "incoming connections are not supported",
+   "capture": "sha256:00b0bcfe5eb5c261c9d391300541a332849a58d30e9b822b520f5932a912f026",
+   "quote": "Incoming connections"
+  },
+  {
+   "url": "https://docs.workpaper.co/",
+   "date": "2026-11-25",
+   "proved": "the small computer is 2 vCPU, 4 GB memory and 10 GB disk",
+   "capture": "sha256:40b2d63b219d08831ea0b43882dcf13a9998a9616a53ce65da040ae53420b03f",
+   "quote": "Small (the default) has 2 vCPU, 4 GB of memory and 10 GB of disk"
+  },
+  {
+   "url": "https://workpaper.co/",
+   "date": "2026-11-24",
+   "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
+   "quote": "Free trial",
+   "proved": "the landing page shows a free trial tier"
+  },
+  {
+   "url": "https://workpaper.co/",
+   "date": "2026-11-24",
+   "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
+   "quote": "No sign-up, no card",
+   "proved": "the free trial needs no signup and no card"
+  },
+  {
+   "url": "https://workpaper.co/",
+   "date": "2026-11-24",
+   "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
+   "quote": "1 hour on one computer",
+   "proved": "the free trial is one hour on one computer"
+  },
+  {
+   "url": "https://workpaper.co/",
+   "date": "2026-11-24",
+   "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
+   "quote": "$0.010 per small-VM hour",
+   "proved": "the Pro rate is USD 0.010 per small-VM hour"
+  },
+  {
+   "url": "https://workpaper.co/",
+   "date": "2026-11-24",
+   "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
+   "quote": "$15 / month",
+   "proved": "the Pro monthly fee is USD 15"
+  },
+  {
+   "url": "https://workpaper.co/",
+   "date": "2026-11-24",
+   "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
+   "quote": "1,500 hours every month",
+   "proved": "Pro includes 1,500 small-VM hours a month"
+  },
+  {
+   "url": "https://workpaper.co/",
+   "date": "2026-11-24",
+   "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
+   "quote": "Up to 4 running VMs per account",
+   "proved": "an account runs at most four computers at once"
+  },
+  {
+   "url": "https://workpaper.co/",
+   "date": "2026-11-24",
+   "capture": "sha256:9c5d52942dc6d900de5743190cc8853a093f02b9e60129a7ce41e36f5a75cc7d",
+   "quote": "60 free minutes, and you don't need an account",
+   "proved": "a computer can be started with 60 free minutes and no account"
+  },
+  {
+   "url": "https://docs.workpaper.co/pricing",
+   "date": "2026-11-24",
+   "capture": "sha256:786b9ba40ea00aa2c8001baab9ec0ff9da804d21c89837952267bf922eb0313d",
+   "quote": "**Small** (default): 2 vCPU · 4 GB · 10 GB disk",
+   "proved": "the default small computer has 2 vCPU, 4 GB RAM and 10 GB disk"
+  },
+  {
+   "url": "https://docs.workpaper.co/pricing",
+   "date": "2026-11-24",
+   "capture": "sha256:786b9ba40ea00aa2c8001baab9ec0ff9da804d21c89837952267bf922eb0313d",
+   "quote": "Billed by the second, only while a computer is running. Stopped computers cost nothing.",
+   "proved": "billing is per second while running and stops when the computer stops"
+  },
+  {
+   "url": "https://docs.workpaper.co/pricing",
+   "date": "2026-11-24",
+   "capture": "sha256:786b9ba40ea00aa2c8001baab9ec0ff9da804d21c89837952267bf922eb0313d",
+   "quote": "The free trial costs nothing and needs no card.",
+   "proved": "the free trial has no fee and no card requirement"
+  },
+  {
+   "url": "https://docs.workpaper.co/pricing",
+   "date": "2026-11-24",
+   "capture": "sha256:786b9ba40ea00aa2c8001baab9ec0ff9da804d21c89837952267bf922eb0313d",
+   "quote": "**Pay as you go**: $5 once for 150 hours of the small size, or 75 of the large (about ₹3 or $0.033 an hour for small), with **no subscription**.",
+   "proved": "the PAYG pack is USD 5 once for 150 small-VM hours"
+  },
+  {
+   "url": "https://docs.workpaper.co/limits",
+   "date": "2026-11-24",
+   "capture": "sha256:00b0bcfe5eb5c261c9d391300541a332849a58d30e9b822b520f5932a912f026",
+   "quote": "4 running computers per account",
+   "proved": "the concurrency cap is four running computers per account"
+  },
+  {
+   "url": "https://docs.workpaper.co/limits",
+   "date": "2026-11-24",
+   "capture": "sha256:00b0bcfe5eb5c261c9d391300541a332849a58d30e9b822b520f5932a912f026",
+   "quote": "Paying users go before free trials.",
+   "proved": "a running free computer may be displaced by a paying user"
+  },
+  {
+   "url": "https://docs.workpaper.co/limits",
+   "date": "2026-11-24",
+   "capture": "sha256:00b0bcfe5eb5c261c9d391300541a332849a58d30e9b822b520f5932a912f026",
+   "quote": "Incoming connections | Not supported. You can't open a port or host a website on a computer yet; programs listening on a computer can only be reached by you, through the CLI. Outgoing internet works.",
+   "proved": "inbound connections are not supported and outgoing internet works"
+  },
+  {
+   "url": "https://docs.workpaper.co/limits",
+   "date": "2026-11-24",
+   "capture": "sha256:00b0bcfe5eb5c261c9d391300541a332849a58d30e9b822b520f5932a912f026",
+   "quote": "Backups | **None.** If our hardware fails, a computer's files can be lost.",
+   "proved": "there are no backups and files can be lost on hardware failure"
+  },
+  {
+   "url": "https://docs.workpaper.co/limits",
+   "date": "2026-11-24",
+   "capture": "sha256:00b0bcfe5eb5c261c9d391300541a332849a58d30e9b822b520f5932a912f026",
+   "quote": "Uptime | No guarantee yet.",
+   "proved": "no uptime guarantee is published"
+  },
+  {
+   "url": "https://docs.workpaper.co/limits",
+   "date": "2026-11-24",
+   "capture": "sha256:00b0bcfe5eb5c261c9d391300541a332849a58d30e9b822b520f5932a912f026",
+   "quote": "A computer pauses after an hour idle and keeps everything",
+   "proved": "an idle computer pauses after one hour and keeps its files"
+  },
+  {
+   "url": "https://docs.workpaper.co/free-trial",
+   "date": "2026-11-24",
+   "capture": "sha256:ff94952580652745c9da228eed088aaac8ddbc1deee747bb074c702944a18a90",
+   "quote": "60 minutes of runtime in total.",
+   "proved": "the anonymous trial is 60 minutes of runtime in total"
+  },
+  {
+   "url": "https://docs.workpaper.co/free-trial",
+   "date": "2026-11-24",
+   "capture": "sha256:ff94952580652745c9da228eed088aaac8ddbc1deee747bb074c702944a18a90",
+   "quote": "Internet is limited to code and package sites (GitHub, npm, PyPI, Docker Hub and similar) and AI model APIs (Anthropic, OpenAI).",
+   "proved": "the anonymous trial limits outbound internet to code, package and model sites"
+  },
+  {
+   "url": "https://docs.workpaper.co/free-trial",
+   "date": "2026-11-24",
+   "capture": "sha256:ff94952580652745c9da228eed088aaac8ddbc1deee747bb074c702944a18a90",
+   "quote": "One trial per device every 30 days, and one new trial per internet connection per day.",
+   "proved": "trial issuance is one per device per 30 days and one per connection per day"
+  },
+  {
+   "url": "https://docs.workpaper.co/free-trial",
+   "date": "2026-11-24",
+   "capture": "sha256:ff94952580652745c9da228eed088aaac8ddbc1deee747bb074c702944a18a90",
+   "quote": "Your free computer is kept for 3 days after you last used it.",
+   "proved": "the trial computer is deleted three days after last use"
+  },
+  {
+   "url": "https://docs.workpaper.co/free-trial",
+   "date": "2026-11-24",
+   "capture": "sha256:ff94952580652745c9da228eed088aaac8ddbc1deee747bb074c702944a18a90",
+   "quote": "No forks and no second computer.",
+   "proved": "the trial has no forks and only one computer"
+  },
+  {
+   "url": "https://workpaper.co/terms",
+   "date": "2026-11-24",
+   "capture": "sha256:8ea9512da70ce743e4c0eb794fbe8ada3b7b81f5bc3eba5bb2217c5686805e1a",
+   "quote": "Give us a real email address and keep it up to date.",
+   "proved": "an account requires a real email address"
+  },
+  {
+   "url": "https://workpaper.co/terms",
+   "date": "2026-11-24",
+   "capture": "sha256:8ea9512da70ce743e4c0eb794fbe8ada3b7b81f5bc3eba5bb2217c5686805e1a",
+   "quote": "One free trial per person.",
+   "proved": "the free trial is limited to one per person"
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T11:55:06.271Z",
+ "price_per_tb_month": null,
+ "notes": "An anonymous 60-minute trial is available without an account. Pro is USD 15 a month for 1,500 small-VM hours, which is USD 0.010 an hour; pay-as-you-go is USD 5 once for 150 hours, about USD 0.033 an hour. A large VM is USD 0.020 an hour on Pro. The trial's internet is filtered and the operator runs on its own limited hardware in India, with no backups.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 4,
+   "disk_gib": 10,
+   "gpu_class": null,
+   "gpu_count": null
+  },
+  "billing_model": "per-second VM runtime, monthly plan or prepaid top-up",
+  "free_tier_kind": "trial-minutes",
+  "term": "no commitment on pay-as-you-go",
+  "price_arithmetic": "USD 15 / 1,500 hours = USD 0.010/hour; USD 5 / 150 hours = USD 0.033/hour",
+  "status": "live; Pro sign-ups may be waitlisted at capacity",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": false,
+   "ports": "none; incoming connections are not supported",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": 3600,
+   "restart_required": false,
+   "note": "idle computers stop after one hour and keep their files; the trial ends after 60 running minutes"
+  }
+ },
+ "endpoint": "https://workpaper.co/api"
 }

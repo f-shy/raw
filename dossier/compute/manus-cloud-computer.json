@@ -5,7 +5,7 @@
   "url": "https://help.manus.im/en/articles/15392078-understanding-cloud-computer-plans-and-billing",
   "category": "container and VM sandbox",
   "free_tier": {
-    "stated": "no free tier: Cloud Computer is a persistent Ubuntu server on a subscription, $30 a month for 2 vCPU, 4 GB and 70 GB, $50 for 2 vCPU, 8 GB and 120 GB",
+    "stated": "no free tier: Cloud Computer is a persistent cloud server (Ubuntu Server) on a monthly subscription; the Standard Plan is $30/month for 2 vCPUs, 4 GB of RAM and 70 GB of storage, and the Advanced Plan is $50/month for 2 vCPUs, 8 GB of RAM and 120 GB of storage",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://help.manus.im/en/articles/15392078-understanding-cloud-computer-plans-and-billing",
@@ -67,10 +67,24 @@
       "url": "https://help.manus.im/en/articles/15392078-understanding-cloud-computer-plans-and-billing",
       "date": "2026-10-22",
       "proved": "'Standard Plan ($30/month): 2 vCPUs, 4 GB of RAM, and 70 GB of storage', 'Advanced Plan ($50/month): 2 vCPUs, 8 GB of RAM, and 120 GB of storage', 'maintaining an active subscription is required to keep your environment running', and on cancellation 'The persistent virtual machine will be shut down' and 'Your working files, installed tools, and databases ... will be deleted', quoted"
+    },
+    {
+      "url": "https://help.manus.im/en/articles/15392078-understanding-cloud-computer-plans-and-billing",
+      "date": "2026-11-25",
+      "proved": "the Standard plan states the cheapest paid tier's name, price and resource shape",
+      "capture": "sha256:ae10c53c73d2cc253a28342ba7f3249fc0667e5266ae34ce634c841cc971c98b",
+      "quote": "- **Standard Plan ($30/month) [Recommended]:** Built for more demanding applications. This tier provides **2 vCPUs, 4 GB of RAM, and 70 GB of storage**, offering the necessary resources to host active websites, deploy APIs, and run open-source tools like WordPress or Metabase."
+    },
+    {
+      "url": "https://help.manus.im/en/articles/15392078-understanding-cloud-computer-plans-and-billing",
+      "date": "2026-11-25",
+      "proved": "the Standard plan is the cheapest paid tier, at $30/month for 2 vCPUs, 4 GB RAM and 70 GB storage",
+      "capture": "sha256:ae10c53c73d2cc253a28342ba7f3249fc0667e5266ae34ce634c841cc971c98b",
+      "quote": "- **Standard Plan ($30/month) [Recommended]:** Built for more demanding applications. This tier provides **2 vCPUs, 4 GB of RAM, and 70 GB of storage**, offering the necessary resources to host active websites, deploy APIs, and run open-source tools like WordPress or Metabase."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:47:22.321Z",
+  "verified_at": "2026-11-25T11:17:40.890Z",
   "price_per_tb_month": null,
   "notes": "",
   "extras": {

@@ -5,7 +5,7 @@
   "url": "https://cirun.io/pricing/",
   "category": "CI runner",
   "free_tier": {
-    "stated": "Quoted from the Open Source plan: 'Always free for open source', USD 0 forever, with 'Install cirun on unlimited public repositories', 'Unlimited runners', 'ARM-based runners', 'GPU runners' and 'All supported cloud providers'. Quoted from the docs introduction: 'Run jobs on your own cloud - bring AWS, GCP, Azure, Hetzner, DigitalOcean, Oracle, OpenStack, or Vast.ai credentials' and 'Pay your cloud, not the runner provider'.",
+    "stated": "Quoted from the Open Source plan: 'Always free for open source', USD 0 forever, with 'Install cirun on unlimited public repositories', 'Unlimited runners', 'ARM-based runners', 'GPU runners' and 'All supported cloud providers'.",
     "unit": "unlimited",
     "metered_on": "wall-clock",
     "source_url": "https://cirun.io/pricing/",
@@ -69,10 +69,17 @@
       "url": "https://docs.cirun.io/cloud/gcp",
       "date": "2026-10-22",
       "proved": "the setup requires 'a Service Account with Compute Engine Admin Permissions' and a downloaded JSON key pair, i.e. an existing billed cloud identity"
+    },
+    {
+      "url": "https://cirun.io/pricing/",
+      "date": "2026-11-25",
+      "proved": "the pricing page still says the open-source plan is always free",
+      "capture": "sha256:d8d56ff40da8c959b5e17660aa8b7ae291cddbf9b66074d7ac89d69a0ab78ff3",
+      "quote": "Always free for open source."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:10.321Z",
   "notes": "Verdict is paid-only rather than qualifies, and the distinction matters: 'free for open source' here means free to schedule, and a reader who takes it for free GPU capacity will find a Vast.ai invoice. It is a strong chain member and a zero on its own. The docs FAQ and getting-started paths both 404, so the pricing page and the docs index are the evidence; docs.cirun.io returned 200 for both.",
   "extras": {
     "wave2": {

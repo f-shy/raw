@@ -5,7 +5,7 @@
   "url": "https://deplexo.com/plans",
   "category": "platform host",
   "free_tier": {
-    "stated": "Free plan, quoted: '1 app', 'CPU per app 0.25 CPU', 'RAM per app 128 MB RAM', 'Disk per app 250 MB disk', 'Network speed per app 10 Mbit/s', '100 GB/mo' transfer. Paid: 'Starter USD 5 / 30 days' for 3 apps at 0.5 CPU, 512 MB RAM, 2 GB disk, 500 GB transfer; 'Pro USD 10 / 30 days' for 6 apps at 1 CPU, 1 GB RAM, 10 GB disk, 1 TB. 'No credit card required to start'. Billing is '30 days, paid in advance ... We don't renew it automatically'.",
+    "stated": "Free plan, quoted from the plans page: '1 app', 'CPU per app: 0.25 CPU', 'RAM per app: 128 MB RAM', table rows 'DiskPer app | 250 MB disk', 'Network speedPer app | 10 Mbit/s', and 'Monthly transferShared across your account | 100 GB/mo'. The page states '100 GB monthly transfer across your account.' Paid: 'Starter' '$5/ 30 days' for '3 apps' at '0.5 CPU', '512 MB RAM', '2 GB disk', '500 GB monthly transfer'; 'Pro' '$10/ 30 days' for '6 apps' at '1 CPU', '1 GB RAM', '10 GB disk', '1 TB monthly transfer'. Prices in USD. 'No. You can create an account and run one app on the Free plan without adding payment details.' Billing: '30 days, paid in advance: Pay through PayPal. Renewing the same active plan adds 30 days to its expiry date. We don’t renew it automatically.'",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://deplexo.com/plans",
@@ -64,10 +64,24 @@
       "url": "https://deplexo.com/",
       "date": "2026-10-22",
       "proved": "'Free tier - No credit card required' and the stated stop points 'One instance per app', 'No managed databases', 'The container filesystem is read-only', 'Apps run in the EU (Germany)', quoted"
+    },
+    {
+      "url": "https://deplexo.com/plans",
+      "date": "2026-11-25",
+      "proved": "the capture states the Free, Starter and Pro per-app CPU, RAM, disk and network speed and the shared monthly transfer allowances",
+      "capture": "sha256:30c982d68876f8d32946db5ce8b13e4839f20ee945458b151a888f8d648bf342",
+      "quote": "| CPU limitPer app · shared hardware | 0.25 CPU | 0.5 CPU | 1 CPU | ... | RAMPer app | 128 MB RAM | 512 MB RAM | 1 GB RAM | ... | DiskPer app | 250 MB disk | 2 GB disk | 10 GB disk | ... | Network speedPer app | 10 Mbit/s | 100 Mbit/s | 200 Mbit/s | ... | Monthly transferShared across your account | 100 GB/mo | 500 GB/mo | 1 TB/mo |"
+    },
+    {
+      "url": "https://deplexo.com/plans",
+      "date": "2026-11-25",
+      "proved": "the plans page still states the Free, Starter and Pro per-app limits and the shared monthly transfer allowances",
+      "capture": "sha256:30c982d68876f8d32946db5ce8b13e4839f20ee945458b151a888f8d648bf342",
+      "quote": "| CPU limitPer app · shared hardware | 0.25 CPU | 0.5 CPU | 1 CPU | ... | RAMPer app | 128 MB RAM | 512 MB RAM | 1 GB RAM | ... | DiskPer app | 250 MB disk | 2 GB disk | 10 GB disk | ... | Network speedPer app | 10 Mbit/s | 100 Mbit/s | 200 Mbit/s | ... | Monthly transferShared across your account | 100 GB/mo | 500 GB/mo | 1 TB/mo |"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:24.267Z",
   "notes": "Aggregator claim checked: free-for.dev lists '1 app with 0.25 vCPU, 128 MB RAM, 250 MB disk, and 100 GB bandwidth'. The vendor matches on every number, so the gap is zero here. What the aggregator omits: the read-only root filesystem with one writable volume at /data, no managed database, a single region, and that Starter and Pro are prepaid 30-day blocks renewed by hand through PayPal rather than subscriptions.",
   "extras": {
     "wave2": {

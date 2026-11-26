@@ -1,141 +1,207 @@
 {
-  "topic": "compute",
-  "slug": "semaphore-ci-macos",
-  "provider": "Semaphore CI (macOS)",
-  "url": "https://semaphore.io/pricing",
-  "category": "macOS CI runner",
-  "tier": "A2 macOS, free monthly credit",
-  "free_tier": {
-    "stated": "USD 15 of free credits per month for every organization, usable across services; the rate for the macOS machine is USD 0.09 per minute on a 4-vCPU machine, which is about 166 macOS minutes a month at that rate",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://semaphore.io/pricing",
-    "read_on": "2026-11-24",
-    "notes": "Derived: USD 15 / USD 0.09 per minute = 166.7 macOS minutes. The USD 15 credit is a monthly dollar allowance, not a macOS-specific minute pool."
+ "topic": "compute",
+ "slug": "semaphore-ci-macos",
+ "provider": "Semaphore CI",
+ "url": "https://semaphore.io/pricing",
+ "category": "CI runner (hosted macOS)",
+ "tier": "macOS a2-standard-4, pay-as-you-go",
+ "free_tier": {
+  "stated": "Get $15 free credits per month (≈ 2,000 Ubuntu x64 2-vCPU minutes). Credits can be used across available services. The macOS a2-standard-4 machine is priced at $0.09 a minute; the $15 credit at $0.09 a minute is about 167 macOS minutes, which is an arithmetic conversion and not a stated macOS allowance.",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://semaphore.io/pricing",
+  "read_on": "2026-11-25",
+  "notes": "The monthly credit is stated in USD and denominated in Ubuntu minutes; no macOS-specific free minute allowance is published. The existing ci-cd-runners/semaphore-cloud record prices the same credit on Ubuntu machines."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a CI machine, not an object; no artifact size cap was found in the pages read",
+  "source_url": "https://semaphore.io/pricing"
+ },
+ "retention": {
+  "stated": "the macOS job agent and every file on it are discarded when the job ends; no separate macOS artifact retention was stated on the pages read",
+  "days": null,
+  "source_url": "https://semaphore.io/pricing"
+ },
+ "egress": {
+  "terms": "Free up to 20 GB/month egress and 100 GB/month storage. Additional usage: $0.35/GB egress and $0.07/GB storage. This is the general artifact allowance; no macOS-specific egress term is stated.",
+  "metered": true,
+  "free_allowance": "20 GB/month egress",
+  "price_per_tb": null,
+  "source_url": "https://semaphore.io/pricing"
+ },
+ "interface": [
+  "git",
+  "cli"
+ ],
+ "interface_detail": "a pipeline YAML in a GitHub, Bitbucket or GitLab repository; the sem CLI opens an SSH session into a running job",
+ "tooling": "pipeline YAML (.semaphore/semaphore.yml) with the a2-standard-4 machine and a macOS Xcode image; the sem CLI and the visual workflow editor. The Semaphore Community Edition is software the user installs and runs on a rented or free machine, listed here after the hosted macOS runner.",
+ "chaining": "the shared USD 15 monthly credit also spends on macOS a2-standard-4 minutes at $0.09 a minute, so the credit buys fewer macOS minutes than Linux minutes; artifacts leave free to 20 GB a month.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "$15 of credit a month shared across machines; on the macOS a2-standard-4 at $0.09 a minute that is about 167 minutes, derived from USD 15 / USD 0.09 per minute",
+   "source": "https://semaphore.io/pricing"
   },
-  "per_object_cap": {
-    "stated": "an artifact size cap is not stated on the pricing page; the job time limit is 1 hour by default and at most 24 hours",
-    "bytes": null,
-    "source_url": "https://semaphore.io/pricing",
-    "notes": "The job clock, not a byte cap, is the published per-job bound."
-  },
-  "retention": {
-    "stated": "workflow and job artifacts have a maximum retention of 400 days",
-    "days": 400,
-    "source_url": "https://docs.semaphore.io/using-semaphore/artifacts"
-  },
-  "egress": {
-    "terms": "20 GB of artifact egress and 100 GB of artifact storage a month are free; further egress is USD 0.35 per GB and further storage USD 0.07 per GB",
-    "metered": true,
-    "free_allowance": "20 GB a month of artifact egress",
-    "price_per_tb": "USD 350 per TB beyond the monthly allowance, from USD 0.35 per GB",
-    "source_url": "https://semaphore.io/pricing"
-  },
-  "interface": [
-    "git",
-    "cli"
-  ],
-  "interface_detail": "a pipeline YAML in a Git repository with the visual workflow editor; the sem CLI opens an SSH session into a running job",
-  "tooling": "macOS Xcode images on A2 machines; pipeline YAML, the visual workflow editor and the sem CLI",
-  "chaining": "a hosted macOS build stage for a repository; a USD 15 monthly credit is shared with Linux and ARM machines, and artifacts leave free up to 20 GB a month",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "USD 15 of credit a month; at the macOS rate of USD 0.09 a minute that is about 166 minutes on a 4-vCPU A2 machine",
-      "source": "https://semaphore.io/pricing"
-    },
-    {
-      "kind": "request-rate",
-      "value": "20 concurrent jobs by default, higher on request",
-      "source": "https://semaphore.io/pricing"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "20 GB a month of artifact egress and 100 GB a month of artifact storage free; then USD 0.35 per GB egress and USD 0.07 per GB storage",
-      "source": "https://semaphore.io/pricing"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "workflow and job artifacts are deleted after at most 400 days",
-      "source": "https://docs.semaphore.io/using-semaphore/artifacts"
-    }
-  ],
-  "limits_note": "A dedicated cache server and a private Docker registry are add-ons at USD 400 a month each for 10 Gbps bandwidth and 400 GB storage.",
-  "binding": "volume-quota",
-  "binding_note": "The USD 15 monthly credit is spent after about 166 macOS minutes, before the 20 concurrent jobs or 20 GB egress allowance bind.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "Sign-up uses a GitHub, Bitbucket or GitLab account; the pricing page links Start free to the signup page and states no card is required for the start-free offer.",
-    "country": null
-  },
-  "reliability_note": "the job agent is ephemeral; a 1-hour default job limit terminates longer jobs and a shared runner address can already be rate-limited by Docker Hub",
-  "confidence": "documented",
-  "confidence_note": "The A2 macOS rate, monthly credit, concurrency, artifact egress, retention and sign-up options were read and quoted on 2026-11-24; the minute conversion is arithmetic over quoted rates.",
-  "evidence": [
-    {
-      "url": "https://semaphore.io/pricing",
-      "date": "2026-11-24",
-      "proved": "the published macOS rate is USD 0.09 a minute for a 4-vCPU machine, alongside USD 0.003 ARM and USD 0.0075 x64",
-      "capture": "sha256:39995496c75c6792afb4dc282924b88de661d29525202203c9985164a06782af",
-      "quote": "MacOS $0.09 /min 4vCPU"
-    },
-    {
-      "url": "https://semaphore.io/pricing",
-      "date": "2026-11-24",
-      "proved": "every organization gets USD 15 of credit a month, about 2,000 Ubuntu x64 2-vCPU minutes, usable across services",
-      "capture": "sha256:39995496c75c6792afb4dc282924b88de661d29525202203c9985164a06782af",
-      "quote": "Get $15 free credits per month (≈ 2,000 Ubuntu x64 2-vCPU minutes). Credits can be used across available services."
-    },
-    {
-      "url": "https://semaphore.io/pricing",
-      "date": "2026-11-24",
-      "proved": "20 concurrent jobs are included by default",
-      "capture": "sha256:39995496c75c6792afb4dc282924b88de661d29525202203c9985164a06782af",
-      "quote": "Includes **20 concurrent jobs by default** . Higher limits are available on request based on usage."
-    },
-    {
-      "url": "https://semaphore.io/pricing",
-      "date": "2026-11-24",
-      "proved": "20 GB a month of artifact egress and 100 GB of storage are free, then egress is USD 0.35 a GB and storage USD 0.07 a GB",
-      "capture": "sha256:39995496c75c6792afb4dc282924b88de661d29525202203c9985164a06782af",
-      "quote": "Free up to **20 GB/month egress and 100 GB/month storage** . Additional usage: $0.35/GB egress and $0.07/GB storage."
-    },
-    {
-      "url": "https://semaphore.io/pricing",
-      "date": "2026-11-24",
-      "proved": "each project has 9.6 GB of cache storage and the priced add-ons offer 10 Gbps with 400 GB storage",
-      "capture": "sha256:39995496c75c6792afb4dc282924b88de661d29525202203c9985164a06782af",
-      "quote": "$400/month for 10 Gbps bandwidth and 400 GB storage."
-    },
-    {
-      "url": "https://id.semaphoreci.com/signup",
-      "date": "2026-11-24",
-      "proved": "sign-up is through a GitHub, Bitbucket or GitLab account",
-      "capture": "sha256:389beb8abc2ff7f81f481cca197ee5f51bfb5997362922644a8e35cb63599135",
-      "quote": "Signup with GitHub"
-    },
-    {
-      "url": "https://docs.semaphore.io/using-semaphore/artifacts",
-      "date": "2026-11-24",
-      "proved": "workflow and job artifacts are kept at most 400 days",
-      "capture": "sha256:242a2b7c305a96009dc71d5985767eae80cf637bf233c7b7ae80c00f4800a05d",
-      "quote": "all artifacts on the workflow and job namespaces/scopes have a maximum retention of 400 days"
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:15.073Z",
-  "price_per_tb_month": null,
-  "notes": "The A2 macOS machine is a distinct tier of the hosted Semaphore Cloud runner at USD 0.09 a minute; the USD 15 monthly credit is shared across all machine types.",
-  "extras": {
-    "billing_model": "monthly dollar credit spent at per-minute machine rates",
-    "price_arithmetic": "USD 15 of monthly credit at USD 0.09 a macOS minute is about 166 minutes",
-    "shape": {
-      "vcpu": 4,
-      "ram_gib": null,
-      "disk_gib": null,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "the pricing page names a 4-vCPU macOS machine and no memory or disk figures"
-    }
+  {
+   "kind": "request-rate",
+   "value": "20 concurrent jobs by default; higher limits on request",
+   "source": "https://semaphore.io/pricing"
   }
+ ],
+ "limits_note": "the machine is an a2-standard-4 with 4 virtual CPUs, Apple Silicon, 8 GB memory and 150 GB disk, paired with macOS Xcode26 or Xcode27",
+ "binding": "volume-quota",
+ "binding_note": "the shared USD 15 monthly credit is what runs out first at $0.09 a macOS minute, well before the 20 concurrent jobs; the monthly dollar pool is recorded as volume-quota as in the other hosted CI records.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "the signup page offers Signup with GitHub, Signup with Bitbucket and Signup with GitLab, each asking for the identity and email scope of that provider; the pricing page links Start free to id.semaphoreci.com/signup. No card is asked for at signup on the pages read.",
+  "country": null
+ },
+ "reliability_note": "the macOS job runs on an ephemeral agent destroyed when the job ends; the pricing page states no macOS-specific SLA",
+ "confidence": "documented",
+ "confidence_note": "the macOS machine price, the shared credit, the concurrency, the egress terms and the signup providers are quoted from first-party pages read on 2026-11-25; no job was run.",
+ "evidence": [
+  {
+   "url": "https://semaphore.io/pricing",
+   "date": "2026-11-25",
+   "proved": "the hosted macOS machine is 4 vCPU at USD 0.09 a minute",
+   "capture": "sha256:39995496c75c6792afb4dc282924b88de661d29525202203c9985164a06782af",
+   "quote": "MacOS\n$0.09\n\n/min 4vCPU"
+  },
+  {
+   "url": "https://semaphore.io/pricing",
+   "date": "2026-11-25",
+   "proved": "every organization gets USD 15 of free credit a month across available services",
+   "capture": "sha256:39995496c75c6792afb4dc282924b88de661d29525202203c9985164a06782af",
+   "quote": "**Get $15 free credits per month**"
+  },
+  {
+   "url": "https://semaphore.io/pricing",
+   "date": "2026-11-25",
+   "proved": "20 concurrent jobs by default",
+   "capture": "sha256:39995496c75c6792afb4dc282924b88de661d29525202203c9985164a06782af",
+   "quote": "Includes  **20 concurrent jobs by default** . Higher limits are available on request based on usage."
+  },
+  {
+   "url": "https://semaphore.io/pricing",
+   "date": "2026-11-25",
+   "proved": "artifact egress is free to 20 GB a month and storage to 100 GB, then USD 0.35 and USD 0.07 per GB",
+   "capture": "sha256:39995496c75c6792afb4dc282924b88de661d29525202203c9985164a06782af",
+   "quote": "Free up to  **20 GB/month egress and 100 GB/month storage** .  \nAdditional usage: $0.35/GB egress and $0.07/GB storage."
+  },
+  {
+   "url": "https://docs.semaphore.io/reference/machine-types",
+   "date": "2026-11-25",
+   "proved": "the a2-standard-4 Apple Silicon machine has 4 vCPU, 8 GB memory and 150 GB disk",
+   "capture": "sha256:b6caa5ecd06c930cc98f1969747b634930e253f111b7161c520746112f4dd6a4",
+   "quote": "| `a2-standard-4` | 4 | Apple Silicon | [macOS Xcode26](https://docs.semaphore.io/reference/os-apple#mac-26) | 8 | 150 |"
+  },
+  {
+   "url": "https://id.semaphoreci.com/signup",
+   "date": "2026-11-25",
+   "proved": "signup uses a GitHub, Bitbucket or GitLab account",
+   "capture": "sha256:7384d6cc67b9ee4a6cf639017e379168dd48a142d0e3f61db46133a9b9ca57ee",
+   "quote": "Signup with GitHub"
+  },
+  {
+   "url": "https://semaphore.io/pricing",
+   "date": "2026-11-24",
+   "proved": "the published macOS rate is USD 0.09 a minute for a 4-vCPU machine, alongside USD 0.003 ARM and USD 0.0075 x64",
+   "capture": "sha256:39995496c75c6792afb4dc282924b88de661d29525202203c9985164a06782af",
+   "quote": "MacOS $0.09 /min 4vCPU"
+  },
+  {
+   "url": "https://semaphore.io/pricing",
+   "date": "2026-11-24",
+   "proved": "every organization gets USD 15 of credit a month, about 2,000 Ubuntu x64 2-vCPU minutes, usable across services",
+   "capture": "sha256:39995496c75c6792afb4dc282924b88de661d29525202203c9985164a06782af",
+   "quote": "Get $15 free credits per month (≈ 2,000 Ubuntu x64 2-vCPU minutes). Credits can be used across available services."
+  },
+  {
+   "url": "https://semaphore.io/pricing",
+   "date": "2026-11-24",
+   "proved": "20 concurrent jobs are included by default",
+   "capture": "sha256:39995496c75c6792afb4dc282924b88de661d29525202203c9985164a06782af",
+   "quote": "Includes **20 concurrent jobs by default** . Higher limits are available on request based on usage."
+  },
+  {
+   "url": "https://semaphore.io/pricing",
+   "date": "2026-11-24",
+   "proved": "20 GB a month of artifact egress and 100 GB of storage are free, then egress is USD 0.35 a GB and storage USD 0.07 a GB",
+   "capture": "sha256:39995496c75c6792afb4dc282924b88de661d29525202203c9985164a06782af",
+   "quote": "Free up to **20 GB/month egress and 100 GB/month storage** . Additional usage: $0.35/GB egress and $0.07/GB storage."
+  },
+  {
+   "url": "https://semaphore.io/pricing",
+   "date": "2026-11-24",
+   "proved": "each project has 9.6 GB of cache storage and the priced add-ons offer 10 Gbps with 400 GB storage",
+   "capture": "sha256:39995496c75c6792afb4dc282924b88de661d29525202203c9985164a06782af",
+   "quote": "$400/month for 10 Gbps bandwidth and 400 GB storage."
+  },
+  {
+   "url": "https://id.semaphoreci.com/signup",
+   "date": "2026-11-24",
+   "proved": "sign-up is through a GitHub, Bitbucket or GitLab account",
+   "capture": "sha256:389beb8abc2ff7f81f481cca197ee5f51bfb5997362922644a8e35cb63599135",
+   "quote": "Signup with GitHub"
+  },
+  {
+   "url": "https://docs.semaphore.io/using-semaphore/artifacts",
+   "date": "2026-11-24",
+   "proved": "workflow and job artifacts are kept at most 400 days",
+   "capture": "sha256:242a2b7c305a96009dc71d5985767eae80cf637bf233c7b7ae80c00f4800a05d",
+   "quote": "all artifacts on the workflow and job namespaces/scopes have a maximum retention of 400 days"
+  },
+  {
+   "url": "https://docs.semaphore.io/getting-started/tour/sign-up",
+   "date": "2026-11-25",
+   "proved": "first-party sign-up docs state that registration requires a GitHub or BitBucket account and that no credit card is required",
+   "capture": "sha256:9dfa56435511c2f000b11f03af28dca4149a41d52578337e1c4eb25e29b2aecf",
+   "quote": "To create your Semaphore account you need a [GitHub](https://github/) or [BitBucket](https://bitbucket.org/) account."
+  },
+  {
+   "url": "https://docs.github.com/en/account-and-profile/how-tos/account-management/creating-an-account-on-github",
+   "date": "2026-11-25",
+   "proved": "the GitHub OAuth gate named by Semaphore's sign-up docs carries a verified email address, so email is the identity required at registration and no phone, ID document or card gate is stated",
+   "capture": "sha256:0a0beece02e0570e78f75f239991e8a347ea5999944b0ca711ce7bcb46cdb716",
+   "quote": "To get started with GitHub.com, you need to have a personal account and a verified email address."
+  },
+  {
+   "url": "https://docs.semaphore.io/getting-started/tour/sign-up",
+   "date": "2026-11-25",
+   "proved": "first-party sign-up docs state that no payment card is required to register, so the gate is the OAuth account's email rather than a card",
+   "capture": "sha256:9dfa56435511c2f000b11f03af28dca4149a41d52578337e1c4eb25e29b2aecf",
+   "quote": "You can test one of the paid plans (no credit card required) or sign up with a free plan forever."
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T16:38:14.023Z",
+ "price_per_tb_month": null,
+ "notes": "The provider list prices the macOS runner at $5.40 an hour billed per minute, which is 60 times the $0.09 a minute quoted on the first-party pricing page read on 2026-11-25. This record prices the macOS tier separately from ci-cd-runners/semaphore-cloud, which covers the same USD 15 credit on Ubuntu machines.",
+ "extras": {
+  "shape": {
+   "vcpu": 4,
+   "ram_gib": 8,
+   "disk_gib": 150,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "a2-standard-4 Apple Silicon machine, macOS Xcode26 or Xcode27 image"
+  },
+  "billing_model": "per-minute macOS runner billed against a shared monthly USD credit",
+  "free_tier_kind": "monthly credit",
+  "price_arithmetic": "USD 15 / USD 0.09 per minute = about 167 macOS minutes",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": null,
+   "ports": "not stated",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "the job agent and its files are discarded when the job ends"
+  }
+ }
 }

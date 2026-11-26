@@ -15,7 +15,7 @@
   "limits_note": "the reclamation test is a 7-day percentile, so a workload that sleeps for five days and bursts for two is still at risk; a second clock suspends accounts left idle 30 days or more",
   "reliability_note": "Always Free A1 instances above the reduced limit were terminated automatically on 2026-08-18; a user in Phoenix reports the boot volume going with the instance",
   "confidence": "documented",
-  "verified_at": "2026-10-24T04:10:12.000Z",
+  "verified_at": "2026-11-25T11:17:20.282Z",
   "price_per_tb_month": null,
   "history": [
     "history/2026-10-22T030705Z/compute-seed-claims-superseded.md"
@@ -322,6 +322,13 @@
       "url": "https://docs.oracle.com/en-us/iaas/Content/GSG/Tasks/signingup_topic-Sign_Up_for_Free_Oracle_Cloud_Promotion.htm",
       "date": "2026-10-24",
       "proved": "the signup document lists the form field by field; it does not say which countries a signup succeeds from"
+    },
+    {
+      "url": "https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm",
+      "date": "2026-11-25",
+      "proved": "the A1.Flex allowance, its monthly hours and its 2 OCPU / 12 GB equivalence are unchanged",
+      "capture": "sha256:f574f79e65c50e5bc9403d143eb77d5ffaf3a50b958b9a20f49fc4c9600126e5",
+      "quote": "All tenancies get the first 1,500 OCPU hours and 9,000 GB hours per month for free for VM instances using the VM.Standard.A1.Flex shape, which has an Arm processor. For Always Free tenancies, this is equivalent to 2 OCPUs and 12 GB of memory."
     }
   ],
   "verdict": "qualifies-with-caveat",

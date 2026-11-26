@@ -5,7 +5,7 @@
   "url": "https://doeleadershipcomputing.org/call-for-proposals/",
   "category": "national HPC allocation",
   "free_tier": {
-    "stated": "Up to 60% of the allocatable time on Frontier (OLCF) and Aurora (ALCF) is allocated through INCITE for calendar year 2027; for each resource, allocations are anticipated to be between 500K and 2M node-hours on Aurora and Frontier, and individual awards may be higher. Non-proprietary research projects are not charged for access.",
+    "stated": "Up to 60% of the allocatable time on the Frontier exascale system at OLCF and the Aurora exascale system at ALCF will be allocated for calendar year 2027 through INCITE. For each resource, allocations are anticipated to be between 500K and 2M node-hours on Aurora and Frontier. Individual awards may be higher.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://doeleadershipcomputing.org/call-for-proposals/",
@@ -79,10 +79,17 @@
       "url": "https://doeleadershipcomputing.org/incite-faqs/",
       "date": "2026-10-22",
       "proved": "FAQ 8: 'researchers are expected to have all funding and any other elements necessary to ensure the success of their research project in place at the time of their application'; FAQ 26 repeats it as an eligibility condition"
+    },
+    {
+      "url": "https://doeleadershipcomputing.org/call-for-proposals/",
+      "date": "2026-11-25",
+      "proved": "the call states the 60% share on Frontier and Aurora for CY2027 and 500K to 2M node-hours per resource with higher awards possible",
+      "capture": "sha256:0945f9e00b5b5b57a336791cbf5b0dd1f14cc464d63168ff6e3dc39828395d43",
+      "quote": "INCITE is currently soliciting proposals of research for awards on LCF HPC machines for calendar year (CY) 2026. Up to 60% of the allocatable time on the **Frontier** exascale system at the Oak Ridge Leadership Computing Facility (OLCF), and the exascale system **Aurora**, at the Argonne Leadership Computing Facility (ALCF) will be allocated for calendar year (CY) 2027 through the INCITE program. For each resource, allocations are anticipated to be between 500K – 2M node-hours on Aurora and Frontier. Individual awards may be higher."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:28.403Z",
   "notes": "Two review phases: an international peer-review panel on scientific merit, then a technical assessment of computational readiness by LCF staff. Requests under 20% of the average award are redirected to Director's Discretionary or ALCC. Early Career Track reserves 10% of allocatable time for PIs within 10 years of a PhD who have not previously been INCITE PI. Polaris is no longer available; Aurora and Frontier are the only INCITE resources for 2027. The 20% utilisation criterion is the real filter at this scale: a solo researcher must show the campaign consumes a fifth of an exascale machine. Node-hour to GPU-hour conversion depends on the system (Frontier nodes carry 4 MI300A APUs), so earlier readings should not convert without a per-system figure.",
   "extras": {
     "wave2": {

@@ -1,134 +1,204 @@
 {
-  "topic": "compute",
-  "slug": "boxcompute",
-  "provider": "BoxCompute",
-  "url": "https://boxcompute.ai/pricing/",
-  "category": "agent VM sandbox",
-  "tier": "Free",
-  "free_tier": {
-    "stated": "$5 compute credit, valid for 14 days, added when you sign up and not renewed; no credit card required",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://boxcompute.ai/pricing/",
-    "read_on": "2026-11-24",
-    "notes": "Free plan runs two VMs and two chats at once and includes the BoxCompute agent with a daily AI allowance; the credit is for Small and Large VMs and cannot pay the Starter subscription."
+ "topic": "compute",
+ "slug": "boxcompute",
+ "provider": "BoxCompute",
+ "url": "https://boxcompute.ai/pricing/",
+ "category": "sandbox",
+ "tier": "Free one-time $5 compute credit (Small and Large VMs)",
+ "free_tier": {
+  "stated": "$5 compute credit, valid for 14 days, added when you sign up, one per person, cannot pay the Starter subscription fee; no credit card required, with the BoxCompute agent's daily AI allowance and two VMs and two chats at once",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://boxcompute.ai/pricing/",
+  "read_on": "2026-11-25",
+  "notes": "A one-time credit, not a recurring allowance: 'Credit is added when you sign up. It doesn't renew.' At about $0.05/hour for a Small VM the credit is roughly 100 Small-VM hours, and at about $0.15/hour for a Large VM roughly 33 Large-VM hours, while the VM runs."
+ },
+ "per_object_cap": {
+  "stated": "files kept in Assets stay after a VM is deleted, up to 5 GiB each; no storage limit on any plan",
+  "bytes": 5368709120,
+  "source_url": "https://boxcompute.ai/pricing/",
+  "notes": "The cap is per file in Assets, not a total account cap."
+ },
+ "retention": {
+  "stated": "a VM keeps its workspace files when it stops; a VM stops after 30 minutes idle and its files stay; files saved to Assets stay after a VM is deleted, with no storage limit on any plan",
+  "days": null,
+  "source_url": "https://boxcompute.ai/pricing/"
+ },
+ "egress": {
+  "terms": "not published as a per-GB price: a VM's running time is billed by the second, including idle time; web apps get preview links and database clients need TCP access that depends on the deployment. No outbound byte allowance or price per GB is stated on the pricing page.",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://boxcompute.ai/pricing/"
+ },
+ "interface": [
+  "rest",
+  "cli",
+  "chat"
+ ],
+ "interface_detail": "MCP server at https://mcp.boxcompute.ai/mcp for Claude, Claude Code, Codex and Cursor; an HTTP API and SDKs; a CLI with a coding-agent skill; and a browser chat agent with live preview links. VMs are full Ubuntu/Linux machines with their own kernel.",
+ "endpoint": "https://mcp.boxcompute.ai/mcp",
+ "tooling": "MCP client, HTTP API, SDKs and CLI; the browser chat agent runs the VM in the cloud, so the user needs only a browser. No rclone backend exists for its Assets store; that is a tooling note, not a verdict.",
+ "chaining": "A one-time $5 credit buys a few tens of hours of Small or Large Linux VMs for agent work; the agent connects through MCP using the user's own model key, so the BoxCompute credit pays only VM time, and files that must outlive a VM go to Assets before deletion.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "$5 compute credit valid 14 days, one per person; two concurrent VMs and two chats on free, three with pay-as-you-go credit",
+   "source": "https://boxcompute.ai/pricing/"
   },
-  "per_object_cap": {
-    "stated": "no object unit: the offer is a VM, and files kept in Assets are up to 5 GiB each",
-    "source_url": "https://boxcompute.ai/pricing/"
+  {
+   "kind": "retention-clamped",
+   "value": "a VM stops after 30 minutes idle and keeps its files; running time bills per second with a one-minute minimum, stopped VMs cost nothing",
+   "source": "https://boxcompute.ai/pricing/"
   },
-  "retention": {
-    "stated": "A VM stops after 30 minutes idle and keeps its files; a stopped VM costs nothing, and files saved to Assets stay after a VM is deleted.",
-    "days": null,
-    "source_url": "https://boxcompute.ai/pricing/"
-  },
-  "egress": {
-    "terms": "New VMs have outbound internet unless turned off, reaching the public internet only: private, carrier-grade NAT and link-local addresses are blocked. Nothing on the internet connects to a VM directly; a preview link opens one port at a time. Outbound SMTP on port 25 is blocked. No egress byte allowance or traffic price is published.",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://boxcompute.ai/security/"
-  },
-  "interface": [
-    "rest",
-    "cli",
-    "browser"
-  ],
-  "interface_detail": "MCP server at https://mcp.boxcompute.ai/mcp for Claude, Codex, Cursor and Claude Code; an account-scoped v2 HTTP API, official SDKs and a CLI. Machine-level SSH and selected-TCP access routes are not exposed by the current SDKs.",
-  "endpoint": "https://api.boxcompute.ai",
-  "tooling": "An MCP client, the BoxCompute CLI, the @boxcompute/sdk package or direct HTTP against the v2 API; one-hour VM browser previews are previews.create and previews.close from SDK 0.4.0.",
-  "chaining": "A VM runs a server or browser task billed only while it runs, and its preview link or API key hands output to an agent; Assets keeps files when the VM is deleted, so longer-lived state needs a separate storage record.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "$5 of compute credit valid 14 days, one per person; at about $0.05 an hour for Small and $0.15 for Large this is about 100 Small or 33 Large VM hours",
-      "source": "https://boxcompute.ai/pricing/"
-    }
-  ],
-  "limits_note": "Free plan runs two VMs and two chats at once; a VM stops after 30 minutes idle and keeps its files; pay as you go or a paid plan raises the concurrent VM count to three or all VMs.",
-  "binding": "volume-quota",
-  "binding_note": "The $5 credit expires after 14 days and cannot be renewed on the free plan, so the one-time credit and its validity end before the two-VM concurrency cap matters for a single agent.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "Sign up with an email, confirm the email, then choose a password; the sign-up screen shows a Turnstile verification check and no card or phone field. The app shows an invitation-only branch when signup is not open; the pricing page states no credit card is required for the free credit.",
-    "country": null
-  },
-  "reliability_note": "Free credit expires 14 days after signup and is one per person; a VM stops after 30 minutes idle, outbound SMTP port 25 is blocked, and free accounts have limits on daily AI allowance and how many chats and VMs run at once.",
-  "confidence": "documented",
-  "confidence_note": "The rate, free credit, validity, concurrency and per-second prices are quoted from the vendor's own pricing page read on 2026-11-24; the egress terms are from the vendor's security page and the email gate from the quickstart and the app's sign-up script on the same day.",
-  "evidence": [
-    {
-      "url": "https://boxcompute.ai/pricing/",
-      "date": "2026-11-24",
-      "proved": "the free plan gives $5 compute credit valid 14 days with no credit card required and runs two VMs at once",
-      "capture": "sha256:b82bf312653dd9b1f1e0fa3a8896f0da0add090881e8ad0f2a51c0dfa2aea65a",
-      "quote": "- $5 compute credit, valid for 14 days\n- The BoxCompute agent, with a daily AI allowance\n- Connect your own agent over MCP\n- Run two VMs and two chats at once\n- No credit card required"
-    },
-    {
-      "url": "https://boxcompute.ai/pricing/",
-      "date": "2026-11-24",
-      "proved": "VMs bill by the second with a one-minute minimum, about $0.05 an hour for Small and $0.15 for Large, and stopped VMs cost nothing",
-      "capture": "sha256:b82bf312653dd9b1f1e0fa3a8896f0da0add090881e8ad0f2a51c0dfa2aea65a",
-      "quote": "A running VM uses credit by the second, including idle time, until it stops: about $0.05 an hour for Small and $0.15 for Large, with a one-minute minimum. Stopped VMs cost nothing."
-    },
-    {
-      "url": "https://boxcompute.ai/security/",
-      "date": "2026-11-24",
-      "proved": "VMs have outbound public internet unless turned off, no direct inbound connection, one port at a time via preview links, and outbound SMTP port 25 blocked",
-      "capture": "sha256:698e91e35082e473d6ea7715e0d8a67dc59e5241ec341e94249a2a0edbe1520e",
-      "quote": "- **Public internet only.** New VMs have outbound internet unless you turn it off, and it reaches the public internet only: private, carrier-grade NAT and link-local addresses are blocked, so a VM cannot reach our internal network or other customers' VMs. Nothing on the internet connects to a VM directly; a preview link opens one port at a time."
-    },
-    {
-      "url": "https://boxcompute.ai/docs/quickstart/",
-      "date": "2026-11-24",
-      "proved": "sign up, confirm your email and create an API key; the $5 credit needs no card",
-      "capture": "sha256:e356788f0bbc6f27491cbbd024b882fb9d36cf29358f0f9624b602df40420755",
-      "quote": "Eligible new customers receive $5 in free compute credit, valid for 14 days. No card required."
-    },
-    {
-      "url": "https://app.boxcompute.ai/assets/signup-hJ_xj5kr.js",
-      "date": "2026-11-24",
-      "proved": "the sign-up screen asks for an email and uses a Turnstile verification check, with no card or phone field at that step",
-      "capture": "sha256:5de80a56ee06ac94ee8e9fa351ad514f1f142dc4c41cd890dd70c209feb4b6da",
-      "quote": "htmlFor:`signup-email`,children:`Email`"
-    },
-    {
-      "url": "https://boxcompute.ai/terms/",
-      "date": "2026-11-24",
-      "proved": "one free account per person and free accounts have limits on daily AI allowance and how many chats and VMs run at once",
-      "capture": "sha256:24f6c81b587166c3bab124792a8626de7faf0752ce17d0e3704e734fa4858a07",
-      "quote": "- One free account per person. Don’t create extra accounts to get more free credit or to get around limits."
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.640Z",
-  "price_per_tb_month": null,
-  "notes": "The $5 credit lasts 14 days and needs no card; Small VMs bill at about $0.05 an hour and Large at $0.15, so the credit is about 100 Small or 33 Large VM hours. Outbound internet is open to public addresses only, with one preview port at a time and no published egress byte price.",
-  "extras": {
-    "shape": {
-      "vcpu": 0.5,
-      "ram_gib": 1,
-      "disk_gib": null,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "Small is 0.5 vCPU and 1 GiB RAM; Large is 1.5 vCPU and 3 GiB RAM"
-    },
-    "billing_model": "one-time $5 credit, per-second VM billing",
-    "free_tier_kind": "one-time credit",
-    "status": "live",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": false,
-      "ports": "one port at a time through a preview link",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": 1800,
-      "restart_required": false,
-      "note": "a VM stops after 30 minutes idle and keeps its files"
-    }
+  {
+   "kind": "per-object-cap",
+   "value": "up to 5 GiB per file in Assets",
+   "source": "https://boxcompute.ai/pricing/"
   }
+ ],
+ "limits_note": "VM sizes: Small 0.5 vCPU/1 GiB RAM about $0.05/hour; Large 1.5 vCPU/3 GiB RAM about $0.15/hour; XL 4 vCPU/8 GiB and XXL 4-8 vCPU/16 GiB about $0.40 or $0.80/hour on Starter. Hosted in Cyberjaya, Malaysia; VM sandboxes are in beta.",
+ "binding": "volume-quota",
+ "binding_note": "The $5 credit is one-time and expires after 14 days, so it runs out first; the 30-minute idle stop keeps an unattended VM from draining it.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "unverified: the sign-up link goes to https://app.boxcompute.ai/signup, which answered with a login wall on 2026-11-25; the page shell contains no identity fields. The pricing page states 'No credit card required' for the free credit. Whether registration asks for an email, a social login or a card is unverified; ",
+  "country": null
+ },
+ "reliability_note": "A VM stops after 30 minutes idle and keeps its files; VM sandboxes are in beta, and a free credit is valid 14 days and does not renew.",
+ "confidence": "documented",
+ "confidence_note": "Prices, VM sizes, credit terms, idle stop, file cap and sign-up no-card statement are quoted from the first-party boxcompute.ai pricing page read on 2026-11-25; the sign-up form itself is behind a login wall and its identity gate is unverified.",
+ "evidence": [
+  {
+   "url": "https://boxcompute.ai/pricing/",
+   "date": "2026-11-25",
+   "proved": "the free plan is a one-time $5 compute credit valid 14 days with no credit card required",
+   "capture": "sha256:b82bf312653dd9b1f1e0fa3a8896f0da0add090881e8ad0f2a51c0dfa2aea65a",
+   "quote": "$5 compute credit, valid for 14 days"
+  },
+  {
+   "url": "https://boxcompute.ai/pricing/",
+   "date": "2026-11-25",
+   "proved": "no card is required for the free plan",
+   "capture": "sha256:b82bf312653dd9b1f1e0fa3a8896f0da0add090881e8ad0f2a51c0dfa2aea65a",
+   "quote": "No credit card required"
+  },
+  {
+   "url": "https://boxcompute.ai/pricing/",
+   "date": "2026-11-25",
+   "proved": "the free credit is one-time and does not renew",
+   "capture": "sha256:b82bf312653dd9b1f1e0fa3a8896f0da0add090881e8ad0f2a51c0dfa2aea65a",
+   "quote": "Credit is added when you sign up. It doesn’t renew."
+  },
+  {
+   "url": "https://boxcompute.ai/pricing/",
+   "date": "2026-11-25",
+   "proved": "the Small and Large VMs are about $0.05 and $0.15 an hour, billed per second",
+   "capture": "sha256:b82bf312653dd9b1f1e0fa3a8896f0da0add090881e8ad0f2a51c0dfa2aea65a",
+   "quote": "About $0.05 / hour"
+  },
+  {
+   "url": "https://boxcompute.ai/pricing/",
+   "date": "2026-11-25",
+   "proved": "a VM stops after 30 minutes idle and keeps its files; stopped VMs cost nothing",
+   "capture": "sha256:b82bf312653dd9b1f1e0fa3a8896f0da0add090881e8ad0f2a51c0dfa2aea65a",
+   "quote": "Your agent’s VM stops after 30 minutes idle and keeps its files, so a forgotten VM doesn’t drain credit."
+  },
+  {
+   "url": "https://boxcompute.ai/pricing/",
+   "date": "2026-11-25",
+   "proved": "Assets keeps files after VM deletion, with up to 5 GiB per file",
+   "capture": "sha256:b82bf312653dd9b1f1e0fa3a8896f0da0add090881e8ad0f2a51c0dfa2aea65a",
+   "quote": "Assets keeps them after a VM is deleted, with no storage limit on any plan and files up to 5 GiB each."
+  },
+  {
+   "url": "https://boxcompute.ai/pricing/",
+   "date": "2026-11-25",
+   "proved": "access is through an MCP server, HTTP API, SDKs and a CLI, with a browser agent",
+   "capture": "sha256:b82bf312653dd9b1f1e0fa3a8896f0da0add090881e8ad0f2a51c0dfa2aea65a",
+   "quote": "Add https://mcp.boxcompute.ai/mcp to Claude, Claude Code, Codex, Cursor or another MCP client and sign in, or use an API key."
+  },
+  {
+   "url": "https://boxcompute.ai/pricing/",
+   "date": "2026-11-25",
+   "proved": "the VMs run in Cyberjaya, Malaysia",
+   "capture": "sha256:b82bf312653dd9b1f1e0fa3a8896f0da0add090881e8ad0f2a51c0dfa2aea65a",
+   "quote": "In Southeast Asia. Our first region, Cyberjaya in Malaysia, is online now"
+  },
+  {
+   "url": "https://boxcompute.ai/pricing/",
+   "date": "2026-11-24",
+   "proved": "the free plan gives $5 compute credit valid 14 days with no credit card required and runs two VMs at once",
+   "capture": "sha256:b82bf312653dd9b1f1e0fa3a8896f0da0add090881e8ad0f2a51c0dfa2aea65a",
+   "quote": "- $5 compute credit, valid for 14 days\n- The BoxCompute agent, with a daily AI allowance\n- Connect your own agent over MCP\n- Run two VMs and two chats at once\n- No credit card required"
+  },
+  {
+   "url": "https://boxcompute.ai/pricing/",
+   "date": "2026-11-24",
+   "proved": "VMs bill by the second with a one-minute minimum, about $0.05 an hour for Small and $0.15 for Large, and stopped VMs cost nothing",
+   "capture": "sha256:b82bf312653dd9b1f1e0fa3a8896f0da0add090881e8ad0f2a51c0dfa2aea65a",
+   "quote": "A running VM uses credit by the second, including idle time, until it stops: about $0.05 an hour for Small and $0.15 for Large, with a one-minute minimum. Stopped VMs cost nothing."
+  },
+  {
+   "url": "https://boxcompute.ai/security/",
+   "date": "2026-11-24",
+   "proved": "VMs have outbound public internet unless turned off, no direct inbound connection, one port at a time via preview links, and outbound SMTP port 25 blocked",
+   "capture": "sha256:698e91e35082e473d6ea7715e0d8a67dc59e5241ec341e94249a2a0edbe1520e",
+   "quote": "- **Public internet only.** New VMs have outbound internet unless you turn it off, and it reaches the public internet only: private, carrier-grade NAT and link-local addresses are blocked, so a VM cannot reach our internal network or other customers' VMs. Nothing on the internet connects to a VM directly; a preview link opens one port at a time."
+  },
+  {
+   "url": "https://boxcompute.ai/docs/quickstart/",
+   "date": "2026-11-24",
+   "proved": "sign up, confirm your email and create an API key; the $5 credit needs no card",
+   "capture": "sha256:e356788f0bbc6f27491cbbd024b882fb9d36cf29358f0f9624b602df40420755",
+   "quote": "Eligible new customers receive $5 in free compute credit, valid for 14 days. No card required."
+  },
+  {
+   "url": "https://app.boxcompute.ai/assets/signup-hJ_xj5kr.js",
+   "date": "2026-11-24",
+   "proved": "the sign-up screen asks for an email and uses a Turnstile verification check, with no card or phone field at that step",
+   "capture": "sha256:5de80a56ee06ac94ee8e9fa351ad514f1f142dc4c41cd890dd70c209feb4b6da",
+   "quote": "htmlFor:`signup-email`,children:`Email`"
+  },
+  {
+   "url": "https://boxcompute.ai/terms/",
+   "date": "2026-11-24",
+   "proved": "one free account per person and free accounts have limits on daily AI allowance and how many chats and VMs run at once",
+   "capture": "sha256:24f6c81b587166c3bab124792a8626de7faf0752ce17d0e3704e734fa4858a07",
+   "quote": "- One free account per person. Don’t create extra accounts to get more free credit or to get around limits."
+  }
+ ],
+ "verdict": "trial-only",
+ "verified_at": "2026-11-25T02:12:34.813Z",
+ "price_per_tb_month": null,
+ "notes": "Hosted Linux VM sandboxes in Malaysia. A one-time $5 credit, no card required, valid 14 days, buys roughly 100 Small-VM hours at $0.05/hour or 33 Large-VM hours at $0.15/hour while the VM runs. Starter at $16.99/month includes $40 of monthly compute credit, about 800 Small or 270 Large VM hours. No recurring free tier is published.",
+ "extras": {
+  "shape": {
+   "vcpu": 0.5,
+   "ram_gib": 1,
+   "disk_gib": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "Small 0.5 vCPU/1 GiB about $0.05/hour, Large 1.5 vCPU/3 GiB about $0.15/hour, XL 4 vCPU/8 GiB about $0.40/hour, XXL 4-8 vCPU/16 GiB about $0.80/hour"
+  },
+  "billing_model": "one-time credit or monthly plan, VM time billed per second with a one-minute minimum",
+  "free_tier_kind": "one-time credit",
+  "term": "14-day validity on the free credit",
+  "price_arithmetic": "$5 / $0.05 per hour = about 100 Small-VM hours; $5 / $0.15 per hour = about 33 Large-VM hours",
+  "status": "hosted, VM sandboxes in beta",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "web apps get preview links; database clients need TCP access depending on deployment",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": 1800,
+   "restart_required": false,
+   "note": "a VM stops after 30 minutes idle and keeps its files; two concurrent VMs on free, three on pay-as-you-go"
+  }
+ }
 }

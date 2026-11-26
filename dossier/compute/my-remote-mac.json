@@ -1,0 +1,152 @@
+{
+  "topic": "compute",
+  "slug": "my-remote-mac",
+  "provider": "My Remote Mac",
+  "url": "https://myremotemac.com/pricing",
+  "category": "rented Mac (bare metal)",
+  "tier": "Mac mini M4 entry, monthly",
+  "free_tier": {
+    "stated": "No free tier and no trial are published on the pricing page: Mac mini M4 entry is 85 /mo USD, excl. tax, with a 24-hour minimum rental. Eligible free and open-source projects get 25% off every plan and add-on through our Open Source Program, in exchange for a credit and a backlink.",
+    "unit": "none",
+    "metered_on": "wall-clock",
+    "source_url": "https://myremotemac.com/pricing",
+    "read_on": "2026-11-25",
+    "notes": "The daily rate is $14 for 24 hours, auto-renew off; the provider list's $85 a month divided by 730 hours is $0.116 an hour. The 25% open-source discount is a price reduction, not a free allowance."
+  },
+  "per_object_cap": {
+    "stated": "not applicable: the unit is a dedicated physical Mac with a 256 GB SSD, not an object",
+    "source_url": "https://myremotemac.com/pricing"
+  },
+  "retention": {
+    "stated": "with a daily plan auto-renew off, the instance and all its data are deleted when the 24 hours paid for end; with auto-renew on, the Mac and its data are erased when a renewal payment fails, and monthly and annual plans keep a 24-hour or 3-day grace period",
+    "days": null,
+    "source_url": "https://myremotemac.com/pricing"
+  },
+  "egress": {
+    "terms": "Unmetered 1 Gbps Network: No data cap, on a 100 Gbps backbone, upgradable to 2.5 or 5 Gbps; 2.5 Gbps for +$20/mo or 5 Gbps for +$35/mo, unmetered as well",
+    "metered": false,
+    "free_allowance": "unmetered",
+    "price_per_tb": null,
+    "source_url": "https://myremotemac.com/pricing"
+  },
+  "interface": [
+    "ssh",
+    "sftp",
+    "browser"
+  ],
+  "interface_detail": "full root access via SSH and VNC; public IPv4 and IPv6 addresses; scp and SFTP for file transfer; a dashboard at app.myremotemac.com; VNC desktop on port 59010 and SSH on port 22",
+  "tooling": "an SSH client, a VNC viewer and scp or SFTP; the GitHub Actions self-hosted runner guide sets up launchd, Xcode and caches. The user installs and runs the CI runner agent on the rented Mac; the Mac itself is the hosted offer.",
+  "chaining": "the dedicated Mac runs a GitHub Actions, GitLab CI, Jenkins or Buildkite self-hosted runner with Xcode, and the unmetered 1 Gbps link makes it usable as a build and test host; artifacts needing durable storage should be copied to an object-storage record because the instance is deleted at the end of a daily term.",
+  "limits": [
+    {
+      "kind": "volume-quota",
+      "value": "24-hour minimum rental; $14 for 24 hours, auto-renew off, or $85 a month",
+      "source": "https://myremotemac.com/pricing"
+    },
+    {
+      "kind": "per-ip-shaping",
+      "value": "fail2ban bans the caller IP for 1 hour after 5 failed logins within 10 minutes on SSH and VNC",
+      "source": "https://docs.myremotemac.com/connect/from-windows/"
+    }
+  ],
+  "limits_note": "You can run one daily Mac at a time; monthly or yearly is needed for another Mac. Add-ons such as the backup disk and network upgrades are available on monthly and annual plans only, not daily plans.",
+  "binding": "volume-quota",
+  "binding_note": "the 24-hour minimum and the $14 daily or $85 monthly price are the first limit a caller meets; the unmetered network does not impose a byte quota.",
+  "identity_cost": {
+    "kind": "card",
+    "detail": "the register form asks for First Name, Last Name, Email, Password and Confirm Password; the pricing FAQ states payment is by all major credit cards via Stripe, with wire transfers for enterprise accounts, and that every card goes through 3D Secure verification with a $1 hold released right away",
+    "country": null
+  },
+  "reliability_note": "a daily instance and all its data are deleted when the paid 24 hours end, immediately at later renewals if a payment fails; fail2ban bans the caller IP for 1 hour after 5 failed logins in 10 minutes; the vendor states a 99.9% uptime SLA.",
+  "confidence": "documented",
+  "confidence_note": "prices, network terms, rental minimum, deletion behaviour and payment rails are quoted from first-party pricing and FAQ pages; the SSH/VNC ports and fail2ban rule are quoted from the vendor's docs; the signup form and payment rails were read but no rental was made.",
+  "evidence": [
+    {
+      "url": "https://myremotemac.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the entry Mac mini M4 is USD 85 a month excluding tax",
+      "capture": "sha256:30b6fca42e5cd640457b7c2438be71186598b8597fa03fbaddd6110ce0414955",
+      "quote": "85 /mo"
+    },
+    {
+      "url": "https://myremotemac.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the network is unmetered at 1 Gbps with no data cap",
+      "capture": "sha256:30b6fca42e5cd640457b7c2438be71186598b8597fa03fbaddd6110ce0414955",
+      "quote": "Unmetered 1 Gbps Network\n\nNo data cap, on a 100 Gbps backbone, upgradable to 2.5 or 5 Gbps"
+    },
+    {
+      "url": "https://myremotemac.com/pricing",
+      "date": "2026-11-25",
+      "proved": "a daily Mac with auto-renew off costs USD 14 for 24 hours",
+      "capture": "sha256:30b6fca42e5cd640457b7c2438be71186598b8597fa03fbaddd6110ce0414955",
+      "quote": "24 hours One day, auto-renew off"
+    },
+    {
+      "url": "https://myremotemac.com/pricing",
+      "date": "2026-11-25",
+      "proved": "payment is by major credit cards via Stripe, with wire transfers for enterprise accounts",
+      "capture": "sha256:30b6fca42e5cd640457b7c2438be71186598b8597fa03fbaddd6110ce0414955",
+      "quote": "All major credit cards via Stripe. Wire transfers available for enterprise accounts."
+    },
+    {
+      "url": "https://myremotemac.com/pricing",
+      "date": "2026-11-25",
+      "proved": "eligible open-source projects get 25 percent off every plan and add-on",
+      "capture": "sha256:30b6fca42e5cd640457b7c2438be71186598b8597fa03fbaddd6110ce0414955",
+      "quote": "eligible free and open-source projects get 25% off every plan and add-on through our Open Source Program, in exchange for a credit and a backlink"
+    },
+    {
+      "url": "https://app.myremotemac.com/register",
+      "date": "2026-11-25",
+      "proved": "the register form asks for first name, last name, email and a password",
+      "capture": "sha256:a67d66d8040ec471ec0f6fddc540e1dc7f10397ccbf54cf1c4faff74f06e1d43",
+      "quote": "First Name"
+    },
+    {
+      "url": "https://docs.myremotemac.com/connect/from-windows/",
+      "date": "2026-11-25",
+      "proved": "SSH reaches the Mac on port 22 with a username and a password or an SSH key",
+      "capture": "sha256:67d44f3016a9320854fee2d3b7412f342038f016a694719f3c71d112375865bc",
+      "quote": "**Terminal:** OpenSSH (`ssh` in Windows Terminal/PowerShell) or PuTTY, on port **`22`**, authenticating with your **username** plus a password or an **SSH key**."
+    },
+    {
+      "url": "https://docs.myremotemac.com/connect/from-windows/",
+      "date": "2026-11-25",
+      "proved": "fail2ban bans the caller IP for 1 hour after 5 failed logins in 10 minutes",
+      "capture": "sha256:67d44f3016a9320854fee2d3b7412f342038f016a694719f3c71d112375865bc",
+      "quote": "fail2ban bans your IP for 1 hour after 5 failed logins within 10 minutes (SSH and VNC)."
+    }
+  ],
+  "verdict": "paid-only",
+  "verified_at": "2026-11-25T02:12:34.858Z",
+  "price_per_tb_month": null,
+  "notes": "No free tier is published; the entry Mac mini M4 is USD 85 a month or USD 14 for 24 hours, and the open-source program is a 25 percent price reduction in exchange for a credit and a backlink. The provider list's USD 0.116 an hour is USD 85 divided by 730 hours.",
+  "extras": {
+    "shape": {
+      "vcpu": null,
+      "ram_gib": 16,
+      "disk_gib": 256,
+      "gpu_class": "Apple M4, 10-core CPU and 10-core GPU",
+      "gpu_count": null,
+      "note": "dedicated physical Mac mini M4 entry configuration"
+    },
+    "billing_model": "daily with 24-hour minimum, monthly or annual",
+    "free_tier_kind": "none",
+    "price_arithmetic": "USD 85 / 730 hours = USD 0.116 an hour",
+    "network_out": {
+      "allow_outbound": true,
+      "allow_inbound_listen": true,
+      "ports": "SSH 22, VNC 59010",
+      "static_ip": "public IPv4 and IPv6 included",
+      "ipv6": true,
+      "per_session_bytes": null
+    },
+    "session_cap": {
+      "wall_clock_min": null,
+      "idle_reap_s": null,
+      "restart_required": false,
+      "note": "24-hour minimum; daily instance and its data deleted at the end of the paid period"
+    }
+  }
+}

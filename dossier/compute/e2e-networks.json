@@ -5,7 +5,7 @@
   "url": "https://www.e2enetworks.com/pricing",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "no recurring free tier: GPU resources bill per minute, and the only free path is a trial account with limited resources granted on application",
+    "stated": "GPU resources bill per minute: \"Access B200 GPUs from ₹759.05$7.99/hr with transparent, per-minute billing. No hidden fees, no complex contracts.\" No free tier, trial allowance or free resource is stated on this page.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://www.e2enetworks.com/pricing",
@@ -72,10 +72,17 @@
       "url": "https://www.e2enetworks.com/startup-program",
       "date": "2026-10-22",
       "proved": "'$5K (INR 5 Lakh) in free-to-use AI Cloud credits' for AI Explorer, with eligibility 'Established, legally incorporated company' and '10 or fewer employees', quoted; the self-serve account FAQ requires 'Copy of any one identity proof document' and 'Copy of any one address proof', with activation that 'may take up to 3 business days'"
+    },
+    {
+      "url": "https://www.e2enetworks.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page states per-minute billing for GPUs and names no free tier",
+      "capture": "sha256:c0929fb1f21a4c426bc922f3f0a82e18080eebb25625a4a9842da7348b64aabd",
+      "quote": "Access B200 GPUs from ₹759.05$7.99/hr with transparent, per-minute billing. No hidden fees, no complex contracts."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:24.730Z",
   "price_per_tb_month": null,
   "notes": "A 20-infra-credit sign-up bonus requires phone OTP, billing details, and identity KYC verification.",
   "extras": {

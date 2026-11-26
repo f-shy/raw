@@ -5,7 +5,7 @@
   "url": "https://vps.xserver.ne.jp/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "no free tier; the entry plan is JPY 1,265 a month for 2 GB",
+    "stated": "月額 1,265 円〜※2",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://vps.xserver.ne.jp/",
@@ -75,10 +75,24 @@
       "url": "https://vps.xserver.ne.jp/",
       "date": "2026-10-24",
       "proved": "quoted: '月額**1,265**円～' and '2GB 月額1,265円～ 小規模サイトや個人開発に最適 メモリ 2GB vCPU 3コア NVMe SSD 50GB'"
+    },
+    {
+      "url": "https://vps.xserver.ne.jp/",
+      "date": "2026-11-25",
+      "proved": "the product page states the entry monthly price from JPY 1,265",
+      "capture": "sha256:0b2b964c8fe44448ee62a496fe65b11bd5ddc401b0cd2075be33ccaaf9c254ed",
+      "quote": "月額 1,265 円〜※2"
+    },
+    {
+      "url": "https://vps.xserver.ne.jp/",
+      "date": "2026-11-25",
+      "proved": "the product page still states the entry monthly price",
+      "capture": "sha256:0b2b964c8fe44448ee62a496fe65b11bd5ddc401b0cd2075be33ccaaf9c254ed",
+      "quote": "月額 1,265 円〜※2"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-24T02:05:00.000Z",
+  "verified_at": "2026-11-25T15:03:54.714Z",
   "notes": "The lead was worth closing: XServer is one of the largest Japanese hosts and its floor is above the line. No under-USD-5 shape exists, so nothing here can qualify whatever the identity terms are.",
   "extras": {
     "wave2": {

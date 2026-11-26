@@ -15,7 +15,7 @@
   "limits_note": "ZeroGPU on a free account allows 5 minutes of GPU a day and needs an account older than 30 days",
   "reliability_note": "no reliability event observed",
   "confidence": "documented",
-  "verified_at": "2026-11-24T13:20:54.186Z",
+  "verified_at": "2026-11-25T15:40:39.442Z",
   "price_per_tb_month": null,
   "history": [],
   "slug": "huggingface-spaces",
@@ -118,6 +118,13 @@
       "proved": "the free lane needs a verified email and an account older than 30 days",
       "capture": "sha256:949c22d45251350837459dc32cd16a8713d43068105dd2e610515a6e41af513b",
       "quote": "Free personal accounts: accounts in good standing (verified email, account older than 30 days) can host up to 2 ZeroGPU Spaces for free."
+    },
+    {
+      "url": "https://huggingface.co/docs/hub/en/spaces-overview",
+      "date": "2026-11-25",
+      "proved": "the page was read on 2026-11-25 and still states this value",
+      "capture": "sha256:ecc731b840a5f8f532d978aab5ee3d1c2f26fe6af42f5d24273195c498ff64af",
+      "quote": "Free personal accounts in good standing can still host up to 2 Gradio Spaces running on [ZeroGPU](./spaces-zerogpu)."
     }
   ],
   "verdict": "qualifies-with-caveat",

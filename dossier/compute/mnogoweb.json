@@ -5,7 +5,7 @@
   "url": "https://mnogoweb.ru/vps.html",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "RUB 190 per month from the vendor's own page title, which states that VPS/VDS servers start at RUB 190 with hourly billing. The plan table itself is a JavaScript calculator that renders only a loading placeholder to a text extractor, so the shape comes from the index row: 5 GB NVMe, 1 GB RAM, 1 core at 2.3 GHz, 0.2 TB traffic on a 50 Mbit/s port, Moscow or Novosibirsk. The page states three plan lines (budget, standard, storage) and a 50 Mbit/s ceiling on the budget line against up to 250 Mbit/s on the other two.",
+    "stated": "| Максимальная скорость сети | 50 Мбит/с | До 250 Мбит/с | До 250 Мбит/с |",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://mnogoweb.ru/vps.html",
@@ -64,10 +64,24 @@
       "url": "https://vps.today/",
       "date": "2026-10-23",
       "proved": "index row quoted: 'Mnogoweb | 5 GB NVMe | 1 GB | 1 x 2.3 GHz | 0.2 TB 50 Mbit/s | Россия (Москва, Новосибирск) KVM IPv6 DDoS ПО ! | 190 руб.'"
+    },
+    {
+      "url": "https://mnogoweb.ru/vps.html",
+      "date": "2026-11-25",
+      "proved": "the comparison table gives the budget line a 50 Mbit/s network ceiling and the other two up to 250 Mbit/s",
+      "capture": "sha256:ea80fb9bc75ae831ba819292853468a0f4851036d17f4b6aa04575b77b68b40d",
+      "quote": "| Максимальная скорость сети | 50 Мбит/с | До 250 Мбит/с | До 250 Мбит/с |"
+    },
+    {
+      "url": "https://mnogoweb.ru/vps.html",
+      "date": "2026-11-25",
+      "proved": "the page's comparison table still gives the budget line 50 Mbit/s and the other two up to 250 Mbit/s",
+      "capture": "sha256:ea80fb9bc75ae831ba819292853468a0f4851036d17f4b6aa04575b77b68b40d",
+      "quote": "| Максимальная скорость сети | 50 Мбит/с | До 250 Мбит/с | До 250 Мбит/с |"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:30.539Z",
   "notes": "Source: vps.today index row, then the vendor page. The price is the vendor's own floor statement, not a plan row. verification criteria: the calculator's cheapest rendered configuration and its per-hour rate. Rendering and provenance: currency written as RUB.",
   "extras": {
     "wave2": {

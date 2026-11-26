@@ -5,7 +5,7 @@
   "url": "https://lakefs.io/blog/we-recently-shut-down-tilde-run/",
   "category": "container and VM sandbox",
   "free_tier": {
-    "stated": "no free tier published",
+    "stated": "no free tier published: the hosted service was shut down; the operator published a retrospective and directs former users to lakeFS Mount",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://lakefs.io/blog/we-recently-shut-down-tilde-run/",
@@ -63,10 +63,24 @@
       "url": "https://lakefs.io/blog/we-recently-shut-down-tilde-run/",
       "date": "2026-10-22",
       "proved": "a lakeFS blog post titled 'we recently shut down Tilde Run', carrying the retrospective 'The most important lesson was that the state (read: the filesystem!) matters far more than people expect' and 'Agents need more than object storage', quoted"
+    },
+    {
+      "url": "https://lakefs.io/blog/we-recently-shut-down-tilde-run/",
+      "date": "2026-11-25",
+      "proved": "the post states the hosted tilde.run service was shut down and folded into lakeFS Mount",
+      "capture": "sha256:d069c651e2007badaa5bbbb42cb863b74df22c1052b48014697fbb55e16fad61",
+      "quote": "Shutting down tilde.run was not a step away from agent infrastructure. ... Rather than continue tilde.run as a separate product, we decided to focus our efforts on lakeFS and fold everything we learned into lakeFS Mount: an efficient, agent-native, composable filesystem for production AI workloads."
+    },
+    {
+      "url": "https://lakefs.io/blog/we-recently-shut-down-tilde-run/",
+      "date": "2026-11-25",
+      "proved": "the post still states the closure and the move to lakeFS Mount",
+      "capture": "sha256:d069c651e2007badaa5bbbb42cb863b74df22c1052b48014697fbb55e16fad61",
+      "quote": "Shutting down tilde.run was not a step away from agent infrastructure. ... Rather than continue tilde.run as a separate product, we decided to focus our efforts on lakeFS and fold everything we learned into lakeFS Mount: an efficient, agent-native, composable filesystem for production AI workloads."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:48:13.655Z",
+  "verified_at": "2026-11-25T11:17:42.693Z",
   "price_per_tb_month": null,
   "notes": "The record's URL is the shutdown notice itself, so the provider is already known to be closed. The page adds the reason it is worth keeping in the corpus: the operator's own lesson that filesystem state, not object storage, is what an agent runtime is judged on.",
   "extras": {

@@ -79,10 +79,17 @@
       "url": "https://docs.olcf.ornl.gov/accounts/accounts_and_projects.html",
       "date": "2026-10-22",
       "proved": "DD applications accepted at any time, duration up to 12 months, no quarterly reports outside industry; reviewed by the OLCF Resource Utilization Council and independent referees"
+    },
+    {
+      "url": "https://docs.olcf.ornl.gov/accounts/accounts_and_projects.html",
+      "date": "2026-11-25",
+      "proved": "the page was read on 2026-11-25 and still states this value",
+      "capture": "sha256:a208e7ea4c311abd68ec2016e1c5d63bf4ef67760ceda1bfd4d4b79541a14888",
+      "quote": "**Frontier is allocated in *node* hours, and a typical DD project is awarded between 15,000 - 20,000 *node* hours.** For more information about Frontier, please visit the [Frontier User Guide](https://docs.olcf.ornl.gov/systems/frontier_user_guide.html#frontier-user-guide)."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:40:39.599Z",
   "notes": "This is the highest-value low-friction tier found: 15,000 to 20,000 Frontier node-hours at 8 GCDs per node is roughly 120,000 to 160,000 GPU-hours and 960,000 to 1,280,000 core-hours per award. The GPU-hour conversion is arithmetic from the quoted node composition and the quoted node-hour range, not a vendor figure, so the node-hour numbers are documented and the converted ones are inferred. OLCF states there is no DOE sponsorship requirement. The barrier is institutional signature plus export control, not scientific merit at INCITE scale. A foreign national participant triggers an ORNL PAS request that takes 15 to 35 days.",
   "extras": {
     "wave2": {

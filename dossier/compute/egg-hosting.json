@@ -5,7 +5,7 @@
   "url": "https://egghosting.com/vps",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "Dedicated-vCPU KVM instances: 2 vCPU with 4 GB RAM and 50 GB NVMe at KRW 24,000 a month excluding VAT, 4 vCPU with 8 GB at 44,000, 4 vCPU with 16 GB at 56,000, 4 vCPU with 32 GB at 80,000, and a 2 vCPU with 8 GB at 29,600. Each carries 300 GB of monthly outbound traffic on a 1 Gbps port, with overage priced in tiers from KRW 49 down to KRW 29 per GB.",
+    "stated": "Dedicated-vCPU KVM instances: 2 vCPU with 4 GB RAM and 50 GB NVMe at KRW 24,000 a month, 2 vCPU with 8 GB at KRW 29,600, 4 vCPU with 8 GB at KRW 44,000, 4 vCPU with 16 GB at KRW 56,000 and 4 vCPU with 32 GB at KRW 80,000. Each carries 300 GB of monthly outbound traffic on a 1 Gbps port, with overage priced in tiers from KRW 49 down to KRW 29 per GB.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://egghosting.com/vps",
@@ -69,10 +69,24 @@
       "url": "https://egghosting.com/vps/compare",
       "date": "2026-10-22",
       "proved": "the vendor's own comparison page states that its 1 vCPU / 2 GB shape is 13,000 원 against a next-best 14,600 원, and its 2 vCPU / 4 GB shape 24,000 원 against a next-best 27,800 원, measured 2026-09; a vendor's own comparison is reported, not independent"
+    },
+    {
+      "url": "https://egghosting.com/vps",
+      "date": "2026-11-25",
+      "proved": "the plan block states dedicated KVM vCPU, 300 GB monthly traffic on a 1 Gbps port and 49 to 29 KRW per GB overage",
+      "capture": "sha256:c6cf3c035a813780618a80bfb6f1e58bc818521175f5e4edb0a168546fbaf17e",
+      "quote": "- NVMe SSD 스토리지 - 1 Gbps 네트워크 - 월 트래픽 300GB (월 총량 기준) · 초과 구간별 누진 49~29원/GB - 단독형 vCPU · CPU 공유 없음 (KVM) - root 권한 완전 제공 - 공인 IP 1개 - 기본 방화벽 제공 - 외부 도메인 연결 지원 - 무료 SSL 인증서 - OS 자유 선택 (Ubuntu/Rocky/Debian)"
+    },
+    {
+      "url": "https://egghosting.com/vps",
+      "date": "2026-11-25",
+      "proved": "the 2 vCPU / 4 GB plan states KRW 24,000 per month with 50 GB NVMe, 300 GB traffic and a 1 Gbps port",
+      "capture": "sha256:c6cf3c035a813780618a80bfb6f1e58bc818521175f5e4edb0a168546fbaf17e",
+      "quote": "- 2vCPU - 4GBRAM - NVMe 50GB ₩24,000/월 - NVMe SSD 스토리지 - 1 Gbps 네트워크 - 월 트래픽 300GB (월 총량 기준) · 초과 구간별 누진 49~29원/GB - 단독형 vCPU · CPU 공유 없음 (KVM) - root 권한 완전 제공 - 공인 IP 1개 - 기본 방화벽 제공 - 외부 도메인 연결 지원 - 무료 SSL 인증서 - OS 자유 선택 (Ubuntu/Rocky/Debian)"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:24.730Z",
   "notes": "The dedicated-vCPU claim is the differentiator against iwinv's shared vgna line and against Cafe24, which does not publish a vCPU count. The vendor's 'lowest in Korea' claim is its own and is recorded as the vendor's claim. 300 GB a month is a hard ceiling for the stated daily volumes, and that ceiling is the finding rather than the price. Payment method was not read on a vendor page this session; the card identity cost is inferred from a monthly or hourly billing model, and the signup page is the route that would settle it.",
   "extras": {
     "wave2": {

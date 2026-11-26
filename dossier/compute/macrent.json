@@ -1,143 +1,210 @@
 {
-  "topic": "compute",
-  "slug": "macrent",
-  "provider": "MacRent",
-  "url": "https://www.macrent.cloud/rent-a-mac",
-  "category": "dedicated cloud Mac",
-  "tier": "Daily (M4)",
-  "free_tier": {
-    "stated": "none: no free allowance, trial or credit is published; plans start at USD 15 a day and access is granted after payment",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://www.macrent.cloud/rent-a-mac",
-    "read_on": "2026-11-24",
-    "notes": "The signup form asks for an email, and the terms state that access is granted after successful payment."
-  },
-  "per_object_cap": {
-    "stated": "not applicable: the rented unit is a whole Mac mini with a 256GB SSD, not an object store",
-    "source_url": "https://www.macrent.cloud/mac-mini-cloud"
-  },
-  "retention": {
-    "stated": "Machines are wiped when a rental ends, is cancelled, or is terminated, and data is not recoverable afterwards.",
-    "days": null,
-    "source_url": "https://www.macrent.cloud/terms",
-    "notes": "The Daily plan can be paid for 24 hours only; the terms set a 24-hour minimum lease."
-  },
-  "egress": {
-    "terms": "1Gb/s internet speed on every plan; no egress allowance, quota or per-GB price is published on the pricing page",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://www.macrent.cloud/rent-a-mac"
-  },
-  "interface": [
-    "ssh",
-    "browser"
-  ],
-  "interface_detail": "Remote desktop connection and SSH, with RustDesk preinstalled; VNC and NoMachine also work.",
-  "tooling": "an SSH client and a remote desktop client (RustDesk or VNC) connecting to a dedicated Mac mini.",
-  "chaining": "A dedicated Mac with static IP and full admin can run a self-hosted GitHub Actions runner or a coding agent for builds that need Xcode and the iOS Simulator.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "24 hours of access per Daily rental; Apple's license sets a minimum lease of 24 hours",
-      "source": "https://www.macrent.cloud/rent-a-mac"
-    }
-  ],
-  "limits_note": "Weekly is USD 89 for 7 days and monthly is USD 159 for 1 month; the Daily plan may be taken as 24 hours only or renewed daily.",
-  "binding": "volume-quota",
-  "binding_note": "The priced unit is a fixed rental period on a single dedicated machine, so the 24-hour term of the Daily plan is what runs out first.",
-  "identity_cost": {
-    "kind": "card",
-    "detail": "Checkout is via Stripe and access is granted after successful payment; connection details are sent to the email used at checkout. The privacy notice lists name, email address, phone number if needed, and billing address as collected data.",
-    "country": null
-  },
-  "reliability_note": "Wiped and reinstalled when the rental ends; sold-out periods occur and the machine is delivered when one frees up.",
-  "confidence": "documented",
-  "confidence_note": "The price, access methods and plan terms are quoted from the vendor's own pricing page, sign-in page and terms.",
-  "evidence": [
-    {
-      "url": "https://www.macrent.cloud/rent-a-mac",
-      "date": "2026-11-24",
-      "proved": "the Daily plan is USD 15 for 24 hours of access",
-      "capture": "sha256:6410474f64af785e7802dac601ad8983940f9f4709b1f3d78a5fb2f36d0f8538",
-      "quote": "$15/day\n\n24 hours of access"
-    },
-    {
-      "url": "https://www.macrent.cloud/rent-a-mac",
-      "date": "2026-11-24",
-      "proved": "each plan is a dedicated Mac Mini M4 or M6",
-      "capture": "sha256:6410474f64af785e7802dac601ad8983940f9f4709b1f3d78a5fb2f36d0f8538",
-      "quote": "Every plan is a dedicated Mac Mini M4 or M6. Pay only for what you need, cancel anytime."
-    },
-    {
-      "url": "https://www.macrent.cloud/rent-a-mac",
-      "date": "2026-11-24",
-      "proved": "remote desktop is a connection method",
-      "capture": "sha256:6410474f64af785e7802dac601ad8983940f9f4709b1f3d78a5fb2f36d0f8538",
-      "quote": "Remote desktop connection"
-    },
-    {
-      "url": "https://www.macrent.cloud/rent-a-mac",
-      "date": "2026-11-24",
-      "proved": "SSH is included on the plan",
-      "capture": "sha256:6410474f64af785e7802dac601ad8983940f9f4709b1f3d78a5fb2f36d0f8538",
-      "quote": "SSH access"
-    },
-    {
-      "url": "https://www.macrent.cloud/rent-a-mac",
-      "date": "2026-11-24",
-      "proved": "the machine has a 1Gb/s internet connection",
-      "capture": "sha256:6410474f64af785e7802dac601ad8983940f9f4709b1f3d78a5fb2f36d0f8538",
-      "quote": "1Gb/s internet speed"
-    },
-    {
-      "url": "https://www.macrent.cloud/login",
-      "date": "2026-11-24",
-      "proved": "the email address used at checkout receives the connection link",
-      "capture": "sha256:7e0f3354c5c9bf691238bb654aadc8655c67d5d9ae5aa58ed82282744b5d7390",
-      "quote": "Enter the email you used at checkout and we'll send you a secure link to your connection details."
-    },
-    {
-      "url": "https://www.macrent.cloud/terms",
-      "date": "2026-11-24",
-      "proved": "access requires successful payment through Stripe",
-      "capture": "sha256:3ddb9eb6f9e0c802d0f3bd4df8671fe675c4e761395030c88576f0fd24f98993",
-      "quote": "Prices are listed in USD unless stated otherwise and are processed via Stripe. Access is granted after successful payment."
-    },
-    {
-      "url": "https://www.macrent.cloud/terms",
-      "date": "2026-11-24",
-      "proved": "Apple's license requires a minimum 24-hour lease",
-      "capture": "sha256:3ddb9eb6f9e0c802d0f3bd4df8671fe675c4e761395030c88576f0fd24f98993",
-      "quote": "Apple's macOS Software License Agreement requires that Mac computers be leased for a minimum period of 24 hours. Every rental therefore has a minimum duration of 24 hours."
-    },
-    {
-      "url": "https://www.macrent.cloud/terms",
-      "date": "2026-11-24",
-      "proved": "data on the machine is wiped at the end of the rental",
-      "capture": "sha256:3ddb9eb6f9e0c802d0f3bd4df8671fe675c4e761395030c88576f0fd24f98993",
-      "quote": "Machines are wiped when a rental ends, is cancelled, or is terminated, and data is not recoverable afterwards."
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T10:11:14.897Z",
-  "notes": "A dedicated bare-metal Mac mini by the day, week or month at fixed published rates; no free tier is offered. Egress is not priced separately on the pages read.",
-  "extras": {
-    "shape": {
-      "vcpu": "10-core CPU and GPU on the M4",
-      "ram_gib": 16,
-      "disk_gib": 256,
-      "gpu_class": "Apple M4 integrated GPU",
-      "gpu_count": null
-    },
-    "billing_model": "fixed daily, weekly or monthly rental",
-    "free_tier_kind": "none",
-    "network_out": {
-      "allow_outbound": true,
-      "ports": "not stated",
-      "static_ip": true,
-      "per_session_bytes": null
-    }
+ "topic": "compute",
+ "slug": "macrent",
+ "provider": "MacRent",
+ "url": "https://www.macrent.cloud/rent-a-mac",
+ "category": "rented Mac",
+ "tier": "Monthly dedicated Mac mini M4",
+ "free_tier": {
+  "stated": "no free tier: a dedicated Mac mini M4 is sold at USD 15/day, USD 89/week or USD 159/month, and access is granted after successful payment; all three plan cards showed sold out on 2026-11-25",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://www.macrent.cloud/rent-a-mac",
+  "read_on": "2026-11-25",
+  "notes": "none-published"
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a whole dedicated machine, not an object",
+  "bytes": null,
+  "source_url": "https://www.macrent.cloud/rent-a-mac"
+ },
+ "retention": {
+  "stated": "the machine is wiped when a rental ends or is cancelled and data is not recoverable afterwards; a 24-hour daily rental that is not renewed ends with the machine and all its data permanently deleted",
+  "days": null,
+  "source_url": "https://www.macrent.cloud/terms"
+ },
+ "egress": {
+  "terms": "a 1Gb/s internet connection and a static IP are included; no transfer allowance or egress price is published",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://www.macrent.cloud/rent-a-mac"
+ },
+ "interface": [
+  "ssh"
+ ],
+ "interface_detail": "a remote desktop connection or SSH to a dedicated bare-metal Mac mini M4 with full-admin access and a static IP; no API is documented",
+ "tooling": "a remote desktop client or an SSH client; the machine can be registered as a self-hosted GitHub Actions, GitLab or Buildkite runner",
+ "chaining": "a whole dedicated Mac with full admin can serve as a permanent macOS build box for Xcode, signing and notarization, or as a self-hosted CI runner; it composes with any CI that accepts a self-hosted runner, but no free allowance exists and no machine was in stock on 2026-11-25, so it cannot be started without a paid order and available stock.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "a minimum rental of 24 hours under Apple's macOS Software License Agreement; no shorter rental is available and cancelling inside the first 24 hours does not shorten or refund that period",
+   "source": "https://www.macrent.cloud/terms"
   }
+ ],
+ "limits_note": "no monthly compute hours are included: every plan is a paid rental that renews until cancelled; all shown plan cards were sold out on 2026-11-25.",
+ "binding": "volume-quota",
+ "binding_note": "the 24-hour minimum and the absence of any included free hours bind first: the cheapest entry is a non-refundable 24-hour paid rental, and no machine was in stock on 2026-11-25.",
+ "identity_cost": {
+  "kind": "card",
+  "detail": "access is granted after successful payment, prices are processed via Stripe, and the login asks for the email used at checkout to receive a secure link; the terms say the operator may require verification of identity or intended use at any time",
+  "country": null
+ },
+ "reliability_note": "no uptime guarantee; the machines are hosted by third-party infrastructure providers, and all plans showed sold out on 2026-11-25, so delivery depends on stock.",
+ "confidence": "documented",
+ "confidence_note": "prices, hardware, access method and egress speed are quoted from the vendor's own rent-a-mac and mac-mini-cloud pages read on 2026-11-25; the 24-hour minimum, Stripe payment, wipe-on-end and identity-verification clause are quoted from the vendor's terms; the login email gate is quoted from the vendor's login page.",
+ "evidence": [
+  {
+   "url": "https://www.macrent.cloud/rent-a-mac",
+   "date": "2026-11-25",
+   "proved": "the daily plan costs USD 15 for 24 hours of access",
+   "capture": "sha256:7f4e985dfd5db7c80ccd47c7f8049589228dc3545b56fdbd11e84f36384054b3",
+   "quote": "### Daily\n\n$15/day\n\n24 hours of access\n\nYou choose: 24 hours only or renew daily"
+  },
+  {
+   "url": "https://www.macrent.cloud/rent-a-mac",
+   "date": "2026-11-25",
+   "proved": "the weekly plan is USD 89 and the monthly plan is USD 159",
+   "capture": "sha256:7f4e985dfd5db7c80ccd47c7f8049589228dc3545b56fdbd11e84f36384054b3",
+   "quote": "### Weekly\n\n$89/week\n\n7 days of access\n\nonly $12.71 per day"
+  },
+  {
+   "url": "https://www.macrent.cloud/rent-a-mac",
+   "date": "2026-11-25",
+   "proved": "the monthly plan is sold out and the next machine is not available",
+   "capture": "sha256:7f4e985dfd5db7c80ccd47c7f8049589228dc3545b56fdbd11e84f36384054b3",
+   "quote": "Sold out. Join the list and we email you when one frees up."
+  },
+  {
+   "url": "https://www.macrent.cloud/",
+   "date": "2026-11-25",
+   "proved": "the rental includes a dedicated Mac with full-admin access",
+   "capture": "sha256:5d95da6a269b66e15f4df64a5c792f8c69803413596c693b08d1f4b2cd871557",
+   "quote": "You get a dedicated Mac with full-admin access - no one else has access to the machine"
+  },
+  {
+   "url": "https://www.macrent.cloud/",
+   "date": "2026-11-25",
+   "proved": "the headline plans are USD 15 a day, USD 89 a week or USD 159 a month with 16GB RAM, 256GB SSD, static IP and full-admin access",
+   "capture": "sha256:5d95da6a269b66e15f4df64a5c792f8c69803413596c693b08d1f4b2cd871557",
+   "quote": "Plans start at $15/day, $89/week, or $159/month. Every plan includes a dedicated Mac Mini M4 with 16GB RAM, 256GB SSD, a static IP and full-admin access."
+  },
+  {
+   "url": "https://www.macrent.cloud/terms",
+   "date": "2026-11-25",
+   "proved": "payment through Stripe is required before access",
+   "capture": "sha256:3ddb9eb6f9e0c802d0f3bd4df8671fe675c4e761395030c88576f0fd24f98993",
+   "quote": "Prices are listed in USD unless stated otherwise and are processed via Stripe. Access is granted after successful payment."
+  },
+  {
+   "url": "https://www.macrent.cloud/terms",
+   "date": "2026-11-25",
+   "proved": "a 24-hour minimum applies to every rental under Apple's macOS Software License Agreement",
+   "capture": "sha256:3ddb9eb6f9e0c802d0f3bd4df8671fe675c4e761395030c88576f0fd24f98993",
+   "quote": "Apple's macOS Software License Agreement requires that Mac computers be leased for a minimum period of 24 hours. Every rental therefore has a minimum duration of 24 hours."
+  },
+  {
+   "url": "https://www.macrent.cloud/login",
+   "date": "2026-11-25",
+   "proved": "login uses the email address from checkout and delivers a secure link",
+   "capture": "sha256:7e0f3354c5c9bf691238bb654aadc8655c67d5d9ae5aa58ed82282744b5d7390",
+   "quote": "Enter the email you used at checkout and we'll send you a secure link to your connection details."
+  },
+  {
+   "url": "https://www.macrent.cloud/rent-a-mac",
+   "date": "2026-11-24",
+   "proved": "the Daily plan is USD 15 for 24 hours of access",
+   "capture": "sha256:6410474f64af785e7802dac601ad8983940f9f4709b1f3d78a5fb2f36d0f8538",
+   "quote": "$15/day\n\n24 hours of access"
+  },
+  {
+   "url": "https://www.macrent.cloud/rent-a-mac",
+   "date": "2026-11-24",
+   "proved": "each plan is a dedicated Mac Mini M4 or M6",
+   "capture": "sha256:6410474f64af785e7802dac601ad8983940f9f4709b1f3d78a5fb2f36d0f8538",
+   "quote": "Every plan is a dedicated Mac Mini M4 or M6. Pay only for what you need, cancel anytime."
+  },
+  {
+   "url": "https://www.macrent.cloud/rent-a-mac",
+   "date": "2026-11-24",
+   "proved": "remote desktop is a connection method",
+   "capture": "sha256:6410474f64af785e7802dac601ad8983940f9f4709b1f3d78a5fb2f36d0f8538",
+   "quote": "Remote desktop connection"
+  },
+  {
+   "url": "https://www.macrent.cloud/rent-a-mac",
+   "date": "2026-11-24",
+   "proved": "SSH is included on the plan",
+   "capture": "sha256:6410474f64af785e7802dac601ad8983940f9f4709b1f3d78a5fb2f36d0f8538",
+   "quote": "SSH access"
+  },
+  {
+   "url": "https://www.macrent.cloud/rent-a-mac",
+   "date": "2026-11-24",
+   "proved": "the machine has a 1Gb/s internet connection",
+   "capture": "sha256:6410474f64af785e7802dac601ad8983940f9f4709b1f3d78a5fb2f36d0f8538",
+   "quote": "1Gb/s internet speed"
+  },
+  {
+   "url": "https://www.macrent.cloud/login",
+   "date": "2026-11-24",
+   "proved": "the email address used at checkout receives the connection link",
+   "capture": "sha256:7e0f3354c5c9bf691238bb654aadc8655c67d5d9ae5aa58ed82282744b5d7390",
+   "quote": "Enter the email you used at checkout and we'll send you a secure link to your connection details."
+  },
+  {
+   "url": "https://www.macrent.cloud/terms",
+   "date": "2026-11-24",
+   "proved": "access requires successful payment through Stripe",
+   "capture": "sha256:3ddb9eb6f9e0c802d0f3bd4df8671fe675c4e761395030c88576f0fd24f98993",
+   "quote": "Prices are listed in USD unless stated otherwise and are processed via Stripe. Access is granted after successful payment."
+  },
+  {
+   "url": "https://www.macrent.cloud/terms",
+   "date": "2026-11-24",
+   "proved": "Apple's license requires a minimum 24-hour lease",
+   "capture": "sha256:3ddb9eb6f9e0c802d0f3bd4df8671fe675c4e761395030c88576f0fd24f98993",
+   "quote": "Apple's macOS Software License Agreement requires that Mac computers be leased for a minimum period of 24 hours. Every rental therefore has a minimum duration of 24 hours."
+  },
+  {
+   "url": "https://www.macrent.cloud/terms",
+   "date": "2026-11-24",
+   "proved": "data on the machine is wiped at the end of the rental",
+   "capture": "sha256:3ddb9eb6f9e0c802d0f3bd4df8671fe675c4e761395030c88576f0fd24f98993",
+   "quote": "Machines are wiped when a rental ends, is cancelled, or is terminated, and data is not recoverable afterwards."
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T02:12:34.878Z",
+ "notes": "A hosted dedicated Mac, not an iOS Simulator-only rental: the whole machine is delivered with full admin over remote desktop or SSH, at USD 159/month for the monthly tier (USD 0.218/hour at 730 hours). No free tier is published. Every plan card read on 2026-11-25 was sold out. The USD 0.218/hour figure is the listed USD 159/month divided by 730 hours.",
+ "extras": {
+  "shape": {
+   "vcpu": "10-core CPU and GPU",
+   "ram_gib": 16,
+   "disk_gib": 256,
+   "gpu_class": "Apple M4",
+   "gpu_count": null,
+   "note": "a dedicated bare-metal Mac mini M4, macOS 26 or 27, static IP, 1Gb/s network"
+  },
+  "billing_model": "paid daily, weekly or monthly rental with automatic renewal; a 24-hour minimum applies",
+  "free_tier_kind": "none-published",
+  "term": "24-hour minimum; weekly and monthly renew until cancelled",
+  "price_arithmetic": "USD 159/month ÷ 730 hours = USD 0.218/hour; USD 15/day is the daily plan price",
+  "status": "sold out on all plans on 2026-11-25",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "full-admin, remote desktop and SSH to a static IP",
+   "static_ip": true,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": 1440,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "a 24-hour minimum under Apple's macOS license; monthly plans renew until cancelled"
+  }
+ }
 }
