@@ -5,8 +5,8 @@
   "url": "https://www.v2ex.com/t/1179248",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "A Lighthouse instance in an overseas region at CNY 99 a year: 2 vCPU, 2 GiB RAM, 30 Mbps, 1000 GB a month, buyable by new and existing Tencent Cloud accounts and renewable once at the same price, so CNY 198 covers two years. The next shape up is 2 vCPU / 4 GiB / 30 Mbps / 1500 GB at CNY 199 a year. Regions named across the threads are Singapore, Tokyo, Seoul, Silicon Valley, Frankfurt, Shanghai, Guangzhou and Beijing, and the plan includes free IP replacement.",
-    "unit": "GiB",
+    "stated": "An overseas Lighthouse instance at CNY 99 a year: 2 cores, 2GB RAM, 30M bandwidth, 1 TB traffic a month, open to new and existing users, with one same-price renewal so CNY 198 covers two years. The next shape is 2 cores, 4GB RAM, 30M bandwidth, 1.5 TB traffic a month at CNY 199 a year, also with one same-price renewal. The poster tested Silicon Valley, Singapore, Seoul and Tokyo.",
+    "unit": "TB",
     "metered_on": "wall-clock",
     "source_url": "https://www.v2ex.com/t/1179248",
     "read_on": "2026-10-22",
@@ -74,10 +74,38 @@
       "url": "https://cloud.tencent.com/act/pro/campus2026",
       "date": "2026-10-22",
       "proved": "the campus page is live and lists 轻量应用服务器 2核2G, 2核4G and CVM 2核4G as the three student shapes, which is a different offer from the 99 yuan plan"
+    },
+    {
+      "url": "https://www.v2ex.com/t/1125596",
+      "date": "2026-11-25",
+      "proved": "the thread states the 99-yuan overseas 2-core/2GB/30M/1TB offer, no restriction on new or existing users, the one-year same-price renewal to 198 yuan over two years, the 199-yuan 2-core/4GB/1.5TB shape and the tested regions",
+      "capture": "sha256:484bdbff453e975749f6f8d914a1f94c16d3669022d9eac94af8be76d4550387",
+      "quote": "腾讯云 3 月份的时候推出 99 元境内/境外轻量应用服务器活动，这个活动不限制腾讯云新老用户，而且购买后还可以 99 元再续费一年。 ... 境外 2 核心 2GB 内存 30M 带宽每月 1TB 流量仅 99 元，可同价续费 1 年即 198 元 / 2 年 ... 境外 2 核心 4GB 内存 30M 带宽每月 1.5TB 流量仅 199 元，可同价续费 1 年即 398 元 / 年 ... 楼主测试了硅谷、新加坡、首尔和东京"
+    },
+    {
+      "url": "https://www.v2ex.com/t/1125596",
+      "date": "2026-11-25",
+      "proved": "the thread still states the 99-yuan overseas offer, its new/existing-user eligibility, the same-price renewal, the 199-yuan shape and the tested regions",
+      "capture": "sha256:484bdbff453e975749f6f8d914a1f94c16d3669022d9eac94af8be76d4550387",
+      "quote": "腾讯云 3 月份的时候推出 99 元境内/境外轻量应用服务器活动，这个活动不限制腾讯云新老用户，而且购买后还可以 99 元再续费一年。 ... 境外 2 核心 2GB 内存 30M 带宽每月 1TB 流量仅 99 元，可同价续费 1 年即 198 元 / 2 年 ... 境外 2 核心 4GB 内存 30M 带宽每月 1.5TB 流量仅 199 元，可同价续费 1 年即 398 元 / 年 ... 楼主测试了硅谷、新加坡、首尔和东京"
+    },
+    {
+      "url": "https://www.v2ex.com/t/1125596",
+      "date": "2026-11-25",
+      "proved": "the headline overseas 99-yuan shape has 1 TB of monthly traffic, so the allowance's unit is TB",
+      "capture": "sha256:484bdbff453e975749f6f8d914a1f94c16d3669022d9eac94af8be76d4550387",
+      "quote": "境外 2 核心 2GB 内存 30M 带宽每月 1TB 流量仅 99 元，可同价续费 1 年即 198 元 / 2 年"
+    },
+    {
+      "url": "https://www.v2ex.com/t/1125596",
+      "date": "2026-11-25",
+      "proved": "the thread still states the overseas 99-yuan shape with 1 TB of monthly traffic",
+      "capture": "sha256:484bdbff453e975749f6f8d914a1f94c16d3669022d9eac94af8be76d4550387",
+      "quote": "境外 2 核心 2GB 内存 30M 带宽每月 1TB 流量仅 99 元，可同价续费 1 年即 198 元 / 2 年"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T16:38:11.710Z",
   "notes": "earlier readings holds tencent-cloud-international.json, which records the international free trial and marks it fails-identity, but it does not record this domestic promotion, so the cheapest Tencent shape was missing. The promotion recurs and the v2ex threads span several months, each restating the same configuration; no vendor page with the price was read, because the activity page is script-rendered, so this is reported rather than documented. The 528 yuan three-year domestic shape (2C4G 6M) is for first-time Lighthouse buyers only and is noted here rather than given its own record.",
   "extras": {
     "wave2": {

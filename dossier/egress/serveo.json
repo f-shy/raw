@@ -6,8 +6,8 @@
   "category": "tunnel (hosted, SSH)",
   "free_tier": {
     "stated": "3 active tunnels and custom subdomains, no account",
-    "unit": "requests",
-    "metered_on": "request-count",
+    "unit": "none",
+    "metered_on": "none",
     "source_url": "https://serveo.net/",
     "read_on": "2026-10-22",
     "notes": ""
@@ -43,7 +43,7 @@
     },
     {
       "kind": "per-ip-shaping",
-      "value": "anonymous raw TCP: one random port for 10 minutes, two connections, 256 KiB/s cap; with a key: 30 minutes, five connections, 1 MiB/s",
+      "value": "public raw TCP needs a registered account and SSH key: one random port for up to 30 minutes, five simultaneous connections, a 1 MiB/s cap; paid access raises connection and bandwidth limits",
       "source": "https://serveo.net/docs"
     },
     {
@@ -96,10 +96,31 @@
       "proved": "a 4 MiB transfer is cut at about 2.4-2.5 MiB after about 10 s while the tunnel stays up",
       "capture": "sha256:463ee9a99b08d1fdbe7df302753f6e4ab1f14ac4754c77bce1f1b2eca0a65023",
       "quote": "connection died at 10.5s, 2,400,032"
+    },
+    {
+      "url": "https://serveo.net/",
+      "date": "2026-11-25",
+      "proved": "the free plan is stated in tunnels, not requests",
+      "capture": "sha256:91cf71d1c2b1285ee4125bcbf7c4a897adeaf5d8068271c44ebf793d7a0ab289",
+      "quote": "For hobbyists and testing. Get 3 active tunnels and custom subdomains for $0/month."
+    },
+    {
+      "url": "https://serveo.net/docs",
+      "date": "2026-11-25",
+      "proved": "the current docs state the account-bound TCP limits",
+      "capture": "sha256:56f0cdc99fb2c136156b91a6fbe715b9b21d0e5da9ca6e7d7c81776710e72168",
+      "quote": "Public TCP requires a registered account and SSH key. Request port 0 for one random port lasting up to 30 minutes, five simultaneous connections, a ten-minute traffic-idle timeout, and a 1 MiB/s cap."
+    },
+    {
+      "url": "https://serveo.net/docs",
+      "date": "2026-11-25",
+      "proved": "an anonymous tunnel needs no account or key",
+      "capture": "sha256:56f0cdc99fb2c136156b91a6fbe715b9b21d0e5da9ca6e7d7c81776710e72168",
+      "quote": "You can try an anonymous tunnel without creating an account or key."
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-11-05T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:51.888Z",
   "notes": "Serveo provides SSH and WireGuard port forwarding. Free tiers receive an HTTP hostname; raw public TCP and UDP forwarding require a paid Pro subscription at $60 annually. A sandbox measured a 710 ms median latency and a transfer cut at about 2.4-2.5 MiB after about 10 s on 2026-11-05, while the tunnel stayed up.",
   "history": [],
   "extras": {

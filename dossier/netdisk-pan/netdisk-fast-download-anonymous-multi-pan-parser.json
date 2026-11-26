@@ -41,13 +41,13 @@
     },
     {
       "kind": "write-gated",
-      "value": "quark and UC need a cookie; feijipan and ilanzou need auth above 100 MB; 123 needs auth for large or login-gated shares",
+      "value": "Quark at or below 10MiB resolves without login and larger files need a valid SVIP/VIP account cookie or a downloadable H5 address; UC cannot be anonymous even for small files and still needs a cookie; feijipan and ilanzou need auth above 100 MB; 123 downloads usually need the user's own Authorization in the local configuration",
       "source": "https://github.com/qaiu/netdisk-fast-download"
     }
   ],
   "identity_cost": {
     "kind": "anonymous",
-    "detail": "the hosted instance is keyless. Self-hosting needs a VPS and no account with any pan",
+    "detail": "the hosted instance is keyless. Self-hosting needs a machine the user runs and no account with any pan; individual pan downloads may still need the user's own Quark/UC cookie or 123 Authorization",
     "country": null
   },
   "reliability_note": "Individual parsers break whenever a provider changes its markup. The project is actively maintained, so pinning a version and watching the README changelog is the operational answer. The README warns that feijipan blocks mainland datacentre IPs and that the public instance should not be depended on",
@@ -74,13 +74,6 @@
       "proved": "the project README links a free public (公益) instance at lz.qaiu.top and gives no quota, unit or price",
       "capture": "sha256:e605b75950b3d7e0b2c9d6a853c6f53b1b7db06d22bbe3f63f21b3759d1c8b52",
       "quote": "[公益解析，lz站](https://lz.qaiu.top/)"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/qaiu/netdisk-fast-download/main/README.md",
-      "date": "2026-11-01",
-      "proved": "the project README gives Docker deployment steps, an image pulled from ghcr.io, for a server that the user runs",
-      "capture": "sha256:6db0683295073400965eaad83a2c121f5603936be7fa72d1ff7b6ad18fb59992",
-      "quote": "#### 海外服务器Docker部署 ... docker pull ghcr.io/qaiu/netdisk-fast-download:latest"
     },
     {
       "url": "https://raw.githubusercontent.com/qaiu/netdisk-fast-download/main/README.md",
@@ -139,20 +132,6 @@
       "quote": "1. **请求频率**: 建议不要过于频繁请求，避免IP被封"
     },
     {
-      "url": "https://nfd-parser.github.io/api.html",
-      "date": "2026-11-02",
-      "proved": "the API documentation describes a RESTful API that resolves share links of many pans to direct links",
-      "capture": "sha256:6a2c465b0e259425114f5c7715e7f20e227bd882817b1c38a999a2de92d40ffa",
-      "quote": "NFD Parser 提供 RESTful API 接口，支持解析多种网盘分享链接并获取直链。"
-    },
-    {
-      "url": "https://raw.githubusercontent.com/qaiu/netdisk-fast-download/main/README.md",
-      "date": "2026-11-01",
-      "proved": "the project README lists the free public instance at lz.qaiu.top and prints no quota, unit or price",
-      "capture": "sha256:6db0683295073400965eaad83a2c121f5603936be7fa72d1ff7b6ad18fb59992",
-      "quote": "[公益解析，lz站](https://lz.qaiu.top)"
-    },
-    {
       "url": "https://raw.githubusercontent.com/qaiu/netdisk-fast-download/main/README.md",
       "date": "2026-11-04",
       "proved": "lz.qaiu.top is a free public instance of the program, so this record describes a hosted lane",
@@ -167,6 +146,48 @@
       "quote": "#### 海外服务器Docker部署 ... docker pull ghcr.io/qaiu/netdisk-fast-download:latest"
     },
     {
+      "url": "https://raw.githubusercontent.com/qaiu/netdisk-fast-download/main/README.md",
+      "date": "2026-11-25",
+      "proved": "Quark and UC moved into the open-source version; the paid endpoint now adds Baidu and Xunlei",
+      "capture": "sha256:fa782304219f2cc962dd77ead2d6615672bce125f352c7ba971e5945a7c82122",
+      "quote": "需要百度、迅雷的完整支持请使用[专业版](https://189.qaiu.top)。夸克网盘、UC网盘已包含在开源版。"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/qaiu/netdisk-fast-download/main/README.md",
+      "date": "2026-11-25",
+      "proved": "the README now gives a 10MiB anonymous threshold for Quark and an SVIP/VIP or H5 fallback above it",
+      "capture": "sha256:fa782304219f2cc962dd77ead2d6615672bce125f352c7ba971e5945a7c82122",
+      "quote": "| 夸克网盘(QK) | 不超过 10MiB 可走原解析 | 不大于 `10 * 1024 * 1024` 字节（含等于该值）保持原来的分享解析。更大的文件仅在会员接口确认未过期 SVIP/VIP 时使用该账号直链；否则使用探测通过的 H5 文件地址并附上真实文件名。普通或过期 Cookie 不算会员 |"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/qaiu/netdisk-fast-download/main/README.md",
+      "date": "2026-11-25",
+      "proved": "the comparison table still shows the 10MiB anonymous Quark threshold",
+      "capture": "sha256:fa782304219f2cc962dd77ead2d6615672bce125f352c7ba971e5945a7c82122",
+      "quote": "| 夸克网盘 | ≤10MiB 原解析 | √        | 10G       | 更大文件要有效 SVIP/VIP，或可用的 H5 文件地址 |"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/qaiu/netdisk-fast-download/main/README.md",
+      "date": "2026-11-25",
+      "proved": "the public instance has no shared 123 account and uses the user's own Authorization",
+      "capture": "sha256:fa782304219f2cc962dd77ead2d6615672bce125f352c7ba971e5945a7c82122",
+      "quote": "123 的下载在公共解析站上基本都要你自己的 Authorization，云端没有共用账号。"
+    },
+    {
+      "url": "https://lz.qaiu.top",
+      "date": "2026-11-25",
+      "proved": "the free public instance is still answering with version 0.4.8",
+      "capture": "sha256:dd0ec906f5afa979c627a4605469d99358d95eac10a4fdb9d4ea118b52780f6d",
+      "quote": "NFD网盘直链解析 0.4.8"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/qaiu/netdisk-fast-download/main/web-service/src/main/resources/app-dev.yml",
+      "date": "2026-11-25",
+      "proved": "the shipped example still leaves the per-IP rate limiter commented out",
+      "capture": "sha256:89d5450030d2dd20b9a9344bd071f0f673e370a27d0bb1fa56adcefb354b96f0",
+      "quote": "#rateLimit:"
+    },
+    {
       "url": "https://nfd-parser.github.io/api.html",
       "date": "2026-11-26",
       "proved": "the sentence names the RESTful API interface",
@@ -178,8 +199,8 @@
   "verified_at": "2026-11-26T02:15:15.157Z",
   "history": [],
   "binding": "write-gated",
-  "binding_note": "The resolver is free and fast and stores nothing, so what binds is the auth table: the pans most in demand, including Baidu, Quark and UC, need a cookie or sit behind the paid professional endpoint.",
-  "notes": "Not storage and recorded as such: it is the fetch path for other people's storage. Two endpoints exist and the split is the finding: lz.qaiu.top is free and covers lanzou, ilanzou, ctfile, wenshushu, feijipan and ecpan, while 189.qaiu.top needs an API key and adds Baidu, Xunlei, Quark, UC, 139, 189 and Unicom. The program can also be self-hosted (the docker span), and lz.qaiu.top is a free public instance.",
+  "binding_note": "The resolver is free and stores nothing, so the auth table binds it: Quark is anonymous only up to 10MiB, UC never is, feijipan and ilanzou need auth above 100 MB, and 123 usually needs the user's own Authorization. Baidu and Xunlei moved to the paid professional endpoint; Quark and UC did not.",
+  "notes": "Not storage: it is the fetch path for other people's storage. The endpoint split changed: the free public instance lz.qaiu.top now also covers Quark and UC through the open-source parser, while the paid professional endpoint adds Baidu, Xunlei, Guangya, China Mobile, Unicom and Tianyi. The program can also be self-hosted by the user on a rented or free machine; the hosted lz.qaiu.top instance is the last-resort option only when no hosted parser exists, and here it is the primary free path.",
   "extras": {
     "access_mode": "anonymous",
     "free_drivers": [

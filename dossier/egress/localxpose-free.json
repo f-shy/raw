@@ -5,12 +5,12 @@
   "url": "https://localxpose.io/pricing",
   "category": "tunnel (hosted)",
   "free_tier": {
-    "stated": "2 active HTTP and HTTPS tunnels, no time limit",
-    "unit": "requests",
-    "metered_on": "request-count",
+    "stated": "2 active HTTP, HTTPS tunnels",
+    "unit": "objects",
+    "metered_on": "object-count",
     "source_url": "https://localxpose.io/pricing",
     "read_on": "2026-10-22",
-    "notes": ""
+    "notes": "The Starter plan's published negatives are 'Time limits' and 'Interstitial warning page'; no bandwidth figure is published for it."
   },
   "per_object_cap": {
     "stated": "not applicable: a stream",
@@ -18,13 +18,13 @@
     "notes": ""
   },
   "retention": {
-    "stated": "not applicable: no session cap on the free tier",
+    "stated": "not applicable: a live tunnel, not stored bytes; the Starter plan is time limited.",
     "days": null,
     "notes": "",
     "source_url": "https://localxpose.io/pricing"
   },
   "egress": {
-    "terms": "not published",
+    "terms": "not published: the Starter plan carries HTTP and HTTPS tunnels only, and no bandwidth figure; UDP needs PRO at USD 8 a month.",
     "metered": false,
     "free_allowance": null,
     "price_per_tb": null,
@@ -35,7 +35,13 @@
   ],
   "tooling": "loclx",
   "chaining": "a free persistent tunnel for two services with no published byte quota, so it composes with an origin and cannot be sized in advance.",
-  "limits": [],
+  "limits": [
+    {
+      "kind": "write-gated",
+      "value": "UDP tunneling and TCP/UDP port forwarding are PRO features at USD 8 a month",
+      "source": "https://localxpose.io/pricing"
+    }
+  ],
   "identity_cost": {
     "kind": "email",
     "detail": "a LocalXpose account",
@@ -53,10 +59,66 @@
       "url": "https://localxpose.io/pricing",
       "date": "2026-10-23",
       "proved": "Starter lists HTTP and HTTPS tunnels only; PRO adds 'HTTP, HTTPS, TCP, TLS, UDP tunneling' and 'TCP, UDP port forwarding'"
+    },
+    {
+      "url": "https://localxpose.io/pricing",
+      "date": "2026-11-25",
+      "proved": "TCP and UDP tunneling are PRO features, so the free plan has no UDP path",
+      "capture": "sha256:8a0a85f771e8d37e23dae85e3bffe49c8044f874e6fd0a867d8ed9ce01427fe5",
+      "quote": "HTTP, HTTPS, TCP, TLS, UDP tunneling"
+    },
+    {
+      "url": "https://localxpose.io/pricing",
+      "date": "2026-11-25",
+      "proved": "the free plan allows two active HTTP and HTTPS tunnels",
+      "capture": "sha256:8a0a85f771e8d37e23dae85e3bffe49c8044f874e6fd0a867d8ed9ce01427fe5",
+      "quote": "2 active HTTP, HTTPS tunnels"
+    },
+    {
+      "url": "https://localxpose.io/pricing",
+      "date": "2026-11-25",
+      "proved": "the free plan is time limited",
+      "capture": "sha256:8a0a85f771e8d37e23dae85e3bffe49c8044f874e6fd0a867d8ed9ce01427fe5",
+      "quote": "Time limits"
+    },
+    {
+      "url": "https://localxpose.io/pricing",
+      "date": "2026-11-25",
+      "proved": "the free allowance is a count of active tunnels",
+      "capture": "sha256:8a0a85f771e8d37e23dae85e3bffe49c8044f874e6fd0a867d8ed9ce01427fe5",
+      "quote": "2 active HTTP, HTTPS tunnels"
+    },
+    {
+      "url": "https://localxpose.io/pricing",
+      "date": "2026-11-25",
+      "proved": "TCP and UDP tunneling are PRO features",
+      "capture": "sha256:8a0a85f771e8d37e23dae85e3bffe49c8044f874e6fd0a867d8ed9ce01427fe5",
+      "quote": "HTTP, HTTPS, TCP, TLS, UDP tunneling"
+    },
+    {
+      "url": "https://localxpose.io/pricing",
+      "date": "2026-11-25",
+      "proved": "TCP and UDP tunneling are PRO features at USD 8 a month",
+      "capture": "sha256:8a0a85f771e8d37e23dae85e3bffe49c8044f874e6fd0a867d8ed9ce01427fe5",
+      "quote": "HTTP, HTTPS, TCP, TLS, UDP tunneling"
+    },
+    {
+      "url": "https://localxpose.io/pricing",
+      "date": "2026-11-25",
+      "proved": "TCP and UDP tunneling are PRO features, so the plan is what binds",
+      "capture": "sha256:8a0a85f771e8d37e23dae85e3bffe49c8044f874e6fd0a867d8ed9ce01427fe5",
+      "quote": "HTTP, HTTPS, TCP, TLS, UDP tunneling"
+    },
+    {
+      "url": "https://localxpose.io/pricing",
+      "date": "2026-11-25",
+      "proved": "the free plan allows two active tunnels",
+      "capture": "sha256:8a0a85f771e8d37e23dae85e3bffe49c8044f874e6fd0a867d8ed9ce01427fe5",
+      "quote": "2 active HTTP, HTTPS tunnels"
     }
   ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verdict": "fails-egress",
+  "verified_at": "2026-11-25T17:26:44.696Z",
   "notes": "No byte quota is published, and none is needed to decide: the free tier cannot carry UDP. The vendor's own pages disagree on whether free bandwidth is unlimited, which is why the number is not recorded as such: a January 2026 blog post says '2 HTTP tunnels with unlimited bandwidth', while the September 2026 free-port-forwarding page says raw TCP and UDP forwarding and unlimited bandwidth are Pro. Unmeasured. Records the vendor's internal contradiction instead of silently picking a side.",
   "history": [],
   "extras": {
@@ -66,10 +128,10 @@
     "transit_note": "the tunnel relays the origin's bytes; no byte quota is published",
     "ingress": "http-only"
   },
-  "binding": "request-rate",
+  "binding": "write-gated",
   "interface_detail": "loclx tunnel http",
   "stale": false,
   "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "limits_note": "counts of things, not rates, so no vocabulary kind names them: 2 concurrently active tunnels; an active tunnel is any tunnel currently running",
-  "binding_note": "The free plan publishes no bandwidth figure at all: the pricing page lists 'Unlimited bandwidth' under the USD 8 Pro row only, and the free row's stated negatives are 'Time limits' and 'Interstitial warning page'. UDP and TCP forwarding are Pro features, so the ingress test fails before a byte is counted and the volume question never arises."
+  "limits_note": "The Starter plan also caps concurrently active tunnels at 2; an active tunnel is any tunnel currently running, and no vocabulary kind names a count of tunnels.",
+  "binding_note": "The Starter plan carries HTTP and HTTPS only; a UDP path needs PRO at USD 8 a month, so the plan is what fails first, not a byte allowance."
 }

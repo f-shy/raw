@@ -84,23 +84,9 @@
     {
       "url": "probe:https://p.591meta.com/",
       "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:2f97f1ef9594bb1f075885ed5917ef720f19768665de9d0cd36046fad2dd9b95",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://p.591meta.com/",
-      "date": "2026-11-11",
       "proved": "the settings request for this host answered HTTP 200 at this instant",
       "capture": "sha256:2f97f1ef9594bb1f075885ed5917ef720f19768665de9d0cd36046fad2dd9b95",
       "quote": "\"checked_at\": \"2026-11-11T00:20:04.905Z\""
-    },
-    {
-      "url": "probe:https://p.591meta.com/",
-      "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:2f97f1ef9594bb1f075885ed5917ef720f19768665de9d0cd36046fad2dd9b95",
-      "quote": "\"listing_sha256\": \"e715d3d0\""
     },
     {
       "url": "probe:https://p.591meta.com/",
@@ -119,16 +105,30 @@
     {
       "url": "probe:https://p.591meta.com/",
       "date": "2026-11-25",
-      "proved": "the re-probe of this host was taken at this instant",
-      "capture": "sha256:ce73d2c54e698ac36ed3da03cab86e09e3e0afe355afc6a02fd920a7754b0d95",
-      "quote": "\"checked_at\": \"2026-11-25T01:38:30.165Z\""
+      "proved": "a fresh anonymous probe of p.591meta.com answered the settings, session and mount-list requests at this timestamp",
+      "capture": "sha256:4d7ebb4fde1bea08f50fc3a4087cd2cfac605f1664dc421d6716ba7431bbea7a",
+      "quote": "\"probed_at\": \"2026-11-25T02:34:35.444Z\""
     },
     {
       "url": "probe:https://p.591meta.com/",
       "date": "2026-11-25",
-      "proved": "the settings, guest session and root listing all answered, so no consecutive failure",
-      "capture": "sha256:ce73d2c54e698ac36ed3da03cab86e09e3e0afe355afc6a02fd920a7754b0d95",
+      "proved": "the fresh probe completed the anonymous settings, session and mount-list requests at p.591meta.com",
+      "capture": "sha256:4d7ebb4fde1bea08f50fc3a4087cd2cfac605f1664dc421d6716ba7431bbea7a",
       "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://p.591meta.com/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing of p.591meta.com hashed to the recorded value, so the listing is unchanged",
+      "capture": "sha256:4d7ebb4fde1bea08f50fc3a4087cd2cfac605f1664dc421d6716ba7431bbea7a",
+      "quote": "\"listing_sha256\": \"e715d3d0\""
+    },
+    {
+      "url": "probe:https://p.591meta.com/",
+      "date": "2026-11-25",
+      "proved": "the re-probe of this host was taken at this instant",
+      "capture": "sha256:ce73d2c54e698ac36ed3da03cab86e09e3e0afe355afc6a02fd920a7754b0d95",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:30.165Z\""
     },
     {
       "url": "probe:https://p.591meta.com/",
@@ -146,7 +146,7 @@
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T11:08:34.137Z",
+  "verified_at": "2026-11-25T19:55:33.832Z",
   "binding": "per-ip-shaping",
   "notes": "One of five hostnames serving an identical 26-entry collection of iOS IPA packages. The file repository serves as an informational index for a commercial signing service.",
   "history": [],
@@ -163,7 +163,7 @@
     "listing_sha256": "e715d3d0",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-25T01:38:30.165Z",
+    "last_verified_alive": "2026-11-25T02:34:35.444Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "listing_hash_method": "sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters"

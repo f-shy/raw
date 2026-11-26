@@ -13,14 +13,14 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-file cap, account quota, retention, or rate limit found",
+    "stated": "The FAQ quotes the upload prompt 'The size of each file should be within 100MB'.",
     "source_url": "https://modelers.cn/docs/zh/best-practices/community_contribution/model_contribution.html",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The FAQ quotes the upload prompt 'The size of each file should be within 100MB'."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://modelers.cn/docs/zh/best-practices/community_contribution/model_contribution.html",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: no retention period stated in the contribution guide or FAQ"
   },
   "egress": {
     "terms": "No egress meter documented; models download through both the web and the openMind client anonymously. CN-network served.",
@@ -35,7 +35,7 @@
   "limits": [
     {
       "kind": "per-object-cap",
-      "value": "No per-file cap, account quota, retention, or rate limit found",
+      "value": "The size of each file should be within 100MB",
       "source": "https://modelers.cn/docs/zh/best-practices/community_contribution/model_contribution.html"
     }
   ],
@@ -63,10 +63,31 @@
       "url": "https://modelers.cn/api/v1/models?per=2",
       "date": "2026-10-21",
       "proved": "probe: GET -> 404; GET https://modelers.cn/models/OpenMind/DeepSeek-R1-Distill-Qwen-7B -> 200 but 1,638-byte SPA shell; POST .../info/lfs/objects/batch -> 404 (returns the SPA shell, not LFS JSON)"
+    },
+    {
+      "url": "https://modelers.cn/docs/zh/community/others/frequently_asked_questions.html",
+      "date": "2026-11-25",
+      "proved": "the FAQ quotes a per-file upload prompt of 100MB",
+      "capture": "sha256:bf0e8a567e33bb3d774ff7e384c45135e799a5d27efe1a635b7a7699d768d893",
+      "quote": "上传模型或数据集时，提示“The size of each file should be within 100MB”时怎么处理？"
+    },
+    {
+      "url": "https://modelers.cn/docs/zh/community/others/frequently_asked_questions.html",
+      "date": "2026-11-25",
+      "proved": "the FAQ advises deleting and re-uploading the relevant files",
+      "capture": "sha256:bf0e8a567e33bb3d774ff7e384c45135e799a5d27efe1a635b7a7699d768d893",
+      "quote": "1. 删除该仓库下的相关文件重新上传。"
+    },
+    {
+      "url": "https://modelers.cn/docs/zh/community/models/downloading_models.html",
+      "date": "2026-11-25",
+      "proved": "the download guide lists Git, the web interface and openMind Hub Client",
+      "capture": "sha256:14390b3b6e31e8abbd9fbbce6069cec9962200003c533039c78cf68542c2a946",
+      "quote": "支持通过Git命令、Web界面和openMind Hub Client等方式下载模型，用户可根据实际需求选择下载方式。"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-21T00:00:00.000Z",
+  "verified_at": "2026-11-25T21:21:14.519Z",
   "notes": "Not published. The platform hosts models, datasets, and Spaces, using the openMind Hub Client for Ascend hardware. The contribution guide specifies 'git lfs track' for files larger than 100 MB. No explicit total storage ceiling is published in documentation.",
   "history": [],
   "extras": {

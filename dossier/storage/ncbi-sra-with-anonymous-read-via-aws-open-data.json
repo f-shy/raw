@@ -13,14 +13,14 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "Maximum individual file size: 100 GB; maximum total per submission: 5 TB.",
     "source_url": "https://www.ncbi.nlm.nih.gov/sra/docs/submitfiles/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Studies larger than 5 TB should be split across multiple submissions, keeping each submission under this limit."
   },
   "retention": {
-    "stated": "per-object-cap: none on deposit; individual runs of hundreds of GB are normal. Retention: permanent, no expiry",
+    "stated": "Your preload folder and its contents will be automatically deleted after 30 days of inactivity.",
     "source_url": "https://www.ncbi.nlm.nih.gov/sra/docs/submitfiles/",
-    "notes": "Extracted from published terms."
+    "notes": "unverified: no retention period for archived runs is stated on the submission pages; the upload preload folder is deleted after 30 days of inactivity"
   },
   "egress": {
     "terms": "Free. Read side is mirrored to AWS Open Data (`sra-pub-run-odp.s3.amazonaws.com`) with anonymous, ranged, CORS-open access. No requester-pays, no auth.",
@@ -72,10 +72,31 @@
       "proved": "the SRA submission documentation describes Aspera's ascp command-line tool for scripted transfers",
       "capture": "sha256:66eedf34a62cdf36c9c67de2ea9f9531495889c4cf71abfa6b9587d54c6cdd1c",
       "quote": "The software also includes a command line tool (ascp) that allows scripted data transfer."
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/sra/docs/sra-data-submission-standards/",
+      "date": "2026-11-25",
+      "proved": "the submission standards cap an individual file at 100 GB and a submission at 5 TB",
+      "capture": "sha256:c7c3ca47458edd7d2a8626f29dfd3a7766a45eadbea79f1d9f7c51405a6fa5b9",
+      "quote": "| Maximum individual file size | 100 GB | ... | Maximum total per submission | 5 TB |"
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/sra/docs/sra-data-submission-standards/",
+      "date": "2026-11-25",
+      "proved": "studies above 5 TB must be split across submissions",
+      "capture": "sha256:c7c3ca47458edd7d2a8626f29dfd3a7766a45eadbea79f1d9f7c51405a6fa5b9",
+      "quote": "Studies larger than 5 TB should be split across multiple submissions, keeping each submission under this limit."
+    },
+    {
+      "url": "https://submit.ncbi.nlm.nih.gov/subs/sra/",
+      "date": "2026-11-25",
+      "proved": "the upload preload folder is deleted after 30 days of inactivity",
+      "capture": "sha256:511cb63273b744936e808ecf25d0ae61a226c578280a6f9a6e443c85bdc677e9",
+      "quote": "Please complete your submission within 30 days of creating a preload folder. Your preload folder and its contents will be **automatically deleted after 30 days of inactivity**."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:14:36.637Z",
+  "verified_at": "2026-11-25T21:21:15.501Z",
   "notes": "Aspera Connect is software that allows download and upload via a web plugin for popular browsers on machines running Linux, Windows, and Macintosh. The software also includes a command line tool (ascp) that allows scripted data transfer.",
   "history": [],
   "extras": {

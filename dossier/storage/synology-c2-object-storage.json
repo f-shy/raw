@@ -13,14 +13,14 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "Buckets are scalable and can hold nearly unlimited objects (with each object containing up to 5 TB).",
     "source_url": "https://c2.synology.com/en-us/object-storage/overview",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Buckets are scalable and can hold nearly unlimited objects (with each object containing up to 5 TB)."
   },
   "retention": {
     "stated": "C2 Object Storage does not have a minimum storage duration policy.",
     "source_url": "https://c2.synology.com/en-us/object-storage/overview",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "We do not charge data deletion penalties."
   },
   "egress": {
     "terms": "Retrieve all the data you have stored for free every month.",
@@ -95,10 +95,45 @@
       "proved": "the FAQ on the overview page states there is no minimum storage duration policy",
       "capture": "sha256:661d68767dae3080c7c175e6a70ec14f7e20ec1f92b10e43b8401bf50a8b4565",
       "quote": "C2 Object Storage does not have a minimum storage duration policy."
+    },
+    {
+      "url": "https://kb.synology.com/en-us/WP/C2_Object_Storage_White_Paper/2",
+      "date": "2026-11-25",
+      "proved": "the white paper states a 5 TB per-object limit",
+      "capture": "sha256:347be772a1197e527061ebc9e64bba219052e99f3dd74c79335bc12ea1d36491",
+      "quote": "Buckets are scalable and can hold nearly unlimited objects (with each object containing up to 5 TB)."
+    },
+    {
+      "url": "https://c2.synology.com/en-us/object-storage/overview",
+      "date": "2026-11-25",
+      "proved": "the FAQ states there are no data deletion penalties",
+      "capture": "sha256:661d68767dae3080c7c175e6a70ec14f7e20ec1f92b10e43b8401bf50a8b4565",
+      "quote": "C2 Object Storage does not have a minimum storage duration policy. We do not charge data deletion penalties."
+    },
+    {
+      "url": "https://c2.synology.com/en-us/object-storage/overview",
+      "date": "2026-11-25",
+      "proved": "the FAQ states no minimum duration and no deletion penalties",
+      "capture": "sha256:661d68767dae3080c7c175e6a70ec14f7e20ec1f92b10e43b8401bf50a8b4565",
+      "quote": "C2 Object Storage does not have a minimum storage duration policy. We do not charge data deletion penalties."
+    },
+    {
+      "url": "https://c2.synology.com/en-us/object-storage/overview",
+      "date": "2026-11-25",
+      "proved": "the overview states retrieval is free each month",
+      "capture": "sha256:661d68767dae3080c7c175e6a70ec14f7e20ec1f92b10e43b8401bf50a8b4565",
+      "quote": "Retrieve all the data you have stored for free every month."
+    },
+    {
+      "url": "https://c2.synology.com/en-us/object-storage/overview",
+      "date": "2026-11-25",
+      "proved": "the overview states the API is S3-compatible",
+      "capture": "sha256:661d68767dae3080c7c175e6a70ec14f7e20ec1f92b10e43b8401bf50a8b4565",
+      "quote": "Use your existing tools and code as our API is S3-compatible."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:33.173Z",
+  "verified_at": "2026-11-25T19:55:23.964Z",
   "price_per_tb_month": "$7.99/TB flat at both 5 TB and 20 TB",
   "notes": "Sold in whole-TB increments from 1 TB",
   "history": [],

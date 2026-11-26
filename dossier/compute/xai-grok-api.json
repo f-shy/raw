@@ -5,7 +5,7 @@
   "url": "https://docs.x.ai/docs/models",
   "category": "inference API",
   "free_tier": {
-    "stated": "no free API credit is documented today. The rate card reads 'grok-4.7 $2.00' in and '$6.00' out per million tokens, and the only free thing the site offers is the Playground: 'Try Grok free in the Playground'. The USD 150 a month data-sharing credit that every credit list carries is not on the current documentation index.",
+    "stated": "The Grok xAI API does not give new accounts free credits.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://docs.x.ai/docs/models",
@@ -79,10 +79,24 @@
       "url": "https://walterpinem.com/grok-xai-api/",
       "date": "2026-10-22",
       "proved": "'The Grok xAI API does not give new accounts free credits ... Claims of $150 a month in credits for sharing request data describe a program that no current xAI billing page documents', reported"
+    },
+    {
+      "url": "https://walterpinem.com/grok-xai-api/",
+      "date": "2026-11-25",
+      "proved": "the page states that the API gives new accounts no free credits",
+      "capture": "sha256:49c3763c1d28ebe53dabd43fab089a13b22d07fa7273fbbf6f9b0d88967e09df",
+      "quote": "The Grok xAI API does not give new accounts free credits."
+    },
+    {
+      "url": "https://walterpinem.com/grok-xai-api/",
+      "date": "2026-11-25",
+      "proved": "the page still states that the API gives new accounts no free credits",
+      "capture": "sha256:49c3763c1d28ebe53dabd43fab089a13b22d07fa7273fbbf6f9b0d88967e09df",
+      "quote": "The Grok xAI API does not give new accounts free credits."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:48.800Z",
   "notes": "This is the most-repeated number in this category and the evidence is in conflict, so the rung is inferred from three observations: the live docs index has no free-credit page, the API landing page offers only the Playground, and a 2026 write-up states the programme is gone. Against that, a documentation mirror still carries the full text of the programme. If it is live, the gate is worse than it looks: the team must spend USD 5 before opting in, opting in cannot be reversed, and teams in the United Kingdom and most of the European Union are excluded by country. Unverified: one USD 5 prepayment and a look at the Credits section of console.x.ai. Scope note: documented records already holds dossier/storage/xai-files-api-public-cdn-urls.json, which covers xAI file storage and public CDN URLs; it says nothing about inference credit, and this record does not touch storage.",
   "extras": {
     "wave2": {

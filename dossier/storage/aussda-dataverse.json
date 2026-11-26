@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://data.aussda.at/api/dataverses/:root/storage/quota?showInherited=true",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The re-read root-collection quota endpoint states only a quota value and publishes no per-object size cap; a per-object cap is unverified."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://data.aussda.at/api/dataverses/:root/storage/quota?showInherited=true",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The first-party quota endpoint was re-read on 2026-11-25 and states only a root-collection quota; it publishes no retention period. Retention is unverified beyond the absence of a published clause."
   },
   "egress": {
     "terms": "Cloudflare-fronted, 1.92 s.",
@@ -78,10 +78,31 @@
       "proved": "the root collection has no storage quota defined",
       "capture": "sha256:8830c7ceefb9a4c090d0b7015fbbe74e200abb25f3032bf4a17d85ecccc049f9",
       "quote": "{\"status\":\"OK\",\"data\":{\"message\":\"No quota defined for this collection\"}}"
+    },
+    {
+      "url": "https://data.aussda.at/api/dataverses/:root/storage/quota?showInherited=true",
+      "date": "2026-11-25",
+      "proved": "the quota endpoint reports the root collection's quota and states no retention period",
+      "capture": "sha256:53ab62027431170ca359185c334ea294f526f85778cc13d3487764b7d5c11d88",
+      "quote": "{\"status\":\"OK\",\"data\":{\"message\":\"No quota defined for this collection\"}}"
+    },
+    {
+      "url": "https://data.aussda.at/api/dataverses/:root/storage/quota?showInherited=true",
+      "date": "2026-11-25",
+      "proved": "the quota endpoint reports the root collection's quota and states no per-object size cap",
+      "capture": "sha256:53ab62027431170ca359185c334ea294f526f85778cc13d3487764b7d5c11d88",
+      "quote": "{\"status\":\"OK\",\"data\":{\"message\":\"No quota defined for this collection\"}}"
+    },
+    {
+      "url": "https://data.aussda.at/api/dataverses/:root/storage/quota?showInherited=true",
+      "date": "2026-11-25",
+      "proved": "the root collection has no storage quota defined, still after this re-read",
+      "capture": "sha256:53ab62027431170ca359185c334ea294f526f85778cc13d3487764b7d5c11d88",
+      "quote": "{\"status\":\"OK\",\"data\":{\"message\":\"No quota defined for this collection\"}}"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:58.115Z",
+  "verified_at": "2026-11-25T03:33:12.195Z",
   "notes": "The quota endpoint states \"No quota defined for this collection\".",
   "history": [],
   "extras": {

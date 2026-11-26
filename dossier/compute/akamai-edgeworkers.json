@@ -5,7 +5,7 @@
   "url": "https://techdocs.akamai.com/edgeworkers/docs/edgeworkers-free-trial",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "\"Both EdgeWorkers and EdgeKV offer a free pricing tier that enables the full feature list of the product and includes a total of 60 million free events (30 million per product) per month.\" The access rule: the Evaluation tier needs an existing Akamai contract, and without one the only route is a free trial that Akamai approves.",
+    "stated": "Both come with free usage tiers of up to 30 million EdgeWorkers events per tier, per month.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://techdocs.akamai.com/edgeworkers/docs/edgeworkers-free-trial",
@@ -69,10 +69,24 @@
       "url": "https://www.akamai.com/newsroom/press-release/-akamai-boosts-edge-application-power--expanding-possibilities-f",
       "date": "2026-10-22",
       "proved": "vendor press release states the free tier totals 60 million free events a month, 30 million per product"
+    },
+    {
+      "url": "https://www.akamai.com/blog/news/platform-update-akamai-boosts-edge-application-power-expanding",
+      "date": "2026-11-25",
+      "proved": "the first-party Akamai blog states a free usage tier of up to 30 million EdgeWorkers events per tier per month for the Basic Compute and Dynamic Compute tiers",
+      "capture": "sha256:586818165414dfdd3b9bdb232b6baf29e98f9c0fa19b615205999be377920279",
+      "quote": "Both come with free usage tiers of up to 30 million EdgeWorkers events per tier, per month."
+    },
+    {
+      "url": "https://www.akamai.com/blog/news/platform-update-akamai-boosts-edge-application-power-expanding",
+      "date": "2026-11-25",
+      "proved": "the free usage tier of up to 30 million EdgeWorkers events per tier per month is unchanged",
+      "capture": "sha256:586818165414dfdd3b9bdb232b6baf29e98f9c0fa19b615205999be377920279",
+      "quote": "Both come with free usage tiers of up to 30 million EdgeWorkers events per tier, per month."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:33.097Z",
   "notes": "Classified as fails-identity because the unlimited-time tier needs an existing commercial account, and the reachable substitute is an approval-gated trial. This is the highest headline number in the edge class that is not actually reachable on an email alone, and it is the reason not to put Akamai beside Deno and Val Town in a table.",
   "extras": {
     "wave2": {

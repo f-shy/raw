@@ -15,16 +15,16 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://vikingfile.com/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The landing page states \"Unlimited filesize\" and publishes no per-object size number; the claim is not measured."
   },
   "retention": {
     "stated": "Free Regular plan: files deleted 15 days after last download. Premium: files never deleted if shared.",
     "source_url": "https://vikingfile.com/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim",
+    "notes": "The REGULAR plan states \"Files deleted 15 days after last download\"; PREMIUM states \"Files never deleted if shared\".",
     "days": 15
   },
   "egress": {
-    "terms": "Free Regular plan: downloads go through a landing page with a captcha and full advertisement; no speed limit is claimed and no GB meter is published.",
+    "terms": "Free REGULAR plan: \"Full advertisement\", \"Landing page for download\" and \"Captcha\"; \"No speed limit\" is claimed and no GB meter is published.",
     "metered": false
   },
   "interface": [
@@ -101,10 +101,38 @@
       "proved": "the free Regular plan deletes files 15 days after last download",
       "capture": "sha256:3571d383f5b34363e99b8b6e75041836a9c17e468b7b2cb5d6ff9b5790a6d7e6",
       "quote": "Files deleted 15 days after last download"
+    },
+    {
+      "url": "https://vikingfile.com/",
+      "date": "2026-11-25",
+      "proved": "the page states unlimited file size and publishes no numeric per-object cap",
+      "capture": "sha256:3571d383f5b34363e99b8b6e75041836a9c17e468b7b2cb5d6ff9b5790a6d7e6",
+      "quote": "Unlimited filesize"
+    },
+    {
+      "url": "https://vikingfile.com/",
+      "date": "2026-11-25",
+      "proved": "free files are deleted 15 days after the last download",
+      "capture": "sha256:3571d383f5b34363e99b8b6e75041836a9c17e468b7b2cb5d6ff9b5790a6d7e6",
+      "quote": "Files deleted 15 days after last download"
+    },
+    {
+      "url": "https://vikingfile.com/",
+      "date": "2026-11-25",
+      "proved": "the free REGULAR plan routes downloads through an ad-filled landing page with a captcha",
+      "capture": "sha256:3571d383f5b34363e99b8b6e75041836a9c17e468b7b2cb5d6ff9b5790a6d7e6",
+      "quote": "Full advertisement\n\nLanding page for download\n\nCaptcha"
+    },
+    {
+      "url": "https://vikingfile.com/",
+      "date": "2026-11-25",
+      "proved": "the first-page plan table still states the 15-day free retention",
+      "capture": "sha256:3571d383f5b34363e99b8b6e75041836a9c17e468b7b2cb5d6ff9b5790a6d7e6",
+      "quote": "Files deleted 15 days after last download"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-03T15:03:57.987Z",
+  "verified_at": "2026-11-25T03:33:10.193Z",
   "notes": "The page states unlimited storage, anonymous use and no speed limit; the free Regular plan deletes files 15 days after last download.",
   "history": [],
   "extras": {

@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://88file.jp/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: the landing page publishes no per-object size cap and the upload page served a maintenance notice on 2026-11-25, so no upload form could be read."
   },
   "retention": {
     "stated": "データ保存３日間",
     "source_url": "https://88file.jp/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim",
+    "notes": "The free Basic plan states \"データ保存３日間\" (three-day data retention).",
     "days": 3
   },
   "egress": {
@@ -81,10 +81,38 @@
       "proved": "the upload page is a maintenance notice, so no signup or upload form could be read",
       "capture": "sha256:d912db465f4572038b81bfa9af319b65f1ec914bbf0c581c6416a9bed11a2368",
       "quote": "現在システムメンテナンス中"
+    },
+    {
+      "url": "https://88file.jp/datafiles/new",
+      "date": "2026-11-25",
+      "proved": "the upload page is a maintenance notice, so no per-object cap is observable",
+      "capture": "sha256:d912db465f4572038b81bfa9af319b65f1ec914bbf0c581c6416a9bed11a2368",
+      "quote": "現在システムメンテナンス中"
+    },
+    {
+      "url": "https://88file.jp/",
+      "date": "2026-11-25",
+      "proved": "the free Basic plan keeps data for three days",
+      "capture": "sha256:56d63a4dc65656e70a36f64d9d4d82a7392e4b9945ff1b2c18d7ea3efc8bac62",
+      "quote": "データ保存３日間"
+    },
+    {
+      "url": "https://88file.jp/",
+      "date": "2026-11-25",
+      "proved": "the first-party pricing table still states three-day data retention",
+      "capture": "sha256:56d63a4dc65656e70a36f64d9d4d82a7392e4b9945ff1b2c18d7ea3efc8bac62",
+      "quote": "データ保存３日間"
+    },
+    {
+      "url": "https://88file.jp/datafiles/new",
+      "date": "2026-11-25",
+      "proved": "the upload page remains a maintenance notice, so no per-object cap can be read",
+      "capture": "sha256:d912db465f4572038b81bfa9af319b65f1ec914bbf0c581c6416a9bed11a2368",
+      "quote": "現在システムメンテナンス中"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:08.437Z",
+  "verified_at": "2026-11-25T03:33:10.196Z",
   "notes": "Claims '容量無制限のファイル転送を無料にて提供します' (unlimited-capacity file transfer, free) and 'データ送信量の制限はありません'. No send-volume limit, free, ad-free, domestic Japanese servers.",
   "history": [],
   "extras": {

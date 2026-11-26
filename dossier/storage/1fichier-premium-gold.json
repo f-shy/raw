@@ -16,12 +16,13 @@
     "stated": "300 GB/file",
     "bytes": 300000000000,
     "source_url": "https://1fichier.com/tarifs.html?lg=en",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "We let you store an unlimited number of files, each up to **300 GB**."
   },
   "retention": {
     "stated": "kept for the whole subscription period on a paid plan ('Retention: 15 days without an account, 30 days on a free account, the whole subscription period on a paid plan')",
     "days": null,
-    "source_url": "https://1fichier.com/hlp.html"
+    "source_url": "https://1fichier.com/hlp.html",
+    "notes": "Retention: 15 days without an account, 30 days on a free account, the whole subscription period on a paid plan."
   },
   "egress": {
     "terms": "Verbatim, prices page: 'Premium … Unlimited downloads, with no monthly allowance'. Unlimited downloads = no egress meter at all on the plan. Plus 500 GB/month of CDN credits (Premium GOLD) valued at '€20 for 1 TB, up to €400 for 20 TB'. No per-GB egress fee anywhere on the page.",
@@ -237,10 +238,45 @@
       "proved": "the registration form asks for an email address, a password and an image confirmation code, with no phone and no card field",
       "capture": "sha256:ec62f231e6750e73d767701c6dcd21f1c9b8571419752c2734f0e8469d9b37ea",
       "quote": "<input type=\"text\" id=\"r-mail\" name=\"mail\" maxlength=\"255\" class=\"auth-in\" value=\"\" placeholder=\"Your email\" />"
+    },
+    {
+      "url": "https://1fichier.com/hlp.html",
+      "date": "2026-11-25",
+      "proved": "the help page states unlimited file count with a 300 GB per-file cap",
+      "capture": "sha256:740725a79f1e2dbe2875db44eb7f31bb6f11b3c69ae88135056687afed6db573",
+      "quote": "We let you store an unlimited number of files, each up to **300 GB**."
+    },
+    {
+      "url": "https://1fichier.com/hlp.html",
+      "date": "2026-11-25",
+      "proved": "the help page states the retention periods for each account class",
+      "capture": "sha256:740725a79f1e2dbe2875db44eb7f31bb6f11b3c69ae88135056687afed6db573",
+      "quote": "Retention: 15 days without an account, 30 days on a free account, the whole subscription period on a paid plan."
+    },
+    {
+      "url": "https://1fichier.com/hlp.html",
+      "date": "2026-11-25",
+      "proved": "each file is capped at 300 GB and the file count is unlimited",
+      "capture": "sha256:740725a79f1e2dbe2875db44eb7f31bb6f11b3c69ae88135056687afed6db573",
+      "quote": "We let you store an unlimited number of files, each up to **300 GB**."
+    },
+    {
+      "url": "https://1fichier.com/hlp.html",
+      "date": "2026-11-25",
+      "proved": "paid files are kept for the whole subscription period; free files are kept 15 or 30 days",
+      "capture": "sha256:740725a79f1e2dbe2875db44eb7f31bb6f11b3c69ae88135056687afed6db573",
+      "quote": "Retention: 15 days without an account, 30 days on a free account, the whole subscription period on a paid plan."
+    },
+    {
+      "url": "https://1fichier.com/hlp.html",
+      "date": "2026-11-25",
+      "proved": "the web upload limit is 500 files and 500 GB per upload with a four-hour maximum",
+      "capture": "sha256:740725a79f1e2dbe2875db44eb7f31bb6f11b3c69ae88135056687afed6db573",
+      "quote": "- **Web upload**: 500 files and 500 GB per upload, 4 hours maximum."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-01T23:50:07.588Z",
+  "verified_at": "2026-11-25T21:21:19.437Z",
   "price_per_tb_month": "Premium GOLD, 2026-11-01: EUR 50 for 1 year is a sale price against a list of EUR 120 (sale until November 2), so EUR 0.42/TB/month at the 10 TB cold tier on the sale price and EUR 1.00/TB/month on the list price. The 5-year tier is EUR 0.40/TB/month (EUR 237, list EUR 600) and the 10-year tier EUR 0.38/TB/month (EUR 450, list EUR 1,200). Extra cold storage EUR 1/TB/month.",
   "notes": "Unlimited hot storage; 10 TB cold storage included. Additional cold storage €1/TB/month. File cap 300 GB, unlimited file count. Retention = whole subscription period on paid plans.",
   "history": [],

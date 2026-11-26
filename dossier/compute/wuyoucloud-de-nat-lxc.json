@@ -6,7 +6,7 @@
  "category": "NAT VPS",
  "tier": "德国NAT-LXC",
  "free_tier": {
-  "stated": "No free tier. 德国NAT-LXC is CNY 1.99 a month plus a one-off CNY 1.00 setup fee, printed '起价 ￥1.99 元 每月 + ￥1.00 初装费'. The page showed '5 可用' in stock.",
+  "stated": "No free tier. 德国NAT-LXC is CNY 1.99 a month plus a one-off CNY 1.00 setup fee, printed '起价 ￥1.99 元 每月 + ￥1.00 初装费', with Alpine Linux 3.20, 1 core, 512 MB RAM plus 100 MB SWAP, 1 GB storage and 1 Gbps with unlimited traffic under fair use; the archived group page showed '1 可用' in stock.",
   "unit": "none",
   "metered_on": "none",
   "source_url": "https://wuyoucloud.de/index.php?rp=/store/nat-de",
@@ -85,6 +85,20 @@
    "url": "https://wuyoucloud.de/index.php?rp=/store/nat-de",
    "date": "2026-10-24",
    "proved": "the order buttons target /index.php?rp=/store/nat-de/nat, and the three products on the page carry ids 73, 8 and 9 with stock '0 可用', '5 可用' and '0 可用' respectively"
+  },
+  {
+   "url": "https://archive.web.pkgforge.dev/capture/20260617000927/https://wuyoucloud.de/index.php%3Frp=/store/nat-de?provider=wayback",
+   "date": "2026-11-25",
+   "proved": "the vendor's archived group page states the 德国NAT-LXC at CNY 1.99 a month plus CNY 1.00 setup with Alpine Linux 3.20, one core, 512 MB RAM, 1 GB storage and 1 Gbps unlimited traffic under fair use",
+   "capture": "sha256:c41cda58f1aae300f35834bae42915c4f5fa98c48a5b8365183d6d461f0e4f09",
+   "quote": "起价\n\n￥1.99 元\n\n每月 + ￥1.00 初装费\n\n操作系统：Alpine Linux 3.20 CPU：1 核心处理器 内存：512 MB RAM + 100 MB SWAP 存储：1 GB 端口映射：计算型端口映射（映射规则详见群组和帮助中心） 带宽：1 Gbps ，不限流量（合理使用）"
+  },
+  {
+   "url": "https://archive.web.pkgforge.dev/capture/20260617000927/https://wuyoucloud.de/index.php%3Frp=/store/nat-de?provider=wayback",
+   "date": "2026-11-25",
+   "proved": "the 德国NAT-LXC price, setup fee and shape are unchanged",
+   "capture": "sha256:c41cda58f1aae300f35834bae42915c4f5fa98c48a5b8365183d6d461f0e4f09",
+   "quote": "起价\n\n￥1.99 元\n\n每月 + ￥1.00 初装费\n\n操作系统：Alpine Linux 3.20 CPU：1 核心处理器 内存：512 MB RAM + 100 MB SWAP 存储：1 GB 端口映射：计算型端口映射（映射规则详见群组和帮助中心） 带宽：1 Gbps ，不限流量（合理使用）"
   }
  ],
  "verdict": "qualifies-with-caveat",
@@ -137,5 +151,5 @@
   "other_plans": "德国NAT-KVM at CNY 6.99 a month for 2 cores, 1 GB RAM, 5 GB disk, currently 0 in stock. The same vendor runs 63 separate NAT store groups by country, including 荷兰NAT from CNY 1.99, 捷克NAT from CNY 4.99, 乌克兰住宅IP NAT from CNY 5.99 and 英国住宅IP NAT from CNY 9.99.",
   "setup_fee": "CNY 1.00 one-off on this plan; CNY 2.00 on several of the residential-IP plans"
  },
- "verified_at": "2026-10-24T06:03:49.000Z"
+ "verified_at": "2026-11-25T11:17:20.968Z"
 }

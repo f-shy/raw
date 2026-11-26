@@ -13,37 +13,34 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "20 TB cap",
-    "bytes": 20000000000000,
+    "stated": "unverified: the ~20TB figure is total initial beta supply, not a per-object cap",
+    "bytes": null,
     "source_url": "https://blog.kyun.sh/p/bricks",
     "notes": "extracted from the quota or limits prose"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "unverified: no retention clause stated on the Bricks post",
     "source_url": "https://blog.kyun.sh/p/bricks",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: no retention clause stated on the Bricks post"
   },
   "egress": {
-    "terms": "Not published as a per-plan number. The model is a VM plus attachable block, with the VM carrying the traffic allowance. Treat as unknown/unmetered-by-usage rather than free. This is a one-person operation and the beta explicitly has no published egress schedule.",
+    "terms": "unverified: no egress price or quota stated on the Bricks post",
     "metered": true
   },
   "interface": [
-    "rest",
-    "sftp",
-    "ssh",
-    "rclone"
+    "unknown"
   ],
-  "interface_detail": "block + sftp/ssh (Danbo), rest api",
-  "tooling": "rclone over SFTP, Kyun API v2 (api.kyun.sh/endpoints)",
-  "chaining": "Can be grown while attached, renamed in the UI, and switched between local SSD and Bricks 'with a single click'. Designed for media storage rather than hot reads.",
+  "interface_detail": "Inside the VM the disks show up as regular raw disks (/dev/sdx); no upload interface stated on the Bricks post",
+  "tooling": "Format the raw disk with any filesystem; no upload interface stated on the Bricks post",
+  "chaining": "Bricks can be attached and detached to and from any Danbo in the same datacenter.",
   "limits": [
     {
       "kind": "per-object-cap",
-      "value": "20 TB cap",
+      "value": "unverified: no per-object cap stated; ~20TB is total initial beta supply",
       "source": "https://blog.kyun.sh/p/bricks"
     }
   ],
-  "limits_note": "per-object-cap: none. **Total supply is ~20 TB for the entire beta.** Price explicitly flagged as likely to rise: 'This price will probably increase a bit for future restocks'.",
+  "limits_note": "Total supply is ~20TB for the entire beta; the price is flagged to rise. No per-object cap stated.",
   "identity_cost": {
     "kind": "email",
     "detail": "email",
@@ -81,10 +78,66 @@
       "proved": "the archived first-party page confirms the Romania-only availability",
       "capture": "sha256:e21ad43b58d05dea5c358dea1ddba424b82c2fa1c61255251c84adbac6618b5b",
       "quote": "For now, Bricks are only available in Romania."
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20260516014833/https://blog.kyun.sh/p/bricks?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "Bricks appear inside the VM as raw disks",
+      "capture": "sha256:e21ad43b58d05dea5c358dea1ddba424b82c2fa1c61255251c84adbac6618b5b",
+      "quote": "Inside the VM, they show up as regular raw disks (/dev/sdx), and you can format them with any filesystem you like."
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20260516014833/https://blog.kyun.sh/p/bricks?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the raw disk can be formatted with any filesystem",
+      "capture": "sha256:e21ad43b58d05dea5c358dea1ddba424b82c2fa1c61255251c84adbac6618b5b",
+      "quote": "Inside the VM, they show up as regular raw disks (/dev/sdx), and you can format them with any filesystem you like."
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20260516014833/https://blog.kyun.sh/p/bricks?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "~20TB is the size of the initial beta run, not a per-object limit",
+      "capture": "sha256:e21ad43b58d05dea5c358dea1ddba424b82c2fa1c61255251c84adbac6618b5b",
+      "quote": "The current price for the initial ~20TB beta run is **5 EUR/TB/month**. This price will probably increase a bit for future restocks, so get 'em while they're hot."
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20260516014833/https://blog.kyun.sh/p/bricks?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the beta run is ~20TB and the price is flagged to rise",
+      "capture": "sha256:e21ad43b58d05dea5c358dea1ddba424b82c2fa1c61255251c84adbac6618b5b",
+      "quote": "The current price for the initial ~20TB beta run is **5 EUR/TB/month**. This price will probably increase a bit for future restocks, so get 'em while they're hot."
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20260516014833/https://blog.kyun.sh/p/bricks?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the Bricks post states attachment and detachment within a datacenter",
+      "capture": "sha256:e21ad43b58d05dea5c358dea1ddba424b82c2fa1c61255251c84adbac6618b5b",
+      "quote": "Bricks are virtual disks that can be attached and detached to and from any Danbo in the same datacenter as the Brick."
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20260516014833/https://blog.kyun.sh/p/bricks?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the Bricks post states a storage price and beta capacity, with no traffic price or quota",
+      "capture": "sha256:e21ad43b58d05dea5c358dea1ddba424b82c2fa1c61255251c84adbac6618b5b",
+      "quote": "The current price for the initial ~20TB beta run is **5 EUR/TB/month**. This price will probably increase a bit for future restocks, so get 'em while they're hot."
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20260516014833/https://blog.kyun.sh/p/bricks?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the Bricks post states price and capacity, with no retention clause",
+      "capture": "sha256:e21ad43b58d05dea5c358dea1ddba424b82c2fa1c61255251c84adbac6618b5b",
+      "quote": "The current price for the initial ~20TB beta run is **5 EUR/TB/month**. This price will probably increase a bit for future restocks, so get 'em while they're hot."
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20260516014833/https://blog.kyun.sh/p/bricks?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the Bricks post states price and beta capacity only",
+      "capture": "sha256:e21ad43b58d05dea5c358dea1ddba424b82c2fa1c61255251c84adbac6618b5b",
+      "quote": "The current price for the initial ~20TB beta run is **5 EUR/TB/month**. This price will probably increase a bit for future restocks, so get 'em while they're hot."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:00.432Z",
+  "verified_at": "2026-11-25T13:25:55.252Z",
   "price_per_tb_month": "$5.62/TB/mo flat (€5). At 5 TB: €25 = $28.09/mo. At 20 TB: €100 = $112.34/mo. No volume break. The caveats (20 TB total supply, price flagged to rise, provider's own no-SLA warning) make this a poor primary and a reasonable third replica.",
   "notes": "HDD block volumes attached to a Danbo VM, Romania only. Initial beta run ~20 TB capacity total across all customers.",
   "history": [],

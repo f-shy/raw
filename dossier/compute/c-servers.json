@@ -5,7 +5,7 @@
  "url": "https://web.c-servers.co.uk/category/ashburn-virginia-usa-vps-servers",
  "category": "cloud VM",
  "free_tier": {
-  "stated": "no free tier; the ladder runs from USD 2.39 for six months to USD 10.49 a month",
+  "stated": "no free tier; the Ashburn ladder runs from $2.39 / 6 month(s) for the NanoVPS-384 to $10.49 / monthly for the ExtraVPS-16G",
   "unit": "none",
   "metered_on": "none",
   "source_url": "https://web.c-servers.co.uk/category/ashburn-virginia-usa-vps-servers",
@@ -108,10 +108,31 @@
    "url": "https://web.c-servers.co.uk/info/icmp-ipv4-pings-and-nat-ipv4-port-range-testing",
    "date": "2026-10-24",
    "proved": "UDP on the NAT forwards, quoted: 'Example for UDP: ... where [number of your port] will be the UDP-exclusive port-range you have on your VPS for NAT IPv4' and 'Specific for UDP usage only: shall preferentially send send a continuous packet stream over UDP.' and 'ports are always pre-opened automatically at the given outbound port range for you, and you simply map them to the internal ports'"
+  },
+  {
+   "url": "https://web.c-servers.co.uk/category/ashburn-virginia-usa-vps-servers",
+   "date": "2026-11-25",
+   "proved": "the cheapest card on the Ashburn page is the NanoVPS-384 at USD 2.39 for six months",
+   "capture": "sha256:4ee45999d6389661a207a8914eed47b08c387e8930e3bebd6682c14fdd831948",
+   "quote": "$2.39 /  6 month(s)"
+  },
+  {
+   "url": "https://web.c-servers.co.uk/category/ashburn-virginia-usa-vps-servers",
+   "date": "2026-11-25",
+   "proved": "the top card on the Ashburn page is the ExtraVPS-16G at USD 10.49 per month",
+   "capture": "sha256:4ee45999d6389661a207a8914eed47b08c387e8930e3bebd6682c14fdd831948",
+   "quote": "$10.49 /  monthly"
+  },
+  {
+   "url": "https://web.c-servers.co.uk/category/ashburn-virginia-usa-vps-servers",
+   "date": "2026-11-25",
+   "proved": "the Ashburn page still lists the ExtraVPS-16G at USD 10.49 per month, and other cards from USD 2.39 for six months",
+   "capture": "sha256:4ee45999d6389661a207a8914eed47b08c387e8930e3bebd6682c14fdd831948",
+   "quote": "$10.49 /  monthly"
   }
  ],
  "verdict": "qualifies-with-caveat",
- "verified_at": "2026-10-24T03:14:21.000Z",
+ "verified_at": "2026-11-25T05:18:29.252Z",
  "notes": "The largest shape under USD 5 on a monthly term that on 2026-10-24 found: 4 vCPU / 6 GiB / 40 GB / 6 TB at USD 4.29, billed monthly with no commitment. The ladder below it is prepay: NanoVPS-384 is USD 2.39 for six months (USD 0.40 a month) and NanoVPS-1024 is USD 2.69 for three months (USD 0.90 a month), which is its own record, `c-servers-nanovps`. The store answers 403 to a text extractor and 200 to raw bytes, so the prices come from the raw HTML. Renewal: the page publishes no renewal price and no first-term discount, and ExtraVPS-6144's only term is monthly, so the renewal is the same USD 4.29 a month; that is an inference from one printed price and one printed term, not a quoted renewal figure. UDP: the 20 forwarded NAT ports carry UDP and the vendor reserves a 'UDP-exclusive port-range', so a WireGuard node is reachable here; the one stated condition is that UDP usage send a continuous packet stream.",
  "extras": {
   "wave2": {

@@ -16,13 +16,13 @@
     "stated": "250 GB per file",
     "bytes": 250000000000,
     "source_url": "https://ac-data.info/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The first-party page states a 250 GB cap per file for the transfer product."
   },
   "retention": {
     "stated": "per-object-cap 250 GB; retention max 65 days; anonymous (browser-cache) uploads are deleted after 14 days",
     "days": 65,
     "source_url": "https://ac-data.info/",
-    "notes": "Extracted from published terms."
+    "notes": "The upload guide gives a storage period from 1 to 65 days with a 3 day default; transfer files are deleted after the chosen period."
   },
   "egress": {
     "terms": "No metered bandwidth; funded by the AC illustration-marketplace family.",
@@ -55,7 +55,7 @@
   "limits_note": "per-object-cap 250 GB; retention max 65 days; anonymous (browser-cache) uploads are deleted after 14 days. The 10 GB drive is separate from the transfer allowance and does not stack with it.",
   "identity_cost": {
     "kind": "anonymous",
-    "detail": "unverified: the live page answered HTTP 405 with an AWS WAF captcha on 2026-11-09, so no signup form was seen",
+    "detail": "Account-less transfer is available; files are deleted when the browser cache is cleared or after 14 days.",
     "country": null
   },
   "reliability_note": "Run by the AC illustration-workspace group, so it is a marketing surface for their paid art subscriptions rather than a storage business. Historically stable, and the '10 GB free cloud' add-on is recent.",
@@ -104,10 +104,59 @@
       "proved": "the page still answers HTTP 405 with a human-verification challenge",
       "capture": "sha256:ba9eda15759405a60d404b2398b3b2e55625e2f9298219958b6f41c03138537b",
       "quote": "\"status\": 405"
+    },
+    {
+      "url": "https://ac-data.info/",
+      "date": "2026-11-25",
+      "proved": "the first-party page states a 250 GB per-file cap",
+      "capture": "sha256:e3ba1ed11562d57d58a6dc9bbfc79857a241dc39c184a3dedcb3c910b473d04d",
+      "quote": "容量無制限（1ファイル250ギガ）に対応。"
+    },
+    {
+      "url": "https://ac-data.info/guide/upload",
+      "date": "2026-11-25",
+      "proved": "the upload guide sets a selectable storage period of 1 to 65 days with a 3 day default",
+      "capture": "sha256:0d41989195e315a836685d1860be917b20ae12cf9589e7de8fb002bdbce0190a",
+      "quote": "また、「保存期間」を設定します。保存期間は最短1日、最長65日まで選択できます。保存期間を選択しない場合、デフォルトの保存期間：3日で設定されます。"
+    },
+    {
+      "url": "https://ac-data.info/",
+      "date": "2026-11-25",
+      "proved": "the first-party page describes account-less use and its 14 day deletion",
+      "capture": "sha256:e3ba1ed11562d57d58a6dc9bbfc79857a241dc39c184a3dedcb3c910b473d04d",
+      "quote": "会員登録をせずにブラウザのキャッシュを使いご利用いただくこともできますが、その場合、キャッシュが削除されるか、もしくはファイルをアップロードしてから14日後にファイルが削除されます。"
+    },
+    {
+      "url": "https://ac-data.info/terms",
+      "date": "2026-11-25",
+      "proved": "the terms state transfer files are deleted after the selected storage period",
+      "capture": "sha256:fadc78a3c0e2a7ef5ade4caeda8344070317390cb23733126ad67093738aa54a",
+      "quote": "転送用にアップロードされたファイルは、利用者が選択した保存期間を過ぎた後、ACデータのファイルシステム上から削除され、復元することはできません。"
+    },
+    {
+      "url": "https://accounts.ac-illust.com/signup?lang=jp&serviceURL=https://ac-data.info",
+      "date": "2026-11-25",
+      "proved": "the signup page offers registration by email address",
+      "capture": "sha256:a0a30051b3a94972effd50b528909b0a4c0f3ca4b6302cc13909ed3d34da6b70",
+      "quote": "メールアドレスで登録"
+    },
+    {
+      "url": "https://ac-data.info/",
+      "date": "2026-11-25",
+      "proved": "the first-page per-file cap is unchanged",
+      "capture": "sha256:e3ba1ed11562d57d58a6dc9bbfc79857a241dc39c184a3dedcb3c910b473d04d",
+      "quote": "容量無制限（1ファイル250ギガ）に対応。"
+    },
+    {
+      "url": "https://ac-data.info/guide/upload",
+      "date": "2026-11-25",
+      "proved": "the 65 day maximum storage period is unchanged",
+      "capture": "sha256:0d41989195e315a836685d1860be917b20ae12cf9589e7de8fb002bdbce0190a",
+      "quote": "また、「保存期間」を設定します。保存期間は最短1日、最長65日まで選択できます。保存期間を選択しない場合、デフォルトの保存期間：3日で設定されます。"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:57.315Z",
+  "verified_at": "2026-11-25T03:33:11.120Z",
   "notes": "unverified: https://ac-data.info/ answered HTTP 405 on 2026-11-11 and served a human-verification page; the offer pages were not readable",
   "history": [],
   "extras": {

@@ -5,7 +5,7 @@
   "url": "https://www.damodel.com/",
   "category": "GPU cloud",
   "free_tier": {
-    "stated": "RTX 4090 rental quoted at CNY 20 of credit to every new registration (新人注册), with 4090, A800 and H800 cards cut permanently in price. A price aggregator that polls vendor pages daily records the 4090 at USD 0.267 per card-hour on demand, USD 0.18 preemptible and USD 0.224 on a monthly rate for a cn-north-b instance.",
+    "stated": "A CNY 20 coupon is issued to a new user who completes real-name verification (新用户完成实名认证即送20元优惠券), and 4090, A800 and H800 cards are permanently reduced in price (4090、A800、H800等卡型永久降价). The front page lists an RTX 4090 at CNY 1.78 per hour (NVIDIA-GeForce-RTX-4090 1.78 / 小时).",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://www.damodel.com/",
@@ -58,10 +58,24 @@
       "url": "https://www.suanli.ai/gpus/RTX-4090",
       "date": "2026-10-22",
       "proved": "aggregator lists 丹摩 DAMODEL RTX 4090 at USD 0.267 on demand, USD 0.18 spot and USD 0.224 monthly for cn-north-b, refreshed within 24 hours"
+    },
+    {
+      "url": "https://www.damodel.com/",
+      "date": "2026-11-25",
+      "proved": "the front page states that a new user receives a CNY 20 coupon after completing real-name verification",
+      "capture": "sha256:9fd16d3d503318d788b2141d1a8a8ff9617806899b4b2afcb05d32857f5191a7",
+      "quote": "新用户完成实名认证即送20元优惠券"
+    },
+    {
+      "url": "https://www.damodel.com/",
+      "date": "2026-11-25",
+      "proved": "the front page still states a CNY 20 coupon for a new user who completes real-name verification",
+      "capture": "sha256:9fd16d3d503318d788b2141d1a8a8ff9617806899b4b2afcb05d32857f5191a7",
+      "quote": "新用户完成实名认证即送20元优惠券"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:23.813Z",
   "notes": "DAMODEL provides GPU instances in China with pay-as-you-go pricing.",
   "extras": {
     "wave2": {

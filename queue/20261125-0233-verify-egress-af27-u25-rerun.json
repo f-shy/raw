@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u25-rerun",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/pangolin $.verdict: No payment condition is stated on this page; Pangolin Cloud Basic is free on the pricing page.\n- egress/privatevpn $.egress.terms: The price page says nothing about ingress protocols; the added 'ingress: tcp+udp' is not stated there.\n- egress/proxlane $.verdict: The page says Free carries HTTP and TCP, so a fails-egress verdict is contradicted; only UDP needs Plus or Pro.",
+ "scope": {
+  "rids": [
+   "egress/pangolin",
+   "egress/pgrok-fork",
+   "egress/pipenet",
+   "egress/premiervpn",
+   "egress/privatevpn",
+   "egress/proxlane"
+  ]
+ },
+ "origin": "audit u66 of 20261125-0233-verify-egress-af27/u25 failed: 3 of 17 unsupported",
+ "created": "2026-11-25T16:37:38Z"
+}

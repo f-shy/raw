@@ -77,10 +77,24 @@
       "url": "https://stunl.com/docs/cli-reference",
       "date": "2026-10-23",
       "proved": "Protocol flag accepts http, tcp and udp; anonymous mode is limited to HTTP, 100MB and 30 minutes."
+    },
+    {
+      "url": "https://www.stunl.com/",
+      "date": "2026-11-25",
+      "proved": "the Free plan is listed at 2GB of bandwidth per month",
+      "capture": "sha256:48dd58ae3b8e1203829fb7e942272e7687099fa691c14ede5e7e8b5c845977e2",
+      "quote": "- ✓ **2GB** bandwidth/month"
+    },
+    {
+      "url": "https://stunl.com/docs/anonymous",
+      "date": "2026-11-25",
+      "proved": "anonymous mode is limited to 100 MB (the same page lists 30 minutes)",
+      "capture": "sha256:06120e71e845d224dd23fddfb32fb2843d5c69445f080be806c3f97a14b45c03",
+      "quote": "| Bandwidth | `100 MB` |"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:48.362Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The service markets itself at AI agents and MCP servers, which explains the HTTP-first free tier. UDP exists but is two tiers above free.",

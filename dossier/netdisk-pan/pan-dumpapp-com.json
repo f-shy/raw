@@ -72,13 +72,6 @@
     {
       "url": "probe:https://pan.dumpapp.com/",
       "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:b2ea9a5ae7a183584b36d8577ac05b9ee65a2b15eb4177f628c5323f6bf9ccf2",
-      "quote": "\"listing_sha256\": \"3e8593df\""
-    },
-    {
-      "url": "probe:https://pan.dumpapp.com/",
-      "date": "2026-11-11",
       "proved": "the probe record states the hash method used for the listing",
       "capture": "sha256:b2ea9a5ae7a183584b36d8577ac05b9ee65a2b15eb4177f628c5323f6bf9ccf2",
       "quote": "\"listing_hash_method\": \"sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters\""
@@ -92,17 +85,31 @@
     },
     {
       "url": "probe:https://pan.dumpapp.com/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:b2ea9a5ae7a183584b36d8577ac05b9ee65a2b15eb4177f628c5323f6bf9ccf2",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://pan.dumpapp.com/",
       "date": "2026-11-19",
       "proved": "the liveness and mount-list probe answered at this instant",
       "capture": "sha256:aca055ff48c2677046a222c71bb5b20f242584478a69402a53b74cd01a981d77",
       "quote": "\"checked_at\": \"2026-11-19T03:33:14.099Z\""
+    },
+    {
+      "url": "probe:https://pan.dumpapp.com/",
+      "date": "2026-11-25",
+      "proved": "a fresh anonymous probe of pan.dumpapp.com answered the settings, session and mount-list requests at this timestamp",
+      "capture": "sha256:1e88b349d45d126811ac9d7d4f2b328590ab7beb615ce106fb2059c82765b52b",
+      "quote": "\"probed_at\": \"2026-11-25T02:34:36.231Z\""
+    },
+    {
+      "url": "probe:https://pan.dumpapp.com/",
+      "date": "2026-11-25",
+      "proved": "the fresh probe completed the anonymous settings, session and mount-list requests at pan.dumpapp.com",
+      "capture": "sha256:1e88b349d45d126811ac9d7d4f2b328590ab7beb615ce106fb2059c82765b52b",
+      "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://pan.dumpapp.com/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing of pan.dumpapp.com hashed to the recorded value, so the listing is unchanged",
+      "capture": "sha256:1e88b349d45d126811ac9d7d4f2b328590ab7beb615ce106fb2059c82765b52b",
+      "quote": "\"listing_sha256\": \"3e8593df\""
     },
     {
       "url": "probe:https://pan.dumpapp.com/",
@@ -114,27 +121,13 @@
     {
       "url": "probe:https://pan.dumpapp.com/",
       "date": "2026-11-25",
-      "proved": "the anonymous guest session answered and the root listing returned entries",
-      "capture": "sha256:01bbca15d9e66e1a349b954c980a600a3a453af4d0511c30cd00ee2055b1cadf",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://pan.dumpapp.com/",
-      "date": "2026-11-25",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:01bbca15d9e66e1a349b954c980a600a3a453af4d0511c30cd00ee2055b1cadf",
-      "quote": "\"listing_sha256\": \"3e8593df\""
-    },
-    {
-      "url": "probe:https://pan.dumpapp.com/",
-      "date": "2026-11-25",
       "proved": "the anonymous root listing returned 4 entries",
       "capture": "sha256:01bbca15d9e66e1a349b954c980a600a3a453af4d0511c30cd00ee2055b1cadf",
       "quote": "\"root_entries\": 4"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T11:08:34.599Z",
+  "verified_at": "2026-11-25T19:55:34.327Z",
   "binding": "write-gated",
   "notes": "4 root entries on AList v3.57.0, providers unknown and 189CloudPC, write:false.",
   "history": [],
@@ -151,7 +144,7 @@
     "listing_sha256": "3e8593df",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-25T01:38:31.256Z",
+    "last_verified_alive": "2026-11-25T02:34:36.231Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "listing_hash_method": "sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters"

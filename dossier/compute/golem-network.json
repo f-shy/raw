@@ -5,7 +5,7 @@
   "url": "https://docs.golem.network/docs/golem/overview/requestor-faq",
   "category": "GPU cloud",
   "free_tier": {
-    "stated": "Peer-to-peer compute priced by each provider per CPU-hour; mainnet requestors pay in GLM plus gas. The only free lane is the testnet: tGLM is 'test currency that you can obtain for free to test your requestor node. These tokens have no real value.' GLM was USD 0.110439 on 2026-10-22.",
+    "stated": "CPU/h is the pricing per utilization of a core; the requestor FAQ gives 0.1 GLM per core-hour as an example. The only free lane is the testnet: tGLM is 'test currency that you can obtain for free to test your requestor node. These tokens have no real value'.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://docs.golem.network/docs/golem/overview/requestor-faq",
@@ -74,10 +74,17 @@
       "url": "https://marketplace.golem.network/",
       "date": "2026-10-22",
       "proved": "marketplace page read 200; offers render client-side, so the live offer count was not readable from the extracted text"
+    },
+    {
+      "url": "https://docs.golem.network/docs/golem/overview/requestor-faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ states tGLM is free test currency with no real value, the only free lane in the captured page",
+      "capture": "sha256:5262e40d8c4b9d7ef65d9ce751f0cac6dfbceadf455cb191d3295d99f007f7e5",
+      "quote": "- tGLM – test currency that you can obtain for free to test your requestor node. These tokens have no real value."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:26.441Z",
   "notes": "A third-party report says the testnet marketplace shows 0 active offers, which could not be confirmed because the page is rendered in JavaScript. A measured CPU-hour price would need a funded mainnet requestor node.",
   "extras": {
     "wave2": {

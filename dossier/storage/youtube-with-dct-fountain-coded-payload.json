@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "256 GB or 12 hours per upload, whichever is less",
     "source_url": "https://support.google.com/youtube/answer/71673",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The maximum file size you can upload is 256 GB or 12 hours, whichever is less."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "You understand and agree, however, that YouTube may retain, but not display, distribute, or perform, server copies of your videos that have been removed or deleted.",
     "source_url": "https://support.google.com/youtube/answer/71673",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "You understand and agree, however, that YouTube may retain, but not display, distribute, or perform, server copies of your videos that have been removed or deleted."
   },
   "egress": {
     "terms": "Free and unmetered. Playback and yt-dlp retrieval are served from Google's CDN at no cost; there is no egress meter on the account.",
@@ -92,10 +92,38 @@
       "proved": "the support page states verification by text message or automated voice call",
       "capture": "sha256:9dd241217aecc746f2658600d6851b4b57c3ed9a1f211259e273b98683fde2a1",
       "quote": "You can choose to get a verification code through a text message on a mobile device or an automated voice call."
+    },
+    {
+      "url": "https://support.google.com/youtube/answer/71673",
+      "date": "2026-11-25",
+      "proved": "the upload support page states the maximum file size and duration",
+      "capture": "sha256:33d4bc0860b20710f28c6fdc101a5dbc29f6c3eb7dbb594ab2143c4d81c3cbc6",
+      "quote": "The maximum file size you can upload is 256 GB or 12 hours, whichever is less."
+    },
+    {
+      "url": "https://www.youtube.com/t/terms",
+      "date": "2026-11-25",
+      "proved": "the terms say YouTube may keep server copies of videos that were removed or deleted",
+      "capture": "sha256:83b7961582204834d305ed9ae42def23f87c9380890717b1edcd8605a29d1a7a",
+      "quote": "You understand and agree, however, that YouTube may retain, but not display, distribute, or perform, server copies of your videos that have been removed or deleted."
+    },
+    {
+      "url": "https://support.google.com/youtube/answer/71673",
+      "date": "2026-11-25",
+      "proved": "the upload ceiling is 256 GB or 12 hours, whichever is less",
+      "capture": "sha256:33d4bc0860b20710f28c6fdc101a5dbc29f6c3eb7dbb594ab2143c4d81c3cbc6",
+      "quote": "The maximum file size you can upload is 256 GB or 12 hours, whichever is less."
+    },
+    {
+      "url": "https://www.youtube.com/t/terms",
+      "date": "2026-11-25",
+      "proved": "YouTube may retain server copies of removed or deleted videos",
+      "capture": "sha256:83b7961582204834d305ed9ae42def23f87c9380890717b1edcd8605a29d1a7a",
+      "quote": "You understand and agree, however, that YouTube may retain, but not display, distribute, or perform, server copies of your videos that have been removed or deleted."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:35.600Z",
+  "verified_at": "2026-11-25T21:21:19.435Z",
   "notes": "No total storage cap. Per-upload max 256 GB or 12 hours, whichever is less. Unverified accounts are limited to 15-minute videos; phone verification lifts that.",
   "history": [],
   "extras": {

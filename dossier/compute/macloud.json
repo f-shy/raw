@@ -5,7 +5,7 @@
   "url": "https://macloud.ru/vps-vds",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "RUB 263 per day for the calculator's base configuration: 8 vCPU AMD EPYC up to 3.4 GHz, 16 GB RAM, 100 GB NVMe, 64 TB traffic, plus RUB 7 for one IPv4. Billing switches between day and month; the page defaulted to day and the month figure was not read. Component rates on the same configurator are RUB 10 per core, RUB 8 per GB of RAM and RUB 0.55 per GB of disk per day. The vps.today index row is a much smaller machine at RUB 150: 1 core at 3 GHz, 1 GB RAM, 10 GB NVMe, 1 TB traffic, 1 Gbit/s, Moscow.",
+    "stated": "263 ₽ / в день",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://macloud.ru/vps-vds",
@@ -64,10 +64,24 @@
       "url": "https://vps.today/",
       "date": "2026-10-23",
       "proved": "index row quoted: 'Macloud | 10 GB NVMe | 1 GB | 1 x 3 GHz | 1 TB 1 000 Mbit/s | Россия (Москва) KVM IPv6 DDoS ПО ! | 150 руб.'"
+    },
+    {
+      "url": "https://macloud.ru/vps-vds",
+      "date": "2026-11-25",
+      "proved": "the configurator's base price with one IPv4 is 263 rubles per day",
+      "capture": "sha256:79e880478c6e0631c7526605b106b8e47eec26c5d2e30f1b5b39236c803a6d4c",
+      "quote": "263 ₽ / в день"
+    },
+    {
+      "url": "https://macloud.ru/vps-vds",
+      "date": "2026-11-25",
+      "proved": "the base configuration totals 263 rubles per day",
+      "capture": "sha256:79e880478c6e0631c7526605b106b8e47eec26c5d2e30f1b5b39236c803a6d4c",
+      "quote": "263 ₽ / в день"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:43.689Z",
   "notes": "Source: vps.today index row, then the vendor configurator. The record is reported because the only figure the vendor prints for a small machine is a component rate, not a plan price; the RUB 150 row comes from the index. verification criteria: the month toggle's price for the smallest valid configuration, and whether the 64 TB is per day or per month. Rendering and provenance: currency written as RUB, the vendor's own ruble sign kept in the quote.",
   "extras": {
     "wave2": {

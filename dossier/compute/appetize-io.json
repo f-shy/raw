@@ -1,155 +1,219 @@
 {
-  "topic": "compute",
-  "slug": "appetize-io",
-  "provider": "Appetize.io",
-  "url": "https://appetize.io/pricing",
-  "category": "cloud mobile emulator",
-  "tier": "Free",
-  "free_tier": {
-    "stated": "Free plan $0 a month: single user, 2 active devices maximum, 30 minutes refilled monthly and a 3-minute session limit; capacity is throttled.",
-    "unit": "minutes",
-    "metered_on": "wall-clock",
-    "source_url": "https://appetize.io/pricing",
-    "read_on": "2026-11-24",
-    "notes": "A month of streaming time is counted across all uploaded apps; the annual-billed Starter price is $59 a month and Premium $319 a month."
+ "topic": "compute",
+ "slug": "appetize-io",
+ "provider": "Appetize. io",
+ "url": "https://appetize.io/pricing",
+ "category": "hosted mobile-device streaming",
+ "tier": "Free (trial) plan",
+ "free_tier": {
+  "stated": "Free plan at USD 0 a month: a single user, up to 2 active devices, 30 minutes refilled monthly, and a 3-minute session limit; usage is throttled capacity.",
+  "unit": "minutes",
+  "metered_on": "wall-clock",
+  "source_url": "https://appetize.io/pricing",
+  "read_on": "2026-11-25",
+  "notes": "Streaming time runs from the start of a stream until the user leaves the page or the session times out. The Starter plan is USD 59 a month billed annually (USD 89 monthly) with 500 minutes included then USD 0.06 a minute."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the metered unit is streaming minutes, not an object"
+ },
+ "retention": {
+  "stated": "Sessions run in isolated environments and clear when they end; no separate retention period is stated on the pricing or homepage.",
+  "days": null,
+  "source_url": "https://appetize.io/"
+ },
+ "egress": {
+  "terms": "not published as a streaming allowance: the pricing page bills streaming minutes rather than traffic and states no egress price or per-session byte cap",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://appetize.io/pricing"
+ },
+ "interface": [
+  "rest",
+  "cli",
+  "browser"
+ ],
+ "interface_detail": "An Appetize CLI and REST API at api.appetize.io/v1 with X-API-KEY authentication, plus a JavaScript SDK and embeddable browser streaming links.",
+ "tooling": "Appetize CLI, the v1 REST API with an organization API token, the JavaScript SDK, and Playwright-based automation (AppRecorder) against streamed devices.",
+ "chaining": "A user uploads an APK or build and streams an iOS simulator or Android emulator in the browser, or drives it from a coding agent through the CLI or REST API; the paid continuation is USD 0.06 a minute after 500 included minutes on Starter.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "30 streaming minutes a month on Free; 500 minutes then USD 0.06 a minute on Starter",
+   "source": "https://appetize.io/pricing"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a streamed mobile-device session, not a stored object; no per-app upload size cap is stated on the pricing page.",
-    "source_url": "https://appetize.io/pricing"
+  {
+   "kind": "per-object-cap",
+   "value": "2 active devices at once on Free; 3 on Starter and 16 on Premium",
+   "source": "https://appetize.io/pricing"
   },
-  "retention": {
-    "stated": "A session ends when the user leaves the page or times out from inactivity; the free plan has a 3-minute session limit. Uploaded app retention is not stated on the pricing page.",
-    "days": null,
-    "source_url": "https://appetize.io/pricing"
-  },
-  "egress": {
-    "terms": "No egress allowance or per-GB price is published: billing is by streaming time, and paid plans charge $0.06 per minute beyond the 500 included minutes. Network Proxy and Debug Logs are listed as a plan feature; a data-transfer charge is not stated.",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://appetize.io/pricing"
-  },
-  "interface": [
-    "browser",
-    "rest"
-  ],
-  "interface_detail": "Native iOS and Android apps stream into a browser with no download, plugin or permission; the plan table lists API Access and Reporting API, and apps can be embedded or shared by link. An API endpoint is not published on the pricing page.",
-  "tooling": "A browser is the client; the emulator runs on Appetize's cloud. AppRecorder and Playwright automation is a listed feature; API Access and a Reporting API are plan features. No software is installed and run by the user for the hosted plans.",
-  "chaining": "A hosted mobile-device emulator for demos, support and testing, driven from a browser or its API; streamed sessions are billed in minutes and do not provide a general storage or egress allowance, so app artifacts need a separate object-storage record.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "30 minutes of streaming a month on Free, refilled monthly; paid tiers include 500 minutes then $0.06 per minute",
-      "source": "https://appetize.io/pricing"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "3-minute session limit on Free; unlimited on Starter, Premium and Enterprise",
-      "source": "https://appetize.io/pricing"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "2 active devices at once on Free, 3 on Starter and 16 on Premium",
-      "source": "https://appetize.io/pricing"
-    },
-    {
-      "kind": "write-gated",
-      "value": "Free capacity is throttled and users are queued when no device is available",
-      "source": "https://appetize.io/pricing"
-    }
-  ],
-  "limits_note": "A single user on Free; paid plans are $59 a month Starter or $319 a month Premium when billed annually, and Enterprise is custom. Video recording and an SLA are listed as features.",
-  "binding": "retention-clamped",
-  "binding_note": "The 3-minute session limit binds first on Free: with only 30 minutes a month it allows ten sessions, and a longer test is cut off mid-run while the monthly minute balance is still largely unused.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The sign-up form asks for a Work Email address, runs a reCAPTCHA and sends an email verification step; Google and GitHub sign-up are offered as alternatives. The login page accepts an email and password or Google and GitHub. Stripe is named as the payments provider for paid plans; no card is collected at the free sign-up form.",
-    "country": null
-  },
-  "reliability_note": "Free capacity is throttled and a user is queued when no device is available; sessions time out from inactivity. The vendor states a 99.9% uptime SLA.",
-  "confidence": "documented",
-  "confidence_note": "Prices, minutes, device counts and session limits are quoted from Appetize's own pricing page read on 2026-11-24; the sign-up gate is quoted from the sign-up page itself.",
-  "evidence": [
-    {
-      "url": "https://appetize.io/pricing",
-      "date": "2026-11-24",
-      "proved": "the free plan's monthly minutes, device count and single user",
-      "capture": "sha256:ad39c748141fe6cf337efb965b16d235aa3bf0d2b3efa42c9995057c4778707a",
-      "quote": "Single user\n\n2 active devices maximum\n\n30 minutes refilled monthly"
-    },
-    {
-      "url": "https://appetize.io/pricing",
-      "date": "2026-11-24",
-      "proved": "the free plan's three-minute session limit against unlimited on paid plans",
-      "capture": "sha256:ad39c748141fe6cf337efb965b16d235aa3bf0d2b3efa42c9995057c4778707a",
-      "quote": "| Session limit | 3 minutes | Unlimited | Unlimited | Unlimited |"
-    },
-    {
-      "url": "https://appetize.io/pricing",
-      "date": "2026-11-24",
-      "proved": "the monthly minute allowance and overage price on paid plans",
-      "capture": "sha256:ad39c748141fe6cf337efb965b16d235aa3bf0d2b3efa42c9995057c4778707a",
-      "quote": "| Minutes per month | 30 | 500, then $0.06/minute | 500, then $0.06/minute | Custom |"
-    },
-    {
-      "url": "https://appetize.io/pricing",
-      "date": "2026-11-24",
-      "proved": "API access and automation are plan features",
-      "capture": "sha256:ad39c748141fe6cf337efb965b16d235aa3bf0d2b3efa42c9995057c4778707a",
-      "quote": "| API Access |  |  |  |  |"
-    },
-    {
-      "url": "https://appetize.io/pricing",
-      "date": "2026-11-24",
-      "proved": "streaming time is the metered unit, counted until the user leaves or the session times out",
-      "capture": "sha256:ad39c748141fe6cf337efb965b16d235aa3bf0d2b3efa42c9995057c4778707a",
-      "quote": "We bill every month based on the total amount of streaming time for all of your uploaded apps."
-    },
-    {
-      "url": "https://appetize.io/pricing",
-      "date": "2026-11-24",
-      "proved": "free capacity is throttled and users are queued when no device is available",
-      "capture": "sha256:ad39c748141fe6cf337efb965b16d235aa3bf0d2b3efa42c9995057c4778707a",
-      "quote": "If no devices are available on your account, the user will be put in a queue to wait until a new device becomes available."
-    },
-    {
-      "url": "https://appetize.io/signup",
-      "date": "2026-11-24",
-      "proved": "the sign-up form asks for a Work Email and offers Google and GitHub sign-up",
-      "capture": "sha256:a18b18372767580e43f12b77bddcaf031051545f8f5c263ddf848568bc84ab50",
-      "quote": "Verify email address"
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.590Z",
-  "price_per_tb_month": null,
-  "notes": "Free tier is 30 streaming minutes a month with a 3-minute session cap and 2 concurrent devices. Annual billing is shown as $59 a month Starter and $319 a month Premium; monthly rates are $89 and $449. Enterprise offers private clouds and self-hosting as a last-resort option after the hosted tiers.",
-  "extras": {
-    "shape": {
-      "vcpu": null,
-      "ram_gib": null,
-      "disk_gib": null,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "a virtual iOS or Android device streamed to a browser"
-    },
-    "billing_model": "free monthly minute allowance; metered per-minute on paid plans",
-    "free_tier_kind": "recurring-allowance",
-    "term": "monthly, no commitment",
-    "status": "live",
-    "network_out": {
-      "allow_outbound": null,
-      "allow_inbound_listen": null,
-      "ports": "Network Proxy and Debug Logs listed as a plan feature; no port or egress volume published",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": 3,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "session ends when the user leaves the page or times out from inactivity"
-    }
+  {
+   "kind": "write-gated",
+   "value": "3-minute session limit on Free, unlimited on paid plans, and throttled capacity on Free",
+   "source": "https://appetize.io/pricing"
   }
+ ],
+ "limits_note": "API Access is listed only on the paid plans in the comparison table; the Free column leaves that feature unchecked. Payment methods accepted are Visa, Mastercard and American Express through Stripe.",
+ "binding": "write-gated",
+ "binding_note": "The 3-minute session limit and throttled capacity cut a Free session short before the 30 monthly minutes are used, and the comparison table leaves API access off the Free plan.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "The sign-up page shows an email input and offers Sign Up with Google and Sign Up with GitHub. The login page offers email and password, Google and GitHub. No card is asked on the sign-up page; the free plan needs no payment method, while paid plans take Visa, Mastercard or American Express through Stripe.",
+  "country": null
+ },
+ "reliability_note": "Free sessions are capped at 3 minutes and run at throttled capacity; sessions clear when they end. The pricing page states a 99.9% uptime SLA, which is an enterprise-level commitment rather than a Free-plan guarantee.",
+ "confidence": "documented",
+ "confidence_note": "Prices, limits, sign-up fields and API terms are quoted from first-party Appetize pages read on 2026-11-25.",
+ "evidence": [
+  {
+   "url": "https://appetize.io/pricing",
+   "date": "2026-11-25",
+   "proved": "the Free plan has 30 minutes refilled monthly",
+   "capture": "sha256:ad39c748141fe6cf337efb965b16d235aa3bf0d2b3efa42c9995057c4778707a",
+   "quote": "30 minutes refilled monthly"
+  },
+  {
+   "url": "https://appetize.io/pricing",
+   "date": "2026-11-25",
+   "proved": "the Starter plan includes 500 minutes then charges USD 0.06 a minute",
+   "capture": "sha256:ad39c748141fe6cf337efb965b16d235aa3bf0d2b3efa42c9995057c4778707a",
+   "quote": "500 minutes included, then $0.06/min"
+  },
+  {
+   "url": "https://appetize.io/pricing",
+   "date": "2026-11-25",
+   "proved": "Free sessions are limited to 3 minutes while paid plans are unlimited",
+   "capture": "sha256:ad39c748141fe6cf337efb965b16d235aa3bf0d2b3efa42c9995057c4778707a",
+   "quote": "| Session limit | 3 minutes | Unlimited | Unlimited | Unlimited |"
+  },
+  {
+   "url": "https://appetize.io/pricing",
+   "date": "2026-11-25",
+   "proved": "API access is a paid-plan feature, not part of Free",
+   "capture": "sha256:ad39c748141fe6cf337efb965b16d235aa3bf0d2b3efa42c9995057c4778707a",
+   "quote": "| API Access |  |  |  |  |"
+  },
+  {
+   "url": "https://appetize.io/pricing",
+   "date": "2026-11-25",
+   "proved": "paid plans take Visa, Mastercard and American Express through Stripe",
+   "capture": "sha256:ad39c748141fe6cf337efb965b16d235aa3bf0d2b3efa42c9995057c4778707a",
+   "quote": "We accept Visa, Mastercard and American Express via our payments provider Stripe.com."
+  },
+  {
+   "url": "https://appetize.io/signup",
+   "date": "2026-11-25",
+   "proved": "sign-up asks for an email address",
+   "capture": "sha256:d91cbe48149fdbf84506d38f5839b463c888d05a2a267c353b3363d90234a65d",
+   "quote": "name=\"email\" id=\"id-:R1cktd6:\" type=\"email\""
+  },
+  {
+   "url": "https://appetize.io/signup",
+   "date": "2026-11-25",
+   "proved": "sign-up also offers Google and GitHub accounts",
+   "capture": "sha256:d91cbe48149fdbf84506d38f5839b463c888d05a2a267c353b3363d90234a65d",
+   "quote": "Sign Up with GitHub"
+  },
+  {
+   "url": "https://appetize.io/account",
+   "date": "2026-11-25",
+   "proved": "the login page asks for email and password and offers Google and GitHub login",
+   "capture": "sha256:949a170cb13a1507eb2cde9a3739c6e368aeb8288e4b982aa260da7ba6467b1c",
+   "quote": "aria-label=\"Email\" autoComplete=\"username\" required=\"\""
+  },
+  {
+   "url": "https://docs.appetize.io/rest-api",
+   "date": "2026-11-25",
+   "proved": "the REST API is reachable with an API token in the X-API-KEY header",
+   "capture": "sha256:fe14ec10f903748e37bf66d154245e85d738aa1f4c206f726192a69cc77f3d19",
+   "quote": "curl -X GET https://api.appetize.io/v1/apps"
+  },
+  {
+   "url": "https://appetize.io/",
+   "date": "2026-11-25",
+   "proved": "coding agents drive the hosted devices through the CLI or REST API",
+   "capture": "sha256:1a78efae964c65b2dc0dc28ab0856c829f6c38e93e80ba3c6ac57c0d39026a61",
+   "quote": "Appetize provides on-demand devices through the Appetize CLI or REST API."
+  },
+  {
+   "url": "https://appetize.io/pricing",
+   "date": "2026-11-24",
+   "proved": "the free plan's monthly minutes, device count and single user",
+   "capture": "sha256:ad39c748141fe6cf337efb965b16d235aa3bf0d2b3efa42c9995057c4778707a",
+   "quote": "Single user\n\n2 active devices maximum\n\n30 minutes refilled monthly"
+  },
+  {
+   "url": "https://appetize.io/pricing",
+   "date": "2026-11-24",
+   "proved": "the free plan's three-minute session limit against unlimited on paid plans",
+   "capture": "sha256:ad39c748141fe6cf337efb965b16d235aa3bf0d2b3efa42c9995057c4778707a",
+   "quote": "| Session limit | 3 minutes | Unlimited | Unlimited | Unlimited |"
+  },
+  {
+   "url": "https://appetize.io/pricing",
+   "date": "2026-11-24",
+   "proved": "the monthly minute allowance and overage price on paid plans",
+   "capture": "sha256:ad39c748141fe6cf337efb965b16d235aa3bf0d2b3efa42c9995057c4778707a",
+   "quote": "| Minutes per month | 30 | 500, then $0.06/minute | 500, then $0.06/minute | Custom |"
+  },
+  {
+   "url": "https://appetize.io/pricing",
+   "date": "2026-11-24",
+   "proved": "API access and automation are plan features",
+   "capture": "sha256:ad39c748141fe6cf337efb965b16d235aa3bf0d2b3efa42c9995057c4778707a",
+   "quote": "| API Access |  |  |  |  |"
+  },
+  {
+   "url": "https://appetize.io/pricing",
+   "date": "2026-11-24",
+   "proved": "streaming time is the metered unit, counted until the user leaves or the session times out",
+   "capture": "sha256:ad39c748141fe6cf337efb965b16d235aa3bf0d2b3efa42c9995057c4778707a",
+   "quote": "We bill every month based on the total amount of streaming time for all of your uploaded apps."
+  },
+  {
+   "url": "https://appetize.io/pricing",
+   "date": "2026-11-24",
+   "proved": "free capacity is throttled and users are queued when no device is available",
+   "capture": "sha256:ad39c748141fe6cf337efb965b16d235aa3bf0d2b3efa42c9995057c4778707a",
+   "quote": "If no devices are available on your account, the user will be put in a queue to wait until a new device becomes available."
+  },
+  {
+   "url": "https://appetize.io/signup",
+   "date": "2026-11-24",
+   "proved": "the sign-up form asks for a Work Email and offers Google and GitHub sign-up",
+   "capture": "sha256:a18b18372767580e43f12b77bddcaf031051545f8f5c263ddf848568bc84ab50",
+   "quote": "Verify email address"
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T02:12:34.899Z",
+ "price_per_tb_month": null,
+ "notes": "Hosted iOS simulators and Android emulators streamed to the browser: Free gives 30 minutes a month at 2 active devices and a 3-minute session cap, with API access left to paid plans; Starter is USD 59 a month billed annually with 500 minutes then USD 0.06 a minute. On-premises and private clouds are an enterprise option and are not the hosted offer priced here.",
+ "extras": {
+  "shape": {
+   "vcpu": null,
+   "ram_gib": null,
+   "disk_gib": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "hosted iOS simulators and Android emulators priced in streaming minutes"
+  },
+  "billing_model": "monthly free minute allowance, per-minute overage on paid plans",
+  "free_tier_kind": "recurring-allowance",
+  "term": "no commitment on Free; Starter billed monthly or annually",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": null,
+   "ports": null,
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": 3,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "a Free session ends after 3 minutes; streaming time ends when the user leaves the page or the session times out"
+  }
+ }
 }

@@ -13,17 +13,17 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "Jottacloud reserves the right to conduct virus checks and may block certain files from being uploaded.",
     "source_url": "https://jottacloud.com/en/why-jottacloud/jottacloud-pro",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Jottacloud reserves the right to conduct virus checks and may block certain files from being uploaded."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "**Files are kept in the trash can for 30 days** before they are automatically deleted.",
     "source_url": "https://jottacloud.com/en/why-jottacloud/jottacloud-pro",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Deleted files can be restored or permanently removed from the Trash. Note that deleted files remain in the Trash for 30 days before they are automatically erased."
   },
   "egress": {
-    "terms": "No egress fee, 'Maximum speed' on both directions. Explicitly no bandwidth limitation, unlike the Unlimited tier.",
+    "terms": "Maximum speed",
     "metered": false
   },
   "interface": [
@@ -59,10 +59,73 @@
       "proved": "the Pro 20 TB plan costs NOK 599 a month for one user with 20 TB of storage",
       "capture": "sha256:a77b14bf67976d7b6343f0b48cf4acc77d61e0e1766ed5745b9fbeb994260e55",
       "quote": "#### Pro 20 TB\n\n  NOK 599 / month\n\n  1 user\n\n  20 TB storage\n\n  Backup all devices\n\n  Priority support\n\n  Maximum speed\n\n  Licensed for commercial use"
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/1372744-jottacloud-terms-conditions",
+      "date": "2026-11-25",
+      "proved": "the terms allow virus checks and blocking of individual files",
+      "capture": "sha256:a083bc22b7ead7f34a10b6afbb67192f2d8d513196e6a842281f50d899d0915c",
+      "quote": "Jottacloud reserves the right to conduct virus checks and may block certain files from being uploaded."
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/1372744-jottacloud-terms-conditions",
+      "date": "2026-11-25",
+      "proved": "the terms permit blocking individual files after virus checks",
+      "capture": "sha256:a083bc22b7ead7f34a10b6afbb67192f2d8d513196e6a842281f50d899d0915c",
+      "quote": "Jottacloud reserves the right to conduct virus checks and may block certain files from being uploaded."
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/1378198-trash",
+      "date": "2026-11-25",
+      "proved": "deleted files stay in the trash for 30 days before automatic deletion",
+      "capture": "sha256:94774d6bda6358668c576a2825d8abed99d096af3dabf3d3e16b8b0bdc551b28",
+      "quote": "**Files are kept in the trash can for 30 days** before they are automatically deleted."
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/1562159-our-apps",
+      "date": "2026-11-25",
+      "proved": "the web app erases trashed files after 30 days",
+      "capture": "sha256:609ff7146aeeb339502784d4346372f1df745ee4e69572307606e26d64802310",
+      "quote": "Deleted files can be restored or permanently removed from the Trash. Note that deleted files remain in the Trash for 30 days before they are automatically erased."
+    },
+    {
+      "url": "https://jottacloud.com/en/why-jottacloud/jottacloud-pro",
+      "date": "2026-11-25",
+      "proved": "the Pro 20 TB plan row states Maximum speed",
+      "capture": "sha256:a77b14bf67976d7b6343f0b48cf4acc77d61e0e1766ed5745b9fbeb994260e55",
+      "quote": "Maximum speed"
+    },
+    {
+      "url": "https://jottacloud.com/en/why-jottacloud/jottacloud-pro",
+      "date": "2026-11-25",
+      "proved": "the Pro 20 TB plan is NOK 599 per month for one user with 20 TB storage",
+      "capture": "sha256:a77b14bf67976d7b6343f0b48cf4acc77d61e0e1766ed5745b9fbeb994260e55",
+      "quote": "#### Pro 20 TB\n\n  NOK 599 / month\n\n  1 user\n\n  20 TB storage\n\n  Backup all devices\n\n  Priority support\n\n  Maximum speed\n\n  Licensed for commercial use"
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/1372744-jottacloud-terms-conditions",
+      "date": "2026-11-25",
+      "proved": "the terms permit virus checks and blocking of individual files",
+      "capture": "sha256:a083bc22b7ead7f34a10b6afbb67192f2d8d513196e6a842281f50d899d0915c",
+      "quote": "Jottacloud reserves the right to conduct virus checks and may block certain files from being uploaded."
+    },
+    {
+      "url": "https://docs.jottacloud.com/en/articles/1378198-trash",
+      "date": "2026-11-25",
+      "proved": "deleted files are held in the trash for 30 days",
+      "capture": "sha256:94774d6bda6358668c576a2825d8abed99d096af3dabf3d3e16b8b0bdc551b28",
+      "quote": "**Files are kept in the trash can for 30 days** before they are automatically deleted."
+    },
+    {
+      "url": "https://jottacloud.com/en/why-jottacloud/jottacloud-pro",
+      "date": "2026-11-25",
+      "proved": "the Pro 20 TB plan lists Maximum speed",
+      "capture": "sha256:a77b14bf67976d7b6343f0b48cf4acc77d61e0e1766ed5745b9fbeb994260e55",
+      "quote": "Maximum speed"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-10T00:50:22.253Z",
+  "verified_at": "2026-11-25T19:55:10.654Z",
   "price_per_tb_month": "$3.20/TB at 20 TB ($64.01/mo); $3.20/TB at 30 TB ($96.08/mo); at 5 TB-equivalent the Pro 10 TB tier is $6.39/TB",
   "notes": "10 / 20 / 30 / 50 TB fixed tiers, 1 user each",
   "history": [],

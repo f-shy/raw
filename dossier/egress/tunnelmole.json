@@ -38,9 +38,15 @@
   "interface_detail": "npx tunnelmole 3000",
   "tooling": "npx tunnelmole",
   "chaining": "HTTP ingress only",
-  "limits": [],
+  "limits": [
+    {
+      "kind": "write-gated",
+      "value": "the product exposes locally running HTTP(s) servers only; no TCP or UDP forward is described",
+      "source": "https://tunnelmole.com/docs"
+    }
+  ],
   "limits_note": "",
-  "binding": "none",
+  "binding": "write-gated",
   "binding_note": "No byte quota is published and none is needed: an HTTP-only tunnel cannot carry a WireGuard datagram.",
   "identity_cost": {
     "kind": "anonymous",
@@ -55,10 +61,24 @@
       "url": "https://tunnelmole.com/",
       "date": "2026-10-23",
       "proved": "'With a public https url just a single command away' and 'No signup'"
+    },
+    {
+      "url": "https://tunnelmole.com/docs",
+      "date": "2026-11-25",
+      "proved": "the product exposes HTTP(S) servers only",
+      "capture": "sha256:875dfb866b3af63852edaae5e1e8c332e071ce3f156701b430de6f856d09a980",
+      "quote": "Tunnelmole is a simple tool to give your locally running HTTP(s) servers a public URL."
+    },
+    {
+      "url": "https://tunnelmole.com/",
+      "date": "2026-11-25",
+      "proved": "the free use needs no signup",
+      "capture": "sha256:8728d23f29eb2bf4dd582f1fb9ecbdd18e332a36a9e6bfe3c484e96b3aeecee5",
+      "quote": "No signup needed. Get a public URL for your local server instantly."
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:49.306Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Open-source tunneling client written in TypeScript. Provides public URLs for local HTTP servers.",

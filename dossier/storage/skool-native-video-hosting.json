@@ -16,7 +16,7 @@
     "stated": "30 GB per upload",
     "bytes": 30000000000,
     "source_url": "https://www.skool.com/educate/native-video-hosting-is-here",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The native video hosting announcement states a 30 GB per-file size limit; the help centre caps a course at 200 pages but allows unlimited courses."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
@@ -78,10 +78,31 @@
       "proved": "native video hosting is on paid $9/mo and $99/mo plans, not a free tier",
       "capture": "sha256:e47c5805bdf4a9468f2e4ac988a07f2927c9f00ad76dc13c72e4de22e28d4f27",
       "quote": "This works both in the $9 Skool hobby plan and $99 pro plan"
+    },
+    {
+      "url": "https://www.skool.com/educate/native-video-hosting-is-here",
+      "date": "2026-11-25",
+      "proved": "the native video hosting announcement gives a 30 GB per-file size limit",
+      "capture": "sha256:0f04507215c72ffdfb48177281a8cf7722a31bd43ae3b5f61be1e93660f8f10c",
+      "quote": "The file size limit is 30GB (except... See more"
+    },
+    {
+      "url": "https://www.skool.com/educate/native-video-hosting-is-here",
+      "date": "2026-11-25",
+      "proved": "the 30 GB per-file limit in the note is unchanged",
+      "capture": "sha256:0f04507215c72ffdfb48177281a8cf7722a31bd43ae3b5f61be1e93660f8f10c",
+      "quote": "The file size limit is 30GB (except... See more"
+    },
+    {
+      "url": "https://help.skool.com/article/58-video",
+      "date": "2026-11-25",
+      "proved": "the help centre caps a course at 200 pages and allows unlimited courses, as the note states",
+      "capture": "sha256:f04d10669d10ea505423160c82220bfea596e2b006785dbe1f59b3855083494d",
+      "quote": "You can have 200 pages per course, but you can have unlimited courses in your Classroom"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-19T21:15:22.712Z",
+  "verified_at": "2026-11-25T09:54:52.304Z",
   "notes": "30 GB per uploaded video file, with no documented community-level storage cap. Course/lesson file attachments are separate and much smaller (images 413 above ~10 MB).",
   "history": [],
   "extras": {

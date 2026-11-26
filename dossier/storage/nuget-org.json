@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "about 250 MB per package",
     "source_url": "https://learn.microsoft.com/en-us/nuget/nuget-org/publish-a-package",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "NuGet.org allows packages up to 250MB, but we recommend keeping packages under 1MB if possible and using dependencies to link packages together."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://learn.microsoft.com/en-us/nuget/nuget-org/publish-a-package",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "nuget.org does not support permanent deletion of packages."
   },
   "egress": {
     "terms": "Free and unmetered, Cloudflare-fronted, CORS-open. Probe: api.nuget.org v3-flatcontainer .nupkg GET -> 200, Server: cloudflare, Access-Control-Allow-Origin: *, Cache-Control: max-age=86400.",
@@ -83,10 +83,38 @@
       "proved": "publishing needs a Microsoft account, which is an email account",
       "capture": "sha256:ccb784147799e6cf8646804a34074cefd973b9cc20702d5ecdb4ca313ffa0c94",
       "quote": "To publish on nuget.org, sign in to nuget.org with a Microsoft account, and use it to create a free nuget.org account."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/nuget/nuget-org/policies/deleting-packages",
+      "date": "2026-11-25",
+      "proved": "published packages are not permanently deleted",
+      "capture": "sha256:0667af8dcd881e8b0327ef8e7cf24af055e9acacb1d83390a8746f081df04028",
+      "quote": "nuget.org does not support permanent deletion of packages."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/nuget/nuget-org/nuget-org-faq",
+      "date": "2026-11-25",
+      "proved": "the first-party FAQ states a 250 MB package limit and a 1 MB packaging recommendation",
+      "capture": "sha256:678f3b1c1322e31195b663629a619bf3161dc56cd840dba91f28dc9bcb4a3661",
+      "quote": "NuGet.org allows packages up to 250MB, but we recommend keeping packages under 1MB if possible and using dependencies to link packages together."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/nuget/nuget-org/publish-a-package",
+      "date": "2026-11-25",
+      "proved": "the publish page states an approximately 250 MB package size limit",
+      "capture": "sha256:ccb784147799e6cf8646804a34074cefd973b9cc20702d5ecdb4ca313ffa0c94",
+      "quote": "Nuget.org has a package size limit of about 250 MB."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/nuget/nuget-org/publish-a-package",
+      "date": "2026-11-25",
+      "proved": "publishing requires signing in with a Microsoft account and creating a free nuget.org account",
+      "capture": "sha256:ccb784147799e6cf8646804a34074cefd973b9cc20702d5ecdb4ca313ffa0c94",
+      "quote": "To publish on nuget.org, sign in to nuget.org with a Microsoft account, and use it to create a free nuget.org account."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:27.600Z",
+  "verified_at": "2026-11-25T21:21:16.189Z",
   "notes": "250 MB per package.",
   "history": [],
   "extras": {

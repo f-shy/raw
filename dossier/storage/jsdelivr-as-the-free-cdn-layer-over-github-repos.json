@@ -13,37 +13,37 @@
     "notes": "the acceptable-use-policy URL serves the jsDelivr Terms of Use, effective October 5, 2026; the file-count soft limits are not automatically enforced"
   },
   "per_object_cap": {
-    "stated": "files up to 20 MB through the GitHub proxy, regardless of repository size",
+    "stated": "We actually allow files up to 20 MB for GitHub regardless of the overall repo size",
     "bytes": 20000000,
     "source_url": "https://github.com/jsdelivr/jsdelivr/issues/18550",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "We actually allow files up to 20 MB for GitHub regardless of the overall repo size"
   },
   "retention": {
     "stated": "Previously served immutable files may be retained in permanent storage even after upstream deletion. We do not accept removal requests simply because a package or version was unpublished, deleted upstream, or is no longer needed.",
     "source_url": "https://www.jsdelivr.com/terms/acceptable-use-policy",
-    "notes": "Extracted from published terms."
+    "notes": "We use a permanent S3 storage to ensure all files remain available even if GitHub goes down or a repository or a release is deleted by its author."
   },
   "egress": {
-    "terms": "Unmetered and cached at edge locations with headers 'Cache-Control: public, max-age=31536000, s-maxage=31536000, immutable' and Access-Control-Allow-Origin: *.",
+    "terms": "using jsDelivr CDN is free for both personal and commercial use,\n- there are no limits on bandwidth or number of requests,",
     "metered": false
   },
   "interface": [
     "rest"
   ],
-  "interface_detail": "rest",
+  "interface_detail": "/gh/user/repo@version/file",
   "tooling": "URL pattern https://cdn.jsdelivr.net/gh/USER/REPO@TAG/path. No client needed, no auth, no config. Purge API exists for cache busting.",
-  "chaining": "Serving layer only: pair it with Releases (storage) or a git repo (small files). One repo backs 1 TiB/day because the edge absorbs repeats with a 1-year immutable TTL.",
+  "chaining": "We use a permanent S3 storage to ensure all files remain available even if GitHub goes down or a repository or a release is deleted by its author.",
   "limits": [
     {
       "kind": "per-object-cap",
-      "value": "per file | 20 MB",
+      "value": "We actually allow files up to 20 MB for GitHub regardless of the overall repo size",
       "source": "https://github.com/jsdelivr/jsdelivr/issues/18550"
     }
   ],
   "limits_note": "Git repo files only — release assets are NOT served (probed: /gh/cli/cli@v2.102.1/dist/README.md -> 404). ~20 MB effective per-file ceiling for the GitHub proxy (the git-unlimited-storage README states 'jsDelivr per file | 20 MB'); hard per-file/per-package caps are undocumented and enforced at request time. Does not serve the >2 GiB release assets, so the serving path for big objects stays on GitHub's own Fastly edge.",
   "identity_cost": {
-    "kind": "email",
-    "detail": "no identity_cost field and no identity statement in the source record; defaulted to email and flagged, not evidence",
+    "kind": "anonymous",
+    "detail": "our CDN service that is publicly available without a subscription",
     "country": null
   },
   "reliability_note": "Immutable: 'Previously served immutable files may be retained in permanent storage even after upstream deletion'. Deletion upstream does not remove it from jsDelivr. Extension blocklist exists; binaries with unusual extensions can be refused.",
@@ -141,10 +141,94 @@
       "proved": "the GitHub proxy allows files up to 20 MB regardless of repository size",
       "capture": "sha256:2d9aff2fdf9921dacb7594a19f8bc87205957ed03a5a3139bb131f85f89e24c1",
       "quote": "We actually allow files up to 20 MB for GitHub regardless of the overall repo size"
+    },
+    {
+      "url": "https://github.com/jsdelivr/jsdelivr/issues/18550",
+      "date": "2026-11-25",
+      "proved": "the GitHub proxy allows files up to 20 MB regardless of repository size",
+      "capture": "sha256:2d9aff2fdf9921dacb7594a19f8bc87205957ed03a5a3139bb131f85f89e24c1",
+      "quote": "We actually allow files up to 20 MB for GitHub regardless of the overall repo size"
+    },
+    {
+      "url": "https://github.com/jsdelivr/jsdelivr/issues/18550",
+      "date": "2026-11-25",
+      "proved": "the provider states the GitHub-proxy per-file limit",
+      "capture": "sha256:2d9aff2fdf9921dacb7594a19f8bc87205957ed03a5a3139bb131f85f89e24c1",
+      "quote": "We actually allow files up to 20 MB for GitHub regardless of the overall repo size"
+    },
+    {
+      "url": "https://github.com/jsdelivr/jsdelivr/issues/18550",
+      "date": "2026-11-25",
+      "proved": "the GitHub-proxy per-file limit is 20 MB",
+      "capture": "sha256:2d9aff2fdf9921dacb7594a19f8bc87205957ed03a5a3139bb131f85f89e24c1",
+      "quote": "We actually allow files up to 20 MB for GitHub regardless of the overall repo size"
+    },
+    {
+      "url": "https://github.com/jsdelivr/jsdelivr",
+      "date": "2026-11-25",
+      "proved": "GitHub-sourced files remain in permanent S3 storage after upstream deletion",
+      "capture": "sha256:2b422a33f7807efffb296128c5795069278b388d4e632ad3392fcfd348e79f89",
+      "quote": "We use a permanent S3 storage to ensure all files remain available even if GitHub goes down or a repository or a release is deleted by its author."
+    },
+    {
+      "url": "https://www.jsdelivr.com/terms/acceptable-use-policy",
+      "date": "2026-11-25",
+      "proved": "the CDN is free with no bandwidth or request limits",
+      "capture": "sha256:684151d92bdcab1be0d46f459a75183a5522ee017434002ae506aabf15be8709",
+      "quote": "using jsDelivr CDN is free for both personal and commercial use,\n- there are no limits on bandwidth or number of requests,"
+    },
+    {
+      "url": "https://github.com/jsdelivr/jsdelivr",
+      "date": "2026-11-25",
+      "proved": "GitHub-sourced files persist in permanent S3 storage",
+      "capture": "sha256:2b422a33f7807efffb296128c5795069278b388d4e632ad3392fcfd348e79f89",
+      "quote": "We use a permanent S3 storage to ensure all files remain available even if GitHub goes down or a repository or a release is deleted by its author."
+    },
+    {
+      "url": "https://github.com/jsdelivr/jsdelivr",
+      "date": "2026-11-25",
+      "proved": "the GitHub proxy is addressed by a path-based URL",
+      "capture": "sha256:2b422a33f7807efffb296128c5795069278b388d4e632ad3392fcfd348e79f89",
+      "quote": "/gh/user/repo@version/file"
+    },
+    {
+      "url": "https://www.jsdelivr.com/terms/acceptable-use-policy",
+      "date": "2026-11-25",
+      "proved": "the CDN is available without a subscription",
+      "capture": "sha256:684151d92bdcab1be0d46f459a75183a5522ee017434002ae506aabf15be8709",
+      "quote": "our CDN service that is publicly available without a subscription"
+    },
+    {
+      "url": "https://www.jsdelivr.com/terms/acceptable-use-policy",
+      "date": "2026-11-25",
+      "proved": "the CDN needs no subscription",
+      "capture": "sha256:684151d92bdcab1be0d46f459a75183a5522ee017434002ae506aabf15be8709",
+      "quote": "our CDN service that is publicly available without a subscription"
+    },
+    {
+      "url": "https://github.com/jsdelivr/jsdelivr/issues/18550",
+      "date": "2026-11-25",
+      "proved": "the GitHub-proxy per-file limit is 20 MB regardless of repository size",
+      "capture": "sha256:2d9aff2fdf9921dacb7594a19f8bc87205957ed03a5a3139bb131f85f89e24c1",
+      "quote": "We actually allow files up to 20 MB for GitHub regardless of the overall repo size"
+    },
+    {
+      "url": "https://www.jsdelivr.com/terms/acceptable-use-policy",
+      "date": "2026-11-25",
+      "proved": "served immutable files can outlive upstream deletion",
+      "capture": "sha256:684151d92bdcab1be0d46f459a75183a5522ee017434002ae506aabf15be8709",
+      "quote": "Previously served immutable files may be retained in permanent storage even after upstream deletion. We do not accept removal requests simply because a package or version was unpublished, deleted upstream, or is no longer needed."
+    },
+    {
+      "url": "https://github.com/jsdelivr/jsdelivr",
+      "date": "2026-11-25",
+      "proved": "the GitHub proxy uses a path-based URL",
+      "capture": "sha256:2b422a33f7807efffb296128c5795069278b388d4e632ad3392fcfd348e79f89",
+      "quote": "/gh/user/repo@version/file"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:22.848Z",
+  "verified_at": "2026-11-25T19:55:10.656Z",
   "notes": "Provides CDN distribution rather than origin storage. Documentation states 'there are no limits on bandwidth or number of requests' (AUP section 1), with soft limits of 10,000 actively accessed files and 100,000 files per repository.",
   "history": [],
   "extras": {

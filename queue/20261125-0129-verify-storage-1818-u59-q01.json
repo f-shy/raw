@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u59-q01",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "What per-object size cap, if any, applies to a ttl.sh OCI blob push?",
+ "why": "The first-party page and deployment README state no byte ceiling; a repository issue reports HTTP 413 on an upload without stating a published limit.",
+ "scope": {
+  "rids": [
+   "storage/ttl-sh"
+  ]
+ },
+ "origin": "20261125-0129-verify-storage-1818/u59",
+ "created": "2026-11-25T19:55:24Z"
+}

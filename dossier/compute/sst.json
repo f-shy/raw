@@ -69,10 +69,17 @@
       "url": "https://sst.dev/docs/console/",
       "date": "2026-10-22",
       "proved": "a resource is what SST creates in your cloud provider and is active if its stage is at least two weeks old and was updated during the month, quoted"
+    },
+    {
+      "url": "https://sst.dev/docs/console/",
+      "date": "2026-11-25",
+      "proved": "the Console's free tier is 350 active resources a month, with the count resetting monthly",
+      "capture": "sha256:5c6ec40b53642c3d6a672819e9136acb0c08160e9723cb117afe9065f78d18ae",
+      "quote": "If your workspace has 350 active resources or fewer for the month, it's considered to be in the free tier."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:36.250Z",
   "notes": "SST Ion provides deployment tooling for applications running on AWS infrastructure. The SST Console includes a recurring free tier up to 350 managed resources; AWS compute costs bill separately.",
   "extras": {
     "wave2": {

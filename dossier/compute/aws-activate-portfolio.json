@@ -5,12 +5,12 @@
   "url": "https://aws.amazon.com/startups/learn/everything-you-need-to-know-about-aws-activate-credits",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "The Activate Portfolio tier offers up to USD 200,000 in AWS Activate Credits for provider-backed startups. Eligibility includes: associated with an Activate Provider and have their Organizational ID, not previously received AWS Activate Credits of equal or greater value, Pre-Series B with the most recent funding round in the last 12 months, a fully functioning company website, and founded in the past 10 years.",
+    "stated": "The Activate Portfolio tier offers up to $200,000 in AWS Activate Credits for provider-backed startups. Eligibility requires affiliation with an Activate Provider and that provider's Organizational ID, no prior AWS Activate Credits of equal or greater value, Pre-Series B status with the most recent funding round within the last 12 months, a fully functioning company website and founding within the past 10 years.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://aws.amazon.com/startups/learn/everything-you-need-to-know-about-aws-activate-credits",
     "read_on": "2026-10-22",
-    "notes": "one-shot-credit"
+    "notes": "Activate Providers include accelerators, angel investors, venture capital firms and startup-enabling organizations with a direct relationship with AWS; the provider supplies a unique Organization ID used in the application."
   },
   "per_object_cap": {
     "stated": "not applicable: the unit is a machine, not an object",
@@ -64,10 +64,24 @@
       "url": "https://aws.amazon.com/startups/credits/",
       "date": "2026-10-22",
       "proved": "the page names Andreessen Horowitz, Brex, Carta, Greylock, Sequoia and Y Combinator as Activate Providers, which is the class of entity that issues the Org ID, quoted"
+    },
+    {
+      "url": "https://aws.amazon.com/startups/learn/everything-you-need-to-know-about-aws-activate-credits",
+      "date": "2026-11-25",
+      "proved": "the page states the Portfolio tier amount and the provider-backed requirement",
+      "capture": "sha256:293b44fcf2feeff6f419ac954ed0f5908a76b3d2b4107a044025ef1035c1344c",
+      "quote": "The Activate Portfolio tier offers up to $200,000 in AWS Activate Credits for provider-backed startups."
+    },
+    {
+      "url": "https://aws.amazon.com/startups/learn/everything-you-need-to-know-about-aws-activate-credits",
+      "date": "2026-11-25",
+      "proved": "the page describes the classes of Activate Provider",
+      "capture": "sha256:293b44fcf2feeff6f419ac954ed0f5908a76b3d2b4107a044025ef1035c1344c",
+      "quote": "Activate Providers include thousands of accelerators, angel investors, venture capital firms, and startup-enabling organizations worldwide with a direct relationship with AWS."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:21.729Z",
   "notes": "Additional credits above USD 200,000 are stated to exist for AI startups, routed through an AWS account manager, which is a sales conversation rather than a program. The lifetime cap is unnamed on the page.",
   "extras": {
     "wave2": {

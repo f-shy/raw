@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://t.me/s/telegram",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: the public channel preview states no per-object size limit"
   },
   "retention": {
     "stated": "It is still validated (bogus token -> 404, no token -> 404), and one minted token 502'd transiently then recovered, so treat tokens as mint-on-demand, not permanent",
     "source_url": "https://t.me/s/telegram",
-    "notes": "Extracted from published terms."
+    "notes": "New subscribers can see the entire message history in a channel once they join."
   },
   "egress": {
     "terms": "Free and unmetered, served by Telegram's own nginx-backed web CDN (Server: nginx/1.30.1, Cache-Control: max-age=10800). Access-Control-Allow-Origin: * and Accept-Ranges advertised, so range requests and browser fetching work. This is genuinely CDN-friendly: put Cloudflare in front and the origin pull is a plain HTTP GET.",
@@ -96,10 +96,24 @@
       "proved": "the public channel preview served today shows video media posts",
       "capture": "sha256:8078a02a601ccea9d937c059bcfc878c74578b1c99299743bdd99deab86c4318",
       "quote": "This media is not supported in your browser VIEW IN TELEGRAM"
+    },
+    {
+      "url": "https://t.me/s/telegram",
+      "date": "2026-11-25",
+      "proved": "the preview shows media posts but states no object size limit",
+      "capture": "sha256:fd50c785dadb5d536d8e54376b08b827cca87a71538c109832cff310ab618dbc",
+      "quote": "This media is not supported in your browser VIEW IN TELEGRAM"
+    },
+    {
+      "url": "https://telegram.org/faq_channels",
+      "date": "2026-11-25",
+      "proved": "the Channels FAQ states new subscribers see the entire message history",
+      "capture": "sha256:99cb390f3a6c6ceb89dd5dc029871112b0cfdd68a5bcff3e16bfa7629ca0ad36",
+      "quote": "New subscribers can see the entire message history in a channel once they join."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:15:22.052Z",
+  "verified_at": "2026-11-25T19:55:23.966Z",
   "notes": "unverified: https://t.me/s/telegram answered 200 on 2026-11-11 through the environment proxy; no sentence on the page states that its HTML carries cdn1.telesco.pe or cdn4.telesco.pe media URLs, or that no tgme_widget_message_document element is present",
   "history": [],
   "extras": {

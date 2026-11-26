@@ -15,10 +15,10 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://hackage.haskell.org/upload",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The upload page names no per-package size limit. It states that each package added to the index has a cost of operation and maintenance."
   },
   "retention": {
-    "stated": "You can only upload a package version once and this cannot be undone",
+    "stated": "A package version can be uploaded only once and this cannot be undone. The operators retain the right to remove packages that are not under licenses that are open source in spirit, or that conflict with their ability to operate the service.",
     "source_url": "https://hackage.haskell.org/upload",
     "notes": "Extracted from published terms."
   },
@@ -31,7 +31,7 @@
   ],
   "interface_detail": "rest",
   "tooling": "`cabal upload` / `stack upload` (write), `hup` (a dedicated upload client, hackage.haskell.org/package/hup), Hackage server API at hackage-origin.haskell.org/api (open, 62,403-byte route listing), plain HTTPS tarball GET (read).",
-  "chaining": "unlimited packages x unlimited versions per package (versions are never deleted and the index keeps all of them) x unlimited free Hackage accounts. Content must be a Cabal sdist, but the sdist can contain arbitrary files declared in extra-source-files - so a multi-GB blob can be shipped as a package's data. Multiply: N accounts x M packages x K versions.",
+  "chaining": "Each upload must be a Cabal sdist tarball, the page requires the code and other material to be under an open source license, and a package version can be uploaded only once.",
   "limits": [],
   "limits_note": "per-object-cap: none documented; 7.4 MB verified, and the 100 MB-class limits seen in other ecosystems are not stated here - likely a server-side request size limit that is undocumented. IMPORTANT retention property: uploads are immutable and permanent (no delete, no re-upload of the same version), which is exactly what an archive workload wants. request-rate: not documented.",
   "identity_cost": {
@@ -71,10 +71,45 @@
       "proved": "The accounts page ties an account to an email address and password.",
       "capture": "sha256:c5b5a1be518cffd75408f6a6997a60954be23becbe2ef31510435aa89de0ee87",
       "quote": "You can modify various settings for your account, including changing the email address and password, setting email notification preferences, as well as creating authentication tokens, at the [account management page](https://hackage.haskell.org/users/account-management)."
+    },
+    {
+      "url": "https://hackage.haskell.org/upload",
+      "date": "2026-11-25",
+      "proved": "the upload page reserves the right to remove packages",
+      "capture": "sha256:d664270ca30c27c50bdbcc1b80b302bac32b3bb4ecbc5e7abb900b76cc05717e",
+      "quote": "we retain the right to remove packages that are not under licenses that are open source in spirit, or that conflict with our ability to operate this service."
+    },
+    {
+      "url": "https://hackage.haskell.org/upload",
+      "date": "2026-11-25",
+      "proved": "a published package version cannot be uploaded again",
+      "capture": "sha256:d664270ca30c27c50bdbcc1b80b302bac32b3bb4ecbc5e7abb900b76cc05717e",
+      "quote": "You can only upload a package version once and this cannot be undone"
+    },
+    {
+      "url": "https://hackage.haskell.org/upload",
+      "date": "2026-11-25",
+      "proved": "the open source license requirement",
+      "capture": "sha256:d664270ca30c27c50bdbcc1b80b302bac32b3bb4ecbc5e7abb900b76cc05717e",
+      "quote": "The code and other material you upload and distribute via this site must be under an"
+    },
+    {
+      "url": "https://hackage.haskell.org/upload",
+      "date": "2026-11-25",
+      "proved": "the page frames uploads as a cost to the operators and states no size limit",
+      "capture": "sha256:d664270ca30c27c50bdbcc1b80b302bac32b3bb4ecbc5e7abb900b76cc05717e",
+      "quote": "has a cost of operation and maintenance associated to it"
+    },
+    {
+      "url": "https://hackage.haskell.org/upload",
+      "date": "2026-11-25",
+      "proved": "the page states the once-only upload quoted in the field and no quota",
+      "capture": "sha256:d664270ca30c27c50bdbcc1b80b302bac32b3bb4ecbc5e7abb900b76cc05717e",
+      "quote": "You can only upload a package version once and this cannot be undone"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:18.128Z",
+  "verified_at": "2026-11-25T12:15:42.695Z",
   "notes": "No published per-package or total quota found on the upload page or the server API. Uploads are permanent: 'Upload and publish a package permanently' and 'You can only upload a package version once and this cannot be undone'. Real large package verified: pandoc-3.5.tar.gz is 7,483,625 bytes. Packages must be `cabal sdist` output (gzipped tar with package.cabal).",
   "history": [],
   "extras": {

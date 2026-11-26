@@ -6,7 +6,7 @@
  "category": "NAT VPS",
  "tier": "IIX NAT VPS 512MB",
  "free_tier": {
-  "stated": "No free tier. IIX NAT VPS 512MB is IDR 12,500 a month, printed 'Rp12,500' with 'Per Bulan'. The page showed '3' in stock for this tier and 22 for the 1 GB tier.",
+  "stated": "No free tier. The paid IIX NAT VPS 512MB tier is listed as 'Single Core, 512MB RAM, 10GB Storage, 500GB Bandwidth, 1 shared IPv4, 20 tcp/udp port + 1 redirect SSH port' with 'Domain Forwarding only to port 80/443', no outgoing SMTP traffic, Virtuozzo OpenVZ7 virtualization, no technical support and an Indonesia Datacenter.",
   "unit": "none",
   "metered_on": "none",
   "source_url": "https://my.whplus.com/cart.php?gid=20&language=indonesia",
@@ -85,6 +85,20 @@
    "url": "https://my.whplus.com/register.php",
    "date": "2026-10-24",
    "proved": "quoted: 'Untuk membuat akun baru, mohon Order Layanan Baru Dengan Kami' - there is no standalone registration form, so the account is created during an order"
+  },
+  {
+   "url": "https://my.whplus.com/cart.php?gid=20&language=indonesia",
+   "date": "2026-11-25",
+   "proved": "the grouping page still lists the paid IIX NAT VPS 512MB tier with 10 GB storage, 500 GB bandwidth, 1 shared IPv4, 20 tcp/udp ports plus one redirect SSH port, domain forwarding to ports 80/443, no outgoing SMTP, OpenVZ7, no technical support and an Indonesia datacenter",
+   "capture": "sha256:552e49d6ca372f9ff2f9a14d8f4dbbf0f01f063e40adee66cbc703f8f1a62693",
+   "quote": "Single Core,   \n 512MB RAM,  \n 10GB Storage,  \n 500GB Bandwidth,  \n 1 shared IPv4,  \n 20 tcp/udp port + 1 redirect SSH port,  \n Domain Forwarding only to port 80/443,  \n No outgoing SMTP traffic,  \n Virtuozzo OpenVZ7 virtualization,  \n No Technical Support,  \n Indonesia Datacenter"
+  },
+  {
+   "url": "https://my.whplus.com/cart.php?gid=20&language=indonesia",
+   "date": "2026-11-25",
+   "proved": "the paid IIX NAT VPS 512MB tier and its shape are unchanged",
+   "capture": "sha256:552e49d6ca372f9ff2f9a14d8f4dbbf0f01f063e40adee66cbc703f8f1a62693",
+   "quote": "Single Core,   \n 512MB RAM,  \n 10GB Storage,  \n 500GB Bandwidth,  \n 1 shared IPv4,  \n 20 tcp/udp port + 1 redirect SSH port,  \n Domain Forwarding only to port 80/443,  \n No outgoing SMTP traffic,  \n Virtuozzo OpenVZ7 virtualization,  \n No Technical Support,  \n Indonesia Datacenter"
   }
  ],
  "verdict": "qualifies-with-caveat",
@@ -137,5 +151,5 @@
   "cart_url_note": "the order buttons target cart.php?a=add&pid=<id>, but pids 112, 113 and 158 all resolved to the cPanel hosting group and an invalid pid resolved elsewhere, so the cart was never seen to price a NAT product. Recorded as null.",
   "other_plans": "IIX NAT VPS 1GB IDR 20,000 = USD 1.1045 with 22 in stock and 750 GB; 2GB IDR 30,000 with 17; 3GB IDR 40,000 with 10; 4GB IDR 50,000 with 10. The 256 MB tier at IDR 7,500 shows no stock span and its cart refuses."
  },
- "verified_at": "2026-10-24T06:03:49.000Z"
+ "verified_at": "2026-11-25T11:17:20.967Z"
 }

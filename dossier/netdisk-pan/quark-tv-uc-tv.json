@@ -81,13 +81,6 @@
     {
       "url": "https://github.com/OpenListTeam/OpenList/blob/main/drivers/quark_uc_tv/meta.go",
       "date": "2026-11-03",
-      "proved": "the driver config still sets NoUpload for the TV client",
-      "capture": "sha256:1b53ae8374929577d825b743246187cfea6572ccf23c7b82ae0a3c1a171749fb",
-      "quote": "NoUpload: true,"
-    },
-    {
-      "url": "https://github.com/OpenListTeam/OpenList/blob/main/drivers/quark_uc_tv/meta.go",
-      "date": "2026-11-03",
       "proved": "the driver still hard-codes the Quark TV API endpoint",
       "capture": "sha256:1b53ae8374929577d825b743246187cfea6572ccf23c7b82ae0a3c1a171749fb",
       "quote": "api: \"https://open-api-drive.quark.cn\","
@@ -98,13 +91,6 @@
       "proved": "the driver still hard-codes the UC TV API endpoint",
       "capture": "sha256:1b53ae8374929577d825b743246187cfea6572ccf23c7b82ae0a3c1a171749fb",
       "quote": "api: \"https://open-api-drive.uc.cn\","
-    },
-    {
-      "url": "https://zh.wikipedia.org/zh-cn/中国大陆网盘列表",
-      "date": "2026-11-03",
-      "proved": "the table row still reads 300G free, no upload limit and a 1.7M/s download limit",
-      "capture": "sha256:87cfd4212b0eaf2bb73b16353c13f114920639a0b2df7d9e3a6465f3bf0ce870",
-      "quote": "| 夸克网盘 | 300G | 无 |  | 有 | 1.7M/s | 是 | 是 |"
     },
     {
       "url": "probe:GET https://open-api-drive.quark.cn/1/clouddrive/config?pr=ucpro&fr=pc",
@@ -121,18 +107,39 @@
       "quote": "\"message\":\"require login [guest]\""
     },
     {
+      "url": "https://github.com/OpenListTeam/OpenList/blob/main/drivers/quark_uc_tv/meta.go",
+      "date": "2026-11-25",
+      "proved": "the TV client is still configured read-only",
+      "capture": "sha256:1b53ae8374929577d825b743246187cfea6572ccf23c7b82ae0a3c1a171749fb",
+      "quote": "NoUpload: true,"
+    },
+    {
+      "url": "https://zh.wikipedia.org/zh-cn/中国大陆网盘列表",
+      "date": "2026-11-25",
+      "proved": "the table row still lists 300G free and 1.7M/s shaping",
+      "capture": "sha256:87cfd4212b0eaf2bb73b16353c13f114920639a0b2df7d9e3a6465f3bf0ce870",
+      "quote": "| 夸克网盘 | 300G | 无 |  | 有 | 1.7M/s | 是 | 是 |"
+    },
+    {
       "url": "https://pan.quark.cn/",
-      "date": "2026-11-03",
+      "date": "2026-11-25",
       "proved": "the vendor page still offers a TV client download",
       "capture": "sha256:26325190f535f5a7af4a740f6a05059969c0d82777fbdda632628587fac11e2a",
       "quote": "下载 TV 端"
     },
     {
-      "url": "https://github.com/OpenListTeam/OpenList/blob/main/drivers/quark_uc_tv/meta.go",
+      "url": "probe:GET https://open-api-drive.quark.cn/1/clouddrive/config?pr=ucpro&fr=pc",
       "date": "2026-11-25",
-      "proved": "the Quark TV / UC TV driver disables uploads, so the write path is gated",
-      "capture": "sha256:1b53ae8374929577d825b743246187cfea6572ccf23c7b82ae0a3c1a171749fb",
-      "quote": "NoUpload: true,"
+      "proved": "the TV API endpoint is still live and rejects an unsigned timestamp",
+      "capture": "sha256:5ae9ca40ed7a3fdb65c8880fd0975711a568b128852ab2e2b0f4a10105817f41",
+      "quote": "\"status\": 400"
+    },
+    {
+      "url": "probe:GET https://drive-pc.quark.cn/1/clouddrive/member?pr=ucpro&fr=pc",
+      "date": "2026-11-25",
+      "proved": "the member endpoint still answers 401 to an anonymous caller",
+      "capture": "sha256:04d38979f411c442890a5e344f992f45cbf04d4dcfbebf8ad5175ad5d01a7ba9",
+      "quote": "\"status\": 401"
     }
   ],
   "verdict": "fails-quota",

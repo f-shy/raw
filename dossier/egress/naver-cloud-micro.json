@@ -62,10 +62,17 @@
       "url": "https://www.ncloud.com/main/creditEvent",
       "date": "2026-10-23",
       "proved": "[translated] 'We give new customers 100,000 won of discount credit applicable to payment for all services (valid for 3 months)', claimable only after 'registering a payment method'."
+    },
+    {
+      "url": "https://www.ncloud.com/main/creditEvent",
+      "date": "2026-11-25",
+      "proved": "the free Micro Server is one per person for one year from payment registration, billed if not returned, and offered only to residents of Korea",
+      "capture": "sha256:9f2c3fe403edc18379bebe4904f60e2987dc63da48d21a08aa17855f1db13585",
+      "quote": "- 1인당 1대의 Micro Server 생성 가능\n- 결제 정보 등록 시점부터 1년간 무료 사용\n- 무료 기간 종료 후 반납하지 않은 Micro Server는 자동 과금\n- 단, 거주지 국가가 한국인 경우에만 제공됩니다."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T19:55:31.197Z",
   "price_per_tb_month": "KRW 0 for one year for a Korean resident; billed after that",
   "history": [],
   "notes": "A free Korean VPS for a year with no card charge would be the answer to this lane's Korean question, and the country clause closes it. The page also carries a 300-man won credit promotion on a separate micro site, which is a trial credit requiring a payment method, not a free tier. Country: South Korea. The Green Rookie route needs a partner-institution email address, which is the same wall in a different shape.",

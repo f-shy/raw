@@ -5,7 +5,7 @@
   "url": "https://cstserver.com/index.php?rp=/announcements",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "A sale posted 2026-08-20 lists E5 bare metal at USD 17.9 a month for an E5-2620 with 16 GB, in four locations at the same price with different ports: Frankfurt 80 Mbps, Japan 50 Mbps, Los Angeles 30 Mbps, Hong Kong 30 Mbps. The ladder runs to a Dual E5-2680 at 40 cores with 32 GB for USD 89.9. A 60 percent code applies and a three-year prepay brings the entry machine to USD 9.8 a month.",
+    "stated": "E5 bare metal from USD 17.9 a month for an E5-2620 (12C) with 16 GB, in four locations with different ports: Frankfurt 80 Mbps, Japan 50 Mbps, Los Angeles 30 Mbps, Hong Kong 30 Mbps. The ladder runs to a Dual E5-2680 (40C) with 32 GB at USD 89.9 a month.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://cstserver.com/index.php?rp=/announcements",
@@ -69,10 +69,24 @@
       "url": "https://cstserver.com/index.php?rp=/announcements/46/",
       "date": "2026-08-20",
       "proved": "the same table lists 'Dual E5-2680 (40C) | 32G | $89.9//month' and 'Dual E5-2650 (32C) | 32G | $79.9//month'"
+    },
+    {
+      "url": "https://cstserver.com/index.php?rp=/announcements/46/",
+      "date": "2026-11-25",
+      "proved": "the sale table lists the E5-2620 with 16 GB at $17.9 per month and per-location port variants",
+      "capture": "sha256:32e84a4e596cc8cd0feea19fe555247c860bd942b548b029b3e0ac492b674586",
+      "quote": "| E5-2620（12C） | 16G | $17.9//month |"
+    },
+    {
+      "url": "https://cstserver.com/index.php?rp=/announcements/46/",
+      "date": "2026-11-25",
+      "proved": "the sale table still states the E5-2620 with 16 GB at $17.9 per month and the same price across the four location columns",
+      "capture": "sha256:32e84a4e596cc8cd0feea19fe555247c860bd942b548b029b3e0ac492b674586",
+      "quote": "| E5-2620（12C） | 16G | $17.9//month |"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:23.811Z",
   "notes": "Two label traps are worth carrying forward. The vendor writes '12C' for an E5-2620, which is the thread count of a 6-core, 12-thread part, so a core count taken from this table is double the real one; that reading is inferred from the model number and not measured. And the same USD 17.9 buys 80 Mbps in Frankfurt against 30 Mbps in Hong Kong, so the location column is part of the price. The sale prices are dated 2026-08-20 and the codes may have expired by the read date. Real-name requirements were not tested: no signup was started.",
   "extras": {
     "wave2": {

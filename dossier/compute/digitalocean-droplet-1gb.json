@@ -6,7 +6,7 @@
   "category": "VPS",
   "tier": "Basic Droplet, 1 GiB",
   "free_tier": {
-    "stated": "no free tier; the cheapest droplet is '512 MiB | 1 vCPU | 500 GiB | 10 GiB | $0.00595 | $4.00'",
+    "stated": "no free tier; the cheapest Basic Droplet is '512 MiB | 1 vCPU | 500 GiB | 10 GiB | $0.00595 | $4.00', with transfer, SSD, hourly and monthly price in the table row",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://www.digitalocean.com/pricing/droplets",
@@ -59,10 +59,17 @@
       "url": "https://www.digitalocean.com/pricing/droplets",
       "date": "2026-10-24",
       "proved": "quoted: '| 512 MiB | 1 vCPU | 500 GiB | 10 GiB | $0.00595 | $4.00 |'"
+    },
+    {
+      "url": "https://www.digitalocean.com/pricing/droplets",
+      "date": "2026-11-25",
+      "proved": "the Basic Droplets table row for 512 MiB lists 1 vCPU, 500 GiB transfer, 10 GiB SSD, USD 0.00595 per hour and USD 4.00 per month",
+      "capture": "sha256:600c203cd1ff93c38d694bf6dd9a855341d1375340883d0ab4cff1ad427ef083",
+      "quote": "| 512 MiB | 1 vCPU | 500 GiB | 10 GiB | $0.00595 | [$4.00](https://cloud.digitalocean.com/registrations/new?activation_redirect=%2Fdroplets%2Fnew%3Fsize%3Ds-1vcpu-512mb-10gb&redirect_url=%2Fdroplets%2Fnew%3Fsize%3Ds-1vcpu-512mb-10gb) |"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-24T01:56:00.000Z",
+  "verified_at": "2026-11-25T11:17:45.492Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "The 512 MiB droplet at USD 4.00 is the only sub-USD-5 row and it is too small for anything; 1 GiB is USD 6.00 and 2 GiB is USD 12.00. earlier old '$4 droplet, 1 GiB' figure no longer holds: USD 4.00 now buys 512 MiB.",

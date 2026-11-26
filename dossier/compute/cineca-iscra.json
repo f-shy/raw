@@ -5,7 +5,7 @@
   "url": "https://www.hpc.cineca.it/hpc-access/access-cineca-resources/iscra-projects/iscra-project-size/",
   "category": "national HPC allocation",
   "free_tier": {
-    "stated": "ISCRA Class C awards up to 10,000 GPU hours on Leonardo Booster over a maximum of nine months, and Class B up to 250,000 GPU hours or 3,600,000 core hours over 12 months; a try project is granted by email for about 10% of a Class C project and activated within 10 days.",
+    "stated": "ISCRA Class C awards up to 10.000 GPU hours on LEONARDO BOOSTER with a maximum duration of 9 months. Class B requests up to 250.000 GPU hours on LEONARDO BOOSTER machine OR 3.600.000 CORE hours on GALILEO100 or on LEONARDO GP, with a fixed duration of 12 months. Try projects can be requested for new users by email, are usually activated within 10 days after the request, and have resources of 10% of an ISCRA ClassC project over an average duration of two months.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://www.hpc.cineca.it/hpc-access/access-cineca-resources/iscra-projects/iscra-project-size/",
@@ -74,10 +74,17 @@
       "url": "https://www.hpc.cineca.it/hpc-access/access-cineca-resources/iscra-projects/iscra-general-informations/",
       "date": "2026-10-22",
       "proved": "Class C proposals 'may be submitted at any time of the year, basing on a system of continuous submission' with monthly evaluation and allocation within 45 days, quoted"
+    },
+    {
+      "url": "https://www.hpc.cineca.it/hpc-access/access-cineca-resources/iscra-projects/iscra-project-size/",
+      "date": "2026-11-25",
+      "proved": "the project-size page still sets the Class C limit at up to 10.000 GPU hours on LEONARDO BOOSTER for 9 months",
+      "capture": "sha256:80e2e2c448809b5bbf77098d563bced15f5b9ab5dafb3892deed6500630f801d",
+      "quote": "* On LEONARDO BOOSTER: up to 10.000 GPU hours. Maximum duration of 9 months."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:10.321Z",
   "notes": "The try-project route is the closest thing to an email-only tier discovered anywhere in evaluated benchmarks: no form, no committee, about 10% of a Class C project (so roughly 1,000 Leonardo GPU hours), activated in 10 days. The Italian-affiliation gate appears in the general information page rather than in the try-project sentence, so a reconciler should read this as 'email-only request, but eligibility still Italian'. CINECA states it awards in excess of 500 million core processor hours nationally each year and about 1,700 million counting EuroHPC participation. The ISCRA pages return upstream_status 403 to automated retrieval while still serving content through the provider's cache, so the text is documented but the origin refused a direct read.",
   "extras": {
     "wave2": {

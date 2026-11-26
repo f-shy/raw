@@ -16,12 +16,12 @@
     "stated": "1 GiB PER FILE",
     "bytes": 1073741824,
     "source_url": "https://documentation.ubuntu.com/launchpad/user/explanation/projects/publishing-files/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Each individual file must be no more than 1 GiB."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://documentation.ubuntu.com/launchpad/user/explanation/projects/publishing-files/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: the publishing-files page states file eligibility and the 1 GiB limit but states no retention period"
   },
   "egress": {
     "terms": "Free, no billing. Files are served from launchpadlibrarian.net behind a 303 redirect. No published transfer cap; a measured ~70 KB/s single-stream on a PPA .deb is a throughput problem rather than a quota one.",
@@ -85,10 +85,31 @@
       "proved": "the page flags itself as an unrevised migrated document",
       "capture": "sha256:b5e2c3433fb64c8a916a6547a60435f42668f67032abc78e73cb74d2d94c86f5",
       "quote": "This document has been migrated from help.launchpad.net as is, and has not yet been revised."
+    },
+    {
+      "url": "https://documentation.ubuntu.com/launchpad/user/explanation/projects/publishing-files/",
+      "date": "2026-11-25",
+      "proved": "the page states each individual file must be no more than 1 GiB",
+      "capture": "sha256:b5e2c3433fb64c8a916a6547a60435f42668f67032abc78e73cb74d2d94c86f5",
+      "quote": "Each individual file must be no more than 1 GiB and you must be the:"
+    },
+    {
+      "url": "https://documentation.ubuntu.com/launchpad/user/explanation/projects/publishing-files/",
+      "date": "2026-11-25",
+      "proved": "the page states the 1 GiB per-file limit",
+      "capture": "sha256:b5e2c3433fb64c8a916a6547a60435f42668f67032abc78e73cb74d2d94c86f5",
+      "quote": "Each individual file must be no more than 1 GiB and you must be the:"
+    },
+    {
+      "url": "https://documentation.ubuntu.com/launchpad/user/explanation/projects/publishing-files/",
+      "date": "2026-11-25",
+      "proved": "the page states file limits and eligibility; no retention period is stated on the page",
+      "capture": "sha256:b5e2c3433fb64c8a916a6547a60435f42668f67032abc78e73cb74d2d94c86f5",
+      "quote": "Each individual file must be no more than 1 GiB and you must be the:"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:00.433Z",
+  "verified_at": "2026-11-25T21:21:13.742Z",
   "notes": "1 GiB PER FILE in the project *file release* area - a separate, much smaller surface than the PPA. The manual says: 'Each individual file must be no more than 1 GiB and you must be the: project maintainer / project driver / or the series release manager.' There is no published total-per-project cap; the unit of accounting is the individual release file. (The 8 GiB figure widely quoted for Launchpad is the PPA disk quota - it does not govern file releases.)",
   "history": [],
   "extras": {

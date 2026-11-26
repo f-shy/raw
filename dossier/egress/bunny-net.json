@@ -5,7 +5,7 @@
   "url": "https://bunny.net/pricing/",
   "category": "CDN (paid)",
   "free_tier": {
-    "stated": "no free tier; USD 1/month minimum",
+    "stated": "no free plan; a 14-day free trial needs no credit card; USD 1 monthly minimum",
     "unit": "none",
     "metered_on": "downloaded-bytes",
     "source_url": "https://bunny.net/pricing/",
@@ -43,8 +43,8 @@
     }
   ],
   "identity_cost": {
-    "kind": "card",
-    "detail": "a card, with a USD 1/month minimum",
+    "kind": "email",
+    "detail": "the 14-day trial needs no credit card; paid use accepts PayPal, major credit cards and crypto, with a USD 1 monthly minimum",
     "country": null
   },
   "reliability_note": "the cheapest per-GB CDN rate found, which is why the arithmetic matters more than the rate",
@@ -54,10 +54,45 @@
       "url": "https://bunny.net/pricing/",
       "date": "2026-10-22",
       "proved": "USD 0.005/GB on the volume network and USD 0.01/GB in EU and North America"
+    },
+    {
+      "url": "https://bunny.net/pricing/",
+      "date": "2026-11-25",
+      "proved": "the 14-day trial asks for no credit card",
+      "capture": "sha256:47ccbe43b84ce194020f0a641fb3be29f6d99fa7fab8e26cc98f769657bcd744",
+      "quote": "No credit card required. Complete setup in 2 minutes."
+    },
+    {
+      "url": "https://bunny.net/pricing/",
+      "date": "2026-11-25",
+      "proved": "payment options after the trial: PayPal, cards, crypto",
+      "capture": "sha256:47ccbe43b84ce194020f0a641fb3be29f6d99fa7fab8e26cc98f769657bcd744",
+      "quote": "Pay with PayPal, most major credit cards, and crypto."
+    },
+    {
+      "url": "https://bunny.net/pricing/",
+      "date": "2026-11-25",
+      "proved": "only a USD 1 monthly minimum and per-GB prices are stated; no size, rate or volume cap",
+      "capture": "sha256:47ccbe43b84ce194020f0a641fb3be29f6d99fa7fab8e26cc98f769657bcd744",
+      "quote": "Simple and affordable pricing at any scale. $1 monthly minimum."
+    },
+    {
+      "url": "https://bunny.net/pricing/",
+      "date": "2026-11-25",
+      "proved": "overcharge protection is a user-set monthly bandwidth limit",
+      "capture": "sha256:47ccbe43b84ce194020f0a641fb3be29f6d99fa7fab8e26cc98f769657bcd744",
+      "quote": "Protect your account with monthly bandwidth limits."
+    },
+    {
+      "url": "https://bunny.net/pricing/",
+      "date": "2026-11-25",
+      "proved": "the volume network rate is unchanged",
+      "capture": "sha256:47ccbe43b84ce194020f0a641fb3be29f6d99fa7fab8e26cc98f769657bcd744",
+      "quote": "First 500 TB $0.005/GB"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T03:20:00.000Z",
+  "verified_at": "2026-11-25T15:43:51.888Z",
   "notes": "At 1 TiB/day, 1,024 GiB is 1.10 TB, so USD 5.5 to 11 per day and USD 165 to 330 per month.",
   "history": [],
   "extras": {
@@ -66,8 +101,9 @@
     "bytes_transit": "yes",
     "transit_note": "a pull zone serves the origin's bytes from bunny's edge"
   },
-  "binding": "per-object-cap",
+  "binding": "none",
   "interface_detail": "a pull zone hostname",
   "stale": false,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z"
+  "stale_checked_at": "2026-10-22T00:00:00.000Z",
+  "binding_note": "no cap is published: the page states per-GB prices and a USD 1 monthly minimum; the user can set monthly bandwidth limits as overcharge protection."
 }

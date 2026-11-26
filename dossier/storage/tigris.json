@@ -18,12 +18,12 @@
     "notes": "the page does not say whether 5 TB is decimal or binary"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "Minimum storage retention: N/A on Standard, 30 days on Infrequent Access, 90 days on Archive and Archive Instant Retrieval.",
     "source_url": "https://www.tigrisdata.com/pricing/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "A minimum storage retention charge applies to objects stored in the Infrequent Access, Archive, and Archive Instant Retrieval tiers."
   },
   "egress": {
-    "terms": "Free on every tier and location type: no charge for regional, region-to-region or internet egress, and no ratio or monthly cap is published; the pricing page asks for contact when bandwidth requirements are extraordinary. Reading Infrequent Access and Archive Instant Retrieval objects carries a retrieval fee, separate from egress.",
+    "terms": "Tigris does not charge for regional data transfer, region-to-region data transfer, or data transfer out to the internet (egress).",
     "metered": false
   },
   "interface": [
@@ -251,10 +251,59 @@
       "proved": "no card is needed to start on the free allowance",
       "capture": "sha256:e5f984823b107f31e9a0e521d896a0b88340756b1b8e637f2a18cbc9c43d7436",
       "quote": "No credit card required to get started"
+    },
+    {
+      "url": "https://www.tigrisdata.com/pricing.md",
+      "date": "2026-11-25",
+      "proved": "minimum storage retention is N/A on Standard, 30 days on Infrequent Access and 90 days on the two Archive tiers",
+      "capture": "sha256:e5f984823b107f31e9a0e521d896a0b88340756b1b8e637f2a18cbc9c43d7436",
+      "quote": "| Min. Storage Retention | N/A | 30 days | 90 days | 90 days |"
+    },
+    {
+      "url": "https://www.tigrisdata.com/pricing.md",
+      "date": "2026-11-25",
+      "proved": "the pricing FAQ names the three tiers with a minimum storage retention charge",
+      "capture": "sha256:e5f984823b107f31e9a0e521d896a0b88340756b1b8e637f2a18cbc9c43d7436",
+      "quote": "A minimum storage retention charge applies to objects stored in the Infrequent Access, Archive, and Archive Instant Retrieval tiers."
+    },
+    {
+      "url": "https://www.tigrisdata.com/pricing.md",
+      "date": "2026-11-25",
+      "proved": "the pricing page states that all three kinds of data transfer carry no charge",
+      "capture": "sha256:e5f984823b107f31e9a0e521d896a0b88340756b1b8e637f2a18cbc9c43d7436",
+      "quote": "Tigris does not charge for regional data transfer, region-to-region data transfer, or data transfer out to the internet (egress)."
+    },
+    {
+      "url": "https://www.tigrisdata.com/pricing.md",
+      "date": "2026-11-25",
+      "proved": "the pricing table gives N/A, 30 days and 90 days as the minimum retention by tier",
+      "capture": "sha256:e5f984823b107f31e9a0e521d896a0b88340756b1b8e637f2a18cbc9c43d7436",
+      "quote": "| Min. Storage Retention | N/A | 30 days | 90 days | 90 days |"
+    },
+    {
+      "url": "https://www.tigrisdata.com/pricing.md",
+      "date": "2026-11-25",
+      "proved": "the pricing FAQ names the tiers subject to a minimum retention charge",
+      "capture": "sha256:e5f984823b107f31e9a0e521d896a0b88340756b1b8e637f2a18cbc9c43d7436",
+      "quote": "A minimum storage retention charge applies to objects stored in the Infrequent Access, Archive, and Archive Instant Retrieval tiers."
+    },
+    {
+      "url": "https://www.tigrisdata.com/pricing.md",
+      "date": "2026-11-25",
+      "proved": "the pricing page states that regional, cross-region and internet transfer carry no charge",
+      "capture": "sha256:e5f984823b107f31e9a0e521d896a0b88340756b1b8e637f2a18cbc9c43d7436",
+      "quote": "Tigris does not charge for regional data transfer, region-to-region data transfer, or data transfer out to the internet (egress)."
+    },
+    {
+      "url": "https://www.tigrisdata.com/docs/objects/multipart-uploads.md",
+      "date": "2026-11-25",
+      "proved": "the multipart documentation states the largest object size as 5 TB",
+      "capture": "sha256:d2f40b33ce2953d39ef84d7561ba1e2dbf89bc94795e3f210151ea115652333b",
+      "quote": "Standard S3 multipart semantics apply (e.g., large objects up to 5 TB)."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-01T18:05:15.751Z",
+  "verified_at": "2026-11-25T19:55:26.956Z",
   "price_per_tb_month": "USD 20.48 per TiB-month Standard, USD 10.24 Infrequent Access, USD 4.10 Archive or Archive Instant Retrieval (USD 0.02, 0.01 and 0.004 per GB-month of 2^30 bytes, global or single-region); multi-region USD 0.025, 0.015 and 0.006 per GB-month",
   "notes": "Per-GB-month, 5 GB free (Standard); tiers Standard / Infrequent Access / Archive Instant Retrieval / Archive",
   "history": [],

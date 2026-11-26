@@ -98,23 +98,9 @@
     {
       "url": "probe:https://pp.591meta.com/",
       "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:618f3aa3f5ea243cdcd580cc40e5c11df03412d1cb3d44d31e482d061adb8075",
-      "quote": "\"listing_sha256\": \"e715d3d0\""
-    },
-    {
-      "url": "probe:https://pp.591meta.com/",
-      "date": "2026-11-11",
       "proved": "the probe record states the hash method used for the listing",
       "capture": "sha256:618f3aa3f5ea243cdcd580cc40e5c11df03412d1cb3d44d31e482d061adb8075",
       "quote": "\"listing_hash_method\": \"sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters\""
-    },
-    {
-      "url": "probe:https://pp.591meta.com/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:618f3aa3f5ea243cdcd580cc40e5c11df03412d1cb3d44d31e482d061adb8075",
-      "quote": "\"alive\": true"
     },
     {
       "url": "probe:https://pp.591meta.com/",
@@ -161,15 +147,22 @@
     {
       "url": "probe:https://pp.591meta.com",
       "date": "2026-11-19",
-      "proved": "the fresh root listing hash supports the changed-hash or flapping note",
-      "capture": "sha256:2291c195349eb493b3a36b2a49ae8f2e9b516ccdc52c77d15edba5f652da258d",
-      "quote": "\"listing_sha256\": \"c4cccc22\""
-    },
-    {
-      "url": "probe:https://pp.591meta.com",
-      "date": "2026-11-19",
       "proved": "the second fresh probe produced a different hash, so the runs disagree",
       "capture": "sha256:14deceb89ca535c7016a15aac44298b2317d1bc713ca3922505184322ffe1e82",
+      "quote": "\"listing_sha256\": \"e715d3d0\""
+    },
+    {
+      "url": "probe:https://pp.591meta.com/",
+      "date": "2026-11-25",
+      "proved": "the anonymous settings and mount-list requests answered at this instant",
+      "capture": "sha256:be6fabb0e288d12b9a215c3b2540df3db794758fcd06f64a4148de59c461b9ed",
+      "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://pp.591meta.com/",
+      "date": "2026-11-25",
+      "proved": "the root listing hash is e715d3d0, changed from the recorded c4cccc22",
+      "capture": "sha256:be6fabb0e288d12b9a215c3b2540df3db794758fcd06f64a4148de59c461b9ed",
       "quote": "\"listing_sha256\": \"e715d3d0\""
     },
     {
@@ -206,17 +199,10 @@
       "proved": "the guest role has this permission bitmask, base path and advertised write flags",
       "capture": "sha256:d9c549ade6988462cb0ecda7f056f240197553a1e13bd8a9e04fcef2ebdbd173",
       "quote": "\"permission\": 0, ... \"base_path\": \"/\", ... \"write_advertised\": false, ... \"write_content_bypass\": null,"
-    },
-    {
-      "url": "probe:https://pp.591meta.com/",
-      "date": "2026-11-25",
-      "proved": "the guest session answered and the settings endpoint returned HTTP 200",
-      "capture": "sha256:d9c549ade6988462cb0ecda7f056f240197553a1e13bd8a9e04fcef2ebdbd173",
-      "quote": "\"alive\": true, ... \"status\": 200,"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T11:08:35.121Z",
+  "verified_at": "2026-11-25T21:46:10.686Z",
   "binding": "per-ip-shaping",
   "notes": "anonymous POST /api/fs/list on / returned code 200 with 26 root entries (listing sha256 e715d3d0)",
   "history": [],
@@ -233,7 +219,7 @@
     "listing_sha256": "e715d3d0",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-25T01:38:34.283Z",
+    "last_verified_alive": "2026-11-25T02:34:41.134Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "listing_hash_method": "sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters"

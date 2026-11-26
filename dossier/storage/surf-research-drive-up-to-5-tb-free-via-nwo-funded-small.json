@@ -15,25 +15,24 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.surf.nl/en/small-compute-applications-nwo",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The Research Drive page describes storing, sharing and synchronising research data and gives no per-object size or count cap."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.surf.nl/en/small-compute-applications-nwo",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The Research Drive page describes storing, sharing and synchronising research data and gives no retention period."
   },
   "egress": {
     "terms": "Unmetered. SURF is the Dutch national e-infrastructure, no egress product exists.",
     "metered": false
   },
   "interface": [
-    "s3",
     "webdav",
     "rclone"
   ],
   "interface_detail": "webdav",
   "tooling": "Research Drive is ownCloud/Nextcloud-based, so the standard desktop sync client and WebDAV endpoints work; rclone's webdav backend applies. Not S3.",
-  "chaining": "Grants 5 TB per project via Small Compute. The same application also provides up to 10 TB project storage on Snellius, up to 200 TB disk storage and 300 TB tape storage on Grid/Spider for data processing, and up to 50 TB offline tape storage.",
+  "chaining": "A Small Compute application for Data Processing on Grid and/or Spider can include up to 200TB disk storage, 300TB tape storage, Research Drive - via SURF (up to 5TB) or via institution",
   "limits": [],
   "limits_note": "Per-object-cap: not published for Research Drive; the SURF bundle page caps 'max. 10TB project space storage' on Snellius and 'up to 200TB disk storage' on Grid/Spider. request-rate: not published. Retention: tied to the project; SURF states data is retained for the project duration. Gate: 'researchers must have either a tenured appointment .. or a tenure track appointment at one of the research organisations listed'. A genuinely institution-gated, NWO-funded scheme.",
   "identity_cost": {
@@ -73,10 +72,66 @@
       "proved": "the small-compute page states that eligibility requires a tenured or tenure-track appointment at one of the listed research organisations",
       "capture": "sha256:ffa3959b23e23963004be2495fd5dfebf04b4a0bc9439ac5d2aba5d26764ac90",
       "quote": "To be eligible to submit a proposal, researchers must have either a tenured appointment (and therefore hold a paid position for an indefinite period) or a tenure track appointment at one of the research organisations listed below."
+    },
+    {
+      "url": "https://www.surf.nl/en/services/storage-data-management/research-drive",
+      "date": "2026-11-25",
+      "proved": "the first-party service page describes Research Drive and states no per-object cap",
+      "capture": "sha256:7e6a95b3a8c9f9fe0b45727797d632fbc5f49ef089cd7d44971ab04162e2c580",
+      "quote": "Research Drive allows you to store and share your research data in an online environment, and synchronise with various devices."
+    },
+    {
+      "url": "https://www.surf.nl/en/services/storage-data-management/research-drive",
+      "date": "2026-11-25",
+      "proved": "the first-party service page describes Research Drive and states no retention period",
+      "capture": "sha256:7e6a95b3a8c9f9fe0b45727797d632fbc5f49ef089cd7d44971ab04162e2c580",
+      "quote": "Research Drive allows you to store and share your research data in an online environment, and synchronise with various devices."
+    },
+    {
+      "url": "https://www.surf.nl/en/services/storage-data-management/research-drive",
+      "date": "2026-11-25",
+      "proved": "the service page describes Research Drive and states neither a per-object cap nor a retention period",
+      "capture": "sha256:7e6a95b3a8c9f9fe0b45727797d632fbc5f49ef089cd7d44971ab04162e2c580",
+      "quote": "Research Drive allows you to store and share your research data in an online environment, and synchronise with various devices."
+    },
+    {
+      "url": "https://www.surf.nl/en/services/storage-data-management/research-drive",
+      "date": "2026-11-25",
+      "proved": "the Research Drive page states up to 5 TB of storage space",
+      "capture": "sha256:7e6a95b3a8c9f9fe0b45727797d632fbc5f49ef089cd7d44971ab04162e2c580",
+      "quote": "You will receive up to 5 TB of storage space."
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20251111112602/https://servicedesk.surf.nl/wiki/spaces/WIKI/pages/117179045/RD+How+to+get+your+WEBDAV+credentials?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the SURF service-desk page documents a WebDAV connection set up with Rclone",
+      "capture": "sha256:654ec752f7f579790abaada971f39ed8f201c6cd9088f8d2364afa12bf7ace72",
+      "quote": "Use Rclone to set up a WebDAV connection"
+    },
+    {
+      "url": "https://archive.web.pkgforge.dev/capture/20251111112602/https://servicedesk.surf.nl/wiki/spaces/WIKI/pages/117179045/RD+How+to+get+your+WEBDAV+credentials?provider=wayback",
+      "date": "2026-11-25",
+      "proved": "the SURF service-desk page documents a WebDAV connection with Rclone",
+      "capture": "sha256:654ec752f7f579790abaada971f39ed8f201c6cd9088f8d2364afa12bf7ace72",
+      "quote": "Use Rclone to set up a WebDAV connection"
+    },
+    {
+      "url": "https://www.surf.nl/en/small-compute-applications-nwo",
+      "date": "2026-11-25",
+      "proved": "the NWO page lists those storage allocations in one Small Compute application",
+      "capture": "sha256:ffa3959b23e23963004be2495fd5dfebf04b4a0bc9439ac5d2aba5d26764ac90",
+      "quote": "up to 200TB disk storage, 300TB tape storage, Research Drive - via SURF (up to 5TB) or via institution"
+    },
+    {
+      "url": "https://www.surf.nl/en/small-compute-applications-nwo",
+      "date": "2026-11-25",
+      "proved": "the NWO page still lists those allocations in one application",
+      "capture": "sha256:ffa3959b23e23963004be2495fd5dfebf04b4a0bc9439ac5d2aba5d26764ac90",
+      "quote": "up to 200TB disk storage, 300TB tape storage, Research Drive - via SURF (up to 5TB) or via institution"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:32.480Z",
+  "verified_at": "2026-11-25T19:55:23.060Z",
   "notes": "Community Edition: 'Are you working at an institution without its own Research Drive environment? Then apply for access to Research Drive Community Edition here. You will receive up to 5 TB of storage space.' Institutional instances have their own (much larger) quotas set per institution.",
   "history": [],
   "extras": {

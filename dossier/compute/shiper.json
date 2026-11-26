@@ -5,7 +5,7 @@
   "url": "https://shiper.app/",
   "category": "platform host",
   "free_tier": {
-    "stated": "Free Hobby plan, quoted: 'USD 0 /mo - Automatic Builds and Deployments - Included SSL - 1 Concurrent Build - 1 Self-Hosted Instance - Included Resources - 0.25 vCPU - 256' MB. Builder is 'USD 5 /mo' with 'Custom Domains', 'Up to 3 Self-Hosted Instances', '0.5 vCPU - 512' MB. Scale is 'USD 20 /mo' with '2 vCPU - 1500' MB. A promotional route exists: 'Get the Builder Plan for just USD 1/month... Simply join our Discord and share what you're building'.",
+    "stated": "## Hobby ... Best for testing, learning, or tiny apps ... ## $0 ... /mo. ... - Automatic Builds and Deployments ... - Included SSL ... - 1 Concurrent Build ... - 1 Self-Hosted Instance ... Included Resources ... - 0.25 vCPU ... - 256 ... ## Builder ... ## $5 ... /mo. ... - Custom Domains ... - Up to 3 Self-Hosted Instances ... - 0.5 vCPU ... - 512 ... ## Scale ... ## $20 ... /mo. ... - 2 vCPU ... - 1500 ... Get the Builder Plan for just $1/month including Custom Domains, Unlimited Projects, and more. Simply join our Discord and share what you're building to claim the offer.",
     "unit": "unlimited",
     "metered_on": "wall-clock",
     "source_url": "https://shiper.app/",
@@ -70,10 +70,24 @@
       "url": "https://shiper.app/",
       "date": "2026-10-22",
       "proved": "'Get the Builder Plan for just USD 1/month including Custom Domains, Unlimited Projects, and more. Simply join our Discord and share what you're building to claim the offer.', quoted"
+    },
+    {
+      "url": "https://shiper.app/",
+      "date": "2026-11-25",
+      "proved": "the pricing section states the free Hobby plan with 0.25 vCPU and 256, the Builder and Scale prices and shapes, and a USD 1 Builder promotional route",
+      "capture": "sha256:bd7ada40d27a230067c28a444e6e0661ea322092a76a5d1aa9db38b69982aa5f",
+      "quote": "## Hobby ... Best for testing, learning, or tiny apps ... ## $0 ... /mo. ... - Automatic Builds and Deployments ... - Included SSL ... - 1 Concurrent Build ... - 1 Self-Hosted Instance ... Included Resources ... - 0.25 vCPU ... - 256 ... ## Builder ... ## $5 ... /mo. ... - Custom Domains ... - Up to 3 Self-Hosted Instances ... - 0.5 vCPU ... - 512 ... ## Scale ... ## $20 ... /mo. ... - 2 vCPU ... - 1500 ... Get the Builder Plan for just $1/month including Custom Domains, Unlimited Projects, and more. Simply join our Discord and share what you're building to claim the offer."
+    },
+    {
+      "url": "https://shiper.app/",
+      "date": "2026-11-25",
+      "proved": "the pricing section still states the free Hobby plan with 0.25 vCPU and 256, the Builder and Scale prices and shapes, and a USD 1 Builder promotional route",
+      "capture": "sha256:bd7ada40d27a230067c28a444e6e0661ea322092a76a5d1aa9db38b69982aa5f",
+      "quote": "## Hobby ... Best for testing, learning, or tiny apps ... ## $0 ... /mo. ... - Automatic Builds and Deployments ... - Included SSL ... - 1 Concurrent Build ... - 1 Self-Hosted Instance ... Included Resources ... - 0.25 vCPU ... - 256 ... ## Builder ... ## $5 ... /mo. ... - Custom Domains ... - Up to 3 Self-Hosted Instances ... - 0.5 vCPU ... - 512 ... ## Scale ... ## $20 ... /mo. ... - 2 vCPU ... - 1500 ... Get the Builder Plan for just $1/month including Custom Domains, Unlimited Projects, and more. Simply join our Discord and share what you're building to claim the offer."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:47.492Z",
   "notes": "Aggregator claim checked: dalisoft/awesome-hosting says 'Shiper | Builder (5 USD/m) | trial 1 USD | Free yes'. The vendor confirms the free plan, the USD 5 Builder price and the USD 1 promotional price, and adds the plan shapes the aggregator omits. The free plan publishes no bandwidth allowance, so no egress term is recorded; that is a documented absence, not a zero.",
   "extras": {
     "wave2": {

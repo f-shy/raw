@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u130-q04",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "The evidence rows of storage/gofile dated 2026-10-21 hold a guest API token in a proved field. Should those rows be dropped from the record?",
+ "why": "A token authenticates as that guest account and sits in a committed record; it was not copied here.",
+ "scope": {
+  "rids": [
+   "storage/gofile"
+  ]
+ },
+ "origin": "20261125-0129-verify-storage-1818/u130",
+ "created": "2026-11-25T12:15:41Z"
+}

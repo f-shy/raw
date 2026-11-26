@@ -21,7 +21,7 @@
   "limits_note": "the Free column of the Containers rate table reads N/A",
   "reliability_note": "no reliability event observed",
   "confidence": "documented",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:39.491Z",
   "price_per_tb_month": null,
   "notes": "Kept as its own record so provider listings row and the pricing fact are joined rather than argued about.",
   "slug": "cloudflare-egress-only",
@@ -29,7 +29,7 @@
   "url": "https://developers.cloudflare.com/containers/",
   "category": "platform host",
   "free_tier": {
-    "stated": "Cloudflare's machine product is paid; the free Durable Object row is the substitute",
+    "stated": "Containers are billed for every 10ms that they are actively running at the following rates, with included monthly usage as part of the $5 USD per month [Workers Paid plan](https://developers.cloudflare.com/workers/platform/pricing/):",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://developers.cloudflare.com/containers/",
@@ -58,6 +58,20 @@
       "url": "https://developers.cloudflare.com/containers/platform/pricing/",
       "date": "2026-10-22",
       "proved": "the Free column of the memory, CPU and disk row reads N/A; usage is included with Workers Paid"
+    },
+    {
+      "url": "https://developers.cloudflare.com/containers/platform/pricing/",
+      "date": "2026-11-25",
+      "proved": "the pricing page states Containers bill per 10ms of active running and are included with the USD 5 a month Workers Paid plan",
+      "capture": "sha256:bfe8bbfd0905be6ea38480ebb82ae1c8623ff3876715eadabe453d3d73ef7f44",
+      "quote": "Containers are billed for every 10ms that they are actively running at the following rates, with included monthly usage as part of the $5 USD per month [Workers Paid plan](https://developers.cloudflare.com/workers/platform/pricing/):"
+    },
+    {
+      "url": "https://developers.cloudflare.com/containers/platform/pricing/",
+      "date": "2026-11-25",
+      "proved": "the pricing page still states the USD 5 a month Workers Paid plan and per-10ms billing for Containers",
+      "capture": "sha256:bfe8bbfd0905be6ea38480ebb82ae1c8623ff3876715eadabe453d3d73ef7f44",
+      "quote": "Containers are billed for every 10ms that they are actively running at the following rates, with included monthly usage as part of the $5 USD per month [Workers Paid plan](https://developers.cloudflare.com/workers/platform/pricing/):"
     }
   ],
   "verdict": "paid-only",

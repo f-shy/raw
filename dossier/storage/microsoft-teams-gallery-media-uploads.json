@@ -21,7 +21,7 @@
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://support.microsoft.com/en-us/teams/free/troubleshoot/where-is-my-microsoft-teams-free-data-stored",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "*These item types are available until they are deleted, the user leaves the conversation, or permission are updated"
   },
   "egress": {
     "terms": "Free; media served from Microsoft's CDN, chat-attached files via OneDrive share links",
@@ -33,7 +33,7 @@
   ],
   "interface_detail": "rest",
   "tooling": "No public Teams-free file API; attachments land in OneDrive, so Graph API against the backing OneDrive is the usable path. Wrapper-only for the media path.",
-  "chaining": "5 GB x unlimited free Microsoft accounts (OneDrive-backed); separately the media path is per-record unlimited - 'share as many photos and videos as you want' - which is the interesting half: an image/video album with no byte cap, multiplied by unlimited free accounts.",
+  "chaining": "Images and videos are not saved on OneDrive and don’t have a storage limit. You can share as many photos and videos as you want.",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -93,10 +93,38 @@
       "proved": "the free Teams page lists 5 GB of cloud storage per user",
       "capture": "sha256:62f51e98acaa67ee62d487a3c1dad7697a99652cc9efc8b13ce373c28a8f3b3f",
       "quote": "5 GB of cloud storage per user"
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/teams/personal/files-search/how-long-do-files-and-data-remain-available-for-in-microsoft-teams-personal",
+      "date": "2026-11-25",
+      "proved": "pictures and chat files remain available until deletion, leaving the conversation or a permission change",
+      "capture": "sha256:9dbd9516fbed251bf6eeadc9ab4318be56eb9910f472af14e96c905ca61c5870",
+      "quote": "*These item types are available until they are deleted, the user leaves the conversation, or permission are updated"
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/teams/free/troubleshoot/where-is-my-microsoft-teams-free-data-stored",
+      "date": "2026-11-25",
+      "proved": "the Gallery and Media path has no storage limit stated and allows unlimited sharing",
+      "capture": "sha256:e70b352436f8c368ed2c6f278a552ac1af5c76c67d6d0006192677b353dc2f6c",
+      "quote": "Images and videos are not saved on OneDrive and don’t have a storage limit. You can share as many photos and videos as you want."
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/teams/free/troubleshoot/where-is-my-microsoft-teams-free-data-stored",
+      "date": "2026-11-25",
+      "proved": "individual OneDrive files are limited to 250 GB",
+      "capture": "sha256:e70b352436f8c368ed2c6f278a552ac1af5c76c67d6d0006192677b353dc2f6c",
+      "quote": "The upload and download sizes for individual files in OneDrive is 250 GB."
+    },
+    {
+      "url": "https://support.microsoft.com/en-us/teams/free/troubleshoot/where-is-my-microsoft-teams-free-data-stored",
+      "date": "2026-11-25",
+      "proved": "Teams personal use includes 5 GB of file storage",
+      "capture": "sha256:e70b352436f8c368ed2c6f278a552ac1af5c76c67d6d0006192677b353dc2f6c",
+      "quote": "The amount of free storage for you to upload and share documents, PDFs, and other data on Microsoft Teams for personal use is 5 GB."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:25.164Z",
+  "verified_at": "2026-11-25T19:55:11.736Z",
   "notes": "5 GB OneDrive-backed file storage per user, BUT images and videos uploaded via Gallery/Media are explicitly NOT stored in OneDrive and have no storage limit",
   "history": [],
   "extras": {

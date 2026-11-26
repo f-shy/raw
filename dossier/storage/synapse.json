@@ -15,15 +15,15 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://docs.synapse.org/synapse-docs/uploading-and-organizing-data",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The upload page states that Synapse can store files of all types within a project and gives no per-file size limit."
   },
   "retention": {
-    "stated": "per-object-cap: none documented for plain files; 1 GB/day on modelState. Retention: indefinite for public content",
+    "stated": "No retention period is stated on the upload page; files must be stored within a project.",
     "source_url": "https://docs.synapse.org/synapse-docs/uploading-and-organizing-data",
-    "notes": "Extracted from published terms."
+    "notes": "The upload page states no retention period; files must be stored within a project."
   },
   "egress": {
-    "terms": "Free to download for public projects; anonymous download of public entities is supported.",
+    "terms": "Anonymous users cannot create projects in Synapse, upload or download data, add wiki content, or comment in a discussion forums.",
     "metered": false
   },
   "interface": [
@@ -33,7 +33,7 @@
   ],
   "interface_detail": "rest",
   "tooling": "Python/Java/R clients (`synapseclient`), REST API, and a built-in Docker registry. Also supports custom storage locations (your own S3/GCS). Which makes it a metadata layer over someone else's bucket rather than storage itself.",
-  "chaining": "Unlimited projects per certified user. The interesting chain is the inverse: point Synapse at a custom S3/GCS location and you get a free DOI-style sharing and permissions layer over any bucket you already have.",
+  "chaining": "Synapse provides physical storage for files using Amazon S3, however, you can configure your own custom storage locations as well.",
   "limits": [
     {
       "kind": "per-ip-shaping",
@@ -91,10 +91,66 @@
       "proved": "the upload page states that files must be stored within a project",
       "capture": "sha256:d74bd42b0845910c730a337e671a633ea7134b23a76a95f453eaca50ff085816",
       "quote": "Files must be stored within a project."
+    },
+    {
+      "url": "https://docs.synapse.org/synapse-docs/uploading-and-organizing-data",
+      "date": "2026-11-25",
+      "proved": "the upload page states the kinds of files and their location without a per-file size limit",
+      "capture": "sha256:9b7477f07e26cf475e48da370a20e33828c562411bfefcec762f11f94f949f92",
+      "quote": "Synapse can be used to store files of all types. Files must be stored within a project."
+    },
+    {
+      "url": "https://docs.synapse.org/synapse-docs/uploading-and-organizing-data",
+      "date": "2026-11-25",
+      "proved": "the upload page states where files are stored and gives no retention period",
+      "capture": "sha256:9b7477f07e26cf475e48da370a20e33828c562411bfefcec762f11f94f949f92",
+      "quote": "Synapse can be used to store files of all types. Files must be stored within a project."
+    },
+    {
+      "url": "https://docs.synapse.org/synapse-docs/uploading-and-organizing-data",
+      "date": "2026-11-25",
+      "proved": "the upload page gives no retention period and requires files to be inside a project",
+      "capture": "sha256:9b7477f07e26cf475e48da370a20e33828c562411bfefcec762f11f94f949f92",
+      "quote": "Synapse can be used to store files of all types. Files must be stored within a project."
+    },
+    {
+      "url": "https://docs.synapse.org/synapse-docs/uploading-and-organizing-data",
+      "date": "2026-11-25",
+      "proved": "the upload page states file storage within a project with no cap or retention period",
+      "capture": "sha256:9b7477f07e26cf475e48da370a20e33828c562411bfefcec762f11f94f949f92",
+      "quote": "Synapse can be used to store files of all types. Files must be stored within a project."
+    },
+    {
+      "url": "https://docs.synapse.org/synapse-docs/synapse-user-account-types",
+      "date": "2026-11-25",
+      "proved": "the account-types page denies anonymous downloads",
+      "capture": "sha256:50d324dff3cfd9e831ea93b914a2fc171c311e23d111984a9cd057f691601564",
+      "quote": "Anonymous users cannot create projects in Synapse, upload or download data, add wiki content, or comment in a discussion forums."
+    },
+    {
+      "url": "https://docs.synapse.org/synapse-docs/synapse-user-account-types",
+      "date": "2026-11-25",
+      "proved": "the account-types page still denies anonymous downloads",
+      "capture": "sha256:50d324dff3cfd9e831ea93b914a2fc171c311e23d111984a9cd057f691601564",
+      "quote": "Anonymous users cannot create projects in Synapse, upload or download data, add wiki content, or comment in a discussion forums."
+    },
+    {
+      "url": "https://docs.synapse.org/synapse-docs/custom-storage-locations",
+      "date": "2026-11-25",
+      "proved": "the custom-storage page documents Synapse S3 storage and user-configured storage locations",
+      "capture": "sha256:58b2c94ed60369767f0796581af4c8238b1fb9cd913278080ec78cbac80edd2d",
+      "quote": "Synapse provides physical storage for files using Amazon S3, however, you can configure your own custom storage locations as well."
+    },
+    {
+      "url": "https://docs.synapse.org/synapse-docs/custom-storage-locations",
+      "date": "2026-11-25",
+      "proved": "the custom-storage page still documents user-configured storage locations",
+      "capture": "sha256:58b2c94ed60369767f0796581af4c8238b1fb9cd913278080ec78cbac80edd2d",
+      "quote": "Synapse provides physical storage for files using Amazon S3, however, you can configure your own custom storage locations as well."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T03:34:16.894Z",
+  "verified_at": "2026-11-25T19:55:23.062Z",
   "notes": "Files must be stored within a project.",
   "history": [],
   "extras": {

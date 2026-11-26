@@ -5,7 +5,7 @@
   "url": "https://azure.microsoft.com/en-us/products/dev-box/",
   "category": "Windows host",
   "free_tier": {
-    "stated": "no free tier published",
+    "stated": "Pay as you go with your existing eligible Microsoft 365 or Windows licenses. Dev Box is billed based on compute and storage consumption.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://azure.microsoft.com/en-us/products/dev-box/",
@@ -63,10 +63,17 @@
       "url": "https://azure.microsoft.com/en-us/products/dev-box/",
       "date": "2026-10-22",
       "proved": "'Pay as you go or try Azure free for up to 30 days' and 'Spin up a dev box on demand from a tailored, easy-to-use cloud developer portal'; the page publishes no free dev box"
+    },
+    {
+      "url": "https://azure.microsoft.com/en-us/products/dev-box/",
+      "date": "2026-11-25",
+      "proved": "the Dev Box pricing section states pay-as-you-go billing against eligible Microsoft 365 or Windows licenses and no free dev box",
+      "capture": "sha256:1b766324989cec1278eccb4a7c2581168610b83f30cd251c5de0a663c4cc79d1",
+      "quote": "Pay as you go with your existing eligible Microsoft 365 or Windows licenses. Dev Box is billed based on compute and storage consumption."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:46:19.009Z",
+  "verified_at": "2026-11-25T05:18:26.644Z",
   "price_per_tb_month": null,
   "notes": "Reclassified: no free tier on the catalogue card is a paid-only product, not a closed one. `dead` is reserved for a product that is withdrawn or unreachable.",
   "extras": {

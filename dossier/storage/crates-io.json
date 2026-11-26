@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "10 MB per .crate file",
     "source_url": "https://doc.rust-lang.org/cargo/reference/publishing.html",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "the Cargo publishing reference states a 10MB size limit on the .crate file"
   },
   "retention": {
     "stated": "The version can never be overwritten, and the code cannot be deleted.",
     "source_url": "https://doc.rust-lang.org/cargo/reference/publishing.html",
-    "notes": "Extracted from published terms."
+    "notes": "a published version can never be overwritten and the code cannot be deleted; crates.io aims to be a permanent archive, with conditional owner deletion described in the policies"
   },
   "egress": {
     "terms": "Free and unmetered, Cloudflare-fronted, CORS-open. Probe: static.crates.io .crate GET -> 200, Server: cloudflare, Cache-Control: 'public,max-age=31536000,immutable', Access-Control-Allow-Origin: *, Accept-Ranges: bytes.",
@@ -128,10 +128,31 @@
       "proved": "rate limits apply to publishing new crates and new versions",
       "capture": "sha256:275493e8f5665053f4774b267a2e4f542027ca1d3f72007909f16af4d3dc0035",
       "quote": "Crates.io has rate limits on publishes of new crates and publishes of new versions of existing crates to mitigate"
+    },
+    {
+      "url": "https://doc.rust-lang.org/cargo/reference/publishing.html",
+      "date": "2026-11-25",
+      "proved": "a published .crate file is capped at 10MB",
+      "capture": "sha256:2815047d35b140fe686be84265e216e6766c068eb77bce24c6cd766bc7c57615",
+      "quote": "[crates.io](https://crates.io/) currently has a 10MB size limit on the `.crate` file."
+    },
+    {
+      "url": "https://doc.rust-lang.org/cargo/reference/publishing.html",
+      "date": "2026-11-25",
+      "proved": "published code is retained permanently and cannot be deleted or overwritten",
+      "capture": "sha256:2815047d35b140fe686be84265e216e6766c068eb77bce24c6cd766bc7c57615",
+      "quote": "The version can never be overwritten, and the code cannot be deleted."
+    },
+    {
+      "url": "https://doc.rust-lang.org/cargo/reference/publishing.html",
+      "date": "2026-11-25",
+      "proved": "the Cargo reference still states the 10MB .crate limit",
+      "capture": "sha256:2815047d35b140fe686be84265e216e6766c068eb77bce24c6cd766bc7c57615",
+      "quote": "[crates.io](https://crates.io/) currently has a 10MB size limit on the `.crate` file."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:12.225Z",
+  "verified_at": "2026-11-25T04:14:17.957Z",
   "notes": "10 MB per .crate file. No limit on versions per crate ('There is no limit to the number of versions which can be published'), no documented cap on total crates or total bytes per account.",
   "history": [],
   "extras": {

@@ -13,18 +13,18 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "per-object-cap: 30 GB",
+    "stated": "Limits: currently, the itch.io backend will reject builds with a total uncompressed size that exceeds 30GB.",
     "bytes": 30000000000,
     "source_url": "https://itch.io/docs/butler/pushing.html",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "- The size of all the extracted content should not be greater than 500MB.\n- The size any single extracted file should not be greater than 200MB."
   },
   "retention": {
-    "stated": "per-object-cap: 30 GB uncompressed per build/channel; per-object-cap on HTML5 embeds: 500 MB total extracted and 200 MB per single extracted file; web uploader caps at 2 GB (500 MB default) but butler has no such limit; request-rate not a practical constraint. Retention: builds persist until deleted; no TTL.",
+    "stated": "No. You will always fully own your content. You are free to remove it at any time.",
     "source_url": "https://itch.io/docs/butler/pushing.html",
-    "notes": "Extracted from published terms."
+    "notes": "No. You will always fully own your content. You are free to remove it at any time."
   },
   "egress": {
-    "terms": "Free and unmetered. 'There is no limit to downloads' (itch.io support reply). Files served from itch.zone CDN.",
+    "terms": "There is no limit to downloads.",
     "metered": false
   },
   "interface": [
@@ -32,17 +32,17 @@
     "rsync",
     "cli"
   ],
-  "interface_detail": "rest",
+  "interface_detail": "GET https://api.itch.io/wharf/latest\n\nThis endpoint does not require authentication.",
   "tooling": "`butler` CLI (butler push / butler download / butler status) plus the Wharf HTTP API. GET https://api.itch.io/wharf/latest?target=user/game&channel_name=X returns the build manifest. butler does rsync-style block diffing so re-pushes are cheap.",
-  "chaining": "30 GB per build x unlimited channels per project (channel name is arbitrary: windows, osx, bonus, dlc-1, shard-01...) x up to 20+ projects per free account. 1 project x 20 channels = 600 GB on one free account. Each build is independently addressable and downloadable.",
+  "chaining": "Pushing to a new channel will make a corresponding file appear on your game's page",
   "limits": [
     {
       "kind": "per-object-cap",
-      "value": "per-object-cap: 30 GB",
+      "value": "Limits: currently, the itch.io backend will reject builds with a total uncompressed size that exceeds 30GB.",
       "source": "https://itch.io/docs/butler/pushing.html"
     }
   ],
-  "limits_note": "per-object-cap: 30 GB uncompressed per build/channel; per-object-cap on HTML5 embeds: 500 MB total extracted and 200 MB per single extracted file; web uploader caps at 2 GB (500 MB default) but butler has no such limit; request-rate not a practical constraint. Retention: builds persist until deleted; no TTL.",
+  "limits_note": "Limits: currently, the itch.io backend will reject builds with a total uncompressed size that exceeds 30GB.",
   "identity_cost": {
     "kind": "institution",
     "detail": "derived from the record's prose, not from an identity field, and no signup was executed: stinct builds rather than overwriting; butler auth uses an API key, and a project can be taken down by moderation (technical effect: URL 404s, data gone). 30 GB per build x unlimited",
@@ -83,10 +83,115 @@
       "proved": "the backend rejects a build whose total uncompressed size exceeds 30GB",
       "capture": "sha256:8ffe3cac95c4ac576d8b52a69e2e663c2b32a52a7a3ef337a17921b76a3d7d40",
       "quote": "Limits: currently, the itch.io backend will reject builds with a total uncompressed size that exceeds 30GB."
+    },
+    {
+      "url": "https://itch.io/docs/butler/pushing.html",
+      "date": "2026-11-25",
+      "proved": "the backend rejects builds whose total uncompressed size exceeds 30GB",
+      "capture": "sha256:8ffe3cac95c4ac576d8b52a69e2e663c2b32a52a7a3ef337a17921b76a3d7d40",
+      "quote": "Limits: currently, the itch.io backend will reject builds with a total uncompressed size that exceeds 30GB."
+    },
+    {
+      "url": "https://itch.io/docs/creators/html5",
+      "date": "2026-11-25",
+      "proved": "HTML5 embeds are limited to 500MB extracted total and 200MB per extracted file",
+      "capture": "sha256:5e2812ba18c12a0232d42abaac5fbf08ac41a1e0929ef441d5ed9d73f4a1d342",
+      "quote": "- The size of all the extracted content should not be greater than 500MB.\n- The size any single extracted file should not be greater than 200MB."
+    },
+    {
+      "url": "https://itch.io/docs/butler/pushing.html",
+      "date": "2026-11-25",
+      "proved": "the binding limit is a 30GB uncompressed build ceiling",
+      "capture": "sha256:8ffe3cac95c4ac576d8b52a69e2e663c2b32a52a7a3ef337a17921b76a3d7d40",
+      "quote": "Limits: currently, the itch.io backend will reject builds with a total uncompressed size that exceeds 30GB."
+    },
+    {
+      "url": "https://itch.io/docs/butler/pushing.html",
+      "date": "2026-11-25",
+      "proved": "the stated limit is 30GB uncompressed per build",
+      "capture": "sha256:8ffe3cac95c4ac576d8b52a69e2e663c2b32a52a7a3ef337a17921b76a3d7d40",
+      "quote": "Limits: currently, the itch.io backend will reject builds with a total uncompressed size that exceeds 30GB."
+    },
+    {
+      "url": "https://itch.io/docs/creators/faq",
+      "date": "2026-11-25",
+      "proved": "creators retain ownership and control removal of their content",
+      "capture": "sha256:6a4162d8711b82a5279854ac325a57b0c442a22e8b46727e88dfb7e67e9de015",
+      "quote": "No. You will always fully own your content. You are free to remove it at any time."
+    },
+    {
+      "url": "https://itch.io/docs/creators/faq",
+      "date": "2026-11-25",
+      "proved": "the creator controls removal; no fixed retention period is stated",
+      "capture": "sha256:6a4162d8711b82a5279854ac325a57b0c442a22e8b46727e88dfb7e67e9de015",
+      "quote": "No. You will always fully own your content. You are free to remove it at any time."
+    },
+    {
+      "url": "https://itch.io/t/6077449/more-project-space",
+      "date": "2026-11-25",
+      "proved": "downloads are not limited",
+      "capture": "sha256:814d090946eec7208721d59755fe53b498afa3690e4898723aa09346a7f37748",
+      "quote": "There is no limit to downloads."
+    },
+    {
+      "url": "https://itch.io/docs/butler/pushing.html",
+      "date": "2026-11-25",
+      "proved": "each pushed channel produces a file on the game page",
+      "capture": "sha256:8ffe3cac95c4ac576d8b52a69e2e663c2b32a52a7a3ef337a17921b76a3d7d40",
+      "quote": "Pushing to a new channel will make a corresponding file appear on your game's page"
+    },
+    {
+      "url": "https://itch.io/docs/butler/pushing.html",
+      "date": "2026-11-25",
+      "proved": "an unauthenticated HTTP GET endpoint exposes the latest build",
+      "capture": "sha256:8ffe3cac95c4ac576d8b52a69e2e663c2b32a52a7a3ef337a17921b76a3d7d40",
+      "quote": "GET https://api.itch.io/wharf/latest\n\nThis endpoint does not require authentication."
+    },
+    {
+      "url": "https://itch.io/docs/butler/pushing.html",
+      "date": "2026-11-25",
+      "proved": "the 30GB uncompressed build ceiling is unchanged",
+      "capture": "sha256:8ffe3cac95c4ac576d8b52a69e2e663c2b32a52a7a3ef337a17921b76a3d7d40",
+      "quote": "Limits: currently, the itch.io backend will reject builds with a total uncompressed size that exceeds 30GB."
+    },
+    {
+      "url": "https://itch.io/docs/creators/html5",
+      "date": "2026-11-25",
+      "proved": "HTML5 embeds have a 500MB extracted total cap and a 200MB per-file cap",
+      "capture": "sha256:5e2812ba18c12a0232d42abaac5fbf08ac41a1e0929ef441d5ed9d73f4a1d342",
+      "quote": "- The size of all the extracted content should not be greater than 500MB.\n- The size any single extracted file should not be greater than 200MB."
+    },
+    {
+      "url": "https://itch.io/docs/creators/faq",
+      "date": "2026-11-25",
+      "proved": "content stays under creator control and can be removed by the creator",
+      "capture": "sha256:6a4162d8711b82a5279854ac325a57b0c442a22e8b46727e88dfb7e67e9de015",
+      "quote": "No. You will always fully own your content. You are free to remove it at any time."
+    },
+    {
+      "url": "https://itch.io/t/6077449/more-project-space",
+      "date": "2026-11-25",
+      "proved": "downloads have no stated limit",
+      "capture": "sha256:814d090946eec7208721d59755fe53b498afa3690e4898723aa09346a7f37748",
+      "quote": "There is no limit to downloads."
+    },
+    {
+      "url": "https://itch.io/docs/butler/pushing.html",
+      "date": "2026-11-25",
+      "proved": "a new channel yields a separate file on the project page",
+      "capture": "sha256:8ffe3cac95c4ac576d8b52a69e2e663c2b32a52a7a3ef337a17921b76a3d7d40",
+      "quote": "Pushing to a new channel will make a corresponding file appear on your game's page"
+    },
+    {
+      "url": "https://itch.io/docs/butler/pushing.html",
+      "date": "2026-11-25",
+      "proved": "the latest-build endpoint is an unauthenticated HTTP GET",
+      "capture": "sha256:8ffe3cac95c4ac576d8b52a69e2e663c2b32a52a7a3ef337a17921b76a3d7d40",
+      "quote": "GET https://api.itch.io/wharf/latest\n\nThis endpoint does not require authentication."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:22.252Z",
+  "verified_at": "2026-11-25T19:55:10.653Z",
   "notes": "30 GB uncompressed per build ('the itch.io backend will reject builds with a total uncompressed size that exceeds 30GB'). No documented total-account storage cap; project pages have a soft limit of 20, raisable on request. Free to host, unlimited downloads.",
   "history": [],
   "extras": {

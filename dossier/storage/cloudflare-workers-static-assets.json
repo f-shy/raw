@@ -16,12 +16,12 @@
     "stated": "25 MiB per file",
     "bytes": 26214400,
     "source_url": "https://developers.cloudflare.com/workers/platform/limits/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "the Workers platform limits page fixes the individual Static Asset file size at 25 MiB on both Free and Paid"
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://developers.cloudflare.com/workers/platform/limits/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "assets belong to a Worker version; versions older than 30 days are deleted except the 100 most recent and any deployed version"
   },
   "egress": {
     "terms": "'Requests to static assets are free and unlimited'. Workers Static Assets billing doc. Only Worker-script invocations (SSR) count against the 100,000/day free request quota.",
@@ -91,10 +91,31 @@
       "proved": "requests to static assets are free and unlimited",
       "capture": "sha256:f817e34be2589dfcc0a4f86588db85440d5c09d19c5a1053622d5022259d8972",
       "quote": "Requests to static assets are free and unlimited."
+    },
+    {
+      "url": "https://developers.cloudflare.com/workers/platform/limits/",
+      "date": "2026-11-25",
+      "proved": "the per-file cap for static assets is 25 MiB on Workers Free and Paid",
+      "capture": "sha256:b48752e4bb8d56cf4b01ab46ec3b18c37be846927027950d901faac4dcdfa9d5",
+      "quote": "| Individual file size | 25 MiB | 25 MiB |"
+    },
+    {
+      "url": "https://developers.cloudflare.com/workers/platform/limits/",
+      "date": "2026-11-25",
+      "proved": "the asset lifetime is the Worker version lifetime: 30 days unless among the 100 most recent or currently deployed",
+      "capture": "sha256:b48752e4bb8d56cf4b01ab46ec3b18c37be846927027950d901faac4dcdfa9d5",
+      "quote": "Versions older than 30 days are deleted, unless they are one of the Worker's 100 most recent versions or are currently deployed."
+    },
+    {
+      "url": "https://developers.cloudflare.com/workers/platform/limits/",
+      "date": "2026-11-25",
+      "proved": "the Workers limits page still states the 25 MiB per-file cap",
+      "capture": "sha256:b48752e4bb8d56cf4b01ab46ec3b18c37be846927027950d901faac4dcdfa9d5",
+      "quote": "| Individual file size | 25 MiB | 25 MiB |"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-10T00:50:12.222Z",
+  "verified_at": "2026-11-25T04:14:17.954Z",
   "notes": "20,000 files per Worker version on Free; 25 MiB per file; 100 Workers per account => ~488 GiB per Worker, ~48.8 TiB per free account. 'There is no additional cost for storing Assets.'",
   "history": [],
   "extras": {

@@ -48,7 +48,7 @@
   ],
   "limits_note": "",
   "binding": "write-gated",
-  "binding_note": "No byte count fails at 1 TiB/month; the Enterprise contract is the gate. The only sub-Enterprise route is a Pro or Business plan, where Spectrum is limited to a single Minecraft app (UDP for Bedrock) and a single SSH app.",
+  "binding_note": "No byte count fails at 1 TiB/month; the Enterprise contract is the gate. On Pro and Business, Spectrum is a paid add-on limited to one Minecraft app, one SSH app and one Worker-origin TCP app per zone; UDP is No on both.",
   "identity_cost": {
     "kind": "institution",
     "detail": "An Enterprise contract with Cloudflare sales, plus a domain on Cloudflare. The Pro and Business plans carry Spectrum only for 'Minecraft (one app allowed)' and 'SSH (one app allowed)'.",
@@ -67,10 +67,31 @@
       "url": "https://developers.cloudflare.com/spectrum/protocols-per-plan/",
       "date": "2026-10-23",
       "proved": "Availability: No on Free, Paid add-on on Enterprise; TCP and UDP are No on Pro and Business; Minecraft (one app allowed) and SSH (one app allowed) are Yes on Pro and Business"
+    },
+    {
+      "url": "https://developers.cloudflare.com/spectrum/protocols-per-plan/",
+      "date": "2026-11-25",
+      "proved": "UDP is available only as an Enterprise paid add-on",
+      "capture": "sha256:dd8bcda208b49596f8c4e2f85263cdd9c5560726bf9c8a00b0148526ad18ff1c",
+      "quote": "| UDP | No | No | No | Paid add-on |"
+    },
+    {
+      "url": "https://developers.cloudflare.com/spectrum/protocols-per-plan/",
+      "date": "2026-11-25",
+      "proved": "Pro and Business may create one Worker-origin TCP app per zone",
+      "capture": "sha256:dd8bcda208b49596f8c4e2f85263cdd9c5560726bf9c8a00b0148526ad18ff1c",
+      "quote": "| TCP (Worker origin, beta) | No | One app per zone | One app per zone | Paid add-on |"
+    },
+    {
+      "url": "https://developers.cloudflare.com/spectrum/",
+      "date": "2026-11-25",
+      "proved": "custom TCP/UDP applications need Enterprise with Spectrum as a paid add-on",
+      "capture": "sha256:173150552e25ef97096966a9bb55962474bd6d0ef9b07cba01b7fedb57879480",
+      "quote": "Custom TCP/UDP applications require an Enterprise plan with Spectrum as a paid add-on."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:40.713Z",
   "price_per_tb_month": "unpublished (Enterprise contract)",
   "history": [],
   "notes": "The benchmark of the lane. Cloudflare Magic Transit is the adjacent product and is not a substitute: it takes a /24 and BGP or GRE from the customer, where Spectrum takes an origin IP and a port. Two things stay open: the Enterprise per-GB rate, and whether the Pro-tier Minecraft slot is usable for a Bedrock (UDP) server rather than only Java (TCP) - the table names the game, not the protocol.",

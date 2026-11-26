@@ -23,7 +23,7 @@
     "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
   },
   "egress": {
-    "terms": "'Transfer 20 TB' per month on the 20 TB plan (1:1 ratio with storage capacity). The plan provides Space 20TB and Transfer 20TB for $42 per month.",
+    "terms": "The ST 600 plan lists Transfer 20 TB next to Space 20 TB, a 1:1 ratio, at $42/month. The page states no transfer period and no overage rate.",
     "metered": true
   },
   "interface": [
@@ -32,8 +32,7 @@
     "ftp",
     "scp",
     "rsync",
-    "ssh",
-    "rclone"
+    "ssh"
   ],
   "interface_detail": "FTP/FTPS, SFTP, SCP, rsync over SSH, DirectAdmin, web delivery; 'Object Storage Beta' API",
   "tooling": "rclone over SFTP; rsync",
@@ -60,10 +59,38 @@
       "proved": "the ST 600 plan row: 20 TB space, 20 TB transfer, 60 domains, DirectAdmin",
       "capture": "sha256:e266b25a8d71a79ab0d19d5e2c37895978007f5cb9759c8a14724ad3f76d2477",
       "quote": "ST 600 20 TB storage $ 42 /month Space 20 TB Transfer 20 TB Domains 60 Control Panel DirectAdmin"
+    },
+    {
+      "url": "https://www.interserver.net/storage/",
+      "date": "2026-11-25",
+      "proved": "the page names FTP over TLS, SFTP and SCP",
+      "capture": "sha256:04e06fc0d86bf8a0fa1fe19d5632632d40e43eb2d401f8cb668a7f8e70b566ff",
+      "quote": "FTP, SFTP, and SCP Move files with FTP over TLS, SFTP, and SCP."
+    },
+    {
+      "url": "https://www.interserver.net/storage/",
+      "date": "2026-11-25",
+      "proved": "the plan gives non-root SSH access for SFTP, SCP and rsync",
+      "capture": "sha256:04e06fc0d86bf8a0fa1fe19d5632632d40e43eb2d401f8cb668a7f8e70b566ff",
+      "quote": "Non-root SSH access supports SFTP, SCP, and Rsync workflows."
+    },
+    {
+      "url": "https://www.interserver.net/storage/",
+      "date": "2026-11-25",
+      "proved": "the ST 600 plan lists 20 TB of transfer",
+      "capture": "sha256:04e06fc0d86bf8a0fa1fe19d5632632d40e43eb2d401f8cb668a7f8e70b566ff",
+      "quote": "Transfer 20 TB"
+    },
+    {
+      "url": "https://www.interserver.net/storage/",
+      "date": "2026-11-25",
+      "proved": "DirectAdmin, FTP/SFTP, rsync over SSH and web delivery are included",
+      "capture": "sha256:04e06fc0d86bf8a0fa1fe19d5632632d40e43eb2d401f8cb668a7f8e70b566ff",
+      "quote": "Every plan includes DirectAdmin, FTP/SFTP access, Rsync over SSH, web file delivery, and predictable monthly pricing."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T06:09:39.447Z",
+  "verified_at": "2026-11-25T12:15:46.509Z",
   "price_per_tb_month": "$2.10/TB/mo at 20 TB ($42). At 5 TB interpolating the 4 TB plan ($10, 10 TB transfer) → $2.50/TB/mo. Egress is metered 1:1, which is the difference from Hetzner at the same price.",
   "notes": "20 TB space, 20 TB transfer/month, 60 domains, DirectAdmin",
   "history": [],

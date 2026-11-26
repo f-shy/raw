@@ -55,7 +55,7 @@
   },
   "reliability_note": "Described by the vendor as a test product with no technical support; the blocked port list removes 22, 80, 443 and 3306.",
   "confidence": "reported",
-  "confidence_note": "The offer facts come from a third-party blog post dated 2023-01-23 that reproduces the vendor's Telegram notice, so the record's rung is reported. On 2026-10-30 the notice's order link https://vmshell.com/cart.php?a=add&pid=76, followed through the site's validator redirect, ended at the store page https://vmshell.com/index.php?rp=/store/cmin2hk, which lists four VPS plans in a Hong Kong data center and no port-forward product.",
+  "confidence_note": "The offer facts come from a third-party post reproducing the vendor's notice. On 2026-11-25 the order link landed on a store page listing paid VPS plans and no port-forward product.",
   "evidence": [
     {
       "url": "https://www.logovps.com/1180.html",
@@ -117,10 +117,31 @@
       "proved": "[translated] the post dated 2023-01-23 reproduces a VmShell notice: free Hong Kong CMI three-network direct port forwarding, a test product free for 1 month, forbidden port numbers 22, 443, 80 and 3306, allowed port numbers 13800-59999, free for a limited time with no technical support; it names no carrier and no protocol",
       "capture": "sha256:4a6ac694ddd49e5e6b977a41daf960b329814f1df38d688505fa65dbb04a4256",
       "quote": "免费香港CMI三网直连端口转发： CMI-端口转发测试通知（获取建议） 免费1个月 因为测试产品 建议电报我们 TeleGram 群组建议： https://t.me/vmshellhk 禁止端口号 22,443,80,3306 允许的端口号 13800-59999 欢迎联系我们 因为测试产品 希望大家给出建议 祝大家大展宏兔 我们晚点提供大陆中转服务 限时免费,无技术支持"
+    },
+    {
+      "url": "https://vmshell.com/cart.php?a=add&pid=76",
+      "date": "2026-11-25",
+      "proved": "the order link now serves a paid VPS store with no port-forward product",
+      "capture": "sha256:bfd67ee44a9fe9275a160d4037aaca3cfd56b55f1b07f79603dbdcd9adf0753c",
+      "quote": "### CMI.HK Data Center Server ... From $12.00/mo ... From $23.00/mo"
+    },
+    {
+      "url": "https://www.logovps.com/1180.html",
+      "date": "2026-11-25",
+      "proved": "the reproduced notice still states a one-month free term, a port range and one product per account",
+      "capture": "sha256:04da2085501c752d81dcc5b1b9416439e20cb258c71ef146fdb8b32a1c930a82",
+      "quote": "免费1个月 ... 禁止端口号 ... 22,443,80,3306 ... 允许的端口号 ... 13800-59999 ... 限额：每个ID一个产品 ... 限时免费,无技术支持"
+    },
+    {
+      "url": "https://vmshell.com/cart.php?a=add&pid=76",
+      "date": "2026-11-25",
+      "proved": "the vendor store no longer lists the free port-forward product",
+      "capture": "sha256:bfd67ee44a9fe9275a160d4037aaca3cfd56b55f1b07f79603dbdcd9adf0753c",
+      "quote": "### CMI.HK Data Center Server"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-30T17:51:45.685Z",
+  "verified_at": "2026-11-25T09:55:01.927Z",
   "price_per_tb_month": "USD 0 for one month",
   "history": [],
   "notes": "A free Hong Kong CMI three-network direct port forward. It is a one-month free test product announced in January 2023 with no technical support. The notice forbids ports 22, 443, 80 and 3306 and allows ports 13800-59999. Country: Hong Kong. The notice does not say whether UDP is forwarded in the allowed port range.",

@@ -13,23 +13,23 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "No file size limit; the duration of a video file cannot be longer than 12 hours.",
     "source_url": "https://support.spotify.com/us/creators/article/publishing-audio-episodes/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The video-publishing page says there is no file size limit but caps file duration at 12 hours."
   },
   "retention": {
-    "stated": "Second caveat: anchor.fm enclosures are 402/302 chains through anchor.fm/s/<id>/podcast/play/<n>/<urlencoded origin>, so the enclosure URL is a redirector with the object path embedded. Permanent, but the served object is always the transcode.",
+    "stated": "Account deletion permanently deletes all data tied to the account from Spotify's server; a show not distributed to other platforms is deleted immediately, and removal from other platforms can take up to 10 business days.",
     "source_url": "https://support.spotify.com/us/creators/article/publishing-audio-episodes/",
-    "notes": "Extracted from published terms."
+    "notes": "The account-deletion article states permanent deletion of account data, immediate deletion of a show not distributed elsewhere, and up to 10 business days for removal from other platforms."
   },
   "egress": {
     "terms": "Free and unmetered via Spotify's own CDN (d3ctxlq1ktw2nl.cloudfront.net). No egress meter, no per-download charge, no plan upgrade that changes it.",
     "metered": false
   },
   "interface": [
-    "rest"
+    "browser"
   ],
-  "interface_detail": "rest",
+  "interface_detail": "browser",
   "tooling": "No documented public upload API. Content uploads are restricted to web and mobile dashboard interfaces. Read access is available via public podcast RSS feeds (`https://anchor.fm/s/<showid>/podcast/rss`) without authentication.",
   "chaining": "Unlimited shows per Spotify account (the UI has 'Add a new show' with no published cap) x unlimited episodes x no file-size limit. Also accepts video (MP4/MOV/MPG) on the same free tier, so the payload need not be audio at all.",
   "limits": [],
@@ -88,10 +88,59 @@
       "proved": "account creation requires an email address, which receives a verification email",
       "capture": "sha256:bbc5ff33bee19dd9cd00e05ecdaa2cf56ee54191d3a896b58497179aad8667b0",
       "quote": "You should've received a verification email when you created your account."
+    },
+    {
+      "url": "https://support.spotify.com/us/creators/article/publishing-videos/",
+      "date": "2026-11-25",
+      "proved": "the video-publishing article states no file size limit and a 12-hour video duration ceiling",
+      "capture": "sha256:d6a9ec956641c57aa0d77d2e32db0cae0d31e02b64e068ab4e28acfed257c842",
+      "quote": "Spotify for Creators doesn’t have a file size limit, but note that larger files will take time to process and can have a higher chance of failing if your internet connection is interrupted. ... The duration of your file cannot be longer than 12 hours"
+    },
+    {
+      "url": "https://support.spotify.com/us/creators/article/publishing-videos/",
+      "date": "2026-11-25",
+      "proved": "the video-publishing article still states no file size limit and a 12-hour duration ceiling",
+      "capture": "sha256:d6a9ec956641c57aa0d77d2e32db0cae0d31e02b64e068ab4e28acfed257c842",
+      "quote": "Spotify for Creators doesn’t have a file size limit, but note that larger files will take time to process and can have a higher chance of failing if your internet connection is interrupted. ... The duration of your file cannot be longer than 12 hours"
+    },
+    {
+      "url": "https://support.spotify.com/us/creators/article/publishing-audio-episodes/",
+      "date": "2026-11-25",
+      "proved": "the episode-publishing article still states no file-size limit",
+      "capture": "sha256:bbc5ff33bee19dd9cd00e05ecdaa2cf56ee54191d3a896b58497179aad8667b0",
+      "quote": "We don't have a file size limit, but larger files will take time to process and can have a higher chance of failing if your internet connection is interrupted."
+    },
+    {
+      "url": "https://support.spotify.com/us/creators/article/deleting-your-account-or-show/",
+      "date": "2026-11-25",
+      "proved": "the account-deletion article states permanent deletion, immediate deletion for undistributed shows, and up to 10 business days for other platforms",
+      "capture": "sha256:63132002b1545217ccc2a69f696893619f0a932a27168540ac23980c1ea5d912",
+      "quote": "all data tied to the account will also be permanently deleted from our server ... your account and all of your content will be deleted immediately from Spotify and Spotify for Creators ... it can take up to 10 business days for your content to be fully removed from those platforms"
+    },
+    {
+      "url": "https://support.spotify.com/us/creators/article/deleting-your-account-or-show/",
+      "date": "2026-11-25",
+      "proved": "the account-deletion article still states the deletion windows",
+      "capture": "sha256:63132002b1545217ccc2a69f696893619f0a932a27168540ac23980c1ea5d912",
+      "quote": "all data tied to the account will also be permanently deleted from our server ... your account and all of your content will be deleted immediately from Spotify and Spotify for Creators ... it can take up to 10 business days for your content to be fully removed from those platforms"
+    },
+    {
+      "url": "https://support.spotify.com/us/creators/article/publishing-audio-episodes/",
+      "date": "2026-11-25",
+      "proved": "the first-party article documents browser-based upload",
+      "capture": "sha256:bbc5ff33bee19dd9cd00e05ecdaa2cf56ee54191d3a896b58497179aad8667b0",
+      "quote": "On web, click **New episode** then **Select a file **to upload your audio file"
+    },
+    {
+      "url": "https://support.spotify.com/us/creators/article/publishing-audio-episodes/",
+      "date": "2026-11-25",
+      "proved": "the support article still documents browser-based upload",
+      "capture": "sha256:bbc5ff33bee19dd9cd00e05ecdaa2cf56ee54191d3a896b58497179aad8667b0",
+      "quote": "On web, click **New episode** then **Select a file **to upload your audio file"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:15:22.052Z",
+  "verified_at": "2026-11-25T19:55:21.396Z",
   "notes": "Free hosting with no stated numeric cap. Spotify's own episode-publishing doc: 'We don't have a file size limit'. The video doc repeats it: 'Spotify for Creators doesn't have a file size limit'. No episode count, storage or bandwidth cap is published anywhere. Free, no paid tier, ad-revenue share is upside not a paywall.",
   "history": [],
   "extras": {

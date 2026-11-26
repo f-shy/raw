@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u360-q01",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "For Phala Cloud, which single captured sentence states the recorded free_tier.stated (Confidential VMs from USD 0.06/hour, GPU TEE from USD 4.40/hour, billed per minute, storage USD 0.000139/GB/hour while the CVM exists), and is the 'smallest CPU instance' description of tdx.large correct given that the instance-types page lists tdx.small (1 vCPU, 2 GB, USD 0.058/h) and tdx.medium below it while the pricing page only says 'CPU Pricing Example'?",
+ "why": "The proposal marked this record review: the captured https://phala.com/pricing page prints only a model token-price table with none of those CVM, GPU TEE or storage figures, and the audit found the 'smallest CPU instance' clause unsupported. No path value can be re-dated from the captures held here, so the record is left alone.",
+ "scope": {
+  "rids": [
+   "compute/phala-cloud"
+  ]
+ },
+ "origin": "20261125-0107-research-compute-5c82/u360",
+ "created": "2026-11-25T15:40:39Z"
+}

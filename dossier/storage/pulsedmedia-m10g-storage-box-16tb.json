@@ -15,15 +15,15 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://pulsedmedia.com/storage-boxes.php",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The wiki lists SFTP, FTP/FTPS, SCP, rsync, WebDAV, HTTP/HTTPS and SSHFS access, with no artificial protocol restrictions and no per-object size cap."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://pulsedmedia.com/storage-boxes.php",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The 7-day period is a temporary 25% storage-quota overage allowance, not a data retention term."
   },
   "egress": {
-    "terms": "\"Internet egress: Unlimited@100Mbps (~30TB/Month / ~1TB/Day)\" + \"Burst egress: 10Gbps 500GiB/month\" + \"Ingress: Unlimited at 10Gbps\". Genuinely unmetered, rate-shaped at 100 Mbps sustained (~1 TiB/day). Not a byte cap.",
+    "terms": "Internet egress: Unlimited at 100 Mbps (~30 TB/month, ~1 TB/day). Burst egress: 10 Gbps, 500 GiB per 30 days. DC internal: Unlimited at 10 Gbps. Ingress: Unlimited at 10 Gbps.",
     "metered": false,
     "free_allowance": "30TB per month"
   },
@@ -38,7 +38,7 @@
   ],
   "interface_detail": "SSH, SCP, SFTP, FTP(S), HTTPS, public HTTP(S), SSHFS, Rsync, Rclone, Restic, Borg, Docker (rootless), WireGuard/OpenVPN",
   "tooling": "Rclone native, restic/borg native, plain SSHFS mount. No S3 endpoint.",
-  "chaining": "Supports SSHFS and rclone mounts, allowing integration with frontend distribution layers. A sustained 100 Mbps link provides up to approximately 1.08 TB per day.",
+  "chaining": "Same-datacenter transfers between Pulsed Media servers run at 70-75 MB/s.",
   "limits": [
     {
       "kind": "per-ip-shaping",
@@ -77,10 +77,66 @@
       "proved": "the 16 TB storage box row states 26.99 euro on monthly billing, unchanged",
       "capture": "sha256:c11c2b370152934540aebe1287b3120b28d4ca97b887ff4a5128e3fc683a75f7",
       "quote": "M10G STORAGE BOX 16TB</a></li>\n                        <li class=\"price\">        26.99&euro;<span></span>\n                        <br /><span style=\"font-size: 0.6em;\">monthly billing"
+    },
+    {
+      "url": "https://wiki.pulsedmedia.com/wiki/Storage_Boxes",
+      "date": "2026-11-25",
+      "proved": "the first-party wiki lists the access protocols and states no artificial protocol restrictions",
+      "capture": "sha256:a5e683b20cbfc46e5c2e686c16cc974c5cf650bb5d7f7fca8851597462ad0a51",
+      "quote": "accessible over SFTP, FTP/FTPS, SCP, rsync, WebDAV, HTTP/HTTPS, and SSHFS. No artificial protocol restrictions."
+    },
+    {
+      "url": "https://pulsedmedia.com/storage-boxes.php",
+      "date": "2026-11-25",
+      "proved": "the 7-day figure is the window for temporary quota overage",
+      "capture": "sha256:998b31f2be66836d103ab7ab44790d986a466dc9ab365db7edd02f67526a0f2a",
+      "quote": "You may go beyond your storage limit by 25% for up to 7 days!"
+    },
+    {
+      "url": "https://pulsedmedia.com/storage-boxes.php",
+      "date": "2026-11-25",
+      "proved": "the plan page states the current egress, burst, DC internal and ingress terms",
+      "capture": "sha256:998b31f2be66836d103ab7ab44790d986a466dc9ab365db7edd02f67526a0f2a",
+      "quote": "- **Internet egress**: Unlimited at 100 Mbps (~30 TB/month, ~1 TB/day)\n    - **Burst egress**: 10 Gbps, 500 GiB per 30 days\n    - **DC internal**: Unlimited at 10 Gbps\n    - **Ingress**: Unlimited at 10 Gbps"
+    },
+    {
+      "url": "https://wiki.pulsedmedia.com/wiki/Storage_Boxes",
+      "date": "2026-11-25",
+      "proved": "the first-party wiki states the same-datacenter transfer rate",
+      "capture": "sha256:a5e683b20cbfc46e5c2e686c16cc974c5cf650bb5d7f7fca8851597462ad0a51",
+      "quote": "Same-datacenter transfers between Pulsed Media servers run at 70-75 MB/s."
+    },
+    {
+      "url": "https://wiki.pulsedmedia.com/wiki/Storage_Boxes",
+      "date": "2026-11-25",
+      "proved": "the first-party wiki still lists the access protocols without an object-size cap",
+      "capture": "sha256:a5e683b20cbfc46e5c2e686c16cc974c5cf650bb5d7f7fca8851597462ad0a51",
+      "quote": "accessible over SFTP, FTP/FTPS, SCP, rsync, WebDAV, HTTP/HTTPS, and SSHFS. No artificial protocol restrictions."
+    },
+    {
+      "url": "https://pulsedmedia.com/storage-boxes.php",
+      "date": "2026-11-25",
+      "proved": "the 7-day figure is still tied to quota overage",
+      "capture": "sha256:998b31f2be66836d103ab7ab44790d986a466dc9ab365db7edd02f67526a0f2a",
+      "quote": "You may go beyond your storage limit by 25% for up to 7 days!"
+    },
+    {
+      "url": "https://pulsedmedia.com/storage-boxes.php",
+      "date": "2026-11-25",
+      "proved": "the plan page still states the egress, burst, DC internal and ingress terms",
+      "capture": "sha256:998b31f2be66836d103ab7ab44790d986a466dc9ab365db7edd02f67526a0f2a",
+      "quote": "- **Internet egress**: Unlimited at 100 Mbps (~30 TB/month, ~1 TB/day)\n    - **Burst egress**: 10 Gbps, 500 GiB per 30 days\n    - **DC internal**: Unlimited at 10 Gbps\n    - **Ingress**: Unlimited at 10 Gbps"
+    },
+    {
+      "url": "https://wiki.pulsedmedia.com/wiki/Storage_Boxes",
+      "date": "2026-11-25",
+      "proved": "the first-party wiki still states the same-datacenter transfer rate",
+      "capture": "sha256:a5e683b20cbfc46e5c2e686c16cc974c5cf650bb5d7f7fca8851597462ad0a51",
+      "quote": "Same-datacenter transfers between Pulsed Media servers run at 70-75 MB/s."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-11T07:23:05.682Z",
+  "verified_at": "2026-11-25T19:55:17.917Z",
   "price_per_tb_month": "16TB: €26.99 -> €1.69/TB/mo (~$1.94). 32TB: €63.99 -> €2.00/TB. 8TB: €14.99 -> €1.87/TB. 4TB: €8.99 -> €2.25/TB",
   "notes": "16 TB HDD RAID5 configuration within the M10G Storage Box product line, offering 4, 8, 16, and 32 TB tiers.",
   "history": [

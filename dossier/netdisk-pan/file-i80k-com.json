@@ -79,23 +79,9 @@
     {
       "url": "probe:https://file.i80k.com/",
       "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:8db3660ecfec0f3d869148ed26fcff90b031e8f3f6de4ea06874d2ca9343fef5",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://file.i80k.com/",
-      "date": "2026-11-11",
       "proved": "the settings request for this host answered HTTP 200 at this instant",
       "capture": "sha256:8db3660ecfec0f3d869148ed26fcff90b031e8f3f6de4ea06874d2ca9343fef5",
       "quote": "\"checked_at\": \"2026-11-11T00:20:03.950Z\""
-    },
-    {
-      "url": "probe:https://file.i80k.com/",
-      "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:8db3660ecfec0f3d869148ed26fcff90b031e8f3f6de4ea06874d2ca9343fef5",
-      "quote": "\"listing_sha256\": \"ea1383ee\""
     },
     {
       "url": "probe:https://file.i80k.com/",
@@ -114,6 +100,27 @@
     {
       "url": "probe:https://file.i80k.com/",
       "date": "2026-11-25",
+      "proved": "a fresh anonymous probe of file.i80k.com answered the settings, session and mount-list requests at this timestamp",
+      "capture": "sha256:d5a89fcfe1323a6af9f5647da3e4a1f2f1ddb324bf072f5becb85e20540ecdfe",
+      "quote": "\"probed_at\": \"2026-11-25T02:34:33.392Z\""
+    },
+    {
+      "url": "probe:https://file.i80k.com/",
+      "date": "2026-11-25",
+      "proved": "the fresh probe completed the anonymous settings, session and mount-list requests at file.i80k.com",
+      "capture": "sha256:d5a89fcfe1323a6af9f5647da3e4a1f2f1ddb324bf072f5becb85e20540ecdfe",
+      "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://file.i80k.com/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing of file.i80k.com hashed to the recorded value, so the listing is unchanged",
+      "capture": "sha256:d5a89fcfe1323a6af9f5647da3e4a1f2f1ddb324bf072f5becb85e20540ecdfe",
+      "quote": "\"listing_sha256\": \"ea1383ee\""
+    },
+    {
+      "url": "probe:https://file.i80k.com/",
+      "date": "2026-11-25",
       "proved": "the re-probe of this host was taken at this instant",
       "capture": "sha256:1daeec5de9c32846920b7792ad5d50b50741ce1194315cfb8d879833d9f989d0",
       "quote": "\"checked_at\": \"2026-11-25T01:38:28.688Z\""
@@ -124,13 +131,6 @@
       "proved": "the anonymous root listing returns 7 entries, unchanged",
       "capture": "sha256:1daeec5de9c32846920b7792ad5d50b50741ce1194315cfb8d879833d9f989d0",
       "quote": "\"root_entries\": 7"
-    },
-    {
-      "url": "probe:https://file.i80k.com/",
-      "date": "2026-11-25",
-      "proved": "the settings, guest session and root listing all answered, so no consecutive failure",
-      "capture": "sha256:1daeec5de9c32846920b7792ad5d50b50741ce1194315cfb8d879833d9f989d0",
-      "quote": "\"alive\": true"
     },
     {
       "url": "probe:https://file.i80k.com/",
@@ -148,7 +148,7 @@
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T11:08:34.136Z",
+  "verified_at": "2026-11-25T19:55:33.831Z",
   "binding": "write-gated",
   "notes": "7 root entries, provider Local, AList version 'dev'. The one instance in the population whose upstream is a disk of its own and not a pooled cloud tenant.",
   "history": [],
@@ -165,7 +165,7 @@
     "listing_sha256": "ea1383ee",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-25T01:38:28.688Z",
+    "last_verified_alive": "2026-11-25T02:34:33.392Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "aliases": [

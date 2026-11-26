@@ -6,7 +6,7 @@
  "category": "NAT VPS",
  "tier": "VPS LXC 512 MB (vps-nat512mb)",
  "free_tier": {
-  "stated": "No free tier. The smallest LXC plan is PLN 4.00 a month or PLN 45.12 a year: 1 Intel vCPU, 0.5 GB RAM, 6 GB NVMe, unlimited transfer, NAT IPv4 with 10 ports and one /128 IPv6. The order page's period selector offers 4 Month, 11.76 Quarter, 23.04 Semester and 45.12 One Year.",
+  "stated": "No free tier. The plan has 2 vCPU, 0.5 GB RAM, 6 GB NVME SSD and Unlimited data transfer. The order page's period selector offers 4 Month, 11.76 Quarter, 23.04 Semester and 45.12 One Year. Payment uses vPLN virtual currency from the balance on ReconV site.",
   "unit": "none",
   "metered_on": "none",
   "source_url": "https://dash.reconv.pl/en/order/vps/vps-nat512mb",
@@ -90,10 +90,17 @@
    "url": "https://www.serverhunter.com/offer/reconv-vps-nat-512-ipv6-pl-2/",
    "date": "2026-10-24",
    "proved": "quoted listing: 'Monthly price z 3.80 PLN ... Stock In stock ... Provider name ReconV ... Uplink 150 Mbit ... Traffic Unlimited ... Payment methods Credit card, PayPal, SEPA, UnionPay, Wire transfer ... Features ... Native IPv6, NAT IPv4' and 'This offer has been in stock since the 4th of December 2024'"
+  },
+  {
+   "url": "https://dash.reconv.pl/en/order/vps/vps-nat512mb",
+   "date": "2026-11-25",
+   "proved": "the order page states the plan's CPU, RAM, disk and transfer plus the period selector and vPLN payment",
+   "capture": "sha256:1603f738b27e6315d8bc86239d978b31f67700ebe281218d426d023334d241e3",
+   "quote": "**CPU**\n\n2 vCPU\n\n**RAM**\n\n0.5 GB RAM\n\n**Drive**\n\n6 GB NVME SSD\n\n**Data transfer**\n\nUnlimited"
   }
  ],
  "verdict": "qualifies",
- "verified_at": "2026-10-24T06:01:00.000Z",
+ "verified_at": "2026-11-25T05:17:52.950Z",
  "price_per_tb_month": null,
  "history": [],
  "notes": "Two prices exist and they disagree: the vendor's own order page charges PLN 4.00 a month, while Server Hunter lists PLN 3.80 for the semi-annual interval and PLN 3.68 for the annual one. The vendor's page is the authority and the Server Hunter figures are recorded as the mirror of the vendor's feed, not as the price. The monthly figure was taken as the headline because it needs no prepay; the annual is PLN 45.12, which is PLN 3.76 a month. The vendor's own order page states its own conversion, '1 USD ~= 3.92 PLN', which is within 0.2 percent of the rate used here, so the conversion is not doing any work the vendor would dispute. Not established: the exact count of UDP ports among the 10 (the wiki implies at least one UDP port is forwarded but does not state the split), and the checkout payment rails first-hand, because the confirmation step needs an account. The order flow is a two-step wizard whose second step is 'Login / Registration', so a human reaches registration from the order page itself.",

@@ -90,25 +90,11 @@
       "quote": "I've decided that in order to merge a backend with no public API I need to get someone else to maintain it indefinitely."
     },
     {
-      "url": "https://service.asuswebstorage.com/service/",
-      "date": "2026-11-03",
-      "proved": "the first-party service page offers 5 GB free for an account number, password and email address",
-      "capture": "sha256:345deed73c2db43df9e450356caf0d39f2bf416bd0c89e4540554348c77aee63",
-      "quote": "please go to ASUS WebStorage website to apply for 5GB free storage. In turn, please set your personal account number, password and email address to formally start the"
-    },
-    {
       "url": "https://service.asuswebstorage.com/store/?bp=_t",
       "date": "2026-11-03",
       "proved": "API calls are a Pro and Enterprise entitlement, 10 million and 50 million per month",
       "capture": "sha256:0cb2ecfe6ef114ac6b32d8747a5f0958baeefdc71920c188209d0803535bb869",
       "quote": "| API Function |  |  | ● (10 million per month) | ● (50 million per month) |"
-    },
-    {
-      "url": "https://service.asuswebstorage.com/store/?bp=_t",
-      "date": "2026-11-03",
-      "proved": "plan storage: Free Trial 5GB, Lite 100GB, Pro 1TB, Enterprise 5TB",
-      "capture": "sha256:0cb2ecfe6ef114ac6b32d8747a5f0958baeefdc71920c188209d0803535bb869",
-      "quote": "| Cloud Storage | 5GB | 100GB | 1TB | 5TB |"
     },
     {
       "url": "probe:https://www.asuswebstorage.com/navigate/price/",
@@ -120,20 +106,20 @@
     {
       "url": "https://service.asuswebstorage.com/store/?bp=_t",
       "date": "2026-11-25",
-      "proved": "the first-party plan table states the storage figures in GB and TB",
+      "proved": "plan storage: Free Trial 5GB, Lite 100GB, Pro 1TB, Enterprise 5TB",
       "capture": "sha256:0cb2ecfe6ef114ac6b32d8747a5f0958baeefdc71920c188209d0803535bb869",
       "quote": "| Cloud Storage | 5GB | 100GB | 1TB | 5TB |"
     },
     {
-      "url": "https://service.asuswebstorage.com/store/?bp=_t",
+      "url": "https://service.asuswebstorage.com/service/",
       "date": "2026-11-25",
-      "proved": "the free storage is stated in GB",
-      "capture": "sha256:0cb2ecfe6ef114ac6b32d8747a5f0958baeefdc71920c188209d0803535bb869",
-      "quote": "| Cloud Storage | 5GB | 100GB | 1TB | 5TB |"
+      "proved": "registration asks for an account number, password and email address",
+      "capture": "sha256:345deed73c2db43df9e450356caf0d39f2bf416bd0c89e4540554348c77aee63",
+      "quote": "please go to ASUS WebStorage website to apply for 5GB free storage. In turn, please set your personal account number, password and email address to formally start the"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-25T14:05:51.158Z",
+  "verified_at": "2026-11-25T15:23:47.351Z",
   "history": [],
   "binding": "per-object-cap",
   "binding_note": "5 GB free, and the API is metered by a paid-tier entitlement, so there is no free programmatic path at any capacity.",
@@ -144,6 +130,6 @@
     "api_included_free": false,
     "seed_source": "storage-research",
     "seed_wave": "A-A12-android-tv-cloud.json",
-    "verified_at_basis": "the seed research pass, which ended 2026-10-21; this record was not re-checked against the live service"
+    "verified_at_basis": "checked against the live service on 2026-11-25"
   }
 }

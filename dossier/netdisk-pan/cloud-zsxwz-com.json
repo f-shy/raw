@@ -72,30 +72,9 @@
     {
       "url": "probe:https://cloud.zsxwz.com/",
       "date": "2026-11-11",
-      "proved": "this host answered every request of this run's probe",
-      "capture": "sha256:88a33b10c685a8913869d2ffc112cf9fba5044145c7472458a71a4f8f57317e1",
-      "quote": "\"consecutive_failures\": 0"
-    },
-    {
-      "url": "probe:https://cloud.zsxwz.com/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:88a33b10c685a8913869d2ffc112cf9fba5044145c7472458a71a4f8f57317e1",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://cloud.zsxwz.com/",
-      "date": "2026-11-11",
       "proved": "the settings request for this host answered HTTP 200 at this instant",
       "capture": "sha256:88a33b10c685a8913869d2ffc112cf9fba5044145c7472458a71a4f8f57317e1",
       "quote": "\"checked_at\": \"2026-11-11T00:20:01.880Z\""
-    },
-    {
-      "url": "probe:https://cloud.zsxwz.com/",
-      "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:88a33b10c685a8913869d2ffc112cf9fba5044145c7472458a71a4f8f57317e1",
-      "quote": "\"listing_sha256\": \"cae07434\""
     },
     {
       "url": "probe:https://cloud.zsxwz.com/",
@@ -107,23 +86,30 @@
     {
       "url": "probe:https://cloud.zsxwz.com/",
       "date": "2026-11-19",
-      "proved": "the anonymous session, settings and mount list all answered, so the fresh alive timestamp stands",
-      "capture": "sha256:e8fc1a8e260340809ea36acfc9f0e73a49d5be042e2b5bfe8b4ba6906d8dbd40",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://cloud.zsxwz.com/",
-      "date": "2026-11-19",
-      "proved": "the anonymous root listing hashed to cae07434, equal to the recorded value; no hash change",
-      "capture": "sha256:e8fc1a8e260340809ea36acfc9f0e73a49d5be042e2b5bfe8b4ba6906d8dbd40",
-      "quote": "\"listing_sha256\": \"cae07434\""
-    },
-    {
-      "url": "probe:https://cloud.zsxwz.com/",
-      "date": "2026-11-19",
       "proved": "the host answered every request of this probe, so the failure count stayed at zero",
       "capture": "sha256:e8fc1a8e260340809ea36acfc9f0e73a49d5be042e2b5bfe8b4ba6906d8dbd40",
       "quote": "\"consecutive_failures\": 0"
+    },
+    {
+      "url": "probe:https://cloud.zsxwz.com/api/public/settings",
+      "date": "2026-11-25",
+      "proved": "a fresh anonymous probe of the AList public settings endpoint of cloud.zsxwz.com answered at this instant (HTTP 200, JSON, no challenge)",
+      "capture": "sha256:2a7ae5c3cca9ec5f0dc7a30611f1f94fba01d3627fb02bdf0fb173a58fbf98f9",
+      "quote": "\"probed_at\": \"2026-11-25T04:07:34.250Z\""
+    },
+    {
+      "url": "probe:https://cloud.zsxwz.com/api/public/settings",
+      "date": "2026-11-25",
+      "proved": "the settings endpoint of cloud.zsxwz.com answered HTTP 200 to an anonymous request",
+      "capture": "sha256:2a7ae5c3cca9ec5f0dc7a30611f1f94fba01d3627fb02bdf0fb173a58fbf98f9",
+      "quote": "\"status\": 200"
+    },
+    {
+      "url": "probe:https://cloud.zsxwz.com/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing hashed to the recorded value, so the listing is unchanged",
+      "capture": "sha256:30784795e5b24921b045e63a8a221e0153a0040506d492a9b7caa9948ec282b2",
+      "quote": "\"listing_sha256\": \"cae07434\""
     },
     {
       "url": "probe:https://cloud.zsxwz.com/",
@@ -165,7 +151,7 @@
     "listing_sha256": "cae07434",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-25T01:38:28.686Z",
+    "last_verified_alive": "2026-11-25T04:07:34.250Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "aliases": [

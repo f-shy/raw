@@ -15,27 +15,25 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://green.cloud/storage-kvm-vps.php",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The plan page lists storage, CPU, memory, bandwidth and port speed and states no per-object limit."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://green.cloud/storage-kvm-vps.php",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The plan page states no retention or deletion policy."
   },
   "egress": {
-    "terms": "Metered annual-bundled allowance, no published overage rate. US/EU: 0.5 TB->3 TB, 1 TB->6 TB, 2 TB->10 TB per month. APAC: 0.5 TB->1 TB, 1 TB->2 TB, 2 TB->4 TB. I.e. APAC is 1/2.5 of the US figure. This is the Asia option's real trap: the Tokyo/Singapore plans cost the same as US/EU and give 40% of the traffic.",
+    "terms": "Each plan lists a bandwidth allowance (US/EU 3, 6 or 10 TB; APAC 1, 2 or 4 TB); the page gives no period for it. Additional bandwidth costs $3/TB/mo in the US/EU and $15/TB/mo in APAC.",
     "metered": true,
-    "free_allowance": "10 TB per month"
+    "free_allowance": "10 TB on Storage-2 in the US/EU (the page states no period)",
+    "price_per_tb": "$3/TB/mo in the US/EU; $15/TB/mo in APAC"
   },
   "interface": [
-    "rest",
-    "sftp",
-    "rsync",
-    "rclone"
+    "unknown"
   ],
-  "interface_detail": "sftp, rsync, rest (self-hosted)",
-  "tooling": "rclone SFTP, root KVM",
-  "chaining": "Root KVM on a 10 Gbps port, which is unusually fast for this price class. Ceiling of 2 TB per VM means 10 VMs for 20 TB. Workable for the chunk-and-replicate pattern but not for a single 10 TiB working set.",
+  "interface_detail": "unverified: the plan page names no access protocol or client tool",
+  "tooling": "unverified: the plan page names no access protocol or client tool; it lists a KVM VPS with Linux",
+  "chaining": "Plans are KVM VPSes with 500GB, 1024GB or 2048GB of SATA storage. A plan can add up to 20TB of additional storage at $5/TB/mo, subject to server availability.",
   "limits": [
     {
       "kind": "per-ip-shaping",
@@ -43,7 +41,7 @@
       "source": "https://green.cloud/storage-kvm-vps.php"
     }
   ],
-  "limits_note": "per-object-cap: none. Hard 2 TB per-VM ceiling. APAC bandwidth 40% of US/EU.",
+  "limits_note": "per-object-cap: none stated. Up to 20TB of additional storage per plan at $5/TB/mo, subject to server availability. APAC plans list 1, 2 or 4 TB of bandwidth against 3, 6 or 10 TB for US/EU.",
   "identity_cost": {
     "kind": "card",
     "detail": "unverified: the cited pricing page states no payment method; the order flow was not entered",
@@ -76,10 +74,87 @@
       "proved": "The plan row states a 10Gbps port.",
       "capture": "sha256:50c7e7e87b19a90c27f470d68260ff48a85dad8b99c0100be2bc2713dd47a542",
       "quote": "10Gbps Port"
+    },
+    {
+      "url": "https://green.cloud/storage-kvm-vps.php",
+      "date": "2026-11-25",
+      "proved": "the page names a 10Gbps port and RAID-10 SATA drives and no access protocol",
+      "capture": "sha256:50c7e7e87b19a90c27f470d68260ff48a85dad8b99c0100be2bc2713dd47a542",
+      "quote": "Connected to a 10Gbps port with Enterprise SATA drives in Hardware RAID-10 (NVMe boot drive available in some locations) for performance and reliability."
+    },
+    {
+      "url": "https://green.cloud/storage-kvm-vps.php",
+      "date": "2026-11-25",
+      "proved": "no access protocol is named",
+      "capture": "sha256:50c7e7e87b19a90c27f470d68260ff48a85dad8b99c0100be2bc2713dd47a542",
+      "quote": "Connected to a 10Gbps port with Enterprise SATA drives in Hardware RAID-10 (NVMe boot drive available in some locations) for performance and reliability."
+    },
+    {
+      "url": "https://green.cloud/storage-kvm-vps.php",
+      "date": "2026-11-25",
+      "proved": "the plan row lists Linux and no access method",
+      "capture": "sha256:50c7e7e87b19a90c27f470d68260ff48a85dad8b99c0100be2bc2713dd47a542",
+      "quote": "| Storage-2 | 2048GB SATA | 4 cores | 6 GB | 10 TB | 10Gbps Port | Linux | 24/7/365 | $80/year | Order |"
+    },
+    {
+      "url": "https://green.cloud/storage-kvm-vps.php",
+      "date": "2026-11-25",
+      "proved": "up to 20TB of additional storage can be added at $5/TB/mo",
+      "capture": "sha256:50c7e7e87b19a90c27f470d68260ff48a85dad8b99c0100be2bc2713dd47a542",
+      "quote": "- You can add up to 20TB additional storage with the price of $5/TB/mo. RAM: $3/1GB RAM/mo, CPU: $3/CPU Core/mo. Subject to server availability."
+    },
+    {
+      "url": "https://green.cloud/storage-kvm-vps.php",
+      "date": "2026-11-25",
+      "proved": "additional storage up to 20TB is sold",
+      "capture": "sha256:50c7e7e87b19a90c27f470d68260ff48a85dad8b99c0100be2bc2713dd47a542",
+      "quote": "- You can add up to 20TB additional storage with the price of $5/TB/mo. RAM: $3/1GB RAM/mo, CPU: $3/CPU Core/mo. Subject to server availability."
+    },
+    {
+      "url": "https://green.cloud/storage-kvm-vps.php",
+      "date": "2026-11-25",
+      "proved": "additional bandwidth is priced at $3/TB/mo US/EU and $15/TB/mo APAC",
+      "capture": "sha256:50c7e7e87b19a90c27f470d68260ff48a85dad8b99c0100be2bc2713dd47a542",
+      "quote": "- Price for additional bandwidth: $3/TB/mo in the US/EU and $15/TB/mo in APAC"
+    },
+    {
+      "url": "https://green.cloud/storage-kvm-vps.php",
+      "date": "2026-11-25",
+      "proved": "the additional bandwidth price",
+      "capture": "sha256:50c7e7e87b19a90c27f470d68260ff48a85dad8b99c0100be2bc2713dd47a542",
+      "quote": "- Price for additional bandwidth: $3/TB/mo in the US/EU and $15/TB/mo in APAC"
+    },
+    {
+      "url": "https://green.cloud/storage-kvm-vps.php",
+      "date": "2026-11-25",
+      "proved": "the BANDWIDTH column lists 10 TB for Storage-2, with no period",
+      "capture": "sha256:50c7e7e87b19a90c27f470d68260ff48a85dad8b99c0100be2bc2713dd47a542",
+      "quote": "| Storage-2 | 2048GB SATA | 4 cores | 6 GB | 10 TB | 10Gbps Port | Linux | 24/7/365 | $80/year | Order |"
+    },
+    {
+      "url": "https://green.cloud/storage-kvm-vps.php",
+      "date": "2026-11-25",
+      "proved": "the plan columns include no per-object limit",
+      "capture": "sha256:50c7e7e87b19a90c27f470d68260ff48a85dad8b99c0100be2bc2713dd47a542",
+      "quote": "| PLAN NAME | STORAGE | CPU | MEMORY | BANDWIDTH | GIG | OS | TECHNICAL SUPPORT | PRICE |"
+    },
+    {
+      "url": "https://green.cloud/storage-kvm-vps.php",
+      "date": "2026-11-25",
+      "proved": "the plan columns include no retention term",
+      "capture": "sha256:50c7e7e87b19a90c27f470d68260ff48a85dad8b99c0100be2bc2713dd47a542",
+      "quote": "| PLAN NAME | STORAGE | CPU | MEMORY | BANDWIDTH | GIG | OS | TECHNICAL SUPPORT | PRICE |"
+    },
+    {
+      "url": "https://green.cloud/storage-kvm-vps.php",
+      "date": "2026-11-25",
+      "proved": "the Storage-2 row: 2048GB SATA, 10 TB bandwidth, 10Gbps Port, $80/year",
+      "capture": "sha256:50c7e7e87b19a90c27f470d68260ff48a85dad8b99c0100be2bc2713dd47a542",
+      "quote": "| Storage-2 | 2048GB SATA | 4 cores | 6 GB | 10 TB | 10Gbps Port | Linux | 24/7/365 | $80/year | Order |"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-10T00:50:18.127Z",
+  "verified_at": "2026-11-25T12:15:41.805Z",
   "price_per_tb_month": "$3.33/TB/mo at the 2 TB rung ($80/yr = $6.67/mo). At 5 TB: 2x Storage-2 + 1x Storage-1 = $13.33 + $3.75 = $17.08/mo = $3.42/TB. At 20 TB: 10x Storage-2 = $66.67/mo = $3.33/TB. Annual-only pricing; the per-TB rate is already the annual rate.",
   "notes": "US/EU: Storage-0.5TB 500 GB, Storage-1 1 TB, Storage-2 2 TB (SATA RAID-10, 10 Gbps port). APAC: same three sizes in Tokyo and Singapore but with a quarter of the bandwidth. **No plan above 2 TB exists.**",
   "history": [],

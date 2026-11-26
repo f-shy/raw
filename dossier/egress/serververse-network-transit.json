@@ -72,10 +72,17 @@
       "url": "https://store.serververs.com/products/network-transit",
       "date": "2026-10-23",
       "proved": "the product page exists and carries marketing copy but no price"
+    },
+    {
+      "url": "https://docs.serververs.com/labs/ip-transit/begin",
+      "date": "2026-11-25",
+      "proved": "the service is in beta",
+      "capture": "sha256:7926f31504ab3af4ef000445008c18bf106ab4157b597fd6799ae9abf995a2c6",
+      "quote": "Network Transit is currently in **beta**. Breaking changes may occur between minor versions."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:47.436Z",
   "price_per_tb_month": "unverified: no price on /nt, /network, the docs, or the store product page",
   "history": [],
   "notes": "serververse.io does not answer; the live brand is serververs.com, with docs.serververs.com and store.serververs.com. Four broker calls were spent chasing a price and none was found, so the row stays price-unverified rather than guessed. The install-command design is the notable part: it removes the config-file step entirely, which is why wg_path is registration-api rather than native-conf.",

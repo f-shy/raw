@@ -13,9 +13,9 @@
     "notes": "Free, no sign-up, no monthly caps."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "Up to 300GB in a single upload.",
     "source_url": "https://mintfile.com/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Send large videos and raw assets as-is, without compressing or splitting them."
   },
   "retention": {
     "stated": "Pick a retention window from 3 to 100 days.",
@@ -95,10 +95,38 @@
       "proved": "the embedded plan data lists retention options by plan: anonymous 3-30 days, free_registered and paid 3-100 days",
       "capture": "sha256:ffa56fa4055f43a95b8f2e1567d131d6fadbfc6a29c82bc94b3cc93a60cfe890",
       "quote": "retention:{byPlan:{anonymous:[3,5,7,14,30],free_registered:[3,5,7,14,30,60,100],paid:[3,5,7,14,30,60,100]}}"
+    },
+    {
+      "url": "https://mintfile.com/faq",
+      "date": "2026-11-25",
+      "proved": "the first-party FAQ states the single-upload ceiling of 300GB",
+      "capture": "sha256:bbc04ccf983dab7a5bf485128b80bab400311a82a43a730a76b5535f93769f15",
+      "quote": "Up to 300GB in a single upload. Send large videos and raw assets as-is, without compressing or splitting them."
+    },
+    {
+      "url": "https://mintfile.com/faq",
+      "date": "2026-11-25",
+      "proved": "large videos and raw assets are sent as-is without compressing or splitting",
+      "capture": "sha256:bbc04ccf983dab7a5bf485128b80bab400311a82a43a730a76b5535f93769f15",
+      "quote": "Up to 300GB in a single upload. Send large videos and raw assets as-is, without compressing or splitting them."
+    },
+    {
+      "url": "https://mintfile.com/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ states the 300GB single-upload ceiling and as-is uploads",
+      "capture": "sha256:bbc04ccf983dab7a5bf485128b80bab400311a82a43a730a76b5535f93769f15",
+      "quote": "Up to 300GB in a single upload. Send large videos and raw assets as-is, without compressing or splitting them."
+    },
+    {
+      "url": "https://mintfile.com/",
+      "date": "2026-11-25",
+      "proved": "the embedded plan data lists the retention windows for each plan",
+      "capture": "sha256:efd7187943f1bcc8768306a62c152f6af74a96bfe4ffa4fb1d4040c90911b5b6",
+      "quote": "retention:{byPlan:{anonymous:[3,5,7,14,30],free_registered:[3,5,7,14,30,60,100],paid:[3,5,7,14,30,60,100]}}"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:25.164Z",
+  "verified_at": "2026-11-25T19:55:26.954Z",
   "notes": "Up to 300 GB per transfer, free, no sign-up, 100 files per transfer. There is no total-storage account at all. It is a per-transfer envelope.",
   "history": [],
   "extras": {

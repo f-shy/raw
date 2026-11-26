@@ -13,15 +13,15 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "No file size limit for individual files in a volume; the frontend only downloads files up to 16 MB and larger files require the CLI.",
     "source_url": "https://modal.com/pricing",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "No file size limit for individual files in a volume; the frontend only downloads files up to 16 MB and larger files require the CLI."
   },
   "retention": {
-    "stated": "Files must be < 1 TiB each; Volumes v1 capped at 500,000 inodes (v2 removes the inode cap); concurrent commits should stay under ~5; billing is a daily snapshot of total storage and deletions keep billing for up to 4 days.",
+    "stated": "Storage is snapshotted once a day; deleted data may still be billed for up to four days.",
     "days": 4,
     "source_url": "https://modal.com/pricing",
-    "notes": "Extracted from published terms."
+    "notes": "Storage is snapshotted once a day; deleted data may still be billed for up to four days."
   },
   "egress": {
     "terms": "1 TiB/month free egress on Starter (10 TiB on Team, 100 TiB on Enterprise); beyond that $0.04/GiB. Not CDN'd for public download. Egress is measured per workspace.",
@@ -70,10 +70,24 @@
       "proved": "a daily storage snapshot is billed and deleted data can bill for up to four days",
       "capture": "sha256:9e93677cd8824e83170c2fa0c9b845f774f059d064053c106dece322ccff285b",
       "quote": "We calculate usage by snapshotting your total storage once a day. When you delete data, you may still be billed for that storage for up to four days, to reflect our underlying processing costs."
+    },
+    {
+      "url": "https://modal.com/docs/guide/volumes",
+      "date": "2026-11-25",
+      "proved": "the guide states no individual-file size limit, a 16 MB frontend download limit, and CLI retrieval for larger files",
+      "capture": "sha256:9e93677cd8824e83170c2fa0c9b845f774f059d064053c106dece322ccff285b",
+      "quote": "While there’s no file size limit for individual files in a volume, the frontend only supports downloading files up to 16 MB. For larger files, please use the CLI"
+    },
+    {
+      "url": "https://modal.com/docs/guide/volumes",
+      "date": "2026-11-25",
+      "proved": "the guide describes a daily storage snapshot and continued billing for up to four days after deletion",
+      "capture": "sha256:9e93677cd8824e83170c2fa0c9b845f774f059d064053c106dece322ccff285b",
+      "quote": "We calculate usage by snapshotting your total storage once a day. When you delete data, you may still be billed for that storage for up to four days, to reflect our underlying processing costs."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:13:58.578Z",
+  "verified_at": "2026-11-25T21:21:14.518Z",
   "notes": "1 TiB of Volume storage free per workspace on the Starter plan ('Volumes include up to 1 TiB free'; 'Volumes $0.09 / GiB / mo *includes 1 TiB / mo free'), plus 1 TiB/month free network egress.",
   "history": [],
   "extras": {

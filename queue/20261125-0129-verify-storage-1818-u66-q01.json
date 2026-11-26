@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u66-q01",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Can the misskey.gg /api/meta quota and per-object fields be re-read after 2026-11-25?",
+ "why": "the endpoint answers HTTP 405 to broker GET on 2026-11-25 and all pinned read providers failed, so the 250 MiB cap and 1 TiB quota rest on an unrepeated 2026-10-22 POST read",
+ "scope": {
+  "rids": [
+   "storage/misskey-gg-misskey-2026-10-1-tb-drive-per-user"
+  ]
+ },
+ "origin": "20261125-0129-verify-storage-1818/u66",
+ "created": "2026-11-25T19:55:26Z"
+}

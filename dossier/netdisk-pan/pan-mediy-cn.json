@@ -91,13 +91,6 @@
       "quote": "\"consecutive_failures\": 0"
     },
     {
-      "url": "probe:https://pan.mediy.cn/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:d97e4723aff37f11c04309c9bd1e6181b9b1e6397b2cf881eed912deb5dc29c6",
-      "quote": "\"alive\": true"
-    },
-    {
       "url": "probe:https://pan.mediy.cn",
       "date": "2026-11-19",
       "proved": "the probe's checked_at instant is the fresh last-alive verification time",
@@ -117,6 +110,13 @@
       "proved": "the /api/public/settings request answered HTTP 200 in this run",
       "capture": "sha256:aa0d7abf661c6c367efb59bfceef698c3f1b8c2d4c5077ca7efea2d1d78edbc0",
       "quote": "\"status\": 200"
+    },
+    {
+      "url": "probe:https://pan.mediy.cn/",
+      "date": "2026-11-25",
+      "proved": "the anonymous settings and mount-list requests answered at this instant",
+      "capture": "sha256:05808d255528fefca8404bf59d84af8ee6bb4fcaf078cf7b11d577f407738ab6",
+      "quote": "\"alive\": true"
     },
     {
       "url": "probe:https://pan.mediy.cn/",
@@ -152,17 +152,10 @@
       "proved": "the guest role has this permission bitmask, base path and advertised write flags",
       "capture": "sha256:3d8b230b46b7d6a97434704428fd5140ad31deb5ff47f9bd83884b9322e66b5c",
       "quote": "\"permission\": 0, ... \"base_path\": \"/\", ... \"write_advertised\": true, ... \"write_content_bypass\": false,"
-    },
-    {
-      "url": "probe:https://pan.mediy.cn/",
-      "date": "2026-11-25",
-      "proved": "the guest session answered and the settings endpoint returned HTTP 200",
-      "capture": "sha256:3d8b230b46b7d6a97434704428fd5140ad31deb5ff47f9bd83884b9322e66b5c",
-      "quote": "\"alive\": true, ... \"status\": 200,"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T11:08:35.119Z",
+  "verified_at": "2026-11-25T21:46:10.684Z",
   "binding": "write-gated",
   "notes": "Contains 7 root entries. Advertised write permissions are denied on execution. Responded as an active API endpoint on 2026-10-22 and intermittently failed to respond on separate test queries.",
   "history": [],
@@ -179,7 +172,7 @@
     "listing_sha256": "89803c56",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-25T01:38:31.831Z",
+    "last_verified_alive": "2026-11-25T02:34:39.637Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "aliases": [

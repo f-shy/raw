@@ -36,7 +36,7 @@
     "unknown"
   ],
   "interface_detail": "No live interface.",
-  "tooling": "None.",
+  "tooling": "unverified: deta.space answered HTTP 530, which says nothing about client tools",
   "chaining": "Not available.",
   "limits": [
     {
@@ -71,10 +71,24 @@
       "url": "https://deta.space/",
       "date": "2026-10-23",
       "proved": "HTTP 530 in this session"
+    },
+    {
+      "url": "probe:https://deta.space/",
+      "date": "2026-11-25",
+      "proved": "the site answers HTTP 530; no tool information is available from it",
+      "capture": "sha256:69f0104176cba22e3901e268917e58faae51dd45ef0fd19910e7f579e58a1496",
+      "quote": "\"status\": 530"
+    },
+    {
+      "url": "https://news.ycombinator.com/item?id=41426388",
+      "date": "2026-11-25",
+      "proved": "Deta Space was announced to be sunset on 17 October 2024",
+      "capture": "sha256:c11417d911893480c83209fd5c96b6846db76d20ce71d45c555e908dbab4dd1a",
+      "quote": "The Space product from Deta is shutting down and will be sunset on 17 October 2024."
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:44.599Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Deta Cloud and Space cloud runtime services are discontinued. Successor products focus on personal computing environments rather than application hosting.",

@@ -1,187 +1,218 @@
 {
-  "topic": "compute",
-  "slug": "glasshand",
-  "provider": "Glasshand",
-  "url": "https://glasshand.com/pricing/",
-  "category": "hosted physical Apple devices",
-  "tier": "monthly rental",
-  "free_tier": {
-    "stated": "no free tier: a real iPhone is USD 60 per month and a real Mac is USD 90 per month, each billed month to month",
-    "unit": "none",
-    "metered_on": "wall-clock",
-    "source_url": "https://glasshand.com/pricing/",
-    "read_on": "2026-11-24"
+ "topic": "compute",
+ "slug": "glasshand",
+ "provider": "Glasshand",
+ "url": "https://glasshand.com/pricing/",
+ "category": "rented Mac (agent computer use)",
+ "tier": "Mac, month to month",
+ "free_tier": {
+  "stated": "No free tier and no hourly or daily rental: a real Mac dedicated to you is $90 per month, rented month to month. Prices are in US dollars, plus applicable taxes.",
+  "unit": "none",
+  "metered_on": "wall-clock",
+  "source_url": "https://glasshand.com/pricing/",
+  "read_on": "2026-11-25",
+  "notes": "The iPhone tier is a separate device at $60 a month and is not this record. The provider list's $90 a month divided by 730 hours is $0.123 an hour."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a dedicated physical Mac, not an object; no storage size is published on the pages read",
+  "source_url": "https://glasshand.com/pricing/"
+ },
+ "retention": {
+  "stated": "When you release it, we erase your data and reset it; the device is factory-reset on connect and wiped clean on release, and the controller is wiped and reset too",
+  "days": null,
+  "source_url": "https://glasshand.com/pricing/"
+ },
+ "egress": {
+  "terms": "not published: the pages read state no egress allowance, price or data cap for the Mac tier",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://glasshand.com/pricing/"
+ },
+ "interface": [
+  "rest",
+  "browser"
+ ],
+ "interface_detail": "through a dedicated controller, the agent sees the screen and taps, types and clicks; Claude Code, Codex, Cursor, OpenClaw and Hermes connect through the Glasshand API; the user approves and pays in the agent chat",
+ "tooling": "an AI agent that can call the Glasshand API and interpret screenshots; no SSH, CLI or SDK is documented on the pages read",
+ "chaining": "the dedicated Mac runs Xcode builds and native-app tests under an agent's screen control, and signed-in apps and files stay on the device until release; bytes that must outlive a release need a separate storage record because the device is erased on release.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "$90 a month, billed monthly with no hourly or daily option; cancel anytime and the device stays available until the end of the current billing period",
+   "source": "https://glasshand.com/pricing/"
+  }
+ ],
+ "limits_note": "unverified: no published limit on device count, concurrent tasks, network throughput or session length was found on the pages read",
+ "binding": "volume-quota",
+ "binding_note": "the month-to-month rental with no hourly option is the only published constraint; no egress or request quota is stated.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "the sign-in page asks for an email address and sends a sign-in code with no password: 'We’ll send you a sign-in code. No password needed.' The pricing page's Rent a Mac link leads to app.glasshand.com/login, where payment is approved when the agent asks; whether a card is required to rent is unverified: behind a sign-up.",
+  "country": null
+ },
+ "reliability_note": "the device is factory-reset on connect and all data plus the controller are erased on release; the pages read state no uptime guarantee or throttle",
+ "confidence": "documented",
+ "confidence_note": "the price, monthly billing, device erasure, real-hardware claim and no-hourly answer are quoted from first-party pages read on 2026-11-25; the sign-in gate is quoted from app.glasshand.com/login; the card requirement is not published on the pages read.",
+ "evidence": [
+  {
+   "url": "https://glasshand.com/pricing/",
+   "date": "2026-11-25",
+   "proved": "the dedicated Mac costs USD 90 a month",
+   "capture": "sha256:cf26b4040b3502a369224a033e971431255ce0592aba22347ba80d11ee5ae039",
+   "quote": "$90 per month"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a dedicated physical device, not a stored object"
+  {
+   "url": "https://glasshand.com/pricing/",
+   "date": "2026-11-25",
+   "proved": "the Mac is dedicated and can build in Xcode and test apps",
+   "capture": "sha256:cf26b4040b3502a369224a033e971431255ce0592aba22347ba80d11ee5ae039",
+   "quote": "A real Mac, dedicated to you\n- Build in Xcode and test your apps"
   },
-  "retention": {
-    "stated": "The device is dedicated to one renter and keeps apps, files and sign-ins between tasks until release; on release the data is erased, the device is factory reset and its controller is wiped. After a failed renewal, access continues for up to 72 hours before the device is released and reset.",
-    "days": null,
-    "source_url": "https://glasshand.com/terms",
-    "notes": "A rental is month to month and ends at the end of the current billing period; no automatic daily or hourly expiry."
+  {
+   "url": "https://glasshand.com/pricing/",
+   "date": "2026-11-25",
+   "proved": "the device is erased and reset when the user releases it",
+   "capture": "sha256:cf26b4040b3502a369224a033e971431255ce0592aba22347ba80d11ee5ae039",
+   "quote": "When you release it, we erase your data and reset it"
   },
-  "egress": {
-    "terms": "not published: the pricing, terms, homepage and agent instructions state no outbound data allowance or price; screen frames and input are buffered in memory between the device and the browser or agent, and an eSIM plan on an iPhone is bought separately from a carrier.",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://api.glasshand.com/openapi.json"
+  {
+   "url": "https://glasshand.com/",
+   "date": "2026-11-25",
+   "proved": "the devices are real hardware, not virtual machines or emulators",
+   "capture": "sha256:2e32c5b83e005a5758d34af2f72afb1c7148fb184bd50a893387e320720bbbc8",
+   "quote": "Real iPhones and Macs in our data center, not virtual machines, emulators, or simulators."
   },
-  "interface": [
-    "rest",
-    "browser"
-  ],
-  "interface_detail": "A REST API at https://api.glasshand.com/v1 with screen capture, screenshot JPEG and click, drag, scroll and key input over JSON or a control WebSocket; a human dashboard at https://app.glasshand.com and OpenAPI reference at https://api.glasshand.com/openapi.json; no native shell, filesystem mount or clipboard API.",
-  "endpoint": "https://api.glasshand.com/v1",
-  "tooling": "An agent with HTTPS access calls the REST API directly after device-code authorization; no installation or MCP server is required; the user approves the agent and pays through Stripe in a browser.",
-  "chaining": "A dedicated iPhone or Mac with real App Store apps and sign-ins serves an agent workflow; data must be copied to a separate storage record before release because the device is wiped.",
-  "limits": [
-    {
-      "kind": "write-gated",
-      "value": "device authorization needs email OTP sign-in and explicit agent approval; approval link alone grants no API access; payment is a separate Stripe checkout in the human browser",
-      "source": "https://api.glasshand.com/openapi.json"
-    },
-    {
-      "kind": "request-rate",
-      "value": "API returns HTTP 429 Rate limited; back off; poll device token no faster than the returned interval, normally 5 seconds; up to 8 simultaneous viewers and 1 active controller",
-      "source": "https://api.glasshand.com/openapi.json"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "monthly rental only, no hourly or day rate; text input at most 512 US-layout ASCII characters per call; at most four unacknowledged frames in a control stream",
-      "source": "https://api.glasshand.com/openapi.json"
-    }
-  ],
-  "limits_note": "Devices are physical, available by month only and not shared; only one iPhone model (iPhone SE third generation) is offered at launch, and camera input is not supported.",
-  "binding": "write-gated",
-  "binding_note": "Access stops at the human approval and payment step before any API call or device control is possible; the monthly-only rental then sets the cost floor.",
-  "identity_cost": {
-    "kind": "card",
-    "detail": "Sign-in uses a one-time code sent to an email address, with no password. Agent access needs a device-code request, an email OTP sign-in and explicit approval of agent name and permissions; approval alone grants no API access. Payment is a separate Stripe checkout where the user provides a valid payment method, billing address and tax information; accounts require age 18 and are open to individuals worldwide.",
-    "country": null
+  {
+   "url": "https://glasshand.com/",
+   "date": "2026-11-25",
+   "proved": "no hourly or daily rental is offered",
+   "capture": "sha256:2e32c5b83e005a5758d34af2f72afb1c7148fb184bd50a893387e320720bbbc8",
+   "quote": "No. Glasshand devices are rented month to month."
   },
-  "reliability_note": "A failed renewal leaves up to 72 hours of access before the device is released and wiped; no uptime is guaranteed, device access depends on hardware availability, and iOS can withhold a permission dialog from the captured image while blocking input.",
-  "confidence": "documented",
-  "confidence_note": "Prices, billing, sign-in and payment gate, API interface, input caps, 429 backoff and reset terms are quoted from Glasshand's own pricing, terms, homepage, agent instructions and API specification read on 2026-11-24.",
-  "evidence": [
-    {
-      "url": "https://glasshand.com/pricing/",
-      "date": "2026-11-24",
-      "proved": "a real iPhone or Mac is dedicated to the renter and rented month to month",
-      "capture": "sha256:cf26b4040b3502a369224a033e971431255ce0592aba22347ba80d11ee5ae039",
-      "quote": "A real iPhone or Mac, dedicated to you, rented month to month."
-    },
-    {
-      "url": "https://glasshand.com/pricing/",
-      "date": "2026-11-24",
-      "proved": "the iPhone rental is USD 60 per month",
-      "capture": "sha256:cf26b4040b3502a369224a033e971431255ce0592aba22347ba80d11ee5ae039",
-      "quote": "$60 per month"
-    },
-    {
-      "url": "https://glasshand.com/pricing/",
-      "date": "2026-11-24",
-      "proved": "the Mac rental is USD 90 per month",
-      "capture": "sha256:cf26b4040b3502a369224a033e971431255ce0592aba22347ba80d11ee5ae039",
-      "quote": "$90 per month"
-    },
-    {
-      "url": "https://glasshand.com/",
-      "date": "2026-11-24",
-      "proved": "the devices are physical iPhones and Macs in the vendor data centre, not virtual machines or emulators",
-      "capture": "sha256:2e32c5b83e005a5758d34af2f72afb1c7148fb184bd50a893387e320720bbbc8",
-      "quote": "Real iPhones and Macs in our data center, not virtual machines, emulators, or simulators."
-    },
-    {
-      "url": "https://app.glasshand.com/login",
-      "date": "2026-11-24",
-      "proved": "sign-in uses a code sent to an email address with no password",
-      "capture": "sha256:0b34aef259b484a835de4de24dcbbbd277b2dbf59d1f6e6869023b3189a2ad7f",
-      "quote": "We’ll send you a sign-in code. No password needed."
-    },
-    {
-      "url": "https://glasshand.com/terms",
-      "date": "2026-11-24",
-      "proved": "payment uses a Stripe checkout in which the user supplies a payment method and billing information",
-      "capture": "sha256:a7c13dd2aa1260bf3ee7339b0cec46c3761346b60f0bf86e419e853f9e667fe7",
-      "quote": "By completing checkout, you authorize Stripe, our payment processor, to charge the selected payment method for the first payment and subsequent monthly renewals until cancellation takes effect."
-    },
-    {
-      "url": "https://glasshand.com/agents.md",
-      "date": "2026-11-24",
-      "proved": "the API base, dashboard and OpenAPI reference, with no installation or MCP server required",
-      "capture": "sha256:ef394b5e7183a2fd747ca43d3b2b1dbe9a4c625e59d726c516e7dbd6c9afe83a",
-      "quote": "API base: **https://api.glasshand.com/v1**. Human dashboard: **https://app.glasshand.com**. API reference: **https://api.glasshand.com/openapi.json**. No installation or MCP server is required: an agent with HTTPS access can use the API directly."
-    },
-    {
-      "url": "https://glasshand.com/agents.md",
-      "date": "2026-11-24",
-      "proved": "the API exposes screen capture and keyboard and mouse input but no shell, filesystem or clipboard",
-      "capture": "sha256:ef394b5e7183a2fd747ca43d3b2b1dbe9a4c625e59d726c516e7dbd6c9afe83a",
-      "quote": "It does not expose a native shell, filesystem mount, or clipboard API."
-    },
-    {
-      "url": "https://glasshand.com/agents.md",
-      "date": "2026-11-24",
-      "proved": "text input is limited to 512 characters per call",
-      "capture": "sha256:ef394b5e7183a2fd747ca43d3b2b1dbe9a4c625e59d726c516e7dbd6c9afe83a",
-      "quote": "at most 512 characters"
-    },
-    {
-      "url": "https://glasshand.com/agents.md",
-      "date": "2026-11-24",
-      "proved": "agent access requires email OTP sign-in and explicit approval; an approval link alone grants no API access",
-      "capture": "sha256:ef394b5e7183a2fd747ca43d3b2b1dbe9a4c625e59d726c516e7dbd6c9afe83a",
-      "quote": "The user opens the link, signs in by email OTP, reviews the agent name and permissions, and explicitly approves. The approval link alone grants no API access."
-    },
-    {
-      "url": "https://api.glasshand.com/openapi.json",
-      "date": "2026-11-24",
-      "proved": "the API specification defines HTTP 429 Rate limited; back off on requests",
-      "capture": "sha256:572fce6649f409c63b9d33821f2c2c14b5420d0acb783c665336f89355f78f10",
-      "quote": "\"429\": {\n            \"description\": \"Rate limited; back off\""
-    },
-    {
-      "url": "https://glasshand.com/agents.md",
-      "date": "2026-11-24",
-      "proved": "a failed renewal leaves up to 72 hours of access before release and reset",
-      "capture": "sha256:ef394b5e7183a2fd747ca43d3b2b1dbe9a4c625e59d726c516e7dbd6c9afe83a",
-      "quote": "After a failed renewal, access continues for up to 72 hours; unrecovered rentals are released and reset."
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T10:11:14.768Z",
-  "price_per_tb_month": null,
-  "notes": "Hosted physical iPhone SE (third generation) at USD 60 a month and Mac mini M4 with 16 GB RAM and 256 GB storage at USD 90 a month, plus tax. There is no free tier and no hourly rental. The hosted device is dedicated to one renter and wiped on release; Glasshand and its hardware providers own and maintain the devices, so this is not a self-hosted offer.",
-  "extras": {
-    "shape": {
-      "vcpu": null,
-      "ram_gib": null,
-      "disk_gib": null,
-      "gpu_class": "physical iPhone SE (3rd generation) or Mac mini M4",
-      "gpu_count": null,
-      "note": "Mac mini M4 has 16 GB RAM and 256 GB storage; iPhone model at launch is the SE third generation"
-    },
-    "billing_model": "monthly subscription per physical device",
-    "free_tier_kind": "none",
-    "term": "month to month, cancel at period end",
-    "price_arithmetic": "USD 60 per month for iPhone, USD 90 per month for Mac, plus tax; no hourly or daily rate",
-    "status": "active",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": null,
-      "ports": "HTTPS to the REST API and control WebSocket; not otherwise stated",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "month-to-month rental; 72-hour grace after failed renewal; at most 8 viewers and 1 controller"
-    }
+  {
+   "url": "https://app.glasshand.com/login",
+   "date": "2026-11-25",
+   "proved": "sign-in needs an email address and a code, with no password",
+   "capture": "sha256:0b34aef259b484a835de4de24dcbbbd277b2dbf59d1f6e6869023b3189a2ad7f",
+   "quote": "We’ll send you a sign-in code. No password needed."
   },
-  "self_hosted": false
+  {
+   "url": "https://glasshand.com/pricing/",
+   "date": "2026-11-24",
+   "proved": "a real iPhone or Mac is dedicated to the renter and rented month to month",
+   "capture": "sha256:cf26b4040b3502a369224a033e971431255ce0592aba22347ba80d11ee5ae039",
+   "quote": "A real iPhone or Mac, dedicated to you, rented month to month."
+  },
+  {
+   "url": "https://glasshand.com/pricing/",
+   "date": "2026-11-24",
+   "proved": "the iPhone rental is USD 60 per month",
+   "capture": "sha256:cf26b4040b3502a369224a033e971431255ce0592aba22347ba80d11ee5ae039",
+   "quote": "$60 per month"
+  },
+  {
+   "url": "https://glasshand.com/pricing/",
+   "date": "2026-11-24",
+   "proved": "the Mac rental is USD 90 per month",
+   "capture": "sha256:cf26b4040b3502a369224a033e971431255ce0592aba22347ba80d11ee5ae039",
+   "quote": "$90 per month"
+  },
+  {
+   "url": "https://glasshand.com/",
+   "date": "2026-11-24",
+   "proved": "the devices are physical iPhones and Macs in the vendor data centre, not virtual machines or emulators",
+   "capture": "sha256:2e32c5b83e005a5758d34af2f72afb1c7148fb184bd50a893387e320720bbbc8",
+   "quote": "Real iPhones and Macs in our data center, not virtual machines, emulators, or simulators."
+  },
+  {
+   "url": "https://app.glasshand.com/login",
+   "date": "2026-11-24",
+   "proved": "sign-in uses a code sent to an email address with no password",
+   "capture": "sha256:0b34aef259b484a835de4de24dcbbbd277b2dbf59d1f6e6869023b3189a2ad7f",
+   "quote": "We’ll send you a sign-in code. No password needed."
+  },
+  {
+   "url": "https://glasshand.com/terms",
+   "date": "2026-11-24",
+   "proved": "payment uses a Stripe checkout in which the user supplies a payment method and billing information",
+   "capture": "sha256:a7c13dd2aa1260bf3ee7339b0cec46c3761346b60f0bf86e419e853f9e667fe7",
+   "quote": "By completing checkout, you authorize Stripe, our payment processor, to charge the selected payment method for the first payment and subsequent monthly renewals until cancellation takes effect."
+  },
+  {
+   "url": "https://glasshand.com/agents.md",
+   "date": "2026-11-24",
+   "proved": "the API base, dashboard and OpenAPI reference, with no installation or MCP server required",
+   "capture": "sha256:ef394b5e7183a2fd747ca43d3b2b1dbe9a4c625e59d726c516e7dbd6c9afe83a",
+   "quote": "API base: **https://api.glasshand.com/v1**. Human dashboard: **https://app.glasshand.com**. API reference: **https://api.glasshand.com/openapi.json**. No installation or MCP server is required: an agent with HTTPS access can use the API directly."
+  },
+  {
+   "url": "https://glasshand.com/agents.md",
+   "date": "2026-11-24",
+   "proved": "the API exposes screen capture and keyboard and mouse input but no shell, filesystem or clipboard",
+   "capture": "sha256:ef394b5e7183a2fd747ca43d3b2b1dbe9a4c625e59d726c516e7dbd6c9afe83a",
+   "quote": "It does not expose a native shell, filesystem mount, or clipboard API."
+  },
+  {
+   "url": "https://glasshand.com/agents.md",
+   "date": "2026-11-24",
+   "proved": "text input is limited to 512 characters per call",
+   "capture": "sha256:ef394b5e7183a2fd747ca43d3b2b1dbe9a4c625e59d726c516e7dbd6c9afe83a",
+   "quote": "at most 512 characters"
+  },
+  {
+   "url": "https://glasshand.com/agents.md",
+   "date": "2026-11-24",
+   "proved": "agent access requires email OTP sign-in and explicit approval; an approval link alone grants no API access",
+   "capture": "sha256:ef394b5e7183a2fd747ca43d3b2b1dbe9a4c625e59d726c516e7dbd6c9afe83a",
+   "quote": "The user opens the link, signs in by email OTP, reviews the agent name and permissions, and explicitly approves. The approval link alone grants no API access."
+  },
+  {
+   "url": "https://api.glasshand.com/openapi.json",
+   "date": "2026-11-24",
+   "proved": "the API specification defines HTTP 429 Rate limited; back off on requests",
+   "capture": "sha256:572fce6649f409c63b9d33821f2c2c14b5420d0acb783c665336f89355f78f10",
+   "quote": "\"429\": {\n            \"description\": \"Rate limited; back off\""
+  },
+  {
+   "url": "https://glasshand.com/agents.md",
+   "date": "2026-11-24",
+   "proved": "a failed renewal leaves up to 72 hours of access before release and reset",
+   "capture": "sha256:ef394b5e7183a2fd747ca43d3b2b1dbe9a4c625e59d726c516e7dbd6c9afe83a",
+   "quote": "After a failed renewal, access continues for up to 72 hours; unrecovered rentals are released and reset."
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T02:12:34.858Z",
+ "price_per_tb_month": null,
+ "notes": "No free tier: a dedicated real Mac is USD 90 a month, rented month to month. The provider list's USD 0.123 an hour is USD 90 divided by 730 hours. Access is screen control through an agent API rather than SSH, so programmatic use depends on an agent that interprets screenshots.",
+ "extras": {
+  "shape": {
+   "vcpu": null,
+   "ram_gib": null,
+   "disk_gib": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "a real Mac in the vendor's data center; chip, memory and storage are not stated on the pages read"
+  },
+  "billing_model": "month-to-month rental",
+  "free_tier_kind": "none",
+  "price_arithmetic": "USD 90 / 730 hours = USD 0.123 an hour",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": null,
+   "ports": "not published",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "month-to-month, device stays available until the end of the paid period; wiped on release"
+  }
+ },
+ "endpoint": "https://api.glasshand.com/v1",
+ "self_hosted": false
 }

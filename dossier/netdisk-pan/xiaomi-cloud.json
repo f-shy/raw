@@ -5,7 +5,7 @@
   "url": "https://i.mi.com/",
   "category": "phone-vendor cloud, China mainland",
   "free_tier": {
-    "stated": "| 云存储空间 | 5G | 50G | 200G | 2048G |",
+    "stated": "5G free, with 50G, 200G and 2048G paid tiers at 72, 252 and 816 yuan a year",
     "unit": "GB",
     "metered_on": "stored-bytes",
     "source_url": "https://i.mi.com/guide/zh-CN/membership/overview",
@@ -17,7 +17,7 @@
     "source_url": "https://i.mi.com/guide/zh-CN/membership/overview"
   },
   "retention": {
-    "stated": "Account ownership is not transferable; the global-region Gallery sync and all memberships were terminated on 2022-10-25 outside the mainland, with stored Gallery data deleted by mid-2023",
+    "stated": "Gallery sync and membership termination is staged by region: before December 1, 2022, before January 1, 2023 and before February 1, 2023; transfer windows close by May 31, 2023, June 30, 2023 and July 31, 2023; these services are not terminated on the Chinese mainland at this time",
     "days": null,
     "source_url": "https://i.mi.com/announcement/stop_service"
   },
@@ -48,7 +48,7 @@
   ],
   "identity_cost": {
     "kind": "email",
-    "detail": "+86 is the beginning of the Chinese mobile phone number. If you can only bind a mobile phone number beginning with +86 when registering a Xiaomi account, it means that the Xiaomi account you created is a Chinese mainland account.",
+    "detail": "A Xiaomi account outside the Chinese mainland can only be created through email; a +86 phone binding identifies a Chinese mainland account",
     "country": "86"
   },
   "reliability_note": "Global-region Gallery sync and all memberships were terminated outside mainland China in three regional waves by 2023-02-01, with Gallery data deleted by mid-2023. An email signup works and lands in the region where the product no longer exists, which is a worse outcome than a closed gate because it looks open",
@@ -88,20 +88,6 @@
       "url": "probe:https://i.mi.com/storage/web/v2/storage",
       "date": "2026-10-21",
       "proved": "the seed pass recorded, at this URL: HTTP 404, 211 bytes, a Resin/4.0.61 MicloudWeb HTML error page"
-    },
-    {
-      "url": "https://i.mi.com/guide/zh-CN/membership/overview",
-      "date": "2026-11-03",
-      "proved": "the membership page still gives ordinary users 5G of cloud storage, against 50G, 200G and 2048G for the paid tiers",
-      "capture": "sha256:a04001e359170f45c6564dafcfa5049fa5bf3634d8134d69b49d7521bddf029c",
-      "quote": "| 云存储空间 | 5G | 50G | 200G | 2048G |"
-    },
-    {
-      "url": "https://i.mi.com/guide/zh-CN/membership/overview",
-      "date": "2026-11-03",
-      "proved": "the membership page still prices the paid tiers at 72, 252 and 816 yuan a year",
-      "capture": "sha256:a04001e359170f45c6564dafcfa5049fa5bf3634d8134d69b49d7521bddf029c",
-      "quote": "| 会员价格 | 免费 | 72元/年 | 252元/年 | 816元/年 |"
     },
     {
       "url": "https://i.mi.com/announcement/stop_service",
@@ -148,21 +134,35 @@
     {
       "url": "https://i.mi.com/guide/zh-CN/membership/overview",
       "date": "2026-11-25",
+      "proved": "the manual lists 5G free and 50G, 200G and 2048G paid tiers at 72, 252 and 816 yuan a year",
+      "capture": "sha256:57bb30b45cf1f73ef278d1fa9f4a8a999f394c48bcce23a3bfd0f194b1ad6f61",
+      "quote": "| 云存储空间 | 5G | 50G | 200G | 2048G | ... | 会员价格 | 免费 | 72元/年 | 252元/年 | 816元/年 |"
+    },
+    {
+      "url": "https://i.mi.com/guide/zh-CN/membership/overview",
+      "date": "2026-11-25",
+      "proved": "the manual prices membership in yuan per year, with no monthly or dollar figure",
+      "capture": "sha256:57bb30b45cf1f73ef278d1fa9f4a8a999f394c48bcce23a3bfd0f194b1ad6f61",
+      "quote": "| 会员价格 | 免费 | 72元/年 | 252元/年 | 816元/年 |"
+    },
+    {
+      "url": "https://www.mi.com/global/support/faq/details/KA-547873/",
+      "date": "2026-11-25",
+      "proved": "the FAQ distinguishes mainland accounts by a +86 phone binding and says non-mainland accounts are created by email",
+      "capture": "sha256:9587f282635c57473aebb17c6076d47a71d87f034fcaf9971db6dfc355c8fe73",
+      "quote": "+86 is the beginning of the Chinese mobile phone number. If you can only bind a mobile phone number beginning with +86 when registering a Xiaomi account, it means that the Xiaomi account you created is a Chinese mainland account. ... The Xiaomi account outside the Chinese mainland can only be created through email."
+    },
+    {
+      "url": "https://i.mi.com/announcement/stop_service",
+      "date": "2026-11-25",
+      "proved": "the notice gives three regional termination dates, three transfer deadlines and a mainland exclusion",
+      "capture": "sha256:fc31d226b1398d7ddec129c34360319c0d72eea8173cdf0f242c0cf922322c3f",
+      "quote": "| Before December 1, 2022 | Before January 1, 2023 | Before February 1, 2023 | ... | May 31, 2023 | June 30, 2023 | July 31, 2023 | ... These services will not be terminated on the Chinese mainland at this time."
+    },
+    {
+      "url": "https://i.mi.com/guide/zh-CN/membership/overview",
+      "date": "2026-11-25",
       "proved": "the ordinary tier is given as 5G, the paid tiers as 50G, 200G and 2048G",
-      "capture": "sha256:57bb30b45cf1f73ef278d1fa9f4a8a999f394c48bcce23a3bfd0f194b1ad6f61",
-      "quote": "| 云存储空间 | 5G | 50G | 200G | 2048G |"
-    },
-    {
-      "url": "https://i.mi.com/guide/zh-CN/membership/overview",
-      "date": "2026-11-25",
-      "proved": "the table gives the ordinary tier 5G and the paid tiers 50G, 200G and 2048G",
-      "capture": "sha256:57bb30b45cf1f73ef278d1fa9f4a8a999f394c48bcce23a3bfd0f194b1ad6f61",
-      "quote": "| 云存储空间 | 5G | 50G | 200G | 2048G |"
-    },
-    {
-      "url": "https://i.mi.com/guide/zh-CN/membership/overview",
-      "date": "2026-11-25",
-      "proved": "the ordinary tier is still 5G and the paid tiers 50G, 200G and 2048G",
       "capture": "sha256:57bb30b45cf1f73ef278d1fa9f4a8a999f394c48bcce23a3bfd0f194b1ad6f61",
       "quote": "| 云存储空间 | 5G | 50G | 200G | 2048G |"
     },
@@ -182,9 +182,9 @@
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-25T13:26:30.702Z",
+  "verified_at": "2026-11-25T14:57:25.809Z",
   "history": [],
-  "price_per_tb_month": "2 TB at CNY 408/yr promotional is about USD 2.4/TB/month, and CNY 816/yr list about USD 4.8/TB/month",
+  "price_per_tb_month": "unverified: the manual publishes CNY annual prices only",
   "binding": "per-object-cap",
   "binding_note": "Free storage is limited to 5 GB. Global email registration routes accounts to international regions where consumer drive sync features have been phased out. Total account quota is the binding constraint.",
   "notes": "Email registration succeeds internationally but maps accounts to global regions lacking active drive storage sync. Unofficial client tooling includes experimental Go wrapper scripts and community OpenList driver integrations.",

@@ -19,21 +19,22 @@
     "notes": "not applicable: a rejected offer has no per-object cap to shard"
   },
   "retention": {
-    "stated": "not recorded; the rejection did not turn on retention",
+    "stated": "As an archive our intention is to store and make materials in perpetuity; uploaded items can be downloaded from the user's library at any time.",
     "days": null,
     "source_url": "https://help.archive.org/help/uploading-troubleshooting/",
     "notes": "Binding failure documented in record details."
   },
   "egress": {
-    "terms": "not assessed; the provider was rejected before its egress mattered",
+    "terms": "No transfer charge is published; upload and preservation are free, and uploaded items can be downloaded and taken elsewhere.",
     "metered": false
   },
   "interface": [
-    "unknown"
+    "browser",
+    "cli"
   ],
   "interface_detail": "not documented",
   "tooling": "not documented",
-  "chaining": "rejected: it composes with nothing because it does not hold bytes here",
+  "chaining": "Items can be exported from the user's library and taken elsewhere; bulk or programmatic uploads use the Internet Archive Command-Line Tool.",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -167,10 +168,52 @@
       "proved": "the per-file size guidance is 500 GB recommended, ~500 to ~700 GB maximum",
       "capture": "sha256:696664a1c6dded7af69f2771c2f51bf956239376771cea7e8889806aed3dfcdb",
       "quote": "A single file in an item should not be larger than ~500 to ~700 GB (capacity depends on activity levels and other circumstances, so we recommend using the lower limit of 500GB)."
+    },
+    {
+      "url": "https://help.archive.org/help/archive-org-information/",
+      "date": "2026-11-25",
+      "proved": "the Help Center states an intention to store materials in perpetuity",
+      "capture": "sha256:fe9147750a0184115f838677d71f07380a8308305f94c6e515913845a60f9505",
+      "quote": "As an archive our intention is to store and make materials in perpetuity."
+    },
+    {
+      "url": "https://help.archive.org/help/uploading-a-basic-guide/",
+      "date": "2026-11-25",
+      "proved": "the upload guide documents a browser drag-and-drop upload path",
+      "capture": "sha256:2af054d55dffcd44c8d0693ae3231334ab0a26da635bddc2219a2aa78c8b5d20",
+      "quote": "Please note: The type of browser you are using will determine which option you select. For most non-internet Explorer users, select the green **Upload Files **button."
+    },
+    {
+      "url": "https://help.archive.org/help/archive-org-information/",
+      "date": "2026-11-25",
+      "proved": "the Help Center documents that uploaded items can be downloaded and moved elsewhere",
+      "capture": "sha256:fe9147750a0184115f838677d71f07380a8308305f94c6e515913845a60f9505",
+      "quote": "If you have uploaded things to the Internet Archive, you can find a list of them from the “my library” link on your settings page. From there, you can download the items and take them anywhere."
+    },
+    {
+      "url": "https://help.archive.org/help/archive-org-information/",
+      "date": "2026-11-25",
+      "proved": "the Help Center documents taking uploaded items elsewhere",
+      "capture": "sha256:fe9147750a0184115f838677d71f07380a8308305f94c6e515913845a60f9505",
+      "quote": "If you have uploaded things to the Internet Archive, you can find a list of them from the “my library” link on your settings page. From there, you can download the items and take them anywhere."
+    },
+    {
+      "url": "https://help.archive.org/help/archive-org-information/",
+      "date": "2026-11-25",
+      "proved": "the Help Center states perpetual storage intent and free upload, download and export of items",
+      "capture": "sha256:fe9147750a0184115f838677d71f07380a8308305f94c6e515913845a60f9505",
+      "quote": "As an archive our intention is to store and make materials in perpetuity."
+    },
+    {
+      "url": "https://help.archive.org/help/uploading-a-basic-guide/",
+      "date": "2026-11-25",
+      "proved": "the upload guide documents a browser drag-and-drop upload path and a command-line tool",
+      "capture": "sha256:2af054d55dffcd44c8d0693ae3231334ab0a26da635bddc2219a2aa78c8b5d20",
+      "quote": "Please note: The type of browser you are using will determine which option you select. For most non-internet Explorer users, select the green **Upload Files **button."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-04T00:31:28.058Z",
+  "verified_at": "2026-11-25T01:53:16.158Z",
   "notes": "Manual browser upload path is subject to Resume button retries, HTTP 503 slowdown responses, and ASCII-only filenames. The IAS3 API or ia CLI provide programmatic access.",
   "history": [],
   "extras": {

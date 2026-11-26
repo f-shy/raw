@@ -13,15 +13,15 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "20MB per file",
+    "stated": "Free unlimited files in public branches up to 20MB per file; files over 20MB count toward the 10GB private allowance.",
     "bytes": 20000000,
     "source_url": "https://www.mrowl.com/help.jsp",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Free unlimited files in public branches up to 20MB per file; files over 20MB count toward the 10GB private allowance."
   },
   "retention": {
-    "stated": "'free unlimited storage for content that is shared to the world' + 10 GB private. The asterisk is the whole story: 'Free unlimited files stored in public branches up to 20MB per file'",
+    "stated": "unverified: no file-retention period stated on the help page or terms.",
     "source_url": "https://www.mrowl.com/help.jsp",
-    "notes": "Extracted from published terms."
+    "notes": "unverified: no file-retention period stated on the help page or terms."
   },
   "egress": {
     "terms": "No egress meter documented.",
@@ -37,14 +37,14 @@
   "limits": [
     {
       "kind": "per-object-cap",
-      "value": "20MB per file",
+      "value": "20MB per file in public branches; over 20MB counts toward private storage",
       "source": "https://www.mrowl.com/help.jsp"
     }
   ],
   "limits_note": "per-object-cap 20 MB on the unlimited public tier; anything over 20 MB draws down the 10 GB private quota instead.",
   "identity_cost": {
-    "kind": "email",
-    "detail": "no identity_cost field and no identity statement in the source record; defaulted to email and flagged, not evidence",
+    "kind": "any-phone",
+    "detail": "registration asks for a cell phone number validated by text",
     "country": null
   },
   "reliability_note": "Front page returned HTTP 504 gateway timeout during testing. Archived help documentation specifies a 20 MB file limit footnote.",
@@ -100,10 +100,31 @@
       "proved": "the site root answered HTTP 200 with real bytes",
       "capture": "sha256:35338c3c535603466a5e8c084a41636a72b9cdd2f613df5bbf539c433292b61c",
       "quote": "\"status\": 200"
+    },
+    {
+      "url": "https://www.mrowl.com/help.jsp",
+      "date": "2026-11-25",
+      "proved": "public-branch files are free to 20MB; larger files use the 10GB private allowance",
+      "capture": "sha256:8d2a52d8933f2a1c4bae017ce1be82ad8abde2860e23e9de89d7e43933f76011",
+      "quote": "*Free unlimited files stored in public branches up to 20MB per file. Plus, 10GB of free private storage. Files over 20MB will count towards private storage. [See details.](https://www.mrowl.com/terms.jsp)"
+    },
+    {
+      "url": "https://www.mrowl.com/terms.jsp",
+      "date": "2026-11-25",
+      "proved": "the terms reserve stopping the service; no retention period is stated",
+      "capture": "sha256:49df37cf8a09f4137675b5711247ef2f5ac2fc5fb611b7d5474b66e279b71029",
+      "quote": "We may, without prior notice, change the Service; stop providing the Service or features of the Service, to you or to Users generally; or create usage limits for the Service."
+    },
+    {
+      "url": "https://www.mrowl.com/help.jsp",
+      "date": "2026-11-25",
+      "proved": "registration asks for a cell phone number validated by text",
+      "capture": "sha256:8d2a52d8933f2a1c4bae017ce1be82ad8abde2860e23e9de89d7e43933f76011",
+      "quote": "When you register, you will need to provide your cell phone number in order to validate your account which will be texted to you."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:01.149Z",
+  "verified_at": "2026-11-25T21:21:14.520Z",
   "notes": "'free unlimited storage for content that is shared to the world' + 10 GB private. The asterisk is the whole story: 'Free unlimited files stored in public branches up to 20MB per file'.",
   "history": [],
   "extras": {

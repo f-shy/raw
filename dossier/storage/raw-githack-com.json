@@ -16,15 +16,15 @@
     "stated": "per-object-cap: GitHub's 100 MiB",
     "bytes": 104857600,
     "source_url": "https://raw.githack.com/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The homepage states permanent per-URL caching and gives no per-file size cap."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "Files are cached permanently based on the URL, query string is ignored",
     "source_url": "https://raw.githack.com/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "CDN URLs are cached permanently based on the exact URL."
   },
   "egress": {
-    "terms": "Free, no account, no key. Cloudflare-fronted with permanent per-URL caching on the tag/commit form.",
+    "terms": "Both URL types are served through Cloudflare's global network.",
     "metered": false
   },
   "interface": [
@@ -32,7 +32,7 @@
   ],
   "interface_detail": "rest",
   "tooling": "Two URL forms: raw.githack.com/<owner>/<repo>/<branch|tag>/<path> (development, minutes of cache) and rawcdn.githack.com/<owner>/<repo>/<tag|commit>/<path> (production, cached permanently). Plain GET.",
-  "chaining": "Serves GitHub files at 50 MB where jsDelivr's /gh/ stops at 20 MB. That is the single most useful number here, because it doubles the shard size on an otherwise identical origin. Use rawcdn.githack.com for immutable shards and jsDelivr /gh/ as a second mirror for the smaller ones.",
+  "chaining": "Use a tag or commit ref in the URL instead of a branch name to serve a new version.",
   "limits": [
     {
       "kind": "per-ip-shaping",
@@ -95,10 +95,73 @@
       "proved": "the homepage still states permanent per-URL caching",
       "capture": "sha256:5e592d410d2968781671700b4c10151dbea4b9b23fa79c41f41c776ba9c9a563",
       "quote": "Files are cached permanently based on the URL, query string is ignored"
+    },
+    {
+      "url": "https://raw.githack.com/",
+      "date": "2026-11-25",
+      "proved": "the first-party homepage states permanent per-URL caching and no per-file size cap",
+      "capture": "sha256:5e592d410d2968781671700b4c10151dbea4b9b23fa79c41f41c776ba9c9a563",
+      "quote": "Files are cached permanently based on the URL, query string is ignored"
+    },
+    {
+      "url": "https://raw.githack.com/",
+      "date": "2026-11-25",
+      "proved": "the first-party homepage states permanent caching for CDN URLs",
+      "capture": "sha256:5e592d410d2968781671700b4c10151dbea4b9b23fa79c41f41c776ba9c9a563",
+      "quote": "**CDN URLs** are cached permanently based on the exact URL, which makes them fast and reliable for production use."
+    },
+    {
+      "url": "https://raw.githack.com/",
+      "date": "2026-11-25",
+      "proved": "the first-party homepage states permanent per-URL caching",
+      "capture": "sha256:5e592d410d2968781671700b4c10151dbea4b9b23fa79c41f41c776ba9c9a563",
+      "quote": "Files are cached permanently based on the URL, query string is ignored"
+    },
+    {
+      "url": "https://raw.githack.com/",
+      "date": "2026-11-25",
+      "proved": "the first-party homepage documents tag or commit refs for serving new versions",
+      "capture": "sha256:5e592d410d2968781671700b4c10151dbea4b9b23fa79c41f41c776ba9c9a563",
+      "quote": "To serve a new version, use a tag or commit ref in the URL instead of a branch name — e.g. `/user/repo/TAG/file` instead of `/user/repo/BRANCH/file`."
+    },
+    {
+      "url": "https://raw.githack.com/",
+      "date": "2026-11-25",
+      "proved": "the first-party homepage states that both URL types are served through Cloudflare",
+      "capture": "sha256:5e592d410d2968781671700b4c10151dbea4b9b23fa79c41f41c776ba9c9a563",
+      "quote": "Both URL types are served through [Cloudflare's](https://cloudflare.com/) global network, but they differ in how long they're cached."
+    },
+    {
+      "url": "https://raw.githack.com/",
+      "date": "2026-11-25",
+      "proved": "the first-party homepage still states permanent per-URL caching",
+      "capture": "sha256:5e592d410d2968781671700b4c10151dbea4b9b23fa79c41f41c776ba9c9a563",
+      "quote": "Files are cached permanently based on the URL, query string is ignored"
+    },
+    {
+      "url": "https://raw.githack.com/",
+      "date": "2026-11-25",
+      "proved": "the first-party homepage still states permanent CDN URL caching",
+      "capture": "sha256:5e592d410d2968781671700b4c10151dbea4b9b23fa79c41f41c776ba9c9a563",
+      "quote": "**CDN URLs** are cached permanently based on the exact URL, which makes them fast and reliable for production use."
+    },
+    {
+      "url": "https://raw.githack.com/",
+      "date": "2026-11-25",
+      "proved": "the first-party homepage still documents tag or commit URL refs",
+      "capture": "sha256:5e592d410d2968781671700b4c10151dbea4b9b23fa79c41f41c776ba9c9a563",
+      "quote": "To serve a new version, use a tag or commit ref in the URL instead of a branch name — e.g. `/user/repo/TAG/file` instead of `/user/repo/BRANCH/file`."
+    },
+    {
+      "url": "https://raw.githack.com/",
+      "date": "2026-11-25",
+      "proved": "the first-party homepage still states Cloudflare serving for both URL types",
+      "capture": "sha256:5e592d410d2968781671700b4c10151dbea4b9b23fa79c41f41c776ba9c9a563",
+      "quote": "Both URL types are served through [Cloudflare's](https://cloudflare.com/) global network, but they differ in how long they're cached."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:38.525Z",
+  "verified_at": "2026-11-25T19:55:17.919Z",
   "notes": "Files are cached permanently based on the URL, query string is ignored",
   "history": [],
   "extras": {

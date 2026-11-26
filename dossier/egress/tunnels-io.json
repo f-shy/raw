@@ -66,10 +66,24 @@
       "url": "https://tunnels.io/pricing",
       "date": "2026-10-23",
       "proved": "Raw HTML: 'Basic (Free)' followed by '4 GB / month bandwidth' and 'Student (Free)' with 8 GB; the paid cards list 128, 256 and 512 GB and 'HTTP / TCP'"
+    },
+    {
+      "url": "https://tunnels.io/pricing",
+      "date": "2026-11-25",
+      "proved": "the Basic (Free) card in the page HTML lists 4 GB per month of bandwidth",
+      "capture": "sha256:994de1e371ae225b8eca8370cc5d0addc9643eb27dc8eeea4aa4c105a8c3f3df",
+      "quote": "4 GB / month bandwidth"
+    },
+    {
+      "url": "https://tunnels.io/pricing",
+      "date": "2026-11-25",
+      "proved": "the Basic (Free) card lists 1024 requests per second",
+      "capture": "sha256:994de1e371ae225b8eca8370cc5d0addc9643eb27dc8eeea4aa4c105a8c3f3df",
+      "quote": "1024 RPS"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:49.307Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Tunneling service providing HTTP and TCP ingress. Free tier includes 4 GB of monthly bandwidth and 1 tunnel; paid tiers provide 128 GB, 256 GB and 512 GB.",

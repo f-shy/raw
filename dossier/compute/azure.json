@@ -74,10 +74,17 @@
       "url": "https://learn.microsoft.com/en-us/answers/questions/5606844/how-to-prove-i-am-a-student-without-an-edu-email",
       "date": "2026-10-22",
       "proved": "Reported by a Microsoft Q&A respondent: 'Without an email address from your collage/university, you will not be able to sign up for the Azure Student subscription'; the institution email is the standard flow and document-based fallback is not guaranteed."
+    },
+    {
+      "url": "https://azure.microsoft.com/en-us/free/students",
+      "date": "2026-11-25",
+      "proved": "the captured free-services list still grants 720 vCore hours of a General Purpose instance",
+      "capture": "sha256:0a8faf0e92eaca8c99d5285e63d9d2de2a4b4bcc387418249b3039f248bd820e",
+      "quote": "720 vCore hours of 4-vCore or 8-vCore General Purpose instance – includes 64GB data storage and 64GB backup storage"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T02:10:49.534Z",
   "notes": "This corrects the compute angle of dossier/storage/azure-for-students.json, which recorded identity_cost as 'card' and verdict qualifies-with-caveat. The vendor page states 'No credit card required' repeatedly, so 'card' is wrong, and the vendor FAQ names the institution email as the verification method, which makes the real constraint institution and the verdict fails-identity. The storage record's reading of the USD 100 as storage capacity is also secondary to the 750-hour VM line, which is the larger compute allowance. Note the allowance is 12 months for new Azure customers and the $100 renews annually only while student status holds.",
   "extras": {
     "wave2": {

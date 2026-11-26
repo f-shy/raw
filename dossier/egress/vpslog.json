@@ -85,10 +85,17 @@
       "proved": "the distribution host does not resolve",
       "capture": "sha256:fa819a7f5e09e92469c5ed6b7268a3348ac57fd29c66f07768a425db27f95452",
       "quote": "\"error\": \"dns\""
+    },
+    {
+      "url": "probe:distribute.vpslog.net",
+      "date": "2026-11-25",
+      "proved": "the host distribute.vpslog.net does not resolve through a proxy resolver, so the offer stays dead",
+      "capture": "sha256:d5a7b7d3cca7cd8b59a1f94b8ca0fd72bbdfb03568be95b1a368df251af7fe2c",
+      "quote": "the name did not resolve"
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-11-04T06:52:57.446Z",
+  "verified_at": "2026-11-25T15:43:51.889Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Dead: the distribution host distribute.vpslog.net does not resolve (DNS failure), so the free NAT VPS is no longer issued. Kept as the archetype of the Telegram-only free NAT VPS, where only a listed subset of ports of a shared IPv4 is forwarded; the write-ups date from 2023.",

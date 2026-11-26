@@ -16,12 +16,12 @@
     "stated": "5 GB per file",
     "bytes": 5000000000,
     "source_url": "https://web.u-p.vip/about",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "VIP1 单文件大小 5GB; VIP2 10GB; VIP3 20GB"
   },
   "retention": {
-    "stated": "VIP2 (1.5 TB+, 10 GB/file) and VIP3 (3 TB+, 20 GB/file) are earned via points from the partner shopping app, not purchased. Storage is 'permanent' while the account stays active; the operator may delete files that fall outside the published conditions without notice.",
+    "stated": "只要你经常使用VIP优盘，就可以永久保留。",
     "source_url": "https://web.u-p.vip/about",
-    "notes": "Extracted from published terms."
+    "notes": "只要你经常使用VIP优盘，就可以永久保留。"
   },
   "egress": {
     "terms": "No speed limit and no traffic quota at any tier: '不限速，永久免费'. Downloads are free of charge and unmetered.",
@@ -33,7 +33,7 @@
   ],
   "interface_detail": "webdav",
   "tooling": "WebDAV is listed as 公测中 (public beta) on VIP1 and supported on VIP3; offline download also beta. No documented REST API.",
-  "chaining": "500 GB base + 100 GB per invited account is a genuinely linear free multiplier, and the operator states there is no ceiling on expansion. Chain = 100 GB x N invites, capped only by the invite funnel.",
+  "chaining": "每邀请1名呆萌价新用户，赠送100GB永久容量，赠送无上限。",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -101,10 +101,52 @@
       "proved": "each invited partner-app user grants 100 GB permanent capacity with no stated ceiling",
       "capture": "sha256:31738449caa932618acd44b1ee8e21d828cf6084fb8b2b1714014f995d4b5112",
       "quote": "每邀请1名呆萌价新用户，赠送100GB永久容量，赠送无上限"
+    },
+    {
+      "url": "https://web.u-p.vip/about/vip.htm",
+      "date": "2026-11-25",
+      "proved": "the tier table maps VIP1 to 5GB, VIP2 to 10GB and VIP3 to 20GB single-file sizes",
+      "capture": "sha256:d7a911b66a25a74fda5361ade9712660af926b929a0b58fe025b042dbfa5ea9e",
+      "quote": "|  | **[VIP1](https://web.u-p.vip/duty)** | **[VIP2](https://www.u-p.vip/buy?tab=1)** | **[VIP3](https://www.u-p.vip/buy?tab=1)** | **[定制版](https://www.u-p.vip/buy?tab=1)** |\n| --- | --- | --- | --- | --- |\n| **单文件大小** | 5GB | 10GB | 20GB | 20GB |"
+    },
+    {
+      "url": "https://web.u-p.vip/about",
+      "date": "2026-11-25",
+      "proved": "the first-party page says files are kept permanently with regular use",
+      "capture": "sha256:f46b489bc9d4e8bace516ff2f61e7295e72872bea5137ab9b0d4bd898d90679d",
+      "quote": "只要你经常使用VIP优盘，就可以永久保留。"
+    },
+    {
+      "url": "https://web.u-p.vip/about",
+      "date": "2026-11-25",
+      "proved": "the first-party page answers the longest-file-retention question with permanent retention under regular use",
+      "capture": "sha256:f46b489bc9d4e8bace516ff2f61e7295e72872bea5137ab9b0d4bd898d90679d",
+      "quote": "只要你经常使用VIP优盘，就可以永久保留。"
+    },
+    {
+      "url": "https://web.u-p.vip/about/free.htm",
+      "date": "2026-11-25",
+      "proved": "each invited partner-app user grants 100GB permanent capacity with no stated ceiling",
+      "capture": "sha256:31738449caa932618acd44b1ee8e21d828cf6084fb8b2b1714014f995d4b5112",
+      "quote": "每邀请1名呆萌价新用户，赠送100GB永久容量，赠送无上限。"
+    },
+    {
+      "url": "https://web.u-p.vip/about",
+      "date": "2026-11-25",
+      "proved": "the about page states permanent retention with regular use and the operator's deletion right",
+      "capture": "sha256:f46b489bc9d4e8bace516ff2f61e7295e72872bea5137ab9b0d4bd898d90679d",
+      "quote": "请注意，由于VIP优盘**用户数目庞大、服务器成本巨高，为保证服务质量**，VIP优盘**有权利在不通知**其本人的情况下**删除一些违规文件**，您也可以**通过[《免费》](https://web.u-p.vip/about/free.htm)获得[《超值》](https://web.u-p.vip/about/vip.htm)会员服务**。\n\n常见问题回答：   \n①文件最长存储多久？   \n只要你经常使用VIP优盘，就可以永久保留。"
+    },
+    {
+      "url": "https://web.u-p.vip/about/vip.htm",
+      "date": "2026-11-25",
+      "proved": "the tier table lists WebDAV support",
+      "capture": "sha256:d7a911b66a25a74fda5361ade9712660af926b929a0b58fe025b042dbfa5ea9e",
+      "quote": "| **WebDAV** | 公测中 | 公测中 | 支持 | 支持 |"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:15:22.711Z",
+  "verified_at": "2026-11-25T21:21:18.735Z",
   "notes": "VIP1 (free on registration): 500 GB+ storage. 120 GB on signup plus 380 GB for registering the partner app. With +100 GB per invited user, '扩容无上限' (unlimited expansion). Per-file 5 GB on VIP1.",
   "history": [],
   "extras": {

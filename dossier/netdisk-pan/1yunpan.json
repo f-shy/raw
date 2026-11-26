@@ -5,7 +5,7 @@
   "url": "https://www.1yunpan.com",
   "category": "Cloudreve-family drive with native S3 and WebDAV",
   "free_tier": {
-    "stated": "100 GB on registration plus 400 GB earned by daily check-in, so 500 GB is reachable on a free account but only through a login streak. The free plan also carries 1 TB of monthly bandwidth",
+    "stated": "The Starter plan lists 1 TB of monthly bandwidth and 100 GB of storage plus 400 GB via check-in",
     "unit": "GiB",
     "metered_on": "stored-bytes",
     "source_url": "https://www.1yunpan.com/",
@@ -44,8 +44,8 @@
     },
     {
       "kind": "write-gated",
-      "value": "400 of the 500 GB is granted 5 GB at a time by daily check-in",
-      "source": "https://www.1yunpan.com/"
+      "value": "a check-in grants 5 GB (checkin_reward_gb is 5), and the site config sets the check-in storage limit to 505 GB",
+      "source": "https://www.1yunpan.com/config.json"
     }
   ],
   "identity_cost": {
@@ -53,7 +53,7 @@
     "detail": "an email address at one of a fixed list of domains (including gmail.com, qq.com, icloud.com, 163.com and yahoo.com) and an emailed six-digit code; the register form has username, password, confirm, email, email_code and an agreement checkbox with no phone or mobile input present",
     "country": null
   },
-  "reliability_note": "Reads are real: a 1,326,142,372-byte MP4 came back byte-exact against Content-Length with Range honoured, and a ranged GET returned 206 with a correct Content-Range. The site notice states that files uploaded between 2026-10-05_22:00:00 and 2026-10-30_23:59:59 are temporarily not downloadable and that file upload is temporarily stopped, and config.json sets upload.temporarily_disabled to true. The 400 GB is streak-gated, so an account that stops logging in loses headroom",
+  "reliability_note": "The site config sets upload.temporarily_disabled to false, so file upload is enabled.",
   "confidence": "reported",
   "evidence": [
     {
@@ -89,13 +89,6 @@
     {
       "url": "probe:https://www.1yunpan.com/config.json",
       "date": "2026-11-03",
-      "proved": "the site config sets the per-upload size limit to 32212254720 bytes",
-      "capture": "sha256:6ce2e8085f6efcb6680948e05ef4cd11edc846997f85dc9948a0f5210d19570d",
-      "quote": "\"upload_allow_max_size\": 32212254720"
-    },
-    {
-      "url": "probe:https://www.1yunpan.com/config.json",
-      "date": "2026-11-03",
       "proved": "the config disables registration with any email domain and carries an email_whitelist of permitted domains",
       "capture": "sha256:6ce2e8085f6efcb6680948e05ef4cd11edc846997f85dc9948a0f5210d19570d",
       "quote": "\"allow_all_email_to_register\": 0,"
@@ -113,13 +106,6 @@
       "proved": "the config the web app loads sets upload.temporarily_disabled to true",
       "capture": "sha256:6ce2e8085f6efcb6680948e05ef4cd11edc846997f85dc9948a0f5210d19570d",
       "quote": "\"temporarily_disabled\": true,"
-    },
-    {
-      "url": "probe:https://id5mjj37zbn85c.1yunpan.com/Videos/test.mp4#head",
-      "date": "2026-11-03",
-      "proved": "a HEAD on the demo MP4 answers HTTP 200 with Content-Length 1326142372",
-      "capture": "sha256:da84e4fbf59e71966245c47f355e5a175e03077211cf150a630a5f19f257c8cc",
-      "quote": "\"content-length\": \"1326142372\""
     },
     {
       "url": "probe:https://id5mjj37zbn85c.1yunpan.com/Videos/test.mp4#range",
@@ -150,6 +136,62 @@
       "quote": "100GB Storage +400GB via check-in"
     },
     {
+      "url": "https://www.1yunpan.com/",
+      "date": "2026-11-25",
+      "proved": "the Starter plan lists these allowances",
+      "capture": "sha256:8db69290d523f57ce63a5017f1035788ad618ef51cce49c294e25acefa49caec",
+      "quote": "- 1TB Monthly Bandwidth\n- 100GB Storage +400GB via check-in"
+    },
+    {
+      "url": "https://www.1yunpan.com/config.json",
+      "date": "2026-11-25",
+      "proved": "the config sets the check-in reward to 5 GB",
+      "capture": "sha256:40444b00db958759dd026369cc61ed11ef716e1a5f8ae26fd7b1dc3adb2e8fdc",
+      "quote": "\"checkin_reward_gb\": 5,"
+    },
+    {
+      "url": "https://www.1yunpan.com/config.json",
+      "date": "2026-11-25",
+      "proved": "the config sets the check-in storage limit to 505 GB",
+      "capture": "sha256:40444b00db958759dd026369cc61ed11ef716e1a5f8ae26fd7b1dc3adb2e8fdc",
+      "quote": "\"checkin_storage_limit_gb\": 505"
+    },
+    {
+      "url": "https://www.1yunpan.com/config.json",
+      "date": "2026-11-25",
+      "proved": "the config the web app loads has upload enabled",
+      "capture": "sha256:40444b00db958759dd026369cc61ed11ef716e1a5f8ae26fd7b1dc3adb2e8fdc",
+      "quote": "\"temporarily_disabled\": false,"
+    },
+    {
+      "url": "https://www.1yunpan.com/config.json",
+      "date": "2026-11-25",
+      "proved": "the config sets the per-upload limit to 32212254720 bytes",
+      "capture": "sha256:40444b00db958759dd026369cc61ed11ef716e1a5f8ae26fd7b1dc3adb2e8fdc",
+      "quote": "\"upload_allow_max_size\": 32212254720"
+    },
+    {
+      "url": "https://www.1yunpan.com/",
+      "date": "2026-11-25",
+      "proved": "the Starter plan lists 1 TB of monthly bandwidth",
+      "capture": "sha256:8db69290d523f57ce63a5017f1035788ad618ef51cce49c294e25acefa49caec",
+      "quote": "- 1TB Monthly Bandwidth"
+    },
+    {
+      "url": "probe:https://id5mjj37zbn85c.1yunpan.com/Videos/test.mp4#head",
+      "date": "2026-11-25",
+      "proved": "a HEAD on the demo MP4 answers 200 with Content-Length 1326142372",
+      "capture": "sha256:2ce19a471d2b53891e3914116e2bdbabc21dc0db590a06492d0e2ed8592b2cfa",
+      "quote": "\"content-length\": \"1326142372\""
+    },
+    {
+      "url": "probe:https://id5mjj37zbn85c.1yunpan.com/Videos/test.mp4#range",
+      "date": "2026-11-25",
+      "proved": "a ranged GET returns the matching Content-Range",
+      "capture": "sha256:67de5d466b69363e9c9e00b785c70028bab29e85f4d5c2c829ebc1b6ed2cbb96",
+      "quote": "\"content-range\": \"bytes 1000000-1000255/1326142372\""
+    },
+    {
       "url": "probe:https://www.1yunpan.com/config.json",
       "date": "2026-11-26",
       "proved": "the saved config body gives the upload size limit as 32212254720",
@@ -178,7 +220,7 @@
     "fronting": "direct links carry Server: cloudflare and CF-Cache-Status: DYNAMIC",
     "seed_source": "storage-research",
     "seed_wave": "C-C7-browser-and-wasm-storage.json",
-    "verified_at_basis": "the seed research pass, which ended 2026-10-21; this record was not re-checked against the live service",
+    "verified_at_basis": "checked against the live service on 2026-11-25",
     "fx": {
       "pair": "USD/CNY",
       "rate": 6.6702,

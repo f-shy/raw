@@ -5,7 +5,7 @@
   "url": "https://www.shin-vps.jp/service/price.php",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "The 1 GB plan with 1 core and 30 GB NVMe is JPY 750 a month on a one-month term, JPY 671 on a twelve-month term and JPY 451 on a thirty-six-month term, with no setup fee. The vendor raised every plan on 2026-09-01: the 1 GB month-to-month price went from JPY 540 to 750, a rise of about 39 percent, and the 2 GB plan from 750 to 1,040.",
+    "stated": "| 月額 | 750円 | 1,040円 | 1,800円 | 3,450円 | 6,760円 | 16,560円 | 33,121円 |",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://www.shin-vps.jp/service/price.php",
@@ -69,10 +69,24 @@
       "url": "https://streamrental.com/shin-vps/",
       "date": "2026-10-22",
       "proved": "a third-party review states that Shin VPS has no free trial period and no prorated refund inside the three-month minimum; reported"
+    },
+    {
+      "url": "https://www.shin-vps.jp/service/price.php",
+      "date": "2026-11-25",
+      "proved": "the first-monthly-payment table's 月額 row states the 1 GB plan at 750円 with higher tiers at 1,040円 to 33,121円",
+      "capture": "sha256:4d15af8c25f33bd3212e18920562865f889ad1ef4d107cdac6f56836ecbd7549",
+      "quote": "| 月額 | 750円 | 1,040円 | 1,800円 | 3,450円 | 6,760円 | 16,560円 | 33,121円 |"
+    },
+    {
+      "url": "https://www.shin-vps.jp/service/price.php",
+      "date": "2026-11-25",
+      "proved": "the first-monthly-payment table's 月額 row still states the 1 GB plan at 750円 with higher tiers at 1,040円 to 33,121円",
+      "capture": "sha256:4d15af8c25f33bd3212e18920562865f889ad1ef4d107cdac6f56836ecbd7549",
+      "quote": "| 月額 | 750円 | 1,040円 | 1,800円 | 3,450円 | 6,760円 | 16,560円 | 33,121円 |"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:47.492Z",
   "notes": "This is a price-change finding rather than a new provider: the vendor's own revision notice is the evidence, and it names the old and new price for every plan, which is rare and worth carrying. The 36-month figure of JPY 451 is real and requires three years of commitment. Whether the rise reflects hardware cost or demand is the vendor's stated reason (' ') and is not independently verified. Payment method was not read on a vendor page this session; the card identity cost is inferred from a monthly or hourly billing model, and the signup page is the route that would settle it.",
   "extras": {
     "wave2": {

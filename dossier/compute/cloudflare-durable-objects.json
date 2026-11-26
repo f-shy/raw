@@ -26,7 +26,7 @@
   "limits_note": "a Durable Object stays active while a request, response stream, WebSocket or pending I/O is in flight",
   "reliability_note": "no reliability event observed",
   "confidence": "documented",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:39.491Z",
   "price_per_tb_month": null,
   "notes": "The 13,000 GB-s figure is on the Durable Objects pricing page, not the Workers limits page earlier evaluation cited. It is a Durable Object allowance and attributing it to Workers was a category error.",
   "slug": "cloudflare-durable-objects",
@@ -34,7 +34,7 @@
   "url": "https://developers.cloudflare.com/workers/platform/limits/",
   "category": "serverless runtime",
   "free_tier": {
-    "stated": "13,000 GB-seconds of Durable Object duration a day on the free plan. That is a Durable Object allowance; Workers Free separately carries 100,000 requests a day",
+    "stated": "| Duration<sup>3</sup> | 13,000 GB-s / day | 400,000 GB-s / month, + $12.50/million GB-s<sup>4,5</sup> |",
     "unit": "mixed",
     "metered_on": "wall-clock",
     "source_url": "https://developers.cloudflare.com/durable-objects/platform/pricing/",
@@ -73,6 +73,20 @@
       "url": "https://developers.cloudflare.com/workers/platform/limits/",
       "date": "2026-10-22",
       "proved": "Workers Free carries 100,000 requests a day; the page does not carry the 13,000 GB-s figure"
+    },
+    {
+      "url": "https://developers.cloudflare.com/durable-objects/platform/pricing/",
+      "date": "2026-11-25",
+      "proved": "the pricing page's Duration row states 13,000 GB-s a day on the free plan",
+      "capture": "sha256:97dc33de57f88046dbc4c22880a23d09640dcd3129dc5ed118fb8d24e4128580",
+      "quote": "| Duration<sup>3</sup> | 13,000 GB-s / day | 400,000 GB-s / month, + $12.50/million GB-s<sup>4,5</sup> |"
+    },
+    {
+      "url": "https://developers.cloudflare.com/durable-objects/platform/pricing/",
+      "date": "2026-11-25",
+      "proved": "the pricing page still states 13,000 GB-s a day and 100,000 requests a day on the free plan",
+      "capture": "sha256:97dc33de57f88046dbc4c22880a23d09640dcd3129dc5ed118fb8d24e4128580",
+      "quote": "| Duration<sup>3</sup> | 13,000 GB-s / day | 400,000 GB-s / month, + $12.50/million GB-s<sup>4,5</sup> | ... | Requests | 100,000 / day | 1 million / month, + $0.15/million<br> Includes HTTP requests, RPC sessions<sup>1</sup>, WebSocket messages<sup>2</sup>, and alarm invocations |"
     }
   ],
   "verdict": "qualifies-with-caveat",

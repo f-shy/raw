@@ -13,7 +13,7 @@
   "limits_note": "resource limits beyond the 3 GB disk are not published on the pricing page",
   "reliability_note": "no reliability event observed",
   "confidence": "documented",
-  "verified_at": "2026-10-24T01:56:00.000Z",
+  "verified_at": "2026-11-25T05:18:28.797Z",
   "price_per_tb_month": null,
   "history": [],
   "slug": "serv00",
@@ -21,7 +21,7 @@
   "url": "https://www.serv00.com/",
   "category": "shared shell",
   "free_tier": {
-    "stated": "3 GB of SSD storage, unlimited data transfer, support for up to 100 websites and 16 databases; registration is free and reviewed by hand",
+    "stated": "3 GB of SSD disk space, unlimited data transfer, support for up to 100 websites and 16 databases; registration is very simple and free",
     "unit": "GB",
     "metered_on": "stored-bytes",
     "source_url": "https://www.serv00.com/",
@@ -108,6 +108,20 @@
       "url": "https://forum.serv00.com/d/1754-ssh-cant-loginhelp",
       "date": "2026-10-24",
       "proved": "admin reply quoted: 'The message \"Server refused to start a shell/command\" usually indicates that you have exceeded the limit of concurrently running system processes.'"
+    },
+    {
+      "url": "https://www.serv00.com/",
+      "date": "2026-11-25",
+      "proved": "the home page states 3 GB of SSD disk space, unlimited data transfer, 100 websites and 16 databases, and free, simple registration",
+      "capture": "sha256:c8d58f11a599689dadc866b35a7279698dce390a76125abc18f5a0bfb99865cc",
+      "quote": "**serv00.com** is an innovative free web hosting platform offering **3 GB of SSD disk space**, unlimited data transfer, and support for up to 100 websites and 16 databases – **all without ads or fees for the user**. Account registration is very simple and free, and today the platform has over **170,000 active users**."
+    },
+    {
+      "url": "https://www.serv00.com/",
+      "date": "2026-11-25",
+      "proved": "the home page states the free tier as 3 GB of SSD disk space, unlimited transfer, 100 websites and 16 databases with free registration",
+      "capture": "sha256:c8d58f11a599689dadc866b35a7279698dce390a76125abc18f5a0bfb99865cc",
+      "quote": "**serv00.com** is an innovative free web hosting platform offering **3 GB of SSD disk space**, unlimited data transfer, and support for up to 100 websites and 16 databases – **all without ads or fees for the user**. Account registration is very simple and free, and today the platform has over **170,000 active users**."
     }
   ],
   "verdict": "qualifies-with-caveat",

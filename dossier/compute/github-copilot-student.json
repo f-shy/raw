@@ -5,7 +5,7 @@
   "url": "https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students",
   "category": "inference API",
   "free_tier": {
-    "stated": "Quoted from the pack: 'GitHub Copilot Student is available to verified students. The plan includes unlimited code completions and an allowance of GitHub AI Credits, plus limited chat and agent usage with models available through auto model selection only.' The plans table lists Copilot Student at Free with 'An allowance of GitHub AI Credits', against Copilot Pro at USD 10 a month with 'Base: 1,000' credits.",
+    "stated": "GitHub Copilot Student is available to verified students. The plan includes unlimited code completions and an allowance of GitHub AI Credits, plus limited chat and agent usage with models available through auto model selection only.",
     "unit": "unlimited",
     "metered_on": "wall-clock",
     "source_url": "https://docs.github.com/en/copilot/how-tos/copilot-on-github/set-up-copilot/enable-copilot/set-up-for-students",
@@ -74,10 +74,17 @@
       "url": "https://github.blog/changelog/2026-04-20-changes-to-github-copilot-plans-for-individuals/",
       "date": "2026-10-22",
       "proved": "'we will be pausing new signups for our Student, Pro, and Pro+ plans' from 20 April 2026; sign-ups began reopening on 17 June 2026."
+    },
+    {
+      "url": "https://education.github.com/pack",
+      "date": "2026-11-25",
+      "proved": "the pack states Copilot Student is free to verified students with unlimited completions, an AI Credits allowance, limited chat and agent use, and auto model selection only",
+      "capture": "sha256:ccefc53d59920cbd930f1515764a76b9490c50a667f97ffc59ff64f585e32282",
+      "quote": "GitHub Copilot Student is available to verified students. The plan includes unlimited code completions and an allowance of GitHub AI Credits, plus limited chat and agent usage with models available through auto model selection only."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:26.440Z",
   "notes": "GitHub does not publish the exact AI credit allowance for the Student plan; only Pro and above carry a number. The number is left null rather than inferred from the Pro tier, because the two are different allowances. The April 2026 sign-up pause and the June 2026 reopening are recorded because a reader checking a 2026 article will find contradictory status reports. Revaluation every month is the cleanest example in this class of a grant that cannot survive graduation.",
   "extras": {
     "wave2": {

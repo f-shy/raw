@@ -64,10 +64,24 @@
       "url": "https://tailscale.com/kb/1242/tailscale-funnel",
       "date": "2026-10-23",
       "proved": "'--tcp=<port>' and '--tls-terminated-tcp=<port>' are listed under 'Serve command flags', not funnel flags"
+    },
+    {
+      "url": "https://tailscale.com/kb/1223/funnel",
+      "date": "2026-11-25",
+      "proved": "Funnel bandwidth is limited by a non-configurable limit; no figure is published",
+      "capture": "sha256:71351226dca97b0ab4a245c1343b33a8e8a984194157d879b956293e4fae1e5e",
+      "quote": "Traffic sent over a Funnel is subject to non-configurable bandwidth limits."
+    },
+    {
+      "url": "https://tailscale.com/kb/1223/funnel",
+      "date": "2026-11-25",
+      "proved": "Funnel listens only on ports 443, 8443 and 10000",
+      "capture": "sha256:71351226dca97b0ab4a245c1343b33a8e8a984194157d879b956293e4fae1e5e",
+      "quote": "Funnel can only listen on ports `443`, `8443`, and `10000`."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:48.837Z",
   "notes": "Re-read 2026-10-23: Funnel is a TCP proxy with TLS termination ('Tailscale does this using a TCP proxy and Funnel relay servers', 'Funnel only works over TLS-encrypted connections'), so it carries no UDP at all. That is a second, independent reason it cannot serve a WireGuard or game or DNS workload, alongside the unpublished bandwidth limit.",
   "history": [],
   "extras": {

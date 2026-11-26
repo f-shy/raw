@@ -15,13 +15,13 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://aws.amazon.com/opendata/faqs/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The program page states what storage and sharing costs are covered but publishes no per-object size cap; any S3 object-size limit is the general S3 limit, not a sponsorship-program term."
   },
   "retention": {
     "stated": "Unless AWS terminates your participation for cause pursuant to Section 5.2(b) of the Agreement, there will be a wind-down period of no fewer than 90 days following termination (\"Wind-Down Period\").",
     "days": 90,
     "source_url": "https://aws.amazon.com/opendata/faqs/",
-    "notes": "Extracted from published terms."
+    "notes": "Program participation runs for 2 years from the Effective Date and then auto-terminates; a wind-down of no fewer than 90 days follows, during which the data stays available and can be retrieved."
   },
   "egress": {
     "terms": "Free to the public - programme covers 'distribution costs such as egress and cross-region data fees'. Direct S3 HTTPS GETs, no requester-pays.",
@@ -104,10 +104,38 @@
       "proved": "the application form requires an institutional applicant",
       "capture": "sha256:f8a5b745e19abff9bd976f3ef48a872bd2c9868c824a042e1aa1f131d04d2c0d",
       "quote": "Name of your institution"
+    },
+    {
+      "url": "https://aws.amazon.com/opendata/open-data-sponsorship-program/",
+      "date": "2026-11-25",
+      "proved": "the program page names the covered costs without a per-object cap",
+      "capture": "sha256:7ae3f3ea85b6906ce8ab864a9953504aa582d0f2ef4dbb45e83d3b8e946f0f31",
+      "quote": "The AWS Open Data Sponsorship Program covers the cost of storing and sharing publicly available, high-value, cloud-optimized datasets on the Registry of Open Data on AWS."
+    },
+    {
+      "url": "https://aws.amazon.com/opendata/open-data-sponsorship-program/terms/",
+      "date": "2026-11-25",
+      "proved": "the program terms state a 90-day wind-down after termination",
+      "capture": "sha256:8e4c8123157ddb0e0b051199918b5bba38ec42f328ce18b3d28ab25a5cfb508b",
+      "quote": "there will be a wind-down period of no fewer than 90 days following termination"
+    },
+    {
+      "url": "https://aws.amazon.com/opendata/open-data-sponsorship-program/",
+      "date": "2026-11-25",
+      "proved": "the program page is unchanged in what it says is covered",
+      "capture": "sha256:7ae3f3ea85b6906ce8ab864a9953504aa582d0f2ef4dbb45e83d3b8e946f0f31",
+      "quote": "The AWS Open Data Sponsorship Program covers the cost of storing and sharing publicly available, high-value, cloud-optimized datasets on the Registry of Open Data on AWS."
+    },
+    {
+      "url": "https://aws.amazon.com/opendata/open-data-sponsorship-program/terms/",
+      "date": "2026-11-25",
+      "proved": "the 2-year participation term in the program terms is unchanged",
+      "capture": "sha256:8e4c8123157ddb0e0b051199918b5bba38ec42f328ce18b3d28ab25a5cfb508b",
+      "quote": "The term of your Program participation will be 2 years from the Effective Date, at which point it will automatically terminate unless terminated earlier."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:09.751Z",
+  "verified_at": "2026-11-25T03:33:12.196Z",
   "notes": "No published byte cap - 'covers the cost of Amazon S3 storage and data transfer for high-value cloud-optimized public datasets'. Registry datasets run to hundreds of TB; the programme as a whole is reported at 300+ PB.",
   "history": [],
   "extras": {

@@ -57,7 +57,7 @@
   "confidence_note": "memory, session length, bandwidth and the absence of storage are all quoted from the project's user guidelines today.",
   "price_per_tb_month": null,
   "history": [],
-  "verified_at": "2026-10-24T01:52:00.000Z",
+  "verified_at": "2026-11-25T15:03:52.931Z",
   "extras": {
     "shape": {
       "vcpu": null,
@@ -95,7 +95,7 @@
   "provider": "Binder (mybinder.org)",
   "url": "https://mybinder.readthedocs.io/en/latest/about/user-guidelines.html",
   "free_tier": {
-    "stated": "free and unauthenticated: at least 1 GB RAM with a 2 GB maximum, up to 6 hours of session time or 1 CPU-hour, whichever comes first; no persistent storage of any sort",
+    "stated": "Free to use: 'Yes! Though note that it has limited computational resources.' 'Because Binder runs as a public, free service, we don’t require any kind of log-in that would let us keep track of user data.' While running, 'users are guaranteed *at least* 1GB of RAM, with a *maximum* of 2GB'. 'Binder aims to provide up to six hours of session time per user session, or up to one cpu-hour for more computationally intensive sessions.' 'We do not offer persistent storage of any sort, to protect us from becoming a host for malware.'",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://mybinder.readthedocs.io/en/latest/about/user-guidelines.html",
@@ -127,6 +127,20 @@
       "url": "https://mybinder.readthedocs.io/en/latest/about/user-guidelines.html",
       "date": "2026-10-24",
       "proved": "quoted, bold markers in the original: '**The maximum number of simultaneous users for a given repo is 100**.'"
+    },
+    {
+      "url": "https://mybinder.readthedocs.io/en/latest/about/user-guidelines.html",
+      "date": "2026-11-25",
+      "proved": "the usage-guidelines page states the service is free with limited computational resources",
+      "capture": "sha256:ec5ed737d9f9ce34cf5193b11a0765a46bd5bb3734bda79646691ef3665df3e1",
+      "quote": "Yes! Though note that it has limited computational resources."
+    },
+    {
+      "url": "https://mybinder.readthedocs.io/en/latest/about/user-guidelines.html",
+      "date": "2026-11-25",
+      "proved": "the usage-guidelines page still states the service is free with limited computational resources",
+      "capture": "sha256:ec5ed737d9f9ce34cf5193b11a0765a46bd5bb3734bda79646691ef3665df3e1",
+      "quote": "Yes! Though note that it has limited computational resources."
     }
   ],
   "verdict": "fails-quota",

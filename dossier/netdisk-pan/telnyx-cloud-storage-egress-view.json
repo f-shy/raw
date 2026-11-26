@@ -5,11 +5,12 @@
   "url": "https://telnyx.com/products/cloud-storage",
   "category": "object storage, S3-compatible",
   "free_tier": {
-    "stated": "10 GB of storage free with 1 million state-change operations and 10 million state-read operations",
+    "stated": "The first 10 GiB of US storage each month is free of charge, with the first 1 million state-change operations and the first 10 million state-read operations each month free",
     "unit": "GiB",
     "metered_on": "stored-bytes",
-    "source_url": "https://linux.do/t/topic/1037092",
-    "read_on": "2026-10-21"
+    "source_url": "https://developers.telnyx.com/docs/cloud-storage/billing",
+    "read_on": "2026-11-25",
+    "notes": "EU storage has no free tier and is billed at USD 0.025 per GiB per month"
   },
   "per_object_cap": {
     "stated": "Not published",
@@ -22,9 +23,9 @@
     "source_url": "https://telnyx.com/pricing/storage"
   },
   "egress": {
-    "terms": "Egress fees | None",
+    "terms": "The rate card lists egress fees as None.",
     "metered": false,
-    "free_allowance": "unlimited egress",
+    "free_allowance": "none stated: the rate card lists egress fees as None",
     "price_per_tb": "USD 6.14/TB/month at USD 0.006/GiB",
     "source_url": "https://telnyx.com/pricing/storage"
   },
@@ -35,9 +36,9 @@
   "chaining": "10 GB per account with no card needed and no egress charge is 50 accounts for 500 GB, which is absurd for the volume but worth noting for the egress model alone. The paid rate at USD 6.14/TB/month with genuinely free egress is a solid second to the cheapest paid option",
   "limits": [
     {
-      "kind": "per-object-cap",
-      "value": "10 GB is the free tier total, which is the cap in practice",
-      "source": "https://linux.do/t/topic/1037092"
+      "kind": "volume-quota",
+      "value": "10 GiB of storage per month is free in US regions; storage beyond that is billed at USD 0.006 per GiB per month",
+      "source": "https://developers.telnyx.com/docs/cloud-storage/billing"
     },
     {
       "kind": "write-gated",
@@ -47,7 +48,7 @@
   ],
   "identity_cost": {
     "kind": "email",
-    "detail": "an email address. The forum reports the 10 GB tier needs no card: '免费10G 不用绑卡好像也没流量费'. A public bucket adds a KYC step",
+    "detail": "a Telnyx account; the pay-as-you-go rate card says 'Card on file'",
     "country": null
   },
   "reliability_note": "A telecom company diversifying into object storage, and the zero-egress term is real. The 10 GB cap and the KYC step on public buckets are what close it. The pricing page now frames the product around egress to inference, so the object-storage-only customer is no longer the commercial focus",
@@ -76,23 +77,44 @@
       "quote": "Egress fees             | None"
     },
     {
+      "url": "https://developers.telnyx.com/docs/cloud-storage/billing",
+      "date": "2026-11-25",
+      "proved": "the first 10 GiB of US storage each month is free of charge",
+      "capture": "sha256:c47ba8b7ee799d434c1812380ca396eae1307ac0598d19960bd90489fe4b1475",
+      "quote": "Every month, your **first 10 GiB is free of charge**."
+    },
+    {
+      "url": "https://developers.telnyx.com/docs/cloud-storage/billing",
+      "date": "2026-11-25",
+      "proved": "EU storage has no free tier",
+      "capture": "sha256:c47ba8b7ee799d434c1812380ca396eae1307ac0598d19960bd90489fe4b1475",
+      "quote": "EU storage has **no free tier** and is billed at:"
+    },
+    {
       "url": "https://telnyx.com/pricing/storage",
       "date": "2026-11-25",
-      "proved": "the rate card still lists egress fees as None",
+      "proved": "pay as you go lists Card on file",
       "capture": "sha256:f935cf6f0705b4fa849ba50538f815dfbbab74fae7233640a9573357fed2f3f8",
-      "quote": "Egress fees             | None"
+      "quote": "Standard rates. Card on file. Automatic tier discounts as usage crosses thresholds, no contract needed."
+    },
+    {
+      "url": "https://developers.telnyx.com/docs/cloud-storage/billing",
+      "date": "2026-11-25",
+      "proved": "storage usage is metered on bytes stored",
+      "capture": "sha256:c47ba8b7ee799d434c1812380ca396eae1307ac0598d19960bd90489fe4b1475",
+      "quote": "Bytes stored across all buckets are **recorded hourly**. Usage is subsequently calculated and debited from your balance."
+    },
+    {
+      "url": "https://telnyx.com/products/cloud-storage",
+      "date": "2026-11-25",
+      "proved": "the product page states the free allowance in GiB, free forever for every user",
+      "capture": "sha256:f547db7245fe27a28d6479ca0c07a2b4fb343b0adff0615ea2235858d52d709a",
+      "quote": "Get 10GiB of storage, 1 million state-change operations and 10 million state-read operations per month. Free, forever, for every user."
     },
     {
       "url": "https://telnyx.com/pricing.md",
       "date": "2026-11-25",
       "proved": "the first-party price sheet gives the storage rate as USD 0.006 per GiB per month",
-      "capture": "sha256:8213d87a44c0c360f22a93c0e6659c613f813c2769eaccde977ccd48699ea652",
-      "quote": "| Voice Ai Storage Usd Per Gib Per Month | $0.006/GiB/mo | flat | Cloud Storage for Conversational AI |"
-    },
-    {
-      "url": "https://telnyx.com/pricing.md",
-      "date": "2026-11-25",
-      "proved": "the storage rate is USD 0.006 per GiB per month",
       "capture": "sha256:8213d87a44c0c360f22a93c0e6659c613f813c2769eaccde977ccd48699ea652",
       "quote": "| Voice Ai Storage Usd Per Gib Per Month | $0.006/GiB/mo | flat | Cloud Storage for Conversational AI |"
     },
@@ -112,12 +134,12 @@
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-25T13:26:30.702Z",
+  "verified_at": "2026-11-25T15:23:47.348Z",
   "history": [],
   "price_per_tb_month": "USD 6.14/TB/month at USD 0.006/GiB, with no egress charge at any volume",
-  "binding": "per-object-cap",
+  "binding": "volume-quota",
   "binding_note": "10 GB free, so the quota closes it. On the paid tier the egress term is the best of the providers compared, and the storage rate is USD 6.14/TB/month, three times the price floor of paid storage.",
-  "notes": "Evaluates zero-egress file distribution. The free 10 GB promotional tier requires identity verification and card authorization, while standard paid storage is available under published zero-egress rates.",
+  "notes": "US storage includes a free first 10 GiB each month; beyond it storage costs USD 0.006 per GiB per month, and the rate card lists egress fees as None.",
   "extras": {
     "access_mode": "registration-gated",
     "free_tier_exists": true,
@@ -131,6 +153,6 @@
     "cross_topic_record": "dossier/storage/telnyx-cloud-storage.json",
     "seed_source": "storage-research",
     "seed_wave": "F-F8-linuxdo.json",
-    "verified_at_basis": "the seed research pass, which ended 2026-10-21; this record was not re-checked against the live service"
+    "verified_at_basis": "checked against the live service on 2026-11-25"
   }
 }

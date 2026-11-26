@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u85-q03",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Five of the six records in this unit carry the retention text 'not applicable: a live tunnel, not stored bytes' (and a per_object_cap text 'not applicable: a tunnel or an address, not an object') although none is a tunnel: egress/google-cloud-free-trial and egress/google-cloud-free-tier are VMs, egress/google-cloud-run and egress/heroku are PaaS, egress/guildbit runs a Mumble server. Should a reconcile unit re-derive retention and per_object_cap for the whole egress topic?",
+ "why": "egress/guildbit retention.stated was corrected from the vendor's how-it-works page (1 to 4 hours, extendable 3 times); the other four copies state 'not applicable: a live tunnel' for offers that are not tunnels and each needs its own first-party page and a decision",
+ "scope": {
+  "rids": [
+   "egress/google-cloud-free-tier",
+   "egress/google-cloud-free-trial",
+   "egress/google-cloud-run",
+   "egress/guildbit",
+   "egress/heroku"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u85",
+ "created": "2026-11-25T19:55:29Z"
+}

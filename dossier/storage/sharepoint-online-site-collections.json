@@ -13,14 +13,14 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "**250 GB - File upload limit.** Applies to each individual file uploaded to Microsoft Teams Files tab, SharePoint document libraries, OneDrive folders, and Viva Engage conversations.",
     "source_url": "https://learn.microsoft.com/en-us/sharepoint/sharepoint-limits",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "**250 GB - File upload limit.** Applies to each individual file uploaded to Microsoft Teams Files tab, SharePoint document libraries, OneDrive folders, and Viva Engage conversations."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "Deleted site collections are retained for 93 days. After 93 days, sites and all their content and settings are permanently deleted, including lists, libraries, pages, and any subsites.",
     "source_url": "https://learn.microsoft.com/en-us/sharepoint/sharepoint-limits",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Deleted site collections are retained for 93 days. After 93 days, sites and all their content and settings are permanently deleted, including lists, libraries, pages, and any subsites."
   },
   "egress": {
     "terms": "Unmetered (same M365 subscription model - no per-GB egress meter).",
@@ -80,10 +80,24 @@
       "proved": "the versioning limit is unchanged",
       "capture": "sha256:4c40027e8128264441896b474698bb6f49a6197ac2ad7f10f55b9473cb377fad",
       "quote": "50,000 major versions and 511 minor versions."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/office365/servicedescriptions/sharepoint-online-service-description/sharepoint-online-limits",
+      "date": "2026-11-25",
+      "proved": "the service description sets a 250 GB upload limit for each individual file in SharePoint document libraries",
+      "capture": "sha256:4c40027e8128264441896b474698bb6f49a6197ac2ad7f10f55b9473cb377fad",
+      "quote": "**250 GB - File upload limit.** Applies to each individual file uploaded to Microsoft Teams Files tab, SharePoint document libraries, OneDrive folders, and Viva Engage conversations."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/sharepoint/sharepoint-data-deletion",
+      "date": "2026-11-25",
+      "proved": "deleted site collections are retained 93 days, then content is permanently deleted",
+      "capture": "sha256:a2899fac79545018b774a55a56199998bce6c96d7592c2d1b2ac59d2042e6567",
+      "quote": "Deleted site collections are retained for 93 days. After 93 days, sites and all their content and settings are permanently deleted, including lists, libraries, pages, and any subsites."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:15:21.395Z",
+  "verified_at": "2026-11-25T21:21:18.142Z",
   "notes": "25 TB maximum storage per site collection; 2,000,000 site collections per organization; 500,000 site collections per education tenant; file upload limit 250 GB.",
   "history": [],
   "extras": {

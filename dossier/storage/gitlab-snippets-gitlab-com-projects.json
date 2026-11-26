@@ -14,29 +14,28 @@
   },
   "per_object_cap": {
     "stated": "The default limit is 52428800 bytes (50 MB).",
-    "source_url": "https://docs.gitlab.com/user/storage_usage_quotas/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "source_url": "https://docs.gitlab.com/user/snippets/",
+    "notes": "The snippets page gives 50 MB as the default maximum snippet size and as current as of 2024-04-17."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://docs.gitlab.com/user/storage_usage_quotas/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Dormant project deletion is disabled on GitLab.com. No expiry period is stated on the pages read."
   },
   "egress": {
-    "terms": "unmetered, served from gitlab.com; no egress line item exists on any GitLab.com plan.",
+    "terms": "unverified: no egress charge or volume quota is stated on the pages read.",
     "metered": false
   },
   "interface": [
     "rest",
     "git",
-    "rclone",
     "cli"
   ],
   "interface_detail": "git",
-  "tooling": "Glab CLI (glab snippet create), VS Code extension, REST /api/v4/snippets, plain git clone/push for project repos. rclone has a 'gitlab' backend (yes — rclone supports GitLab as a Git remote type via backend 'git').",
-  "chaining": "Free accounts permit multiple projects at 10 GiB git storage each. Snippets provide a standalone 50 MB per object upload mechanism outside of project repositories.",
+  "tooling": "glab CLI (glab snippet create), VS Code extension, REST /api/v4/snippets, plain git clone/push for project repos.",
+  "chaining": "Personal snippets are independent of any project, and the default maximum size for a snippet is 50 MB. Versioned snippets are considered part of the namespace storage size, so they are not a separate storage pool.",
   "limits": [],
-  "limits_note": "10 GiB per project then the project goes read-only (pushes rejected) until storage is purchased. A hard stop, not a warning; 50 MB per snippet; namespace storage updated every 90 minutes; 5 GiB per-file push limit on gitlab.com is not documented publicly, so shard files.",
+  "limits_note": "When a project's repository and LFS exceed the 10 GiB free storage, the project is set to a read-only state and you cannot push changes until storage is purchased. Storage usage is updated every 90 minutes.",
   "identity_cost": {
     "kind": "email",
     "detail": "no identity_cost field and no identity statement in the source record; defaulted to email and flagged, not evidence",
@@ -79,10 +78,59 @@
       "proved": "the default snippet size limit is 52428800 bytes",
       "capture": "sha256:d6cf6e2f6f39ab4a829a31b9c80f3a9fb93c9264593459ea69c1bb308a6d8594",
       "quote": "The default limit is 52428800 bytes (50 MB)."
+    },
+    {
+      "url": "https://docs.gitlab.com/api/snippets/",
+      "date": "2026-11-25",
+      "proved": "a snippets API exists; rclone is not documented as an interface",
+      "capture": "sha256:7cc4832ce98bdda4113351a33f19b7105ec8dccfbdc6d9c3502101a7852dd40f",
+      "quote": "Use this API to manage [snippets](https://docs.gitlab.com/user/snippets/)."
+    },
+    {
+      "url": "https://docs.gitlab.com/user/snippets/",
+      "date": "2026-11-25",
+      "proved": "the glab CLI creates snippets",
+      "capture": "sha256:2ef8aa5b240573540dfb2849af1991fe631abdf69fee2e4b20d2a5295fcc01b2",
+      "quote": "- The [`glab` CLI](https://docs.gitlab.com/editor_extensions/gitlab_cli/)."
+    },
+    {
+      "url": "https://docs.gitlab.com/user/snippets/",
+      "date": "2026-11-25",
+      "proved": "the default maximum snippet size is 50 MB",
+      "capture": "sha256:2ef8aa5b240573540dfb2849af1991fe631abdf69fee2e4b20d2a5295fcc01b2",
+      "quote": "The default [maximum size for a snippet](https://docs.gitlab.com/administration/snippets/) and current (as of 2024-04-17) is 50 MB."
+    },
+    {
+      "url": "https://docs.gitlab.com/user/storage_usage_quotas/",
+      "date": "2026-11-25",
+      "proved": "the pages read state storage amounts only",
+      "capture": "sha256:c31fa88d40120be518fbe9f17f5155d6812a549ba671ca04939f01cc78377e71",
+      "quote": "Each project in a Free tier namespace on GitLab.com has 10 GiB of free storage."
+    },
+    {
+      "url": "https://docs.gitlab.com/user/gitlab_com/",
+      "date": "2026-11-25",
+      "proved": "dormant project deletion is disabled on GitLab.com",
+      "capture": "sha256:68f43c79110ad21fc9f3aeb8e6336cc2b463e9f9868ec094f2325dc676a4d44d",
+      "quote": "[Dormant project deletion](https://docs.gitlab.com/administration/dormant_project_deletion/) is disabled on GitLab.com."
+    },
+    {
+      "url": "https://docs.gitlab.com/user/storage_usage_quotas/",
+      "date": "2026-11-25",
+      "proved": "exceeding 10 GiB sets the project read-only with no push",
+      "capture": "sha256:c31fa88d40120be518fbe9f17f5155d6812a549ba671ca04939f01cc78377e71",
+      "quote": "Excess storage usage is the amount that exceeds the 10 GiB free storage of a project’s repository and LFS. If no purchased storage is available, the project is set to a read-only state. You cannot push changes to a read-only project."
+    },
+    {
+      "url": "https://docs.gitlab.com/user/storage_usage_quotas/",
+      "date": "2026-11-25",
+      "proved": "a Free tier project has 10 GiB of free storage",
+      "capture": "sha256:c31fa88d40120be518fbe9f17f5155d6812a549ba671ca04939f01cc78377e71",
+      "quote": "Each project in a Free tier namespace on GitLab.com has 10 GiB of free storage."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:17.323Z",
+  "verified_at": "2026-11-25T12:15:41.027Z",
   "notes": "10 GiB free storage per project on GitLab.com Free tier (repo + LFS); snippet files up to 50 MB each (50,000,000-byte default admin limit); projects per account and accounts are free.",
   "history": [],
   "extras": {

@@ -67,30 +67,9 @@
     {
       "url": "probe:https://alist.tianmoy.cn/",
       "date": "2026-11-11",
-      "proved": "this host answered every request of this run's probe",
-      "capture": "sha256:54b1bf23cb5b3202dc1117ebb53f24c7e4c16cfd830a4ab2fe6fd3d04fcb7177",
-      "quote": "\"consecutive_failures\": 0"
-    },
-    {
-      "url": "probe:https://alist.tianmoy.cn/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:54b1bf23cb5b3202dc1117ebb53f24c7e4c16cfd830a4ab2fe6fd3d04fcb7177",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://alist.tianmoy.cn/",
-      "date": "2026-11-11",
       "proved": "the settings request for this host answered HTTP 200 at this instant",
       "capture": "sha256:54b1bf23cb5b3202dc1117ebb53f24c7e4c16cfd830a4ab2fe6fd3d04fcb7177",
       "quote": "\"checked_at\": \"2026-11-11T00:20:01.878Z\""
-    },
-    {
-      "url": "probe:https://alist.tianmoy.cn/",
-      "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:54b1bf23cb5b3202dc1117ebb53f24c7e4c16cfd830a4ab2fe6fd3d04fcb7177",
-      "quote": "\"listing_sha256\": \"fcd1bca6\""
     },
     {
       "url": "probe:https://alist.tianmoy.cn/",
@@ -102,23 +81,30 @@
     {
       "url": "probe:https://alist.tianmoy.cn/",
       "date": "2026-11-19",
-      "proved": "the anonymous session, settings and mount list all answered, so the fresh alive timestamp stands",
-      "capture": "sha256:ad2083eb8a0ca854cecad0c45291ac01efa5ba3a5325e1efaa1e26e0bea3a17a",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://alist.tianmoy.cn/",
-      "date": "2026-11-19",
-      "proved": "the anonymous root listing hashed to fcd1bca6, equal to the recorded value; no hash change",
-      "capture": "sha256:ad2083eb8a0ca854cecad0c45291ac01efa5ba3a5325e1efaa1e26e0bea3a17a",
-      "quote": "\"listing_sha256\": \"fcd1bca6\""
-    },
-    {
-      "url": "probe:https://alist.tianmoy.cn/",
-      "date": "2026-11-19",
       "proved": "the host answered every request of this probe, so the failure count stayed at zero",
       "capture": "sha256:ad2083eb8a0ca854cecad0c45291ac01efa5ba3a5325e1efaa1e26e0bea3a17a",
       "quote": "\"consecutive_failures\": 0"
+    },
+    {
+      "url": "probe:https://alist.tianmoy.cn/api/public/settings",
+      "date": "2026-11-25",
+      "proved": "a fresh anonymous probe of the AList public settings endpoint of alist.tianmoy.cn answered at this instant (HTTP 200, JSON, no challenge)",
+      "capture": "sha256:9459e0e6e8ef666442186dc987f5a1cb51e1c23ddc0033b9bca6596d51a64da2",
+      "quote": "\"probed_at\": \"2026-11-25T04:07:32.799Z\""
+    },
+    {
+      "url": "probe:https://alist.tianmoy.cn/api/public/settings",
+      "date": "2026-11-25",
+      "proved": "the settings endpoint of alist.tianmoy.cn answered HTTP 200 to an anonymous request",
+      "capture": "sha256:9459e0e6e8ef666442186dc987f5a1cb51e1c23ddc0033b9bca6596d51a64da2",
+      "quote": "\"status\": 200"
+    },
+    {
+      "url": "probe:https://alist.tianmoy.cn/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing hashed to the recorded value, so the listing is unchanged",
+      "capture": "sha256:c50462e77d860586257a0e8c54e4b3b8c383e1c572eb1f048545abb292fd9eb5",
+      "quote": "\"listing_sha256\": \"fcd1bca6\""
     },
     {
       "url": "probe:https://alist.tianmoy.cn/",
@@ -160,7 +146,7 @@
     "listing_sha256": "fcd1bca6",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-25T01:38:28.684Z",
+    "last_verified_alive": "2026-11-25T04:07:32.799Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "listing_hash_method": "sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters"

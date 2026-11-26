@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u87-q03",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Does tsocket carry UDP? The tool page documents http and tcp tunnels and never states whether a UDP tunnel exists or not; the record's verdict fails-egress now rests on the documented protocols alone.",
+ "why": "no first-party page read states a UDP path or its absence, so whether a UDP ingress exists is unsettled",
+ "scope": {
+  "rids": [
+   "egress/metered-tsocket"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u87",
+ "created": "2026-11-25T19:55:30Z"
+}

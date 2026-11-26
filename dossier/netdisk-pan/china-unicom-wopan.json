@@ -22,11 +22,11 @@
     "source_url": "https://forum.naixi.net/thread-5251-1-1.html"
   },
   "egress": {
-    "terms": "Advertised 不限速 on the homepage. One poster measured cross-carrier throughput through OpenList and WebDAV at their full 100 Mbit/s up and 500 Mbit/s down, so unlike Tianyi it is not throttled cross-carrier",
+    "terms": "Advertised 不限速 in the homepage title; no throughput figure is published",
     "metered": false,
     "free_allowance": null,
     "price_per_tb": null,
-    "source_url": "https://linux.do/t/topic/2455477"
+    "source_url": "https://pan.wo.cn/"
   },
   "interface": [
     "rest",
@@ -92,13 +92,6 @@
       "quote": "本接口是基于历史产物的逆向接口，项目组不会主动进行维护，请勿针对此驱动提出有关于任何修复或进行进一步逆向行为需求的issue。"
     },
     {
-      "url": "probe:https://pan.wo.cn/",
-      "date": "2026-11-03",
-      "proved": "the host resolves and answers 200 with the 联通云盘 page, whose title advertises 不限速",
-      "capture": "sha256:4254db127d8ed4b858b9516927623e7553db9b2d3bb04e21213a4f5fd2490554",
-      "quote": "<title>联通云盘-开启美好时光|不限速</title>"
-    },
-    {
       "url": "https://zh.wikipedia.org/zh-cn/中国大陆网盘列表",
       "date": "2026-11-03",
       "proved": "the table row lists 500G free, a 2G upload limit and a 0.5M/s download limit, unlike the 60 GB and unthrottled figures of this record",
@@ -118,6 +111,13 @@
       "proved": "the Go SDK is built from a refresh token",
       "capture": "sha256:0a8b329f16a63ca53007239e588d64fc4f1e30951a2b20f7513513a9bc25dba4",
       "quote": "w := wopan.DefaultWithRefreshToken(\"91d4b946-xxxx-4909-bac1-d9914e45f2de\")"
+    },
+    {
+      "url": "probe:https://pan.wo.cn/",
+      "date": "2026-11-25",
+      "proved": "the vendor homepage title advertises 不限速",
+      "capture": "sha256:5fbfb45185c22097ce8eb029042f53e86e062fcef9ace4b09bac2753c097d4e1",
+      "quote": "<title>联通云盘-开启美好时光|不限速</title>"
     },
     {
       "url": "https://pan.wo.cn/help/question?client=PC",

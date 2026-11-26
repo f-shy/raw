@@ -67,10 +67,24 @@
       "url": "https://www.hetzner.com/cloud/",
       "date": "2026-10-23",
       "proved": "'with Hetzner you benefit from generous included traffic and very low prices for additional data transfer', which names the position without a number"
+    },
+    {
+      "url": "https://docs.hetzner.com/cloud/billing/faq/",
+      "date": "2026-11-25",
+      "proved": "20 TB included per server and over-usage billed per 100 MB",
+      "capture": "sha256:25c82c3e775f4f702835bdc45c87aee83fffbf24ab9b4390a961a9b660dbff72",
+      "quote": "Example: Your server has 20TB included traffic. Within a month, you use 20.00008TB. We will bill you for 0.0001TB ( = 100MB) of over-usage."
+    },
+    {
+      "url": "https://docs.hetzner.com/cloud/billing/faq/",
+      "date": "2026-11-25",
+      "proved": "alerts do not stop traffic",
+      "capture": "sha256:25c82c3e775f4f702835bdc45c87aee83fffbf24ab9b4390a961a9b660dbff72",
+      "quote": "These notifications are a convenience to help you keep track of your usage; they do not cap or stop it."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:43.031Z",
   "price_per_tb_month": "paid; no credit",
   "history": [],
   "notes": "Recorded because it changes the ranking rather than because it is a credit: 20 TB a month included on a server that costs a few euro, against a DigitalOcean credit of 19.5 TiB that dies at 60 days. In TB per dollar over a year, Hetzner wins and it is not free, which is a different question from the one this lane asks and belongs in the paid lane. Arithmetic: 20 TB = 18.19 TiB a month, eighteen times the 1 TiB test. Candidates considered: the Hetzner trial, which does not exist; the page offers no credit. The overage rate (widely quoted as EUR 1 per TB) is not on the FAQ page and is not recorded here.",

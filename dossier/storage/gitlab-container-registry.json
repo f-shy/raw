@@ -13,26 +13,25 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
-    "source_url": "https://docs.gitlab.com/user/storage_usage_quotas/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "stated": "unverified: no container image or layer size limit is stated on the GitLab.com limits page, whose container registry section lists the domain name, IP address, CDN domain name, CDN IP address and authorization token duration.",
+    "source_url": "https://docs.gitlab.com/user/gitlab_com/",
+    "notes": "No size limit appears in the GitLab.com container registry settings table."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://docs.gitlab.com/user/storage_usage_quotas/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Dormant project deletion is disabled on GitLab.com. No expiry period for container images is stated on the pages read."
   },
   "egress": {
-    "terms": "No egress charge is published for gitlab.com registry pulls; anonymous pulls are served without auth beyond a JWT. Effectively unmetered for anonymous public projects.",
+    "terms": "unverified: no egress charge or volume quota is stated on the pages read. Anonymous pulls: a public project whose container registry visibility is set to Everyone With Access lets anonymous users view the registry and pull images.",
     "metered": false
   },
   "interface": [
-    "oci",
-    "rclone"
+    "oci"
   ],
   "interface_detail": "oci",
   "tooling": "ORAS / docker / skopeo / crane all work against registry.gitlab.com; rclone has no OCI backend but 'oras cp' + rclone covers push/pull. Public projects allow anonymous pull tokens.",
-  "chaining": "Unlimited projects per namespace x unlimited namespaces/accounts x 5 GB per layer (generic package max file is 5 GB; container layers see the same class of limit). Since blobs are outside the 10 GiB project quota, a single free account can host arbitrarily many OCI layers. Compare GHCR (already known). The differentiator here is the explicit quota exemption, not the registry itself.",
+  "chaining": "The container registry is not included in the project storage limit, which covers the project's repository and LFS (10 GiB for a Free tier namespace project). A per-layer cap of 5 GB, and the number of projects or accounts allowed: unverified, not stated on the pages read.",
   "limits": [],
   "limits_note": "Container registry storage is visible without published caps in documentation. Blob uploads use the standard Docker chunked protocol, where layer size is determined by user build configuration rather than documented file limits. Pushes require CI tokens, and public projects permit anonymous pulls.",
   "identity_cost": {
@@ -70,10 +69,59 @@
       "proved": "purchased storage does not apply to the container registry; the 10 GiB Free limit covers repo and LFS only",
       "capture": "sha256:03b30a3eb551b90d9d6b5c02ed8c1ed3a1aff79388863e9eb6b1cf258fcebf3f",
       "quote": "Purchased storage applies to Git repository size and LFS usage. It does not apply to other storage types, such as the container registry."
+    },
+    {
+      "url": "https://docs.gitlab.com/user/packages/container_registry/",
+      "date": "2026-11-25",
+      "proved": "the registry conforms to the OCI distribution specification",
+      "capture": "sha256:7a3a696c5d08c32d17839a6fa55f4452c02719c3ca95636ff32024f8f07b2990",
+      "quote": "Additionally, the container registry [conforms to the OCI distribution specification](https://conformance.opencontainers.org/#gitlab-container-registry)."
+    },
+    {
+      "url": "https://docs.gitlab.com/user/packages/container_registry/",
+      "date": "2026-11-25",
+      "proved": "anonymous users can pull from a public project with registry visibility enabled",
+      "capture": "sha256:7a3a696c5d08c32d17839a6fa55f4452c02719c3ca95636ff32024f8f07b2990",
+      "quote": "| Public project with container registry visibility set to **Everyone With Access** (UI) or `enabled` (API) | View container registry and pull images | Yes | Yes | Yes |"
+    },
+    {
+      "url": "https://docs.gitlab.com/user/storage_usage_quotas/",
+      "date": "2026-11-25",
+      "proved": "the container registry is outside the repository and LFS storage limit",
+      "capture": "sha256:c31fa88d40120be518fbe9f17f5155d6812a549ba671ca04939f01cc78377e71",
+      "quote": "GitLab projects have a storage limit for their Git repository and Large File Storage (LFS). Only the project’s repository and LFS are included in the storage limit. The container registry, package registry, and build artifacts are not included in the limit."
+    },
+    {
+      "url": "https://docs.gitlab.com/user/gitlab_com/",
+      "date": "2026-11-25",
+      "proved": "the container registry section of the limits page begins with the domain name row",
+      "capture": "sha256:68f43c79110ad21fc9f3aeb8e6336cc2b463e9f9868ec094f2325dc676a4d44d",
+      "quote": "| Domain name | `registry.gitlab.com` |  |"
+    },
+    {
+      "url": "https://docs.gitlab.com/user/gitlab_com/",
+      "date": "2026-11-25",
+      "proved": "the container registry limits are on the GitLab.com limits page",
+      "capture": "sha256:68f43c79110ad21fc9f3aeb8e6336cc2b463e9f9868ec094f2325dc676a4d44d",
+      "quote": "| Domain name | `registry.gitlab.com` |  |"
+    },
+    {
+      "url": "https://docs.gitlab.com/user/gitlab_com/",
+      "date": "2026-11-25",
+      "proved": "the table's last row is the 15 minute token duration",
+      "capture": "sha256:68f43c79110ad21fc9f3aeb8e6336cc2b463e9f9868ec094f2325dc676a4d44d",
+      "quote": "| Authorization token duration (minutes) | `15` | See [increase container registry token duration](https://docs.gitlab.com/administration/packages/container_registry/#increase-token-duration). |"
+    },
+    {
+      "url": "https://docs.gitlab.com/user/gitlab_com/",
+      "date": "2026-11-25",
+      "proved": "dormant project deletion is disabled on GitLab.com",
+      "capture": "sha256:68f43c79110ad21fc9f3aeb8e6336cc2b463e9f9868ec094f2325dc676a4d44d",
+      "quote": "[Dormant project deletion](https://docs.gitlab.com/administration/dormant_project_deletion/) is disabled on GitLab.com."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:13:26.679Z",
+  "verified_at": "2026-11-25T12:15:41.026Z",
   "notes": "Not counted against any storage quota. GitLab docs: 'Only the project's repository and LFS are included in the storage limit. The container registry, package registry, and build artifacts are not included in the limit.' The 10 GiB Free limit therefore does not apply to OCI blobs.",
   "history": [],
   "extras": {

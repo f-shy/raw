@@ -38,7 +38,12 @@
   "limits": [
     {
       "kind": "per-ip-shaping",
-      "value": "5 MB/s per connection",
+      "value": "5 MB/s rate limit per shared-relay connection",
+      "source": "https://docs.iroh.computer/iroh-services/relays/shared"
+    },
+    {
+      "kind": "volume-quota",
+      "value": "100 GB of relay egress per month, then USD 0.09/GB",
       "source": "https://docs.iroh.computer/iroh-services/relays/shared"
     }
   ],
@@ -54,10 +59,31 @@
       "url": "https://docs.iroh.computer/iroh-services/relays/shared",
       "date": "2026-10-22",
       "proved": "up to 10,000 concurrent connections, 100 GB relay egress per month then USD 0.09/GB, a 5 MB/s rate limit, and a 30-day trial on Pro"
+    },
+    {
+      "url": "https://docs.iroh.computer/iroh-services/relays/shared",
+      "date": "2026-11-25",
+      "proved": "the shared-relay page states a 100 GB monthly egress allowance",
+      "capture": "sha256:81828ff88f339880ea478f7652cb36c6c7bda83c4942dccd75d23ed713756605",
+      "quote": "* 100 GB of relay egress per month, then \\$0.09/GB"
+    },
+    {
+      "url": "https://docs.iroh.computer/iroh-services/relays/shared",
+      "date": "2026-11-25",
+      "proved": "the shared-relay page states a 5 MB/s rate limit",
+      "capture": "sha256:81828ff88f339880ea478f7652cb36c6c7bda83c4942dccd75d23ed713756605",
+      "quote": "* A 5 MB/s rate limit"
+    },
+    {
+      "url": "https://docs.iroh.computer/iroh-services/relays/shared",
+      "date": "2026-11-25",
+      "proved": "the page documents relay access through the iroh client library, which the interface vocabulary has no token for",
+      "capture": "sha256:81828ff88f339880ea478f7652cb36c6c7bda83c4942dccd75d23ed713756605",
+      "quote": "The Rust example uses [`iroh-services`](https://crates.io/crates/iroh-services)."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-22T03:20:00.000Z",
+  "verified_at": "2026-11-25T11:04:40.149Z",
   "notes": "The free public relays are a separate product with deliberately unpublished limits.",
   "history": [],
   "extras": {

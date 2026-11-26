@@ -71,10 +71,24 @@
       "url": "https://steadip.com/",
       "date": "2026-10-23",
       "proved": "the free tier is HTTP and HTTPS with a random subdomain; the paid tunnel tier is USD 19.99 per year"
+    },
+    {
+      "url": "https://steadip.com/",
+      "date": "2026-11-25",
+      "proved": "the steadip.com homepage now presents a video game, with no tunnel product",
+      "capture": "sha256:c5b3375261ccee3ae8dab0a4d6987eb6df6dd593f7e3de835b9f0be2f749031e",
+      "quote": "A DARK FANTASY TACTICAL DEFENSE GAME"
+    },
+    {
+      "url": "probe:https://blog.steadip.com/2026/08/14/introducing-steadip-anchor-your-own-dedicated-ipv4-for-29-99-year/",
+      "date": "2026-11-25",
+      "proved": "the Anchor announcement the record cites answers HTTP 404",
+      "capture": "sha256:9e6e90c247cbcfdbdc6d15e8bf4d5c1e56185e53b1ecb67dddbc93596ec2891d",
+      "quote": "\"status\": 404"
     }
   ],
-  "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verdict": "dead",
+  "verified_at": "2026-11-25T15:43:48.363Z",
   "price_per_tb_month": "USD 29.99 per year per dedicated IPv4 (about USD 2.50 per month)",
   "history": [],
   "notes": "Cheapest whole IPv4 found in this lane at USD 29.99 per year, and the only one whose free tier is honestly HTTP-only rather than an IPv6 substitute. Which inbound mode the Anchor add-on gets is not stated, and that decides whether every port is open or a few are forwarded. The steadip.com/anchor page returned a broker refusal on two attempts, so the blog announcement is the source.",
@@ -86,6 +100,10 @@
     "volume_stated": "No transfer allowance and no fair-use figure are published in the announcement, the product explainer or the homepage. The plan is priced per address per year only.",
     "bytes_transit": "yes",
     "transit_note": "The vendor's gateway carries the address and terminates the tunnel; the local ISP only sees outbound.",
-    "promoted_from": ".tmp/egress/hosted-wg"
+    "promoted_from": ".tmp/egress/hosted-wg",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u354-q04",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "compute/fossvps: no path value is supported well enough by a capture. The best candidate is $.free_tier.stated (source https://lowendspirit.com/discussion/10909/welcome-to-fossvps-and-goodbye-to-nodeseek). The capture states 'free 2vcpu, 4GB RAM, 64GB disk' (decimal GB) but the record restates it as 4 GiB / 64 GiB, a different unit the page does not state. Should $.free_tier.stated be corrected to GB, and is the GiB restatement the only unsupported clause?",
+ "why": "PROPOSALS.jsonl marks compute/fossvps as review: 'no path value is supported well enough by a capture'; best path $.free_tier.stated at https://lowendspirit.com/discussion/10909/welcome-to-fossvps-and-goodbye-to-nodeseek. The unit mismatch (page '4GB RAM, 64GB disk' vs record '4 GiB / 64 GiB') is the unsettled point flagged by the audit; gating, exclusion and 29th-of-May quotes match the capture. Record left alone pending a decision on the unit.",
+ "scope": {
+  "rids": [
+   "compute/fossvps"
+  ]
+ },
+ "origin": "20261125-0107-research-compute-5c82/u354",
+ "created": "2026-11-25T15:40:38Z"
+}

@@ -21,12 +21,12 @@
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://cloud.google.com/startup",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The startup page states no credit expiry period. It says program qualifications change annually and enrollment in a previous year does not guarantee re-enrollment or eligibility for the current year."
   },
   "egress": {
-    "terms": "GCP egress is metered and comes out of the same credit pool; free egress only to Cloudflare-class partners or via the always-free 200 GB/mo Cloud Storage egress allowance.",
+    "terms": "Cloud Storage free tier: 100 GB per month of outbound transfer from North America to all region destinations (excluding China and Australia), in us-east1, us-west1 and us-central1 only. Beyond it, egress is not addressed on the startup page.",
     "metered": true,
-    "free_allowance": "200 GB per month"
+    "free_allowance": "100 GB per month"
   },
   "interface": [
     "s3-compatible",
@@ -35,7 +35,7 @@
   ],
   "interface_detail": "s3",
   "tooling": "rclone backend 'gcs' (Tier 1), gsutil, GCS XML/JSON API, GCS interop keys give an S3-compatible endpoint.",
-  "chaining": "Credits are per billing account and explicitly non-transferable ('Credits may only be used by the original applicant and cannot be shared, split, or resold'). The multiplier is *re-application in later years*. Google allows re-applying if credits went unused ('You may still be eligible for credits if you did not use your credits in a previous enrollment'). $200K at coldline-class rates is petabyte-scale for a year; the binding constraint becomes the 12-month expiry, not bytes.",
+  "chaining": "Credits may only be used by the original applicant and cannot be shared, split, or resold. A startup that did not use its credits in a previous enrollment may still be eligible if it meets all in-year eligibility requirements. Funded tiers (Scale, Scale AI) are $200K - $350k; the Start tier is $2k. No credit expiry is stated on the page.",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -43,10 +43,10 @@
       "source": "https://cloud.google.com/storage/quotas"
     }
   ],
-  "limits_note": "Per-object-cap: GCS single-object max 5 TiB. Not binding. request-rate: per-project GCS quotas (raiseable). retention: credits are time-boxed (program is annual, 'Program qualifications change annually'). Excludes educational institutions, government, nonprofits, personal blogs/content, dev shops and consultancies. A startup wrapper is required.",
+  "limits_note": "Per-object-cap: GCS single-object max 5 TiB. The startup page excludes educational institutions, government entities, nonprofits, personal blogs or content, dev shops, and consultancies or agencies.",
   "identity_cost": {
-    "kind": "institution",
-    "detail": "derived from the record's prose, not from an identity field, and no signup was executed: gram qualifications change annually'). Excludes educational institutions, government, nonprofits, personal blogs/content, dev shops and consultancies — a startup wrapper is required. iaas",
+    "kind": "email",
+    "detail": "A company-domain email address that matches the company website domain, and a Google Cloud billing account ID owned by a user on that domain. Whether a card is needed is unverified: behind a sign-up.",
     "country": null
   },
   "reliability_note": "Requires a funded company, a matching domain email and a billing account owned by that domain; credits land in a specific billing account ID and cannot be moved afterwards. Year-over-year re-enrolment is not guaranteed.",
@@ -95,10 +95,73 @@
       "proved": "the first-party Cloud Storage quotas page states the 5 TiB single-object cap",
       "capture": "sha256:9d520044203c747d3cfcbcd08d1d043ec4c0bb2eb3b1597bea848406e816835f",
       "quote": "Maximum object  size | 5 TiB | This limit applies regardless of write method, including object composition, resumable uploads, and multipart uploading."
+    },
+    {
+      "url": "https://cloud.google.com/startup",
+      "date": "2026-11-25",
+      "proved": "eligibility is re-assessed yearly; the page gives no credit expiry",
+      "capture": "sha256:e1e758d7f696fa9dde70ef7b7d9dfee23067107b33326930f9935cce3b6ab037",
+      "quote": "Program qualifications change annually, and enrollment in a previous year does not guarantee re-enrollment or eligibility for the current year."
+    },
+    {
+      "url": "https://cloud.google.com/startup",
+      "date": "2026-11-25",
+      "proved": "approval needs a company-domain email address",
+      "capture": "sha256:e1e758d7f696fa9dde70ef7b7d9dfee23067107b33326930f9935cce3b6ab037",
+      "quote": "In order to be approved for credits, your company website domain must match your email domain (for example, if your company is coolstartup.com you must be applying and communicating from a @coolstartup.com email address)."
+    },
+    {
+      "url": "https://cloud.google.com/startup",
+      "date": "2026-11-25",
+      "proved": "company-domain email required; the same page asks for a billing account ID",
+      "capture": "sha256:e1e758d7f696fa9dde70ef7b7d9dfee23067107b33326930f9935cce3b6ab037",
+      "quote": "In order to be approved for credits, your company website domain must match your email domain (for example, if your company is coolstartup.com you must be applying and communicating from a @coolstartup.com email address)."
+    },
+    {
+      "url": "https://cloud.google.com/free/docs/free-cloud-features",
+      "date": "2026-11-25",
+      "proved": "the Cloud Storage free tier includes 100 GB per month of outbound transfer from North America",
+      "capture": "sha256:fb586488a217a0ff0238444a87a475f4707979c7264530c727094822a4e15d70",
+      "quote": "100 GB of outbound data transfer from North America to all region destinations (excluding China and Australia) per month."
+    },
+    {
+      "url": "https://cloud.google.com/free/docs/free-cloud-features",
+      "date": "2026-11-25",
+      "proved": "the free tier egress allowance and its regions",
+      "capture": "sha256:fb586488a217a0ff0238444a87a475f4707979c7264530c727094822a4e15d70",
+      "quote": "100 GB of outbound data transfer from North America to all region destinations (excluding China and Australia) per month."
+    },
+    {
+      "url": "https://cloud.google.com/startup",
+      "date": "2026-11-25",
+      "proved": "re-application is allowed when credits were unused",
+      "capture": "sha256:e1e758d7f696fa9dde70ef7b7d9dfee23067107b33326930f9935cce3b6ab037",
+      "quote": "You may still be eligible for credits if you did not use your credits in a previous enrollment, and still meet all in-year program eligibility requirements."
+    },
+    {
+      "url": "https://cloud.google.com/startup",
+      "date": "2026-11-25",
+      "proved": "the exclusion list",
+      "capture": "sha256:e1e758d7f696fa9dde70ef7b7d9dfee23067107b33326930f9935cce3b6ab037",
+      "quote": "We are unable to accept companies that have IPO’d or been acquired, educational institutions, government entities, nonprofits, personal blogs or content, dev shops, consultancies or agencies"
+    },
+    {
+      "url": "https://cloud.google.com/storage/quotas",
+      "date": "2026-11-25",
+      "proved": "the Cloud Storage single-object maximum is 5 TiB",
+      "capture": "sha256:9d520044203c747d3cfcbcd08d1d043ec4c0bb2eb3b1597bea848406e816835f",
+      "quote": "Maximum object  size | 5 TiB | This limit applies regardless of write method, including object composition, resumable uploads, and multipart uploading."
+    },
+    {
+      "url": "https://cloud.google.com/startup",
+      "date": "2026-11-25",
+      "proved": "the Funded tiers range from $200K to $350k in credits",
+      "capture": "sha256:e1e758d7f696fa9dde70ef7b7d9dfee23067107b33326930f9935cce3b6ab037",
+      "quote": "Our Funded program tiers (Scale, and Scale AI) range from $200K - $350k in credits, and are designed for growing startups with verifiable Pre-Seed to Series A funding."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:13:29.379Z",
+  "verified_at": "2026-11-25T12:15:41.804Z",
   "notes": "https://cloud.google.com/startup does not state a Cloud Storage single-object size; the per-object figure in this record is not on the cited page.",
   "history": [],
   "extras": {

@@ -35,7 +35,18 @@
   ],
   "tooling": "any WebRTC stack's TURN client",
   "chaining": "a NAT-traversal fallback for a WebRTC-shaped workload and nothing else. It cannot be wrapped into more because a byte quota relayed does not compound.",
-  "limits": [],
+  "limits": [
+    {
+      "kind": "volume-quota",
+      "value": "1,000 GB/month of egress shared between SFU and TURN, then USD 0.05/GB",
+      "source": "https://developers.cloudflare.com/realtime/sfu/platform/pricing/"
+    },
+    {
+      "kind": "per-ip-shaping",
+      "value": "per TURN allocation: more than 5 new IP addresses/sec, 5-10 kpps in each direction, 50-100 Mbps in each direction; drops above the limit",
+      "source": "https://developers.cloudflare.com/realtime/turn/"
+    }
+  ],
   "identity_cost": {
     "kind": "email",
     "detail": "a Cloudflare account and a TURN key",
@@ -48,10 +59,31 @@
       "url": "https://developers.cloudflare.com/realtime/sfu/platform/pricing/",
       "date": "2026-10-22",
       "proved": "'The first 1,000 GB each month is free. SFU and TURN share this allowance', page last updated 2026-09-22"
+    },
+    {
+      "url": "https://developers.cloudflare.com/realtime/sfu/platform/pricing/",
+      "date": "2026-11-25",
+      "proved": "the first-party pricing page still states a shared 1,000 GB monthly allowance for SFU and TURN",
+      "capture": "sha256:09dd6a0cb57887351561c0aa8077c69c7b6b7550ba5183e3ba1f5c484c68d787",
+      "quote": "The first 1,000 GB each month is free. SFU and TURN share this allowance; they do not have independent free tiers."
+    },
+    {
+      "url": "https://developers.cloudflare.com/realtime/turn/",
+      "date": "2026-11-25",
+      "proved": "the TURN page names a per-allocation data-rate limit of 50-100 Mbps",
+      "capture": "sha256:1188a40ee04f2afa289f4940c55123c570ef88682af8b5997206e96c38a98c5d",
+      "quote": "Data rate outbound and inbound to the relay allocation (>50-100 Mbps)"
+    },
+    {
+      "url": "https://developers.cloudflare.com/realtime/sfu/platform/pricing/",
+      "date": "2026-11-25",
+      "proved": "the 1,000 GB monthly allowance is unchanged",
+      "capture": "sha256:09dd6a0cb57887351561c0aa8077c69c7b6b7550ba5183e3ba1f5c484c68d787",
+      "quote": "The first 1,000 GB each month is free. SFU and TURN share this allowance; they do not have independent free tiers."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-22T03:20:00.000Z",
+  "verified_at": "2026-11-25T11:04:40.149Z",
   "notes": "Reaching 1 TiB/day would need about 30 accounts at the free allowance, which is not a plan. Quoted in decimal GB because the page states decimal GB.",
   "history": [],
   "extras": {

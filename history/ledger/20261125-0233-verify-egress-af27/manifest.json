@@ -1,0 +1,2785 @@
+{
+ "manifest": 1,
+ "written": "2026-11-25T21:54:40Z",
+ "run": {
+  "run": "20261125-0233-verify-egress-af27",
+  "kind": "verify",
+  "topic": "egress",
+  "request": "re-check the stale egress records and settle the limit behind each binding constraint",
+  "created": "2026-11-25T02:33:36Z",
+  "base": "6b327ec9704059e5ef6a84fe8872cd4bb2193f78",
+  "branch": "rq/20261125-0233-verify-egress-af27",
+  "issue": null,
+  "rounds": 1,
+  "research_issue": null
+ },
+ "units": [
+  {
+   "id": "u01",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "applied": 5,
+    "confirmed": 9,
+    "evidence": 1,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/jsdelivr",
+     "egress/residential-proxy-trial",
+     "egress/bgptunnel",
+     "egress/deta",
+     "egress/freenet6",
+     "egress/frp-vip"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u02",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "applied": 19,
+    "confirmed": 14,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/iis-pub-frp",
+     "egress/inlets",
+     "egress/ip4market",
+     "egress/sshreach-me",
+     "egress/tamago-hkt-nat",
+     "egress/webhook-relay"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u03",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "applied": 12,
+    "confirmed": 8,
+    "evidence": 3,
+    "questions": 7,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/wevpn",
+     "egress/vmshell-hk-port-forward",
+     "egress/bacloud-openvz-vps",
+     "egress/bytevirt-nat-256-lxc",
+     "egress/flipperhost-kvm-2gb",
+     "egress/locyanfrp"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u04",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "applied": 4,
+    "confirmed": 14,
+    "questions": 5,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/pcdeploy",
+     "egress/tunnelapi-1-0",
+     "egress/tunnelapi-2-0",
+     "egress/alphavps-storage-128g",
+     "egress/aquatis-hrkvm-8",
+     "egress/cherry-servers-cloud-vps"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u05",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 15,
+    "applied": 10,
+    "questions": 6,
+    "evidence": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/cloudnium-ipv6-1",
+     "egress/h2-nexus-promo-platinum",
+     "egress/hostbrr-nice-epyc",
+     "egress/hostsailor-minisailor",
+     "egress/kainode-vps-pro",
+     "egress/layer7-high-cpu-2"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u06",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 5,
+    "evidence": 7,
+    "applied": 10,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/limitless-hosting-kvm-vps-starter",
+     "egress/netassist-tb",
+     "egress/netassist-tunnelbroker",
+     "egress/path-net",
+     "egress/perfect-privacy",
+     "egress/proximatunnel"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u07",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "applied": 18,
+    "confirmed": 18,
+    "evidence": 1,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/servitro-epyc-1-server",
+     "egress/teleport",
+     "egress/vpslog",
+     "egress/serveo",
+     "egress/tunnl-gg",
+     "egress/bunny-net"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u08",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "applied": 7,
+    "evidence": 2,
+    "confirmed": 9,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/cloudflare-turn",
+     "egress/cloudflare-warp",
+     "egress/fastly-free",
+     "egress/iroh-shared-relay",
+     "egress/libp2p-circuit-relay-v2",
+     "egress/vercel-hobby"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u09",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 11,
+    "evidence": 8,
+    "questions": 4,
+    "applied": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/yggdrasil-public-peers",
+     "egress/akamai-prolexic",
+     "egress/alibaba-anti-ddos-proxy",
+     "egress/alibaba-cloud-international",
+     "egress/amazon-web-services-free-tier",
+     "egress/arvoris"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u10",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 11,
+    "applied": 6,
+    "evidence": 1,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/aws-activate",
+     "egress/aws-app-runner",
+     "egress/aws-educate",
+     "egress/aws-free-tier",
+     "egress/aws-global-accelerator",
+     "egress/azure-ddos-protection"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u100",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+    "at": "2026-11-25T21:54:23Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on egress/flipperhost-kvm-2gb from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.egress.terms: proposed \"5 TB monthly transfer on the 2 GB KVM plan, 8 TB on the 4 GB plan, on a 1 Gbps port; beha",
+   "scope": {
+    "rids": [
+     "egress/flipperhost-kvm-2gb"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u101",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+    "at": "2026-11-25T21:54:23Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on egress/fxtunnel from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.binding_note: proposed \"Volume is not the blocker: the page states no limit on requests or traffic on any plan. What fails a",
+   "scope": {
+    "rids": [
+     "egress/fxtunnel"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u102",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+    "at": "2026-11-25T21:54:23Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on egress/gcp-passthrough-nlb from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.binding: proposed \"write-gated\" (evidence https://cloud.google.com/load-balancing/docs/network, capture sha256:2b",
+   "scope": {
+    "rids": [
+     "egress/gcp-passthrough-nlb"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u103",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+    "at": "2026-11-25T21:54:23Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on egress/getastatic from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.notes: proposed \"Every plan is a WireGuard VPN with a dedicated static public IPv4 in the US and inbound ports closed unti",
+   "scope": {
+    "rids": [
+     "egress/getastatic"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u104",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+    "at": "2026-11-25T21:54:23Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on egress/hide-me from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.limits[1].value: proposed \"the mapping is UPnP-negotiated by the application rather than reserved by the account, so it is no",
+   "scope": {
+    "rids": [
+     "egress/hide-me"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u105",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+    "at": "2026-11-25T21:54:23Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on egress/instatunnel from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.egress.terms: proposed \"Free plan: 2GB monthly bandwidth and 2,000 daily requests; ingress: http-only\" (evidence https://",
+   "scope": {
+    "rids": [
+     "egress/instatunnel"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u106",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+    "at": "2026-11-25T21:54:24Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on egress/lantunnel from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.binding_note: proposed \"No public URL and no metered quota: the mesh gives reachability between enrolled devices only, and ",
+   "scope": {
+    "rids": [
+     "egress/lantunnel"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u107",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+    "at": "2026-11-25T21:54:24Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on egress/locyanfrp from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.identity_cost.kind: proposed \"national-id\" (evidence https://blog.rimrose.work/posts/locyanfrp/locyanfrp/, capture sha256:1",
+   "scope": {
+    "rids": [
+     "egress/locyanfrp"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u108",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+    "at": "2026-11-25T21:54:24Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on egress/residential-proxy-trial from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.notes: proposed \"A workload of 1099.51 GB per day costs USD 870.8 per day at USD 0.792/GB and USD 296.9 per d",
+   "scope": {
+    "rids": [
+     "egress/residential-proxy-trial"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u109",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+    "at": "2026-11-25T21:54:24Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on egress/tunnelapi-1-0 from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.egress.terms: proposed \"Free plan: 100 MB bandwidth a month and 1K HTTP requests a month, 1 active tunnel, 2 hour sessi",
+   "scope": {
+    "rids": [
+     "egress/tunnelapi-1-0"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u11",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 12,
+    "applied": 11,
+    "dropped": 1,
+    "evidence": 3,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/azure-for-students",
+     "egress/azure-front-door",
+     "egress/beeceptor",
+     "egress/bili-nat",
+     "egress/border0",
+     "egress/chmlfrp"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u110",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+    "at": "2026-11-25T21:54:24Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on egress/tunr from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.per_object_cap.source_url: proposed \"https://tunr.sh/\" (evidence https://tunr.sh/docs.html, capture sha256:b81368beea8ad, quote ",
+   "scope": {
+    "rids": [
+     "egress/tunr"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u111",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 6,
+    "applied": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page and confirm the one value the quote proves; propose a set only where the quote proves the recorded value wrong. Write no detail the quote does not contain.",
+   "scope": {
+    "rids": [
+     "egress/ip4market",
+     "egress/inlets",
+     "egress/sshreach-me",
+     "egress/webhook-relay",
+     "egress/iis-pub-frp",
+     "egress/cloudnium-ipv6-1"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u112",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page and confirm the one value the quote proves; propose a set only where the quote proves the recorded value wrong. Write no detail the quote does not contain.",
+   "scope": {
+    "rids": [
+     "egress/h2-nexus-promo-platinum",
+     "egress/hostbrr-nice-epyc",
+     "egress/kainode-vps-pro",
+     "egress/layer7-high-cpu-2",
+     "egress/limitless-hosting-kvm-vps-starter",
+     "egress/netassist-tb"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u113",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u111",
+   "score": {
+    "supported": 4,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 7,
+    "upper95": 0.75,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 7 claim(s) integrated by unit u111 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u114",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u112",
+   "score": {
+    "supported": 1,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 1,
+    "upper95": 0.793,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 1 claim(s) integrated by unit u112 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u115",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u86",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u86 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u116",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u85",
+   "score": {
+    "supported": 19,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 20,
+    "upper95": 0.236,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 20 claim(s) integrated by unit u85 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u117",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u87",
+   "score": {
+    "supported": 29,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.167,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u87 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u118",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u88",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u88 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u12",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "applied": 9,
+    "confirmed": 9,
+    "evidence": 2,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/clever-cloud",
+     "egress/cloudflare-for-startups",
+     "egress/cloudflare-spectrum",
+     "egress/cloudpub",
+     "egress/core-transit",
+     "egress/cpolar"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u13",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 7,
+    "applied": 3,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/defined-networking",
+     "egress/deno-deploy",
+     "egress/digitalocean-app-platform",
+     "egress/digitalocean-startups",
+     "egress/easytier",
+     "egress/enclave"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u14",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 10,
+    "evidence": 2,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/euserv-vs2-free",
+     "egress/feige-fgnwct",
+     "egress/firezone",
+     "egress/floodguard",
+     "egress/fly-io",
+     "egress/fnat"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u15",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "applied": 13,
+    "evidence": 1,
+    "confirmed": 6,
+    "questions": 6,
+    "dropped": 3,
+    "conflict": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/freehold",
+     "egress/fxtunnel",
+     "egress/gcp-passthrough-nlb",
+     "egress/getastatic",
+     "egress/getip-online",
+     "egress/github-student-developer-pack"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u16",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 12,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/google-cloud-free-tier",
+     "egress/google-cloud-free-trial",
+     "egress/google-cloud-run",
+     "egress/guildbit",
+     "egress/he-tunnelbroker",
+     "egress/heroku"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u17",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 12,
+    "applied": 4,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/hetzner-cloud",
+     "egress/hide-me",
+     "egress/hoppy",
+     "egress/horizon-tunnel",
+     "egress/hosting-minecraft-pro",
+     "egress/hyehost-ipv4-tunnels"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u18",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 11,
+    "applied": 17,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/ignyte-solutions",
+     "egress/imperva-ddos",
+     "egress/infinity-filter",
+     "egress/instatunnel",
+     "egress/ipv6rs",
+     "egress/kagoya-cloud-vps"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u19",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 7,
+    "applied": 1,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/karabro-tunnelbroker-se",
+     "egress/koyeb",
+     "egress/kubesail",
+     "egress/lantunnel",
+     "egress/livecycle",
+     "egress/localcan"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u20",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "applied": 9,
+    "confirmed": 12,
+    "evidence": 1,
+    "questions": 5,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/localport",
+     "egress/localtonet",
+     "egress/localxpose-free",
+     "egress/lokal-so",
+     "egress/loophole-cloud",
+     "egress/luyouxia"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u21",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 17,
+    "applied": 1,
+    "evidence": 1,
+    "questions": 5,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/malai",
+     "egress/mcgateway",
+     "egress/metered-tsocket",
+     "egress/microsoft-dev-tunnels",
+     "egress/mineguard",
+     "egress/minekube-connect"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u22",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "dead": 1,
+    "confirmed": 8,
+    "applied": 5,
+    "dropped": 1,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/mudcat",
+     "egress/natapp",
+     "egress/naver-cloud-micro",
+     "egress/neoprotect",
+     "egress/netrinos",
+     "egress/ngrok-free"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u23",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "applied": 1,
+    "questions": 2,
+    "confirmed": 11,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/nilloc",
+     "egress/northflank",
+     "egress/novanode-ip-tunnel",
+     "egress/onlyssh",
+     "egress/openport-io",
+     "egress/oray-peanut-hull"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u24",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 5,
+    "applied": 5,
+    "evidence": 1,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/ouicu",
+     "egress/outray",
+     "egress/ovhcloud-public-cloud",
+     "egress/ovhcloud-vps",
+     "egress/ownserver",
+     "egress/packetriot"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u25",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 11,
+    "applied": 1,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/pangolin",
+     "egress/pgrok-fork",
+     "egress/pipenet",
+     "egress/premiervpn",
+     "egress/privatevpn",
+     "egress/proxlane"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u26",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 16,
+    "applied": 1,
+    "evidence": 1,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/proxylink-dev",
+     "egress/qingting-map",
+     "egress/railway",
+     "egress/remote-it",
+     "egress/render",
+     "egress/route48-org"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u27",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 10,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/sakura-internet-vps",
+     "egress/sakurafrp",
+     "egress/scaleway-instances",
+     "egress/serververse-network-transit",
+     "egress/sevalla",
+     "egress/shubhamtun"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u28",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 7,
+    "applied": 3,
+    "dead": 1,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/sidecar-network",
+     "egress/solar-proxy",
+     "egress/somagu-vps",
+     "egress/ssh-j",
+     "egress/starryfrp",
+     "egress/stayport"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u29",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "dead": 2,
+    "evidence": 3,
+    "confirmed": 9,
+    "dropped": 1,
+    "applied": 1,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/steadip",
+     "egress/steadip-anchor",
+     "egress/stunl",
+     "egress/sunny-ngrok",
+     "egress/svix-play",
+     "egress/tabserve"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u30",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 10,
+    "applied": 3,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/tailscale-funnel",
+     "egress/taipan-transit",
+     "egress/tencent-edgeone-l4-proxy",
+     "egress/tunnel-ip",
+     "egress/tunnel-pyjam-as",
+     "egress/tunnel-to"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u31",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 9,
+    "applied": 8,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/tunnelbroker-li",
+     "egress/tunnelite",
+     "egress/tunnelmole",
+     "egress/tunnels-io",
+     "egress/tunnelthat",
+     "egress/tunnet"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u32",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 12,
+    "applied": 7,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/tunr",
+     "egress/tuns-sh",
+     "egress/turtleguard",
+     "egress/twingate",
+     "egress/upvpn",
+     "egress/vpnbook"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u33",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "applied": 6,
+    "confirmed": 20,
+    "questions": 2,
+    "evidence": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/waiwang-men",
+     "egress/webarena-suitepro-trial",
+     "egress/wiregress",
+     "egress/xserver-vps-free",
+     "egress/zeabur",
+     "egress/zerops"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u34",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "applied": 2,
+    "confirmed": 2,
+    "evidence": 1,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.",
+   "scope": {
+    "rids": [
+     "egress/zerotier-free",
+     "egress/zrok-hosted",
+     "egress/tailscale-personal"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u35",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u01",
+   "score": {
+    "supported": 16,
+    "unsupported": 11,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 27,
+    "upper95": 0.593,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 27 claim(s) integrated by unit u01 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u36",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u02",
+   "score": {
+    "supported": 24,
+    "unsupported": 6,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.373,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u02 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u37",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u03",
+   "score": {
+    "supported": 27,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.256,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u03 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u38",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u04",
+   "score": {
+    "supported": 29,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.167,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u04 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u39",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u05",
+   "score": {
+    "supported": 25,
+    "unsupported": 5,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.336,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u05 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u40",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u06",
+   "score": {
+    "supported": 15,
+    "unsupported": 7,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 22,
+    "upper95": 0.527,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 22 claim(s) integrated by unit u06 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u41",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u07",
+   "score": {
+    "supported": 24,
+    "unsupported": 6,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.373,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u07 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u42",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u08",
+   "score": {
+    "supported": 19,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 19,
+    "upper95": 0.168,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 19 claim(s) integrated by unit u08 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u43",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u09",
+   "score": {
+    "supported": 26,
+    "unsupported": 4,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.297,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u09 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u44",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u10",
+   "score": {
+    "supported": 26,
+    "unsupported": 4,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.297,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u10 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u45",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "applied": 25,
+    "confirmed": 7,
+    "evidence": 2,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "audit u35 of 20261125-0233-verify-egress-af27/u01 failed: 11 of 27 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u01-rerun",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/bg",
+   "scope": {
+    "rids": [
+     "egress/jsdelivr",
+     "egress/residential-proxy-trial",
+     "egress/bgptunnel",
+     "egress/deta",
+     "egress/freenet6",
+     "egress/frp-vip"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u46",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "applied": 8,
+    "evidence": 6,
+    "corroborated": 3,
+    "confirmed": 6,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "audit u36 of 20261125-0233-verify-egress-af27/u02 failed: 6 of 30 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u02-rerun",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/we",
+   "scope": {
+    "rids": [
+     "egress/iis-pub-frp",
+     "egress/inlets",
+     "egress/ip4market",
+     "egress/sshreach-me",
+     "egress/tamago-hkt-nat",
+     "egress/webhook-relay"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u47",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "egress",
+   "tally": {
+    "confirmed": 6,
+    "applied": 3,
+    "corroborated": 2,
+    "rejected": 0
+   },
+   "origin": "audit u39 of 20261125-0233-verify-egress-af27/u05 failed: 5 of 30 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u05-rerun",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/la",
+   "scope": {
+    "rids": [
+     "egress/cloudnium-ipv6-1",
+     "egress/h2-nexus-promo-platinum",
+     "egress/hostbrr-nice-epyc",
+     "egress/hostsailor-minisailor",
+     "egress/kainode-vps-pro",
+     "egress/layer7-high-cpu-2"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u48",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "applied": 9,
+    "confirmed": 6,
+    "evidence": 1,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "audit u40 of 20261125-0233-verify-egress-af27/u06 failed: 7 of 22 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u06-rerun",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/ne",
+   "scope": {
+    "rids": [
+     "egress/limitless-hosting-kvm-vps-starter",
+     "egress/netassist-tb",
+     "egress/netassist-tunnelbroker",
+     "egress/path-net",
+     "egress/perfect-privacy",
+     "egress/proximatunnel"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u49",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "applied": 27,
+    "confirmed": 7,
+    "related": 1,
+    "questions": 7,
+    "rejected": 0
+   },
+   "origin": "audit u41 of 20261125-0233-verify-egress-af27/u07 failed: 6 of 30 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u07-rerun",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/bu",
+   "scope": {
+    "rids": [
+     "egress/servitro-epyc-1-server",
+     "egress/teleport",
+     "egress/vpslog",
+     "egress/serveo",
+     "egress/tunnl-gg",
+     "egress/bunny-net"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u50",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "applied": 7,
+    "confirmed": 9,
+    "questions": 6,
+    "rejected": 0
+   },
+   "origin": "audit u43 of 20261125-0233-verify-egress-af27/u09 failed: 4 of 30 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u09-rerun",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/al",
+   "scope": {
+    "rids": [
+     "egress/yggdrasil-public-peers",
+     "egress/akamai-prolexic",
+     "egress/alibaba-anti-ddos-proxy",
+     "egress/alibaba-cloud-international",
+     "egress/amazon-web-services-free-tier",
+     "egress/arvoris"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u51",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "applied": 16,
+    "confirmed": 7,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "audit u44 of 20261125-0233-verify-egress-af27/u10 failed: 4 of 30 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u10-rerun",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/aw",
+   "scope": {
+    "rids": [
+     "egress/aws-activate",
+     "egress/aws-app-runner",
+     "egress/aws-educate",
+     "egress/aws-free-tier",
+     "egress/aws-global-accelerator",
+     "egress/azure-ddos-protection"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u52",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u11",
+   "score": {
+    "supported": 24,
+    "unsupported": 5,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 29,
+    "upper95": 0.345,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 29 claim(s) integrated by unit u11 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u53",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u12",
+   "score": {
+    "supported": 17,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 17,
+    "upper95": 0.184,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 17 claim(s) integrated by unit u12 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u54",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u13",
+   "score": {
+    "supported": 12,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 13,
+    "upper95": 0.333,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 13 claim(s) integrated by unit u13 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u55",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u14",
+   "score": {
+    "supported": 8,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 11,
+    "upper95": 0.566,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 11 claim(s) integrated by unit u14 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u56",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u15",
+   "score": {
+    "supported": 22,
+    "unsupported": 2,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 24,
+    "upper95": 0.258,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 24 claim(s) integrated by unit u15 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u57",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u16",
+   "score": {
+    "supported": 17,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 20,
+    "upper95": 0.36,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 20 claim(s) integrated by unit u16 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u58",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u17",
+   "score": {
+    "supported": 15,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 16,
+    "upper95": 0.283,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 16 claim(s) integrated by unit u17 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u59",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u18",
+   "score": {
+    "supported": 29,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.167,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u18 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u60",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u19",
+   "score": {
+    "supported": 10,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 11,
+    "upper95": 0.377,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 11 claim(s) integrated by unit u19 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u61",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u20",
+   "score": {
+    "supported": 25,
+    "unsupported": 5,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.336,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u20 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u62",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u21",
+   "score": {
+    "supported": 25,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 28,
+    "upper95": 0.272,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 28 claim(s) integrated by unit u21 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u63",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u22",
+   "score": {
+    "supported": 15,
+    "unsupported": 9,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 24,
+    "upper95": 0.573,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 24 claim(s) integrated by unit u22 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u64",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u23",
+   "score": {
+    "supported": 17,
+    "unsupported": 2,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 19,
+    "upper95": 0.314,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 19 claim(s) integrated by unit u23 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u65",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u24",
+   "score": {
+    "supported": 13,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 13,
+    "upper95": 0.228,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 13 claim(s) integrated by unit u24 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u66",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u25",
+   "score": {
+    "supported": 14,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 17,
+    "upper95": 0.41,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 17 claim(s) integrated by unit u25 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u67",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u26",
+   "score": {
+    "supported": 27,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.256,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u26 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u68",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u27",
+   "score": {
+    "supported": 11,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 11,
+    "upper95": 0.259,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 11 claim(s) integrated by unit u27 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u69",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u28",
+   "score": {
+    "supported": 15,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 15,
+    "upper95": 0.204,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 15 claim(s) integrated by unit u28 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u70",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u29",
+   "score": {
+    "supported": 13,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 13,
+    "upper95": 0.228,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 13 claim(s) integrated by unit u29 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u71",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u30",
+   "score": {
+    "supported": 16,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 16,
+    "upper95": 0.194,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 16 claim(s) integrated by unit u30 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u72",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u31",
+   "score": {
+    "supported": 21,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 21,
+    "upper95": 0.155,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 21 claim(s) integrated by unit u31 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u73",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u32",
+   "score": {
+    "supported": 28,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 29,
+    "upper95": 0.172,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 29 claim(s) integrated by unit u32 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u74",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u33",
+   "score": {
+    "supported": 26,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 29,
+    "upper95": 0.264,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 29 claim(s) integrated by unit u33 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u75",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u34",
+   "score": {
+    "supported": 3,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 4,
+    "upper95": 0.699,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 4 claim(s) integrated by unit u34 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u76",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u45",
+   "score": {
+    "supported": 27,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.256,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u45 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u77",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u46",
+   "score": {
+    "supported": 18,
+    "unsupported": 8,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 26,
+    "upper95": 0.5,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 26 claim(s) integrated by unit u46 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u78",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u47",
+   "score": {
+    "supported": 10,
+    "unsupported": 11,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 21,
+    "upper95": 0.717,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 21 claim(s) integrated by unit u47 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u79",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u48",
+   "score": {
+    "supported": 16,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 16,
+    "upper95": 0.194,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 16 claim(s) integrated by unit u48 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u80",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u49",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u49 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u81",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u50",
+   "score": {
+    "supported": 19,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 19,
+    "upper95": 0.168,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 19 claim(s) integrated by unit u50 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u82",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "egress",
+   "audits": "u51",
+   "score": {
+    "supported": 26,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 27,
+    "upper95": 0.183,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 27 claim(s) integrated by unit u51 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u83",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "audit u52 of 20261125-0233-verify-egress-af27/u11 failed: 5 of 29 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u11-rerun",
+   "abandoned": {
+    "reason": "the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+    "at": "2026-11-25T21:54:22Z",
+    "was": "running"
+   },
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/az",
+   "scope": {
+    "rids": [
+     "egress/azure-for-students",
+     "egress/azure-front-door",
+     "egress/beeceptor",
+     "egress/bili-nat",
+     "egress/border0",
+     "egress/chmlfrp"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u84",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "audit u55 of 20261125-0233-verify-egress-af27/u14 failed: 3 of 11 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u14-rerun",
+   "abandoned": {
+    "reason": "the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+    "at": "2026-11-25T21:54:22Z",
+    "was": "running"
+   },
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/fi",
+   "scope": {
+    "rids": [
+     "egress/euserv-vs2-free",
+     "egress/feige-fgnwct",
+     "egress/firezone",
+     "egress/floodguard",
+     "egress/fly-io",
+     "egress/fnat"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u85",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "applied": 14,
+    "confirmed": 6,
+    "evidence": 1,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "audit u57 of 20261125-0233-verify-egress-af27/u16 failed: 3 of 20 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u16-rerun",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/go",
+   "scope": {
+    "rids": [
+     "egress/google-cloud-free-tier",
+     "egress/google-cloud-free-trial",
+     "egress/google-cloud-run",
+     "egress/guildbit",
+     "egress/he-tunnelbroker",
+     "egress/heroku"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u86",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "applied": 32,
+    "confirmed": 20,
+    "evidence": 1,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "audit u61 of 20261125-0233-verify-egress-af27/u20 failed: 5 of 30 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u20-rerun",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/lo",
+   "scope": {
+    "rids": [
+     "egress/localport",
+     "egress/localtonet",
+     "egress/localxpose-free",
+     "egress/lokal-so",
+     "egress/loophole-cloud",
+     "egress/luyouxia"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u87",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "applied": 20,
+    "confirmed": 14,
+    "questions": 4,
+    "evidence": 1,
+    "rejected": 0
+   },
+   "origin": "audit u62 of 20261125-0233-verify-egress-af27/u21 failed: 3 of 28 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u21-rerun",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/me",
+   "scope": {
+    "rids": [
+     "egress/malai",
+     "egress/mcgateway",
+     "egress/metered-tsocket",
+     "egress/microsoft-dev-tunnels",
+     "egress/mineguard",
+     "egress/minekube-connect"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u88",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "egress",
+   "tally": {
+    "dead": 1,
+    "confirmed": 17,
+    "applied": 13,
+    "questions": 4,
+    "dropped": 1,
+    "rejected": 0
+   },
+   "origin": "audit u63 of 20261125-0233-verify-egress-af27/u22 failed: 9 of 24 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u22-rerun",
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/na",
+   "scope": {
+    "rids": [
+     "egress/mudcat",
+     "egress/natapp",
+     "egress/naver-cloud-micro",
+     "egress/neoprotect",
+     "egress/netrinos",
+     "egress/ngrok-free"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u89",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "audit u64 of 20261125-0233-verify-egress-af27/u23 failed: 2 of 19 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u23-rerun",
+   "abandoned": {
+    "reason": "the lane never started while the provider window was saturated; the records stay queued for a later run and the parent settles the stale set directly",
+    "at": "2026-11-25T17:24:30Z",
+    "was": "planned"
+   },
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/no",
+   "scope": {
+    "rids": [
+     "egress/nilloc",
+     "egress/northflank",
+     "egress/novanode-ip-tunnel",
+     "egress/onlyssh",
+     "egress/openport-io",
+     "egress/oray-peanut-hull"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u90",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "audit u66 of 20261125-0233-verify-egress-af27/u25 failed: 3 of 17 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u25-rerun",
+   "abandoned": {
+    "reason": "the lane never started while the provider window was saturated; the records stay queued for a later run and the parent settles the stale set directly",
+    "at": "2026-11-25T17:24:30Z",
+    "was": "planned"
+   },
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/pa",
+   "scope": {
+    "rids": [
+     "egress/pangolin",
+     "egress/pgrok-fork",
+     "egress/pipenet",
+     "egress/premiervpn",
+     "egress/privatevpn",
+     "egress/proxlane"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u91",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "audit u67 of 20261125-0233-verify-egress-af27/u26 failed: 3 of 30 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u26-rerun",
+   "abandoned": {
+    "reason": "the lane never started while the provider window was saturated; the records stay queued for a later run and the parent settles the stale set directly",
+    "at": "2026-11-25T17:24:30Z",
+    "was": "planned"
+   },
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/pr",
+   "scope": {
+    "rids": [
+     "egress/proxylink-dev",
+     "egress/qingting-map",
+     "egress/railway",
+     "egress/remote-it",
+     "egress/render",
+     "egress/route48-org"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u92",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "audit u74 of 20261125-0233-verify-egress-af27/u33 failed: 3 of 29 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u33-rerun",
+   "abandoned": {
+    "reason": "the lane never started while the provider window was saturated; the records stay queued for a later run and the parent settles the stale set directly",
+    "at": "2026-11-25T17:24:31Z",
+    "was": "planned"
+   },
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/we",
+   "scope": {
+    "rids": [
+     "egress/waiwang-men",
+     "egress/webarena-suitepro-trial",
+     "egress/wiregress",
+     "egress/xserver-vps-free",
+     "egress/zeabur",
+     "egress/zerops"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u93",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "audit u75 of 20261125-0233-verify-egress-af27/u34 failed: 1 of 4 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u34-rerun",
+   "abandoned": {
+    "reason": "the lane never started while the provider window was saturated; the records stay queued for a later run and the parent settles the stale set directly",
+    "at": "2026-11-25T17:24:31Z",
+    "was": "planned"
+   },
+   "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/ta",
+   "scope": {
+    "rids": [
+     "egress/zerotier-free",
+     "egress/zrok-hosted",
+     "egress/tailscale-personal"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u94",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "audit u36 of 20261125-0233-verify-egress-af27/u02 failed: 6 of 30 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u02-rerun",
+   "abandoned": {
+    "reason": "the lane never started while the provider window was saturated; the records stay queued for a later run and the parent settles the stale set directly",
+    "at": "2026-11-25T17:24:31Z",
+    "was": "planned"
+   },
+   "question": "Queue item 20261125-0233-verify-egress-af27-u02-rerun: Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupport",
+   "scope": {
+    "rids": [
+     "egress/iis-pub-frp",
+     "egress/inlets",
+     "egress/ip4market",
+     "egress/sshreach-me",
+     "egress/tamago-hkt-nat",
+     "egress/webhook-relay"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u95",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "audit u39 of 20261125-0233-verify-egress-af27/u05 failed: 5 of 30 unsupported",
+   "queue_id": "20261125-0233-verify-egress-af27-u05-rerun",
+   "abandoned": {
+    "reason": "the lane never started while the provider window was saturated; the records stay queued for a later run and the parent settles the stale set directly",
+    "at": "2026-11-25T17:24:31Z",
+    "was": "planned"
+   },
+   "question": "Queue item 20261125-0233-verify-egress-af27-u05-rerun: Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupport",
+   "scope": {
+    "rids": [
+     "egress/cloudnium-ipv6-1",
+     "egress/h2-nexus-promo-platinum",
+     "egress/hostbrr-nice-epyc",
+     "egress/hostsailor-minisailor",
+     "egress/kainode-vps-pro",
+     "egress/layer7-high-cpu-2"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u96",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+    "at": "2026-11-25T21:54:22Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on egress/aws-global-accelerator from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.binding_note: proposed \"No byte cap is stated: cost is linear in GB, a fixed USD 0.025 per accelerator-hour pl",
+   "scope": {
+    "rids": [
+     "egress/aws-global-accelerator"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u97",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+    "at": "2026-11-25T21:54:22Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on egress/bacloud-openvz-vps from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.binding: proposed \"per-ip-shaping\" (evidence https://www.bacloud.com/en/linux-vps-hosting, capture sha256:33c7672c",
+   "scope": {
+    "rids": [
+     "egress/bacloud-openvz-vps"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u98",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+    "at": "2026-11-25T21:54:22Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on egress/bgptunnel from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.identity_cost.detail: proposed \"an account whose email matches the email listed in WHOIS for the ASN the user owns; third-p",
+   "scope": {
+    "rids": [
+     "egress/bgptunnel"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u99",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "egress",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+    "at": "2026-11-25T21:54:23Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on egress/enclave from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.limits[0].value: proposed \"The 5-system cap is the only free meter and the vocabulary has no token for a device count, so req",
+   "scope": {
+    "rids": [
+     "egress/enclave"
+    ]
+   },
+   "rejects": 0
+  }
+ ],
+ "report": [
+  "run 20261125-0233-verify-egress-af27 (verify egress): re-check the stale egress records and settle the limit behind each binding constraint",
+  "units 118: abandoned 24, integrated 73, reverted 21",
+  "applied 260, confirmed 239, added 0, corroborated 0, dead 4, related 1, rejected 0, conflicts 2, open questions 96, evidence rows dropped 5",
+  "ledger lines 1273, captures cited 355, conflicts logged 19 (17 handled by reconcile units)",
+  "evidence row dropped from egress/fxtunnel by u15: https://fxtun.dev/pricing dated 2026-10-23; why: the row says Free has 1 active tunnel; the page read now lists 3 active tunnels on Free",
+  "evidence row dropped from egress/getastatic by u15: https://getastatic.com/pricing dated 2026-10-22; why: the row quotes USD 2/month, 100 GB and 20 Mbit/s; the page now lists Plus at $4/mo, 1 TB, 50 Mbps",
+  "evidence row dropped from egress/getastatic by u15: https://getastatic.com/pricing dated 2026-10-23; why: the row quotes Plus $2/mo 100 GB, Pro $4/mo 1 TB, Ultra $10/mo 5 TB; the page now lists Plus $4, Pro $7, Ultra $10 with different bandwidth",
+  "evidence row dropped from egress/tabserve by u29: https://tabserve.dev/ dated 2026-10-23; why: the row says the page is Indonesian gambling copy; the page served now is an unrelated personal blog post",
+  "evidence row dropped from egress/netrinos by u88: https://netrinos.com/pricing dated 2026-10-23; why: the row's proved text states 3 users, 3 virtual devices and 3 remote routes; the page now states 5",
+  "audit of u111 by u113: 4 supported, 3 unsupported, 0 cannot tell; upper95 0.750 -> reverted",
+  "audit of u112 by u114: 1 supported, 0 unsupported, 0 cannot tell; upper95 0.793 -> kept",
+  "audit of u86 by u115: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u85 by u116: 19 supported, 1 unsupported, 0 cannot tell; upper95 0.236 -> kept",
+  "audit of u87 by u117: 29 supported, 1 unsupported, 0 cannot tell; upper95 0.167 -> kept",
+  "audit of u88 by u118: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u01 by u35: 16 supported, 11 unsupported, 0 cannot tell; upper95 0.593 -> reverted",
+  "audit of u02 by u36: 24 supported, 6 unsupported, 0 cannot tell; upper95 0.373 -> reverted",
+  "audit of u03 by u37: 27 supported, 3 unsupported, 0 cannot tell; upper95 0.256 -> kept",
+  "audit of u04 by u38: 29 supported, 1 unsupported, 0 cannot tell; upper95 0.167 -> kept",
+  "audit of u05 by u39: 25 supported, 5 unsupported, 0 cannot tell; upper95 0.336 -> reverted",
+  "audit of u06 by u40: 15 supported, 7 unsupported, 0 cannot tell; upper95 0.527 -> reverted",
+  "audit of u07 by u41: 24 supported, 6 unsupported, 0 cannot tell; upper95 0.373 -> reverted",
+  "audit of u08 by u42: 19 supported, 0 unsupported, 0 cannot tell; upper95 0.168 -> kept",
+  "audit of u09 by u43: 26 supported, 4 unsupported, 0 cannot tell; upper95 0.297 -> reverted",
+  "audit of u10 by u44: 26 supported, 4 unsupported, 0 cannot tell; upper95 0.297 -> reverted",
+  "audit of u11 by u52: 24 supported, 5 unsupported, 0 cannot tell; upper95 0.345 -> reverted",
+  "audit of u12 by u53: 17 supported, 0 unsupported, 0 cannot tell; upper95 0.184 -> kept",
+  "audit of u13 by u54: 12 supported, 1 unsupported, 0 cannot tell; upper95 0.333 -> kept",
+  "audit of u14 by u55: 8 supported, 3 unsupported, 0 cannot tell; upper95 0.566 -> reverted",
+  "audit of u15 by u56: 22 supported, 2 unsupported, 0 cannot tell; upper95 0.258 -> kept",
+  "audit of u16 by u57: 17 supported, 3 unsupported, 0 cannot tell; upper95 0.360 -> reverted",
+  "audit of u17 by u58: 15 supported, 1 unsupported, 0 cannot tell; upper95 0.283 -> kept",
+  "audit of u18 by u59: 29 supported, 1 unsupported, 0 cannot tell; upper95 0.167 -> kept",
+  "audit of u19 by u60: 10 supported, 1 unsupported, 0 cannot tell; upper95 0.377 -> kept",
+  "audit of u20 by u61: 25 supported, 5 unsupported, 0 cannot tell; upper95 0.336 -> reverted",
+  "audit of u21 by u62: 25 supported, 3 unsupported, 0 cannot tell; upper95 0.272 -> reverted",
+  "audit of u22 by u63: 15 supported, 9 unsupported, 0 cannot tell; upper95 0.573 -> reverted",
+  "audit of u23 by u64: 17 supported, 2 unsupported, 0 cannot tell; upper95 0.314 -> reverted",
+  "audit of u24 by u65: 13 supported, 0 unsupported, 0 cannot tell; upper95 0.228 -> kept",
+  "audit of u25 by u66: 14 supported, 3 unsupported, 0 cannot tell; upper95 0.410 -> reverted",
+  "audit of u26 by u67: 27 supported, 3 unsupported, 0 cannot tell; upper95 0.256 -> reverted",
+  "audit of u27 by u68: 11 supported, 0 unsupported, 0 cannot tell; upper95 0.259 -> kept",
+  "audit of u28 by u69: 15 supported, 0 unsupported, 0 cannot tell; upper95 0.204 -> kept",
+  "audit of u29 by u70: 13 supported, 0 unsupported, 0 cannot tell; upper95 0.228 -> kept",
+  "audit of u30 by u71: 16 supported, 0 unsupported, 0 cannot tell; upper95 0.194 -> kept",
+  "audit of u31 by u72: 21 supported, 0 unsupported, 0 cannot tell; upper95 0.155 -> kept",
+  "audit of u32 by u73: 28 supported, 1 unsupported, 0 cannot tell; upper95 0.172 -> kept",
+  "audit of u33 by u74: 26 supported, 3 unsupported, 0 cannot tell; upper95 0.264 -> reverted",
+  "audit of u34 by u75: 3 supported, 1 unsupported, 0 cannot tell; upper95 0.699 -> reverted",
+  "audit of u45 by u76: 27 supported, 3 unsupported, 0 cannot tell; upper95 0.256 -> kept",
+  "audit of u46 by u77: 18 supported, 8 unsupported, 0 cannot tell; upper95 0.500 -> reverted",
+  "audit of u47 by u78: 10 supported, 11 unsupported, 0 cannot tell; upper95 0.717 -> reverted",
+  "audit of u48 by u79: 16 supported, 0 unsupported, 0 cannot tell; upper95 0.194 -> kept",
+  "audit of u49 by u80: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u50 by u81: 19 supported, 0 unsupported, 0 cannot tell; upper95 0.168 -> kept",
+  "audit of u51 by u82: 26 supported, 1 unsupported, 0 cannot tell; upper95 0.183 -> kept",
+  "abandoned u100 (reconcile): the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+  "abandoned u101 (reconcile): the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+  "abandoned u102 (reconcile): the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+  "abandoned u103 (reconcile): the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+  "abandoned u104 (reconcile): the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+  "abandoned u105 (reconcile): the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+  "abandoned u106 (reconcile): the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+  "abandoned u107 (reconcile): the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+  "abandoned u108 (reconcile): the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+  "abandoned u109 (reconcile): the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+  "abandoned u110 (reconcile): the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+  "abandoned u83 (verify): the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+  "abandoned u84 (verify): the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+  "abandoned u89 (verify): the lane never started while the provider window was saturated; the records stay queued for a later run and the parent settles the stale set directly",
+  "abandoned u90 (verify): the lane never started while the provider window was saturated; the records stay queued for a later run and the parent settles the stale set directly",
+  "abandoned u91 (verify): the lane never started while the provider window was saturated; the records stay queued for a later run and the parent settles the stale set directly",
+  "abandoned u92 (verify): the lane never started while the provider window was saturated; the records stay queued for a later run and the parent settles the stale set directly",
+  "abandoned u93 (verify): the lane never started while the provider window was saturated; the records stay queued for a later run and the parent settles the stale set directly",
+  "abandoned u94 (verify): the lane never started while the provider window was saturated; the records stay queued for a later run and the parent settles the stale set directly",
+  "abandoned u95 (verify): the lane never started while the provider window was saturated; the records stay queued for a later run and the parent settles the stale set directly",
+  "abandoned u96 (reconcile): the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+  "abandoned u97 (reconcile): the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+  "abandoned u98 (reconcile): the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run",
+  "abandoned u99 (reconcile): the unit was planned but never completed in this session; the record and its re-check stay in the run report and queue for a later run"
+ ],
+ "merged": {},
+ "undo_skipped": [],
+ "conflicts": [
+  {
+   "unit": "u85",
+   "why": "audit u116 judged it unsupported: The page states a dollar spend cap ($300) and a 90-day expiry, not a byte allowance over a period; volume-quota denotes a byte allowance (dossier/README.md), so the source does not support this binding term.",
+   "current": "volume-quota",
+   "op": {
+    "op": "set",
+    "rid": "egress/google-cloud-free-trial",
+    "path": "$.binding"
+   }
+  },
+  {
+   "unit": "u87",
+   "why": "audit u117 judged it unsupported: The front page publishes no byte allowance, but it says Minecraft TCP only; it never states UDP or tcp+udp ingress. The UDP 19132 edge port is described on the separate Bedrock guide, not on this source.",
+   "current": "No byte allowance is published on the front page.; ingress: tcp+udp",
+   "op": {
+    "op": "set",
+    "rid": "egress/minekube-connect",
+    "path": "$.egress.terms"
+   }
+  }
+ ]
+}

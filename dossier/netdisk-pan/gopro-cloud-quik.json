@@ -8,7 +8,7 @@
     "stated": "Unlimited cloud storage for GoPro content, meaning footage captured with a GoPro camera excluding Fusion, on any paid tier, plus 100 GB for non-GoPro content on Premium at USD 59.99/yr or 500 GB on Premium+ at USD 99.99/yr",
     "unit": "unlimited",
     "metered_on": "stored-bytes",
-    "source_url": "https://gopro.com/en/us/legal/subscriptionterms",
+    "source_url": "https://gopro.com/en/dj/shop/subscriptions",
     "read_on": "2026-10-21",
     "notes": "unlimited applies to provenance, not to bytes: the terms draw the line at content captured with a GoPro camera"
   },
@@ -38,7 +38,7 @@
     {
       "kind": "write-gated",
       "value": "unlimited applies only to content captured with a GoPro camera, plus media trimmed from it in the Quik app; GoPro footage edited with non-GoPro software and re-imported counts as non-GoPro",
-      "source": "https://gopro.com/en/us/legal/subscriptionterms"
+      "source": "https://community.gopro.com/s/article/What-Content-Is-Supported-In-GoPro-Cloud"
     },
     {
       "kind": "per-object-cap",
@@ -87,34 +87,6 @@
       "quote": "Supported non-GoPro types in the GoPro Cloud\n\n- MP4\n- Quicktime / MOV\n- JPEG\n- ASF\n- PNG"
     },
     {
-      "url": "https://community.gopro.com/s/article/What-Content-Is-Supported-In-GoPro-Cloud",
-      "date": "2026-11-03",
-      "proved": "media trimmed from GoPro-captured content in Quik counts as GoPro content (unlimited); the same article lists GoPro footage edited in non-GoPro software as non-GoPro content",
-      "capture": "sha256:8c994c5f6d1d46ff669eb87140bf2967dfb38eaf6ff740673348461d5dcf3b5c",
-      "quote": "Any new, trimmed media made from content captured with a GoPro camera and trimmed using the Quik app (mobile or desktop) and uploaded to GoPro Cloud."
-    },
-    {
-      "url": "https://gopro.com/en/us/legal/subscriptionterms",
-      "date": "2026-11-03",
-      "proved": "sign-up requires a credit card or other payment method, for the free introductory trial too",
-      "capture": "sha256:e62d571b8791348b46d14d5f6cd73ff9a38f9a01a8014fbaddf0c493cb4bb06d",
-      "quote": "You must provide a credit card or other payment method at sign-up to ensure uninterrupted access to the Subscription at the end of the Free Introductory Trial"
-    },
-    {
-      "url": "https://gopro.com/en/dj/shop/subscriptions",
-      "date": "2026-11-03",
-      "proved": "Premium is still USD 59.99/yr with unlimited GoPro content and 100 GB non-GoPro",
-      "capture": "sha256:72fc36427ad26611bdce5ae6b03f3f1bee809f8b65a3ea48376df426d732df42",
-      "quote": "| GoPro Premium12 | Unlimited GoPro plus 100 GB non-GoPro Footage: $59.99/yr |"
-    },
-    {
-      "url": "https://gopro.com/en/dj/shop/subscriptions",
-      "date": "2026-11-03",
-      "proved": "Premium+ is USD 99.99/yr with 500 GB non-GoPro",
-      "capture": "sha256:72fc36427ad26611bdce5ae6b03f3f1bee809f8b65a3ea48376df426d732df42",
-      "quote": "| GoPro Premium+13 | Unlimited GoPro plus 500 GB non-GoPro Footage: $99.99/yr |"
-    },
-    {
       "url": "https://gopro.com/en/us/legal/subscriptionterms",
       "date": "2026-11-03",
       "proved": "the terms, effective 2026-04-17, still give unlimited storage for content captured with a GoPro camera excluding Fusion",
@@ -136,6 +108,34 @@
       "quote": "Once You reach Your cloud storage limit for non-GoPro footage, GoPro may restrict the upload of any additional non-GoPro content to the GoPro cloud."
     },
     {
+      "url": "https://gopro.com/en/dj/shop/subscriptions",
+      "date": "2026-11-25",
+      "proved": "Premium is USD 59.99/yr with unlimited GoPro and 100 GB non-GoPro",
+      "capture": "sha256:72fc36427ad26611bdce5ae6b03f3f1bee809f8b65a3ea48376df426d732df42",
+      "quote": "| GoPro Premium12 | Unlimited GoPro plus 100 GB non-GoPro Footage: $59.99/yr |"
+    },
+    {
+      "url": "https://gopro.com/en/dj/shop/subscriptions",
+      "date": "2026-11-25",
+      "proved": "Premium+ is USD 99.99/yr with 500 GB non-GoPro",
+      "capture": "sha256:72fc36427ad26611bdce5ae6b03f3f1bee809f8b65a3ea48376df426d732df42",
+      "quote": "| GoPro Premium+13 | Unlimited GoPro plus 500 GB non-GoPro Footage: $99.99/yr |"
+    },
+    {
+      "url": "https://gopro.com/en/us/legal/subscriptionterms",
+      "date": "2026-11-25",
+      "proved": "the terms allocate up to 500GB of non-GoPro storage on the higher tier",
+      "capture": "sha256:4406978567a387fdaf73f0128f980545228332f0b9f2173a77eed1743b0ddfc0",
+      "quote": "(ii)   Non-GoPro Content.  You are allocated up to 500GB of cloud storage for content You capture with a non-GoPro camera or device"
+    },
+    {
+      "url": "https://community.gopro.com/s/article/What-Content-Is-Supported-In-GoPro-Cloud",
+      "date": "2026-11-25",
+      "proved": "media trimmed from GoPro-captured content in the Quik app counts as GoPro content",
+      "capture": "sha256:458f55df29181a3e11258bf796bfd6b156af520a3951c990dd0a8f029dba807c",
+      "quote": "Any new, trimmed media made from content captured with a GoPro camera and trimmed using the Quik app (mobile or desktop) and uploaded to GoPro Cloud."
+    },
+    {
       "url": "https://gopro.com/en/us/legal/subscriptionterms",
       "date": "2026-11-25",
       "proved": "GoPro's terms require a card or other payment method at sign-up, including for the free introductory trial",
@@ -144,7 +144,7 @@
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T14:45:36.853Z",
+  "verified_at": "2026-11-25T15:23:48.017Z",
   "history": [],
   "price_per_tb_month": "USD 59.99/yr Premium and USD 99.99/yr Premium+, which is about USD 120/TB/yr on the 500 GB non-GoPro half and approaches zero on the GoPro half",
   "binding": "write-gated",

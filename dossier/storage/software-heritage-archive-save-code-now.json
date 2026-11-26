@@ -16,12 +16,12 @@
     "stated": "per-object-cap (deposit only): 100 MiB",
     "bytes": 104857600,
     "source_url": "https://docs.softwareheritage.org/user/deposit/references/limits.html",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "\"max_upload_size\": 209715200,"
   },
   "retention": {
-    "stated": "list-rate-limited, and this is the binding constraint on *reading* a large tree (walking a repo = 1 call per directory). retention: permanent and intrinsic - this is a preservation archive, deletion is not part of the model; `visit_status: full` snapshots are retained per visit",
+    "stated": "Yes, all software source code artifacts are preserved for the long-term.",
     "source_url": "https://docs.softwareheritage.org/user/deposit/references/limits.html",
-    "notes": "Extracted from published terms."
+    "notes": "Yes, all software source code artifacts are preserved for the long-term."
   },
   "egress": {
     "terms": "Free and unmetered - no pricing page, no billing, a public research archive. Downloads are direct `GET .../raw/` byte streams from Varnish. Note there is no CDN requirement to satisfy: nothing to pay.",
@@ -88,10 +88,24 @@
       "proved": "the first-party API index still documents the origin/save archival endpoint",
       "capture": "sha256:ae5fdc371d34457f633b96591d3a140a95af9c87f811ebc5d3b3b9f3ffdf4ef0",
       "quote": "[/api/1/origin/save/](https://archive.softwareheritage.org/api/1/origin/save/doc/) ... [Request the saving of a software origin into the archive or check the status of previously created save requests](https://archive.softwareheritage.org/api/1/origin/save/doc/)"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/softwareheritage/swh-deposit/master/swh/deposit/config.py",
+      "date": "2026-11-25",
+      "proved": "the deposit service default sets max_upload_size to 209715200",
+      "capture": "sha256:d36ab075076a755e6f33c49419e996b92782e0d2b49ea21e5d58cb6d7ddbad17",
+      "quote": "\"max_upload_size\": 209715200,"
+    },
+    {
+      "url": "https://www.softwareheritage.org/software-heritage-faq/",
+      "date": "2026-11-25",
+      "proved": "source code artifacts are preserved for the long term",
+      "capture": "sha256:60ac686919b86ed5fdbae6aed4e67139a92ee988e5a25f7bf1f0521cc0243c71",
+      "quote": "Yes, all software source code artifacts are preserved for the long-term."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:15:21.396Z",
+  "verified_at": "2026-11-25T21:21:18.145Z",
   "notes": "No storage quota is imposed on the depositor, because the depositor never uploads bytes. The archive stores content-addressed git objects from public repositories, deduplicated by sha1_git, and growth is the Foundation's problem, not yours. Live scale reference: the `torvalds/linux` origin is at visit 500 ('visit':500, date 2026-10-18). Deposit (push) is separate and capped: swh-deposit docs say 'upload limitation of 100Mib', and the source default in swh/deposit/config.py is \"max_upload_size\": 209715200 (200 MiB).",
   "history": [],
   "extras": {

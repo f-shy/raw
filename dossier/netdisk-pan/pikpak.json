@@ -5,18 +5,18 @@
   "url": "https://mypikpak.com/",
   "category": "consumer-pan",
   "free_tier": {
-    "stated": "no free storage quota is stated on the landing page; the product is sold as a private cloud drive with a cloud-download engine",
-    "unit": "none",
+    "stated": "Free accounts include 6 GB of storage and Premium includes 10 TB, per the first-party help center; the landing page itself publishes no quota figure",
+    "unit": "GB",
     "metered_on": "stored-bytes",
-    "source_url": "https://mypikpak.com/",
+    "source_url": "https://mypikpak.com/en-US/help-center/file_management/space/insufficient_cloud_storage_space",
     "read_on": "2026-10-22"
   },
   "per_object_cap": {
-    "stated": "not established; the pricing page is served as a non-HTML body that the reader refused",
+    "stated": "unverified: no maximum object size is published in the first-party help pages read; the former pricing path now answers HTTP 404",
     "source_url": "https://mypikpak.com/"
   },
   "retention": {
-    "stated": "not established",
+    "stated": "A non-Premium account with no login activity for 12 consecutive months may initiate the account deletion process; the first-party help center also states deletion 15 to 30 days after storage exceeds its limit",
     "days": null,
     "source_url": "https://mypikpak.com/"
   },
@@ -39,10 +39,10 @@
   ],
   "identity_cost": {
     "kind": "email",
-    "detail": "no account was created in this session",
+    "detail": "an email address for registration and verification; no credit card is needed for the basic free plan, per a vendor regional page",
     "country": null
   },
-  "reliability_note": "The pricing page is served as a binary body, so its plan table could not be read through the reader; the landing page states the cloud-download speed claim without a quota.",
+  "reliability_note": "The former pricing path answers HTTP 404 after all read routes failed; the first-party help center now carries the current quota and over-limit terms.",
   "confidence": "unverified",
   "evidence": [
     {
@@ -63,17 +63,45 @@
       "quote": "If you choose `android`, it will simulate the Android client for access."
     },
     {
-      "url": "https://mypikpak.com/",
-      "date": "2026-11-03",
-      "proved": "the landing page offers cloud download of torrent, magnet and URL links into the drive and states no storage quota",
-      "capture": "sha256:596c21157cb12b144d3ff71f74e67aebc9f6eecf3b14b4a0908fa36a127e60bc",
-      "quote": "Torrent · Magnet · URL"
+      "url": "https://mypikpak.com/en-US/help-center/file_management/space/insufficient_cloud_storage_space",
+      "date": "2026-11-25",
+      "proved": "the first-party help center now states the free and Premium storage figures",
+      "capture": "sha256:910871a0b7f303e43a9dc5a23a8fda1b78879b508fbe866db5d604a0652bff3a",
+      "quote": "Free accounts include 6 GB of storage, and Premium includes 10 TB."
+    },
+    {
+      "url": "probe:https://mypikpak.com/en/price",
+      "date": "2026-11-25",
+      "proved": "the former pricing path no longer answers with a plan table",
+      "capture": "sha256:50393a3d41f210ce69448f64dd5ed2a64839f37572b6ce901065d1ea269e8338",
+      "quote": "\"status\": 404"
+    },
+    {
+      "url": "https://mypikpak.com/en-US/faq",
+      "date": "2026-11-25",
+      "proved": "the first-party FAQ states the 12-month inactivity deletion rule",
+      "capture": "sha256:a707e17c6aa38d4ee7dbe6d64b0688191f0852c5c2bfd5c15f49635a00b6e17a",
+      "quote": "If you are a non-Premium user and have no login activity for 12 consecutive months, PikPak may initiate the account deletion process."
+    },
+    {
+      "url": "https://pikpak.jp/en/blog-free-trial.html",
+      "date": "2026-11-25",
+      "proved": "a vendor regional page states the signup asks for an email address",
+      "capture": "sha256:2ea69e3dddb8f83c4b278a1032fdd3d53763bd16278151df1d23442335b8e1cc",
+      "quote": "- An email address for registration and verification."
+    },
+    {
+      "url": "https://mypikpak.com/en-US/help-center/file_management/space/exceed_limit",
+      "date": "2026-11-25",
+      "proved": "the first-party help center states the over-limit download throttle",
+      "capture": "sha256:de4ae7dfef5cd3f1e29e3908abc6d04864ea31e4fc910fe263c0c507f4bc934a",
+      "quote": "100 KB/s"
     },
     {
       "url": "https://mypikpak.com/",
-      "date": "2026-11-03",
-      "proved": "the landing page presents a cloud-download drive and states no storage quota",
-      "capture": "sha256:596c21157cb12b144d3ff71f74e67aebc9f6eecf3b14b4a0908fa36a127e60bc",
+      "date": "2026-11-25",
+      "proved": "the landing page still presents the cloud-download engine",
+      "capture": "sha256:c55007ea80a45eb5252af47ecbd6a33e6aeccdef21c251cc5177c6b9da8d3d92",
       "quote": "Torrent · Magnet · URL"
     },
     {
@@ -87,7 +115,7 @@
   "verdict": "fails-quota",
   "verified_at": "2026-11-26T02:15:15.158Z",
   "binding": "per-object-cap",
-  "notes": "The landing page advertises high-speed cloud transfer to drive storage. Detailed quota, retention, and transfer pricing terms are unconfirmed because mypikpak.com/en/price returned non-HTML dynamic content to automated HTTP requests.",
+  "notes": "The landing page advertises cloud transfer to drive storage. The first-party help center throttles over-limit storage to 100 KB/s and states deletion 15 to 30 days after exceeding the limit.",
   "history": [],
   "extras": {
     "access_mode": "registration-gated",

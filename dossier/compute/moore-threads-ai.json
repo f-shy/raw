@@ -5,7 +5,7 @@
   "url": "https://code.mthreads.com/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "The vendor page advertises, translated from Chinese: 'domestic compute with a domestic model, a limited-time 30-day free trial', and 'Free Trial: CNY 0, limited to 100 developers a day', served on MTT S5000 GPUs with the GLM-4.7 model and reachable from Claude Code, Cursor, OpenCode, Cline and similar tools. The page also states the offer is built on the MTT S5000 and that the model is GLM-4.7. Three paid tiers are shown for comparison: Lite at CNY 120 a quarter, Pro at CNY 600 a quarter, Max at CNY 1200 a quarter.",
+    "stated": "Free Trial: CNY 0, limited to 100 developers a day, with usage equivalent to the Lite Plan, valid for 30 days from the day it is claimed; supports the latest GLM 4.7 open-source model and multiple mainstream coding tools. The page advertises this as a limited-time free trial.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://code.mthreads.com/",
@@ -69,10 +69,31 @@
       "url": "https://lanmao.ai/zh/o/mthreads-ai-coding-plan-free-trial/",
       "date": "2026-10-22",
       "proved": "a deal aggregator records the gate as a Chinese mobile number and reports the vendor page did not state one; the aggregator dates the offer at 2026-10-11"
+    },
+    {
+      "url": "https://code.mthreads.com/",
+      "date": "2026-11-25",
+      "proved": "the vendor page states a CNY 0 free trial for 100 developers a day, Lite-equivalent usage, 30 days from claim, GLM-4.7 and multiple coding tools",
+      "capture": "sha256:7a906621919fe99ce165240ce7cdcf596c45b0539d974d6fedb3bfaa18397a2f",
+      "quote": "限时免费\n\n#### Free Trial\n\n¥ 0每日限量 100 名开发者\n\n**与 Lite Plan 套餐用量相当**\n\n面向轻量工作负载的开发者\n\n支持最新 GLM 4.7 开源模型\n\n适用于多款主流编程工具\n\n领取成功之日起 30 天内有效"
+    },
+    {
+      "url": "https://lanmao.ai/zh/o/mthreads-ai-coding-plan-free-trial/",
+      "date": "2026-11-25",
+      "proved": "a deal aggregator translates the vendor page: free trial at CNY 0 for 100 developers a day, Lite-equivalent usage, 30 days from claim, usable from Claude Code, Cursor, OpenCode and Cline",
+      "capture": "sha256:24da4f8945a68618c454ef675f3f4dbd5d10e22a0f12ab615f3c31f6f680e1e1",
+      "quote": "Free Trial 档 0 元：每日限量 100 名开发者领取，用量与 Lite Plan 相当（官方称为 Claude Pro 套餐的 3 倍用量），领取成功之日起 30 天内有效，可接入 Claude Code、Cursor、OpenCode、Cline、Kilo Code、Roo Code"
+    },
+    {
+      "url": "https://code.mthreads.com/",
+      "date": "2026-11-25",
+      "proved": "the vendor page still states a CNY 0 free trial for 100 developers a day, Lite-equivalent usage, 30 days from claim, GLM-4.7 and multiple coding tools",
+      "capture": "sha256:7a906621919fe99ce165240ce7cdcf596c45b0539d974d6fedb3bfaa18397a2f",
+      "quote": "限时免费\n\n#### Free Trial\n\n¥ 0每日限量 100 名开发者\n\n**与 Lite Plan 套餐用量相当**\n\n面向轻量工作负载的开发者\n\n支持最新 GLM 4.7 开源模型\n\n适用于多款主流编程工具\n\n领取成功之日起 30 天内有效"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:30.951Z",
   "notes": "The vendor page states no signup gate at all, so the Chinese-mobile requirement is reported by a third party and not confirmed here; that is why the rung is reported and not documented. The prompt allowance inside the free window is not published; the aggregator reports that the collapsed help panels would not open, and this session could not open them either. What would settle it: a signup attempt, which needs a Chinese number. The Chinese source text is quoted here in translation to keep the file ASCII.",
   "extras": {
     "wave2": {

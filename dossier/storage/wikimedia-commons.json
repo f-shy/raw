@@ -16,12 +16,12 @@
     "stated": "5 GiB/file",
     "bytes": 5368709120,
     "source_url": "https://commons.wikimedia.org/wiki/Commons:Maximum_file_size",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The maximum file size for any file on Commons is 5 GiB (5,368,709,120 bytes)."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "In some cases a file may be tagged with a “problem tag”, and will be deleted if the problem is not resolved after a certain time (typically 7 days).",
     "source_url": "https://commons.wikimedia.org/wiki/Commons:Maximum_file_size",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "There are three main deletion procedures, applied in different cases depending on the reason for deletion."
   },
   "egress": {
     "terms": "free, unmetered, CDN (upload.wikimedia.org), no auth, Range supported. Wikimedia runs its own edge cache in front of Swift.",
@@ -94,10 +94,52 @@
       "proved": "the page states a 5 GiB (5,368,709,120 byte) maximum file size",
       "capture": "sha256:50eeacb2656b0e7aba4e9f60ba63643550c3424f1888336b53d127426cf4a285",
       "quote": "The **maximum file size** for any file on Commons is **5 GiB** (5,368,709,120 bytes[1])."
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Commons:Maximum_file_size",
+      "date": "2026-11-25",
+      "proved": "the Commons maximum file size is 5 GiB or 5,368,709,120 bytes",
+      "capture": "sha256:50eeacb2656b0e7aba4e9f60ba63643550c3424f1888336b53d127426cf4a285",
+      "quote": "The **maximum file size** for any file on Commons is **5 [GiB](https://en.wikipedia.org/wiki/en:Byte#Multiple-byte_units) (5,368,709,120 bytes[1])**."
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Commons:Deletion_policy",
+      "date": "2026-11-25",
+      "proved": "problem-tagged files can be deleted after a typical 7-day window",
+      "capture": "sha256:e247db84dfb199049cccc250225ae6b72f0508e46507980c1a5e0d672634f2b8",
+      "quote": "In some cases a file may be tagged with a “problem tag”, and will be deleted if the problem is not resolved after a certain time (typically 7 days)."
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Commons:Deletion_policy",
+      "date": "2026-11-25",
+      "proved": "deletion on Commons is case-based across three procedures",
+      "capture": "sha256:e247db84dfb199049cccc250225ae6b72f0508e46507980c1a5e0d672634f2b8",
+      "quote": "There are three main deletion procedures. These are applied in different cases, depending on the reason for deletion:"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Commons:Maximum_file_size",
+      "date": "2026-11-25",
+      "proved": "the per-file cap is 5 GiB",
+      "capture": "sha256:50eeacb2656b0e7aba4e9f60ba63643550c3424f1888336b53d127426cf4a285",
+      "quote": "The **maximum file size** for any file on Commons is **5 [GiB](https://en.wikipedia.org/wiki/en:Byte#Multiple-byte_units) (5,368,709,120 bytes[1])**."
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Commons:Maximum_file_size",
+      "date": "2026-11-25",
+      "proved": "no total upload size limit per account is stated",
+      "capture": "sha256:50eeacb2656b0e7aba4e9f60ba63643550c3424f1888336b53d127426cf4a285",
+      "quote": "On the other hand, there is no limit to the *total* size of uploads by an individual account."
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/Commons:Deletion_policy",
+      "date": "2026-11-25",
+      "proved": "the deletion policy has three case-based procedures",
+      "capture": "sha256:e247db84dfb199049cccc250225ae6b72f0508e46507980c1a5e0d672634f2b8",
+      "quote": "There are three main deletion procedures. These are applied in different cases, depending on the reason for deletion:"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:35.599Z",
+  "verified_at": "2026-11-25T19:55:25.448Z",
   "notes": "NO TOTAL QUOTA. Read verbatim from Commons:Maximum_file_size: 'there is no limit to the *total* size of uploads by an individual account.' Per-file cap is 5 GiB (5,368,709,120 bytes) via chunked upload, 100 MiB otherwise. Live API confirms: `maxuploadsize: 5368709120`.",
   "history": [],
   "extras": {

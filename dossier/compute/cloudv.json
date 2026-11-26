@@ -5,7 +5,7 @@
   "url": "https://www.cloudv.kr/server/index.html",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "The MAXIO Linux virtual server is 1 core, 2 GB RAM, 100 GB SSD on a 6 Gbps RAID array with 1,200 GB of monthly traffic at KRW 31,500 a month, provisioned immediately. Traffic is billed outbound only, inbound is free, excess is KRW 70 per GB billed the following month, and the vendor states that it does not throttle the port when the allowance is exceeded.",
+    "stated": "매월 업계 최대로 제공하는 2,400GByte 무료 트래픽과 최저 요금의 종량제로 부담없이 네트워크 전송이 가능합니다.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://www.cloudv.kr/server/index.html",
@@ -69,10 +69,24 @@
       "url": "https://www.cloudv.kr/modal/feature/payment.html",
       "date": "2026-10-22",
       "proved": "the vendor states that its own IDC in Gasan keeps low traffic rates and bills outbound only"
+    },
+    {
+      "url": "https://www.cloudv.kr/server/index.html",
+      "date": "2026-11-25",
+      "proved": "the CLOUDV server page states a monthly 2,400 GByte free traffic allowance with usage-based charges above it",
+      "capture": "sha256:7d6988ac9357f937a8b76a7ea56f60e978562f2173169972885309435d17a887",
+      "quote": "매월 업계 최대로 제공하는 2,400GByte 무료 트래픽과 최저 요금의 종량제로 부담없이 네트워크 전송이 가능합니다."
+    },
+    {
+      "url": "https://www.cloudv.kr/server/index.html",
+      "date": "2026-11-25",
+      "proved": "the CLOUDV server page still states a monthly 2,400 GByte free traffic allowance with usage-based charges above it",
+      "capture": "sha256:7d6988ac9357f937a8b76a7ea56f60e978562f2173169972885309435d17a887",
+      "quote": "매월 업계 최대로 제공하는 2,400GByte 무료 트래픽과 최저 요금의 종량제로 부담없이 네트워크 전송이 가능합니다."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:39.833Z",
   "notes": "CLOUDV is the cloud brand of SmileServ, the same company that runs iwinv, so the two records describe one operator at two price points: iwinv is the per-day shared line at KRW 5,600, CLOUDV is the monthly RAID-backed box at KRW 31,500. Prices exclude VAT. The vendor also lists bare-metal leases by the month with a 24-month term, which are not virtual machines and are recorded here only as the shape above them. Payment method was not read on a vendor page this session; the card identity cost is inferred from a monthly or hourly billing model, and the signup page is the route that would settle it.",
   "extras": {
     "wave2": {

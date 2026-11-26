@@ -18,12 +18,12 @@
     "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "File versioning: 90 days on the 2 TB plan.",
     "source_url": "https://icedrive.net/plans",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The plans page lists only a 2 TB tier; no other tier is shown, so the 90 days is not stated for the tier the record names."
   },
   "egress": {
-    "terms": "Not metered on the plan page; 'Larger public transfers' is listed as a paid-tier feature without a published cap.",
+    "terms": "No published egress price or numeric allowance on the plan page; 'higher public transfer allowances' is a paid-tier feature with no stated number.",
     "metered": true
   },
   "interface": [
@@ -67,10 +67,31 @@
       "proved": "paid signup requires a card processed by Stripe",
       "capture": "sha256:424ee8cb9926bc7f2b5682ffed4754124def87f85e6b3bdff3f96e86c14a4eb3",
       "quote": "Secure checkout powered by **Stripe**"
+    },
+    {
+      "url": "https://icedrive.net/plans",
+      "date": "2026-11-25",
+      "proved": "the 2 TB plan lists 90 days of file versioning",
+      "capture": "sha256:424ee8cb9926bc7f2b5682ffed4754124def87f85e6b3bdff3f96e86c14a4eb3",
+      "quote": "File versioning\n\n90 days"
+    },
+    {
+      "url": "https://icedrive.net/plans",
+      "date": "2026-11-25",
+      "proved": "the plans page lists a 2 TB tier",
+      "capture": "sha256:424ee8cb9926bc7f2b5682ffed4754124def87f85e6b3bdff3f96e86c14a4eb3",
+      "quote": "### 2 TB"
+    },
+    {
+      "url": "https://icedrive.net/plans",
+      "date": "2026-11-25",
+      "proved": "the plans page lists higher public transfer allowances as a paid feature without a number",
+      "capture": "sha256:424ee8cb9926bc7f2b5682ffed4754124def87f85e6b3bdff3f96e86c14a4eb3",
+      "quote": "Share files safely with more people using higher public transfer allowances."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:13:59.616Z",
+  "verified_at": "2026-11-25T12:15:44.837Z",
   "price_per_tb_month": "$3.33/TB/mo at 3 TB ($9.99). Lifetime 2 TB at $499 one-time = $1.04/TB/mo over 20 years, $2.08/TB/mo over 10 years, $4.16/TB/mo over 5 years. 20 TB is not offered — the ladder stops at 3 TB, so this cannot host the archive.",
   "notes": "3 TB; $9.99/mo or $119.88/yr",
   "history": [],

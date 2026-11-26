@@ -5,7 +5,7 @@
   "url": "https://docs.ionos.com/cloud/support/general-information/price-list/ionos-cloud-eur-en",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "no free tier: CPU, RAM, storage and GPU templates are all priced per hour, with storage billed on one-hour granularity and no free allowance on the price list",
+    "stated": "Storage is billed with one-hour granularity",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://docs.ionos.com/cloud/support/general-information/price-list/ionos-cloud-eur-en",
@@ -77,10 +77,24 @@
       "url": "https://www.ionos.com/help/my-account/payments/selecting-a-payment-method/",
       "date": "2026-10-24",
       "proved": "quoted, the hold: 'If you select a credit card as your payment method, a test charge is usually made for a small amount, which is then cancelled immediately. The purpose of this test debit is to ensure that the credit card is valid.'"
+    },
+    {
+      "url": "https://docs.ionos.com/cloud/support/general-information/price-list/ionos-cloud-eur-en",
+      "date": "2026-11-25",
+      "proved": "the IONOS Cloud EUR price list states one-hour storage billing granularity",
+      "capture": "sha256:de48727e1cf5b96c3b18a753e55082a4fb52e244ae785a172bc8cf550091e579",
+      "quote": "Storage is billed with one-hour granularity"
+    },
+    {
+      "url": "https://docs.ionos.com/cloud/support/general-information/price-list/ionos-cloud-eur-en",
+      "date": "2026-11-25",
+      "proved": "the IONOS Cloud EUR price list still states one-hour storage billing granularity",
+      "capture": "sha256:de48727e1cf5b96c3b18a753e55082a4fb52e244ae785a172bc8cf550091e579",
+      "quote": "Storage is billed with one-hour granularity"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-24T03:19:16.612Z",
+  "verified_at": "2026-11-25T15:03:55.163Z",
   "price_per_tb_month": null,
   "notes": "PAYMENT CORRECTION 2026-10-24: the corpus said debit was 'reported' for IONOS. The live help page names only credit cards, and the help-centre page that a search index still returns for 'IONOS accepts credit cards, debit cards, PayPal, Google Pay, and Apple Pay' (/help/my-account/payments/payment-methods/) answers 404 today. Debit is therefore recorded as not stated, not as accepted. Prepaid is not addressed on any page read.",
   "extras": {

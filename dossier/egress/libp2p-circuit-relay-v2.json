@@ -40,7 +40,7 @@
     {
       "kind": "per-object-cap",
       "value": "128 KiB per direction per relayed connection by default",
-      "source": "https://github.com/libp2p/go-libp2p/blob/master/p2p/protocol/circuitv2/relay/resources.go"
+      "source": "https://github.com/libp2p/js-libp2p/blob/master/packages/transport-circuit-relay-v2/src/constants.ts"
     },
     {
       "kind": "retention-clamped",
@@ -65,10 +65,31 @@
       "url": "https://github.com/libp2p/go-libp2p/blob/master/p2p/protocol/circuitv2/relay/resources.go",
       "date": "2026-10-22",
       "proved": "quoted from the Data field comment: 'Data is the limit of data relayed (on each direction) before resetting the connection', 'Defaults to 128KB', with Data: 1 << 17 in the default Resources literal"
+    },
+    {
+      "url": "https://github.com/libp2p/js-libp2p/blob/master/packages/transport-circuit-relay-v2/src/constants.ts",
+      "date": "2026-11-25",
+      "proved": "the js-libp2p source states the default data limit is 128 KiB",
+      "capture": "sha256:6cd6c3388867a4945ce3fa478fc0ad1ee47cbea88f99e6347a79454431f7387d",
+      "quote": "// 128k is the default data limit"
+    },
+    {
+      "url": "https://github.com/libp2p/js-libp2p/blob/master/packages/transport-circuit-relay-v2/src/constants.ts",
+      "date": "2026-11-25",
+      "proved": "the reference implementation still defaults to 128 KiB and a 2-minute circuit duration",
+      "capture": "sha256:6cd6c3388867a4945ce3fa478fc0ad1ee47cbea88f99e6347a79454431f7387d",
+      "quote": "export const DEFAULT_DURATION_LIMIT = 2 * minute\n\n// 128k is the default data limit\n\nexport const DEFAULT_DATA_LIMIT = BigInt(1 << 17)"
+    },
+    {
+      "url": "https://github.com/libp2p/go-libp2p/blob/master/p2p/protocol/circuitv2/relay/resources.go",
+      "date": "2026-11-25",
+      "proved": "the go-libp2p reference implementation states the same 128 KB default per direction",
+      "capture": "sha256:911144c74d289910035c2d4010d6a8e78d11d068808f451831823f40c71e5937",
+      "quote": "// Defaults to 128KB"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-22T03:20:00.000Z",
+  "verified_at": "2026-11-25T11:04:40.150Z",
   "notes": "Architecturally excluded from bulk, not merely slow: 128 KiB is 2^17 bytes, so 1 TiB needs 8.4 million relayed connections. The free tier is genuine and the capacity is zero.",
   "history": [],
   "extras": {

@@ -16,12 +16,12 @@
     "stated": "4 GB ceiling",
     "bytes": 4000000000,
     "source_url": "https://help.mixcloud.com/hc/en-us/articles/6617808567708-FAQ-Publishing-limits",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Choose a file over 15 minutes in length (max 4GB) to upload."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://help.mixcloud.com/hc/en-us/articles/6617808567708-FAQ-Publishing-limits",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Don't worry - we won't delete your previous uploads, and there's currently no limit to the number of uploads you can have in your drafts."
   },
   "egress": {
     "terms": "Free streaming for listeners; no egress charge to the creator, but drafts are not publicly downloadable at all, so 'egress' is the wrong axis. A draft has no delivery surface.",
@@ -80,10 +80,24 @@
       "proved": "the upload guide states the 4 GB per-file ceiling",
       "capture": "sha256:a0f5968b56bb2b089d2f0bc39e41625e115ffe4a687400802203a36b4e332b33",
       "quote": "Choose a file over 15 minutes in length (max 4GB) to upload."
+    },
+    {
+      "url": "https://help.mixcloud.com/hc/en-us/articles/6617808567708-FAQ-Publishing-limits",
+      "date": "2026-11-25",
+      "proved": "previous uploads are not deleted when the publish limit is reached and drafts have no stated count limit",
+      "capture": "sha256:c96d3f3fbe89b4e61c3ec614c5fea165153ac2dbf9f62c135af8fb19bcdecb36",
+      "quote": "Don't worry - we won't delete your previous uploads, and there's currently no limit to the number of uploads you can have in your drafts."
+    },
+    {
+      "url": "https://help.mixcloud.com/hc/en-us/articles/360005918580-How-do-I-upload-on-Mixcloud",
+      "date": "2026-11-25",
+      "proved": "the upload guide states a 4 GB ceiling for show files",
+      "capture": "sha256:29e214cabcfb93faf6f7aad6803ec360b2de797215bb29c4d31be7d9a5958c16",
+      "quote": "Choose a file over 15 minutes in length (max 4GB) to upload."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:01.147Z",
+  "verified_at": "2026-11-25T19:55:11.736Z",
   "notes": "10 published shows (>15 min) + 10 published tracks (<=15 min). But: 'there's currently no limit to the number of uploads you can have in your drafts'. Drafts are uploaded, stored, and private. That is the actual finding: published storage is capped at 20 items, unpublished storage is uncapped.",
   "history": [],
   "extras": {

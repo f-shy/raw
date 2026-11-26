@@ -6,7 +6,7 @@
   "category": "mesh vpn",
   "tier": "free",
   "free_tier": {
-    "stated": "Personal Free Non-commercial use - Users 3 - Devices 100 - Virtual Devices 3 - Remote Gateways 1 - Remote Routes 3. Port forwarding: not included.",
+    "stated": "Personal Free Non-commercial use - Users 5 - Devices 100 - Virtual Devices 5 - Remote Gateways 1 - Remote Routes 5. Port forwarding: not included.",
     "unit": "users",
     "metered_on": "none",
     "source_url": "https://netrinos.com/pricing",
@@ -40,33 +40,23 @@
   "chaining": "Replaces a public endpoint with a private overlay: a free VM and a laptop can reach each other without any port, but no third party can dial in.",
   "limits": [
     {
-      "kind": "write-gated",
-      "value": "port forwarding not included on Personal Free",
-      "source": "https://netrinos.com/pricing"
-    },
-    {
       "kind": "per-object-cap",
-      "value": "3 users, 100 devices, 1 remote gateway, 3 remote routes",
+      "value": "5 users, 100 devices, 5 virtual devices, 1 remote gateway, 5 remote routes",
       "source": "https://netrinos.com/pricing"
     }
   ],
-  "limits_note": "",
-  "binding": "write-gated",
+  "limits_note": "port forwarding is not included on the Personal Free plan",
+  "binding": "none",
   "binding_note": "The free plan has no port forwarding at all, so a public UDP ingress does not exist to be metered; volume never becomes the question.",
   "identity_cost": {
     "kind": "email",
-    "detail": "Install, log in, connected. The signup page is app.netrinos.com/signup; the free tier is non-commercial use only.",
+    "detail": "an email address, a first name, a last name, a username and a password",
     "country": "None"
   },
   "reliability_note": "Free tier is limited to non-commercial use, and there is no stated SLA; peer-to-peer means availability depends on the peers' own networks.",
   "confidence": "documented",
   "confidence_note": "A measured mesh between two machines would confirm the WireGuard data plane, but it would not change the missing port-forwarding row.",
   "evidence": [
-    {
-      "url": "https://netrinos.com/pricing",
-      "date": "2026-10-23",
-      "proved": "Personal Free: 3 users, 100 devices, 3 virtual devices, 1 remote gateway, 3 remote routes; the Port forwarding row is marked as not included."
-    },
     {
       "url": "https://netrinos.com/",
       "date": "2026-10-23",
@@ -76,10 +66,38 @@
       "url": "https://news.ycombinator.com/item?id=46331364",
       "date": "2025-12-19",
       "proved": "Show HN launch date."
+    },
+    {
+      "url": "https://netrinos.com/pricing",
+      "date": "2026-11-25",
+      "proved": "Personal Free lists 5 users, 100 devices, 5 virtual devices, 1 remote gateway and 5 remote routes, and no port forwarding",
+      "capture": "sha256:e4f1a9f62a0664bd645a6bb7862f1f93d520e0316f2e0478978917844297c4fc",
+      "quote": "Personal Free Non-commercial use ... | Users | 5 | 10+ | Unlimited | ... | Devices | 100 | 100+ | Unlimited | ... | Virtual Devices | 5 | Unlimited | Unlimited | ... | Remote Gateways | 1 | Unlimited | Unlimited | ... | Remote Routes | 5 | Unlimited | Unlimited | ... | Port forwarding | – | – |  |"
+    },
+    {
+      "url": "https://netrinos.com/pricing",
+      "date": "2026-11-25",
+      "proved": "Personal Free lists 5 users, 100 devices, 5 virtual devices, 1 remote gateway and 5 remote routes",
+      "capture": "sha256:e4f1a9f62a0664bd645a6bb7862f1f93d520e0316f2e0478978917844297c4fc",
+      "quote": "| Users | 5 | 10+ | Unlimited |\n| Devices | 100 | 100+ | Unlimited |\n| Virtual Devices | 5 | Unlimited | Unlimited |\n| Remote Gateways | 1 | Unlimited | Unlimited |\n| Remote Routes | 5 | Unlimited | Unlimited |"
+    },
+    {
+      "url": "https://netrinos.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the Port forwarding row has a dash under Personal Free: not included",
+      "capture": "sha256:e4f1a9f62a0664bd645a6bb7862f1f93d520e0316f2e0478978917844297c4fc",
+      "quote": "| Port forwarding | – | – |  |"
+    },
+    {
+      "url": "https://app.netrinos.com/signup",
+      "date": "2026-11-25",
+      "proved": "the signup form asks for a first name, a last name, an email address, a username and a password",
+      "capture": "sha256:6dfed95c0db3bac631e3233b122a36c9eb11a5369f6e0673af811ac0c1ebdeb7",
+      "quote": "First name ... Last name ... Email address ... Choose a Username ... Password"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T19:55:31.197Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Launched 2025-12-19. It is a Twingate-shaped private mesh, not an ingress provider. The free tier is explicitly non-commercial, which matters for anything run as a service.",

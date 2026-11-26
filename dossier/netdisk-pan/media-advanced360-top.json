@@ -33,7 +33,7 @@
   "limits": [
     {
       "kind": "retention-clamped",
-      "value": "the host stopped serving: 302 to a host whose TLS fails",
+      "value": "the API path answers 302 to a parked host and then HTTP 401",
       "source": "probe:https://media.advanced360.top/api/public/settings"
     }
   ],
@@ -42,7 +42,7 @@
     "detail": "no account would have helped",
     "country": null
   },
-  "reliability_note": "\"status\": 401",
+  "reliability_note": "GET /api/public/settings answers 302 to ww547.advanced360.top and then HTTP 401, so no anonymous listing is served",
   "confidence": "measured",
   "evidence": [
     {
@@ -51,11 +51,11 @@
       "proved": "HTTP 302 to ww547.advanced360.top, whose TLS handshake then fails; the pinned notice about excess use and this redirect are the two ends of the same shutdown"
     },
     {
-      "url": "probe:https://media.advanced360.top/api/public/settings",
-      "date": "2026-11-19",
-      "proved": "the API endpoint still redirects to ww547.advanced360.top and answers HTTP 401, so no anonymous listing is served",
-      "capture": "sha256:30e50b777fdeafe1e215b693967e5395953d348f8680dc30344de32263c1dc1e",
-      "quote": "\"status\": 401"
+      "url": "https://media.advanced360.top/",
+      "date": "2026-11-25",
+      "proved": "the root serves a parked page of related-search links",
+      "capture": "sha256:b351c0988abf1d4c572157f8774b8f175e4176849abd4ed20d68fd3c87aeb511",
+      "quote": "Related Searches:"
     },
     {
       "url": "probe:https://media.advanced360.top/api/public/settings",
@@ -75,11 +75,15 @@
     "access_mode": "public-instance",
     "read_capability": "none",
     "write_capability": "not-tested",
-    "death_mode": "302 to a host whose TLS fails",
+    "death_mode": "the API answers 302 to a parked host and then HTTP 401",
     "last_verified_alive": null,
     "last_verified_dead": "2026-10-22T03:37:00.574Z",
     "consecutive_failures": 1,
     "first_seen": "2024-01-20",
-    "first_seen_source": "kuhehe.github.io/20240120224502"
+    "first_seen_source": "kuhehe.github.io/20240120224502",
+    "death": {
+      "on": "2026-11-25",
+      "cause": "dead-service"
+    }
   }
 }

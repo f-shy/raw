@@ -6,7 +6,7 @@
   "category": "routed IPv4 prefix over WireGuard",
   "tier": "32",
   "free_tier": {
-    "stated": "No free tier: \"1 IPv4 address /32 IPv4 prefix ... $1.50 / month\". The only zero-price network product is IPv6 transit, not an address.",
+    "stated": "No free tier: the IPv4 component costs $2.00 per address per month in every location.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://hyehost.org/ipv4-tunnels",
@@ -41,7 +41,7 @@
   "limits": [
     {
       "kind": "per-ip-shaping",
-      "value": "100 Mbps at the 95th percentile in UK and US; 10 Mbps in New Zealand",
+      "value": "100 Mbps at the 95th percentile in UK and US; 10 Mbps in New Zealand; above the allowance the tunnel is limited to the purchased allowance",
       "source": "https://hyehost.org/ipv4-tunnels"
     },
     {
@@ -52,7 +52,7 @@
   ],
   "limits_note": "",
   "binding": "none",
-  "binding_note": "Nothing fails at 1 TiB/month. Sustained 100 Mbps carries about 32 TB in 30 days, roughly 30 times the target, and the 95th-percentile method ignores short bursts by construction. The 100 Mbps is recorded in limits as per-ip-shaping because it is a rate that can be exceeded, but exceeding it is billed at USD 0.20 per Mbps rather than cut off, so no constraint binds at this volume.",
+  "binding_note": "Nothing fails at 1 TiB/month: the included 100 Mbps at the 95th percentile is far above the sustained rate that volume needs. The rate is the only cap: above it the tunnel is limited to the purchased allowance and more bandwidth costs USD 0.20 per Mbps per month, so no constraint binds at this volume.",
   "identity_cost": {
     "kind": "email",
     "detail": "Ordering is self-serve in the panel: \"Pay in the panel, configure the generated tunnel details, then assign the IPv4 addresses.\" The payment and verification steps were not read, so a card requirement is inferred from a paid panel order rather than observed.",
@@ -76,11 +76,46 @@
       "url": "https://hyehost.org/",
       "date": "2026-10-23",
       "proved": "the product tile says \"From $1.25 / mo\", which disagrees with the product page's $1.50 per address (see notes)"
+    },
+    {
+      "url": "https://hyehost.org/ipv4-tunnels",
+      "date": "2026-11-25",
+      "proved": "the address price is now USD 2.00 per month",
+      "capture": "sha256:b43d3faa58b11ab534b39b9e1bc3d989137c8c6ebae5878d787a17e2c2eef32e",
+      "quote": "The IPv4 component costs $2.00 per address per month in every location."
+    },
+    {
+      "url": "https://hyehost.org/ipv4-tunnels",
+      "date": "2026-11-25",
+      "proved": "the address price is USD 2.00 per month",
+      "capture": "sha256:b43d3faa58b11ab534b39b9e1bc3d989137c8c6ebae5878d787a17e2c2eef32e",
+      "quote": "The IPv4 component costs $2.00 per address per month in every location."
+    },
+    {
+      "url": "https://hyehost.org/ipv4-tunnels",
+      "date": "2026-11-25",
+      "proved": "excess usage is limited to the purchased allowance, not only billed",
+      "capture": "sha256:b43d3faa58b11ab534b39b9e1bc3d989137c8c6ebae5878d787a17e2c2eef32e",
+      "quote": "If usage exceeds it, the tunnel is limited to your purchased allowance."
+    },
+    {
+      "url": "https://hyehost.org/ipv4-tunnels",
+      "date": "2026-11-25",
+      "proved": "extra bandwidth is sold per Mbps",
+      "capture": "sha256:b43d3faa58b11ab534b39b9e1bc3d989137c8c6ebae5878d787a17e2c2eef32e",
+      "quote": "Additional bandwidth above the included 100 Mbps costs $0.20 per Mbps per month, plus the IP charge."
+    },
+    {
+      "url": "https://hyehost.org/ipv4-tunnels",
+      "date": "2026-11-25",
+      "proved": "no byte quota; bandwidth is bought per Mbps",
+      "capture": "sha256:b43d3faa58b11ab534b39b9e1bc3d989137c8c6ebae5878d787a17e2c2eef32e",
+      "quote": "**New Zealand:** 10 Mbps is included at the 95th percentile. Bandwidth above this allowance costs $0.60 per Mbps per month, plus the IP charge; the shared port is 1 Gbps."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
-  "price_per_tb_month": "USD 1.50 per IPv4 address per month (USD 18 per year for a /32); USD 0.20 per Mbps per month above the included 100 Mbps in UK and US",
+  "verified_at": "2026-11-25T15:23:43.032Z",
+  "price_per_tb_month": "USD 2.00 per IPv4 address per month; USD 0.20 per Mbps per month above the included 100 Mbps in UK and US",
   "history": [],
   "notes": "Cheapest per address of the providers compared: USD 1.50 per month is USD 18 per year for a /32, and the same price buys a /25. The price conflict is real and unresolved: the homepage tile says \"From $1.25 / mo\" and the product page says \"$1.50 per IPv4 address per month\" in three separate places. Every per-prefix figure on the product page is exactly 1.50 times the address count, so the homepage tile may be stale after a rise. $1.25 is not the 12-month term price, because 15 percent off 1.50 is 1.275, not 1.25. $1.25 may be a leftover campaign rate, like the page's other struck-through campaign prices, but that is unproven. The record keeps the product-page figure.",
   "extras": {

@@ -1,0 +1,13 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u397-rerun",
+ "kind": "reconcile",
+ "topic": "compute",
+ "question": "Settle these disagreements on compute/promigence from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.identity_cost.kind: proposed \"email\" (evidence https://www.promigence.ai/llms-full.txt, capture sha256:f57fc8211a6db, quote \"Metered per second at $0.0504 per vCPU-hour plus $0.0162 per GiB-hour, the market's\"); now \"email\". Why it did not apply: audit u142 judged it unsupported: Sources show the gate is an invite code, not an email sign-up; email is only how the code is delivered. No page says an email (or any identity) is what the account needs.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/promigence $.identity_cost.kind: The fresh read (a text extract of https://console.promigence.ai/signup) reads: 'Promigence is invite-only for now. Enter your invite code to create your account.' The original HTML capture of the same page (sha256:5774cb04d5fe7b793097fe65c56d0dbb4b52d7694c4cfea53a346049a9d7a071) shows the form's onl",
+ "scope": {
+  "rids": [
+   "compute/promigence"
+  ]
+ },
+ "origin": "audit u419 of 20261125-0107-research-compute-5c82/u397 failed: 1 of 2 unsupported",
+ "created": "2026-11-25T22:05:45Z"
+}

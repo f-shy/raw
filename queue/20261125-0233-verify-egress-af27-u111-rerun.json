@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u111-rerun",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Re-check each record against its first-party page and confirm the one value the quote proves; propose a set only where the quote proves the recorded value wrong. Write no detail the quote does not contain.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/sshreach-me $.interface: The page names a web interface for controlling the tunnel and does not describe a CLI interface. The ssh span quoted in claims.json describes the tunnel transport, not the client interface.\n- egress/webhook-relay $.limits[0].value: 10,000 customers and 100k messages/mo belong to the paid Basic plan ($8.99/month). Free Starter has 50 customers and 50k messages/mo at $0.00/month; it needs no credit card.\n- egress/webhook-relay $.limits[0].value: The no-credit-card span is true of Free Starter, but the value also assigns 10,000 customers and 100k messages/mo to it. Those figures belong to the paid Basic plan; Free Starter has 50 customers and 50k messages/mo.",
+ "scope": {
+  "rids": [
+   "egress/ip4market",
+   "egress/inlets",
+   "egress/sshreach-me",
+   "egress/webhook-relay",
+   "egress/iis-pub-frp",
+   "egress/cloudnium-ipv6-1"
+  ]
+ },
+ "origin": "audit u113 of 20261125-0233-verify-egress-af27/u111 failed: 3 of 7 unsupported",
+ "created": "2026-11-25T20:46:54Z"
+}

@@ -1,150 +1,189 @@
 {
-  "topic": "compute",
-  "slug": "sendblue-sandboxes",
-  "provider": "Sendblue Sandboxes",
-  "url": "https://www.sendblue.com/pricing",
-  "category": "messaging API sandbox",
-  "tier": "Free Sandbox",
-  "free_tier": {
-    "stated": "Free Sandbox at USD 0: full API access, a shared phone number, up to 10 verified contacts, inbound-first messaging, CLI and SDK support, community support, no dedicated number, no outbound messaging and no webhooks or callbacks; no credit card required",
-    "unit": "users",
-    "metered_on": "identity-count",
-    "source_url": "https://www.sendblue.com/pricing",
-    "read_on": "2026-11-24",
-    "notes": "The meter is the count of verified contacts, capped at 10; the sandbox cannot initiate outbound messages."
-  },
-  "per_object_cap": {
-    "stated": "media sent through the API is capped at 100 MB for iMessage and 5 MB for SMS; a message body is capped at 18,996 characters",
-    "bytes": null,
-    "source_url": "https://www.sendblue.com/llms.txt",
-    "notes": "The vendor states 100 MB and 5 MB; no exact byte count is published."
-  },
-  "retention": {
-    "stated": "not stated on the pricing, API, limits or terms pages read",
-    "days": null,
-    "source_url": "https://www.sendblue.com/pricing"
-  },
-  "egress": {
-    "terms": "no per-message fees; messages, media and delivery receipts are returned by REST API or POSTed to a webhook, but the free sandbox has no webhooks or callbacks, so results are read by polling the API",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://www.sendblue.com/pricing"
-  },
-  "interface": [
-    "rest",
-    "cli",
-    "chat"
-  ],
-  "interface_detail": "a REST API at https://api.sendblue.com with an official CLI, Node.js and Python SDKs, MCP server and webhooks on paid tiers",
-  "endpoint": "https://api.sendblue.com",
-  "tooling": "REST API, @sendblue/cli, Node.js and Python SDKs and an MCP server for AI editors",
-  "chaining": "a hosted iMessage, SMS and RCS send-and-receive endpoint for agents; it is inbound-first on the free sandbox and needs a verified contact before a reply can be sent",
-  "limits": [
-    {
-      "kind": "write-gated",
-      "value": "a contact must text the shared sandbox number once before the account can message that contact; no outbound messaging on the free sandbox",
-      "source": "https://www.sendblue.com/llms.txt"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "10 verified contacts on the free sandbox; the AI Agent tier lists 1,000 inbound contacts a day",
-      "source": "https://www.sendblue.com/pricing"
-    },
-    {
-      "kind": "request-rate",
-      "value": "one message a second per dedicated number; the Contacts API takes 100 requests per 10 seconds; the queue holds 1,500 messages and answers 429 beyond it",
-      "source": "https://www.sendblue.com/llms.txt"
-    },
-    {
-      "kind": "write-gated",
-      "value": "account creation needs a company name, first name, company email, phone number and a referral answer",
-      "source": "https://dashboard.sendblue.com/company-signup"
-    }
-  ],
-  "limits_note": "Dynamic account-level quotas and sender pools apply beyond the published per-line rates.",
-  "binding": "write-gated",
-  "binding_note": "The sandbox cannot send to a contact until that contact messages the shared number first, and it has no webhooks, so the write gate binds before the 10-contact cap or the per-second rate.",
-  "identity_cost": {
-    "kind": "any-phone",
-    "detail": "The pricing page says no credit card is required; the account form asks for company name, first name, company email, phone number and a referral answer; the CLI setup asks for an email verification code. The quickstart labels the free tier no credit card required.",
-    "country": null
-  },
-  "reliability_note": "the sandbox uses a shared number with no webhooks, and a 429 is returned once the 1,500-message queue is full; outbound to unverified contacts is rejected",
-  "confidence": "documented",
-  "confidence_note": "Pricing, contact cap, outbound restriction, sign-up fields, REST interface, base URL and rate limits were read and quoted on 2026-11-24; no signup or paid tier was entered.",
-  "evidence": [
-    {
-      "url": "https://www.sendblue.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the free sandbox is USD 0 with a shared number, full API access, 10 verified contacts, no outbound messaging, no webhooks and no card",
-      "capture": "sha256:f4955df3b7ab12582cfe761f1d07123cf6854d4cb31e9b6754e3669b739cc9db",
-      "quote": "Test the full API in a sandbox environment. No credit card required. $0 Shared phone number - Full API access - Up to 10 verified contacts - Inbound-first (contacts text you first) - CLI & SDK support - Community support - No dedicated phone number - No outbound messaging - No webhooks or callbacks"
-    },
-    {
-      "url": "https://www.sendblue.com/pricing",
-      "date": "2026-11-24",
-      "proved": "there are no per-message fees and the sandbox is rate-limited",
-      "capture": "sha256:f4955df3b7ab12582cfe761f1d07123cf6854d4cb31e9b6754e3669b739cc9db",
-      "quote": "No. Sendblue pricing is per line, per month. Send and receive as many messages as you need with no additional per-message charges."
-    },
-    {
-      "url": "https://www.sendblue.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the paid AI Agent tier is USD 100 a month per dedicated line with 1,000 inbound contacts a day and webhooks",
-      "capture": "sha256:f4955df3b7ab12582cfe761f1d07123cf6854d4cb31e9b6754e3669b739cc9db",
-      "quote": "$100/month Per dedicated line - Dedicated phone number - Inbound-first messaging - 1,000 inbound contacts/day - Webhooks & callbacks - Media, typing, reactions - Priority support"
-    },
-    {
-      "url": "https://dashboard.sendblue.com/company-signup",
-      "date": "2026-11-24",
-      "proved": "the account form asks for company name, first name, company email, phone number and a referral answer",
-      "capture": "sha256:a61345fbd22f0c6ff9c9cb70aa292174b4966ea702de0b4b705cb103f752e040",
-      "quote": "Company name First name Company email Phone number"
-    },
-    {
-      "url": "https://www.sendblue.com/api",
-      "date": "2026-11-24",
-      "proved": "the sandbox is free for 10 contacts and needs no card; the API ships Node.js, Python and cURL SDKs and a CLI",
-      "capture": "sha256:b29ad4af8760319014b68644ca5fe8d0e46128caccb70c59ad72a70c7cdf2908",
-      "quote": "no credit card required, free for 10 contacts"
-    },
-    {
-      "url": "https://docs.sendblue.com/api-v2/",
-      "date": "2026-11-24",
-      "proved": "the API is a REST interface at https://api.sendblue.com for messaging, contacts and account management",
-      "capture": "sha256:0e0ec32fbe5f87c744afedeb686b5c3d17ddff2cffcc47df1ff576a740d0fb54",
-      "quote": "The Sendblue API v2 provides a new and improved RESTful interface for iMessage, SMS, and RCS messaging"
-    },
-    {
-      "url": "https://www.sendblue.com/llms.txt",
-      "date": "2026-11-24",
-      "proved": "on the free plan a contact must text the number first; setup asks for email verification and the free plan has a shared number",
-      "capture": "sha256:fadd6c231ffd228f9d1ba8d5c15bb151b124bd46e29396a467e0348200d18e1c",
-      "quote": "Free plan (shared line): Contacts must text your Sendblue number once before you can message them."
-    },
-    {
-      "url": "https://www.sendblue.com/llms.txt",
-      "date": "2026-11-24",
-      "proved": "rate limits are one message a second, 100 Contacts API requests per 10 seconds and a 1,500-message queue with 429 beyond it",
-      "capture": "sha256:fadd6c231ffd228f9d1ba8d5c15bb151b124bd46e29396a467e0348200d18e1c",
-      "quote": "- 1 message/second per dedicated number - AI Agent plan: 1,000 inbound contacts/day/line (rolling 24h), 200 follow-ups/day/line - Blue Ocean plan: 50 new outbound contacts/day/line, 200 follow-ups/day/line, 5 messages max without a reply - Queue holds 1,500 messages (429 after) - iMessage detection: 30/hour, 100/day per line - Contacts API: 100 requests/10 seconds"
-    },
-    {
-      "url": "https://docs.sendblue.com/limits/",
-      "date": "2026-11-24",
-      "proved": "limits differ by whether the contact or the account sends the first message and apply across iMessage, SMS and RCS",
-      "capture": "sha256:2218479ac3319de474451993d22aaad242a26d9d62ba23480c1d179a0092637d",
-      "quote": "The rate limits per line differ depending on whether you send the first message to a contact (outbound-initiated) or they send you a message first (inbound-initiated)."
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:15.073Z",
-  "price_per_tb_month": null,
-  "notes": "The free sandbox is a rate-limited test environment on a shared number with 10 verified contacts and no webhooks. The paid AI Agent tier is USD 100 a month per dedicated line and full outbound is quote-only.",
-  "extras": {
-    "billing_model": "flat monthly price per phone line, no per-message fee",
-    "free_tier_kind": "permanent sandbox",
-    "shape": null
+ "topic": "compute",
+ "slug": "sendblue-sandboxes",
+ "provider": "Sendblue Sandboxes",
+ "url": "https://www.sendblue.com/pricing",
+ "category": "sandbox",
+ "tier": "Free Sandbox (iMessage API test environment)",
+ "free_tier": {
+  "stated": "$0 Free Sandbox: full API access in a rate-limited test environment, a shared phone number, up to 10 verified contacts, inbound-first, no dedicated number, no outbound messaging and no webhooks or callbacks; this is an iMessage/SMS/RCS messaging API test tier, not hosted compute capacity",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://www.sendblue.com/pricing",
+  "read_on": "2026-11-25",
+  "notes": "The provider list's '$0.33/h' and '303 h free (one time)' entries do not appear on the first-party pricing page read on 2026-11-25. The page prices the production tier per phone line at $100/month, not per compute hour, and gives no CPU, RAM, VM, disk or runtime allowance. No hourly compute price is published."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the offer is a messaging API sandbox with a shared phone number and up to 10 verified contacts, not object or compute capacity"
+ },
+ "retention": {
+  "stated": "unverified: no data-retention period for sandbox messages or contacts is stated on the pricing page read",
+  "days": null,
+  "source_url": "https://www.sendblue.com/pricing"
+ },
+ "egress": {
+  "terms": "not applicable as compute egress: the sandbox has no outbound messaging and no webhooks or callbacks; no network traffic allowance or price per GB is published",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://www.sendblue.com/pricing"
+ },
+ "interface": [
+  "rest"
+ ],
+ "interface_detail": "Full API access with CLI and SDK support in a rate-limited test environment; the API sends and receives iMessages, SMS and RCS from a shared phone number. There is no shell, VM, container or code-execution interface.",
+ "tooling": "REST API, CLI and SDKs for the iMessage/SMS/RCS messaging API. No compute sandbox CLI, SSH, VM console or code-execution client is published on the pages read.",
+ "chaining": "A free messaging-API test tier can validate an inbound-first iMessage integration behind a shared number, but it supplies no computable machine, so it cannot be chained into a compute workload; a hosted sandbox service is needed for that.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "up to 10 verified contacts on a shared phone number; no outbound messaging and no webhooks or callbacks",
+   "source": "https://www.sendblue.com/pricing"
   }
+ ],
+ "limits_note": "Inbound-first: contacts text the number first. The production AI Agent plan is $100/month per dedicated line with 1,000 inbound contacts/day; the sandbox has no dedicated number.",
+ "binding": "volume-quota",
+ "binding_note": "The sandbox's 10-verified-contact ceiling binds before anything else, and it is a messaging-contact limit rather than a compute quota.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "unverified: the Get Started Free link goes to https://dashboard.sendblue.com/company-signup, which was not read;  No credit card is required for the $0 sandbox ('No credit card required').",
+  "country": null
+ },
+ "reliability_note": "The free sandbox is explicitly rate-limited and has no outbound messaging, dedicated number, webhooks or callbacks; the pricing page states no uptime commitment for it.",
+ "confidence": "documented",
+ "confidence_note": "The offer, its $0 price, the no-card statement and the 10-contact limit are quoted from Sendblue's own pricing page read on 2026-11-25; the sign-up gate is unverified.",
+ "evidence": [
+  {
+   "url": "https://www.sendblue.com/pricing",
+   "date": "2026-11-25",
+   "proved": "the $0 Free Sandbox is an API test environment that needs no credit card",
+   "capture": "sha256:f4955df3b7ab12582cfe761f1d07123cf6854d4cb31e9b6754e3669b739cc9db",
+   "quote": "Test the full API in a sandbox environment. No credit card required."
+  },
+  {
+   "url": "https://www.sendblue.com/pricing",
+   "date": "2026-11-25",
+   "proved": "the free tier is a shared phone number with up to 10 verified contacts, inbound-first, with no outbound messaging, webhooks or callbacks",
+   "capture": "sha256:f4955df3b7ab12582cfe761f1d07123cf6854d4cb31e9b6754e3669b739cc9db",
+   "quote": "Shared phone number"
+  },
+  {
+   "url": "https://www.sendblue.com/pricing",
+   "date": "2026-11-25",
+   "proved": "the sandbox gives full API access with CLI and SDK support and community support",
+   "capture": "sha256:f4955df3b7ab12582cfe761f1d07123cf6854d4cb31e9b6754e3669b739cc9db",
+   "quote": "- Full API access"
+  },
+  {
+   "url": "https://www.sendblue.com/pricing",
+   "date": "2026-11-25",
+   "proved": "the first-party page prices the production plan per line per month, not by compute hour",
+   "capture": "sha256:f4955df3b7ab12582cfe761f1d07123cf6854d4cb31e9b6754e3669b739cc9db",
+   "quote": "$100/month"
+  },
+  {
+   "url": "https://www.sendblue.com/pricing",
+   "date": "2026-11-25",
+   "proved": "the page states there are no per-message fees, A2P registration, carrier surcharges or SMS fallback fees",
+   "capture": "sha256:f4955df3b7ab12582cfe761f1d07123cf6854d4cb31e9b6754e3669b739cc9db",
+   "quote": "$0 Per-message fees"
+  },
+  {
+   "url": "https://www.sendblue.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the free sandbox is USD 0 with a shared number, full API access, 10 verified contacts, no outbound messaging, no webhooks and no card",
+   "capture": "sha256:f4955df3b7ab12582cfe761f1d07123cf6854d4cb31e9b6754e3669b739cc9db",
+   "quote": "Test the full API in a sandbox environment. No credit card required. $0 Shared phone number - Full API access - Up to 10 verified contacts - Inbound-first (contacts text you first) - CLI & SDK support - Community support - No dedicated phone number - No outbound messaging - No webhooks or callbacks"
+  },
+  {
+   "url": "https://www.sendblue.com/pricing",
+   "date": "2026-11-24",
+   "proved": "there are no per-message fees and the sandbox is rate-limited",
+   "capture": "sha256:f4955df3b7ab12582cfe761f1d07123cf6854d4cb31e9b6754e3669b739cc9db",
+   "quote": "No. Sendblue pricing is per line, per month. Send and receive as many messages as you need with no additional per-message charges."
+  },
+  {
+   "url": "https://www.sendblue.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the paid AI Agent tier is USD 100 a month per dedicated line with 1,000 inbound contacts a day and webhooks",
+   "capture": "sha256:f4955df3b7ab12582cfe761f1d07123cf6854d4cb31e9b6754e3669b739cc9db",
+   "quote": "$100/month Per dedicated line - Dedicated phone number - Inbound-first messaging - 1,000 inbound contacts/day - Webhooks & callbacks - Media, typing, reactions - Priority support"
+  },
+  {
+   "url": "https://dashboard.sendblue.com/company-signup",
+   "date": "2026-11-24",
+   "proved": "the account form asks for company name, first name, company email, phone number and a referral answer",
+   "capture": "sha256:a61345fbd22f0c6ff9c9cb70aa292174b4966ea702de0b4b705cb103f752e040",
+   "quote": "Company name First name Company email Phone number"
+  },
+  {
+   "url": "https://www.sendblue.com/api",
+   "date": "2026-11-24",
+   "proved": "the sandbox is free for 10 contacts and needs no card; the API ships Node.js, Python and cURL SDKs and a CLI",
+   "capture": "sha256:b29ad4af8760319014b68644ca5fe8d0e46128caccb70c59ad72a70c7cdf2908",
+   "quote": "no credit card required, free for 10 contacts"
+  },
+  {
+   "url": "https://docs.sendblue.com/api-v2/",
+   "date": "2026-11-24",
+   "proved": "the API is a REST interface at https://api.sendblue.com for messaging, contacts and account management",
+   "capture": "sha256:0e0ec32fbe5f87c744afedeb686b5c3d17ddff2cffcc47df1ff576a740d0fb54",
+   "quote": "The Sendblue API v2 provides a new and improved RESTful interface for iMessage, SMS, and RCS messaging"
+  },
+  {
+   "url": "https://www.sendblue.com/llms.txt",
+   "date": "2026-11-24",
+   "proved": "on the free plan a contact must text the number first; setup asks for email verification and the free plan has a shared number",
+   "capture": "sha256:fadd6c231ffd228f9d1ba8d5c15bb151b124bd46e29396a467e0348200d18e1c",
+   "quote": "Free plan (shared line): Contacts must text your Sendblue number once before you can message them."
+  },
+  {
+   "url": "https://www.sendblue.com/llms.txt",
+   "date": "2026-11-24",
+   "proved": "rate limits are one message a second, 100 Contacts API requests per 10 seconds and a 1,500-message queue with 429 beyond it",
+   "capture": "sha256:fadd6c231ffd228f9d1ba8d5c15bb151b124bd46e29396a467e0348200d18e1c",
+   "quote": "- 1 message/second per dedicated number - AI Agent plan: 1,000 inbound contacts/day/line (rolling 24h), 200 follow-ups/day/line - Blue Ocean plan: 50 new outbound contacts/day/line, 200 follow-ups/day/line, 5 messages max without a reply - Queue holds 1,500 messages (429 after) - iMessage detection: 30/hour, 100/day per line - Contacts API: 100 requests/10 seconds"
+  },
+  {
+   "url": "https://docs.sendblue.com/limits/",
+   "date": "2026-11-24",
+   "proved": "limits differ by whether the contact or the account sends the first message and apply across iMessage, SMS and RCS",
+   "capture": "sha256:2218479ac3319de474451993d22aaad242a26d9d62ba23480c1d179a0092637d",
+   "quote": "The rate limits per line differ depending on whether you send the first message to a contact (outbound-initiated) or they send you a message first (inbound-initiated)."
+  }
+ ],
+ "verdict": "fails-quota",
+ "verified_at": "2026-11-25T02:12:34.813Z",
+ "price_per_tb_month": null,
+ "notes": "Not a compute offer: the 'sandbox' is Sendblue's free iMessage API test environment, with a shared phone number, up to 10 verified contacts and no outbound messaging. No CPU, RAM, VM, disk, runtime or per-hour compute price is published; the $0.33/h figure in the provider list is not on the first-party page.",
+ "extras": {
+  "shape": {
+   "vcpu": null,
+   "ram_gib": null,
+   "disk_gib": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "no compute shape is offered: the sandbox is an iMessage/SMS/RCS messaging API test tier"
+  },
+  "billing_model": "per phone line per month; free test sandbox at $0",
+  "free_tier_kind": "one-time messaging-API test access, no compute capacity",
+  "term": "not stated",
+  "price_arithmetic": "no compute price: production AI Agent plan is $100 per line per month",
+  "status": "live messaging API sandbox, not a compute sandbox",
+  "network_out": {
+   "allow_outbound": false,
+   "allow_inbound_listen": null,
+   "ports": "no outbound messaging and no webhooks or callbacks on the free sandbox",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": null,
+   "note": "rate-limited test environment; no compute session"
+  }
+ },
+ "endpoint": "https://api.sendblue.com"
 }

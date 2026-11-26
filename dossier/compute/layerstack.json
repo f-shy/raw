@@ -5,7 +5,7 @@
   "url": "https://www.vpsbenchmarks.com/hosters/layerstack",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "USD 28.06/month for R108 in Hong Kong, Singapore or Japan: 2 shared vCPUs, 4 GB RAM, 150 GB storage. The same price applies to the R108-HK and R108-TP variants; R208 is USD 53.80 with 4 cores, 12 GB and 250 GB. The page warns its plan list is not exhaustive, so this is the cheapest plan it has tested rather than the provider's floor.",
+    "stated": "USD 28.06/month for R108: 2 vCPUs, 4.0GB RAM, 150GB storage, in the R108-HK, R108 and R108-TP rows; vCPUs are shared in all General Purpose plans. R208-HK is USD 53.80/month with 4 cores, 12.0GB RAM and 250GB storage. The Arm-based ARM108-HK (preview) row is USD 10.00/month with 4 cores, 8.0GB RAM and 100GB storage. The page states this is not an exhaustive list of plans and instance types offered by LayerStack.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://www.vpsbenchmarks.com/hosters/layerstack",
@@ -58,10 +58,24 @@
       "url": "https://www.vpsbenchmarks.com/hosters/layerstack",
       "date": "2026-10-22",
       "proved": "'It has data centers in: - Hong Kong - Japan - Singapore'; the instance type reads 'vCPUs are shared in all General Purpose plans'"
+    },
+    {
+      "url": "https://www.vpsbenchmarks.com/hosters/layerstack",
+      "date": "2026-11-25",
+      "proved": "the page lists the R108 $28.06/month rows, the R208-HK $53.80/month row, the shared-vCPU note, the non-exhaustive warning and the ARM108-HK $10.00/month preview",
+      "capture": "sha256:6c89895bb0b180e0d86a47d2ea6756e9a4e93729d5d7567ac12c49343e03b2de",
+      "quote": "[R108-HK](https://www.vpsbenchmarks.com/hosters/layerstack/plans/r108-hk) 2 4.0GB 150GB $28.06 / month R108 2 4.0GB 150GB $28.06 / month ... vCPUs are shared in all General Purpose plans ... [R208-HK](https://www.vpsbenchmarks.com/hosters/layerstack/plans/r208-hk) (Off rankings) 4 12.0GB 250GB $53.80 / month ... This is not an exhaustive list of plans and instance types offered by LayerStack ... [ARM108-HK (preview)](https://www.vpsbenchmarks.com/hosters/layerstack/plans/arm108-hk-preview) (Off rankings) 4 8.0GB 100GB $10.00 / month"
+    },
+    {
+      "url": "https://www.vpsbenchmarks.com/hosters/layerstack",
+      "date": "2026-11-25",
+      "proved": "the page still states the R108 $28.06/month rows, the R208-HK $53.80/month row, the shared-vCPU note, the non-exhaustive warning and the ARM108-HK $10.00/month preview",
+      "capture": "sha256:6c89895bb0b180e0d86a47d2ea6756e9a4e93729d5d7567ac12c49343e03b2de",
+      "quote": "[R108-HK](https://www.vpsbenchmarks.com/hosters/layerstack/plans/r108-hk) 2 4.0GB 150GB $28.06 / month R108 2 4.0GB 150GB $28.06 / month ... vCPUs are shared in all General Purpose plans ... [R208-HK](https://www.vpsbenchmarks.com/hosters/layerstack/plans/r208-hk) (Off rankings) 4 12.0GB 250GB $53.80 / month ... This is not an exhaustive list of plans and instance types offered by LayerStack ... [ARM108-HK (preview)](https://www.vpsbenchmarks.com/hosters/layerstack/plans/arm108-hk-preview) (Off rankings) 4 8.0GB 100GB $10.00 / month"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:29.491Z",
   "notes": "Found via vpsbenchmarks. The benchmark page states twice that its list is not exhaustive, and R108 at USD 28.06 is unlikely to be a provider's entry plan, so the offer recorded here is explicitly the cheapest tested plan. verification criteria: https://www.layerstack.com/en/pricing, which the page links as the provider page for the instance type.",
   "extras": {
     "wave2": {

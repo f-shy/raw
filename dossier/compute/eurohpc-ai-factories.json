@@ -5,7 +5,7 @@
   "url": "https://www.eurohpc-ju.europa.eu/ai-factories/ai-factories-access-modes/fast-lane-access-ai-factories_en",
   "category": "national HPC allocation",
   "free_tier": {
-    "stated": "Fast Lane access offers up to 50,000 GPU hours for a maximum of three months, with approval within four working days on a rolling first-in-first-out basis and expert support from the hosting AI Factory; Playground access sits below it for entry-level users.",
+    "stated": "Fast Lane access offers up to 50,000 GPU hours for a maximum of 3 months, with approval within 4 working days, first-in-first-out access and expert support provided by the selected AI Factory; allocations are granted for one, two or three months and resources can be requested on a single system only.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://www.eurohpc-ju.europa.eu/ai-factories/ai-factories-access-modes/fast-lane-access-ai-factories_en",
@@ -114,10 +114,24 @@
       "url": "https://lumi-ai-factory.eu/pricing-and-eligibility/",
       "date": "2026-10-22",
       "proved": "'Please note that individual persons or temporary teams are not entitled to our services', quoted"
+    },
+    {
+      "url": "https://www.eurohpc-ju.europa.eu/ai-factories/ai-factories-access-modes/fast-lane-access-ai-factories_en",
+      "date": "2026-11-25",
+      "proved": "the Fast Lane page states up to 50,000 GPU hours for a maximum of 3 months",
+      "capture": "sha256:720733832a2ceeb7100786c652b1f207715f3cc2e8c83da7f48cdf71d6d071b2",
+      "quote": "This type of access is intended for applicants who are more familiar with HPC and requiring up to 50,000 GPU hours for a maximum of 3 months."
+    },
+    {
+      "url": "https://www.eurohpc-ju.europa.eu/ai-factories/ai-factories-access-modes/fast-lane-access-ai-factories_en",
+      "date": "2026-11-25",
+      "proved": "the Fast Lane GPU-hour allocation is still published",
+      "capture": "sha256:720733832a2ceeb7100786c652b1f207715f3cc2e8c83da7f48cdf71d6d071b2",
+      "quote": "This type of access is intended for applicants who are more familiar with HPC and requiring up to 50,000 GPU hours for a maximum of 3 months."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:25.149Z",
   "notes": "This is the largest single GPU-hour number found that is not gated on peer-reviewed science: 50,000 GPU hours, four working days, no competitive selection. earlier readings already holds a storage-side row rejecting Playground access as 'industry only' with verdict fails-quota; that row is not wrong but it records no number. The binding constraint here is not the industry framing, it is the VAT number and PIC, which is the concrete thing a single person lacks. Classified as fails-identity rather than fails-quota because the size is not the objection. The Playground per-application GPU-hour cap is published only in a system table that did not render through automated retrieval, so it is null here.",
   "extras": {
     "wave2": {

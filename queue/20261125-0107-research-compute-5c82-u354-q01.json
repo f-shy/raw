@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u354-q01",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "compute/flightcontrol: no path value is supported well enough by a capture. The best candidate is $.limits[0].value (the control-plane-only / first-wall-is-the-AWS-bill claim, source https://statusgator.com/services/flightcontrol), but that capture is a third-party status page and does not state the limit. What first-party quote establishes the limits[0].value?",
+ "why": "PROPOSALS.jsonl marks compute/flightcontrol as review: 'no path value is supported well enough by a capture'; best path $.limits[0].value at https://statusgator.com/services/flightcontrol. The status page capture (sha256:a7a4887...) shows service health only, not the stated volume-quota limit, so the value cannot be confirmed or corrected from it. Record left alone.",
+ "scope": {
+  "rids": [
+   "compute/flightcontrol"
+  ]
+ },
+ "origin": "20261125-0107-research-compute-5c82/u354",
+ "created": "2026-11-25T15:40:38Z"
+}

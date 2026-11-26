@@ -13,14 +13,14 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "x-request-max-body-size: 30m",
     "source_url": "https://developers.ringcentral.com/api-reference/Message-Store/readGlipPosts",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: the request-body size is not stated as a per-object cap"
   },
   "retention": {
-    "stated": "Trial-gated ('Try free' signup), per-user licensing, auth-required reads. No evidence of indefinite retention.",
+    "stated": "By default, message data is never deleted. However, Admins can choose a different retention period based on their organization's needs.",
     "source_url": "https://developers.ringcentral.com/api-reference/Message-Store/readGlipPosts",
-    "notes": "Extracted from published terms."
+    "notes": "Messaging data includes chats, files, notes, and team calendar events."
   },
   "egress": {
     "terms": "Authenticated (OAuth bearer) only; attachments are downloaded through the API. No public CDN URL.",
@@ -47,10 +47,38 @@
       "url": "https://developers.ringcentral.com/api-reference/Message-Store/readGlipPosts",
       "date": "2026-10-21",
       "proved": "read live: page is the Team Messaging post-listing reference; site-wide CTA 'Try free', seat-based product, no storage quota row"
+    },
+    {
+      "url": "https://assets-developers.ringcentral.com/dpw/api-reference/specs/public/office/rc-platform.yml?v=2026112520261102-0525",
+      "date": "2026-11-25",
+      "proved": "the OpenAPI specification sets a 30m request-body size on the file-upload operation",
+      "capture": "sha256:1592df029df998d0928ef55c42ab16e797dd592ad7b67343b78062c2011dcbd3",
+      "quote": "x-request-max-body-size: 30m"
+    },
+    {
+      "url": "https://developers.ringcentral.com/guide/team-messaging/posting/file-uploads",
+      "date": "2026-11-25",
+      "proved": "the file-upload guide describes a POST body carrying file contents and states no per-object size",
+      "capture": "sha256:89fc2be81c0e2b37b21890e07b23dfd243d165191596f18aeaf2cb7be91cddcc",
+      "quote": "To upload a file, one conducts an HTTP POST to the following URI, using the file's contents as the post body."
+    },
+    {
+      "url": "https://support.ringcentral.com/article-v2/managing-data-retention-for-ringex-messages.html?brand=RingCentral&product=RingEX&language=en_US",
+      "date": "2026-11-25",
+      "proved": "the default is no deletion, with admin-selected retention periods",
+      "capture": "sha256:ac6a7839a9cecd7266256b88a946f99fbee778949f4874f57f315303a6685cf3",
+      "quote": "By default, message data is never deleted. However, Admins can choose a different retention period based on their organization's needs."
+    },
+    {
+      "url": "https://support.ringcentral.com/article-v2/managing-data-retention-for-ringex-messages.html?brand=RingCentral&product=RingEX&language=en_US",
+      "date": "2026-11-25",
+      "proved": "the retention rule covers chats, files, notes and team calendar events",
+      "capture": "sha256:ac6a7839a9cecd7266256b88a946f99fbee778949f4874f57f315303a6685cf3",
+      "quote": "Messaging data includes chats, files, notes, and team calendar events."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-10-21T00:00:00.000Z",
+  "verified_at": "2026-11-25T19:55:19.658Z",
   "notes": "No storage quota published; the API reference documents pagination over posts, not a media store with a byte allowance.",
   "history": [],
   "extras": {

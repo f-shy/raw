@@ -42,7 +42,7 @@
   "limits": [
     {
       "kind": "write-gated",
-      "value": "approval through a DigitalOcean Startups partner, with the award level set by a programme manager",
+      "value": "approval through a DigitalOcean Startups partner, with the award level set by a programme manager; applications for the current cohort are paused until an updated programme launches in early 2027",
       "source": "https://www.digitalocean.com/hatch"
     },
     {
@@ -56,7 +56,7 @@
   "binding_note": "the application is the constraint. The volume is not: the monthly cap is 976 TiB at this egress price, which is three orders of magnitude above 1 TiB.",
   "identity_cost": {
     "kind": "institution",
-    "detail": "Must have raised $10m or less; credits are awarded 'through approved DigitalOcean Startups partners' and the amount is set at onboarding.",
+    "detail": "Must have raised $10m or less; credits are awarded 'through approved DigitalOcean Startups partners' and the amount is set at onboarding. A new team account needs the corporate email address of the company domain and a valid credit card.",
     "country": "None"
   },
   "reliability_note": "charges apply for any month above the cap, and the award is tied to continued programme membership",
@@ -72,10 +72,31 @@
       "url": "https://www.digitalocean.com/pricing",
       "date": "2026-10-23",
       "proved": "'Public Internet Egress Overage Data transfer is $0.01 per GiB'"
+    },
+    {
+      "url": "https://www.digitalocean.com/hatch",
+      "date": "2026-11-25",
+      "proved": "new applications are closed at present, so the write gate is currently shut",
+      "capture": "sha256:268ca81cbfc1628073ce8a4994cd724ab233e53e9b3820fac488e0350cf39729",
+      "quote": "Applications for our current cohort are temporarily paused as we prepare to launch an updated program experience in early 2027."
+    },
+    {
+      "url": "https://www.digitalocean.com/hatch",
+      "date": "2026-11-25",
+      "proved": "the team account needs a corporate email address and a credit card",
+      "capture": "sha256:268ca81cbfc1628073ce8a4994cd724ab233e53e9b3820fac488e0350cf39729",
+      "quote": "you must create a new DigitalOcean team account for your startup with 1) the corporate email address associated with your company domain and 2) a valid credit card."
+    },
+    {
+      "url": "https://www.digitalocean.com/hatch",
+      "date": "2026-11-25",
+      "proved": "the monthly cap of $10,000 is unchanged",
+      "capture": "sha256:268ca81cbfc1628073ce8a4994cd724ab233e53e9b3820fac488e0350cf39729",
+      "quote": "Participants generally are entitled to a $10,000 monthly limit (and charges apply for any use in a month exceeding this amount)."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:41.181Z",
   "price_per_tb_month": "USD 10,000 a month of credit",
   "history": [],
   "notes": "Arithmetic: $10,000 a month over $0.01 a GiB is 1,000,000 GiB = 976.6 TiB a month, and the programme runs 12 months. The cap is not the award: the page says the amount is set in an onboarding email and that the tier depends on the partner. It is the successor to Hatch and the only DigitalOcean route longer than 60 days. The self-serve $200 trial (egress/digitalocean) needs no company and lasts 60 days.",

@@ -16,23 +16,23 @@
     "stated": "480 MB per file",
     "bytes": 480000000,
     "source_url": "https://support-artist.jamendo.com/upload-manage-media",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The upload help page states the maximum size of a single file is 480 MB."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "unverified: no retention period stated by the provider",
     "source_url": "https://support-artist.jamendo.com/upload-manage-media",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: the upload help page describes flagged tracks as masked or removed but gives no retention period"
   },
   "egress": {
     "terms": "Free streaming and free download for listeners; Jamendo monetises through licensing, not storage fees.",
     "metered": false
   },
   "interface": [
-    "unknown"
+    "browser"
   ],
-  "interface_detail": "wrapper-only",
-  "tooling": "Jamendo Artist web dashboard; licensing API exists for consumers of the catalogue, not for uploads.",
-  "chaining": "Unlimited tracks per artist account x 480 MB. Same shape as Bandcamp but with a larger per-file cap and no sales gate.",
+  "interface_detail": "Jamendo Artist web upload tab",
+  "tooling": "Jamendo Artist web dashboard; upload through the web tab.",
+  "chaining": "Tracks can be uploaded as singles or organized into albums.",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -53,7 +53,7 @@
   "limits_note": "480 MB per file; strict format spec (bit depth, sample rate, channel count all constrained); a track must be submitted to a Jamendo programme, so there is a review step.",
   "identity_cost": {
     "kind": "email",
-    "detail": "no identity_cost field and no identity statement in the source record; defaulted to email and flagged, not evidence",
+    "detail": "In the Create an account section, add your email address and password.",
     "country": null
   },
   "reliability_note": "Lossless in, transcoded for streaming; Jamendo's model is sync licensing so the catalogue is public. No retention risk stated, but the review step means an upload can be refused.",
@@ -71,10 +71,45 @@
       "proved": "a single upload is capped at 480 MB",
       "capture": "sha256:adfb0c7cd28c6ea437ffa0469f41c42ffdb54eb5671d9a230eeeb35f8e240404",
       "quote": "The maximum size of a single file is 480 MB."
+    },
+    {
+      "url": "https://support-artist.jamendo.com/upload-manage-media",
+      "date": "2026-11-25",
+      "proved": "a single uploaded audio file is capped at 480 MB",
+      "capture": "sha256:adfb0c7cd28c6ea437ffa0469f41c42ffdb54eb5671d9a230eeeb35f8e240404",
+      "quote": "The maximum size of a single file is 480 MB."
+    },
+    {
+      "url": "https://support-artist.jamendo.com/upload-manage-media",
+      "date": "2026-11-25",
+      "proved": "uploads are made through the Jamendo Artist web tab",
+      "capture": "sha256:adfb0c7cd28c6ea437ffa0469f41c42ffdb54eb5671d9a230eeeb35f8e240404",
+      "quote": "Navigate to the **Upload/Manage my music **tab."
+    },
+    {
+      "url": "https://support-artist.jamendo.com/upload-manage-media",
+      "date": "2026-11-25",
+      "proved": "the help page describes singles and albums",
+      "capture": "sha256:adfb0c7cd28c6ea437ffa0469f41c42ffdb54eb5671d9a230eeeb35f8e240404",
+      "quote": "You can upload your tracks as singles or you can organize them into albums."
+    },
+    {
+      "url": "https://support-artist.jamendo.com/account-management",
+      "date": "2026-11-25",
+      "proved": "signup requires an email address and password",
+      "capture": "sha256:cc3f6f6a0ab36e0183d40571d4ccd007e2c839afd6069ee955798ef7c20f6d76",
+      "quote": "In the **Create an account section**, add your email address and password."
+    },
+    {
+      "url": "https://support-artist.jamendo.com/upload-manage-media",
+      "date": "2026-11-25",
+      "proved": "the help page describes moderation outcomes but no retention period",
+      "capture": "sha256:adfb0c7cd28c6ea437ffa0469f41c42ffdb54eb5671d9a230eeeb35f8e240404",
+      "quote": "This process can result in your track being accepted, flagged or removed from Jamendo for several reasons."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:22.252Z",
+  "verified_at": "2026-11-25T13:25:55.251Z",
   "notes": "No published per-account total; 480 MB per file, lossless only (WAV/FLAC/AIFF, 16 or 24-bit, 44.1 or 48 kHz, 1-2 channels).",
   "history": [],
   "extras": {

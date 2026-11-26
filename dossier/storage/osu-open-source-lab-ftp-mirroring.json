@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://osuosl.org/services/hosting/details/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "No per-object cap stated on the cited hosting details page."
   },
   "retention": {
     "stated": "The binding constraint is the request/review process ('Please give us a few days or a week to discuss and respond') and the statement that main-mirror space is limited. retention: indefinite for accepted projects",
     "source_url": "https://osuosl.org/services/hosting/details/",
-    "notes": "Extracted from published terms."
+    "notes": "Backups are meant for short-term disaster recovery, not long-term data recovery."
   },
   "egress": {
     "terms": "Free and genuinely high-capacity: 'Three servers sit behind ftp.osuosl.org with a combined bandwidth capacity of 60 gigabits per second. They are located in Salem, Chicago and New York, and each one carries a full copy of the content.' No billing.",
@@ -86,10 +86,38 @@
       "proved": "the 60 Gbps aggregate mirror bandwidth is unchanged",
       "capture": "sha256:653fe50f4ed99b12817dde390bc1b1e6e88405e678ed99af8bb07038d3d78da9",
       "quote": "Three servers sit behind ftp.osuosl.org with a combined bandwidth capacity of 60 gigabits per second."
+    },
+    {
+      "url": "https://osuosl.org/services/hosting/details/",
+      "date": "2026-11-25",
+      "proved": "the hosting details page states aggregate hosted usage but no per-object cap",
+      "capture": "sha256:653fe50f4ed99b12817dde390bc1b1e6e88405e678ed99af8bb07038d3d78da9",
+      "quote": "We currently host about 100 projects using around 37 TB of disk space, about 16 TB on the main mirrors and 21 TB on ftp2."
+    },
+    {
+      "url": "https://osuosl.org/services/hosting/details/",
+      "date": "2026-11-25",
+      "proved": "the hosting details page states backups are for short-term disaster recovery, not long-term data recovery",
+      "capture": "sha256:653fe50f4ed99b12817dde390bc1b1e6e88405e678ed99af8bb07038d3d78da9",
+      "quote": "Backups are meant for short-term disaster recovery, not long-term data recovery."
+    },
+    {
+      "url": "https://osuosl.org/services/hosting/details/",
+      "date": "2026-11-25",
+      "proved": "the hosting details page describes hosted capacity but states no per-object cap",
+      "capture": "sha256:653fe50f4ed99b12817dde390bc1b1e6e88405e678ed99af8bb07038d3d78da9",
+      "quote": "We currently host about 100 projects using around 37 TB of disk space, about 16 TB on the main mirrors and 21 TB on ftp2."
+    },
+    {
+      "url": "https://osuosl.org/services/hosting/details/",
+      "date": "2026-11-25",
+      "proved": "the hosting details page states backup retention is for short-term disaster recovery",
+      "capture": "sha256:653fe50f4ed99b12817dde390bc1b1e6e88405e678ed99af8bb07038d3d78da9",
+      "quote": "Backups are meant for short-term disaster recovery, not long-term data recovery."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:37.735Z",
+  "verified_at": "2026-11-25T21:21:16.851Z",
   "notes": "No published per-project quota, but an explicit capacity statement and an allocation policy: 'Because space on the main mirrors is limited, we also host projects on ftp2.osuosl.org. It runs in Salem and stores its content on our Ceph cluster instead of copying it to every server. We currently host about 100 projects using around 37 TB of disk space, about 16 TB on the main mirrors and 21 TB on ftp2.' Mean is therefore ~370 GB per hosted project.",
   "history": [],
   "extras": {

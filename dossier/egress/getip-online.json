@@ -81,10 +81,17 @@
       "url": "https://getip.online/",
       "date": "2026-10-23",
       "proved": "'No credit card required'"
+    },
+    {
+      "url": "https://getip.online/",
+      "date": "2026-11-25",
+      "proved": "the free core service carries 100 GB per peer per month",
+      "capture": "sha256:371514b833b2d3499c2e329ac7a2a8ac6d05bb8db42ffb90cf42aade5fef2a42",
+      "quote": "- 100 GB traffic per peer every month"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:42.069Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Included because it is the cleanest WireGuard-native peer found and because its quota is the reason it fails: 0.09 TiB/month against a 1 TiB/month target. The port restriction means that even at 100 GB a web service on 80/443 is proxied through Cloudflare unless the USD 1/month firewall is bought.",

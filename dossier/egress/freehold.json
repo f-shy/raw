@@ -53,7 +53,7 @@
     "detail": "No account: the client registers itself with the relay over UDP and completes an HMAC challenge.",
     "country": "None"
   },
-  "reliability_note": "NAT traversal is best-effort: the port spray 'opens Bob's NAT' only if the carrier allocates ports sequentially, and traffic falls back to the relay otherwise.",
+  "reliability_note": "The public relay hostname freehold.lit.app does not resolve: a public DNS resolver answers status 3 (name does not exist) for it and for its parent lit.app, so the README's public relay cannot be registered with. NAT traversal is best-effort: the port spray opens a NAT only if the carrier allocates ports sequentially.",
   "confidence": "inferred",
   "confidence_note": "Reverse proxy architecture and transport specifications are documented in product reference guides.",
   "evidence": [
@@ -71,10 +71,31 @@
       "url": "https://github.com/maceip/freehold",
       "date": "2026-10-23",
       "proved": "The data path is 'Browser (Alice) ... QUIC/H3 request ... XDP SNAT+DNAT', and the feature list names 'Optional HTTP/3 reverse proxy with automatic TLS'"
+    },
+    {
+      "url": "probe:freehold.lit.app",
+      "date": "2026-11-25",
+      "proved": "a public DNS resolver answers status 3 (name does not exist) for the public relay hostname freehold.lit.app",
+      "capture": "sha256:64c238991de240e87b018053f5ccb880fd2dcab9ff6c16823522006f65c47cf9",
+      "quote": "\"Status\":3"
+    },
+    {
+      "url": "probe:lit.app",
+      "date": "2026-11-25",
+      "proved": "the parent domain lit.app also answers status 3 (name does not exist)",
+      "capture": "sha256:06519cfc334e302edc38a745519924ce1d8a6d3d2ce3ad6dc742762d81abd5e1",
+      "quote": "\"Status\":3"
+    },
+    {
+      "url": "https://github.com/maceip/freehold",
+      "date": "2026-11-25",
+      "proved": "the README still documents this client command",
+      "capture": "sha256:568cd67c467885cef2f20a7c6d47e7510b7a3cb6aee54b74589b563dbb325fdc",
+      "quote": "freehold --relay freehold.lit.app:9999 --port 8080 --backend 127.0.0.1:3000"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:42.068Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "A free public anycast relay that a client can register with anonymously is the only such relay found. What it exposes is an HTTP/3 service on a shared anycast name: the README diagram shows a QUIC request being rewritten, not a raw datagram being forwarded, and the client software is a Rust binary, not a tunnel daemon. If that reading is wrong, this becomes the strongest lead of its kind, which is why the reading is labelled inferred and not treated as settled.",

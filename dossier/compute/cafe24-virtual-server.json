@@ -59,10 +59,17 @@
       "url": "https://hosting.cafe24.com/?controller=new_product_page&page=virtual",
       "date": "2026-10-22",
       "proved": "the plan table gives 일반형 at 9,000 원 a month including VAT with 1 GB RAM, 30 GB SSD and 300 GB monthly traffic, 비즈니스 at 16,000, 퍼스트클래스 at 22,000, 자이언트 at 33,000 and 자이언트플러스 at 55,000, with a 22,000 원 setup fee on every plan and 165 원 per GB of excess traffic"
+    },
+    {
+      "url": "https://hosting.cafe24.com/?controller=new_product_page&page=virtual",
+      "date": "2026-11-25",
+      "proved": "the plan table states all five monthly prices, the memory, SSD and traffic shapes, the 22,000 won setup fee on every plan and the 165 won per GB overage",
+      "capture": "sha256:d5776f9febe14300e6d04c7fbaaac801ace722490ceb8e3daf0cad1e151ea6ab",
+      "quote": "일반형 **9,000원/월** ... - **1GB** RAM - **30GB** SSD - **300GB/월** 트래픽 ... 비즈니스 **16,000원/월** ... - **2GB** RAM - **40GB** SSD - **500GB/월** 트래픽 ... 퍼스트클래스 **22,000원/월** ... - **3GB** RAM - **50GB** SSD - **800GB/월** 트래픽 ... 자이언트 **33,000원/월** ... - **4GB** RAM - **100GB** SSD - **1.2TB/월** 트래픽 ... 자이언트플러스 **55,000원/월** ... - **6GB** RAM - **150GB** SSD - **1.5TB/월** 트래픽 ... | 월 사용료 (VAT 포함) | 9,000원 | 16,000원 | 22,000원 | 33,000원 | 55,000원 | | 설치비 (VAT 포함) | 22,000원 | 22,000원 | 22,000원 | 22,000원 | 22,000원 | | 초과 트래픽 요금 (VAT 포함) | 165원/GB | 165원/GB | 165원/GB | 165원/GB | 165원/GB |"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:22.521Z",
   "notes": "The vCPU count is not on the plan table, so it is left null rather than guessed. Cafe24 raised the entry price from KRW 7,000 to 9,000 on the day a Korean trade paper reported, citing SSD and memory cost; the raise is a reliability fact about the Korean floor, not a defect. The setup fee is the detail that changes the arithmetic for a one-month test: KRW 22,000 is more than two months of the server itself. Payment method was not read on a vendor page this session; the card identity cost is inferred from a monthly or hourly billing model, and the signup page is the route that would settle it.",
   "extras": {
     "wave2": {

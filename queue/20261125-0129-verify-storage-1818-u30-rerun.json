@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u30-rerun",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/hitfile $.egress.free_allowance: 600 GB/month is the Turbo (premium) allowance, not the free allowance; free is ~5 Gb/day.\n- storage/hitfile $.identity_cost.kind: Registration needs a real email and a password, so kind 'anonymous' is not supported.\n- storage/hop-js-cdn-bunny-net-s-free-oss-mirror-of-npm-cdnjs $.retention.stated: Permanence is stated, but 'no quota of its own' and 'ceiling is the npm cap' are not on the page.\n- storage/hop-js-cdn-bunny-net-s-free-oss-mirror-of-npm-cdnjs $.free_tier.stated: Capture proves only one 32,232,419-byte file served with 200. The 54.0/64.5 MB sha256 matches, the unpkg comparison and 'no quota of its own' are not in this capture.",
+ "scope": {
+  "rids": [
+   "storage/hetzner-storage-box-bx11-bx21-bx31",
+   "storage/hetzner-storage-box-bx21",
+   "storage/hetzner-storage-box-bx41",
+   "storage/hetzner-sx65-2-dedicated-storage-server",
+   "storage/hitfile",
+   "storage/hop-js-cdn-bunny-net-s-free-oss-mirror-of-npm-cdnjs"
+  ]
+ },
+ "origin": "audit u107 of 20261125-0129-verify-storage-1818/u30 failed: 4 of 21 unsupported",
+ "created": "2026-11-25T11:42:54Z"
+}

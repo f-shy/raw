@@ -16,13 +16,13 @@
     "stated": "200 MB per file",
     "bytes": 200000000,
     "source_url": "https://catbox.moe/nojs/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "200 MB per file on catbox.moe; the FAQ names a separate 20 MB ceiling for GIF files"
   },
   "retention": {
     "stated": "Anonymous files live until 2 years of inactivity; files tied to an account are permanent",
     "days": 730,
     "source_url": "https://catbox.moe/nojs/",
-    "notes": "Extracted from published terms."
+    "notes": "anonymous files are removed after 2 years of inactivity; files tied to a user account are permanent"
   },
   "egress": {
     "terms": "free direct GET from files.catbox.moe, no metering, range requests supported.",
@@ -92,10 +92,38 @@
       "proved": "the FAQ states anonymous retention and permanent account files",
       "capture": "sha256:91c52e81d8e069bf0cec75ff4824da63eda2f19804afc554df89966aae02342b",
       "quote": "Anonymously uploaded files are kept until they have 2 years of inactivity (no access/hits), after which they are removed. Uploads associated with user accounts are permanent."
+    },
+    {
+      "url": "https://catbox.moe/faq.php",
+      "date": "2026-11-25",
+      "proved": "the FAQ states a 20 MB GIF sub-cap",
+      "capture": "sha256:91c52e81d8e069bf0cec75ff4824da63eda2f19804afc554df89966aae02342b",
+      "quote": "Why can't I upload .gif files bigger than 20 MB?"
+    },
+    {
+      "url": "https://catbox.moe/faq.php",
+      "date": "2026-11-25",
+      "proved": "the FAQ states the inactivity expiry for anonymous files and permanence for account files",
+      "capture": "sha256:91c52e81d8e069bf0cec75ff4824da63eda2f19804afc554df89966aae02342b",
+      "quote": "Anonymously uploaded files are kept until they have 2 years of inactivity (no access/hits), after which they are removed. Uploads associated with user accounts are permanent."
+    },
+    {
+      "url": "https://catbox.moe/nojs/",
+      "date": "2026-11-25",
+      "proved": "the upload page still states the 200 MB per-file cap",
+      "capture": "sha256:9f1a8a957417e5a880e1b84929b832077c5e68bc3696eadea48ed646f05c9775",
+      "quote": "Uploads up to 200 MB are allowed."
+    },
+    {
+      "url": "https://catbox.moe/faq.php",
+      "date": "2026-11-25",
+      "proved": "the FAQ still states 2-year idle expiry and permanent account files",
+      "capture": "sha256:91c52e81d8e069bf0cec75ff4824da63eda2f19804afc554df89966aae02342b",
+      "quote": "Anonymously uploaded files are kept until they have 2 years of inactivity (no access/hits), after which they are removed. Uploads associated with user accounts are permanent."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:58.757Z",
+  "verified_at": "2026-11-25T09:54:57.891Z",
   "notes": "200 MB per file on catbox.moe, no total quota. Anonymous or free account. Anonymous files live until 2 years of inactivity; files tied to an account are permanent. Litterbox (sister service) takes 1 GB but expires in 1h-3d by choice.",
   "history": [],
   "extras": {

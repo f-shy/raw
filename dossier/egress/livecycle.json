@@ -47,7 +47,7 @@
     "detail": "a Docker Desktop extension install and an account.",
     "country": "None"
   },
-  "reliability_note": "Tied to Docker Desktop.",
+  "reliability_note": "unverified: https://www.livecycle.io/ answered a 301 redirect to https://ai.livecycle.io/ on 2026-11-25 and the page body could not be read",
   "confidence": "documented",
   "confidence_note": "Nothing would raise it for egress purposes.",
   "evidence": [
@@ -55,6 +55,13 @@
       "url": "https://www.livecycle.io/",
       "date": "2026-10-23",
       "proved": "product page describes shareable HTTPS URLs and a collaboration dashboard; no quota or price figure"
+    },
+    {
+      "url": "probe:www.livecycle.io",
+      "date": "2026-11-25",
+      "proved": "the site redirects to another host; the redirect target did not answer",
+      "capture": "sha256:f24d0eb321f85aa404850b0d35aa921d1b7262216e1b3de50940cc49f465ac43",
+      "quote": "\"status\": 301"
     }
   ],
   "verdict": "fails-egress",

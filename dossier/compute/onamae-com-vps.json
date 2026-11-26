@@ -5,7 +5,7 @@
   "url": "https://www.onamae.com/server/vps/price/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "The 1 GB plan gives 2 vCPU, 1 GB memory and 100 GB SSD at JPY 985 a month including tax on a monthly term, or an effective JPY 873 a month on a twelve-month term, with no setup fee and a three-month minimum period. The 2 GB plan is 3 cores and 200 GB at JPY 1,446 a month, and the ladder runs to 10 cores with 16 GB and 1 TB at JPY 16,636.",
+    "stated": "| 初期費用 | 無料 | 無料 | 5,951円(税込) | 10,142円(税込) | 17,474円(税込) | | 1ヶ月払い | 985円(税込) | 1,446円(税込) | 4,065円(税込) | 8,255円(税込) | 16,636円(税込) | | 12ヶ月払い | 10,475円(税込) 実質873円/月 | 14,505円(税込) 実質1,209円/月 | 40,771円(税込) 実質3,398円/月 | 82,790円(税込) 実質6,899円/月 | 166,831円(税込) 実質13,902円/月 | | 最低利用期間 | 3ヶ月 |",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://www.onamae.com/server/vps/price/",
@@ -64,10 +64,38 @@
       "url": "https://www.serversus.work/services/onamae-com-vps/",
       "date": "2026-10-22",
       "proved": "a third-party comparison lists the 1 GB shape as 2 cores, 1 GB, 100 GB SSD with unlimited transfer and a three-month minimum, and states that no free trial is offered; reported"
+    },
+    {
+      "url": "https://www.onamae.com/server/vps/price/",
+      "date": "2026-11-25",
+      "proved": "the vendor price table states the setup and one-month prices from the free-setup 1 GB plan to the 16 GB plan",
+      "capture": "sha256:75237b5b0eb492e3506a88bd7bad80f66baa463aba3f3167c8b7810790061ab7",
+      "quote": "| 初期費用 | 無料 | 無料 | 5,951円(税込) | 10,142円(税込) | 17,474円(税込) |\n| 1ヶ月払い | 985円(税込) | 1,446円(税込) | 4,065円(税込) | 8,255円(税込) | 16,636円(税込) |"
+    },
+    {
+      "url": "https://www.onamae.com/server/vps/price/",
+      "date": "2026-11-25",
+      "proved": "the vendor price table still states the setup and one-month prices from the free-setup 1 GB plan to the 16 GB plan",
+      "capture": "sha256:75237b5b0eb492e3506a88bd7bad80f66baa463aba3f3167c8b7810790061ab7",
+      "quote": "| 初期費用 | 無料 | 無料 | 5,951円(税込) | 10,142円(税込) | 17,474円(税込) |\n| 1ヶ月払い | 985円(税込) | 1,446円(税込) | 4,065円(税込) | 8,255円(税込) | 16,636円(税込) |"
+    },
+    {
+      "url": "https://www.onamae.com/server/vps/price/",
+      "date": "2026-11-25",
+      "proved": "the vendor price table states the setup fee, one-month price and twelve-month effective price for each plan and a three-month minimum period",
+      "capture": "sha256:75237b5b0eb492e3506a88bd7bad80f66baa463aba3f3167c8b7810790061ab7",
+      "quote": "| 初期費用 | 無料 | 無料 | 5,951円(税込) | 10,142円(税込) | 17,474円(税込) | ... | 1ヶ月払い | 985円(税込) | 1,446円(税込) | 4,065円(税込) | 8,255円(税込) | 16,636円(税込) | ... | 12ヶ月払い | 10,475円(税込) 実質873円/月 | 14,505円(税込) 実質1,209円/月 | 40,771円(税込) 実質3,398円/月 | 82,790円(税込) 実質6,899円/月 | 166,831円(税込) 実質13,902円/月 | ... | 最低利用期間は3ヶ月間となります。"
+    },
+    {
+      "url": "https://www.onamae.com/server/vps/price/",
+      "date": "2026-11-25",
+      "proved": "the vendor price table still states the setup fees, one-month prices and effective twelve-month monthly prices for all five plans",
+      "capture": "sha256:75237b5b0eb492e3506a88bd7bad80f66baa463aba3f3167c8b7810790061ab7",
+      "quote": "| 初期費用 | 無料 | 無料 | 5,951円(税込) | 10,142円(税込) | 17,474円(税込) | ... | 1ヶ月払い | 985円(税込) | 1,446円(税込) | 4,065円(税込) | 8,255円(税込) | 16,636円(税込) | ... | 12ヶ月払い | 10,475円(税込) 実質873円/月 | 14,505円(税込) 実質1,209円/月 | 40,771円(税込) 実質3,398円/月 | 82,790円(税込) 実質6,899円/月 | 166,831円(税込) 実質13,902円/月 |"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T16:38:12.334Z",
   "notes": "The unlimited-transfer claim comes from a third-party table and is not on the vendor price page read, so it is recorded as reported. A 2011 blog describes a fifteen-day free trial with a 5 Mbps downstream cap on this product; the current third-party comparison says no trial exists, and the vendor page does not mention one, so the trial is treated as withdrawn rather than current. The two sources disagree and the newer one wins, which is the finding. Payment method was not read on a vendor page this session; the card identity cost is inferred from a monthly or hourly billing model, and the signup page is the route that would settle it.",
   "extras": {
     "wave2": {

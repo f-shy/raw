@@ -140,32 +140,39 @@
       "quote": "\"checked_at\": \"2026-11-19T03:45:17.450Z\""
     },
     {
-      "url": "probe:https://zhuifan.link/",
-      "date": "2026-11-19",
-      "proved": "three consecutive failed probes: the Cloudflare 502 page marks the host as in Error with the browser and Cloudflare working, and no AList API, mount list or listing hash was returned",
-      "capture": "sha256:b9c452d427140e15b09e46b3597c3fde6b7d8d90bbc114768b4dfcd3e6afbf1a",
-      "quote": "\"consecutive_failures\": 3"
-    },
-    {
-      "url": "probe:https://zhuifan.link/",
-      "date": "2026-11-19",
-      "proved": "the failure count reached three across this run's probes",
-      "capture": "sha256:b9c452d427140e15b09e46b3597c3fde6b7d8d90bbc114768b4dfcd3e6afbf1a",
-      "quote": "\"consecutive_failures\": 3"
-    },
-    {
-      "url": "probe:https://zhuifan.link/",
-      "date": "2026-11-19",
-      "proved": "every API path of the third probe failed, so the host was recorded dead at this re-check",
-      "capture": "sha256:b9c452d427140e15b09e46b3597c3fde6b7d8d90bbc114768b4dfcd3e6afbf1a",
-      "quote": "\"alive\": false"
-    },
-    {
       "url": "https://zhuifan.link/",
       "date": "2026-11-20",
       "proved": "a 2026-11-20 probe of the host answered HTTP 502, so it is still down",
       "capture": "sha256:a7186d06d4614f6c4e360d51063497323eac457517808a6eca0d599cfb878d2e",
       "quote": "\"status\": 502,"
+    },
+    {
+      "url": "probe:https://zhuifan.link/",
+      "date": "2026-11-25",
+      "proved": "a fourth consecutive probe found no AList API or mount list at this host",
+      "capture": "sha256:4003be0f3bb88a1f3736e362c97fcf69782e7f91e191b4427322851e852a520c",
+      "quote": "\"consecutive_failures\": 4"
+    },
+    {
+      "url": "probe:https://zhuifan.link/",
+      "date": "2026-11-25",
+      "proved": "the fourth consecutive failed probe was checked at this instant",
+      "capture": "sha256:4003be0f3bb88a1f3736e362c97fcf69782e7f91e191b4427322851e852a520c",
+      "quote": "\"checked_at\": \"2026-11-25T02:34:44.320Z\""
+    },
+    {
+      "url": "probe:https://zhuifan.link/",
+      "date": "2026-11-25",
+      "proved": "the fresh probe found no anonymous settings, guest session or mount list, so the host is still dead",
+      "capture": "sha256:4003be0f3bb88a1f3736e362c97fcf69782e7f91e191b4427322851e852a520c",
+      "quote": "\"alive\": false"
+    },
+    {
+      "url": "probe:https://zhuifan.link/",
+      "date": "2026-11-25",
+      "proved": "the settings, guest-session and mount-list paths of the fresh probe all answered HTTP 502",
+      "capture": "sha256:4003be0f3bb88a1f3736e362c97fcf69782e7f91e191b4427322851e852a520c",
+      "quote": "\"status\": 502"
     },
     {
       "url": "probe:https://zhuifan.link/",
@@ -177,27 +184,13 @@
     {
       "url": "probe:https://zhuifan.link/",
       "date": "2026-11-25",
-      "proved": "the liveness probe answered HTTP 502, so the host did not serve the AList API",
-      "capture": "sha256:0ae1eddb5516f938b65645b617a27702549a3e54211c9473c596db42641b571f",
-      "quote": "\"status\": 502"
-    },
-    {
-      "url": "probe:https://zhuifan.link/",
-      "date": "2026-11-25",
       "proved": "the probe record states the dead verdict for this host",
       "capture": "sha256:48c6012071c7ff67bdffea2e686c6cd15bb932a5e1707ff21e86e044b07ebb50",
       "quote": "\"verdict\": \"dead\""
-    },
-    {
-      "url": "probe:https://zhuifan.link/",
-      "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to 4d9849d5 in this probe",
-      "capture": "sha256:938704625041850b0c2d8ea8bb83bd99a38160e8845b2ba09c5f890a86df6b0c",
-      "quote": "\"listing_sha256\": \"4d9849d5\""
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-11-25T14:21:58.149Z",
+  "verified_at": "2026-11-25T19:55:35.337Z",
   "binding": "write-gated",
   "notes": "anonymous POST /api/fs/list on / returned code 200 with 8 root entries (listing sha256 4d9849d5) Re-probed 2026-11-20: the host answered HTTP 502, so it is still dead and last_verified_alive stays at the last live observation (2026-11-11).",
   "history": [],
@@ -215,8 +208,8 @@
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
     "last_verified_alive": "2026-11-11T01:56:23.247Z",
-    "last_verified_dead": "2026-11-25T01:38:35.645Z",
-    "consecutive_failures": 3,
+    "last_verified_dead": "2026-11-25T02:34:44.320Z",
+    "consecutive_failures": 4,
     "aliases": [
       "Alist追番 (zhuifan.link) — public AList, read-only, WebDAV guest account works"
     ],

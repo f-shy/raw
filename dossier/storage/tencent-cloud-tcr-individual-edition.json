@@ -15,15 +15,15 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.tencentcloud.com/document/product/1051/37243",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: the Individual Edition quota table lists no image size limit"
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.tencentcloud.com/document/product/1051/37243",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: no first-party retention period for Individual Edition images was found"
   },
   "egress": {
-    "terms": "No per-GB egress charge is documented for Individual Edition; the billing page defines storage and public-network traffic fees only for Enterprise Edition ('The cloud-native artifacts of the TCR Enterprise managed instance ... are stored in your COS bucket. Storage and access fees will apply ... Using the public network to upload and download ... will incur public network traffic fees in COS'). Individual runs on Tencent's shared backend, not your COS bucket. Treat free egress as unverified-but-likely rather than confirmed.",
+    "terms": "unverified: the billing page states public network traffic fees for Enterprise artifacts in COS",
     "metered": false
   },
   "interface": [
@@ -83,10 +83,24 @@
       "proved": "the docs state pushes can be blocked in the shared queue under contention",
       "capture": "sha256:ea4f9f51c06cad6dbcc2dcf952cbd523e44ec42add5af05a7e721e48e29e3860",
       "quote": "Since the image repository of TCR Individual Edition is shared with all other public cloud accounts, the images that have been pulled/pushed are blocked in the queue and are not displayed. You can try to push the images again."
+    },
+    {
+      "url": "https://www.tencentcloud.com/document/product/1051/74856",
+      "date": "2026-11-25",
+      "proved": "the specification states Individual Edition quota limits",
+      "capture": "sha256:8158927222817d3dfeb192b212837eeb342834d300a48bef766073c2ac641d57",
+      "quote": "The services offered by the Individual Edition are shared cloud services, that is, all Individual Edition users share the service backend and data storage, with quota limits on image hosting and upload/download."
+    },
+    {
+      "url": "https://www.tencentcloud.com/document/product/1051/35483",
+      "date": "2026-11-25",
+      "proved": "the billing page names public network traffic fees for COS artifacts",
+      "capture": "sha256:6e97b871e52f6f68134ae453723d60bfae4aea72959202a008520549fc821799",
+      "quote": "Using the public network to upload and download the cloud-native artifacts such as container images and Helm charts will incur public network traffic fees in COS."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:15:22.053Z",
+  "verified_at": "2026-11-25T19:55:23.967Z",
   "notes": "Free, count-based only: 'The TCR Individual Edition is free of charge and can be activated directly.' Quotas: 'Number of image namespaces in a single region | 10', 'Number of image repositories in a single region | 500 in the Guangzhou region and 100 in other regions', 'Number of image tags for a single image | 100'. No byte quota is published for Individual Edition.",
   "history": [],
   "extras": {

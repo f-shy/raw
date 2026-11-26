@@ -1,0 +1,5015 @@
+{
+ "manifest": 1,
+ "written": "2026-11-25T21:51:18Z",
+ "run": {
+  "run": "20261125-0129-verify-storage-1818",
+  "kind": "verify",
+  "topic": "storage",
+  "request": "establish from first-party pages the values the storage records leave unknown, at least 634 of them",
+  "created": "2026-11-25T01:29:06Z",
+  "base": "6b327ec9704059e5ef6a84fe8872cd4bb2193f78",
+  "branch": "rq/20261125-0129-verify-storage-1818",
+  "issue": null,
+  "rounds": 2,
+  "research_issue": null
+ },
+ "units": [
+  {
+   "id": "u01",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 4,
+    "confirmed": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read this record's first-party pricing page and establish the values its unknown classes name: the interface, the retention sentence, the per-object cap, how the offering chains, and the egress terms.",
+   "scope": {
+    "rids": [
+     "storage/fil-one-storacha-s3-tier"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u02",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u01",
+   "score": {
+    "supported": 10,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 10,
+    "upper95": 0.278,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 10 claim(s) integrated by unit u01 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u03",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 23,
+    "confirmed": 15,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/archive-org-classic-web-uploader",
+     "storage/archive-org-forum-10gb-per-item-guidance",
+     "storage/castbox-creator-studio",
+     "storage/designsafe-ci-nheri-data-depot",
+     "storage/microsoft-fabric-trial-onelake",
+     "storage/storacha-fil-one"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u04",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 24,
+    "confirmed": 18,
+    "questions": 5,
+    "evidence": 6,
+    "conflict": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/webtropia-storage-server-ryz5-20",
+     "storage/24242-io-public-blossom-blob-server",
+     "storage/alibaba-bailian-dashscope-file-api",
+     "storage/anyflip",
+     "storage/audiomack",
+     "storage/bandcamp-free-artist-account"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u05",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 16,
+    "confirmed": 20,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/blossom-ditto-pub",
+     "storage/chan-zuckerberg-initiative-essential-open-source-softwar",
+     "storage/datum-storage",
+     "storage/dlsite",
+     "storage/emergent-ventures-13-worldwide-no-institution-fastest-in",
+     "storage/evolution-host-0-00-lifetime-vds-1-tb-nvme-in-exchange-f"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u06",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 17,
+    "confirmed": 13,
+    "corroborated": 1,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/fex-net",
+     "storage/filecoin-onchain-cloud",
+     "storage/frontproxy",
+     "storage/google-play-books-partner-center",
+     "storage/hdx-humanitarian-data-exchange",
+     "storage/hearthis-at-free-tier"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u07",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 15,
+    "confirmed": 19,
+    "evidence": 3,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/hetzner-sx135-2-dedicated-storage-server",
+     "storage/iroh-public-relays",
+     "storage/jamendo",
+     "storage/kimsufi-ks-5",
+     "storage/kyun-host-bricks",
+     "storage/lanzou"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u08",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 21,
+    "confirmed": 14,
+    "evidence": 3,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/moddb",
+     "storage/nlnet-restack-fund",
+     "storage/nlnet-restack-fund-the-grant-an-unaffiliated-individual",
+     "storage/nostr-download",
+     "storage/redcircle-core-plan",
+     "storage/rutube"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u09",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 16,
+    "confirmed": 19,
+    "conflict": 1,
+    "corroborated": 1,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/shuttleworth-foundation-fellowship-individual-no-organis",
+     "storage/skool-native-video-hosting",
+     "storage/spreaker-free-plan",
+     "storage/substack-file-embeds",
+     "storage/syncthing-community-relay-pool",
+     "storage/time4vps-storage-vps-1-tb"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u10",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 13,
+    "confirmed": 8,
+    "evidence": 2,
+    "conflict": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/vikingfile",
+     "storage/vk-video",
+     "storage/zencastr-free-hosting",
+     "storage/1fichier-registered-free-account-5-tb-of-temporary-stora",
+     "storage/88file-jp",
+     "storage/academic-torrents"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u100",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u23",
+   "score": {
+    "supported": 24,
+    "unsupported": 6,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.373,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u23 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u101",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u24",
+   "score": {
+    "supported": 23,
+    "unsupported": 7,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.409,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u24 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u102",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u25",
+   "score": {
+    "supported": 19,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 22,
+    "upper95": 0.333,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 22 claim(s) integrated by unit u25 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u103",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u26",
+   "score": {
+    "supported": 17,
+    "unsupported": 13,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.608,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u26 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u104",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u27",
+   "score": {
+    "supported": 19,
+    "unsupported": 11,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.545,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u27 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u105",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u28",
+   "score": {
+    "supported": 18,
+    "unsupported": 12,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.577,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u28 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u106",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u29",
+   "score": {
+    "supported": 23,
+    "unsupported": 7,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.409,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u29 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u107",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u30",
+   "score": {
+    "supported": 17,
+    "unsupported": 4,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 21,
+    "upper95": 0.4,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 21 claim(s) integrated by unit u30 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u108",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u31",
+   "score": {
+    "supported": 15,
+    "unsupported": 15,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.668,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u31 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u109",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u32",
+   "score": {
+    "supported": 19,
+    "unsupported": 5,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 24,
+    "upper95": 0.405,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 24 claim(s) integrated by unit u32 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u11",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 17,
+    "evidence": 4,
+    "confirmed": 14,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/acdata",
+     "storage/adtaq-storage-vps-2-tb-30-days-free",
+     "storage/advin-servers-kvm-storage-vps",
+     "storage/airtable-attachment-fields",
+     "storage/alibaba-cloud-acr-personal-edition",
+     "storage/alibaba-cloud-oss-new-user-free-trial"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u110",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u33",
+   "score": {
+    "supported": 19,
+    "unsupported": 11,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.545,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u33 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u111",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u34",
+   "score": {
+    "supported": 19,
+    "unsupported": 11,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.545,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u34 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u112",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u67",
+   "score": {
+    "supported": 0,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 1,
+    "upper95": 1.0,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 1 claim(s) integrated by unit u67 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u113",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u68",
+   "score": {
+    "supported": 3,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 3,
+    "upper95": 0.562,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 3 claim(s) integrated by unit u68 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u114",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u89",
+   "score": {
+    "supported": 29,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.167,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u89 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u115",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u90",
+   "score": {
+    "supported": 26,
+    "unsupported": 4,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.297,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u90 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u116",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u91",
+   "score": {
+    "supported": 21,
+    "unsupported": 7,
+    "cannot_tell": 2,
+    "unverifiable_quotes": 0,
+    "decided": 28,
+    "upper95": 0.434,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u91 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u117",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u92",
+   "score": {
+    "supported": 13,
+    "unsupported": 10,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 23,
+    "upper95": 0.632,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 23 claim(s) integrated by unit u92 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u118",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u93",
+   "score": {
+    "supported": 18,
+    "unsupported": 12,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.577,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u93 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u119",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u94",
+   "score": {
+    "supported": 26,
+    "unsupported": 4,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.297,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u94 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u12",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 11,
+    "confirmed": 11,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/allfiles-org",
+     "storage/alphavps-storage-vps",
+     "storage/amazon-ecr-public",
+     "storage/apple-books",
+     "storage/archive-org-download-web-serving-path",
+     "storage/audius-original-file-is-served-byte-for-byte"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u120",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u95",
+   "score": {
+    "supported": 20,
+    "unsupported": 10,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.512,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u95 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u121",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u96",
+   "score": {
+    "supported": 29,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.167,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u96 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u122",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u97",
+   "score": {
+    "supported": 29,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.167,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u97 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u123",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u98",
+   "score": {
+    "supported": 27,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.256,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u98 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u124",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "audit u75 of 20261125-0129-verify-storage-1818/u09 failed: 12 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u09-rerun",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:32Z",
+    "was": "running"
+   },
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/shuttleworth-foundation-fellowship-individual-no-organis",
+     "storage/skool-native-video-hosting",
+     "storage/spreaker-free-plan",
+     "storage/substack-file-embeds",
+     "storage/syncthing-community-relay-pool",
+     "storage/time4vps-storage-vps-1-tb"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u125",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 17,
+    "evidence": 6,
+    "confirmed": 10,
+    "questions": 6,
+    "rejected": 0
+   },
+   "origin": "audit u100 of 20261125-0129-verify-storage-1818/u23 failed: 6 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u23-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/firestorage-jp",
+     "storage/fjord-commons",
+     "storage/framagit-framasoft-s-gitlab",
+     "storage/freesound-creative-commons-sound-library",
+     "storage/freshdesk",
+     "storage/g-ttingen-research-online-bonndata-anubis-walled-pair"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u126",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 13,
+    "confirmed": 12,
+    "questions": 6,
+    "rejected": 0
+   },
+   "origin": "audit u101 of 20261125-0129-verify-storage-1818/u24 failed: 7 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u24-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/gbif-ipt-via-a-data-hosting-centre-free-email-account-bu",
+     "storage/gcore-free-cdn",
+     "storage/gemfury-public-plan",
+     "storage/gemini-notebook-source-corpus",
+     "storage/ghost-5-mb-on-free-trial-starter-100-mb-publisher-self-h",
+     "storage/ghproxy-mirrors-free-anonymous-github-raw-release-proxy"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u127",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 32,
+    "confirmed": 9,
+    "questions": 7,
+    "rejected": 0
+   },
+   "origin": "audit u102 of 20261125-0129-verify-storage-1818/u25 failed: 3 of 22 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u25-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/gigafile",
+     "storage/gigawatasu",
+     "storage/gitbook",
+     "storage/github-actions-artifacts",
+     "storage/github-container-registry-via-oras-known-numbers-re-veri",
+     "storage/github-gist"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u128",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 27,
+    "confirmed": 10,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "audit u103 of 20261125-0129-verify-storage-1818/u26 failed: 13 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u26-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/github-git-lfs",
+     "storage/github-issue-pr-comment-attachments",
+     "storage/github-packages-public-packages",
+     "storage/gitlab-ci-job-artifacts",
+     "storage/gitlab-com-container-registry",
+     "storage/gitlab-com-generic-package-registry"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u129",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 46,
+    "confirmed": 8,
+    "questions": 3,
+    "corroborated": 2,
+    "evidence": 2,
+    "rejected": 0
+   },
+   "origin": "audit u104 of 20261125-0129-verify-storage-1818/u27 failed: 11 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u27-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/gitlab-com-git-lfs",
+     "storage/gitlab-com-snippets",
+     "storage/gitlab-container-registry",
+     "storage/gitlab-package-registry",
+     "storage/gitlab-snippets-gitlab-com-projects",
+     "storage/gnu-savannah-download-area"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u13",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 10,
+    "confirmed": 8,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/aussda-dataverse",
+     "storage/aws-activate",
+     "storage/aws-free-tier-s3",
+     "storage/aws-open-data-sponsorship-program",
+     "storage/azure-devops-repos",
+     "storage/azure-devops-repos-git-lfs"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u130",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 52,
+    "confirmed": 14,
+    "evidence": 1,
+    "dropped": 2,
+    "questions": 5,
+    "rejected": 0
+   },
+   "origin": "audit u105 of 20261125-0129-verify-storage-1818/u28 failed: 12 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u28-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/gofile",
+     "storage/google-chat-spaces-as-a-quota-exempt-attachment-store",
+     "storage/google-drive-shared-drives-written-by-service-accounts",
+     "storage/google-for-startups-cloud-program",
+     "storage/google-workspace-for-education-fundamentals",
+     "storage/greencloudvps-storage-kvm"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u131",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 33,
+    "evidence": 9,
+    "confirmed": 9,
+    "questions": 2,
+    "conflict": 5,
+    "rejected": 0
+   },
+   "origin": "audit u106 of 20261125-0129-verify-storage-1818/u29 failed: 7 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u29-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/gumroad",
+     "storage/hackage",
+     "storage/harvard-dataverse",
+     "storage/harvard-dataverse-repository-per-collection-quota",
+     "storage/hetzner-object-storage",
+     "storage/hetzner-storage-box"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u132",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 22,
+    "confirmed": 19,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "audit u107 of 20261125-0129-verify-storage-1818/u30 failed: 4 of 21 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u30-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/hetzner-storage-box-bx11-bx21-bx31",
+     "storage/hetzner-storage-box-bx21",
+     "storage/hetzner-storage-box-bx41",
+     "storage/hetzner-sx65-2-dedicated-storage-server",
+     "storage/hitfile",
+     "storage/hop-js-cdn-bunny-net-s-free-oss-mirror-of-npm-cdnjs"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u133",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 24,
+    "evidence": 1,
+    "confirmed": 5,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "audit u108 of 20261125-0129-verify-storage-1818/u31 failed: 15 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u31-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/hostbrr-storage-vps-hdd-block",
+     "storage/hostbrr-storagebox-16-tb",
+     "storage/hostbrr-storagebox-16tb",
+     "storage/hosthatch-storage-vm",
+     "storage/hosting-by-design-app-hosting-24-tb",
+     "storage/hosting-mammoth-object-storage"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u134",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 21,
+    "confirmed": 10,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "audit u109 of 20261125-0129-verify-storage-1818/u32 failed: 5 of 24 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u32-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/hpci-shared-storage",
+     "storage/huawei-cloud-swr-basic-edition",
+     "storage/hubspot",
+     "storage/hygraph",
+     "storage/ias3-old-version-retention",
+     "storage/icedrive-3-tb"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u135",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 36,
+    "confirmed": 6,
+    "questions": 6,
+    "evidence": 2,
+    "rejected": 0
+   },
+   "origin": "audit u110 of 20261125-0129-verify-storage-1818/u33 failed: 11 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u33-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/icpsr-consortium-archive",
+     "storage/iiif-archive-org",
+     "storage/ilanzou",
+     "storage/imgbb",
+     "storage/impossible-cloud",
+     "storage/incite"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u136",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 34,
+    "confirmed": 8,
+    "evidence": 7,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "audit u111 of 20261125-0129-verify-storage-1818/u34 failed: 11 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u34-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/intercom",
+     "storage/internet-archive",
+     "storage/internet-archive-bittorrents",
+     "storage/internxt-lifetime",
+     "storage/interserver-storage-st-600",
+     "storage/interserver-storage-vps"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u137",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 40,
+    "confirmed": 23,
+    "questions": 6,
+    "evidence": 4,
+    "rejected": 0
+   },
+   "origin": "audit u70 of 20261125-0129-verify-storage-1818/u04 failed: 5 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u04-rerun",
+   "question": "Queue item 20261125-0129-verify-storage-1818-u04-rerun: Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit",
+   "scope": {
+    "rids": [
+     "storage/24242-io-public-blossom-blob-server",
+     "storage/alibaba-bailian-dashscope-file-api",
+     "storage/anyflip",
+     "storage/audiomack",
+     "storage/bandcamp-free-artist-account",
+     "storage/webtropia-storage-server-ryz5-20"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u138",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "audit u72 of 20261125-0129-verify-storage-1818/u06 failed: 6 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u06-rerun",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:32Z",
+    "was": "running"
+   },
+   "question": "Queue item 20261125-0129-verify-storage-1818-u06-rerun: Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit",
+   "scope": {
+    "rids": [
+     "storage/fex-net",
+     "storage/filecoin-onchain-cloud",
+     "storage/frontproxy",
+     "storage/google-play-books-partner-center",
+     "storage/hdx-humanitarian-data-exchange",
+     "storage/hearthis-at-free-tier"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u139",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 53,
+    "confirmed": 30,
+    "dropped": 2,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "audit u73 of 20261125-0129-verify-storage-1818/u07 failed: 10 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u07-rerun",
+   "question": "Queue item 20261125-0129-verify-storage-1818-u07-rerun: Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit",
+   "scope": {
+    "rids": [
+     "storage/hetzner-sx135-2-dedicated-storage-server",
+     "storage/iroh-public-relays",
+     "storage/jamendo",
+     "storage/kimsufi-ks-5",
+     "storage/kyun-host-bricks",
+     "storage/lanzou"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u14",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 25,
+    "confirmed": 22,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/azure-for-students",
+     "storage/baidu-ai-studio-dataset-notebook-storage",
+     "storage/bigfile-net",
+     "storage/biostudies-arrayexpress",
+     "storage/bitrix24-free",
+     "storage/blomp"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u140",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "audit u74 of 20261125-0129-verify-storage-1818/u08 failed: 6 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u08-rerun",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:32Z",
+    "was": "running"
+   },
+   "question": "Queue item 20261125-0129-verify-storage-1818-u08-rerun: Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit",
+   "scope": {
+    "rids": [
+     "storage/moddb",
+     "storage/nlnet-restack-fund",
+     "storage/nlnet-restack-fund-the-grant-an-unaffiliated-individual",
+     "storage/nostr-download",
+     "storage/redcircle-core-plan",
+     "storage/rutube"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u141",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "audit u78 of 20261125-0129-verify-storage-1818/u12 failed: 7 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u12-rerun",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:33Z",
+    "was": "running"
+   },
+   "question": "Queue item 20261125-0129-verify-storage-1818-u12-rerun: Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit",
+   "scope": {
+    "rids": [
+     "storage/allfiles-org",
+     "storage/alphavps-storage-vps",
+     "storage/amazon-ecr-public",
+     "storage/apple-books",
+     "storage/archive-org-download-web-serving-path",
+     "storage/audius-original-file-is-served-byte-for-byte"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u142",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "audit u80 of 20261125-0129-verify-storage-1818/u14 failed: 5 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u14-rerun",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:33Z",
+    "was": "running"
+   },
+   "question": "Queue item 20261125-0129-verify-storage-1818-u14-rerun: Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit",
+   "scope": {
+    "rids": [
+     "storage/azure-for-students",
+     "storage/baidu-ai-studio-dataset-notebook-storage",
+     "storage/bigfile-net",
+     "storage/biostudies-arrayexpress",
+     "storage/bitrix24-free",
+     "storage/blomp"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u143",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "audit u81 of 20261125-0129-verify-storage-1818/u15 failed: 9 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u15-rerun",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:33Z",
+    "was": "running"
+   },
+   "question": "Queue item 20261125-0129-verify-storage-1818-u15-rerun: Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit",
+   "scope": {
+    "rids": [
+     "storage/blossom-server-fleet",
+     "storage/blossom-servers",
+     "storage/bulknews-free-usenet-trial",
+     "storage/bunny-net-edge-storage",
+     "storage/buzzheavier",
+     "storage/cachefly-object-storage"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u144",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "audit u87 of 20261125-0129-verify-storage-1818/u21 failed: 3 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u21-rerun",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:33Z",
+    "was": "running"
+   },
+   "question": "Queue item 20261125-0129-verify-storage-1818-u21-rerun: Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit",
+   "scope": {
+    "rids": [
+     "storage/discourse-hosted-free-plan",
+     "storage/docker-hub",
+     "storage/drime-secure-cloud-storage-10-tb-lifetime",
+     "storage/ena-webin",
+     "storage/eveo-object-storage-s3-the-only-zero-egress-s3-endpoint",
+     "storage/fandom"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u145",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u125",
+   "score": {
+    "supported": 27,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.256,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u125 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u146",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u126",
+   "score": {
+    "supported": 19,
+    "unsupported": 5,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 24,
+    "upper95": 0.405,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 24 claim(s) integrated by unit u126 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u147",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u127",
+   "score": {
+    "supported": 27,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.256,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u127 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u148",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u128",
+   "score": {
+    "supported": 25,
+    "unsupported": 5,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.336,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u128 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u149",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u129",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u129 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u15",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 12,
+    "confirmed": 13,
+    "evidence": 1,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/blossom-server-fleet",
+     "storage/blossom-servers",
+     "storage/bulknews-free-usenet-trial",
+     "storage/bunny-net-edge-storage",
+     "storage/buzzheavier",
+     "storage/cachefly-object-storage"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u150",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u130",
+   "score": {
+    "supported": 29,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.167,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u130 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u151",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u131",
+   "score": {
+    "supported": 28,
+    "unsupported": 2,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.213,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u131 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u152",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u132",
+   "score": {
+    "supported": 12,
+    "unsupported": 18,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.754,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u132 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u153",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u133",
+   "score": {
+    "supported": 26,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 26,
+    "upper95": 0.129,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 26 claim(s) integrated by unit u133 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u154",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u134",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u134 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u155",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u135",
+   "score": {
+    "supported": 27,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.256,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u135 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u156",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u136",
+   "score": {
+    "supported": 29,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.167,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u136 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u157",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:33Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/academic-torrents from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.per_object_cap.notes: proposed \"The 10 MB cap applies to each .torrent file; the dataset the torrent describes has",
+   "scope": {
+    "rids": [
+     "storage/academic-torrents"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u158",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:34Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/airtable-attachment-fields from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.retention.notes: proposed \"The Free plan includes 2 weeks of revision and snapshot history; Airtable stat",
+   "scope": {
+    "rids": [
+     "storage/airtable-attachment-fields"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u159",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:34Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/audiomack from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.per_object_cap.notes: proposed \"A third-party table gives 250 MB per file; Audiomack's own pages do not state a per-file c",
+   "scope": {
+    "rids": [
+     "storage/audiomack"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u16",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 13,
+    "confirmed": 13,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/catbox",
+     "storage/cdn77-object-storage",
+     "storage/civitai-model-version-files",
+     "storage/clarin-si-dspace-repository",
+     "storage/cloudflare-for-startups-nonprofit-civil-society-track",
+     "storage/cloudflare-pages"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u160",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:34Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/cloudflare-for-startups-nonprofit-civil-society-track from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.limits[1].value: proposed \"application window has closed, so treat as 'reapply",
+   "scope": {
+    "rids": [
+     "storage/cloudflare-for-startups-nonprofit-civil-society-track"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u161",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:34Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/contabo-object-storage from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.retention.notes: proposed \"no minimum storage duration or default expiry is stated; expiration is an optional",
+   "scope": {
+    "rids": [
+     "storage/contabo-object-storage"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u162",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:34Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/cyberdrop from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.tooling: proposed \"the FAQ documents a beta REST API with a personal token header, node discovery, multipart upload and up",
+   "scope": {
+    "rids": [
+     "storage/cyberdrop"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u163",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:34Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/databricks-free-edition from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.egress.terms: proposed \"Not addressed in the Free Edition docs. Outbound internet is 'restricted to a limite",
+   "scope": {
+    "rids": [
+     "storage/databricks-free-edition"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u164",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:34Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/digital-research-alliance-of-canada-1-tb-default-object from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.egress.terms: proposed \"Unmetered egress. OpenStack Swift and S3 interfaces ",
+   "scope": {
+    "rids": [
+     "storage/digital-research-alliance-of-canada-1-tb-default-object"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u165",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:35Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/discord-free-account from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.chaining: proposed \"100 servers per free account (200 with Nitro) x 500 channels per server = 50,000 text chann",
+   "scope": {
+    "rids": [
+     "storage/discord-free-account"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u166",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:35Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/emergent-ventures-13-worldwide-no-institution-fastest-in from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.identity_cost.kind: proposed \"email\" (evidence https://mercatus.tfaforms.ne",
+   "scope": {
+    "rids": [
+     "storage/emergent-ventures-13-worldwide-no-institution-fastest-in"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u167",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:35Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/greencloudvps-storage-kvm from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.free_tier.stated: proposed \"| Storage-2 | 2048GB SATA | 4 cores | 6 GB | 10 TB | 10Gbps Port | Linux | 24/",
+   "scope": {
+    "rids": [
+     "storage/greencloudvps-storage-kvm"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u168",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:35Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/harvard-dataverse from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.per_object_cap.notes: proposed \"Files of up to 2.5 GB are accepted; the getting-started page states the same 2.5 G",
+   "scope": {
+    "rids": [
+     "storage/harvard-dataverse"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u169",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:35Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/harvard-dataverse-repository-per-collection-quota from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.per_object_cap.notes: proposed \"Per-file cap 2.5 GB; the getting-started page stat",
+   "scope": {
+    "rids": [
+     "storage/harvard-dataverse-repository-per-collection-quota"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u17",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 12,
+    "confirmed": 6,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/cloudflare-workers-static-assets",
+     "storage/cnb",
+     "storage/coda-superhuman-docs-attachments",
+     "storage/codefloe",
+     "storage/contabo-object-storage",
+     "storage/crates-io"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u170",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:35Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/hetzner-storage-box from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.per_object_cap.stated: proposed \"unverified: neither the Storage Box overview Limits list nor the plan table sta",
+   "scope": {
+    "rids": [
+     "storage/hetzner-storage-box"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u171",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:35Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/hitfile from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.per_object_cap.notes: proposed \"The terms list a 100 GB maximum upload size as a premium advantage and give no free-account ",
+   "scope": {
+    "rids": [
+     "storage/hitfile"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u172",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:35Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/hop-js-cdn-bunny-net-s-free-oss-mirror-of-npm-cdnjs from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.per_object_cap.notes: proposed \"No per-object cap is published: the mirror has n",
+   "scope": {
+    "rids": [
+     "storage/hop-js-cdn-bunny-net-s-free-oss-mirror-of-npm-cdnjs"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u173",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:36Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/huawei-cloud-swr-basic-edition from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.retention.notes: proposed \"Basic Edition supports retention of a single image but not batch retention",
+   "scope": {
+    "rids": [
+     "storage/huawei-cloud-swr-basic-edition"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u174",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:36Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/internxt-lifetime from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.interface_detail: proposed \"The StackSocial plan does not include CLI, WebDAV or Rclone, which Internxt sells sepa",
+   "scope": {
+    "rids": [
+     "storage/internxt-lifetime"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u175",
+   "kind": "reconcile",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "conflict",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:36Z",
+    "was": "running"
+   },
+   "question": "Settle these disagreements on storage/zencastr-free-hosting from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.egress.terms: proposed \"Not metered in any published doc; hosting and publishing show 'Unlimited' in the plan ",
+   "scope": {
+    "rids": [
+     "storage/zencastr-free-hosting"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u176",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u137",
+   "score": {
+    "supported": 29,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.167,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u137 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u177",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u139",
+   "score": {
+    "supported": 29,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.167,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u139 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u178",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u35",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u35 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u179",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u39",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u39 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u18",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 24,
+    "confirmed": 20,
+    "evidence": 4,
+    "questions": 6,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/crossda",
+     "storage/csc-fairdata-ida-quota-granted-per-csc-project-funded-fr",
+     "storage/curseforge-author-file-hosting",
+     "storage/cyberdrop",
+     "storage/dagshub",
+     "storage/dailymotion"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u180",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u42",
+   "score": {
+    "supported": 10,
+    "unsupported": 4,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 14,
+    "upper95": 0.546,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 14 claim(s) integrated by unit u42 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u181",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u44",
+   "score": {
+    "supported": 27,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.256,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u44 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u182",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u45",
+   "score": {
+    "supported": 12,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 13,
+    "upper95": 0.333,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 13 claim(s) integrated by unit u45 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u183",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u47",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u47 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u184",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u48",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u48 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u185",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u49",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u49 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u186",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u50",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u50 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u187",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u51",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u51 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u188",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u52",
+   "score": {
+    "supported": 23,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 23,
+    "upper95": 0.143,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 23 claim(s) integrated by unit u52 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u189",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u55",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u55 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u19",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 13,
+    "confirmed": 6,
+    "questions": 6,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/dare-dare-uol-de",
+     "storage/databricks-free-edition",
+     "storage/datalix-s3-object-storage",
+     "storage/dataverselv",
+     "storage/debian-salsa-gitlab-with-generic-package-registry",
+     "storage/deluxhost-storage-vps"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u190",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u56",
+   "score": {
+    "supported": 28,
+    "unsupported": 2,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.213,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u56 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u191",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u57",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u57 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u192",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u58",
+   "score": {
+    "supported": 29,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.167,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u58 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u193",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u59",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u59 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u194",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u62",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u62 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u195",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u65",
+   "score": {
+    "supported": 28,
+    "unsupported": 2,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.213,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u65 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u196",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u66",
+   "score": {
+    "supported": 27,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 27,
+    "upper95": 0.125,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 27 claim(s) integrated by unit u66 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u197",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u36",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u36 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u198",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u37",
+   "score": {
+    "supported": 24,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 24,
+    "upper95": 0.138,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 24 claim(s) integrated by unit u37 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u199",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u40",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u40 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u20",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 15,
+    "confirmed": 11,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/designsafe-ci-data-depot-no-published-cap-on-published-d",
+     "storage/digital-research-alliance-of-canada-1-tb-default-object",
+     "storage/dingtalk-drive",
+     "storage/discord-cloud-uploads",
+     "storage/discord-ddrive",
+     "storage/discord-free-account"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u200",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u41",
+   "score": {
+    "supported": 28,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 28,
+    "upper95": 0.121,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 28 claim(s) integrated by unit u41 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u201",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u43",
+   "score": {
+    "supported": 16,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 17,
+    "upper95": 0.27,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 17 claim(s) integrated by unit u43 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u202",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u46",
+   "score": {
+    "supported": 29,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.167,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u46 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u203",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u53",
+   "score": {
+    "supported": 15,
+    "unsupported": 6,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 21,
+    "upper95": 0.5,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 21 claim(s) integrated by unit u53 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u204",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u54",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u54 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u205",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u61",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u61 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u206",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u63",
+   "score": {
+    "supported": 29,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.167,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u63 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u21",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 16,
+    "confirmed": 15,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/discourse-hosted-free-plan",
+     "storage/docker-hub",
+     "storage/drime-secure-cloud-storage-10-tb-lifetime",
+     "storage/ena-webin",
+     "storage/eveo-object-storage-s3-the-only-zero-egress-s3-endpoint",
+     "storage/fandom"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u22",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 12,
+    "confirmed": 6,
+    "questions": 5,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/fastly-fast-forward",
+     "storage/fedora-copr",
+     "storage/feral-hosting-radon",
+     "storage/fil-one",
+     "storage/file-kiwi",
+     "storage/filen-pro-x"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u23",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 14,
+    "confirmed": 15,
+    "evidence": 1,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/firestorage-jp",
+     "storage/fjord-commons",
+     "storage/framagit-framasoft-s-gitlab",
+     "storage/freesound-creative-commons-sound-library",
+     "storage/freshdesk",
+     "storage/g-ttingen-research-online-bonndata-anubis-walled-pair"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u24",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 23,
+    "confirmed": 18,
+    "evidence": 9,
+    "corroborated": 1,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/gbif-ipt-via-a-data-hosting-centre-free-email-account-bu",
+     "storage/gcore-free-cdn",
+     "storage/gemfury-public-plan",
+     "storage/gemini-notebook-source-corpus",
+     "storage/ghost-5-mb-on-free-trial-starter-100-mb-publisher-self-h",
+     "storage/ghproxy-mirrors-free-anonymous-github-raw-release-proxy"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u25",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 12,
+    "confirmed": 6,
+    "questions": 7,
+    "evidence": 10,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/gigafile",
+     "storage/gigawatasu",
+     "storage/gitbook",
+     "storage/github-actions-artifacts",
+     "storage/github-container-registry-via-oras-known-numbers-re-veri",
+     "storage/github-gist"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u26",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 13,
+    "confirmed": 13,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/github-git-lfs",
+     "storage/github-issue-pr-comment-attachments",
+     "storage/github-packages-public-packages",
+     "storage/gitlab-ci-job-artifacts",
+     "storage/gitlab-com-container-registry",
+     "storage/gitlab-com-generic-package-registry"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u27",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 11,
+    "confirmed": 13,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/gitlab-com-git-lfs",
+     "storage/gitlab-com-snippets",
+     "storage/gitlab-container-registry",
+     "storage/gitlab-package-registry",
+     "storage/gitlab-snippets-gitlab-com-projects",
+     "storage/gnu-savannah-download-area"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u28",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 12,
+    "confirmed": 24,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/gofile",
+     "storage/google-chat-spaces-as-a-quota-exempt-attachment-store",
+     "storage/google-drive-shared-drives-written-by-service-accounts",
+     "storage/google-for-startups-cloud-program",
+     "storage/google-workspace-for-education-fundamentals",
+     "storage/greencloudvps-storage-kvm"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u29",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 10,
+    "confirmed": 11,
+    "questions": 4,
+    "evidence": 3,
+    "conflict": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/gumroad",
+     "storage/hackage",
+     "storage/harvard-dataverse",
+     "storage/harvard-dataverse-repository-per-collection-quota",
+     "storage/hetzner-object-storage",
+     "storage/hetzner-storage-box"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u30",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 10,
+    "confirmed": 9,
+    "conflict": 2,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/hetzner-storage-box-bx11-bx21-bx31",
+     "storage/hetzner-storage-box-bx21",
+     "storage/hetzner-storage-box-bx41",
+     "storage/hetzner-sx65-2-dedicated-storage-server",
+     "storage/hitfile",
+     "storage/hop-js-cdn-bunny-net-s-free-oss-mirror-of-npm-cdnjs"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u31",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 23,
+    "confirmed": 6,
+    "evidence": 2,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/hostbrr-storage-vps-hdd-block",
+     "storage/hostbrr-storagebox-16-tb",
+     "storage/hostbrr-storagebox-16tb",
+     "storage/hosthatch-storage-vm",
+     "storage/hosting-by-design-app-hosting-24-tb",
+     "storage/hosting-mammoth-object-storage"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u32",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 11,
+    "evidence": 2,
+    "confirmed": 10,
+    "conflict": 1,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/hpci-shared-storage",
+     "storage/huawei-cloud-swr-basic-edition",
+     "storage/hubspot",
+     "storage/hygraph",
+     "storage/ias3-old-version-retention",
+     "storage/icedrive-3-tb"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u33",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 12,
+    "confirmed": 13,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/icpsr-consortium-archive",
+     "storage/iiif-archive-org",
+     "storage/ilanzou",
+     "storage/imgbb",
+     "storage/impossible-cloud",
+     "storage/incite"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u34",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 13,
+    "confirmed": 14,
+    "questions": 2,
+    "evidence": 11,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.",
+   "scope": {
+    "rids": [
+     "storage/intercom",
+     "storage/internet-archive",
+     "storage/internet-archive-bittorrents",
+     "storage/internxt-lifetime",
+     "storage/interserver-storage-st-600",
+     "storage/interserver-storage-vps"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u35",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 47,
+    "confirmed": 39,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/itch-io",
+     "storage/jottacloud",
+     "storage/jottacloud-pro-20-tb",
+     "storage/jottacloud-unlimited",
+     "storage/jsdelivr",
+     "storage/jsdelivr-as-the-free-cdn-layer-over-github-repos"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u36",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 27,
+    "confirmed": 24,
+    "evidence": 2,
+    "questions": 6,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/kaggle-dataset-quota-request-program",
+     "storage/kaggle-datasets",
+     "storage/kaggle-models",
+     "storage/kaggle-notebook-outputs-the-free-side-channel",
+     "storage/kaggle-notebooks-datasets",
+     "storage/kth-data-repository"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u37",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "confirmed": 14,
+    "applied": 12,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/kub-ua-file-cloud-nextcloud-backed-flat-per-tb-with-unli",
+     "storage/lark-starter-free-plan",
+     "storage/launchpad-ppa",
+     "storage/launchpad-project-file-releases",
+     "storage/lightning-ai-studios",
+     "storage/lindat-clariah-cz-dspace-language-data-repository"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u38",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "parent",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:33Z",
+    "was": "running"
+   },
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/linkbox-telebox",
+     "storage/macaulay-library-ebird",
+     "storage/mail-bg-50-gb-free-mailbox-with-free-imap-pop-bulgarian",
+     "storage/mapillary",
+     "storage/materials-cloud-archive",
+     "storage/mega"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u39",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 16,
+    "confirmed": 22,
+    "questions": 6,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/mega-s4",
+     "storage/microsoft-azure-grant-for-nonprofits",
+     "storage/microsoft-fabric-trial-capacity-onelake",
+     "storage/microsoft-teams-gallery-media-uploads",
+     "storage/mixcloud-basic-tier",
+     "storage/modal"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u40",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 30,
+    "confirmed": 12,
+    "questions": 6,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/modal-volumes",
+     "storage/moddb-indiedb-file-downloads",
+     "storage/modelers",
+     "storage/modrinth",
+     "storage/mozilla-data-collective",
+     "storage/mrowl"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u41",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 22,
+    "confirmed": 15,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/naiss-arrhenius-disk-sens-storage-25-pb-and-10-pb-projec",
+     "storage/nakala",
+     "storage/national-research-platform-free-ceph-s3-to-any-namespace",
+     "storage/ncbi-geo",
+     "storage/ncbi-sra-with-anonymous-read-via-aws-open-data",
+     "storage/nebula-block-standard-object-storage-tier"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u42",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 12,
+    "confirmed": 7,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/neocities",
+     "storage/neoneko-git",
+     "storage/netdynamics24-germany-backup-sftp",
+     "storage/neurovault",
+     "storage/nexus-mods",
+     "storage/nightly-link"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u43",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "conflict": 3,
+    "applied": 7,
+    "confirmed": 9,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/notion-file-blocks-files-property",
+     "storage/novacloud-hosting-storage-vps",
+     "storage/npm-public-registry",
+     "storage/nsf-access-jetstream2-object-store-1-tb-default-storage",
+     "storage/nuclino",
+     "storage/nuget-org"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u44",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 16,
+    "confirmed": 12,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/odysee-lbry",
+     "storage/ollama-registry-the-strongest-finding-in-this-slot",
+     "storage/open-storage-network-via-nsf-access-1-to-50-tb-of-s3-per",
+     "storage/openaerialmap",
+     "storage/openai-files-api-per-project-file-storage",
+     "storage/opencsg"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u45",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 13,
+    "confirmed": 10,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/opendatalab",
+     "storage/openicpsr-self-publishing-repository",
+     "storage/openneuro",
+     "storage/opensuse-build-service-build-opensuse-org-public-instanc",
+     "storage/openxlab-model-dataset-centers",
+     "storage/oracle-for-research"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u46",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 12,
+    "confirmed": 11,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/origrid",
+     "storage/osf-per-component-quotas",
+     "storage/osu-open-source-lab-ftp-mirroring",
+     "storage/pangaea",
+     "storage/panoramax-federation-25-instances-with-per-instance-regi",
+     "storage/panoramax-osm-fr-instance"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u47",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 26,
+    "confirmed": 21,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/patrins",
+     "storage/payhip",
+     "storage/pcloud-photoday2026-promo-500-gb-free-for-3-months",
+     "storage/pcloud-premium-plus-2-tb-ultra-10-tb",
+     "storage/pcloud-ultra-10-tb",
+     "storage/peertube-peertube-cif-su"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u48",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 35,
+    "confirmed": 24,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/pikpak",
+     "storage/pixeldrain",
+     "storage/playfab-game-saves",
+     "storage/pockethost",
+     "storage/postimages",
+     "storage/printables"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u49",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 30,
+    "confirmed": 28,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/prismdrive-10-tb-annual",
+     "storage/prismic",
+     "storage/project-alexandria-cloudflare-s-recurring-oss-credit-pro",
+     "storage/proxyrack-unlimited-residential",
+     "storage/public-datasets-hosting-programme",
+     "storage/pulsedmedia-free-seedbox-trial"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u50",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 26,
+    "confirmed": 23,
+    "questions": 5,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/pulsedmedia-m10g-storage-box",
+     "storage/pulsedmedia-m10g-storage-box-16tb",
+     "storage/pypi",
+     "storage/quay-io-public-repositories",
+     "storage/raw-githack-com",
+     "storage/reddit-native-media"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u51",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 22,
+    "confirmed": 25,
+    "evidence": 1,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/repod-repository-for-open-data",
+     "storage/ringcentral-team-messaging-posts-files",
+     "storage/roblox-open-cloud-assets",
+     "storage/rollin-host-drive-empresarial-backup-storage-flat-per-tb",
+     "storage/rss-com-free-plan",
+     "storage/rsync-net-standard"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u52",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 12,
+    "confirmed": 12,
+    "evidence": 7,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/rubygems-org",
+     "storage/rumble",
+     "storage/ruvds-russian-flat-rate-disk-vps-with-unlimited-traffic",
+     "storage/sanity",
+     "storage/science-data-bank",
+     "storage/sciencedb-re-verified-write-path"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u53",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 18,
+    "confirmed": 6,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/seedhost-eu-hd-24",
+     "storage/sellfy",
+     "storage/servarica-polar-bear-killer-whale-mammoth-storage",
+     "storage/servarica-storage-vps",
+     "storage/seznam-cz",
+     "storage/seznam-cz-email-unlimited-size-mailbox-message-count-bou"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u54",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 23,
+    "confirmed": 15,
+    "conflict": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/sharepoint-online-site-collections",
+     "storage/shoutwiki",
+     "storage/snap-store",
+     "storage/snowflake-30-day-trial",
+     "storage/snowflake-trial-account",
+     "storage/software-heritage-archive-save-code-now"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u55",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 20,
+    "confirmed": 23,
+    "questions": 5,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/source-cooperative-byte-level-re-probe",
+     "storage/source-cooperative-uncapped-public-publishing-beta-gated",
+     "storage/sourceforge-file-release-system-frs-sourceforge-net",
+     "storage/sourceforge-file-release-system-project-web-space",
+     "storage/sourceforge-project-web",
+     "storage/spotify-for-creators"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u56",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 23,
+    "confirmed": 26,
+    "questions": 6,
+    "conflict": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/steam-cloud",
+     "storage/steam-workshop",
+     "storage/stoat-official-instance",
+     "storage/strapi-cloud",
+     "storage/strato-hidrive-1-tb-for-12-months-at-0",
+     "storage/strato-hidrive-business"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u57",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 23,
+    "confirmed": 26,
+    "evidence": 2,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/streamruby",
+     "storage/streamtape",
+     "storage/surf-research-drive-up-to-5-tb-free-via-nwo-funded-small",
+     "storage/surge-sh",
+     "storage/swisstransfer",
+     "storage/synapse"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u58",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 16,
+    "confirmed": 14,
+    "questions": 4,
+    "conflict": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/synology-c2-object-storage",
+     "storage/tcia",
+     "storage/telegram-mtproto-user-account-unlimited-channels-as-the",
+     "storage/telegram-public-channel-web-cdn-anonymous-reads",
+     "storage/telegraph",
+     "storage/tencent-cloud-tcr-individual-edition"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u59",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 24,
+    "confirmed": 17,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/terabox",
+     "storage/thehost-ua-keepdata-10-tb-flat-with-traffic-included-web",
+     "storage/thunderstore",
+     "storage/timvisee-send-instances",
+     "storage/trello-card-attachments",
+     "storage/ttl-sh"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u60",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "parent",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:33Z",
+    "was": "running"
+   },
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/turbobit",
+     "storage/u-ua",
+     "storage/uclouvain-dataverse",
+     "storage/ukr-net-mail-100-gb-per-single-message-1024-attachments",
+     "storage/ultra-cc-platinum-28-tb",
+     "storage/university-of-ljubljana-adp-dataverse"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u61",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 28,
+    "confirmed": 18,
+    "questions": 5,
+    "evidence": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/unpkg",
+     "storage/uploadhive",
+     "storage/upzur",
+     "storage/utho-archive-storage-0-38-gb-mo-cold-tier-denominated-no",
+     "storage/vimeo",
+     "storage/vip"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u62",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 17,
+    "confirmed": 20,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/vps-server-30-day-trial-with-1-tb-block-storage-100-cred",
+     "storage/walrus-testnet-public-publishers",
+     "storage/wasabi-hot-cloud-storage",
+     "storage/whatbox-h3-22",
+     "storage/wikimedia-commons",
+     "storage/xai-files-api-public-cdn-urls"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u63",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 16,
+    "confirmed": 16,
+    "corroborated": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/yandex-360-3-tb-the-regional-price-floor-with-unlimited",
+     "storage/youtube-with-dct-fountain-coded-payload",
+     "storage/zendesk-guide",
+     "storage/zoolz-cloud-backup-12-tb",
+     "storage/1fichier-premium-gold",
+     "storage/akamai-linode-object-storage"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u64",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "parent",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:33Z",
+    "was": "running"
+   },
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/atlassian-confluence-cloud-free",
+     "storage/atlassian-confluence-premium-via-social-impact-license-u",
+     "storage/axfc-uploader",
+     "storage/b2share",
+     "storage/bsc-dataverse",
+     "storage/disposable-mail-providers-as-storage"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u65",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 22,
+    "confirmed": 9,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/drime",
+     "storage/epic-online-services-player-data-storage",
+     "storage/github-releases",
+     "storage/mg-rast",
+     "storage/microsoft-365-business-basic-nonprofit-grant",
+     "storage/microsoft-365-office-365-a1-education-tenant"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u66",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 11,
+    "confirmed": 12,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "parent",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by tha",
+   "scope": {
+    "rids": [
+     "storage/mintfile",
+     "storage/misskey-gg-misskey-2026-10-1-tb-drive-per-user",
+     "storage/storj-dcs",
+     "storage/tigris",
+     "storage/transfer-it"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u67",
+   "kind": "reconcile",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "conflict": 1,
+    "confirmed": 1,
+    "rejected": 0
+   },
+   "origin": "conflict",
+   "question": "Settle these disagreements on storage/audiomack from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.per_object_cap.notes: proposed \"A third-party table gives 250 MB per file; Audiomack's own pages do not state a per-file c",
+   "scope": {
+    "rids": [
+     "storage/audiomack"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u68",
+   "kind": "reconcile",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 1,
+    "confirmed": 2,
+    "rejected": 0
+   },
+   "origin": "conflict",
+   "question": "Settle these disagreements on storage/skool-native-video-hosting from captured sources (re-capture the pages if needed). Propose the correct value with set, or confirm the current one:\n  - set $.per_object_cap.notes: proposed \"The native video hosting announcement states a 30 GB per-file size limit;",
+   "scope": {
+    "rids": [
+     "storage/skool-native-video-hosting"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u69",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u03",
+   "score": {
+    "supported": 30,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.114,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u03 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u70",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u04",
+   "score": {
+    "supported": 25,
+    "unsupported": 5,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.336,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u04 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u71",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u05",
+   "score": {
+    "supported": 26,
+    "unsupported": 4,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.297,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u05 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u72",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u06",
+   "score": {
+    "supported": 24,
+    "unsupported": 6,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.373,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u06 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u73",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u07",
+   "score": {
+    "supported": 20,
+    "unsupported": 10,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.512,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u07 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u74",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u08",
+   "score": {
+    "supported": 24,
+    "unsupported": 6,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.373,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u08 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u75",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u09",
+   "score": {
+    "supported": 18,
+    "unsupported": 12,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.577,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u09 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u76",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u10",
+   "score": {
+    "supported": 26,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 27,
+    "upper95": 0.183,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 27 claim(s) integrated by unit u10 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u77",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u11",
+   "score": {
+    "supported": 28,
+    "unsupported": 2,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.213,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u11 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u78",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u12",
+   "score": {
+    "supported": 23,
+    "unsupported": 7,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.409,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u12 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u79",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u13",
+   "score": {
+    "supported": 24,
+    "unsupported": 0,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 24,
+    "upper95": 0.138,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 24 claim(s) integrated by unit u13 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u80",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u14",
+   "score": {
+    "supported": 25,
+    "unsupported": 5,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.336,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u14 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u81",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u15",
+   "score": {
+    "supported": 21,
+    "unsupported": 9,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.479,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u15 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u82",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u16",
+   "score": {
+    "supported": 24,
+    "unsupported": 6,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.373,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u16 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u83",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u17",
+   "score": {
+    "supported": 19,
+    "unsupported": 1,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 20,
+    "upper95": 0.236,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 20 claim(s) integrated by unit u17 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u84",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u18",
+   "score": {
+    "supported": 28,
+    "unsupported": 2,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.213,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u18 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u85",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u19",
+   "score": {
+    "supported": 17,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 20,
+    "upper95": 0.36,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 20 claim(s) integrated by unit u19 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u86",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u20",
+   "score": {
+    "supported": 27,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.256,
+    "failed": false,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u20 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u87",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u21",
+   "score": {
+    "supported": 27,
+    "unsupported": 3,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 30,
+    "upper95": 0.256,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 30 claim(s) integrated by unit u21 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u88",
+   "kind": "audit",
+   "status": "integrated",
+   "topic": "storage",
+   "audits": "u22",
+   "score": {
+    "supported": 16,
+    "unsupported": 6,
+    "cannot_tell": 0,
+    "unverifiable_quotes": 0,
+    "decided": 22,
+    "upper95": 0.482,
+    "failed": true,
+    "undecided": false
+   },
+   "question": "Re-read 22 claim(s) integrated by unit u22 and judge each against its source.",
+   "scope": {},
+   "rejects": 0
+  },
+  {
+   "id": "u89",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 24,
+    "confirmed": 28,
+    "evidence": 2,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "audit u71 of 20261125-0129-verify-storage-1818/u05 failed: 4 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u05-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/blossom-ditto-pub",
+     "storage/chan-zuckerberg-initiative-essential-open-source-softwar",
+     "storage/datum-storage",
+     "storage/dlsite",
+     "storage/emergent-ventures-13-worldwide-no-institution-fastest-in",
+     "storage/evolution-host-0-00-lifetime-vds-1-tb-nvme-in-exchange-f"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u90",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 32,
+    "confirmed": 8,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "audit u72 of 20261125-0129-verify-storage-1818/u06 failed: 6 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u06-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/fex-net",
+     "storage/filecoin-onchain-cloud",
+     "storage/frontproxy",
+     "storage/google-play-books-partner-center",
+     "storage/hdx-humanitarian-data-exchange",
+     "storage/hearthis-at-free-tier"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u91",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "dropped": 1,
+    "applied": 27,
+    "confirmed": 27,
+    "corroborated": 1,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "audit u73 of 20261125-0129-verify-storage-1818/u07 failed: 10 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u07-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/hetzner-sx135-2-dedicated-storage-server",
+     "storage/iroh-public-relays",
+     "storage/jamendo",
+     "storage/kimsufi-ks-5",
+     "storage/kyun-host-bricks",
+     "storage/lanzou"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u92",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 8,
+    "confirmed": 6,
+    "evidence": 9,
+    "questions": 3,
+    "rejected": 0
+   },
+   "origin": "audit u74 of 20261125-0129-verify-storage-1818/u08 failed: 6 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u08-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/moddb",
+     "storage/nlnet-restack-fund",
+     "storage/nlnet-restack-fund-the-grant-an-unaffiliated-individual",
+     "storage/nostr-download",
+     "storage/redcircle-core-plan",
+     "storage/rutube"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u93",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 12,
+    "confirmed": 14,
+    "conflict": 3,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "audit u78 of 20261125-0129-verify-storage-1818/u12 failed: 7 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u12-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/allfiles-org",
+     "storage/alphavps-storage-vps",
+     "storage/amazon-ecr-public",
+     "storage/apple-books",
+     "storage/archive-org-download-web-serving-path",
+     "storage/audius-original-file-is-served-byte-for-byte"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u94",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 14,
+    "confirmed": 17,
+    "evidence": 10,
+    "questions": 4,
+    "rejected": 0
+   },
+   "origin": "audit u80 of 20261125-0129-verify-storage-1818/u14 failed: 5 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u14-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/azure-for-students",
+     "storage/baidu-ai-studio-dataset-notebook-storage",
+     "storage/bigfile-net",
+     "storage/biostudies-arrayexpress",
+     "storage/bitrix24-free",
+     "storage/blomp"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u95",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 18,
+    "confirmed": 14,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "audit u81 of 20261125-0129-verify-storage-1818/u15 failed: 9 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u15-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/blossom-server-fleet",
+     "storage/blossom-servers",
+     "storage/bulknews-free-usenet-trial",
+     "storage/bunny-net-edge-storage",
+     "storage/buzzheavier",
+     "storage/cachefly-object-storage"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u96",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 16,
+    "confirmed": 11,
+    "evidence": 3,
+    "questions": 1,
+    "rejected": 0
+   },
+   "origin": "audit u82 of 20261125-0129-verify-storage-1818/u16 failed: 6 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u16-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/catbox",
+     "storage/cdn77-object-storage",
+     "storage/civitai-model-version-files",
+     "storage/clarin-si-dspace-repository",
+     "storage/cloudflare-for-startups-nonprofit-civil-society-track",
+     "storage/cloudflare-pages"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u97",
+   "kind": "verify",
+   "status": "integrated",
+   "topic": "storage",
+   "tally": {
+    "applied": 25,
+    "confirmed": 8,
+    "questions": 6,
+    "rejected": 0
+   },
+   "origin": "audit u85 of 20261125-0129-verify-storage-1818/u19 failed: 3 of 20 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u19-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/dare-dare-uol-de",
+     "storage/databricks-free-edition",
+     "storage/datalix-s3-object-storage",
+     "storage/dataverselv",
+     "storage/debian-salsa-gitlab-with-generic-package-registry",
+     "storage/deluxhost-storage-vps"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u98",
+   "kind": "verify",
+   "status": "reverted",
+   "topic": "storage",
+   "tally": {
+    "applied": 19,
+    "confirmed": 17,
+    "questions": 2,
+    "rejected": 0
+   },
+   "origin": "audit u87 of 20261125-0129-verify-storage-1818/u21 failed: 3 of 30 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u21-rerun",
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/discourse-hosted-free-plan",
+     "storage/docker-hub",
+     "storage/drime-secure-cloud-storage-10-tb-lifetime",
+     "storage/ena-webin",
+     "storage/eveo-object-storage-s3-the-only-zero-egress-s3-endpoint",
+     "storage/fandom"
+    ]
+   },
+   "rejects": 0
+  },
+  {
+   "id": "u99",
+   "kind": "verify",
+   "status": "abandoned",
+   "topic": "storage",
+   "origin": "audit u88 of 20261125-0129-verify-storage-1818/u22 failed: 6 of 22 unsupported",
+   "queue_id": "20261125-0129-verify-storage-1818-u22-rerun",
+   "abandoned": {
+    "reason": "the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+    "at": "2026-11-25T21:21:32Z",
+    "was": "running"
+   },
+   "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by",
+   "scope": {
+    "rids": [
+     "storage/fastly-fast-forward",
+     "storage/fedora-copr",
+     "storage/feral-hosting-radon",
+     "storage/fil-one",
+     "storage/file-kiwi",
+     "storage/filen-pro-x"
+    ]
+   },
+   "rejects": 0
+  }
+ ],
+ "report": [
+  "run 20261125-0129-verify-storage-1818 (verify storage): establish from first-party pages the values the storage records leave unknown, at least 634 of them",
+  "units 206: abandoned 30, integrated 134, reverted 42",
+  "applied 1047, confirmed 726, added 0, corroborated 3, dead 0, related 0, rejected 0, conflicts 14, open questions 140, evidence rows dropped 4",
+  "ledger lines 4374, captures cited 844, conflicts logged 52 (30 handled by reconcile units)",
+  "evidence row dropped from storage/google-drive-shared-drives-written-by-service-accounts by u130: https://developers.google.com/workspace/drive/api/guides/limits dated 2026-11-09; why: the 400,000,000 quota units per day row is absent from the page as read on 2026-11-25; the table now lists 1,000,000 quota units per minute per project",
+  "evidence row dropped from storage/google-drive-shared-drives-written-by-service-accounts by u130: https://developers.google.com/workspace/drive/api/guides/limits dated 2026-11-09; why: the 1 TB egress row is superseded; the page now reads 1 TiB (not yet enforced)",
+  "evidence row dropped from storage/iroh-public-relays by u139: https://docs.iroh.computer/about/faq dated 2026-10-21; why: the quoted 'only a fallback' phrase is not on the FAQ page; the page says 'only a stepping stone'",
+  "evidence row dropped from storage/lanzou by u139: https://www.lanzou.com/q/zh/wt.htm dated 2026-10-21; why: the quoted 文件升级 sentence is not present in the captured wt.htm fragment, which discusses download speed and external-link sharing",
+  "audit of u01 by u02: 10 supported, 0 unsupported, 0 cannot tell; upper95 0.278 -> kept",
+  "audit of u23 by u100: 24 supported, 6 unsupported, 0 cannot tell; upper95 0.373 -> reverted",
+  "audit of u24 by u101: 23 supported, 7 unsupported, 0 cannot tell; upper95 0.409 -> reverted",
+  "audit of u25 by u102: 19 supported, 3 unsupported, 0 cannot tell; upper95 0.333 -> reverted",
+  "audit of u26 by u103: 17 supported, 13 unsupported, 0 cannot tell; upper95 0.608 -> reverted",
+  "audit of u27 by u104: 19 supported, 11 unsupported, 0 cannot tell; upper95 0.545 -> reverted",
+  "audit of u28 by u105: 18 supported, 12 unsupported, 0 cannot tell; upper95 0.577 -> reverted",
+  "audit of u29 by u106: 23 supported, 7 unsupported, 0 cannot tell; upper95 0.409 -> reverted",
+  "audit of u30 by u107: 17 supported, 4 unsupported, 0 cannot tell; upper95 0.400 -> reverted",
+  "audit of u31 by u108: 15 supported, 15 unsupported, 0 cannot tell; upper95 0.668 -> reverted",
+  "audit of u32 by u109: 19 supported, 5 unsupported, 0 cannot tell; upper95 0.405 -> reverted",
+  "audit of u33 by u110: 19 supported, 11 unsupported, 0 cannot tell; upper95 0.545 -> reverted",
+  "audit of u34 by u111: 19 supported, 11 unsupported, 0 cannot tell; upper95 0.545 -> reverted",
+  "audit of u67 by u112: 0 supported, 1 unsupported, 0 cannot tell; upper95 1.000 -> reverted",
+  "audit of u68 by u113: 3 supported, 0 unsupported, 0 cannot tell; upper95 0.562 -> kept",
+  "audit of u89 by u114: 29 supported, 1 unsupported, 0 cannot tell; upper95 0.167 -> kept",
+  "audit of u90 by u115: 26 supported, 4 unsupported, 0 cannot tell; upper95 0.297 -> reverted",
+  "audit of u91 by u116: 21 supported, 7 unsupported, 2 cannot tell; upper95 0.434 -> reverted",
+  "audit of u92 by u117: 13 supported, 10 unsupported, 0 cannot tell; upper95 0.632 -> reverted",
+  "audit of u93 by u118: 18 supported, 12 unsupported, 0 cannot tell; upper95 0.577 -> reverted",
+  "audit of u94 by u119: 26 supported, 4 unsupported, 0 cannot tell; upper95 0.297 -> reverted",
+  "audit of u95 by u120: 20 supported, 10 unsupported, 0 cannot tell; upper95 0.512 -> reverted",
+  "audit of u96 by u121: 29 supported, 1 unsupported, 0 cannot tell; upper95 0.167 -> kept",
+  "audit of u97 by u122: 29 supported, 1 unsupported, 0 cannot tell; upper95 0.167 -> kept",
+  "audit of u98 by u123: 27 supported, 3 unsupported, 0 cannot tell; upper95 0.256 -> reverted",
+  "audit of u125 by u145: 27 supported, 3 unsupported, 0 cannot tell; upper95 0.256 -> reverted",
+  "audit of u126 by u146: 19 supported, 5 unsupported, 0 cannot tell; upper95 0.405 -> reverted",
+  "audit of u127 by u147: 27 supported, 3 unsupported, 0 cannot tell; upper95 0.256 -> reverted",
+  "audit of u128 by u148: 25 supported, 5 unsupported, 0 cannot tell; upper95 0.336 -> reverted",
+  "audit of u129 by u149: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u130 by u150: 29 supported, 1 unsupported, 0 cannot tell; upper95 0.167 -> kept",
+  "audit of u131 by u151: 28 supported, 2 unsupported, 0 cannot tell; upper95 0.213 -> kept",
+  "audit of u132 by u152: 12 supported, 18 unsupported, 0 cannot tell; upper95 0.754 -> reverted",
+  "audit of u133 by u153: 26 supported, 0 unsupported, 0 cannot tell; upper95 0.129 -> kept",
+  "audit of u134 by u154: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u135 by u155: 27 supported, 3 unsupported, 0 cannot tell; upper95 0.256 -> reverted",
+  "audit of u136 by u156: 29 supported, 1 unsupported, 0 cannot tell; upper95 0.167 -> kept",
+  "audit of u137 by u176: 29 supported, 1 unsupported, 0 cannot tell; upper95 0.167 -> kept",
+  "audit of u139 by u177: 29 supported, 1 unsupported, 0 cannot tell; upper95 0.167 -> kept",
+  "audit of u35 by u178: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u39 by u179: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u42 by u180: 10 supported, 4 unsupported, 0 cannot tell; upper95 0.546 -> reverted",
+  "audit of u44 by u181: 27 supported, 3 unsupported, 0 cannot tell; upper95 0.256 -> reverted",
+  "audit of u45 by u182: 12 supported, 1 unsupported, 0 cannot tell; upper95 0.333 -> kept",
+  "audit of u47 by u183: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u48 by u184: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u49 by u185: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u50 by u186: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u51 by u187: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u52 by u188: 23 supported, 0 unsupported, 0 cannot tell; upper95 0.143 -> kept",
+  "audit of u55 by u189: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u56 by u190: 28 supported, 2 unsupported, 0 cannot tell; upper95 0.213 -> kept",
+  "audit of u57 by u191: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u58 by u192: 29 supported, 1 unsupported, 0 cannot tell; upper95 0.167 -> kept",
+  "audit of u59 by u193: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u62 by u194: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u65 by u195: 28 supported, 2 unsupported, 0 cannot tell; upper95 0.213 -> kept",
+  "audit of u66 by u196: 27 supported, 0 unsupported, 0 cannot tell; upper95 0.125 -> kept",
+  "audit of u36 by u197: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u37 by u198: 24 supported, 0 unsupported, 0 cannot tell; upper95 0.138 -> kept",
+  "audit of u40 by u199: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u41 by u200: 28 supported, 0 unsupported, 0 cannot tell; upper95 0.121 -> kept",
+  "audit of u43 by u201: 16 supported, 1 unsupported, 0 cannot tell; upper95 0.270 -> kept",
+  "audit of u46 by u202: 29 supported, 1 unsupported, 0 cannot tell; upper95 0.167 -> kept",
+  "audit of u53 by u203: 15 supported, 6 unsupported, 0 cannot tell; upper95 0.500 -> reverted",
+  "audit of u54 by u204: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u61 by u205: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u63 by u206: 29 supported, 1 unsupported, 0 cannot tell; upper95 0.167 -> kept",
+  "audit of u03 by u69: 30 supported, 0 unsupported, 0 cannot tell; upper95 0.114 -> kept",
+  "audit of u04 by u70: 25 supported, 5 unsupported, 0 cannot tell; upper95 0.336 -> reverted",
+  "audit of u05 by u71: 26 supported, 4 unsupported, 0 cannot tell; upper95 0.297 -> reverted",
+  "audit of u06 by u72: 24 supported, 6 unsupported, 0 cannot tell; upper95 0.373 -> reverted",
+  "audit of u07 by u73: 20 supported, 10 unsupported, 0 cannot tell; upper95 0.512 -> reverted",
+  "audit of u08 by u74: 24 supported, 6 unsupported, 0 cannot tell; upper95 0.373 -> reverted",
+  "audit of u09 by u75: 18 supported, 12 unsupported, 0 cannot tell; upper95 0.577 -> reverted",
+  "audit of u10 by u76: 26 supported, 1 unsupported, 0 cannot tell; upper95 0.183 -> kept",
+  "audit of u11 by u77: 28 supported, 2 unsupported, 0 cannot tell; upper95 0.213 -> kept",
+  "audit of u12 by u78: 23 supported, 7 unsupported, 0 cannot tell; upper95 0.409 -> reverted",
+  "audit of u13 by u79: 24 supported, 0 unsupported, 0 cannot tell; upper95 0.138 -> kept",
+  "audit of u14 by u80: 25 supported, 5 unsupported, 0 cannot tell; upper95 0.336 -> reverted",
+  "audit of u15 by u81: 21 supported, 9 unsupported, 0 cannot tell; upper95 0.479 -> reverted",
+  "audit of u16 by u82: 24 supported, 6 unsupported, 0 cannot tell; upper95 0.373 -> reverted",
+  "audit of u17 by u83: 19 supported, 1 unsupported, 0 cannot tell; upper95 0.236 -> kept",
+  "audit of u18 by u84: 28 supported, 2 unsupported, 0 cannot tell; upper95 0.213 -> kept",
+  "audit of u19 by u85: 17 supported, 3 unsupported, 0 cannot tell; upper95 0.360 -> reverted",
+  "audit of u20 by u86: 27 supported, 3 unsupported, 0 cannot tell; upper95 0.256 -> kept",
+  "audit of u21 by u87: 27 supported, 3 unsupported, 0 cannot tell; upper95 0.256 -> reverted",
+  "audit of u22 by u88: 16 supported, 6 unsupported, 0 cannot tell; upper95 0.482 -> reverted",
+  "abandoned u124 (verify): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u138 (verify): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u140 (verify): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u141 (verify): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u142 (verify): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u143 (verify): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u144 (verify): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u157 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u158 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u159 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u160 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u161 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u162 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u163 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u164 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u165 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u166 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u167 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u168 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u169 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u170 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u171 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u172 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u173 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u174 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u175 (reconcile): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u38 (verify): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u60 (verify): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u64 (verify): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run",
+  "abandoned u99 (verify): the lane or reconcile unit was planned but never completed in this session; its records stay in the run's queue and report for a later run"
+ ],
+ "merged": {},
+ "undo_skipped": [],
+ "conflicts": [
+  {
+   "unit": "u93",
+   "why": "the value changed after the lane read it",
+   "current": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap",
+   "op": {
+    "op": "set",
+    "rid": "storage/amazon-ecr-public",
+    "path": "$.per_object_cap.notes"
+   }
+  },
+  {
+   "unit": "u93",
+   "why": "the value changed after the lane read it",
+   "current": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim",
+   "op": {
+    "op": "set",
+    "rid": "storage/amazon-ecr-public",
+    "path": "$.retention.notes"
+   }
+  },
+  {
+   "unit": "u93",
+   "why": "the value changed after the lane read it",
+   "current": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap",
+   "op": {
+    "op": "set",
+    "rid": "storage/archive-org-download-web-serving-path",
+    "path": "$.per_object_cap.notes"
+   }
+  },
+  {
+   "unit": "u56",
+   "why": "the value changed after the lane read it",
+   "current": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim",
+   "op": {
+    "op": "set",
+    "rid": "storage/steam-workshop",
+    "path": "$.retention.notes"
+   }
+  },
+  {
+   "unit": "u56",
+   "why": "the value changed after the lane read it",
+   "current": "extracted from the quota or limits prose",
+   "op": {
+    "op": "set",
+    "rid": "storage/strato-hidrive-1-tb-for-12-months-at-0",
+    "path": "$.per_object_cap.notes"
+   }
+  },
+  {
+   "unit": "u58",
+   "why": "the value changed after the lane read it",
+   "current": "No retention statement documented in published terms; absence is not an unlimited claim.",
+   "op": {
+    "op": "set",
+    "rid": "storage/telegram-mtproto-user-account-unlimited-channels-as-the",
+    "path": "$.retention.stated"
+   }
+  },
+  {
+   "unit": "u58",
+   "why": "the value changed after the lane read it",
+   "current": "Extracted from published terms.",
+   "op": {
+    "op": "set",
+    "rid": "storage/telegraph",
+    "path": "$.retention.notes"
+   }
+  },
+  {
+   "unit": "u137",
+   "why": "audit u176 judged it unsupported: The product page says full root access, but never states SSH or an SSH endpoint; the interface value \"ssh\" is not supported by this source.",
+   "current": [
+    "ssh"
+   ],
+   "op": {
+    "op": "set",
+    "rid": "storage/webtropia-storage-server-ryz5-20",
+    "path": "$.interface"
+   }
+  },
+  {
+   "unit": "u139",
+   "why": "audit u177 judged it unsupported: The fresh page says only this. It states no per-file cap and nothing about setting one in 个人中心 → 文件升级.",
+   "current": "Unlimited total storage on the free 普通版: '无限制的总存储空间，分享免登录，不限制下载流量，不限速，不限制下载次数'. Per-file cap is the binding constraint, and it is tier-set in 个人中心 → 文件升级.",
+   "op": {
+    "op": "set",
+    "rid": "storage/lanzou",
+    "path": "$.free_tier.stated"
+   }
+  },
+  {
+   "unit": "u45",
+   "why": "audit u182 judged it unsupported: The page describes an HTTP interface; it does not say REST or RESTful, and the whole capture has no REST claim. The value \"rest\" is not established by this source.",
+   "current": "rest",
+   "op": {
+    "op": "set",
+    "rid": "storage/opensuse-build-service-build-opensuse-org-public-instanc",
+    "path": "$.interface[0]"
+   }
+  },
+  {
+   "unit": "u56",
+   "why": "audit u190 judged it unsupported: Claim value is placeholder text; capture states no file-size limit but claim value does not reflect the evidence.",
+   "current": "extracted from the quota or limits prose",
+   "op": {
+    "op": "set",
+    "rid": "storage/strato-hidrive-1-tb-for-12-months-at-0",
+    "path": "$.per_object_cap.notes"
+   }
+  },
+  {
+   "unit": "u56",
+   "why": "audit u190 judged it unsupported: Claim value says no retention clause found, but cited capture states deletion cannot be undone; value contradicts/mismatches evidence.",
+   "current": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim",
+   "op": {
+    "op": "set",
+    "rid": "storage/steam-workshop",
+    "path": "$.retention.notes"
+   }
+  },
+  {
+   "unit": "u58",
+   "why": "audit u192 judged it unsupported: The FAQ documents a retention rule directly: after at least 18 months of inactivity the account and all stored data are deleted, and the exact period can be changed in Settings. It therefore does state a retention period; 'No retention statement documented' is contradicted.",
+   "current": "No retention statement documented in published terms; absence is not an unlimited claim.",
+   "op": {
+    "op": "set",
+    "rid": "storage/telegram-mtproto-user-account-unlimited-channels-as-the",
+    "path": "$.retention.stated"
+   }
+  },
+  {
+   "unit": "u65",
+   "why": "audit u195 judged it unsupported: The page makes CC0 availability conditional on citing MG-RAST and the original authors; the claim drops that condition. The claim's own evidence quote concerns deletion of non-public data and does not support the value.",
+   "current": "Data publicly available in MG-RAST is available without restrictions (CC0 license)",
+   "op": {
+    "op": "set",
+    "rid": "storage/mg-rast",
+    "path": "$.egress.terms"
+   }
+  },
+  {
+   "unit": "u65",
+   "why": "audit u195 judged it unsupported: The page states the 1000-asset count, the under-2-GiB per-file limit and no total-size or bandwidth limit. It does not state the claim's Git LFS per-plan maxima (Free 2 GB, Pro 2 GB, Team 4 GB, Enterprise Cloud 5 GB), and the 2 GiB release-asset limit is not described as a Git LFS plan maximum.",
+   "current": "No total quota. Docs verbatim: 'Up to 1000 release assets may be associated with a single release. Each file included in a release must be under 2 GiB. There is no limit on the total size of a release, nor bandwidth usage.' Per-file ceiling is the Git LFS max for the plan: GitHub Free 2 GB, Pro 2 GB, Team 4 GB, Enterprise Cloud 5 GB.",
+   "op": {
+    "op": "set",
+    "rid": "storage/github-releases",
+    "path": "$.free_tier.stated"
+   }
+  },
+  {
+   "unit": "u43",
+   "why": "the value changed after the lane read it",
+   "current": "extracted from the quota or limits prose",
+   "op": {
+    "op": "set",
+    "rid": "storage/notion-file-blocks-files-property",
+    "path": "$.per_object_cap.notes"
+   }
+  },
+  {
+   "unit": "u43",
+   "why": "the value changed after the lane read it",
+   "current": "Extracted from published terms.",
+   "op": {
+    "op": "set",
+    "rid": "storage/npm-public-registry",
+    "path": "$.retention.notes"
+   }
+  },
+  {
+   "unit": "u43",
+   "why": "the value changed after the lane read it",
+   "current": "extracted from the quota or limits prose",
+   "op": {
+    "op": "set",
+    "rid": "storage/nuclino",
+    "path": "$.per_object_cap.notes"
+   }
+  },
+  {
+   "unit": "u54",
+   "why": "the value changed after the lane read it",
+   "current": "Extracted from published terms.",
+   "op": {
+    "op": "set",
+    "rid": "storage/snowflake-30-day-trial",
+    "path": "$.retention.notes"
+   }
+  },
+  {
+   "unit": "u43",
+   "why": "audit u201 judged it unsupported: The capture states the 5 MiB per-file size limit; it does not say the note text \"extracted from the quota or limits prose\".",
+   "current": "extracted from the quota or limits prose",
+   "op": {
+    "op": "set",
+    "rid": "storage/notion-file-blocks-files-property",
+    "path": "$.per_object_cap.notes"
+   }
+  },
+  {
+   "unit": "u46",
+   "why": "audit u202 judged it unsupported: The page guarantees availability for at least 10 years, not permanent retention; no WDS-member statement appears in the capture. The DOI-per-dataset part is stated separately.",
+   "current": "per-object-cap: 'Individual files must be less than 15 GB in size.' Retention: permanent (WDS member, DOI per dataset)",
+   "op": {
+    "op": "set",
+    "rid": "storage/pangaea",
+    "path": "$.retention.stated"
+   }
+  },
+  {
+   "unit": "u63",
+   "why": "audit u206 judged it unsupported: The bullet only says that, under the paid tariffs, files shared by public links can be downloaded without restrictions. It does not say that outbound traffic is unmetered (neither priced nor subject to a quota).",
+   "current": false,
+   "op": {
+    "op": "set",
+    "rid": "storage/yandex-360-3-tb-the-regional-price-floor-with-unlimited",
+    "path": "$.egress.metered"
+   }
+  }
+ ]
+}

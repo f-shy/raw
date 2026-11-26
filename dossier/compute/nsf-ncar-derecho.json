@@ -5,7 +5,7 @@
   "url": "https://ncar-hpc-docs.readthedocs.io/en/latest/allocations/university-allocations/",
   "category": "national HPC allocation",
   "free_tier": {
-    "stated": "An Exploratory and Classroom allocation carries 500,000 Derecho core-hours and 1,500 Derecho GPU-hours, is accepted continuously, and requires \"No external funding award\", which the provider states explicitly in its funding eligibility column. A Small allocation raises that to 1 million core-hours and 2,500 GPU-hours and does require an NSF award. Derecho is 2,488 nodes with nearly 320,000 AMD EPYC cores plus 82 nodes holding 328 NVIDIA A100 GPUs, and access is \"at no cost to you, your institution, or your research grants\".",
+    "stated": "| **Exploratory & Classroom** | Derecho: 500,000 core-hours<br> Derecho GPU: 1,500 GPU-hours | Derecho: 500,000 core-hours<br> Derecho GPU: 1,500 GPU-hours | Continuous | No external funding award |",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://ncar-hpc-docs.readthedocs.io/en/latest/allocations/university-allocations/",
@@ -79,10 +79,24 @@
       "url": "https://ncar-hpc-docs.readthedocs.io/en/latest/allocations/university-allocations/",
       "date": "2026-10-22",
       "proved": "the Data Analysis allocation on Casper accepts \"Any funding source\" in the funding eligibility column, quoted"
+    },
+    {
+      "url": "https://ncar-hpc-docs.readthedocs.io/en/latest/allocations/university-allocations/",
+      "date": "2026-11-25",
+      "proved": "the funding eligibility table states the Exploratory and Classroom allocation has 500,000 Derecho core-hours, 1,500 Derecho GPU-hours, is continuous and requires no external funding award",
+      "capture": "sha256:8796a1bfbeb2454dd0e23a619e7b7494aa2915c0e10abaf9c29311e5d22163a2",
+      "quote": "| **Exploratory & Classroom** | Derecho: 500,000 core-hours<br> Derecho GPU: 1,500 GPU-hours | Derecho: 500,000 core-hours<br> Derecho GPU: 1,500 GPU-hours | Continuous | No external funding award |"
+    },
+    {
+      "url": "https://ncar-hpc-docs.readthedocs.io/en/latest/allocations/university-allocations/",
+      "date": "2026-11-25",
+      "proved": "the Exploratory and Classroom allocation's free core-hours, GPU-hours, continuous frequency and no-external-funding condition are restated on the captured page",
+      "capture": "sha256:8796a1bfbeb2454dd0e23a619e7b7494aa2915c0e10abaf9c29311e5d22163a2",
+      "quote": "| **Exploratory & Classroom** | Derecho: 500,000 core-hours<br> Derecho GPU: 1,500 GPU-hours | Derecho: 500,000 core-hours<br> Derecho GPU: 1,500 GPU-hours | Continuous | No external funding award |"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:44.119Z",
   "notes": "The number is the largest free core-hour figure found in this lane that does not require a funding award, and the reason it is recorded as a refutation rather than capacity is one sentence about U.S. residency. The Data Analysis route on Casper accepts any funding source, which makes it the only part of the NCAR offer not tied to an award, but it is for analysing NCAR-hosted data rather than for arbitrary compute. Large allocations have no upper limit and are reviewed in March and September; the September 18, 2026 deadline is the next one after this reading. The corpus holds no NCAR, UCAR or Derecho record.",
   "extras": {
     "wave2": {

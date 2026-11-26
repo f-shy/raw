@@ -5,11 +5,11 @@
   "url": "https://cloud.huawei.com/",
   "category": "phone-vendor cloud",
   "free_tier": {
-    "stated": "5 GB free, split between 基础服务 and 会员服务. Paid tiers commonly 50 GB, 200 GB and 2 TB. A 2 TB carpool is priced at CNY 698 split six ways at CNY 120 each",
-    "unit": "GiB",
+    "stated": "In the new cloud space, 基础服务 is unlimited free storage, which replaced the former free 5 GB, and holds fixed system data: contacts, notes, calendar, browser, apps and SMS",
+    "unit": "mixed",
     "metered_on": "stored-bytes",
-    "source_url": "https://zh.wikipedia.org/zh-cn/中国大陆网盘列表",
-    "read_on": "2026-10-21"
+    "source_url": "https://consumer.huawei.com/cn/support/content/zh-cn16009327/",
+    "read_on": "2026-11-25"
   },
   "per_object_cap": {
     "stated": "Not published",
@@ -80,20 +80,6 @@
       "proved": "the seed pass recorded, at this URL: a 2 TB carpool at CNY 698 for six people at CNY 120 each, 330 GB per person"
     },
     {
-      "url": "https://consumer.huawei.com/en/support/content/en-us15804999/",
-      "date": "2026-11-03",
-      "proved": "the vendor support page says the plan purchase depends on the country or region where the HUAWEI ID is registered",
-      "capture": "sha256:0be8ba2339118a70db5d8ade28fc7b61eee82d67f732bf79a5ec1fd5419e9a2c",
-      "quote": "Check whether you can purchase a cloud storage plan in the country or region where your HUAWEI ID is registered, as the service is only supported in some countries or regions outside the Chinese mainland."
-    },
-    {
-      "url": "https://consumer.huawei.com/en/support/content/en-us15804999/",
-      "date": "2026-11-03",
-      "proved": "the support page lists the purchase prompt that says the plan is not yet available",
-      "capture": "sha256:0be8ba2339118a70db5d8ade28fc7b61eee82d67f732bf79a5ec1fd5419e9a2c",
-      "quote": "The user is prompted that the cloud storage plan is not yet available"
-    },
-    {
       "url": "https://zh.wikipedia.org/zh-cn/中国大陆网盘列表",
       "date": "2026-11-03",
       "proved": "the table row still reads 5G free",
@@ -115,16 +101,37 @@
       "quote": "Download Cloud app"
     },
     {
-      "url": "https://consumer.huawei.com/en/support/content/en-us15804999/",
+      "url": "https://consumer.huawei.com/cn/support/content/zh-cn16009327/",
       "date": "2026-11-25",
-      "proved": "the vendor support page states this value",
-      "capture": "sha256:85df0f52b7d4770f5011f866ca6ead76cfddc5c92fdef403ba4602765cf1addf",
-      "quote": "Check whether you can purchase a cloud storage plan in the country or region where your HUAWEI ID is registered, as the service is only supported in some countries or regions outside the Chinese mainland."
+      "proved": "the vendor support page says the new cloud space's 基础服务 replaces the former free 5GB with unlimited free storage for fixed system data",
+      "capture": "sha256:863aa6cc21de407cc7d9d9f73a155dba98cf798e3c1f5d8ea6190c2af4bac34a",
+      "quote": "**基础服务**：原免费5GB空间升级为无限免费存储空间，且在云空间首页不展示云存储空间大小；免费空间可存储联系人、备忘录、日历、浏览器、应用程序、短信等固定的系统基础数据。"
+    },
+    {
+      "url": "https://consumer.huawei.com/cn/support/content/zh-cn16009327/",
+      "date": "2026-11-25",
+      "proved": "the original cloud space still gives a free 5GB",
+      "capture": "sha256:863aa6cc21de407cc7d9d9f73a155dba98cf798e3c1f5d8ea6190c2af4bac34a",
+      "quote": "进入云空间，即可获得**免费5GB**空间，您可以通过云备份、使用云的应用、云盘等功能，将您的照片、视频、联系人、备忘录等重要数据安全存储在云端。"
+    },
+    {
+      "url": "https://consumer.huawei.com/cn/support/content/zh-cn16037399/",
+      "date": "2026-11-25",
+      "proved": "the vendor plan page lists annual 50GB, 200GB and 2TB plans at 58, 198 and 698 CNY a year",
+      "capture": "sha256:0887aae9eed7bf9da4f2f42830e1c9f8536ec244bc2ef8387ac5fece5921d524",
+      "quote": "| 连续包年 | 58元/年 | 198元/年 | 698元/年 | 不支持 | 不支持 |"
+    },
+    {
+      "url": "https://consumer.huawei.com/cn/support/content/zh-cn16009327/",
+      "date": "2026-11-25",
+      "proved": "the vendor page states the cloud space has no rate limit",
+      "capture": "sha256:863aa6cc21de407cc7d9d9f73a155dba98cf798e3c1f5d8ea6190c2af4bac34a",
+      "quote": "华为云空间没有速率限制，上传和下载的速率取决于您的网络环境，具体速率请以您实际使用为准。"
     },
     {
       "url": "https://consumer.huawei.com/en/support/content/en-us15804999/",
       "date": "2026-11-25",
-      "proved": "the plan is gated by the HUAWEI ID registration country",
+      "proved": "the vendor support page states this value",
       "capture": "sha256:85df0f52b7d4770f5011f866ca6ead76cfddc5c92fdef403ba4602765cf1addf",
       "quote": "Check whether you can purchase a cloud storage plan in the country or region where your HUAWEI ID is registered, as the service is only supported in some countries or regions outside the Chinese mainland."
     },
@@ -137,7 +144,7 @@
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-25T13:26:30.705Z",
+  "verified_at": "2026-11-25T15:23:48.017Z",
   "history": [],
   "price_per_tb_month": "2 TB at CNY 698/yr is about USD 4.1/TB/month, and it is often unpurchasable on a non-mainland HUAWEI ID",
   "binding": "per-object-cap",

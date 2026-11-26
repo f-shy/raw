@@ -5,7 +5,7 @@
   "url": "https://www.xiangongyun.com/",
   "category": "GPU cloud",
   "free_tier": {
-    "stated": "Per-minute GPU rental with a public price list. An aggregator that polls the vendor daily records RTX 4090D 48GB stock in Zhejiang at USD 0.194 per card-hour on a monthly rate and USD 0.238 on demand, and RTX 4090 24GB at a minimum of USD 0.231 per card-hour. The vendor page states 按量计费，部署不计费，用多少付多少 (metered by usage, deployment is not billed, you pay for what you use), quoted.",
+    "stated": "NVIDIA GeForce RTX 4090 D24 GB · 2 条报价最低每小时 $0.195$0.195/小时CN-浙江一区包年包月1 卡8 小时前更新每小时 $0.195$0.195/小时CN-浙江一区按需计费1 卡8 小时前更新每小时 $0.239$0.239/小时",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://www.xiangongyun.com/",
@@ -63,10 +63,24 @@
       "url": "https://www.suanli.ai/gpu/20732",
       "date": "2026-10-22",
       "proved": "a 4090D 48GB modified card is sold by this vendor, so the 24 GB and 48 GB rows are different products"
+    },
+    {
+      "url": "https://www.suanli.ai/provider/175",
+      "date": "2026-11-25",
+      "proved": "the aggregator lists the vendor's cheapest 24 GB 4090D at $0.195 monthly and $0.239 on demand in Zhejiang",
+      "capture": "sha256:d9ba64294767830c982fe03be40c7ad521594f652eedf4f8fc050de89ec54877",
+      "quote": "NVIDIA GeForce RTX 4090 D24 GB · 2 条报价最低每小时 $0.195$0.195/小时CN-浙江一区包年包月1 卡8 小时前更新每小时 $0.195$0.195/小时CN-浙江一区按需计费1 卡8 小时前更新每小时 $0.239$0.239/小时"
+    },
+    {
+      "url": "https://www.suanli.ai/provider/175",
+      "date": "2026-11-25",
+      "proved": "the aggregator still lists the vendor's cheapest 24 GB 4090D at $0.195 monthly and $0.239 on demand in Zhejiang",
+      "capture": "sha256:d9ba64294767830c982fe03be40c7ad521594f652eedf4f8fc050de89ec54877",
+      "quote": "NVIDIA GeForce RTX 4090 D24 GB · 2 条报价最低每小时 $0.195$0.195/小时CN-浙江一区包年包月1 卡8 小时前更新每小时 $0.195$0.195/小时CN-浙江一区按需计费1 卡8 小时前更新每小时 $0.239$0.239/小时"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:48.800Z",
   "notes": "New to documented records. Two third-party price tables disagree with the aggregator on this vendor: hcit.com.cn lists a 24 GB 4090 at CNY 1.78 an hour and datalearner lists CNY 2.37 an hour, both older. The vendor renders its price table in client-side script, so the CNY figure could not be read from the page itself; the aggregator's USD figure is recorded and the CNY disagreement is left in place rather than resolved by picking one. Open question: the CNY list price on 2026-10-22.",
   "extras": {
     "wave2": {

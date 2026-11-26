@@ -20,7 +20,7 @@
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://learn.microsoft.com/en-us/fabric/fundamentals/fabric-trial",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "OneLake soft delete protects individual files from accidental deletion by retaining files for seven days by default before permanent removal."
   },
   "egress": {
     "terms": "Not separately metered during trial; capacity is F4 or F64 SKU consumption.",
@@ -79,10 +79,38 @@
       "proved": "the 7-day post-expiry access window is still stated",
       "capture": "sha256:d5598fbd504c6499a23ffa6333efb9f39d4edf0a1e9d41756616116c89776711",
       "quote": "All content remains stored in OneLake for 7 days and can be reactivated by assigning the workspace to a paid Fabric F or Power BI Premium P capacity."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-capacity-consumption",
+      "date": "2026-11-25",
+      "proved": "soft delete retains deleted OneLake files for seven days by default",
+      "capture": "sha256:26dd906d7d71b5006261f0ca43a0a37ae3a9f6e8704c89b910b48a3c36a16577",
+      "quote": "OneLake soft delete protects individual files from accidental deletion by retaining files for seven days by default before permanent removal."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/fabric/fundamentals/fabric-trial",
+      "date": "2026-11-25",
+      "proved": "the trial states a 1 TB OneLake allowance",
+      "capture": "sha256:d5598fbd504c6499a23ffa6333efb9f39d4edf0a1e9d41756616116c89776711",
+      "quote": "Store up to **1 TB of data** in OneLake."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/fabric/fundamentals/fabric-trial",
+      "date": "2026-11-25",
+      "proved": "the trial states a seven-day post-expiry storage window",
+      "capture": "sha256:d5598fbd504c6499a23ffa6333efb9f39d4edf0a1e9d41756616116c89776711",
+      "quote": "All content remains stored in OneLake for 7 days and can be reactivated by assigning the workspace to a paid Fabric F or Power BI Premium P capacity."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/fabric/onelake/onelake-access-api",
+      "date": "2026-11-25",
+      "proved": "OneLake is reachable through ADLS and Blob APIs",
+      "capture": "sha256:2d7f5e457a70604d605ed711838e09cf47190ad7da6437e7365bf950f89711b4",
+      "quote": "OneLake provides open access to all of your Fabric items through existing Azure Data Lake Storage (ADLS) and Blob APIs and SDKs."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-19T21:14:01.973Z",
+  "verified_at": "2026-11-25T19:55:11.735Z",
   "notes": "1 TB of data in OneLake, free for 60 days.",
   "history": [],
   "extras": {

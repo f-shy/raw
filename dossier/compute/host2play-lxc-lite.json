@@ -6,7 +6,7 @@
  "category": "NAT VPS",
  "tier": "LXC Lite",
  "free_tier": {
-  "stated": "No free tier. LXC Lite is PLN 34.90 a year, listed under the heading 'Najtaniej' (cheapest) on the vendor's LXC shop page: 1 vCPU, 768 MB RAM, 10 GB SSD, 'Wspoldzielone (10 portow) + IPv6 (100Mbps)', located in Sweden at Bahnhof Pionen. Billing periods offered at checkout are 7 days, 1 month, 3 months (-5%), 6 months (-10%) and 12 months (-15%).",
+  "stated": "No free tier. LXC Lite is the cheapest plan under 'Najtaniej', at 34.90zł/Rok on the vendor's LXC shop page: 1 vCPU, 768MB RAM, 10GB SSD, 'Współdzielone (10 portów) + IPv6 (100Mbps)', in Szwecja at Bahnhof Pionen.",
   "unit": "none",
   "metered_on": "none",
   "source_url": "https://host2play.pl/shop/vps-lxc",
@@ -95,10 +95,24 @@
    "url": "https://host2play.pl/shop/vps-nat",
    "date": "2026-10-24",
    "proved": "quoted, showing the NAT line is a separate product family: 'VPS NAT Serwery VPS NAT posiadaja wspoldzielone IP, a do Twojej dyspozycji otrzymujesz az 100 portow!' with VPS NAT Mini at '24.90zl /miesiac' - the 100-port NAT range is a different, dearer product and is not the offer recorded here"
+  },
+  {
+   "url": "https://host2play.pl/shop/vps-lxc",
+   "date": "2026-11-25",
+   "proved": "the vendor's LXC shop page lists LXC Lite as the cheapest plan at PLN 34.90 a year with one vCPU, 768 MB memory, 10 GB SSD and a shared 10-port IPv4 plus IPv6 on a 100 Mbps port",
+   "capture": "sha256:f2ca5e469930702607bed3e9b7e82bf2783c44a31f12f9abc5245349d9d95c63",
+   "quote": "Najtaniej\n\nLXC Lite\n\n34.90zł /Rok\n\n[Kup Teraz](https://host2play.pl/product/159?c=yearly)\n\n- CPU  \n   1 vCPU\n- RAM  \n   768MB\n- DYSK  \n   10GB SSD\n- ADRESACJA  \n   Współdzielone (10 portów) + IPv6 (100Mbps)"
+  },
+  {
+   "url": "https://host2play.pl/shop/vps-lxc",
+   "date": "2026-11-25",
+   "proved": "the LXC Lite plan name, price and shape are unchanged",
+   "capture": "sha256:f2ca5e469930702607bed3e9b7e82bf2783c44a31f12f9abc5245349d9d95c63",
+   "quote": "Najtaniej\n\nLXC Lite\n\n34.90zł /Rok\n\n[Kup Teraz](https://host2play.pl/product/159?c=yearly)\n\n- CPU  \n   1 vCPU\n- RAM  \n   768MB\n- DYSK  \n   10GB SSD\n- ADRESACJA  \n   Współdzielone (10 portów) + IPv6 (100Mbps)"
   }
  ],
  "verdict": "qualifies",
- "verified_at": "2026-10-24T06:04:00.000Z",
+ "verified_at": "2026-11-25T11:17:20.968Z",
  "price_per_tb_month": null,
  "history": [],
  "notes": "The checkout page's price field is rendered by JavaScript - the HTML carries an empty <span id=\"price\"> with a spinner - so the PLN 34.90 figure is taken from the server-rendered shop page, which prints it as static text under the heading 'Najtaniej'. The two agree in substance: PLN 34.90 converts to EUR 7.94 at today's cross rate, and the vendor's own 2024 offer post prices the same plan at EUR 7.90 a year. The stray '3.34PLN' string on the checkout page is the pre-render placeholder and is not used. The shop page renders no sold-out or unavailable marker on any of the six rungs. Not established: whether UDP is forwarded on any of the 10 ports, the exact overage behaviour at 100 Mbit sustained, and the deletion window for an unpaid service. The vendor also runs the same catalogue at host2play.se and host2play.com, with the Swedish site printing 91.90kr/yr for LXC Lite; the Polish storefront was used because it printed a PLN price on a server-rendered page.",

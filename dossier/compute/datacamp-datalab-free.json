@@ -41,7 +41,7 @@
   "confidence_note": "the workbook cap is quoted. RAM, session length and idle timeout are absent from both pages read today, so this record cannot answer evaluated offerings's questions.",
   "price_per_tb_month": null,
   "history": [],
-  "verified_at": "2026-10-24T01:52:00.000Z",
+  "verified_at": "2026-11-25T11:17:43.853Z",
   "extras": {
     "shape": {
       "vcpu": null,
@@ -79,7 +79,7 @@
   "provider": "DataCamp DataLab",
   "url": "https://www.datacamp.com/workspace",
   "free_tier": {
-    "stated": "a free DataLab tier with any DataCamp account: up to three workbooks and 15 uses of the AI Assistant; no compute allowance, RAM or session length is published",
+    "stated": "a free DataLab tier with any DataCamp account: up to three workbooks and 15 uses of the AI Assistant",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://www.datacamp.com/workspace",
@@ -101,6 +101,13 @@
       "url": "https://www.datacamp.com/pricing",
       "date": "2026-10-24",
       "proved": "the pricing page covers courses only; it publishes no DataLab compute allowance"
+    },
+    {
+      "url": "https://www.datacamp.com/workspace",
+      "date": "2026-11-25",
+      "proved": "the free DataLab tier needs only a DataCamp account and allows three workbooks and 15 AI Assistant uses",
+      "capture": "sha256:3b6a0dbe8b2d1a3f65f6487d263667ebb92e9d3a880ed3fb92ff47c54b1844cf",
+      "quote": "There is a free tier of DataLab; all you need is a DataCamp account. Free DataLab users can create up to three workbooks (data projects in DataLab), and make use of the AI Assistant 15 times."
     }
   ],
   "verdict": "fails-quota",

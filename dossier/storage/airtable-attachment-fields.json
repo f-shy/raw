@@ -13,14 +13,14 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "5 MB per direct API upload",
+    "stated": "Individual attachments can be up to 5 GB; on the Free plan the per-base allowance caps a single attachment at 1 GB.",
     "source_url": "https://support.airtable.com/docs/airtable-plans",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "On the Free plan a single attachment is capped at 1 GB by the 1 GB per-base attachment allowance; the direct file-bytes upload API accepts at most 5 MB."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://support.airtable.com/docs/airtable-plans",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The Free plan includes 2 weeks of revision and snapshot history; Airtable states it never removes data when record or attachment limits are reached."
   },
   "egress": {
     "terms": "Free; attachments served from airtableusercontent.com (CloudFront-fronted) with expiring signed URLs",
@@ -110,10 +110,66 @@
       "proved": "the direct-upload per-object cap is unchanged at 5 MB",
       "capture": "sha256:899958232dcb5f0f57dd474f14dc43f14e69c153dd3a58c6b5ed4ef286a84a98",
       "quote": "Upload an attachment up to 5 MB to an attachment cell via the file bytes directly."
+    },
+    {
+      "url": "https://support.airtable.com/docs/attachment-field",
+      "date": "2026-11-25",
+      "proved": "the attachment-field documentation states a 5 GB individual attachment limit",
+      "capture": "sha256:50a1e24221905e9d171b312e08a58c186c3902c970fb7640372e084d74e74a24",
+      "quote": "Airtable supports individual attachments up to 5GB in size"
+    },
+    {
+      "url": "https://support.airtable.com/docs/attachment-field",
+      "date": "2026-11-25",
+      "proved": "the Free plan reduces the single-attachment maximum to 1 GB",
+      "capture": "sha256:50a1e24221905e9d171b312e08a58c186c3902c970fb7640372e084d74e74a24",
+      "quote": "- *Note that this will also reduce the size that a single attachment can be from 20 GB to 1 GB"
+    },
+    {
+      "url": "https://support.airtable.com/docs/airtable-plans",
+      "date": "2026-11-25",
+      "proved": "the Free plan states a 2 week revision and snapshot history",
+      "capture": "sha256:db0cd8f2c67bfa465dfc4ba9341815e87f74a60840d4e6477d0dab43e225b84b",
+      "quote": "2 weeks of [revision and snapshot history](https://support.airtable.com/docs/taking-and-restoring-base-snapshots)"
+    },
+    {
+      "url": "https://airtable.com/developers/web/api/upload-attachment",
+      "date": "2026-11-25",
+      "proved": "the direct file-bytes upload endpoint accepts at most 5 MB",
+      "capture": "sha256:899958232dcb5f0f57dd474f14dc43f14e69c153dd3a58c6b5ed4ef286a84a98",
+      "quote": "Upload an attachment up to 5 MB to an attachment cell via the file bytes directly."
+    },
+    {
+      "url": "https://airtable.com/pricing",
+      "date": "2026-11-25",
+      "proved": "Airtable states data is not removed when limits are reached",
+      "capture": "sha256:bc7507c4bb9cfbcc36a5baea0d500caeac2c263e5fa980ffa0b73d665b90615c",
+      "quote": "If you reach (or are over) our record or attachment limits, you’ll still be able to use your bases and we will never remove your data."
+    },
+    {
+      "url": "https://support.airtable.com/docs/airtable-plans",
+      "date": "2026-11-25",
+      "proved": "the 1 GB per-base attachment allowance is unchanged",
+      "capture": "sha256:db0cd8f2c67bfa465dfc4ba9341815e87f74a60840d4e6477d0dab43e225b84b",
+      "quote": "1GB per of [attachment storage](https://support.airtable.com/docs/attachment-field) per base"
+    },
+    {
+      "url": "https://support.airtable.com/docs/airtable-plans",
+      "date": "2026-11-25",
+      "proved": "the 1000-call monthly API limit is unchanged",
+      "capture": "sha256:db0cd8f2c67bfa465dfc4ba9341815e87f74a60840d4e6477d0dab43e225b84b",
+      "quote": "1000 [API calls](https://support.airtable.com/docs/getting-started-with-airtables-web-api#api-record-limits) per workspace per month"
+    },
+    {
+      "url": "https://support.airtable.com/docs/attachment-field",
+      "date": "2026-11-25",
+      "proved": "the 5 GB individual attachment limit is stated",
+      "capture": "sha256:50a1e24221905e9d171b312e08a58c186c3902c970fb7640372e084d74e74a24",
+      "quote": "Airtable supports individual attachments up to 5GB in size"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:57.316Z",
+  "verified_at": "2026-11-25T03:33:11.121Z",
   "notes": "1 GB attachment storage per base on Free, with unlimited bases and 1,500 bases per workspace",
   "history": [],
   "extras": {

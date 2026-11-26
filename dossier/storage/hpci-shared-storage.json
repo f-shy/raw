@@ -30,7 +30,7 @@
     "rsync",
     "rclone"
   ],
-  "interface_detail": "posix",
+  "interface_detail": "GridFTP via the Gfarm GridFTP DSI server on the shared-storage login nodes (clients globus-url-copy and uberftp); the Gfarm client; rsync and rclone are not named on the pages read.",
   "tooling": "Gfarm 2.8 filesystem; mounted space, standard POSIX tools (rsync/rclone local backend).",
   "chaining": "A storage-only proposal: the 'Sharing Use' call exists precisely for projects that need shared space rather than compute time. Request 500 TB, then request gradual expansion to 1.5 PB based on usage.",
   "limits": [
@@ -97,10 +97,17 @@
       "proved": "the eligibility page requires the Project Representative to belong to a corporation such as a university or research institution",
       "capture": "sha256:c415587dc885b300118fb2c79cc0e7da6c2d1ad61207f2ca751c1bd1eac81948",
       "quote": "The Project Representative must belong to a corporation (i.e., university, research institution, company), regardless of whether it is in or outside of Japan."
+    },
+    {
+      "url": "https://www.hpci-office.jp/info/pages/viewpage.action?pageId=230458911",
+      "date": "2026-11-25",
+      "proved": "the HPCI page documents transfer to shared storage over GridFTP",
+      "capture": "sha256:8aa2a0b87e14152f318f58689747d5b4d112e0671912d6bde4cd79eb82b5392c",
+      "quote": "GridFTPを用いて共用ストレージにデータを転送する方法です。"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:20.510Z",
+  "verified_at": "2026-11-25T12:15:44.837Z",
   "notes": "500 TB initial allocation for new applicants; expandable to 1.5 PB. Total logical capacity 90.0 PB, replicated east/west hub.",
   "history": [],
   "extras": {

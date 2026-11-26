@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u23-rerun",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/framagit-framasoft-s-gitlab $.identity_cost.kind: Capture is the Anubis wall; fresh read (same capture hash) is the same wall. Nothing on it says signup requires an institution; the quote only shows the wall.\n- storage/g-ttingen-research-online-bonndata-anubis-walled-pair $.free_tier.stated: First sentence supported by the quote. 'Same class of German university instance as Goettingen' is not in the capture and is an unsourced comparison.\n- storage/firestorage-jp $.per_object_cap.notes: 300 GiB for unregistered and free members and 2 GiB free storage are on the plan page. 'TOP-page upload path is separately capped at 2 GiB' is not on it; the okuru page presents the TOP-screen upload as the okuru flow itself.\n- storage/firestorage-jp $.per_object_cap.notes: Same value as c15: the 300 GiB part is supported; the separate 2 GiB TOP-page upload cap is not in the capture.\n- storage/firestorage-jp $.retention.notes: 3-day default, 14-day max and automatic deletion are on the page. 'deleted files cannot be recovered' is not in the capture.\n- storage/firestorage-jp $.retention.notes: Same value as c23: 14-day max and automatic deletion supported; 'deleted files cannot be recovered' is not in the capture.",
+ "scope": {
+  "rids": [
+   "storage/firestorage-jp",
+   "storage/fjord-commons",
+   "storage/framagit-framasoft-s-gitlab",
+   "storage/freesound-creative-commons-sound-library",
+   "storage/freshdesk",
+   "storage/g-ttingen-research-online-bonndata-anubis-walled-pair"
+  ]
+ },
+ "origin": "audit u100 of 20261125-0129-verify-storage-1818/u23 failed: 6 of 30 unsupported",
+ "created": "2026-11-25T11:42:53Z"
+}

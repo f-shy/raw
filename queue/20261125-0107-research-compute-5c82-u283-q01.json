@@ -1,0 +1,17 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u283-q01",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "For compute/sakura-cloud, compute/scaleway-apple-silicon, compute/ppio-sandbox and compute/scrapeless, should the paid-only verdict and free_tier.unit/metered_on fields be re-checked against a page that states free-tier status explicitly? The captured price and FAQ pages state prices and billing models but never say 'no free tier', and each record carries only one confirm.",
+ "why": "The captured pages prove paid prices and the billing model; the absence of a free-tier statement is an inference, not a clause in any capture, so the verdict and the free-tier metadata fields were not re-read by this unit.",
+ "scope": {
+  "rids": [
+   "compute/sakura-cloud",
+   "compute/scaleway-apple-silicon",
+   "compute/ppio-sandbox",
+   "compute/scrapeless"
+  ]
+ },
+ "origin": "20261125-0107-research-compute-5c82/u283",
+ "created": "2026-11-25T15:03:51Z"
+}

@@ -5,7 +5,7 @@
   "url": "https://www.jsdelivr.com/",
   "category": "CDN for package content",
   "free_tier": {
-    "stated": "free CDN for npm and GitHub content only",
+    "stated": "free CDN for content obtained from npm, GitHub and other third-party services",
     "unit": "none",
     "metered_on": "downloaded-bytes",
     "source_url": "https://www.jsdelivr.com/",
@@ -13,7 +13,7 @@
     "notes": ""
   },
   "per_object_cap": {
-    "stated": "package-file sizes; the per-file class limit could not be read",
+    "stated": "packages larger than 150 MB, or single GitHub files larger than 20 MB, are not supported by default",
     "bytes": null,
     "notes": "",
     "source_url": "https://www.jsdelivr.com/"
@@ -25,7 +25,7 @@
     "source_url": "https://www.jsdelivr.com/"
   },
   "egress": {
-    "terms": "no bandwidth cap found on a first-party page",
+    "terms": "no limits on bandwidth or number of requests, free for personal and commercial use",
     "metered": false,
     "free_allowance": null,
     "price_per_tb": null,
@@ -39,8 +39,8 @@
   "limits": [
     {
       "kind": "per-object-cap",
-      "value": "serves npm and GitHub content only, at package-file sizes",
-      "source": "https://www.jsdelivr.com/"
+      "value": "packages larger than 150 MB, or single GitHub files larger than 20 MB, are not supported by default",
+      "source": "https://github.com/jsdelivr/jsdelivr"
     }
   ],
   "identity_cost": {
@@ -55,10 +55,52 @@
       "url": "probe:https://www.jsdelivr.com/policy",
       "date": "2026-10-22",
       "proved": "404 on 2026-10-22, so the per-file limit and the no-cap claim could not be read first-hand"
+    },
+    {
+      "url": "https://www.jsdelivr.com/terms/",
+      "date": "2026-11-25",
+      "proved": "the terms name npm, GitHub and other third-party services as sources, so npm and GitHub only is wrong",
+      "capture": "sha256:684151d92bdcab1be0d46f459a75183a5522ee017434002ae506aabf15be8709",
+      "quote": "jsDelivr CDN delivers content obtained from npm, GitHub, and other third-party services."
+    },
+    {
+      "url": "https://github.com/jsdelivr/jsdelivr",
+      "date": "2026-11-25",
+      "proved": "the project documentation gives the 150 MB package and 20 MB GitHub single-file limits",
+      "capture": "sha256:2b422a33f7807efffb296128c5795069278b388d4e632ad3392fcfd348e79f89",
+      "quote": "Packages larger than 150 MB or single files larger than 20 MB (in the case of GitHub) are not supported by default."
+    },
+    {
+      "url": "https://github.com/jsdelivr/jsdelivr",
+      "date": "2026-11-25",
+      "proved": "the limit figures are on this page",
+      "capture": "sha256:2b422a33f7807efffb296128c5795069278b388d4e632ad3392fcfd348e79f89",
+      "quote": "Packages larger than 150 MB or single files larger than 20 MB (in the case of GitHub) are not supported by default."
+    },
+    {
+      "url": "https://github.com/jsdelivr/jsdelivr",
+      "date": "2026-11-25",
+      "proved": "the per-object limits are 150 MB per package and 20 MB per GitHub file",
+      "capture": "sha256:2b422a33f7807efffb296128c5795069278b388d4e632ad3392fcfd348e79f89",
+      "quote": "Packages larger than 150 MB or single files larger than 20 MB (in the case of GitHub) are not supported by default."
+    },
+    {
+      "url": "https://www.jsdelivr.com/terms/",
+      "date": "2026-11-25",
+      "proved": "the terms state no bandwidth or request limit",
+      "capture": "sha256:684151d92bdcab1be0d46f459a75183a5522ee017434002ae506aabf15be8709",
+      "quote": "there are no limits on bandwidth or number of requests,"
+    },
+    {
+      "url": "https://www.jsdelivr.com/terms/",
+      "date": "2026-11-25",
+      "proved": "use is free with no account stated",
+      "capture": "sha256:684151d92bdcab1be0d46f459a75183a5522ee017434002ae506aabf15be8709",
+      "quote": "using jsDelivr CDN is free for both personal and commercial use,"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-22T03:20:00.000Z",
+  "verified_at": "2026-11-25T15:23:44.598Z",
   "notes": "Open-source CDN for public software packages. Serves files directly from package registries; unmetered bandwidth claims apply to open-source repository distribution.",
   "history": [],
   "extras": {

@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://zencastr.com/feature/hosting",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The hosting page publishes no per-episode file-size cap. The recording product's limits are a separate product and are not a hosting cap."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://zencastr.com/feature/hosting",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The hosting page states no episode retention period; the recording product's separate limit is not a hosting term."
   },
   "egress": {
     "terms": "Not metered in any published doc; hosting and publishing show 'Unlimited' in the plan comparison.",
@@ -85,10 +85,31 @@
       "proved": "the free plan allows up to 5 shows",
       "capture": "sha256:d0d7884f9939e73eef94dd6da1a5ce8e06435ef2f67704514d2acb2b1effd75a",
       "quote": "Launch a second podcast or a spinoff, up to 5 shows, all on the free plan."
+    },
+    {
+      "url": "https://zencastr.com/feature/hosting",
+      "date": "2026-11-25",
+      "proved": "hosting has no monthly limits; no per-episode size figure is published on the hosting page",
+      "capture": "sha256:d0d7884f9939e73eef94dd6da1a5ce8e06435ef2f67704514d2acb2b1effd75a",
+      "quote": "With Zencastr, you can enjoy unlimited audio hosting with no monthly limits on episode uploads, downloads, or storage."
+    },
+    {
+      "url": "https://zencastr.com/feature/hosting",
+      "date": "2026-11-25",
+      "proved": "the hosting page publishes no retention period for hosted episodes",
+      "capture": "sha256:d0d7884f9939e73eef94dd6da1a5ce8e06435ef2f67704514d2acb2b1effd75a",
+      "quote": "With Zencastr, you can enjoy unlimited audio hosting with no monthly limits on episode uploads, downloads, or storage."
+    },
+    {
+      "url": "https://zencastr.com/feature/hosting",
+      "date": "2026-11-25",
+      "proved": "hosting is unlimited in uploads, downloads and storage, so none of those is metered",
+      "capture": "sha256:d0d7884f9939e73eef94dd6da1a5ce8e06435ef2f67704514d2acb2b1effd75a",
+      "quote": "With Zencastr, you can enjoy unlimited audio hosting with no monthly limits on episode uploads, downloads, or storage."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:36.119Z",
+  "verified_at": "2026-11-25T03:33:10.194Z",
   "notes": "Up to 5 shows are included on the free plan.",
   "history": [],
   "extras": {

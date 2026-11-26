@@ -1,0 +1,15 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u13-q02",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "limits[].kind has no term for a device or system count; Defined Networking (100 devices) and Enclave (5 systems) are bound by one. Which term should be added?",
+ "why": "Enclave uses request-rate as the nearest term and Defined Networking has binding none with no limits row; neither is a fit",
+ "scope": {
+  "rids": [
+   "egress/defined-networking",
+   "egress/enclave"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u13",
+ "created": "2026-11-25T15:23:41Z"
+}

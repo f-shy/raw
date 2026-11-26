@@ -6,7 +6,7 @@
   "category": "VPS",
   "tier": "Promo VPS Saver LA BF / NY BF",
   "free_tier": {
-    "stated": "No free tier. The Black Friday page read today sells 'Promo VPS Saver LA BF' and 'Promo VPS Saver NY BF' at USD 9.88 a year for 1 GB RAM, 1 vCPU, 10 GB SSD, 1 TB and 1 IPv4; the same shape is USD 2.99 a month on the promo page.",
+    "stated": "Promo VPS Saver LA BF $9.88 /year - 1 GB RAM - 1x vCore CPU - 10 GB SSD - 1 TB Bandwith - 1 Gbp/s connection - 1 IPv4 - Virtualizor panel",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://dedirock.com/black-friday/",
@@ -115,10 +115,31 @@
       "url": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?inquiryType=EntityName&searchTerm=DEDI%20ROCK%20LLC",
       "date": "2026-10-24",
       "proved": "searched the Florida register for 'DEDI ROCK LLC' and 'DEDIROCK'; the result list runs from 'D & E DISPATCH SERVICES, LLC' to 'D & E DISTRIBUTION LLC' with no entity named Dedi Rock - the name the vendor uses is not registered in Florida"
+    },
+    {
+      "url": "https://dedirock.com/black-friday/",
+      "date": "2026-11-25",
+      "proved": "the Black Friday page states the Saver variant at USD 9.88 a year with this shape",
+      "capture": "sha256:588873625318544d23fbfac855b4104b781e2e69975b42efa992a47ace5f3efb",
+      "quote": "Promo VPS Saver LA BF $9.88 /year - 1 GB RAM - 1x vCore CPU - 10 GB SSD - 1 TB Bandwith - 1 Gbp/s connection - 1 IPv4 - Virtualizor panel"
+    },
+    {
+      "url": "https://dedirock.com/black-friday/",
+      "date": "2026-11-25",
+      "proved": "the second Saver variant is also USD 9.88 a year with the same shape",
+      "capture": "sha256:588873625318544d23fbfac855b4104b781e2e69975b42efa992a47ace5f3efb",
+      "quote": "Promo VPS Saver NY BF $9.88 /year - 1 GB RAM - 1x vCore CPU - 10 GB SSD - 1 TB Bandwith - 1 Gbp/s connection - 1 IPv4 - Virtualizor panel"
+    },
+    {
+      "url": "https://dedirock.com/black-friday/",
+      "date": "2026-11-25",
+      "proved": "the Black Friday page still states the Saver variant at USD 9.88 a year with this shape",
+      "capture": "sha256:588873625318544d23fbfac855b4104b781e2e69975b42efa992a47ace5f3efb",
+      "quote": "Promo VPS Saver LA BF $9.88 /year - 1 GB RAM - 1x vCore CPU - 10 GB SSD - 1 TB Bandwith - 1 Gbp/s connection - 1 IPv4 - Virtualizor panel"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-24T03:18:31.000Z",
+  "verified_at": "2026-11-25T15:03:55.162Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "This is the only sub-USD-1 row found in the whole lane with a dedicated IPv4, and it is also the cheapest 1 GiB machine with one: USD 0.82 a month on annual prepay, USD 9.88 out of pocket. A dedicated IPv4 removes the UDP-forwarding question entirely, and KVM means the guest's own kernel can load the wireguard module instead of a userspace wireguard-go build. What weakens it: the price is a Black Friday campaign page still served in October, the renewal is not published, and the seller's named entity 'Dedi Rock LLC' is not in the Florida register. ATLAS CLOUD LLC (L21000425604, ACTIVE, Clearwater FL 33755) sits at the same city and ZIP and is the entity earlier readings previously paired with this brand, but no page read today makes that link. Not established: whether a host firewall filters UDP; whether the USD 9.88 renews at the same rate; the payment rails and any card hold.",

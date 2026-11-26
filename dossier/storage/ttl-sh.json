@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "unverified: https://ttl.sh/ states no per-object size cap",
     "source_url": "https://ttl.sh/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: https://github.com/replicatedhq/ttl.sh/blob/main/registry/entrypoint.sh answered HTTP 404 on 2026-11-25; no per-object size cap is stated on https://ttl.sh/ or the deployment README"
   },
   "retention": {
     "stated": "Choose your TTL. Default is 1 hour, max is 24 hours.",
     "source_url": "https://ttl.sh/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Default is 1 hour, max is 24 hours; no TTL specified defaults to `:1h`."
   },
   "egress": {
     "terms": "Unmetered and anonymous: blobs are 307-redirected to a presigned S3 URL (s3.us-east-1.storage.sh, X-Amz-Expires=1200), so bytes come off object storage, not the registry host. Range requests work.",
@@ -32,7 +32,7 @@
   ],
   "interface_detail": "oci",
   "tooling": "Any distribution-spec client: oras, docker, skopeo, crane, regctl. Built on zot (per the repo: 'Zot runs an off-the-shelf image ghcr.io/project-zot/zot-linux-amd64 ... points zot at an S3-compatible bucket').",
-  "chaining": "Unlimited anonymous identities x unlimited repos x unlimited blobs. Because there is no account at all, repo names are the only namespace; rate-limiting is per-IP only, so N egress IPs = N x throughput. Effectively an unlimited free write/read buffer that garbage-collects itself.",
+  "chaining": "Any OCI artifact can be pushed with a TTL without auth, config or an account.",
   "limits": [
     {
       "kind": "per-ip-shaping",
@@ -93,10 +93,31 @@
       "proved": "the page states the default 1 hour TTL and 24 hour maximum",
       "capture": "sha256:5c788d1bab655380f8460ae3ef6d2ae0e58dbb5f2905341276dba6c8bb030d8d",
       "quote": "Choose your TTL. Default is 1 hour, max is 24 hours."
+    },
+    {
+      "url": "probe:https://github.com/replicatedhq/ttl.sh/blob/main/registry/entrypoint.sh",
+      "date": "2026-11-25",
+      "proved": "the stale repository path for the nginx upload setting answered HTTP 404",
+      "capture": "sha256:93af748c9ce87b12309adf3fa330a6f62a79e8066a6d0e206cf96de1cd5c6be5",
+      "quote": "\"status\": 404"
+    },
+    {
+      "url": "https://ttl.sh/",
+      "date": "2026-11-25",
+      "proved": "the default TTL is 1 hour, the maximum is 24 hours and an unspecified TTL becomes :1h",
+      "capture": "sha256:5c788d1bab655380f8460ae3ef6d2ae0e58dbb5f2905341276dba6c8bb030d8d",
+      "quote": "Choose your TTL. Default is 1 hour, max is 24 hours. ... No TTL specified? Defaults to `:1h`"
+    },
+    {
+      "url": "https://ttl.sh/",
+      "date": "2026-11-25",
+      "proved": "OCI artifacts can be pushed anonymously without config or an account",
+      "capture": "sha256:5c788d1bab655380f8460ae3ef6d2ae0e58dbb5f2905341276dba6c8bb030d8d",
+      "quote": "Push any OCI artifact with a TTL. No auth, no config, no account."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:34.760Z",
+  "verified_at": "2026-11-25T19:55:24.771Z",
   "notes": "No account, no quota. \"Free forever. Zero sign-up. Push any OCI artifact with a TTL.\" Storage is bounded only by the TTL, max advertised 24 hours.",
   "history": [],
   "extras": {

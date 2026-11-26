@@ -55,7 +55,7 @@
   },
   "reliability_note": "Service closed April 2023.",
   "confidence": "reported",
-  "confidence_note": "Third-party report dated 2023-04-14. wevpn.com itself returned a broker 530 on the single attempt made, so the vendor's own shutdown notice was not read. The confirmation would be an archive capture of wevpn.com from mid-2023.",
+  "confidence_note": "Third-party report dated 2023-04-14. The vendor's own shutdown notice could not be read: wevpn.com had no DNS answer on 2026-11-25.",
   "evidence": [
     {
       "url": "https://www.techradar.com/news/wevpn-has-shut-down-users-now-moved-onto-windscribe",
@@ -66,16 +66,44 @@
       "url": "https://wevpn.com/",
       "date": "2026-10-23",
       "proved": "Nothing: the attempt returned a broker 530, which establishes nothing about the target."
+    },
+    {
+      "url": "https://www.techradar.com/news/wevpn-has-shut-down-users-now-moved-onto-windscribe",
+      "date": "2026-11-25",
+      "proved": "a report published 2023-04-14 says WeVPN shut down and moved active subscribers to another provider",
+      "capture": "sha256:bd8f9a77318ed14e780a192fcffc2a60f69a2682545e7dfdf4b3582b7f6bf7ef",
+      "quote": "Published  14 April 2023 ... Virtual Private Network (VPN) service provider WeVPN is shutting down, the company confirmed in a short statement published on its website. Users who still have active subscriptions will be able to use a different provider for the time that remains, free of charge."
+    },
+    {
+      "url": "https://windscribe.com/features/port-forwarding/",
+      "date": "2026-11-25",
+      "proved": "the successor's port forwarding is paid-only",
+      "capture": "sha256:532f49f2566aec08aa4c50f4c2fda88f54d1d2374e2f8aa12036d53cc062b65a",
+      "quote": "Port forwarding is only included on Windscribe's paid plans. However, the free plan does have a generous data allowance and access to all Windscribe servers."
+    },
+    {
+      "url": "https://www.techradar.com/news/wevpn-has-shut-down-users-now-moved-onto-windscribe",
+      "date": "2026-11-25",
+      "proved": "the shutdown report still describes a closed service",
+      "capture": "sha256:bd8f9a77318ed14e780a192fcffc2a60f69a2682545e7dfdf4b3582b7f6bf7ef",
+      "quote": "Virtual Private Network (VPN) service provider WeVPN is shutting down, the company confirmed in a short statement published on its website. Users who still have active subscriptions will be able to use a different provider for the time that remains, free of charge."
+    },
+    {
+      "url": "probe:https://wevpn.com/",
+      "date": "2026-11-25",
+      "proved": "the first-party name had no answer on 2026-11-25",
+      "capture": "sha256:eeac690edf868324ae164d46ee16774ffb63215538050ab37d104a6db8b566b6",
+      "quote": "\"error\": \"transport\""
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T09:55:01.927Z",
   "price_per_tb_month": "not applicable",
   "history": [],
   "notes": "WeVPN discontinued operations in 2023. Customer accounts were transitioned to Windscribe.",
   "extras": {
     "wg_path": "none",
-    "wg_detail": "The service no longer operates, so no config can be obtained. Successor for existing users is Windscribe, which forwards ports only on its paid Pro plan.",
+    "wg_detail": "The service no longer operates, so no config can be obtained. The successor Windscribe includes port forwarding only on its paid plans.",
     "ingress": "none",
     "volume_tib_month": null,
     "volume_stated": "Not applicable: the provider stopped serving in April 2023.",

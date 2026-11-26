@@ -21,10 +21,10 @@
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://developers.notion.com/guides/data-apis/working-with-files-and-media",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "By default, pages stay in Trash for 30 days."
   },
   "egress": {
-    "terms": "Free; Notion serves via S3/presigned URLs on Cloudflare-fronted notion.com. File objects return 'An authenticated HTTP GET URL... valid for one hour', so links must be re-minted - no CDN you can pin a cache to without re-signing.",
+    "terms": "An authenticated HTTP GET URL to the file. The URL is valid for one hour.",
     "metered": false
   },
   "interface": [
@@ -96,10 +96,31 @@
       "proved": "the API example gives 5242880 bytes for a free workspace",
       "capture": "sha256:8fc159ffc3217c25730d204f1bacae95435f5f3a998427e96ab35554472d3fed",
       "quote": "\"max_file_upload_size_in_bytes\": 5242880"
+    },
+    {
+      "url": "https://www.notion.com/help/duplicate-delete-and-restore-content",
+      "date": "2026-11-25",
+      "proved": "deleted pages remain in Trash for 30 days by default",
+      "capture": "sha256:a2586aefdac7e27fb12cf63fcca6e2fc8c83f7a6536c77d12c0e1b12c017399b",
+      "quote": "By default, pages stay in Trash for 30 days."
+    },
+    {
+      "url": "https://developers.notion.com/reference/file-object",
+      "date": "2026-11-25",
+      "proved": "file objects serve through an authenticated GET URL valid for one hour",
+      "capture": "sha256:b822c6af477c1fa7858f3fc479d4cc24b0fc0bd4b3082f95540e9c1c2009738a",
+      "quote": "An authenticated HTTP GET URL to the file. The URL is valid for one hour."
+    },
+    {
+      "url": "https://developers.notion.com/guides/data-apis/working-with-files-and-media",
+      "date": "2026-11-25",
+      "proved": "the Free headline and per-file cap are unchanged",
+      "capture": "sha256:8fc159ffc3217c25730d204f1bacae95435f5f3a998427e96ab35554472d3fed",
+      "quote": "Free workspaces are limited to 5 MiB (binary megabytes) per file"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:27.598Z",
+  "verified_at": "2026-11-25T21:21:16.187Z",
   "notes": "Free workspaces are limited to 5 MiB (binary megabytes) per file.",
   "history": [],
   "extras": {

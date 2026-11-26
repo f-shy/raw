@@ -5,7 +5,7 @@
   "url": "https://www.archer2.ac.uk/support-access/access",
   "category": "national HPC allocation",
   "free_tier": {
-    "stated": "Pump Priming is always open and awards a maximum of 4,000 CU for six months through a light-touch form sent to the service desk, with a decision expected in under two weeks; the Driving Test awards 800 CU including GPU nodes to new users, and Director's Time is always open but restricted to University of Edinburgh researchers.",
+    "stated": "The access page describes Pump Priming in the past tense: it awarded at most 4,000 CU for six months through a form sent to the service desk, with a decision usually in under two weeks, and a starter allocation of 800 CU, GPU nodes included, for new users; Director's Time for University of Edinburgh researchers is listed as Closed.",
     "unit": "users",
     "metered_on": "wall-clock",
     "source_url": "https://www.archer2.ac.uk/support-access/access",
@@ -74,10 +74,31 @@
       "url": "https://www.archer2.ac.uk/support-access/access",
       "date": "2026-10-22",
       "proved": "'Director's Time ... Small amount of resource is available for University of Edinburgh researchers only', quoted"
+    },
+    {
+      "url": "https://www.archer2.ac.uk/support-access/access",
+      "date": "2026-11-25",
+      "proved": "the access page states a former maximum of 4000 CU for 6 months through Pump Priming",
+      "capture": "sha256:86de1e55e688b53864b9a25fba21f2b113937a5cbd5054c63c7ea318832c2fcb",
+      "quote": "A maximum of 4000 CU for 6 months were available through Pump Priming."
+    },
+    {
+      "url": "https://www.archer2.ac.uk/support-access/access",
+      "date": "2026-11-25",
+      "proved": "the access page still states a former maximum of 4000 CU for 6 months through Pump Priming",
+      "capture": "sha256:86de1e55e688b53864b9a25fba21f2b113937a5cbd5054c63c7ea318832c2fcb",
+      "quote": "A maximum of 4000 CU for 6 months were available through Pump Priming."
+    },
+    {
+      "url": "https://www.archer2.ac.uk/support-access/access",
+      "date": "2026-11-25",
+      "proved": "Pump Priming is described in the past tense, with a maximum of 4,000 CU for six months",
+      "capture": "sha256:86de1e55e688b53864b9a25fba21f2b113937a5cbd5054c63c7ea318832c2fcb",
+      "quote": "A maximum of 4000 CU for 6 months were available through Pump Priming."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:32.751Z",
   "notes": "The always-open, form-only structure makes this the closest UK analogue to the trial tiers found in Germany and the US, and the sub-two-week decision is faster than any peer-reviewed call in evaluated benchmarks. The binding term is 'EPSRC remit', which is a funding-eligibility test rather than a nationality test, but it still resolves to a UK research organisation. CU means CPU-hour equivalent on ARCHER2 and is not a GPU-hour unit, so no conversion is offered.",
   "extras": {
     "wave2": {

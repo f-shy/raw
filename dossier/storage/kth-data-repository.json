@@ -14,14 +14,14 @@
   },
   "per_object_cap": {
     "stated": "30 GB per file",
-    "bytes": 10000000000,
+    "bytes": 30000000000,
     "source_url": "https://docs.datarepository.kth.se/deposit/manage_files/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Each file can be up to 30 GB, within the record's total quota."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "You can **only delete an unpublished record**. Published records cannot be deleted except under special circumstances. If necessary, please submit a request via our support line.",
     "source_url": "https://docs.datarepository.kth.se/deposit/manage_files/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "A **one-month grace period** allows file modifications if errors are found. After this period, changes are only permitted in justified cases (e.g., copyright infringement, exposure of personal data)."
   },
   "egress": {
     "terms": "Free and anonymous access. Download links return HTTP 302 redirecting to presigned S3 URLs with 60-second expiration, requiring per-request URL resolution.",
@@ -30,9 +30,9 @@
   "interface": [
     "rest"
   ],
-  "interface_detail": "InvenioRDM REST (/api/records), OAI-PMH, GitHub integration.",
+  "interface_detail": "The REST API calls for KTH Datarepository require authentication. The currently supported authentication method is through the use of Bearer tokens, which can be generated in the \"Applications\" section of your user account's settings in the KTH Datarepository.",
   "tooling": "curl; the InvenioRDM python client.",
-  "chaining": "Mountable via any InvenioRDM wrapper; the 60-second presign makes it a poor CDN origin unless fronted by Cloudflare with a re-resolving shim.",
+  "chaining": "In the **Files** section of the deposit form, click the **Import files** button to import files from a previous version. Using this feature saves storage space as we don't duplicate the previous files.",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -100,10 +100,52 @@
       "proved": "quota increases above 30 GB or 100 files are granted on request",
       "capture": "sha256:286b54baf79476959494df8d5e63d3defc3ccd9e281f745749f8716a195fa853",
       "quote": "If you need more than 30 GB per record or 100 files, contact support to request an increase at"
+    },
+    {
+      "url": "https://docs.datarepository.kth.se/deposit/manage_files/",
+      "date": "2026-11-25",
+      "proved": "each file is capped at 30 GB within the record quota",
+      "capture": "sha256:286b54baf79476959494df8d5e63d3defc3ccd9e281f745749f8716a195fa853",
+      "quote": "Each file can be up to 30 GB, within the record's total quota."
+    },
+    {
+      "url": "https://docs.datarepository.kth.se/deposit/manage_records/",
+      "date": "2026-11-25",
+      "proved": "only unpublished records can be deleted; published records need special circumstances",
+      "capture": "sha256:a205528643bcd72895898273c053c84c84e96416321dc01760e281a3bc0fc61d",
+      "quote": "You can **only delete an unpublished record**. Published records cannot be deleted except under special circumstances. If necessary, please submit a request via our support line."
+    },
+    {
+      "url": "https://docs.datarepository.kth.se/deposit/manage_files/",
+      "date": "2026-11-25",
+      "proved": "a one-month grace period permits file changes, then only justified cases",
+      "capture": "sha256:286b54baf79476959494df8d5e63d3defc3ccd9e281f745749f8716a195fa853",
+      "quote": "A **one-month grace period** allows file modifications if errors are found. After this period, changes are only permitted in justified cases (e.g., copyright infringement, exposure of personal data)."
+    },
+    {
+      "url": "https://docs.datarepository.kth.se/deposit/rest_api/",
+      "date": "2026-11-25",
+      "proved": "the REST API requires a bearer token generated in account settings",
+      "capture": "sha256:29c3d0fe80e8a75940036d16509fcc3dce94fb1f633f0556e11538723d5dfe1f",
+      "quote": "The REST API calls for KTH Datarepository require authentication. The currently supported authentication method is through the use of Bearer tokens, which can be generated in the \"Applications\" section of your user account's settings in the KTH Datarepository."
+    },
+    {
+      "url": "https://docs.datarepository.kth.se/deposit/manage_versions/",
+      "date": "2026-11-25",
+      "proved": "files can be imported from a previous version without duplicating storage",
+      "capture": "sha256:0b4c3fc25f11602d921424dc63ffd727d39eb73a5d930c7ced4bd099e0a7bd59",
+      "quote": "In the **Files** section of the deposit form, click the **Import files** button to import files from a previous version. Using this feature saves storage space as we don't duplicate the previous files."
+    },
+    {
+      "url": "probe:https://datarepository.kth.se/api/records/xme8h-jc618/files/sensor_data.zip/content",
+      "date": "2026-11-25",
+      "proved": "the URL parameter X-Amz-Expires is 60",
+      "capture": "sha256:66485b56a05432ac1ee464c6f0af26781494eb046c5c386da231a6a34d0508bf",
+      "quote": "X-Amz-Expires=60"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:13:59.618Z",
+  "verified_at": "2026-11-25T21:21:12.715Z",
   "notes": "50 GB and 100 files per record by default; 10 GB per file. Quota increase is granted on email request to researchdata@kth.se. Not a hard wall. A record with a 70.4 GB single object exists in the public API, i.e. increases are real and granted.",
   "history": [],
   "extras": {

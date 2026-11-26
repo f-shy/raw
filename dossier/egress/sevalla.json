@@ -67,10 +67,31 @@
       "url": "https://docs.sevalla.com/applications/networking",
       "date": "2026-10-23",
       "proved": "\"Protocol | TCP\"; 3 TCP proxies per application; port from 20000-29999 or 32768-65000"
+    },
+    {
+      "url": "https://sevalla.com/application-hosting/pricing/",
+      "date": "2026-11-25",
+      "proved": "external bandwidth is priced at $0.1 per GB",
+      "capture": "sha256:c8f42c829b6d072abf5c888bd21d4ff8c14c5373dcb4278bfca89fffc4bb6927",
+      "quote": "| External | $0.1 / GB |"
+    },
+    {
+      "url": "https://docs.sevalla.com/applications/networking",
+      "date": "2026-11-25",
+      "proved": "legacy TCP proxy endpoints are disabled",
+      "capture": "sha256:5d7f52bb16495ee41c3cbf319b6e4634a798a8d2d08dc05c0afa5ba309c26182",
+      "quote": "Those legacy hostnames and ports were disabled on Oct 15, 2026, and connections to them fail."
+    },
+    {
+      "url": "https://sevalla.com/application-hosting/pricing/",
+      "date": "2026-11-25",
+      "proved": "a time-limited trial credit exists",
+      "capture": "sha256:c8f42c829b6d072abf5c888bd21d4ff8c14c5373dcb4278bfca89fffc4bb6927",
+      "quote": "Every new user receives $20 in credits valid for 1 month."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:47.436Z",
   "price_per_tb_month": "USD 5",
   "history": [],
   "notes": "Free tier exists only for static sites (100 GB bandwidth), which is not a port. Legacy TCP proxy hostnames and ports were disabled on Oct 15, 2026, so an existing .proxy.sevalla.app address stopped working.",

@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://data.crossda.hr/api/dataverses/:root/storage/quota?showInherited=true",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: no per-object size clause is published on the quota endpoint, the version endpoint or the account-creation page"
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://data.crossda.hr/api/dataverses/:root/storage/quota?showInherited=true",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: the quota endpoint, version endpoint and account-creation page state no data-retention period"
   },
   "egress": {
     "terms": "Cloudflare-fronted.",
@@ -92,10 +92,31 @@
       "proved": "the account-creation page offers account creation with login options",
       "capture": "sha256:87f21bfde27385dcae91774a1bb7afa78b8e134cc4fb0e5c86260ed1de7a704c",
       "quote": "You can also create a Dataverse account with one of our other log in options."
+    },
+    {
+      "url": "https://data.crossda.hr/api/dataverses/:root/storage/quota?showInherited=true",
+      "date": "2026-11-25",
+      "proved": "the repository's quota endpoint returns a collection quota message and publishes no per-object size cap",
+      "capture": "sha256:369e5370371398bca301944e5b5408e39b600436d9ce6a01845bd98aa594cb8e",
+      "quote": "{\"status\":\"OK\",\"data\":{\"message\":\"No quota defined for this collection\"}}"
+    },
+    {
+      "url": "https://data.crossda.hr/api/info/version",
+      "date": "2026-11-25",
+      "proved": "the version endpoint reports the deployment version and publishes no retention period",
+      "capture": "sha256:b2cd98db56e75fa7db217994435729d2448125348c496aa396a9d3a8778332fd",
+      "quote": "{\"status\":\"OK\",\"data\":{\"version\":\"6.2\",\"build\":\"1603-a218417\"}}"
+    },
+    {
+      "url": "https://data.crossda.hr/api/dataverses/:root/storage/quota?showInherited=true",
+      "date": "2026-11-25",
+      "proved": "the quota endpoint still states that no quota is defined for the collection",
+      "capture": "sha256:369e5370371398bca301944e5b5408e39b600436d9ce6a01845bd98aa594cb8e",
+      "quote": "{\"status\":\"OK\",\"data\":{\"message\":\"No quota defined for this collection\"}}"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:58.759Z",
+  "verified_at": "2026-11-25T04:14:18.947Z",
   "notes": "The quota endpoint states \"No quota defined for this collection\".",
   "history": [],
   "extras": {

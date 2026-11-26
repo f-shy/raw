@@ -1,199 +1,194 @@
 {
-  "topic": "compute",
-  "slug": "verda",
-  "provider": "Verda (formerly DataCrunch)",
-  "url": "https://verda.com/pricing",
-  "category": "GPU cloud",
-  "free_tier": {
-    "stated": "no free tier: pay-as-you-go GPU capacity on multi-node clusters with no commitments and no minimums, priced per GPU",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://verda.com/pricing",
-    "read_on": "2026-10-22"
+ "topic": "compute",
+ "slug": "verda",
+ "provider": "Verda (formerly DataCrunch)",
+ "url": "https://verda.com/pricing",
+ "category": "GPU cloud",
+ "free_tier": {
+  "stated": "True pay-as-you-go pricing on multi-node clusters.",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://verda.com/pricing",
+  "read_on": "2026-10-22"
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://verda.com/pricing",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "not stated",
+  "days": null,
+  "source_url": "https://verda.com/pricing",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "not published",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://verda.com/pricing"
+ },
+ "interface": [
+  "rest",
+  "cli"
+ ],
+ "interface_detail": "Provision and manage with a UI console, Terraform, SDK and API; the inference gateway uses an OpenAI-compatible API.",
+ "tooling": "the user installs and runs Terraform or an SDK against the Verda API; the console manages deployments without installed tooling",
+ "chaining": "GPU instances, CPU instances, instant clusters, serverless containers and storage are all priced on one page; spot is a discount off the paid on-demand rate and reserved terms run from one month to two years",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "priced per GPU-hour on instances, clusters and serverless containers, with no commitment and no minimum on pay-as-you-go; reserved discounts run from 1 month to 2 years",
+   "source": "https://verda.com/pricing"
+  }
+ ],
+ "limits_note": "Session cap, idle-reap and network policy are not documented.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "Sign in with Google, Microsoft or GitHub, or with email and password; the console is protected by reCAPTCHA. No card or phone number is stated on the sign-in page.",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "documented",
+ "confidence_note": "the pricing page was read on 2026-10-22 and states the pay-as-you-go model per GPU. There is no free tier, so the verdict moves to paid-only",
+ "evidence": [
+  {
+   "url": "https://verda.com/pricing",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
   },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://verda.com/pricing",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+  {
+   "url": "https://verda.com/pricing",
+   "date": "2026-10-22",
+   "proved": "'True pay-as-you-go pricing on multi-node clusters. Spin up for an hour or months  -  no commitments, no minimums. Specs and price are shown per GPU.' quoted"
   },
-  "retention": {
-    "stated": "not stated",
-    "days": null,
-    "source_url": "https://verda.com/pricing",
-    "notes": "Disk durability across instance stops and deletions is not documented."
+  {
+   "url": "https://verda.com/pricing",
+   "date": "2026-11-25",
+   "proved": "the multi-node cluster offer is pay-as-you-go",
+   "capture": "sha256:539a0b612b63f21ff087b28bb647efcdd2e2dde0e4445c6d6b59d73ddcde6798",
+   "quote": "True pay-as-you-go pricing on multi-node clusters."
   },
-  "egress": {
-    "terms": "not published",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://verda.com/pricing"
+  {
+   "url": "https://verda.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the page offers only paid capacity tiers",
+   "capture": "sha256:539a0b612b63f21ff087b28bb647efcdd2e2dde0e4445c6d6b59d73ddcde6798",
+   "quote": "- Full-stack, AI Lab-backed\n- Pay-as-you-go, spot, or reserved"
   },
-  "interface": [
-    "rest",
-    "cli"
-  ],
-  "interface_detail": "Provision and manage with a UI console, Terraform, SDK and API; the inference gateway uses an OpenAI-compatible API.",
-  "tooling": "the user installs and runs Terraform or an SDK against the Verda API; the console manages deployments without installed tooling",
-  "chaining": "GPU instances, CPU instances, instant clusters, serverless containers and storage are all priced on one page; spot is a discount off the paid on-demand rate and reserved terms run from one month to two years",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "priced per GPU-hour on instances, clusters and serverless containers, with no commitment and no minimum on pay-as-you-go; reserved discounts run from 1 month to 2 years",
-      "source": "https://verda.com/pricing"
-    }
-  ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "Sign in with Google, Microsoft or GitHub, or with email and password; the console is protected by reCAPTCHA. No card or phone number is stated on the sign-in page.",
-    "country": null
+  {
+   "url": "https://console.verda.com/signin",
+   "date": "2026-11-24",
+   "proved": "email/password registration is offered alongside the social logins",
+   "capture": "sha256:6c71c68b4c1dc7aeef5c72717d2c63bced0a8b839f545d633e2638f05c319ce8",
+   "quote": "or continue with email"
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "documented",
-  "confidence_note": "the pricing page was read on 2026-10-22 and states the pay-as-you-go model per GPU. There is no free tier, so the verdict moves to paid-only",
-  "evidence": [
-    {
-      "url": "https://verda.com/pricing",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://verda.com/pricing",
-      "date": "2026-10-22",
-      "proved": "'True pay-as-you-go pricing on multi-node clusters. Spin up for an hour or months  -  no commitments, no minimums. Specs and price are shown per GPU.' quoted"
-    },
-    {
-      "url": "https://verda.com/pricing",
-      "date": "2026-10-22",
-      "proved": "the pricing page carries only 'Price' and 'Spot price' columns, for example '1x H100 SXM5 80GB ... $4.470/h | $2.235/h'; there is no free tier, trial or signup credit on the page; the only free route is content-creation credits at https://docs.verda.com/resources/obtaining-free-credits/how-to-receive-credits/ with no published amount"
-    },
-    {
-      "url": "https://verda.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the page offers only paid capacity tiers",
-      "capture": "sha256:539a0b612b63f21ff087b28bb647efcdd2e2dde0e4445c6d6b59d73ddcde6798",
-      "quote": "- Full-stack, AI Lab-backed\n- Pay-as-you-go, spot, or reserved"
-    },
-    {
-      "url": "https://console.verda.com/signin",
-      "date": "2026-11-24",
-      "proved": "email/password registration is offered alongside the social logins",
-      "capture": "sha256:6c71c68b4c1dc7aeef5c72717d2c63bced0a8b839f545d633e2638f05c319ce8",
-      "quote": "or continue with email"
-    },
-    {
-      "url": "https://verda.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the platform is managed through an API and Terraform as well as the console",
-      "capture": "sha256:539a0b612b63f21ff087b28bb647efcdd2e2dde0e4445c6d6b59d73ddcde6798",
-      "quote": "Provision and manage with UI console, Terraform, SDK, or API."
-    },
-    {
-      "url": "https://verda.com/pricing",
-      "date": "2026-11-24",
-      "proved": "an OpenAI-compatible inference API is published",
-      "capture": "sha256:539a0b612b63f21ff087b28bb647efcdd2e2dde0e4445c6d6b59d73ddcde6798",
-      "quote": "Frontier open-weight models through one OpenAI compatible API, billed per token."
-    },
-    {
-      "url": "https://verda.com/pricing",
-      "date": "2026-11-24",
-      "proved": "Terraform and SDKs are published for the API",
-      "capture": "sha256:539a0b612b63f21ff087b28bb647efcdd2e2dde0e4445c6d6b59d73ddcde6798",
-      "quote": "Provision and manage with UI console, Terraform, SDK, or API."
-    },
-    {
-      "url": "https://verda.com/pricing",
-      "date": "2026-11-24",
-      "proved": "reserved discounts are published by commitment length",
-      "capture": "sha256:539a0b612b63f21ff087b28bb647efcdd2e2dde0e4445c6d6b59d73ddcde6798",
-      "quote": "| 1 month | 2% off on-demand |"
-    },
-    {
-      "url": "https://verda.com/pricing",
-      "date": "2026-11-24",
-      "proved": "pay-as-you-go has no commitment",
-      "capture": "sha256:539a0b612b63f21ff087b28bb647efcdd2e2dde0e4445c6d6b59d73ddcde6798",
-      "quote": "Pay-as-you-go pricing. Start and end deployments at any time, without long-term commitments."
-    },
-    {
-      "url": "https://verda.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the pay-as-you-go model and absence of a free tier are unchanged",
-      "capture": "sha256:539a0b612b63f21ff087b28bb647efcdd2e2dde0e4445c6d6b59d73ddcde6798",
-      "quote": "True pay-as-you-go pricing on multi-node clusters. Spin up for an hour or months — no commitments, no minimums. Specs and price are shown per GPU."
-    },
-    {
-      "url": "https://verda.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the on-demand and spot prices for one H100 are published",
-      "capture": "sha256:539a0b612b63f21ff087b28bb647efcdd2e2dde0e4445c6d6b59d73ddcde6798",
-      "quote": "| 1x H100 SXM5 80GB | 30 | 120 GB | 80 GB | $5.619/h | $2.810/h |"
-    },
-    {
-      "url": "https://verda.com/pricing",
-      "date": "2026-11-24",
-      "proved": "token-priced inference is a separate product on the same page",
-      "capture": "sha256:539a0b612b63f21ff087b28bb647efcdd2e2dde0e4445c6d6b59d73ddcde6798",
-      "quote": "| Kimi K3.1 Pro | 1M | $2.00 | $0.20 | $10.00 |"
-    },
-    {
-      "url": "https://inference.verda.com/v1",
-      "date": "2026-11-24",
-      "proved": "a bare GET to the inference gateway URL is not an endpoint",
-      "capture": "sha256:29e505e46afd6ead652e3a337816ec12e926084cd0756bb6dba31e9862e60b3e",
-      "quote": "\"message\":\"GET /v1 is not an endpoint of this gateway\""
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T13:21:07.389Z",
-  "price_per_tb_month": null,
-  "notes": "Paid-only stands: the page lists no free tier, and spot is a discount off a paid meter. Content-creation credits are discretionary and publish no amount, so they are not a countable free lane. Verda now also publishes token-priced inference; the content-credit route needs a published amount from the operator.",
-  "extras": {
-    "seed_status": "ranked",
-    "talaria_m10h_usd": 7.2,
-    "talaria_m24h_usd": 17.28,
-    "nemo_m10h_usd": 16.04,
-    "keep_rate": 1.0,
-    "keep_rate_basis": "billed for uptime (no suspension feature published)",
-    "billing_model": "unclassified",
-    "shape": {
-      "vcpu": null,
-      "ram": null,
-      "disk": null,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "priced per GPU with specs shown per row"
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "a cluster runs for an hour or months; the page states no reap"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "granularity": {
-      "min_billed_s": 60,
-      "rounding_s": null
-    },
-    "burst_x": 1.0,
-    "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "ps": null,
-    "net": null,
-    "wave2": {
-      "verdict_change": "paid-only -> paid-only on 2026-10-22"
-    }
+  {
+   "url": "https://verda.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the platform is managed through an API and Terraform as well as the console",
+   "capture": "sha256:539a0b612b63f21ff087b28bb647efcdd2e2dde0e4445c6d6b59d73ddcde6798",
+   "quote": "Provision and manage with UI console, Terraform, SDK, or API."
   },
-  "stale": true,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding": "request-rate",
-  "history": [
-    "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
-  ]
+  {
+   "url": "https://verda.com/pricing",
+   "date": "2026-11-24",
+   "proved": "an OpenAI-compatible inference API is published",
+   "capture": "sha256:539a0b612b63f21ff087b28bb647efcdd2e2dde0e4445c6d6b59d73ddcde6798",
+   "quote": "Frontier open-weight models through one OpenAI compatible API, billed per token."
+  },
+  {
+   "url": "https://verda.com/pricing",
+   "date": "2026-11-24",
+   "proved": "reserved discounts are published by commitment length",
+   "capture": "sha256:539a0b612b63f21ff087b28bb647efcdd2e2dde0e4445c6d6b59d73ddcde6798",
+   "quote": "| 1 month | 2% off on-demand |"
+  },
+  {
+   "url": "https://verda.com/pricing",
+   "date": "2026-11-24",
+   "proved": "pay-as-you-go has no commitment",
+   "capture": "sha256:539a0b612b63f21ff087b28bb647efcdd2e2dde0e4445c6d6b59d73ddcde6798",
+   "quote": "Pay-as-you-go pricing. Start and end deployments at any time, without long-term commitments."
+  },
+  {
+   "url": "https://verda.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the pay-as-you-go model and absence of a free tier are unchanged",
+   "capture": "sha256:539a0b612b63f21ff087b28bb647efcdd2e2dde0e4445c6d6b59d73ddcde6798",
+   "quote": "True pay-as-you-go pricing on multi-node clusters. Spin up for an hour or months — no commitments, no minimums. Specs and price are shown per GPU."
+  },
+  {
+   "url": "https://verda.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the on-demand and spot prices for one H100 are published",
+   "capture": "sha256:539a0b612b63f21ff087b28bb647efcdd2e2dde0e4445c6d6b59d73ddcde6798",
+   "quote": "| 1x H100 SXM5 80GB | 30 | 120 GB | 80 GB | $5.619/h | $2.810/h |"
+  },
+  {
+   "url": "https://verda.com/pricing",
+   "date": "2026-11-24",
+   "proved": "token-priced inference is a separate product on the same page",
+   "capture": "sha256:539a0b612b63f21ff087b28bb647efcdd2e2dde0e4445c6d6b59d73ddcde6798",
+   "quote": "| Kimi K3.1 Pro | 1M | $2.00 | $0.20 | $10.00 |"
+  },
+  {
+   "url": "https://inference.verda.com/v1",
+   "date": "2026-11-24",
+   "proved": "a bare GET to the inference gateway URL is not an endpoint",
+   "capture": "sha256:29e505e46afd6ead652e3a337816ec12e926084cd0756bb6dba31e9862e60b3e",
+   "quote": "\"message\":\"GET /v1 is not an endpoint of this gateway\""
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T15:03:48.362Z",
+ "price_per_tb_month": null,
+ "notes": "Paid-only stands: the page lists no free tier, and spot is a discount off a paid meter. Content-creation credits are discretionary and publish no amount, so they are not a countable free lane. Verda now also publishes token-priced inference; the content-credit route needs a published amount from the operator.",
+ "extras": {
+  "seed_status": "ranked",
+  "talaria_m10h_usd": 7.2,
+  "talaria_m24h_usd": 17.28,
+  "nemo_m10h_usd": 16.04,
+  "keep_rate": 1.0,
+  "keep_rate_basis": "billed for uptime (no suspension feature published)",
+  "billing_model": "unclassified",
+  "shape": {
+   "vcpu": null,
+   "ram": null,
+   "disk": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "priced per GPU with specs shown per row"
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "a cluster runs for an hour or months; the page states no reap"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "granularity": {
+   "min_billed_s": 60,
+   "rounding_s": null
+  },
+  "burst_x": 1.0,
+  "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "ps": null,
+  "net": null,
+  "wave2": {
+   "verdict_change": "paid-only -> paid-only on 2026-10-22"
+  }
+ },
+ "stale": true,
+ "stale_checked_at": "2026-10-22T00:00:00.000Z",
+ "binding": "request-rate",
+ "history": [
+  "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
+ ]
 }

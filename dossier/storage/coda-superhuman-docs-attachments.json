@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "10 MB per attachment",
     "source_url": "https://help.coda.io/hc/en-us/articles/39555798022797-Doc-limits-on-Free-plan",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "the Free-plan doc-limits page states no single attachment may exceed 10MB"
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://help.coda.io/hc/en-us/articles/39555760015757-Overview-Doc-limits",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "deleted docs remain in the trash for 7 days and are then permanently removed"
   },
   "egress": {
     "terms": "Free; attachments served from Coda's CDN with signed URLs",
@@ -73,10 +73,31 @@
       "proved": "sign-up is by an emailed link or a password",
       "capture": "sha256:0c82b67b2ee775175798a8c920d921a46ea5313287817781975933965a2441bd",
       "quote": "We'll email you a link for a password-free sign up. Or sign up with a password."
+    },
+    {
+      "url": "https://help.coda.io/hc/en-us/articles/39555798022797-Doc-limits-on-Free-plan",
+      "date": "2026-11-25",
+      "proved": "a single attachment on the Free plan is capped at 10MB",
+      "capture": "sha256:bba72d6703faa5d700d23d9f69f9a3b48830fd07fa8d1b229706fa736cbf305c",
+      "quote": "Additionally, no single attachment can be over 10MB."
+    },
+    {
+      "url": "https://help.coda.io/hc/en-us/articles/39555867229197-Delete-and-recover-docs",
+      "date": "2026-11-25",
+      "proved": "a deleted doc is retained in the trash 7 days before permanent deletion",
+      "capture": "sha256:8c1263e364b38e198ea448bdde77e0932a6a983ea406145f7d1dca92bd76eb06",
+      "quote": "Your doc will remain in the trash for 7 days before it is permanently deleted."
+    },
+    {
+      "url": "https://help.coda.io/hc/en-us/articles/39555798022797-Doc-limits-on-Free-plan",
+      "date": "2026-11-25",
+      "proved": "the Free-plan page still caps a single attachment at 10MB",
+      "capture": "sha256:bba72d6703faa5d700d23d9f69f9a3b48830fd07fa8d1b229706fa736cbf305c",
+      "quote": "Additionally, no single attachment can be over 10MB."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:12.223Z",
+  "verified_at": "2026-11-25T04:14:17.955Z",
   "notes": "1 GB of attachments per doc on Free, 10 MB per individual attachment, with no cap on the number of personal docs or their objects",
   "history": [],
   "extras": {

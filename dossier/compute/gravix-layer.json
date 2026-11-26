@@ -1,159 +1,196 @@
 {
-  "topic": "compute",
-  "slug": "gravix-layer",
-  "provider": "Gravix Layer",
-  "url": "https://gravixlayer.ai/pricing",
-  "category": "agent sandbox cloud",
-  "tier": "Early access pay-as-you-go",
-  "free_tier": {
-    "stated": "Early access includes USD 250 in free credit, no card required and no minimum spend; after that, vCPU is USD 0.0436 per vCPU-hour, memory USD 0.0096 per GiB-hour and storage USD 0.0001 per GiB-hour, billed by the second on allocated size. A base-small sandbox (1 vCPU, 1 GiB, 4 GiB disk) is USD 0.0536 per hour.",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://docs.gravixlayer.ai/documentation/agentruntime/pricing",
-    "read_on": "2026-11-24",
-    "notes": "The USD 250 is early-access credit, not a recurring free tier. Pause stops CPU and RAM charges; storage bills for running and paused runtimes, private templates and snapshots."
+ "topic": "compute",
+ "slug": "gravix-layer",
+ "provider": "Gravix Layer",
+ "url": "https://gravixlayer.com/",
+ "category": "microVM sandbox",
+ "tier": "Early access ($250 credit)",
+ "free_tier": {
+  "stated": "Pay as you go. $250 in credit. No card required. Early access includes $250 in credit, and you do not need a card.",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://gravixlayer.com/",
+  "read_on": "2026-11-25",
+  "notes": "The $250 is an early-access credit on a private-preview service, not a permanent free plan. Compute is $0.0436 per vCPU-hour, $0.0096 per GiB-hour of memory and $0.0001 per GiB-hour of storage, billed per second; a typical 1 vCPU/1 GiB/4 GiB disk agent-hour is about $0.054. Pausing a sandbox stops the CPU and memory charge."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the billed unit is allocated vCPU, memory and disk time, not an object; no per-object cap is published",
+  "bytes": null,
+  "source_url": "https://gravixlayer.com/"
+ },
+ "retention": {
+  "stated": "Files can be mounted from a bucket and kept after the run ends; no retention period for sandbox files is published.",
+  "days": null,
+  "source_url": "https://gravixlayer.com/",
+  "notes": "Snapshots freeze a ready machine so every new task boots from it in about 25 ms."
+ },
+ "egress": {
+  "terms": "not published: the pricing section states no egress allowance or price; the network policy is default deny and only named hosts and ports are reachable",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://gravixlayer.com/"
+ },
+ "interface": [
+  "rest",
+  "cli",
+  "ssh"
+ ],
+ "interface_detail": "Eight native APIs cover terminal/PTY, code, files, storage, git, browser, computer and snapshots; Python SDK, TypeScript SDK and CLI are offered, with SSH access listed as a feature.",
+ "tooling": "the Gravix Layer Python SDK (github.com/gravixlayer/gravixlayer-python), TypeScript SDK and CLI; sandboxes, browsers and computers are each created with one call.",
+ "chaining": "Sandbox, browser and computer run on one platform with a shared network policy and MCP gateway, so a hosted agent can use all three surfaces under one account; the vendor-managed multi-cloud lane is the hosted offer, while bring-your-own-cloud and on-premises AI Factory are roadmap items and are not recommendations here.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "$250 of early-access credit at $0.0436 per vCPU-hour, $0.0096 per GiB-hour memory and $0.0001 per GiB-hour storage",
+   "source": "https://gravixlayer.com/"
   },
-  "per_object_cap": {
-    "stated": "A verified Tier 0 account can use 10 vCPU, 20 GiB RAM and 50 GiB disk in total; a base-large template is 4 vCPU, 4 GiB RAM and 8 GiB disk.",
-    "bytes": null,
-    "source_url": "https://docs.gravixlayer.ai/documentation/agentruntime/service-quotas",
-    "notes": "The numbers are per-account resource ceilings, not a single-sandbox object cap; the largest published template is base-large."
-  },
-  "retention": {
-    "stated": "Kill removes the runtime. Storage is billed for running and paused runtimes, private templates and snapshots; a paused sandbox keeps its filesystem, and no automatic deletion period is published on the pages read.",
-    "days": null,
-    "source_url": "https://docs.gravixlayer.ai/documentation/agentruntime/pricing"
-  },
-  "egress": {
-    "terms": "A new sandbox cannot reach the public internet. Attach a network policy: listed destinations are allowed and everything else is denied. No policy attached means blocked, metadata and link-local are always blocked, and DNS still resolves. No per-GB egress price or allowance is published on the pages read.",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://docs.gravixlayer.ai/documentation/agentruntime/getting-started/network-policies"
-  },
-  "interface": [
-    "rest",
-    "cli",
-    "ssh"
-  ],
-  "interface_detail": "Python and TypeScript SDKs, a gravixlayer CLI and a REST API at https://api.gravixlayer.ai/v1; runtimes expose an agent user for SSH and a web terminal. Network-policies and identity providers are also managed through the SDK and CLI.",
-  "endpoint": "https://api.gravixlayer.ai/v1",
-  "tooling": "gravixlayer Python SDK, TypeScript SDK, gravixlayer CLI, REST API; templates built from public Docker images or a Dockerfile; base-small, base-medium, base-large, browser-small, desktop-small, claude and codex templates.",
-  "chaining": "Secrets are stored once as identity providers and attached to a runtime as environment variables on each run, while a default-deny network policy limits the sandbox to named model APIs and registries; a sandbox can mount an S3 bucket at boot and keep files after the run.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "10 vCPU, 20 GiB RAM and 50 GiB disk per verified Tier 0 account",
-      "source": "https://docs.gravixlayer.ai/documentation/agentruntime/service-quotas"
-    },
-    {
-      "kind": "request-rate",
-      "value": "100 runtime creations per minute and 1,000 runtime lifecycle operations per minute, on a rolling one-minute window",
-      "source": "https://docs.gravixlayer.ai/documentation/agentruntime/service-quotas"
-    },
-    {
-      "kind": "write-gated",
-      "value": "the published account limits require a verified account; the verification steps are not stated on the pages read",
-      "source": "https://docs.gravixlayer.ai/documentation/agentruntime/service-quotas"
-    }
-  ],
-  "limits_note": "A runtime that exceeds its timeout is terminated. Billing is on allocated size, not observed utilization: a 2 vCPU sandbox that is idle costs the same as one at full CPU.",
-  "binding": "volume-quota",
-  "binding_note": "The 10 vCPU / 20 GiB RAM / 50 GiB disk per-account ceiling caps a single account's fleet before the 100 creations-per-minute rate does; the USD 250 credit is one-time and only delays the charge.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The early-access page renders 'Email is all we need.' with an Email field and no card, phone or ID field; the pricing page states 'No card required.' The published quota table is conditioned on 'Account verified', and what that verification asks for is not stated on the pages read.",
-    "country": null
-  },
-  "reliability_note": "Runtimes deny outbound traffic by default and a runtime that exceeds its timeout is terminated. Billing is on allocated size, not observed utilization. The service is in private preview and access is by early-access request.",
-  "confidence": "documented",
-  "confidence_note": "Rates, credit, quotas, egress behaviour and the email-only gate are quoted from the vendor's own pricing page, documentation and early-access page, all read 2026-11-24; the account-verification fields are unverified: not stated on the pages read.",
-  "evidence": [
-    {
-      "url": "https://gravixlayer.ai/pricing",
-      "date": "2026-11-24",
-      "proved": "usage-based per-second billing with USD 250 credit and no card required",
-      "capture": "sha256:8947a20a6040b366e8325531cddc1abbdb5446c59d4320b3e5d49a9fbcbf030b",
-      "quote": "Usage-based vCPU, memory and storage, billed per second. Start building with $250 in credit. No card required."
-    },
-    {
-      "url": "https://docs.gravixlayer.ai/documentation/agentruntime/pricing",
-      "date": "2026-11-24",
-      "proved": "early-access credit terms and the base-small hourly price",
-      "capture": "sha256:c67456347fe3016b3a5a65c7d9fe7ebf33d4f0d4dd79d962a80bf411784525f6",
-      "quote": "Early access includes **\\$250** in free credit. No card required. No minimum spend."
-    },
-    {
-      "url": "https://docs.gravixlayer.ai/documentation/agentruntime/pricing",
-      "date": "2026-11-24",
-      "proved": "the base-small template rate with its vCPU, memory and disk components",
-      "capture": "sha256:c67456347fe3016b3a5a65c7d9fe7ebf33d4f0d4dd79d962a80bf411784525f6",
-      "quote": "| `base-small` | 1 vCPU, 1 GiB, 4 GiB disk | \\$0.0436 | \\$0.0096 | \\$0.000400 | **\\$0.0536** |"
-    },
-    {
-      "url": "https://docs.gravixlayer.ai/documentation/agentruntime/pricing",
-      "date": "2026-11-24",
-      "proved": "billing is on allocated size, not observed utilization",
-      "capture": "sha256:c67456347fe3016b3a5a65c7d9fe7ebf33d4f0d4dd79d962a80bf411784525f6",
-      "quote": "Billing is on **allocated** size, not observed utilization. A 2 vCPU sandbox that is idle costs the same as one at full CPU."
-    },
-    {
-      "url": "https://docs.gravixlayer.ai/documentation/agentruntime/service-quotas",
-      "date": "2026-11-24",
-      "proved": "the per-account resource and rate ceilings for a verified account",
-      "capture": "sha256:5eb46065b42bdb39b10fed02e0129c410dd8c6d7b5790e8ee657a047f8b77148",
-      "quote": "| Runtime creation per minute | 100 |"
-    },
-    {
-      "url": "https://docs.gravixlayer.ai/documentation/agentruntime/service-quotas",
-      "date": "2026-11-24",
-      "proved": "the vCPU ceiling and the account-verification condition",
-      "capture": "sha256:5eb46065b42bdb39b10fed02e0129c410dd8c6d7b5790e8ee657a047f8b77148",
-      "quote": "| vCPU | 10 |"
-    },
-    {
-      "url": "https://gravixlayer.ai/early-access",
-      "date": "2026-11-24",
-      "proved": "the access request asks for email only, with no card field",
-      "capture": "sha256:473244d170b12591a48d971fcc23644460396f4f7e1b4881093d9aa77da75c1d",
-      "quote": "Email is all we need."
-    },
-    {
-      "url": "https://docs.gravixlayer.ai/documentation/agentruntime/getting-started/network-policies",
-      "date": "2026-11-24",
-      "proved": "a new sandbox cannot reach the public internet without an attached allowlist policy",
-      "capture": "sha256:1131c15d65411d611195c9036bae6b7822f36dc9230d8b36e37398f824c6385f",
-      "quote": "A new sandbox cannot reach the public internet. Attach a network policy to allow or deny outbound traffic: a public API, a package registry, or a private host."
-    },
-    {
-      "url": "https://docs.gravixlayer.ai/documentation/agentruntime/getting-started/network-policies",
-      "date": "2026-11-24",
-      "proved": "no attached policy means outbound is blocked",
-      "capture": "sha256:1131c15d65411d611195c9036bae6b7822f36dc9230d8b36e37398f824c6385f",
-      "quote": "No policy attached means **blocked**"
-    },
-    {
-      "url": "https://docs.gravixlayer.ai/documentation/agentruntime/templates",
-      "date": "2026-11-24",
-      "proved": "runtimes deny outbound traffic by default and need a network policy to reach model APIs",
-      "capture": "sha256:b59e6f1edb47d045203b9db825cc00d3dc06b51227380faac195e45dd05d265e",
-      "quote": "Runtimes deny outbound traffic by default."
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.804Z",
-  "price_per_tb_month": null,
-  "notes": "USD 250 in early-access credit with no card, then USD 0.0536 per hour for a 1 vCPU / 1 GiB / 4 GiB base-small sandbox, billed per second. Private preview with an email-only access request; the published quotas require an account verification whose fields are not stated. Egress is default-deny and needs an allowlist policy. Roadmap-only options (bring your own cloud, on-premises AI Factory) are listed last; the available lane is hosted in Gravix's AWS account.",
-  "extras": {
-    "billing_model": "per-second on allocated vCPU, GiB RAM and GiB disk, with a one-time early-access credit",
-    "free_tier_kind": "one-time-credit",
-    "status": "private preview; early access by email request",
-    "network_out": {
-      "allow_outbound": false,
-      "default": "deny all; attach a network policy to allow named destinations"
-    },
-    "session_cap": {
-      "note": "a runtime that exceeds its timeout is terminated; pausing stops CPU and RAM charges"
-    }
+  {
+   "kind": "per-ip-shaping",
+   "value": "network policy is default deny: only named hosts and ports are reachable",
+   "source": "https://gravixlayer.com/"
   }
+ ],
+ "binding": "volume-quota",
+ "binding_note": "The $250 early-access credit is the first limit reached at published rates, ahead of any unpublished session or concurrency cap; pausing stops the CPU and memory charge.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "The early-access form says 'Email is all we need' and asks for Email; the site says 'Gravix Layer is in private preview. Request access from this site. You do not need a card to start.' No phone, ID or institution is named.",
+  "country": null
+ },
+ "reliability_note": "Private preview with a request-access gate; hardware-isolated microVMs and a default-deny network policy; one sandbox cannot read another's files; no published SLA.",
+ "confidence": "documented",
+ "confidence_note": "The rates, $250 credit, no-card statement and email-only access form are quoted from the vendor's own pages read 2026-11-25; the service is still private preview.",
+ "evidence": [
+  {
+   "url": "https://gravixlayer.com/",
+   "date": "2026-11-25",
+   "proved": "vCPU is priced at $0.0436 per vCPU-hour",
+   "capture": "sha256:ffaf511893323eadb57d3fe7b0e6208109a02d92144fa6aae49d8e0cd88d9eb8",
+   "quote": "<p class=\"metric mt-6\">$0.0436</p><p class=\"metric-unit\">per vCPU / hour</p>"
+  },
+  {
+   "url": "https://gravixlayer.com/",
+   "date": "2026-11-25",
+   "proved": "early access gives $250 of credit and needs no card",
+   "capture": "sha256:ffaf511893323eadb57d3fe7b0e6208109a02d92144fa6aae49d8e0cd88d9eb8",
+   "quote": "<p class=\"text-sm font-medium leading-5 tracking-[-0.012em] text-foreground/75\">Pay as you go. <strong class=\"font-semibold text-foreground\">$250</strong> in credit. No card required.</p>"
+  },
+  {
+   "url": "https://gravixlayer.com/",
+   "date": "2026-11-25",
+   "proved": "memory is $0.0096 per GiB-hour and storage is $0.0001 per GiB-hour",
+   "capture": "sha256:240b82f5b8368d38585feede81ffc9282606b72d4b1b06ce85fbd038526bffec",
+   "quote": "$0.0436\n\nper vCPU / hour\n\n$0.0096\nmemory · per GiB / hour\n\n$0.0001\nstorage · per GiB / hour"
+  },
+  {
+   "url": "https://gravixlayer.ai/early-access",
+   "date": "2026-11-25",
+   "proved": "the access form asks only for an email",
+   "capture": "sha256:473244d170b12591a48d971fcc23644460396f4f7e1b4881093d9aa77da75c1d",
+   "quote": "Email is all we need."
+  },
+  {
+   "url": "https://gravixlayer.ai/pricing",
+   "date": "2026-11-24",
+   "proved": "usage-based per-second billing with USD 250 credit and no card required",
+   "capture": "sha256:8947a20a6040b366e8325531cddc1abbdb5446c59d4320b3e5d49a9fbcbf030b",
+   "quote": "Usage-based vCPU, memory and storage, billed per second. Start building with $250 in credit. No card required."
+  },
+  {
+   "url": "https://docs.gravixlayer.ai/documentation/agentruntime/pricing",
+   "date": "2026-11-24",
+   "proved": "early-access credit terms and the base-small hourly price",
+   "capture": "sha256:c67456347fe3016b3a5a65c7d9fe7ebf33d4f0d4dd79d962a80bf411784525f6",
+   "quote": "Early access includes **\\$250** in free credit. No card required. No minimum spend."
+  },
+  {
+   "url": "https://docs.gravixlayer.ai/documentation/agentruntime/pricing",
+   "date": "2026-11-24",
+   "proved": "the base-small template rate with its vCPU, memory and disk components",
+   "capture": "sha256:c67456347fe3016b3a5a65c7d9fe7ebf33d4f0d4dd79d962a80bf411784525f6",
+   "quote": "| `base-small` | 1 vCPU, 1 GiB, 4 GiB disk | \\$0.0436 | \\$0.0096 | \\$0.000400 | **\\$0.0536** |"
+  },
+  {
+   "url": "https://docs.gravixlayer.ai/documentation/agentruntime/pricing",
+   "date": "2026-11-24",
+   "proved": "billing is on allocated size, not observed utilization",
+   "capture": "sha256:c67456347fe3016b3a5a65c7d9fe7ebf33d4f0d4dd79d962a80bf411784525f6",
+   "quote": "Billing is on **allocated** size, not observed utilization. A 2 vCPU sandbox that is idle costs the same as one at full CPU."
+  },
+  {
+   "url": "https://docs.gravixlayer.ai/documentation/agentruntime/service-quotas",
+   "date": "2026-11-24",
+   "proved": "the per-account resource and rate ceilings for a verified account",
+   "capture": "sha256:5eb46065b42bdb39b10fed02e0129c410dd8c6d7b5790e8ee657a047f8b77148",
+   "quote": "| Runtime creation per minute | 100 |"
+  },
+  {
+   "url": "https://docs.gravixlayer.ai/documentation/agentruntime/service-quotas",
+   "date": "2026-11-24",
+   "proved": "the vCPU ceiling and the account-verification condition",
+   "capture": "sha256:5eb46065b42bdb39b10fed02e0129c410dd8c6d7b5790e8ee657a047f8b77148",
+   "quote": "| vCPU | 10 |"
+  },
+  {
+   "url": "https://gravixlayer.ai/early-access",
+   "date": "2026-11-24",
+   "proved": "the access request asks for email only, with no card field",
+   "capture": "sha256:473244d170b12591a48d971fcc23644460396f4f7e1b4881093d9aa77da75c1d",
+   "quote": "Email is all we need."
+  },
+  {
+   "url": "https://docs.gravixlayer.ai/documentation/agentruntime/getting-started/network-policies",
+   "date": "2026-11-24",
+   "proved": "a new sandbox cannot reach the public internet without an attached allowlist policy",
+   "capture": "sha256:1131c15d65411d611195c9036bae6b7822f36dc9230d8b36e37398f824c6385f",
+   "quote": "A new sandbox cannot reach the public internet. Attach a network policy to allow or deny outbound traffic: a public API, a package registry, or a private host."
+  },
+  {
+   "url": "https://docs.gravixlayer.ai/documentation/agentruntime/getting-started/network-policies",
+   "date": "2026-11-24",
+   "proved": "no attached policy means outbound is blocked",
+   "capture": "sha256:1131c15d65411d611195c9036bae6b7822f36dc9230d8b36e37398f824c6385f",
+   "quote": "No policy attached means **blocked**"
+  },
+  {
+   "url": "https://docs.gravixlayer.ai/documentation/agentruntime/templates",
+   "date": "2026-11-24",
+   "proved": "runtimes deny outbound traffic by default and need a network policy to reach model APIs",
+   "capture": "sha256:b59e6f1edb47d045203b9db825cc00d3dc06b51227380faac195e45dd05d265e",
+   "quote": "Runtimes deny outbound traffic by default."
+  }
+ ],
+ "verdict": "trial-only",
+ "verified_at": "2026-11-25T02:12:34.709Z",
+ "notes": "Hosted hardware-isolated microVM sandboxes, browsers and computers on one platform, billed per second for vCPU, memory and storage. The $250 credit with no card is early-access credit on a private-preview service, not a standing free tier, so the verdict is trial-only; hosted managed multi-cloud is the offer, with bring-your-own-cloud and on-premises options only on the roadmap.",
+ "extras": {
+  "shape": {
+   "vcpu": 1,
+   "ram_gib": 1,
+   "disk_gib": 4,
+   "gpu_class": "none published",
+   "gpu_count": 0,
+   "note": "a typical agent-hour is 1 vCPU, 1 GiB memory and 4 GiB disk at about $0.054"
+  },
+  "billing_model": "per-second usage of vCPU, memory and storage, with $250 early-access credit",
+  "free_tier_kind": "signup-credit",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": null,
+   "ports": "named hosts and ports only",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "pausing a sandbox stops the CPU and memory charge; no session cap published"
+  }
+ },
+ "endpoint": "https://api.gravixlayer.ai/v1",
+ "limits_note": "A runtime that exceeds its timeout is terminated. Billing is on allocated size, not observed utilization: a 2 vCPU sandbox that is idle costs the same as one at full CPU.",
+ "price_per_tb_month": null
 }

@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u47-q02",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Does peertube.cif.su publish a video retention period or a per-video-file size cap outside the /api/v1/config response?",
+ "why": "The config read on 2026-11-25 gives video.file extensions with no size.max and an exportExpiration that applies to exports, not stored videos.",
+ "scope": {
+  "rids": [
+   "storage/peertube-peertube-cif-su"
+  ]
+ },
+ "origin": "20261125-0129-verify-storage-1818/u47",
+ "created": "2026-11-25T19:55:14Z"
+}

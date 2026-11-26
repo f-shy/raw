@@ -39,9 +39,15 @@
   "interface_detail": "[translated] 'Create your WireGuard server by oneclick', 'Access your shadowsocks server by oneclick' - the panel builds the server image.",
   "tooling": "one-click Shadowsocks, WireGuard and OpenVPN images plus a custom VPS; SSH on a NAT-forwarded port",
   "chaining": "At USD 0.54 per month for a Korean guest it is the cheap fallback for a Korean endpoint if a free one never appears.",
-  "limits": [],
+  "limits": [
+    {
+      "kind": "volume-quota",
+      "value": "no free allowance; traffic billed at 90 KRW per GiB, input and output both charged",
+      "source": "https://somagu.com/docs/en/pricing.html"
+    }
+  ],
   "limits_note": "",
-  "binding": "none",
+  "binding": "volume-quota",
   "binding_note": "Nothing free binds. Traffic is billed per byte on a NAT guest, so the first failure at 1 TiB/month is the invoice, not a quota.",
   "identity_cost": {
     "kind": "email",
@@ -61,10 +67,17 @@
       "url": "https://somagu.com/",
       "date": "2026-10-23",
       "proved": "[translated] 'WireGuard $0.54 USD/m - VPS Plan v20 (1 vCPU + 512 MB) - WireGuard Server - Create your WireGuard server by oneclick.'"
+    },
+    {
+      "url": "https://somagu.com/docs/en/pricing.html",
+      "date": "2026-11-25",
+      "proved": "traffic is billed at 90 KRW per GiB in both directions",
+      "capture": "sha256:175df3df7d024b8cf4fba96230fd37d28ecf4329a54a6f1a879d4d3cafc54e15",
+      "quote": "Please note that the network bandwidth is 90 KRW per 1 GiB. And both input and output bytes are charged."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:47.897Z",
   "price_per_tb_month": "USD 0.54 per month plus pay-per-traffic",
   "history": [],
   "notes": "This is the cheapest Korean address found and the only one that builds a WireGuard server in one click, but it is paid and the network is NAT with no stated port mapping. History worth knowing: Somagu ran a free 512 MB NAT VPS in 2017 (announced by the same operator who runs Mudfish), and search results quote a forum post announcing the service would end on 2023-08-31. The live pricing page on 2026-10-23 sells plans, so the shutdown notice is either reversed or refers to the free tier. The forum page itself did not render that text to this reader, so the quote is a search snippet and is not trusted. Country: South Korea.",

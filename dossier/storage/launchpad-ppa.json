@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://launchpad-help.readthedocs.io/en/latest/how-to/distribute-ubuntu-software.html",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The quotas table states uploadable artefacts are source packages only; pre-built binary uploads are rejected."
   },
   "retention": {
     "stated": "This is the binding constraint - you cannot push an arbitrary tarball; everything must be a signed source package (.dsc + orig.tar.gz + debian.tar.gz), so a 4 GB blob becomes one 4 GB .orig.tar.gz (allowed, but must be a valid Debian source package). retention: indefinite - 'A published package remains available until ..",
     "source_url": "https://launchpad-help.readthedocs.io/en/latest/how-to/distribute-ubuntu-software.html",
-    "notes": "Extracted from published terms."
+    "notes": "A published package remains available until the owner removes it or a later upload supersedes it."
   },
   "egress": {
     "terms": "Free: 'Data transfer | No fixed cap; unusual volumes may trigger contact from Launchpad.' Served from ppa.launchpadcontent.net with no billing.",
@@ -90,10 +90,38 @@
       "proved": "the quotas table confirms only source packages are accepted, not arbitrary binaries",
       "capture": "sha256:c2a92994b116e23b80d0030d9ad34b3d2ccfa19cdb7911086437027df7b5f6f5",
       "quote": "| Uploadable artefacts | Source packages only; pre-built binary uploads are rejected |"
+    },
+    {
+      "url": "https://launchpad-help.readthedocs.io/en/latest/how-to/distribute-ubuntu-software.html",
+      "date": "2026-11-25",
+      "proved": "the quotas table states 8 GiB disk space per PPA",
+      "capture": "sha256:41b5a8e8f08186926a4960bdb15c4de2cce6cb0bc3743c94fef858c10b9f976a",
+      "quote": "| Disk space | 8 GiB; larger quotas considered on request at https://answers.launchpad.net/launchpad |"
+    },
+    {
+      "url": "https://launchpad-help.readthedocs.io/en/latest/how-to/distribute-ubuntu-software.html",
+      "date": "2026-11-25",
+      "proved": "the page states package retention until owner removes it or a later upload supersedes it",
+      "capture": "sha256:41b5a8e8f08186926a4960bdb15c4de2cce6cb0bc3743c94fef858c10b9f976a",
+      "quote": "A published package remains available until one of the following occurs:"
+    },
+    {
+      "url": "https://launchpad-help.readthedocs.io/en/latest/how-to/distribute-ubuntu-software.html",
+      "date": "2026-11-25",
+      "proved": "the quotas table restricts uploadable artefacts to source packages",
+      "capture": "sha256:41b5a8e8f08186926a4960bdb15c4de2cce6cb0bc3743c94fef858c10b9f976a",
+      "quote": "| Uploadable artefacts | Source packages only; pre-built binary uploads are rejected |"
+    },
+    {
+      "url": "https://launchpad-help.readthedocs.io/en/latest/how-to/distribute-ubuntu-software.html",
+      "date": "2026-11-25",
+      "proved": "the page states retention until removal or supersession",
+      "capture": "sha256:41b5a8e8f08186926a4960bdb15c4de2cce6cb0bc3743c94fef858c10b9f976a",
+      "quote": "A published package remains available until one of the following occurs:"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:00.433Z",
+  "verified_at": "2026-11-25T21:21:13.742Z",
   "notes": "8 GiB of disk per PPA - current official reference: 'Disk space | 8 GiB; larger quotas considered on request at https://answers.launchpad.net/launchpad'. (Historical: PPAs were raised to a 2 GiB minimum in 2010 per the Launchpad blog; the 8 GiB figure is the current documented one.) 'PPAs per owner: One or more per user or team; each has its own URL.'",
   "history": [],
   "extras": {

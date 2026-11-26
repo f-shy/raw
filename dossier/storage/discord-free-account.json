@@ -16,12 +16,12 @@
     "stated": "20 MiB per file",
     "bytes": 20971520,
     "source_url": "https://docs.discord.com/developers/change-log",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Default file upload limit for users, bots, webhooks and interaction responses is 20 MiB, raised from 10 MiB on 2026-09-03."
   },
   "retention": {
     "stated": "| Attachment CDN URLs are signed and expire in exactly 24 h; the bytes stay on Discord's servers indefinitely but the link must be re-derived via `POST /api/v10/attachments/refresh-urls` (401 without a token) or by re-reading the message",
     "source_url": "https://docs.discord.com/developers/change-log",
-    "notes": "Extracted from published terms."
+    "notes": "Attachment CDN URLs are signed and expire at a preset time; the `ex` field is a hex timestamp indicating when an attachment CDN URL expires."
   },
   "egress": {
     "terms": "Unmetered and free. Cdn.discordapp.com is Cloudflare-fronted and there is no bandwidth metering or egress billing of any kind. This is the strongest egress position in the whole survey.",
@@ -77,10 +77,45 @@
       "proved": "the change-log raises the default file upload limit from 10 MiB to 20 MiB",
       "capture": "sha256:4f4fcdf788421a897fa848eb7345b9c0cace8fdfb4b3ab2953c9486e23eb7afc",
       "quote": "The default file upload limit has been increased from 10 MiB to 20 MiB for users, bots, webhooks, and interaction responses!"
+    },
+    {
+      "url": "https://docs.discord.com/developers/change-log",
+      "date": "2026-11-25",
+      "proved": "The default free-account per-file upload limit is 20 MiB.",
+      "capture": "sha256:a695801e1dae7944fca002ae5c1d458ea95a34b70272122c7fa16661d2b064b3",
+      "quote": "The default file upload limit has been increased from 10 MiB to 20 MiB for users, bots, webhooks, and interaction responses!"
+    },
+    {
+      "url": "https://docs.discord.com/developers/reference",
+      "date": "2026-11-25",
+      "proved": "Discord documents the preset expiry of attachment CDN URLs.",
+      "capture": "sha256:681fd8814608015301f41e89a1c70053a4e23dd1c03a13e7598a09526bf6498c",
+      "quote": "Attachments uploaded to Discord's CDN (like user and bot-uploaded images) have signed URLs with a preset expiry time."
+    },
+    {
+      "url": "https://docs.discord.com/developers/change-log",
+      "date": "2026-11-25",
+      "proved": "The default per-file upload limit is unchanged.",
+      "capture": "sha256:a695801e1dae7944fca002ae5c1d458ea95a34b70272122c7fa16661d2b064b3",
+      "quote": "The default file upload limit has been increased from 10 MiB to 20 MiB for users, bots, webhooks, and interaction responses!"
+    },
+    {
+      "url": "https://support.discord.com/hc/en-us/articles/33694251638295",
+      "date": "2026-11-25",
+      "proved": "A free account joins up to 100 servers and Nitro up to 200.",
+      "capture": "sha256:74f7bb0a94418e5a93fd1658ca08a1bc7062160b6708de2d741f144c09ead1c6",
+      "quote": "| Number of servers | 100 | Same | 200 |"
+    },
+    {
+      "url": "https://support.discord.com/hc/en-us/articles/33694251638295",
+      "date": "2026-11-25",
+      "proved": "Each server supports 500 channels.",
+      "capture": "sha256:74f7bb0a94418e5a93fd1658ca08a1bc7062160b6708de2d741f144c09ead1c6",
+      "quote": "| Channels (includes voice/text/categories) | 500 | Same | Same | Same |"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:13.390Z",
+  "verified_at": "2026-11-25T04:14:20.836Z",
   "notes": "No total storage cap documented anywhere. Per-file only: 20 MiB per attachment on a free account since 2026-09-03 (raised from 10 MiB). 10 files per message. Server Boost tiers raise it for all members in that server: Tier 2 = 50 MB, Tier 3 = 100 MB; Nitro Basic 50 MB, Nitro 500 MB (1 GB per the Nitro marketing page).",
   "history": [],
   "extras": {

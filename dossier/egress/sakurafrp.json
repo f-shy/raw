@@ -86,10 +86,31 @@
       "url": "https://doc.natfrp.com/game/mc/bedrock.html",
       "date": "2026-10-23",
       "proved": "'To use NetherNet you must tunnel both TCP and UDP' and the tunnel form takes 'Tunnel type: UDP' [translated]"
+    },
+    {
+      "url": "https://www.natfrp.com/",
+      "date": "2026-11-25",
+      "proved": "free plan traffic is 5 GiB per month",
+      "capture": "sha256:9d2d9944d2700fcb3a9d7934887931703fe7d1554a5b4e03170d211e30c64d6a",
+      "quote": "每月流量 5 GiB"
+    },
+    {
+      "url": "https://www.natfrp.com/",
+      "date": "2026-11-25",
+      "proved": "free plan tunnel speed limit is 10 Mibps",
+      "capture": "sha256:9d2d9944d2700fcb3a9d7934887931703fe7d1554a5b4e03170d211e30c64d6a",
+      "quote": "隧道限速 10 Mibps"
+    },
+    {
+      "url": "https://doc.natfrp.com/faq/realname.html",
+      "date": "2026-11-25",
+      "proved": "real-name verification takes a name and an ID number",
+      "capture": "sha256:1c458903207de9eb164cd20d5c5d61b6557d72afab668c4c767d4beb50ff9410",
+      "quote": "购买完成后刷新页面，输入姓名和证件号，点击 `确认提交` 按钮"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:47.435Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Two blocks, either one decisive: 5 GiB per month, and an Alipay real-name check that requires a mainland Chinese identity document. Forum roundups describe the traffic as 'claimable by daily check-in', which matches the vendor page but understates that the base allowance is 5 GiB. The overseas-node exemption claimed in the nodeloc roundup is contradicted by the vendor's own 2024-07-09 status post.",

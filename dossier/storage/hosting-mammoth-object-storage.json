@@ -42,7 +42,7 @@
     "detail": "card",
     "country": null
   },
-  "reliability_note": "unverified: https://hostingmammoth.com/object-storage answered HTTP 403 on 2026-11-19; routes tried: every listed pinned page reader (all refused or failed), a raw fetch with headers (HTTP 403 from the origin), the Wayback Machine and Cloudflare URL Scanner (no capture)",
+  "reliability_note": "unverified: https://hostingmammoth.com/object-storage answered HTTP 403 on 2026-11-25; routes tried: every listed pinned page reader (all refused or failed), a raw fetch with headers (HTTP 403 from the origin), a direct probe (HTTP 403), the Wayback Machine and Cloudflare URL Scanner (no capture)",
   "confidence": "reported",
   "confidence_note": "mechanically converted from the seed corpus; no page was read for this record in the storage-dossier pass. One page read moves it to documented.",
   "evidence": [
@@ -103,6 +103,13 @@
       "date": "2026-11-19",
       "proved": "the origin answered HTTP 403 to a direct request on 2026-11-19",
       "capture": "sha256:1e597b408271d47f0dee7f826b9fb3eeebb7300bc2a9354a2a30faf1d6a3b879",
+      "quote": "\"status\": 403"
+    },
+    {
+      "url": "probe:https://hostingmammoth.com/object-storage",
+      "date": "2026-11-25",
+      "proved": "the origin answered HTTP 403 to a direct request",
+      "capture": "sha256:a33979871dbda59e32f9cfaceeb7af1577d174415753d65d39923add00b68c46",
       "quote": "\"status\": 403"
     }
   ],

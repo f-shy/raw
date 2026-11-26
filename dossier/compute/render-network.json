@@ -5,7 +5,7 @@
   "url": "https://try.rendernetwork.com/getstarted",
   "category": "GPU cloud",
   "free_tier": {
-    "stated": "The credit offer is withdrawn. Page quoted: 'Get EUR 50 in free credits, enough for 300 frames or 30 seconds of animation' and then 'The offer has concluded, please stay updated at rendernetwork.com'. Access now requires a licence: quoted from the artist guide, 'To get started on the Creator portal, you must have an active OctaneRender License or Subscription'.",
+    "stated": "The page offers EUR 50 in free credits, enough for 300 frames or 30 seconds of animation, depending on the project.",
     "unit": "seconds",
     "metered_on": "wall-clock",
     "source_url": "https://try.rendernetwork.com/getstarted",
@@ -79,10 +79,24 @@
       "url": "https://rendernetwork.com/pricing",
       "date": "2026-10-22",
       "proved": "three tiers priced per 400 OctaneBench-hours: EUR 0.60 economy, EUR 1.20, EUR 2.40; bandwidth 0.09 credits per GB of scene assets"
+    },
+    {
+      "url": "https://try.rendernetwork.com/getstarted",
+      "date": "2026-11-25",
+      "proved": "the get-started page states the 50 euro credit offer, the 300 frames and the 30 seconds of animation",
+      "capture": "sha256:8b62e66648004304aac6471c91062e3aaeae587a56dbd3ece0fbb2adc8045542",
+      "quote": "- **Free to try:** Get €50 in free credits, enough for 300 frames or 30 seconds of animation, depending on your project"
+    },
+    {
+      "url": "https://try.rendernetwork.com/getstarted",
+      "date": "2026-11-25",
+      "proved": "the get-started page still offers the 50 euro credits, 300 frames and 30 seconds of animation",
+      "capture": "sha256:8b62e66648004304aac6471c91062e3aaeae587a56dbd3ece0fbb2adc8045542",
+      "quote": "- **Free to try:** Get €50 in free credits, enough for 300 frames or 30 seconds of animation, depending on your project"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:24.523Z",
   "notes": "Two things are true and easy to confuse. The EUR 50 and EUR 250 credits are closed. The 'free access for all Blender users' claim traces to RNP-014, a 2024 governance proposal, whose own announcement says free access 'would be added to the Render Foundation roadmap if approved'. The network now requires an active Octane licence. The Prime free tier does not include network rendering, so it does not hand over the network. Also note: render.com is a different company (a PaaS) and its 750 free instance-hours belong to another topic, not to this one.",
   "extras": {
     "wave2": {

@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://api.panoramax.xyz/api/instances",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "No per-object cap stated in the /api/instances catalogue."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://api.panoramax.xyz/api/instances",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "No retention statement documented in the /api/instances catalogue."
   },
   "egress": {
     "terms": "each instance serves its own originals, unmetered, no auth",
@@ -76,10 +76,31 @@
       "proved": "the /api/instances page is a JSON catalogue whose membership now lists a us-ne instance, differing from the instances the record names",
       "capture": "sha256:109b4eaefc8574e17b765cd308e64cebc71ebfa2d6c5f615eb39d36413a7ca17",
       "quote": "\"name\":\"us-ne\",\"url\":\"https://panoramax.horatio.us\""
+    },
+    {
+      "url": "https://api.panoramax.xyz/api/instances",
+      "date": "2026-11-25",
+      "proved": "the /api/instances catalogue lists instances and configuration but states no per-object cap",
+      "capture": "sha256:b42fbb76e8cf241e37380a17e8128bc696a8df6bcabc6af656e482f93c039d1c",
+      "quote": "\"instances\":[{\"id\":\"30038679-0dc4-498c-adfa-625a46f94407\",\"name\":\"us-ne\",\"url\":\"https://panoramax.horatio.us\""
+    },
+    {
+      "url": "https://api.panoramax.xyz/api/instances",
+      "date": "2026-11-25",
+      "proved": "the /api/instances catalogue lists instances and configuration but states no retention period",
+      "capture": "sha256:b42fbb76e8cf241e37380a17e8128bc696a8df6bcabc6af656e482f93c039d1c",
+      "quote": "\"instances\":[{\"id\":\"30038679-0dc4-498c-adfa-625a46f94407\",\"name\":\"us-ne\",\"url\":\"https://panoramax.horatio.us\""
+    },
+    {
+      "url": "https://api.panoramax.xyz/api/instances",
+      "date": "2026-11-25",
+      "proved": "the /api/instances catalogue lists instances and configuration but states no per-object cap or retention period",
+      "capture": "sha256:b42fbb76e8cf241e37380a17e8128bc696a8df6bcabc6af656e482f93c039d1c",
+      "quote": "\"instances\":[{\"id\":\"30038679-0dc4-498c-adfa-625a46f94407\",\"name\":\"us-ne\",\"url\":\"https://panoramax.horatio.us\""
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:14:36.639Z",
+  "verified_at": "2026-11-25T21:21:16.852Z",
   "notes": "unverified: the /api/instances page returns a JSON array of instance objects carrying configuration.auth.registration_is_open; its membership differs from the instances the record names and it states no storage quota.",
   "history": [],
   "extras": {

@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u12-q01",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Does the Core Transit pricing page still list WireGuard at USD 38/month, 100 Mbps upgradeable to 1 Gbps, and what limit binds (rate, price)? binding is none and the limits row is per-ip-shaping.",
+ "why": "the page answered HTTP 522 on every route, so the record could not be re-read or its binding re-checked",
+ "scope": {
+  "rids": [
+   "egress/core-transit"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u12",
+ "created": "2026-11-25T15:23:40Z"
+}

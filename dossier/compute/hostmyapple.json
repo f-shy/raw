@@ -1,152 +1,159 @@
 {
-  "topic": "compute",
-  "slug": "hostmyapple",
-  "provider": "HostMyApple",
-  "url": "https://hostmyapple.com/mac-vps-hosting",
-  "category": "macOS host",
-  "free_tier": {
-    "stated": "no free tier: macOS packages from $24.99 a month with 3 GB of RAM and 60 GB of SSD, up to $54.99 for 6 GB and 100 GB",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://hostmyapple.com/mac-vps-hosting",
-    "read_on": "2026-10-22"
+ "topic": "compute",
+ "slug": "hostmyapple",
+ "provider": "HostMyApple",
+ "url": "https://hostmyapple.com/mac-vps-hosting",
+ "category": "macOS host",
+ "free_tier": {
+  "stated": "no free tier: macOS packages from $24.99 a month with 3 GB of RAM and 60 GB of SSD, up to $54.99 for 6 GB and 100 GB",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://hostmyapple.com/mac-vps-hosting",
+  "read_on": "2026-10-22"
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://hostmyapple.com/mac-vps-hosting",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "not stated",
+  "days": null,
+  "source_url": "https://hostmyapple.com/mac-vps-hosting",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "not published",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://hostmyapple.com/mac-vps-hosting"
+ },
+ "interface": [
+  "unknown"
+ ],
+ "interface_detail": "The Mac VPS page lists a dedicated IP address with Remote Desktop, SSH and full Administrator access; no API is published",
+ "tooling": "not stated",
+ "chaining": "not established",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "$24.99 to $54.99 a month depending on RAM and disk",
+   "source": "https://hostmyapple.com/mac-vps-hosting"
   },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://hostmyapple.com/mac-vps-hosting",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+  {
+   "kind": "per-ip-shaping",
+   "value": "'Unlimited Bandwidth' and 'No data caps'  -  a claim about a missing limit, recorded as such and not converted into a capacity figure",
+   "source": "https://hostmyapple.com/mac-vps-hosting"
+  }
+ ],
+ "limits_note": "Session cap, idle-reap and network policy are not documented. Ranked partial.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "unverified: not stated in the source card. `email` is the assumed value because every priced host in the set requires an account, and no signup was performed, so the kind is not established for this provider",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "documented",
+ "confidence_note": "the Mac VPS page was read on 2026-10-22 and prices four monthly packages. There is no free tier; the record's free-tier claim is contradicted",
+ "evidence": [
+  {
+   "url": "https://hostmyapple.com/mac-vps-hosting",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
   },
-  "retention": {
-    "stated": "not stated",
-    "days": null,
-    "source_url": "https://hostmyapple.com/mac-vps-hosting",
-    "notes": "Disk durability across instance stops and deletions is not documented."
+  {
+   "url": "https://hostmyapple.com/mac-vps-hosting",
+   "date": "2026-10-22",
+   "proved": "'$24.99/mo Instant Activation', '60GB SSD Disk Space', 'Unlimited Bandwidth', and 'No data caps or fees, 100% Unlimited Usage', quoted across the four macOS packages"
   },
-  "egress": {
-    "terms": "not published",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://hostmyapple.com/mac-vps-hosting"
+  {
+   "url": "https://hostmyapple.com/mac-vps-hosting",
+   "date": "2026-11-25",
+   "proved": "the macOS packages are paid, from USD 24.99 a month for the Lite package with 3072MB RAM and 60GB SSD to the Max package with 6144mb RAM and 100GB SSD",
+   "capture": "sha256:9ab2599c0a65a78bba7a1f38bb7b9c39b1b92cbdd4300c5555d7f878af33137b",
+   "quote": "$24.99/mo Instant Activation :) ... The macOS Tahoe Lite package with 3072MB of RAM and 60GB of Solid State Drive space is the perfect solution for iMessage use, small website and light desktop use. ... The macOS Tahoe Max package features 6144mb of RAM and 100GB of Solid State Drive space."
   },
-  "interface": [
-    "unknown"
-  ],
-  "interface_detail": "The Mac VPS page lists a dedicated IP address with Remote Desktop, SSH and full Administrator access; no API is published",
-  "tooling": "not stated",
-  "chaining": "not established",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "$24.99 to $54.99 a month depending on RAM and disk",
-      "source": "https://hostmyapple.com/mac-vps-hosting"
-    },
-    {
-      "kind": "per-ip-shaping",
-      "value": "'Unlimited Bandwidth' and 'No data caps'  -  a claim about a missing limit, recorded as such and not converted into a capacity figure",
-      "source": "https://hostmyapple.com/mac-vps-hosting"
-    }
-  ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented. Ranked partial.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "unverified: not stated in the source card. `email` is the assumed value because every priced host in the set requires an account, and no signup was performed, so the kind is not established for this provider",
-    "country": null
+  {
+   "url": "https://hostmyapple.com/mac-vps-hosting",
+   "date": "2026-11-24",
+   "proved": "the macOS VPS packages still start at $24.99/mo, with unlimited bandwidth and no data caps",
+   "capture": "sha256:9ab2599c0a65a78bba7a1f38bb7b9c39b1b92cbdd4300c5555d7f878af33137b",
+   "quote": "$24.99/mo Instant Activation :)"
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "documented",
-  "confidence_note": "the Mac VPS page was read on 2026-10-22 and prices four monthly packages. There is no free tier; the record's free-tier claim is contradicted",
-  "evidence": [
-    {
-      "url": "https://hostmyapple.com/mac-vps-hosting",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://hostmyapple.com/mac-vps-hosting",
-      "date": "2026-10-22",
-      "proved": "'$24.99/mo Instant Activation', '60GB SSD Disk Space', 'Unlimited Bandwidth', and 'No data caps or fees, 100% Unlimited Usage', quoted across the four macOS packages"
-    },
-    {
-      "url": "https://hostmyapple.com/mac-vps-hosting",
-      "date": "2026-11-24",
-      "proved": "the macOS VPS packages still start at $24.99/mo, with unlimited bandwidth and no data caps",
-      "capture": "sha256:9ab2599c0a65a78bba7a1f38bb7b9c39b1b92cbdd4300c5555d7f878af33137b",
-      "quote": "$24.99/mo Instant Activation :)"
-    },
-    {
-      "url": "https://hostmyapple.com/mac-vps-hosting",
-      "date": "2026-11-24",
-      "proved": "the page still advertises unlimited bandwidth with no data caps or fees",
-      "capture": "sha256:9ab2599c0a65a78bba7a1f38bb7b9c39b1b92cbdd4300c5555d7f878af33137b",
-      "quote": "No data caps or fees, 100% Unlimited Usage"
-    },
-    {
-      "url": "https://hostmyapple.com/mac-vps-hosting",
-      "date": "2026-11-24",
-      "proved": "access is by Remote Desktop and SSH with full admin rights on a dedicated IP",
-      "capture": "sha256:9ab2599c0a65a78bba7a1f38bb7b9c39b1b92cbdd4300c5555d7f878af33137b",
-      "quote": "All Mac VPS cloud servers come with a **dedicated IP address with Remote Desktop, SSH and full Administrator access.**"
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T11:38:14.858Z",
-  "price_per_tb_month": null,
-  "notes": "",
-  "extras": {
-    "seed_status": "ranked-partial",
-    "talaria_m10h_usd": 14.38,
-    "talaria_m24h_usd": 34.51,
-    "nemo_m10h_usd": null,
-    "keep_rate": 1.0,
-    "keep_rate_basis": "always-on by contract",
-    "billing_model": "unclassified",
-    "shape": {
-      "vcpu": null,
-      "ram": 3,
-      "disk": 60,
-      "gpu_class": "Apple Silicon",
-      "gpu_count": 1,
-      "note": "the Lite package at 3 GB of RAM and 60 GB of SSD; the Max package is 6 GB and 100 GB"
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "a monthly rental of an Apple Silicon VM; no session clock"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "granularity": {
-      "min_billed_s": 2592000,
-      "rounding_s": null
-    },
-    "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "ps": {
-      "gib": 60,
-      "price": "included in the monthly price",
-      "durability": "SSD",
-      "on_stop": true,
-      "on_destroy": false,
-      "retention": "the rental term"
-    },
-    "net": {
-      "out": true,
-      "in": true,
-      "ports": "any",
-      "static_ip": null,
-      "ipv6": null,
-      "allowance": "'Unlimited Bandwidth', a documented absence rather than a number"
-    }
+  {
+   "url": "https://hostmyapple.com/mac-vps-hosting",
+   "date": "2026-11-24",
+   "proved": "the page still advertises unlimited bandwidth with no data caps or fees",
+   "capture": "sha256:9ab2599c0a65a78bba7a1f38bb7b9c39b1b92cbdd4300c5555d7f878af33137b",
+   "quote": "No data caps or fees, 100% Unlimited Usage"
   },
-  "stale": true,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding": "request-rate",
-  "history": [
-    "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
-  ]
+  {
+   "url": "https://hostmyapple.com/mac-vps-hosting",
+   "date": "2026-11-24",
+   "proved": "access is by Remote Desktop and SSH with full admin rights on a dedicated IP",
+   "capture": "sha256:9ab2599c0a65a78bba7a1f38bb7b9c39b1b92cbdd4300c5555d7f878af33137b",
+   "quote": "All Mac VPS cloud servers come with a **dedicated IP address with Remote Desktop, SSH and full Administrator access.**"
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T15:03:50.016Z",
+ "price_per_tb_month": null,
+ "notes": "",
+ "extras": {
+  "seed_status": "ranked-partial",
+  "talaria_m10h_usd": 14.38,
+  "talaria_m24h_usd": 34.51,
+  "nemo_m10h_usd": null,
+  "keep_rate": 1.0,
+  "keep_rate_basis": "always-on by contract",
+  "billing_model": "unclassified",
+  "shape": {
+   "vcpu": null,
+   "ram": 3,
+   "disk": 60,
+   "gpu_class": "Apple Silicon",
+   "gpu_count": 1,
+   "note": "the Lite package at 3 GB of RAM and 60 GB of SSD; the Max package is 6 GB and 100 GB"
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "a monthly rental of an Apple Silicon VM; no session clock"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "granularity": {
+   "min_billed_s": 2592000,
+   "rounding_s": null
+  },
+  "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "ps": {
+   "gib": 60,
+   "price": "included in the monthly price",
+   "durability": "SSD",
+   "on_stop": true,
+   "on_destroy": false,
+   "retention": "the rental term"
+  },
+  "net": {
+   "out": true,
+   "in": true,
+   "ports": "any",
+   "static_ip": null,
+   "ipv6": null,
+   "allowance": "'Unlimited Bandwidth', a documented absence rather than a number"
+  }
+ },
+ "stale": true,
+ "stale_checked_at": "2026-10-22T00:00:00.000Z",
+ "binding": "request-rate",
+ "history": [
+  "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
+ ]
 }

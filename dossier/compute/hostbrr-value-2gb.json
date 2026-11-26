@@ -6,7 +6,7 @@
   "category": "VPS",
   "tier": "Value 2GB (Cloud VPS)",
   "free_tier": {
-    "stated": "no free tier; 'Cloud VPS - NVMe KVM Servers from EUR 2.00/mo'",
+    "stated": "Value 2GB ... €2.00",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://hostbrr.com/vps.html",
@@ -78,10 +78,24 @@
       "url": "https://hostbrr.com/terms.html",
       "date": "2026-10-24",
       "proved": "no price-change clause and no renewal-rate statement in the terms and conditions"
+    },
+    {
+      "url": "https://hostbrr.com/vps.html",
+      "date": "2026-11-25",
+      "proved": "the vps page prices the Value 2GB plan at 2 euros total per month",
+      "capture": "sha256:1a6a43e555c92729c205e8c67f77c0694d76a707a7a5d78cd898148121e78350",
+      "quote": "Value 2GB ... €2.00"
+    },
+    {
+      "url": "https://hostbrr.com/vps.html",
+      "date": "2026-11-25",
+      "proved": "the Value 2GB card still shows a 2 euro monthly total",
+      "capture": "sha256:1a6a43e555c92729c205e8c67f77c0694d76a707a7a5d78cd898148121e78350",
+      "quote": "Value 2GB ... €2.00"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-24T03:20:00.000Z",
+  "verified_at": "2026-11-25T15:03:55.554Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "EUR 2.00 is USD 2.24, the cheapest 2 GiB row verified in this session. Only the default plan rendered: the page is a configurator and the other rungs are behind a selector, so a 4 GiB rung at EUR 4 would change the ranking and was not read. RENEWAL PASS 2026-10-24: the monthly list price is the renewal price and it is published, so this row carries no month-13 unknown. The full Value ladder was recovered from the page source; the rendered page shows one card at a time. Value 8GB at EUR 50.00 a year (USD 55.00) is 8 GiB for USD 4.58 a month with a published USD 5.50 monthly ceiling, which is the best published-renewal 8 GiB shape this lane found. Whether the Value line includes IPv4 is not stated anywhere on the page read, so it is not claimed here.",

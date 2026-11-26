@@ -15,15 +15,15 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://lowendtalk.com/discussion/211463/0-00-high-spec-vds-128gb-ram-16-cores-5ghz-1tb-nvme-backlink-required",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The offer states 1 TB NVMe storage and full root access; no per-object size limit is stated."
   },
   "retention": {
     "stated": "The VDS is absolutely free as long as the backlink remains active.",
     "source_url": "https://lowendtalk.com/discussion/211463/0-00-high-spec-vds-128gb-ram-16-cores-5ghz-1tb-nvme-backlink-required",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The VDS is free while the backlink stays active; the offer may be revoked for abuse, a terms breach or backlink removal."
   },
   "egress": {
-    "terms": "Not stated in the offer text. Unverified. Treat as unknown rather than unmetered.",
+    "terms": "unverified: no bandwidth or egress allowance is stated for the free VDS in the offer or application page; the paid VDS catalogue lists separate monthly bandwidth figures.",
     "metered": false
   },
   "interface": [
@@ -34,7 +34,7 @@
   ],
   "interface_detail": "sftp",
   "tooling": "Full root VDS. SSH/SFTP/rsync/rclone.",
-  "chaining": "This is the write-gated archetype the round-2 brief names: the gate is not money or a card, it is an SEO asset. 'We're mainly looking for websites with good SEO value.' You cannot multiply it without multiplying indexed domains, which is a different resource than storage.",
+  "chaining": "The gate is a backlink from a website with good SEO value; sites with lower SEO value may be offered a smaller package.",
   "limits": [
     {
       "kind": "write-gated",
@@ -77,10 +77,52 @@
       "proved": "the application is reviewed for the site's SEO value",
       "capture": "sha256:c90d0cd8f14c82072e20a99c960e8d58baa8816048eaaefb4ca4c9aa9f3eefd4",
       "quote": "We're mainly looking for websites with good SEO value."
+    },
+    {
+      "url": "https://lowendtalk.com/discussion/211463/0-00-high-spec-vds-128gb-ram-16-cores-5ghz-1tb-nvme-backlink-required",
+      "date": "2026-11-25",
+      "proved": "the offer states the free VDS and backlink condition without a bandwidth figure",
+      "capture": "sha256:c90d0cd8f14c82072e20a99c960e8d58baa8816048eaaefb4ca4c9aa9f3eefd4",
+      "quote": "We're offering a lifetime VDS at a cost of $0.00 (yes, free) to owners of established websites who are willing to include a mention of Evolution Host on their website."
+    },
+    {
+      "url": "https://lowendtalk.com/discussion/211463/0-00-high-spec-vds-128gb-ram-16-cores-5ghz-1tb-nvme-backlink-required",
+      "date": "2026-11-25",
+      "proved": "the offer states 1 TB NVMe storage and full root access without a per-object limit",
+      "capture": "sha256:c90d0cd8f14c82072e20a99c960e8d58baa8816048eaaefb4ca4c9aa9f3eefd4",
+      "quote": "1TB NVMe SSD ... Full root access – total control over your VDS"
+    },
+    {
+      "url": "https://lowendtalk.com/discussion/211463/0-00-high-spec-vds-128gb-ram-16-cores-5ghz-1tb-nvme-backlink-required",
+      "date": "2026-11-25",
+      "proved": "the offer states the live-backlink condition and the revocation grounds",
+      "capture": "sha256:c90d0cd8f14c82072e20a99c960e8d58baa8816048eaaefb4ca4c9aa9f3eefd4",
+      "quote": "The VDS is absolutely free as long as the backlink remains active. ... Offer may be revoked in case of abuse, breach of terms of service, or backlink removal."
+    },
+    {
+      "url": "https://lowendtalk.com/discussion/211463/0-00-high-spec-vds-128gb-ram-16-cores-5ghz-1tb-nvme-backlink-required",
+      "date": "2026-11-25",
+      "proved": "the offer states the SEO-value review and the smaller-package route",
+      "capture": "sha256:c90d0cd8f14c82072e20a99c960e8d58baa8816048eaaefb4ca4c9aa9f3eefd4",
+      "quote": "We're mainly looking for websites with good SEO value. ... we may still offer you a smaller VPS if your website doesn’t qualify for a high-spec server."
+    },
+    {
+      "url": "https://lowendtalk.com/discussion/211463/0-00-high-spec-vds-128gb-ram-16-cores-5ghz-1tb-nvme-backlink-required",
+      "date": "2026-11-25",
+      "proved": "the offer title states the zero price, the specifications and the backlink condition",
+      "capture": "sha256:c90d0cd8f14c82072e20a99c960e8d58baa8816048eaaefb4ca4c9aa9f3eefd4",
+      "quote": "$0.00 High-Spec VDS – 128GB RAM, 16 Cores @ 5GHz, 1TB NVMe (Backlink Required)"
+    },
+    {
+      "url": "https://lowendtalk.com/discussion/211463/0-00-high-spec-vds-128gb-ram-16-cores-5ghz-1tb-nvme-backlink-required",
+      "date": "2026-11-25",
+      "proved": "the offer states the SEO-value review gate",
+      "capture": "sha256:c90d0cd8f14c82072e20a99c960e8d58baa8816048eaaefb4ca4c9aa9f3eefd4",
+      "quote": "We're mainly looking for websites with good SEO value."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:14.806Z",
+  "verified_at": "2026-11-25T09:54:53.003Z",
   "notes": "$0.00 High-Spec VDS – 128GB RAM, 16 Cores @ 5GHz, 1TB NVMe (Backlink Required)",
   "history": [],
   "extras": {

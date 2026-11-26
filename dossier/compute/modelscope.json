@@ -5,7 +5,7 @@
   "url": "https://modelscope.cn/docs/notebook/intro",
   "category": "GPU cloud",
   "free_tier": {
-    "stated": "\" Notebook 36 \" - 36 GPU hours as a new-user initial grant, while the CPU environment (8 cores, 32 GB) stays free with no stated limit.",
+    "stated": "36 GPU hours as a one-time initial allowance for each new user after binding an Alibaba Cloud account, for training, inference and evaluation inside ModelScope Notebook; after the GPU hours are used up the free CPU Notebook environment can still be used.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://modelscope.cn/docs/notebook/intro",
@@ -74,10 +74,24 @@
       "url": "https://modelscope.cn/docs/notebook/intro",
       "date": "2026-10-22",
       "proved": "official doc page returned 422 no-content from the reader and the 2026-08-03 Wayback capture replayed empty; the figure rests on three sources quoting the doc, not on the doc itself"
+    },
+    {
+      "url": "https://lanmao.ai/zh/o/modelscope-notebook-free-gpu/",
+      "date": "2026-11-25",
+      "proved": "the page states a one-time 36-hour GPU grant for each new user and a free CPU environment after the grant is used",
+      "capture": "sha256:718c20517904c70282e5ea1818fb17bda87f1e787715fd34ab8f06772cb1ed93",
+      "quote": "绑定阿里云账号后，每位新用户可获得 36 小时免费 GPU 初始算力，用于魔搭 Notebook 内的训练、推理、评估；GPU 用完后可继续使用免费 CPU 环境；另含 100GB 免费持久化存储"
+    },
+    {
+      "url": "https://lanmao.ai/zh/o/modelscope-notebook-free-gpu/",
+      "date": "2026-11-25",
+      "proved": "the captured page still states the 36-hour new-user GPU grant and the free CPU environment after it is used",
+      "capture": "sha256:718c20517904c70282e5ea1818fb17bda87f1e787715fd34ab8f06772cb1ed93",
+      "quote": "绑定阿里云账号后，每位新用户可获得 36 小时免费 GPU 初始算力，用于魔搭 Notebook 内的训练、推理、评估；GPU 用完后可继续使用免费 CPU 环境；另含 100GB 免费持久化存储"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:30.950Z",
   "notes": "The official page could not be read directly: the reader returned 'no content' and the Wayback replay of the 2026-08-03 capture was empty, so this row is `reported` on three independent quotations rather than `documented`. The headline number in circulation has changed and the direction is downward: guides say 100 hours, the doc says 36, and one author explicitly corrects the older figure. Two adjacent lanes are separate products and are not added to this row: free xGPU on (shared GPU for Spaces, requires joining an xGPU-Explorers organisation, approval-gated, with per-user duration caps), and the AMD GPU incentive programme (up to 1000 hours, requires an AMD developer account plus publishing activity).",
   "extras": {
     "wave2": {

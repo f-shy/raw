@@ -220,6 +220,7 @@ names the record removes its row at the next render.
 | `rarecloud-custom-kvm-vps` | RareCloud | paid-only | documented |
 | `serverhost-kvm-2gb` | ServerHost | paid-only | documented |
 | `servitro-1-server` | Servitro | paid-only | documented |
+| `servitro-epyc-1-server` | Servitro | paid-only | documented |
 | `siliconkiwi-kiwi-go` | SiliconKiwi | paid-only | documented |
 | `softshellweb-lxc-ipv6-only-la` | SoftShellWeb | paid-only | documented |
 | `strato-linux-vserver-vps-s` | STRATO | paid-only | documented |

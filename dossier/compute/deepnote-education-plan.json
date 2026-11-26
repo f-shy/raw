@@ -5,7 +5,7 @@
   "url": "https://deepnote.com/docs/edu-overview",
   "category": "notebook runtime",
   "free_tier": {
-    "stated": "'Our Education plan is 100% free for students, teachers, and researchers who connect their accounts to school email addresses. The free Education plan provides access to most of the Team plan features other than advanced computing machines, Scheduling and Deepnote AI.' The GitHub pack describes the same offer as 'unlimited basic machines with up to 5GB RAM and 2vCPU'.",
+    "stated": "Our Education plan is **100% free** for students, teachers, and researchers who connect their accounts to school email addresses.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://deepnote.com/docs/edu-overview",
@@ -58,10 +58,17 @@
       "url": "https://education.github.com/pack",
       "date": "2026-10-22",
       "proved": "'unlimited basic machines with up to 5GB RAM and 2vCPU' under the Deepnote offer, which is a smaller reading than the vendor's own edu page implies."
+    },
+    {
+      "url": "https://deepnote.com/docs/edu-overview",
+      "date": "2026-11-25",
+      "proved": "the vendor's education page states the plan is free for students, teachers and researchers connecting a school email address",
+      "capture": "sha256:a5bddb10f4590de3c965770931fccb3f66d44596cd497a37bf51b00c380524b3",
+      "quote": "Our Education plan is **100% free** for students, teachers, and researchers who connect their accounts to school email addresses."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:40.581Z",
   "notes": "The pack page and the vendor page disagree on scope: the pack promises 'unlimited basic machines', the vendor page says advanced machines are excluded. Both are documented, and the vendor page is the authority on the plan itself. This is a case where the aggregator's description is generous and the underlying product page is the one that binds.",
   "extras": {
     "wave2": {

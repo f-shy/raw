@@ -13,14 +13,14 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "Larger files are automatically split into chunks, staged concurrently, and reassembled in the target stage.",
     "source_url": "https://docs.snowflake.com/en/user-guide/admin-trial-account",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Larger files are automatically split into chunks, staged concurrently, and reassembled in the target stage."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "The trial continues for 30 days (from the sign-up date) or until you've depleted your free usage balance, whichever occurs first.",
     "source_url": "https://docs.snowflake.com/en/user-guide/admin-trial-account",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The trial continues for 30 days (from the sign-up date) or until you've depleted your free usage balance, whichever occurs first."
   },
   "egress": {
     "terms": "Not free. Snowflake bills egress/transfer separately and the trial credit is consumed by it.",
@@ -32,7 +32,7 @@
   ],
   "interface_detail": "rest + s3",
   "tooling": "Excellent: PUT to an internal stage, full SQL, Snowflake SDKs, and external stages pointing at your own S3/Azure/GCS. Programmatically the best of the warehouse entrants.",
-  "chaining": "One trial per email; trials cannot be chained legitimately because the account is suspended at day 30. 'At the end of the trial, the account is suspended. You can still log into a suspended account, but you cannot use any features, such as … loading data.'.",
+  "chaining": "At the end of the trial, the account is suspended. You can still log into a suspended account, but you cannot use any features, such as running a virtual warehouse, loading data, or performing queries.",
   "limits": [],
   "limits_note": "retention-clamped and hard-capped by design. Data is NOT deleted on suspension but is also not retrievable, which is worse than deletion for the purpose of treating it as storage. Identity is email only, which is the one thing in its favour.",
   "identity_cost": {
@@ -79,10 +79,38 @@
       "proved": "trial signup needs only an email address, no payment information",
       "capture": "sha256:008419da296ebc793a51264cf24b3a3fc3e9b7546551e60d9fd95965e8ddd2ff",
       "quote": "To sign up for a trial account, all you need is a valid email address; no payment information or other qualifying information is required."
+    },
+    {
+      "url": "https://docs.snowflake.com/en/sql-reference/sql/put",
+      "date": "2026-11-25",
+      "proved": "PUT splits larger files into chunks and reassembles them in the target stage",
+      "capture": "sha256:3a1e0a7558ea9437c8e8176857020d27c6d6b3fb085798cfaade2165b793a793",
+      "quote": "Larger files are automatically split into chunks, staged concurrently, and reassembled in the target stage."
+    },
+    {
+      "url": "https://docs.snowflake.com/en/user-guide/admin-trial-account",
+      "date": "2026-11-25",
+      "proved": "trial lasts 30 days or until the free balance is gone",
+      "capture": "sha256:008419da296ebc793a51264cf24b3a3fc3e9b7546551e60d9fd95965e8ddd2ff",
+      "quote": "The trial continues for 30 days (from the sign-up date) or until you've depleted your free usage balance, whichever occurs first."
+    },
+    {
+      "url": "https://docs.snowflake.com/en/user-guide/admin-trial-account",
+      "date": "2026-11-25",
+      "proved": "suspended trial accounts cannot load data or run queries",
+      "capture": "sha256:008419da296ebc793a51264cf24b3a3fc3e9b7546551e60d9fd95965e8ddd2ff",
+      "quote": "At the end of the trial, the account is suspended. You can still log into a suspended account, but you cannot use any features, such as running a virtual warehouse, loading data, or performing queries."
+    },
+    {
+      "url": "https://docs.snowflake.com/en/user-guide/admin-trial-account",
+      "date": "2026-11-25",
+      "proved": "trial signup requires a valid email address and no payment information",
+      "capture": "sha256:008419da296ebc793a51264cf24b3a3fc3e9b7546551e60d9fd95965e8ddd2ff",
+      "quote": "To sign up for a trial account, all you need is a valid email address; no payment information or other qualifying information is required."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-19T21:15:22.712Z",
+  "verified_at": "2026-11-25T21:21:18.144Z",
   "price_per_tb_month": "$40/TB/month storage after the trial (Standard). Above the wave-6 floor by ~8x.",
   "notes": "No byte quota. A $400 credit balance and a 30-day clock, whichever ends first. 'The trial continues for 30 days (from the sign-up date) or until you've depleted your free usage balance.' Storage accrues cost against that balance at standard rates (~$40/TB/month per the documented Standard rate). So the nominal free storage is whatever the credit buys after compute: at $40/TB/mo, $400 buys 10 TB-months, i.e. 10 TB for one month or 1 TB for ten.",
   "history": [],

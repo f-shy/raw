@@ -5,7 +5,7 @@
   "url": "https://ruweb.net/test-vds",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "Six days of VPS free, activated automatically once the balance is topped up, with the deposit staying on the balance afterwards for any order or transfer to another account. The amount is stated as RUB 300 in the body of the trial page and as RUB 200 twice in the same page's questions, and the promotions page says RUB 300 for a VPS and RUB 100 for shared hosting, so the provider publishes three numbers for one deposit. Ports 25 and 465 are closed until the trial is converted to a paid order, and on tariffs from KVMz-PROF upward the test needs support approval. The cheapest paid shape is advertised from RUB 169 a month, with European and non-CIS locations sold from the same catalogue.",
+    "stated": "Тестовый период активируется автоматически после пополнения баланса на 300 ₽.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://ruweb.net/test-vds",
@@ -69,10 +69,24 @@
       "url": "https://ruweb.net/vps-linux",
       "date": "2026-10-22",
       "proved": "the catalogue is titled as Linux VPS from RUB 169 a month, the lowest monthly figure found for an addressed 24/7 machine in this lane"
+    },
+    {
+      "url": "https://ruweb.net/test-vds",
+      "date": "2026-11-25",
+      "proved": "the trial page states that the trial period activates automatically after a 300 RUB balance top-up",
+      "capture": "sha256:f23698ba17a04f3dff6e32573c83b11498ccd2d96cdc01f7a49d2baa06a4eb67",
+      "quote": "Тестовый период активируется автоматически после пополнения баланса на 300 ₽."
+    },
+    {
+      "url": "https://ruweb.net/test-vds",
+      "date": "2026-11-25",
+      "proved": "the trial page still states that the trial activates automatically after a 300 RUB top-up",
+      "capture": "sha256:f23698ba17a04f3dff6e32573c83b11498ccd2d96cdc01f7a49d2baa06a4eb67",
+      "quote": "Тестовый период активируется автоматически после пополнения баланса на 300 ₽."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:46.646Z",
   "notes": "RuWeb provides VPS hosting starting from RUB 169 monthly. Activation of trial credits requires a minimum deposit top-up via supported payment methods.",
   "extras": {
     "wave2": {

@@ -26,9 +26,9 @@
     "notes": ""
   },
   "egress": {
-    "terms": "No free tier; the service is closed to new customers.; ingress: http-only",
+    "terms": "the service is closed to new customers; the page states no data-transfer terms",
     "metered": true,
-    "free_allowance": "No free tier; the service is closed to new customers.",
+    "free_allowance": "none: the service is closed to new customers",
     "price_per_tb": null,
     "source_url": "https://docs.aws.amazon.com/apprunner/latest/dg/what-is-apprunner.html"
   },
@@ -62,10 +62,17 @@
       "url": "https://docs.aws.amazon.com/apprunner/latest/dg/what-is-apprunner.html",
       "date": "2026-10-23",
       "proved": "\"AWS App Runner is no longer open to new customers\" and AWS recommends ECS Express Mode instead"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/apprunner/latest/dg/what-is-apprunner.html",
+      "date": "2026-11-25",
+      "proved": "the service is closed to new customers",
+      "capture": "sha256:8ca53c06d76531918fa1ce84ac089f55091fd73da7411afaf74c201bb5d489bb",
+      "quote": "AWS App Runner is no longer open to new customers. Existing customers can continue to use the service as normal."
     }
   ],
   "verdict": "dead",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:54.995Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Service is closed to new customer signups. Existing accounts retain access. No free tier is provided.",

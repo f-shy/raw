@@ -16,12 +16,12 @@
     "stated": "per-file ceiling is 100 MB",
     "bytes": 100000000,
     "source_url": "https://www.shoutwiki.com/w/api.php?action=query&meta=siteinfo&siprop=general&format=json",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "\"maxuploadsize\":104857600"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "If you contribute to ShoutWiki, you are publishing every word you post publicly. If you write something, assume that it will be retained forever. This includes content pages, user pages and talk pages.",
     "source_url": "https://www.shoutwiki.com/w/api.php?action=query&meta=siteinfo&siprop=general&format=json",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "If you contribute to ShoutWiki, you are publishing every word you post publicly. If you write something, assume that it will be retained forever. This includes content pages, user pages and talk pages."
   },
   "egress": {
     "terms": "No egress meter; images served from `images.shoutwiki.com`.",
@@ -84,10 +84,24 @@
       "proved": "the probed siteinfo body reports a 104,857,600-byte per-file upload ceiling",
       "capture": "sha256:b22133c0015b27dc60625f305cc6e961f0e5a932603ffb20e3372082856b3689",
       "quote": "\"maxuploadsize\":104857600"
+    },
+    {
+      "url": "probe:https://www.shoutwiki.com/w/api.php?action=query&meta=siteinfo&siprop=general&format=json",
+      "date": "2026-11-25",
+      "proved": "siteinfo reports a 104857600-byte maximum upload size",
+      "capture": "sha256:6426a1e2baaeb08420043adb3bb5e3aadb56b28fde55e35830264a977a5dfe65",
+      "quote": "\"maxuploadsize\":104857600"
+    },
+    {
+      "url": "https://www.shoutwiki.com/wiki/Privacy_policy",
+      "date": "2026-11-25",
+      "proved": "published text says contributions are retained forever",
+      "capture": "sha256:ad56c0bbfe8f02b12514f5cd4b1692f662755262e57871e25ab669de42364ab4",
+      "quote": "If you contribute to ShoutWiki, you are publishing every word you post publicly. If you write something, assume that it will be retained forever. This includes content pages, user pages and talk pages."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:15:21.396Z",
+  "verified_at": "2026-11-25T21:21:18.143Z",
   "notes": "No published per-wiki storage cap; per-file ceiling is 100 MB (live siteinfo). Free, ad-supported; paid tiers exist for custom domains.",
   "history": [],
   "extras": {

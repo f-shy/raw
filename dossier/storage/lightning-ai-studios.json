@@ -15,13 +15,13 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://lightning.ai/pricing",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: the pricing page states a 50 GB persistent storage limit but states no per-object cap"
   },
   "retention": {
     "stated": "Free Studio restarts every 4 hours (compute restarts, disk persists); auto-sleep after 10 min idle; free GPU hours come from 'up to 30 credits'; account data deleted after 6 months without login.",
     "days": 0,
     "source_url": "https://lightning.ai/pricing",
-    "notes": "Extracted from published terms."
+    "notes": "unverified: the pricing page states session limits but states no file-retention period on this page"
   },
   "egress": {
     "terms": "No egress meter or per-GB transfer price is published on the pricing page. Free/public app serving on Studios is included in the plan.",
@@ -94,10 +94,31 @@
       "proved": "the free Studio plan carries a 50 GB persistent storage limit",
       "capture": "sha256:bd1466b7004ddb100911f84e97a87a19db3c4f4bd5909df1736f7e354af45f4c",
       "quote": "Persistent storage limit\n\n50 GB"
+    },
+    {
+      "url": "https://lightning.ai/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page states a 50 GB persistent storage limit for the Free plan",
+      "capture": "sha256:bd1466b7004ddb100911f84e97a87a19db3c4f4bd5909df1736f7e354af45f4c",
+      "quote": "50 GB"
+    },
+    {
+      "url": "https://lightning.ai/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page states a persistent storage limit; no per-object cap is stated on the page",
+      "capture": "sha256:bd1466b7004ddb100911f84e97a87a19db3c4f4bd5909df1736f7e354af45f4c",
+      "quote": "Persistent storage limit"
+    },
+    {
+      "url": "https://lightning.ai/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page states 4-hour session limits; no file-retention period is stated on this page",
+      "capture": "sha256:bd1466b7004ddb100911f84e97a87a19db3c4f4bd5909df1736f7e354af45f4c",
+      "quote": "4 hours"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:13:58.578Z",
+  "verified_at": "2026-11-25T21:21:13.742Z",
   "notes": "50GB of persistent storage",
   "history": [],
   "extras": {

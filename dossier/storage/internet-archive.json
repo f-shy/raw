@@ -36,7 +36,7 @@
   ],
   "interface_detail": "s3",
   "tooling": "IAS3 = S3-compatible REST (PUT = create item, multipart, x-archive-auto-make-bucket, x-archive-queue-derive:0, x-archive-size-hint); rclone backend 'internetarchive' (Tier 3, added v1.59, github.com/rclone/rclone 60.4k stars); official CLI/Python 'ia' github.com/jjjake/internetarchive (1,923 stars, pushed 2026-10-20); Rust client github.com/LucaCappelletti94/internetarchive-rs. S3 keys from archive.org/account/s3.php.",
-  "chaining": "Supports unlimited items per account with up to 1 TB per item across multiple accounts. Archives can package small files into zip archives to align with item-based transfer limits.",
+  "chaining": "At most 5,000 files may be uploaded per day regardless of the number of items created, and a zip file counts as one file. Multiple accounts are not addressed on the cited pages.",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -156,10 +156,38 @@
       "proved": "the item-page limit and the recommended file and byte ceiling",
       "capture": "sha256:d275db5cf0e45fcf37c38b13a12c1cb3776620ad3e376f2443b89d14bf73354c",
       "quote": "Currently, there is a 1TB size limit for item pages. However, from a systems perspective, we recommend a maximum of 1000 files or 500GB of data per item page."
+    },
+    {
+      "url": "https://help.archive.org/help/uploading-what-is-not-ok-or-not-ok-to-upload/",
+      "date": "2026-11-25",
+      "proved": "the daily file cap is 5,000 files across all items and a zip counts as one file",
+      "capture": "sha256:48c29342ed9fc3b008929df590bc37f436f153aefdb46a813d73c0347aee5a3c",
+      "quote": "Uploads do not exceed 5,000 files per day (regardless of the number of items that are created.) In this context, a zip file is considered one file"
+    },
+    {
+      "url": "https://help.archive.org/help/uploading-tips/",
+      "date": "2026-11-25",
+      "proved": "the item-page size limit is 1TB",
+      "capture": "sha256:564fefcac70be53c580b0ba5f11e4bf3e503dd82ee08ca2575a1fcbd66459043",
+      "quote": "Currently, there is a 1TB size limit for item pages."
+    },
+    {
+      "url": "https://archive.org/developers/ias3.html",
+      "date": "2026-11-25",
+      "proved": "files in an item are world readable",
+      "capture": "sha256:467a16d2e9fc7150fbf1ca1ddaeedf3c9ea54b0827e14939343fa4a811c5848c",
+      "quote": "ACLs are fake. permissions are: World readable, Item uploader writable."
+    },
+    {
+      "url": "https://archive.org/developers/ias3.html",
+      "date": "2026-11-25",
+      "proved": "the IAS3 endpoint is an S3-like API over items",
+      "capture": "sha256:467a16d2e9fc7150fbf1ca1ddaeedf3c9ea54b0827e14939343fa4a811c5848c",
+      "quote": "Items (things with details pages) get mapped to S3 Buckets."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-11T06:09:39.446Z",
+  "verified_at": "2026-11-25T12:15:46.508Z",
   "notes": "1 TB hard limit per item page (\"Currently, there is a 1TB size limit for item pages\"), recommended 500 GB / 1,000 files per item; items per account unlimited. Single file \"should not be larger than ~500 to ~700 GB\".",
   "history": [],
   "extras": {
@@ -193,7 +221,7 @@
     "target_document": "docs/storage/free/anonymous-hosts.md",
     "document_section": "Document hosting",
     "conversion": "mechanical",
-    "verified_at_basis": "the seed research pass, which ended 2026-10-21; this record was not re-checked against the live service",
+    "verified_at_basis": "checked against the live service on 2026-11-25",
     "evidence_dated_by_seed": 0,
     "evidence_dated_to_seed_pass": 6,
     "evidence_carrying_a_source_date": 0,

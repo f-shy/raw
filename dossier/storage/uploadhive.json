@@ -15,16 +15,16 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://uploadhive.com/premium",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Free: Max upload file size Unlimited"
   },
   "retention": {
     "stated": "Free tier published table: max upload file size 'Unlimited', download volume 'Unlimited', storage column '-' (no storage cap published), files deleted 50 days after last download",
     "days": 50,
     "source_url": "https://uploadhive.com/premium",
-    "notes": "Extracted from published terms."
+    "notes": "Free: 50 days after last download"
   },
   "egress": {
-    "terms": "'Download volume: Unlimited' on the free row; direct fs430.uploadhive.com/cgi-bin/dl.cgi/<key>/<name> links",
+    "terms": "Free: Download volume Unlimited",
     "metered": false
   },
   "interface": [
@@ -76,10 +76,31 @@
       "proved": "Free row: unlimited max upload file size, no storage cap published, unlimited download volume, files deleted 50 days after last download",
       "capture": "sha256:10c257da7f6e8dc88e6a8cb497260c4139b0a579d7d21038036e631b4a620ff3",
       "quote": "- Unlimited\n- -\n- Unlimited\n- 50 days after last download"
+    },
+    {
+      "url": "https://uploadhive.com/premium",
+      "date": "2026-11-25",
+      "proved": "the Free row lists Unlimited max upload file size, a dash for storage space, Unlimited download volume and deletion 50 days after last download",
+      "capture": "sha256:10c257da7f6e8dc88e6a8cb497260c4139b0a579d7d21038036e631b4a620ff3",
+      "quote": "- Max upload file size\n- Storage space\n- Download volume\n- Remote URL upload\n- Download-Accelerators support\n- Downloads resume\n- No downloads delay\n- No downloads captcha\n- No Advertisements\n- When are your files deleted?\n\n## Free\n\n- Unlimited\n- -\n- Unlimited\n- 50 days after last download"
+    },
+    {
+      "url": "https://uploadhive.com/premium",
+      "date": "2026-11-25",
+      "proved": "the Free row lists deletion 50 days after last download",
+      "capture": "sha256:10c257da7f6e8dc88e6a8cb497260c4139b0a579d7d21038036e631b4a620ff3",
+      "quote": "- Max upload file size\n- Storage space\n- Download volume\n- Remote URL upload\n- Download-Accelerators support\n- Downloads resume\n- No downloads delay\n- No downloads captcha\n- No Advertisements\n- When are your files deleted?\n\n## Free\n\n- Unlimited\n- -\n- Unlimited\n- 50 days after last download"
+    },
+    {
+      "url": "https://uploadhive.com/premium",
+      "date": "2026-11-25",
+      "proved": "the Free row lists Unlimited download volume",
+      "capture": "sha256:10c257da7f6e8dc88e6a8cb497260c4139b0a579d7d21038036e631b4a620ff3",
+      "quote": "- Max upload file size\n- Storage space\n- Download volume\n- Remote URL upload\n- Download-Accelerators support\n- Downloads resume\n- No downloads delay\n- No downloads captcha\n- No Advertisements\n- When are your files deleted?\n\n## Free\n\n- Unlimited\n- -\n- Unlimited\n- 50 days after last download"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:15:22.710Z",
+  "verified_at": "2026-11-25T21:21:18.733Z",
   "notes": "Free tier published table: max upload file size 'Unlimited', download volume 'Unlimited', storage column '-' (no storage cap published), files deleted 50 days after last download",
   "history": [],
   "extras": {

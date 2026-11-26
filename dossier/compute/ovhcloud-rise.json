@@ -5,7 +5,7 @@
   "url": "https://eu.api.ovh.com/1.0/order/catalog/public/eco?ovhSubsidiary=IE",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "RISE-1 is EUR 56.99 a month for an Intel Xeon-E 2386G with 32 GB ECC 3200 and 2 x 512 GB NVMe on a 1 Gbps port; RISE-2 is EUR 64.99 for a Xeon-E 2388G with the same memory and disk and a choice of guaranteed 1, 2 or 3 Gbps; RISE-S is EUR 64.99 for an AMD Ryzen 7 9700X with 64 GB DDR5 ECC and 2 x 512 GB NVMe. On the monthly term each plan carries a one-time installation fee equal to one month, and on a 12-month term the fee is zero and the total is EUR 649.69 for RISE-1, which is EUR 54.14 a month. RISE-1 is orderable in seven datacenters, RISE-S in three.",
+    "stated": "The catalogue lists RISE-LE-1 (planCode 27risele01-v1) at EUR 34.99 a month on a 1 Gbps bandwidth option, with a 12-month total of EUR 398.89 and a EUR 0.00 installation fee on that term. RISE-1 is EUR 56.99 a month and EUR 649.69 for 12 months; RISE-2 and RISE-S are EUR 64.99 a month each.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://eu.api.ovh.com/1.0/order/catalog/public/eco?ovhSubsidiary=IE",
@@ -69,10 +69,24 @@
       "url": "https://eu.api.ovh.com/1.0/dedicated/server/datacenter/availabilities?planCode=24rise01-v2",
       "date": "2026-10-22",
       "proved": "RISE-1 returns 1H-high or 1H-low stock at bhs, fra, gra, lon, rbx, sbg and waw, with 72H windows at most of them; RISE-S returns gra=1H-high and rbx=1H-high plus bhs=1H-low"
+    },
+    {
+      "url": "https://eu.api.ovh.com/1.0/order/catalog/public/eco?ovhSubsidiary=IE",
+      "date": "2026-11-25",
+      "proved": "the catalogue names RISE-LE-1 and gives the RISE-LE-1, RISE-1 and 12-month rental prices",
+      "capture": "sha256:4226f41c3ced38bffc0d1b5ab007ffc2b437bea4002c37a8bc1347b932e41e89",
+      "quote": "\"planCode\": \"27risele01-v1\", \"invoiceName\": \"RISE-LE-1\" ... \"formattedPrice\": \"€ 34.99\" ... \"formattedPrice\": \"€ 398.89\" ... \"planCode\": \"24rise01-v2\" ... \"formattedPrice\": \"€ 56.99\" ... \"formattedPrice\": \"€ 649.69\""
+    },
+    {
+      "url": "https://eu.api.ovh.com/1.0/order/catalog/public/eco?ovhSubsidiary=IE",
+      "date": "2026-11-25",
+      "proved": "the catalogue still names RISE-LE-1 and states its monthly and 12-month prices",
+      "capture": "sha256:4226f41c3ced38bffc0d1b5ab007ffc2b437bea4002c37a8bc1347b932e41e89",
+      "quote": "\"planCode\": \"27risele01-v1\", \"invoiceName\": \"RISE-LE-1\" ... \"formattedPrice\": \"€ 34.99\" ... \"formattedPrice\": \"€ 398.89\""
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:21.037Z",
   "notes": "New record: no OVH rise file exists in dossier/compute, and this is the range that actually sells while Kimsufi does not. It also corrects a reading that the whole OVH eco catalogue is exhausted: nineteen of twenty-six KS plan codes are unavailable on this date and the surviving stock is Asia-Pacific and North American, while RISE-1 is available in seven European and North American datacenters. The installation fee is the part a price comparison usually drops: on monthly billing RISE-1 costs EUR 113.98 in the first month and EUR 56.99 after, so a two-month trial costs twice the headline. Traffic is null because the catalogue carries a port rate and no volume term, and the OVH dedicated pages I read did not restate an unlimited allowance for this range.",
   "extras": {
     "wave2": {

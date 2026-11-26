@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://whatbox.ca/plans",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: no per-object size cap stated on the plans page or in the FAQ"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "Slots and their files are deleted 7 days after expiration without payment.",
     "source_url": "https://whatbox.ca/plans",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Deletion happens 7 days after expiration without payment."
   },
   "egress": {
     "terms": "Download (ingress to slot) unlimited. Upload (egress from slot) metered 10 TB on H3-4 up to 40 TB on H3-22. FAQ verbatim: \"We will limit your upload speed to 100 Megabits per second until your next billing cycle\" on overage.",
@@ -38,7 +38,7 @@
   "limits": [
     {
       "kind": "per-ip-shaping",
-      "value": "100 Mbps",
+      "value": "100 Megabits per second",
       "source": "https://whatbox.ca/faq"
     }
   ],
@@ -82,10 +82,52 @@
       "proved": "the FAQ states unlimited download to the slot's hard drive",
       "capture": "sha256:e9dbae4af4aa4ece795c7604626755d644836fdb60caa63b573faea8bf754f0c",
       "quote": "Yes! Downloading files to your slot's hard drive is completely unlimited."
+    },
+    {
+      "url": "https://whatbox.ca/faq",
+      "date": "2026-11-25",
+      "proved": "files are deleted 7 days after expiration without payment",
+      "capture": "sha256:e9dbae4af4aa4ece795c7604626755d644836fdb60caa63b573faea8bf754f0c",
+      "quote": "Slots and their files are deleted 7 days after expiration without payment."
+    },
+    {
+      "url": "https://whatbox.ca/faq",
+      "date": "2026-11-25",
+      "proved": "the deletion clock is 7 days after unpaid expiration",
+      "capture": "sha256:e9dbae4af4aa4ece795c7604626755d644836fdb60caa63b573faea8bf754f0c",
+      "quote": "Slots and their files are deleted 7 days after expiration without payment."
+    },
+    {
+      "url": "https://whatbox.ca/plans",
+      "date": "2026-11-25",
+      "proved": "the H3-22 card states a storage volume, not an object-size cap",
+      "capture": "sha256:1fa307a493f2291ed2f993f881a3c52f0b2b17d9245a23961933d91082fb81b9",
+      "quote": "21.70 TB\n\nstorage [2]"
+    },
+    {
+      "url": "https://whatbox.ca/faq",
+      "date": "2026-11-25",
+      "proved": "over-cap upload speed is limited to 100 Megabits per second",
+      "capture": "sha256:e9dbae4af4aa4ece795c7604626755d644836fdb60caa63b573faea8bf754f0c",
+      "quote": "We will limit your upload speed to 100 Megabits per second until your next billing cycle."
+    },
+    {
+      "url": "https://whatbox.ca/plans",
+      "date": "2026-11-25",
+      "proved": "the H3-22 card states a storage volume with no object cap",
+      "capture": "sha256:1fa307a493f2291ed2f993f881a3c52f0b2b17d9245a23961933d91082fb81b9",
+      "quote": "21.70 TB\n\nstorage [2]"
+    },
+    {
+      "url": "https://whatbox.ca/faq",
+      "date": "2026-11-25",
+      "proved": "over-cap upload is shaped to 100 Megabits per second",
+      "capture": "sha256:e9dbae4af4aa4ece795c7604626755d644836fdb60caa63b573faea8bf754f0c",
+      "quote": "We will limit your upload speed to 100 Megabits per second until your next billing cycle."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:35.598Z",
+  "verified_at": "2026-11-25T19:55:25.448Z",
   "price_per_tb_month": "SGD 3.78 per TB per month on the H3-22 (SGD 82 per month for 21.7 TB)",
   "notes": "3.9 / 5.9 / 9.9 / 15.8 / 21.7 TB HDD",
   "history": [],

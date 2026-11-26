@@ -48,7 +48,7 @@
   "confidence_note": "the no-internet rule and the idle/session language are quoted from the manual today. RAM and CPU are unverified because neither the pricing page nor the manual publishes a number for the free tier.",
   "price_per_tb_month": null,
   "history": [],
-  "verified_at": "2026-10-24T01:52:00.000Z",
+  "verified_at": "2026-11-25T11:17:43.853Z",
   "extras": {
     "shape": {
       "vcpu": null,
@@ -86,7 +86,7 @@
   "provider": "CoCalc",
   "url": "https://cocalc.ai/pricing",
   "free_tier": {
-    "stated": "a free trial project with no expiry, described only as 'just enough resources to explore the platform and do basic work', with no internet access and a small idle timeout",
+    "stated": "Trial projects are completely free and do not expire at the moment; they have no direct Internet access and a small idle timeout.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://doc.cocalc.com/trial.html",
@@ -123,6 +123,13 @@
       "url": "https://cocalc.ai/pricing",
       "date": "2026-10-24",
       "proved": "quoted: 'Network access' appears as a benefit of the Basic and Standard tiers, not of Free"
+    },
+    {
+      "url": "https://doc.cocalc.com/trial.html",
+      "date": "2026-11-25",
+      "proved": "trial projects are completely free",
+      "capture": "sha256:8929c23b10f1db793052b850d33f2bcfaefb7a835e14d034dcb0e3f59329af88",
+      "quote": "Trial projects are completely free and they already offer features not available in free tiers of our competitors, for example, [Linux Terminal](https://doc.cocalc.com/terminal.html)."
     }
   ],
   "verdict": "fails-quota",

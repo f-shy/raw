@@ -60,7 +60,7 @@
   "binding_note": "Traffic is unlimited but 1 Mbps is 10.5 GB/day, about 324 GB over 30 days, against 3.24 Mbps for 1 TiB/month. The shaping binds three times below the target.",
   "identity_cost": {
     "kind": "email",
-    "detail": "An account is an email address: the pricing FAQ defines one online process as one email account running on one machine, and specifies that multiple machines require registering multiple email accounts.",
+    "detail": "The sign-up form has fields for user name, login email, contact phone, password and invite code; the pricing FAQ defines one online process as one email account running on one machine, so more machines need more email accounts.",
     "country": "None"
   },
   "reliability_note": "Exceeding the connection rate limit returns 429 on HTTP and silently closes TCP and TLS connections; the vendor documents neither the threshold nor a reset window.",
@@ -76,10 +76,38 @@
       "url": "https://www.cpolar.com/docs",
       "date": "2026-10-23",
       "proved": "86941-byte documentation read contains no occurrence of UDP"
+    },
+    {
+      "url": "https://dashboard.cpolar.com/signup",
+      "date": "2026-11-25",
+      "proved": "the sign-up form has a contact phone field",
+      "capture": "sha256:2f9b3ff4063bc7fbb6f72c73ff02fda13fdd129bbe937b01eee80ed5b512d5ca",
+      "quote": "联系电话"
+    },
+    {
+      "url": "https://www.cpolar.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the free plan is 1 Mbps",
+      "capture": "sha256:8c901115ae4fbf129b02b4488691900623265428b579950de6bb9fca02ea9ac3",
+      "quote": "## 1Mbps"
+    },
+    {
+      "url": "https://www.cpolar.com/pricing",
+      "date": "2026-11-25",
+      "proved": "excess HTTP connections get a 429 response",
+      "capture": "sha256:8c901115ae4fbf129b02b4488691900623265428b579950de6bb9fca02ea9ac3",
+      "quote": "cpolar将对超出速率限制的HTTP连接返回` 429 `响应。"
+    },
+    {
+      "url": "https://www.cpolar.com/pricing",
+      "date": "2026-11-25",
+      "proved": "all plans state traffic is not limited",
+      "capture": "sha256:8c901115ae4fbf129b02b4488691900623265428b579950de6bb9fca02ea9ac3",
+      "quote": "所有套餐均附带**21天退款保证，且不限制流量**"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:40.713Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "The best-identified Chinese tunnel vendor in English lists, with an email-only account, and the only one here with a documentation set large enough to make the absence of UDP meaningful. No English pricing arm was found: www.cpolar.com/en/pricing returns 404 and the only pricing page is the Chinese one.",

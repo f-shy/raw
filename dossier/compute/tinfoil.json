@@ -5,7 +5,7 @@
   "url": "https://tinfoil.sh",
   "category": "platform host",
   "free_tier": {
-    "stated": "no free tier published",
+    "stated": "no free tier published: the page lists Chat at $20/month, Inference at usage-based pricing, Containers at usage-based pricing, and Bunkers at $0.32/hour plus storage",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://tinfoil.sh",
@@ -63,10 +63,24 @@
       "url": "https://tinfoil.sh",
       "date": "2026-10-22",
       "proved": "'Featured in a Llama case study as the only multi-GPU infrastructure offering production-ready, verifiably private AI' with a 'Supported hardware' section; no plan and no price in the extracted body"
+    },
+    {
+      "url": "https://tinfoil.sh",
+      "date": "2026-11-25",
+      "proved": "the page lists Chat at $20/month, Inference and Containers at usage-based pricing, and Bunkers at $0.32/hour plus storage, with no free tier",
+      "capture": "sha256:13698222c8ec6740f6ab0ed3a5695b9a89cdee2be389a31f8c3c2aa72d50c03b",
+      "quote": "Chat ... $20/month ... Inference ... Usage-based pricing ... Containers ... Usage-based pricing ... Bunkers ... $0.32/hour + storage"
+    },
+    {
+      "url": "https://tinfoil.sh",
+      "date": "2026-11-25",
+      "proved": "the page still lists all four paid products and their stated prices with no free tier",
+      "capture": "sha256:13698222c8ec6740f6ab0ed3a5695b9a89cdee2be389a31f8c3c2aa72d50c03b",
+      "quote": "Chat ... $20/month ... Inference ... Usage-based pricing ... Containers ... Usage-based pricing ... Bunkers ... $0.32/hour + storage"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:48:14.889Z",
+  "verified_at": "2026-11-25T11:17:42.693Z",
   "price_per_tb_month": null,
   "notes": "",
   "extras": {

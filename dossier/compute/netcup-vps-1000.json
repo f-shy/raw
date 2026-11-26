@@ -6,7 +6,7 @@
   "category": "VPS",
   "tier": "VPS 1000 G12.5",
   "free_tier": {
-    "stated": "no free tier; VPS 1000 G12.5 is EUR 14.50 a month on the 12-month contract the plan card advertises, EUR 16.68 on a 1-month contract and EUR 12.32 on a 24-month contract, all incl. 19% VAT",
+    "stated": "12 months contract period, from monthly €14.50 €16.68(incl. 19% VAT)",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://www.netcup.com/en/server/vps",
@@ -89,10 +89,24 @@
       "url": "https://api.frankfurter.app/latest?from=EUR&to=USD",
       "date": "2026-10-24",
       "proved": "quoted rate table: '{\"amount\":1.0,\"base\":\"EUR\",\"date\":\"2026-10-23\",\"rates\":{\"USD\":1.1193}}'. This is the rate used for every USD figure in this record"
+    },
+    {
+      "url": "https://www.netcup.com/en/server/vps",
+      "date": "2026-11-25",
+      "proved": "the VPS 1000 G12.5 plan card states EUR 14.50 and EUR 16.68 incl. 19% VAT under the 12-month contract period",
+      "capture": "sha256:f375c37a45d676fda1e28340f3538143595a52638a954b54c713f90f5e6f9764",
+      "quote": "12 months contract period, from monthly €14.50 €16.68(incl. 19% VAT)"
+    },
+    {
+      "url": "https://www.netcup.com/en/server/vps",
+      "date": "2026-11-25",
+      "proved": "the plan card still states both prices under the 12-month contract period",
+      "capture": "sha256:f375c37a45d676fda1e28340f3538143595a52638a954b54c713f90f5e6f9764",
+      "quote": "12 months contract period, from monthly €14.50 €16.68(incl. 19% VAT)"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-24T03:16:51.000Z",
+  "verified_at": "2026-11-25T15:03:55.162Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "This closes the second half of the netcup correction in history/2026-10-24T021500Z/under-five-floor-corrected.md, which cited VPS 1000 at EUR 14.50 with no record behind it. The figure is confirmed on two pages: the plan card and the product-page configurator. The card's two numbers are a term ladder, not a net/gross pair: EUR 16.68 is the 1-month rate and EUR 14.50 is the 12-month rate, which the configurator's own 'Save 13%' and '+EUR 4.36' deltas reproduce exactly. All three prices are incl. 19% VAT, which the page states in the card, in the set-up fee line and in the footer disclaimer. The site's country selector offers 'United States 0%', 'China 0%' and 'Other 0%', so a buyer outside the EU may see a lower figure, but the 0% rendering was not read: a ?country=US query parameter did not change the page, so the setting is applied client-side and would need a browser session. Not established: any card hold, debit-card acceptance, and whether the contract auto-renews at the then-current rate or at a stated one; no renewal sentence appears on either page. The VPS 500 sibling record states its EUR 8.26 as 'excl. VAT' and multiplies by 1.1193; the same configurator arithmetic on this page shows 8.26 is the 12-month rate incl. 19% VAT, so that record's arithmetic label is wrong even though its USD figure is unchanged.",

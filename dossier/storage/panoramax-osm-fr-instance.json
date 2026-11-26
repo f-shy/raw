@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://gitlab.com/panoramax/server/api/-/work_items/334",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "No per-object cap stated in the cited Panoramax server issue or API/CLI docs."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://gitlab.com/panoramax/server/api/-/work_items/334",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "No retention period stated; the API docs state useless pictures may be detected and deleted during processing."
   },
   "egress": {
     "terms": "Unmetered and CDN-friendly: no auth on any GET, plain nginx serving, Accept-Ranges honored. Verified 206 Partial Content with Content-Range: bytes 0-1023/3336348 on a live HD original.",
@@ -97,10 +97,38 @@
       "proved": "the open feature request asks to add an admin-set storage floor, so the server has no quota cap today",
       "capture": "sha256:43f4eb56916543fc91500efcc5da7223d3478a7de49a921da4a4a762b92e552f",
       "quote": "permit the server admin to set an amount of storage that must remain free"
+    },
+    {
+      "url": "https://gitlab.com/panoramax/server/api/-/work_items/334",
+      "date": "2026-11-25",
+      "proved": "the open feature request discusses a missing storage floor, not a per-object cap; no per-object cap is stated",
+      "capture": "sha256:43f4eb56916543fc91500efcc5da7223d3478a7de49a921da4a4a762b92e552f",
+      "quote": "As new, small instances are created, I think a valuable feature for administrators would be to permit the server admin to set an amount of storage that must remain free."
+    },
+    {
+      "url": "https://docs.panoramax.fr/backend/api/api/",
+      "date": "2026-11-25",
+      "proved": "the API docs state useless pictures may be deleted during processing; no retention period is stated",
+      "capture": "sha256:53b563a5bb7f421c073b21c24af8a45bcccaa9a8020ffd46cb33f3cfce39aa03",
+      "quote": "useless pictures like when stopped at a traffic light are detected and deleted."
+    },
+    {
+      "url": "https://gitlab.com/panoramax/server/api/-/work_items/334",
+      "date": "2026-11-25",
+      "proved": "the cited issue discusses storage-floor controls and states no per-object cap",
+      "capture": "sha256:43f4eb56916543fc91500efcc5da7223d3478a7de49a921da4a4a762b92e552f",
+      "quote": "As new, small instances are created, I think a valuable feature for administrators would be to permit the server admin to set an amount of storage that must remain free."
+    },
+    {
+      "url": "https://docs.panoramax.fr/backend/api/api/",
+      "date": "2026-11-25",
+      "proved": "the API docs describe deletion of useless pictures during processing and state no retention period",
+      "capture": "sha256:53b563a5bb7f421c073b21c24af8a45bcccaa9a8020ffd46cb33f3cfce39aa03",
+      "quote": "useless pictures like when stopped at a traffic light are detected and deleted."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:14:36.639Z",
+  "verified_at": "2026-11-25T21:21:16.852Z",
   "notes": "Feature request '(Feature Request) Disable uploads when less than X GB of storage is available': permit the server admin to set an amount of storage that must remain free.",
   "history": [],
   "extras": {

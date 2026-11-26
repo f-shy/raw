@@ -13,9 +13,9 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "Larger files are automatically split into chunks, staged concurrently, and reassembled in the target stage.",
     "source_url": "https://www.snowflake.com/en/snowflake-trial/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Larger files are automatically split into chunks, staged concurrently, and reassembled in the target stage."
   },
   "retention": {
     "stated": "retention: 'Snowflake trial account credits may be used within 30 days'; 'If you don't upgrade before the trial period ends, the account is suspended and any unused free usage balance expires' and 'you may lose access to your data'.",
@@ -43,8 +43,8 @@
   ],
   "limits_note": "per-object-cap: internal stage file size limits apply. request-rate: warehouse credits burn while running. retention: 'Snowflake trial account credits may be used within 30 days'; 'If you don't upgrade before the trial period ends, the account is suspended and any unused free usage balance expires' and 'you may lose access to your data'.",
   "identity_cost": {
-    "kind": "card",
-    "detail": "derived from the record's prose, not from an identity field, and no signup was executed: $400 in free credits on a 30-day trial ('Start your 30-day Snowflake trial today. Get $400 in credits'). No byte quota — s",
+    "kind": "email",
+    "detail": "To sign up for a trial account, all you need is a valid email address; no payment information or other qualifying information is required.",
     "country": null
   },
   "reliability_note": "Hard 30-day cliff with documented data loss on non-conversion. Not storage. A compute trial that happens to include stage space.",
@@ -86,10 +86,31 @@
       "proved": "non-conversion suspends the account and risks loss of access to data",
       "capture": "sha256:6051c85f5ccab3aac69e4b4809242d4c0bd3867cb12417fc9fb1a5fa5fde9388",
       "quote": "if you don't convert the account before your trial expires, your account will be suspended and you may lose access to your data."
+    },
+    {
+      "url": "https://docs.snowflake.com/en/sql-reference/sql/put",
+      "date": "2026-11-25",
+      "proved": "PUT splits larger files into chunks and reassembles them in the target stage",
+      "capture": "sha256:3a1e0a7558ea9437c8e8176857020d27c6d6b3fb085798cfaade2165b793a793",
+      "quote": "Larger files are automatically split into chunks, staged concurrently, and reassembled in the target stage."
+    },
+    {
+      "url": "https://docs.snowflake.com/en/user-guide/admin-trial-account",
+      "date": "2026-11-25",
+      "proved": "trial signup requires a valid email address and no payment information",
+      "capture": "sha256:008419da296ebc793a51264cf24b3a3fc3e9b7546551e60d9fd95965e8ddd2ff",
+      "quote": "To sign up for a trial account, all you need is a valid email address; no payment information or other qualifying information is required."
+    },
+    {
+      "url": "https://www.snowflake.com/en/snowflake-trial/",
+      "date": "2026-11-25",
+      "proved": "non-conversion suspends the account and may lose data access",
+      "capture": "sha256:6051c85f5ccab3aac69e4b4809242d4c0bd3867cb12417fc9fb1a5fa5fde9388",
+      "quote": "if you don't convert the account before your trial expires, your account will be suspended and you may lose access to your data."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-19T21:15:22.712Z",
+  "verified_at": "2026-11-25T21:21:18.144Z",
   "notes": "$400 in free credits on a 30-day trial ('Start your 30-day Snowflake trial today. Get $400 in credits'). No byte quota. Storage is billed from the credit balance.",
   "history": [],
   "extras": {

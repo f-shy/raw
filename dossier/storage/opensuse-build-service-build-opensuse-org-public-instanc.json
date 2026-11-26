@@ -16,12 +16,12 @@
     "stated": "per-object-cap: none documented for source blobs - 160 MB",
     "bytes": 160000000,
     "source_url": "https://openbuildservice.org/help/manuals/obs-user-guide/cha-obs-best-practices-upstream",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "unverified: the user guide documents only a client-side osc size switch, not a server-side per-file cap"
   },
   "retention": {
     "stated": "request-rate: ToS says 'You may not share API tokens to exceed OBS's rate limitations' - a rate limit is acknowledged but unquantified. retention: indefinite for published packages; unpublished home projects are subject to admin cleanup, and binaries are pruned per repository/architecture",
     "source_url": "https://openbuildservice.org/help/manuals/obs-user-guide/cha-obs-best-practices-upstream",
-    "notes": "Extracted from published terms."
+    "notes": "All revisions of committed sources are stored and will not be deleted."
   },
   "egress": {
     "terms": "Free and mirrored: 'build your packages and got them mirrored around the world' - download.opensuse.org is a public mirror ring. No per-GB accounting, no billing relationship at all for the public instance.",
@@ -94,10 +94,31 @@
       "proved": "the public OBS instance lets users store sources and mirror packages worldwide at no cost",
       "capture": "sha256:fc798b388551666a689db40e1ee64b5ff0d38f7e2f414803ff3223d91b44b923",
       "quote": "You can store your sources there, build your packages and got them mirrored around the world."
+    },
+    {
+      "url": "https://openbuildservice.org/help/manuals/obs-user-guide/cha-obs-architecture",
+      "date": "2026-11-25",
+      "proved": "committed source revisions are retained",
+      "capture": "sha256:fbc5d1e8b9ff6fe778aa49b9e05af3d785facfec38adf7d3e8b6c8eee8613fd9",
+      "quote": "All revisions of committed sources are stored and will not be deleted."
+    },
+    {
+      "url": "https://openbuildservice.org/help/manuals/obs-user-guide/cha-obs-best-practices-howto",
+      "date": "2026-11-25",
+      "proved": "the documented osc size limit is a local checkout setting",
+      "capture": "sha256:e2104402f4c41adf09887d1f4f8a671548541c2996edc8ad6d1a9d2e3f2d6825",
+      "quote": "`osc` offers to skip files with a certain size (specified with `-l` switch) on checkout. The limit is stored locally and you can also run an update later without downloading any large files."
+    },
+    {
+      "url": "https://openbuildservice.org/help/manuals/obs-user-guide/cha-obs-architecture",
+      "date": "2026-11-25",
+      "proved": "the OBS Source Server exposes an HTTP interface",
+      "capture": "sha256:fbc5d1e8b9ff6fe778aa49b9e05af3d785facfec38adf7d3e8b6c8eee8613fd9",
+      "quote": "It provides an HTTP interface, which is the only interface for the Front-end and It may forward requests to further back-end services."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:14:36.638Z",
+  "verified_at": "2026-11-25T19:55:13.344Z",
   "notes": "No published storage quota. The user guide states the instance 'can be used by anybody to freely create binaries for any of the supported distributions' and that 'You can store your sources there, build your packages and got them mirrored around the world.' The only quantitative ceilings found are per-file/per-build, not per-project: build disk constraint is expressed as `Constraint: hardware:disk:size unit=G <N>` and users are seen requesting 110 GB for one build (openSUSE forum, 2026-06-16). Observed real object size in the archive: `openSUSE:Factory/kernel-source/linux-7.2.tar.xz` is 160,068,116 bytes, served publicly.",
   "history": [],
   "extras": {

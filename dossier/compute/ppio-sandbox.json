@@ -1,198 +1,233 @@
 {
-  "topic": "compute",
-  "slug": "ppio-sandbox",
-  "provider": "PPIO Agent Sandbox",
-  "url": "https://ppio.com/docs/sandbox/pricing.md",
-  "category": "container and VM sandbox",
-  "free_tier": {
-    "stated": "no general free tier: vCPU and RAM bill independently per second and billing stops when a sandbox stops; each account has a 60 GB free persistent-storage allowance and 20 GB of local sandbox storage is free",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://ppio.com/docs/sandbox/pricing.md",
-    "read_on": "2026-10-22"
+ "topic": "compute",
+ "slug": "ppio-sandbox",
+ "provider": "PPIO Agent Sandbox",
+ "url": "https://ppio.com/docs/sandbox/pricing.md",
+ "category": "container and VM sandbox",
+ "free_tier": {
+  "stated": "PPIO Sandbox（后简称“沙箱”）支持 vCPU 与内存（RAM）按秒独立计费，按需使用、灵活计费。",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://ppio.com/docs/sandbox/pricing.md",
+  "read_on": "2026-10-22"
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://ppio.com/docs/sandbox/pricing.md",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "not stated",
+  "days": null,
+  "source_url": "https://ppio.com/docs/sandbox/pricing.md",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "not published",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://ppio.com/docs/sandbox/pricing.md"
+ },
+ "interface": [
+  "cli"
+ ],
+ "interface_detail": "A Python and JS SDK with a CLI, an E2B-compatible SDK, and SSH over a WebSocket proxy with SCP or SFTP file transfer",
+ "tooling": "the ppio-sandbox Python or JS SDK and CLI, with SSH available on a sandbox template built with an SSH server",
+ "chaining": "not established",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "vCPU bills per core per second at CNY 0.00003 and RAM at CNY 0.000015 per GiB-second; billing stops when the sandbox stops",
+   "source": "https://ppio.com/docs/sandbox/pricing.md"
   },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://ppio.com/docs/sandbox/pricing.md",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+  {
+   "kind": "write-gated",
+   "value": "20 GB of local sandbox storage is free; each account gets 60 GB of free persistent storage, beyond which CNY 0.0005 per GB-hour applies",
+   "source": "https://ppio.com/docs/sandbox/pricing.md"
+  }
+ ],
+ "limits_note": "Session cap, idle-reap and network policy are not documented.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "unverified: the signup form was not read. Registration offers a phone number or an account; identity verification needs a China-mainland phone number, face recognition or a bank card, and an unverified account cannot deploy a sandbox. `email` is the nearest vocabulary term, not an observed gate.",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "documented",
+ "confidence_note": "the pricing documentation was read on 2026-11-24 in Chinese. It defines per-second billing on vCPU and RAM with billing stopped on sandbox stop, free local and persistent-storage allowances; the signup form was not read.",
+ "evidence": [
+  {
+   "url": "https://ppio.com/docs/sandbox/pricing.md",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
   },
-  "retention": {
-    "stated": "not stated",
-    "days": null,
-    "source_url": "https://ppio.com/docs/sandbox/pricing.md",
-    "notes": "Disk durability across instance stops and deletions is not documented."
+  {
+   "url": "https://ppio.com/docs/sandbox/pricing.md",
+   "date": "2026-10-22",
+   "proved": "'PPIO Sandbox 支持 vCPU 与内存（RAM）按秒独立计费'  -  vCPU and RAM bill separately per second  -  with '沙箱停止后不再计费' on both rows: billing stops when a sandbox stops. The page states no free tier and points at an account voucher balance"
   },
-  "egress": {
-    "terms": "not published",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://ppio.com/docs/sandbox/pricing.md"
+  {
+   "url": "https://ppio.com/docs/sandbox/pricing.md",
+   "date": "2026-11-25",
+   "proved": "vCPU and RAM bill independently by the second, on demand",
+   "capture": "sha256:07a3635d7511a3f50333feacbac326ba1a7bac3bd2b575799d5fe8e1d8a28115",
+   "quote": "PPIO Sandbox（后简称“沙箱”）支持 vCPU 与内存（RAM）按秒独立计费，按需使用、灵活计费。"
   },
-  "interface": [
-    "cli"
-  ],
-  "interface_detail": "A Python and JS SDK with a CLI, an E2B-compatible SDK, and SSH over a WebSocket proxy with SCP or SFTP file transfer",
-  "tooling": "the ppio-sandbox Python or JS SDK and CLI, with SSH available on a sandbox template built with an SSH server",
-  "chaining": "not established",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "vCPU bills per core per second at CNY 0.00003 and RAM at CNY 0.000015 per GiB-second; billing stops when the sandbox stops",
-      "source": "https://ppio.com/docs/sandbox/pricing.md"
-    },
-    {
-      "kind": "write-gated",
-      "value": "20 GB of local sandbox storage is free; each account gets 60 GB of free persistent storage, beyond which CNY 0.0005 per GB-hour applies",
-      "source": "https://ppio.com/docs/sandbox/pricing.md"
-    }
-  ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "unverified: the signup form was not read. Registration offers a phone number or an account; identity verification needs a China-mainland phone number, face recognition or a bank card, and an unverified account cannot deploy a sandbox. `email` is the nearest vocabulary term, not an observed gate.",
-    "country": null
+  {
+   "url": "https://ppio.com/docs/sandbox/pricing.md",
+   "date": "2026-11-25",
+   "proved": "vCPU billing is per second and stops when the sandbox stops",
+   "capture": "sha256:07a3635d7511a3f50333feacbac326ba1a7bac3bd2b575799d5fe8e1d8a28115",
+   "quote": "| vCPU | 按照使用的 vCPU 核心数和运行时长计费，精确到秒，当前定价可参考 [价格页](https://ppio.com/pricing?sandbox=1) 实时价格。沙箱停止后不再计费。 |"
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "documented",
-  "confidence_note": "the pricing documentation was read on 2026-11-24 in Chinese. It defines per-second billing on vCPU and RAM with billing stopped on sandbox stop, free local and persistent-storage allowances; the signup form was not read.",
-  "evidence": [
-    {
-      "url": "https://ppio.com/docs/sandbox/pricing.md",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://ppio.com/docs/sandbox/pricing.md",
-      "date": "2026-10-22",
-      "proved": "'PPIO Sandbox 支持 vCPU 与内存（RAM）按秒独立计费'  -  vCPU and RAM bill separately per second  -  with '沙箱停止后不再计费' on both rows: billing stops when a sandbox stops. The page states no free tier and points at an account voucher balance"
-    },
-    {
-      "url": "https://ppio.com/docs/sandbox/pricing.md",
-      "date": "2026-11-24",
-      "proved": "each account gets 60 GB of free persistent storage, then CNY 0.0005 per GB-hour",
-      "capture": "sha256:07a3635d7511a3f50333feacbac326ba1a7bac3bd2b575799d5fe8e1d8a28115",
-      "quote": "每个账号享受 60GB 免费存储额度，超出部分按量计费 | ￥0.0005/GB/h"
-    },
-    {
-      "url": "https://ppio.com/docs/sandbox/pricing.md",
-      "date": "2026-11-24",
-      "proved": "vCPU and RAM bill independently per second",
-      "capture": "sha256:07a3635d7511a3f50333feacbac326ba1a7bac3bd2b575799d5fe8e1d8a28115",
-      "quote": "PPIO Sandbox（后简称“沙箱”）支持 vCPU 与内存（RAM）按秒独立计费，按需使用、灵活计费。"
-    },
-    {
-      "url": "https://ppio.com/docs/sandbox/pricing.md",
-      "date": "2026-11-24",
-      "proved": "20 GB of local sandbox storage is allocated free of charge",
-      "capture": "sha256:07a3635d7511a3f50333feacbac326ba1a7bac3bd2b575799d5fe8e1d8a28115",
-      "quote": "沙箱启动时会自动分配 **20GB 本地存储空间**，用于运行环境。  **本地存储免费，不产生费用**。"
-    },
-    {
-      "url": "https://ppio.com/docs/sandbox/get-start.md",
-      "date": "2026-11-24",
-      "proved": "the SDK and CLI are the documented way to launch a sandbox",
-      "capture": "sha256:4ebef2c0c29f18ab403cf2a34f1f9f006390db97beb5b46e366131d088c45099",
-      "quote": "pip install ppio-sandbox"
-    },
-    {
-      "url": "https://ppio.com/docs/sandbox/sandbox-ssh-access.md",
-      "date": "2026-11-24",
-      "proved": "SSH access to a sandbox over a WebSocket proxy is documented",
-      "capture": "sha256:560205261d30503cce86cba0f628156be00eec130a44b2daba2aa2a451f13d62",
-      "quote": "你可以使用 WebSocket 代理，通过 SSH 连接到你的 Sandbox。"
-    },
-    {
-      "url": "https://ppio.com/docs/sandbox/sandbox-ssh-access.md",
-      "date": "2026-11-24",
-      "proved": "file transfer over SCP or SFTP is documented alongside SSH",
-      "capture": "sha256:560205261d30503cce86cba0f628156be00eec130a44b2daba2aa2a451f13d62",
-      "quote": "通过 SCP 或 SFTP 等协议传输文件"
-    },
-    {
-      "url": "https://ppio.com/docs/support/identity-verification.md",
-      "date": "2026-11-24",
-      "proved": "an unverified account cannot deploy a sandbox",
-      "capture": "sha256:b6a07433827c657bbfb152f0ee83261cfca7150a436886b17a8437ed894e3eec",
-      "quote": "| 部署 Sandbox 等算力资源 | 不可用 |"
-    },
-    {
-      "url": "https://ppio.com/docs/sandbox/overview.md",
-      "date": "2026-11-24",
-      "proved": "CPU and RAM bill per second and storage bills per day",
-      "capture": "sha256:719a5c6caa0403db0afaed38ba6708029ca6c6b4e4c055fe9dc5d07a062bd44f",
-      "quote": "CPU 和 RAM 按秒计费。存储(包括 Template、已暂停的 Sandbox 和 Snapshot)按天收费。更多详情请参阅[定价页面](https://ppio.com/docs/sandbox/pricing.md)。"
-    },
-    {
-      "url": "https://ppio.com/docs/support/quickstart.md",
-      "date": "2026-11-24",
-      "proved": "registration uses a phone number or an account",
-      "capture": "sha256:0e4c773cc5b35b3223c6f5b85920eebc224d3a40d4769ae75d301fa7339189e8",
-      "quote": "访问[注册页面](https://ppio.com/user/register)，通过**手机号注册**或**账号注册**的方式来注册新账号。"
-    },
-    {
-      "url": "https://ppio.com/docs/sandbox/sandbox-internet-access.md",
-      "date": "2026-11-24",
-      "proved": "sandbox internet access is on by default and can be disabled; no per-GB price is stated",
-      "capture": "sha256:178ed301b8a0a036f68d7c51cf289fcd75cc1adb759a36e5c1f0c2d152286b48",
-      "quote": "每个 Sandbox 默认启用互联网访问,但对于需要隔离的工作负载,你可以将其禁用。"
-    },
-    {
-      "url": "https://ppio.com/docs/sandbox/pricing.md",
-      "date": "2026-11-24",
-      "proved": "billing stops when a sandbox stops",
-      "capture": "sha256:07a3635d7511a3f50333feacbac326ba1a7bac3bd2b575799d5fe8e1d8a28115",
-      "quote": "沙箱停止后不再计费。"
-    },
-    {
-      "url": "https://ppio.com/docs/support/identity-verification.md",
-      "date": "2026-11-24",
-      "proved": "personal identity verification offers named alternatives",
-      "capture": "sha256:b6a07433827c657bbfb152f0ee83261cfca7150a436886b17a8437ed894e3eec",
-      "quote": "个人认证支持以下三种方式："
-    },
-    {
-      "url": "https://ppio.com/docs/sandbox/sandbox-ssh-access.md",
-      "date": "2026-11-24",
-      "proved": "SSH is a documented access interface",
-      "capture": "sha256:560205261d30503cce86cba0f628156be00eec130a44b2daba2aa2a451f13d62",
-      "quote": "你可以使用 WebSocket 代理，通过 SSH 连接到你的 Sandbox。"
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T13:21:01.721Z",
-  "price_per_tb_month": null,
-  "notes": "",
-  "extras": {
-    "seed_status": "ranked",
-    "talaria_m10h_usd": 19.31,
-    "talaria_m24h_usd": 46.35,
-    "nemo_m10h_usd": 19.31,
-    "keep_rate": 1.0,
-    "keep_rate_basis": "billed for uptime (no suspension feature published)",
-    "billing_model": "unclassified",
-    "shape": null,
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "billing stops when a sandbox stops, so stopping is the cost lever; the page states no automatic reap"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "burst_x": 1.0,
-    "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "ps": null,
-    "net": null
+  {
+   "url": "https://ppio.com/docs/sandbox/pricing.md",
+   "date": "2026-11-25",
+   "proved": "persistent storage bills by the day with a 60 GB free allowance",
+   "capture": "sha256:07a3635d7511a3f50333feacbac326ba1a7bac3bd2b575799d5fe8e1d8a28115",
+   "quote": "| 持久化存储 | 模板（Template）、快照（Snapshot）会保存为持久化存储。**持久化存储按天计费，提供 60GB 免费额度**。具体价格请参考 [价格页](https://ppio.com/pricing?sandbox=1)。 |"
   },
-  "stale": true,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding": "write-gated",
-  "history": [
-    "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
-  ]
+  {
+   "url": "https://ppio.com/docs/sandbox/pricing.md",
+   "date": "2026-11-25",
+   "proved": "a sandbox is allocated 20 GB of local storage at no charge",
+   "capture": "sha256:07a3635d7511a3f50333feacbac326ba1a7bac3bd2b575799d5fe8e1d8a28115",
+   "quote": "| 本地存储空间 | 沙箱启动时会自动分配 **20GB 本地存储空间**，用于运行环境。  **本地存储免费，不产生费用**。 |"
+  },
+  {
+   "url": "https://ppio.com/docs/sandbox/pricing.md",
+   "date": "2026-11-25",
+   "proved": "vouchers (代金券) are an account balance used to settle bills, not a published free tier",
+   "capture": "sha256:07a3635d7511a3f50333feacbac326ba1a7bac3bd2b575799d5fe8e1d8a28115",
+   "quote": "结算账单时，如果账户的可用额度（包括账户可用余额和代金券余额）小于待支付的账单，则视为账户欠费。"
+  },
+  {
+   "url": "https://ppio.com/docs/sandbox/pricing.md",
+   "date": "2026-11-25",
+   "proved": "vCPU and RAM bill by the second at published per-second rates, billing stops on sandbox stop, 20 GB local storage and a 60 GB persistent-storage allowance are free, and vouchers are an account balance",
+   "capture": "sha256:07a3635d7511a3f50333feacbac326ba1a7bac3bd2b575799d5fe8e1d8a28115",
+   "quote": "PPIO Sandbox（后简称“沙箱”）支持 vCPU 与内存（RAM）按秒独立计费，按需使用、灵活计费。 ... | vCPU | 按照使用的 vCPU 核心数和运行时长计费，精确到秒，当前定价可参考 [价格页](https://ppio.com/pricing?sandbox=1) 实时价格。沙箱停止后不再计费。 | ... | 本地存储空间 | 沙箱启动时会自动分配 **20GB 本地存储空间**，用于运行环境。  **本地存储免费，不产生费用**。 | ... | 持久化存储 | 模板（Template）、快照（Snapshot）会保存为持久化存储。**持久化存储按天计费，提供 60GB 免费额度**。具体价格请参考 [价格页](https://ppio.com/pricing?sandbox=1)。 | ... | 1 | ￥0.00003/s | ... 结算账单时，如果账户的可用额度（包括账户可用余额和代金券余额）小于待支付的账单，则视为账户欠费。"
+  },
+  {
+   "url": "https://ppio.com/docs/sandbox/pricing.md",
+   "date": "2026-11-24",
+   "proved": "each account gets 60 GB of free persistent storage, then CNY 0.0005 per GB-hour",
+   "capture": "sha256:07a3635d7511a3f50333feacbac326ba1a7bac3bd2b575799d5fe8e1d8a28115",
+   "quote": "每个账号享受 60GB 免费存储额度，超出部分按量计费 | ￥0.0005/GB/h"
+  },
+  {
+   "url": "https://ppio.com/docs/sandbox/pricing.md",
+   "date": "2026-11-24",
+   "proved": "vCPU and RAM bill independently per second",
+   "capture": "sha256:07a3635d7511a3f50333feacbac326ba1a7bac3bd2b575799d5fe8e1d8a28115",
+   "quote": "PPIO Sandbox（后简称“沙箱”）支持 vCPU 与内存（RAM）按秒独立计费，按需使用、灵活计费。"
+  },
+  {
+   "url": "https://ppio.com/docs/sandbox/pricing.md",
+   "date": "2026-11-24",
+   "proved": "20 GB of local sandbox storage is allocated free of charge",
+   "capture": "sha256:07a3635d7511a3f50333feacbac326ba1a7bac3bd2b575799d5fe8e1d8a28115",
+   "quote": "沙箱启动时会自动分配 **20GB 本地存储空间**，用于运行环境。  **本地存储免费，不产生费用**。"
+  },
+  {
+   "url": "https://ppio.com/docs/sandbox/get-start.md",
+   "date": "2026-11-24",
+   "proved": "the SDK and CLI are the documented way to launch a sandbox",
+   "capture": "sha256:4ebef2c0c29f18ab403cf2a34f1f9f006390db97beb5b46e366131d088c45099",
+   "quote": "pip install ppio-sandbox"
+  },
+  {
+   "url": "https://ppio.com/docs/sandbox/sandbox-ssh-access.md",
+   "date": "2026-11-24",
+   "proved": "SSH access to a sandbox over a WebSocket proxy is documented",
+   "capture": "sha256:560205261d30503cce86cba0f628156be00eec130a44b2daba2aa2a451f13d62",
+   "quote": "你可以使用 WebSocket 代理，通过 SSH 连接到你的 Sandbox。"
+  },
+  {
+   "url": "https://ppio.com/docs/sandbox/sandbox-ssh-access.md",
+   "date": "2026-11-24",
+   "proved": "file transfer over SCP or SFTP is documented alongside SSH",
+   "capture": "sha256:560205261d30503cce86cba0f628156be00eec130a44b2daba2aa2a451f13d62",
+   "quote": "通过 SCP 或 SFTP 等协议传输文件"
+  },
+  {
+   "url": "https://ppio.com/docs/support/identity-verification.md",
+   "date": "2026-11-24",
+   "proved": "an unverified account cannot deploy a sandbox",
+   "capture": "sha256:b6a07433827c657bbfb152f0ee83261cfca7150a436886b17a8437ed894e3eec",
+   "quote": "| 部署 Sandbox 等算力资源 | 不可用 |"
+  },
+  {
+   "url": "https://ppio.com/docs/sandbox/overview.md",
+   "date": "2026-11-24",
+   "proved": "CPU and RAM bill per second and storage bills per day",
+   "capture": "sha256:719a5c6caa0403db0afaed38ba6708029ca6c6b4e4c055fe9dc5d07a062bd44f",
+   "quote": "CPU 和 RAM 按秒计费。存储(包括 Template、已暂停的 Sandbox 和 Snapshot)按天收费。更多详情请参阅[定价页面](https://ppio.com/docs/sandbox/pricing.md)。"
+  },
+  {
+   "url": "https://ppio.com/docs/support/quickstart.md",
+   "date": "2026-11-24",
+   "proved": "registration uses a phone number or an account",
+   "capture": "sha256:0e4c773cc5b35b3223c6f5b85920eebc224d3a40d4769ae75d301fa7339189e8",
+   "quote": "访问[注册页面](https://ppio.com/user/register)，通过**手机号注册**或**账号注册**的方式来注册新账号。"
+  },
+  {
+   "url": "https://ppio.com/docs/sandbox/sandbox-internet-access.md",
+   "date": "2026-11-24",
+   "proved": "sandbox internet access is on by default and can be disabled; no per-GB price is stated",
+   "capture": "sha256:178ed301b8a0a036f68d7c51cf289fcd75cc1adb759a36e5c1f0c2d152286b48",
+   "quote": "每个 Sandbox 默认启用互联网访问,但对于需要隔离的工作负载,你可以将其禁用。"
+  },
+  {
+   "url": "https://ppio.com/docs/sandbox/pricing.md",
+   "date": "2026-11-24",
+   "proved": "billing stops when a sandbox stops",
+   "capture": "sha256:07a3635d7511a3f50333feacbac326ba1a7bac3bd2b575799d5fe8e1d8a28115",
+   "quote": "沙箱停止后不再计费。"
+  },
+  {
+   "url": "https://ppio.com/docs/support/identity-verification.md",
+   "date": "2026-11-24",
+   "proved": "personal identity verification offers named alternatives",
+   "capture": "sha256:b6a07433827c657bbfb152f0ee83261cfca7150a436886b17a8437ed894e3eec",
+   "quote": "个人认证支持以下三种方式："
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T15:03:51.744Z",
+ "price_per_tb_month": null,
+ "notes": "",
+ "extras": {
+  "seed_status": "ranked",
+  "talaria_m10h_usd": 19.31,
+  "talaria_m24h_usd": 46.35,
+  "nemo_m10h_usd": 19.31,
+  "keep_rate": 1.0,
+  "keep_rate_basis": "billed for uptime (no suspension feature published)",
+  "billing_model": "unclassified",
+  "shape": null,
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "billing stops when a sandbox stops, so stopping is the cost lever; the page states no automatic reap"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "burst_x": 1.0,
+  "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "ps": null,
+  "net": null
+ },
+ "stale": true,
+ "stale_checked_at": "2026-10-22T00:00:00.000Z",
+ "binding": "write-gated",
+ "history": [
+  "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
+ ]
 }

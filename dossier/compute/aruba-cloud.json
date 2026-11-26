@@ -5,7 +5,7 @@
   "url": "https://www.vpsbenchmarks.com/hosters/aruba_cloud",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "EUR 2.49/month for VPS O1I1 on the OpenStack Cloud VPS line: 1 core, 1 GB RAM, 20 GB NVMe on software-defined storage, hourly billing, unlimited traffic, 99.90% SLA. The instance type is described as 'AMD processors, SDS (Software-Defined Storage) NVMe and a 99.90% SLA. Window Server license is included.' The next rows step up cleanly: O1I2 at EUR 4.49 with 1 GB and 40 GB, O2A4 at EUR 6.29 with 2 and 4, O4A8 at EUR 11.79, O8A16 at EUR 19.89, O16A32 at EUR 38.90.",
+    "stated": "EUR 2.49/month for VPS O1I1 on the OpenStack Cloud VPS line: 1 core, 1 GB RAM, 20 GB NVMe on software-defined storage, 99.90% SLA. The instance type is described as 'AMD processors, SDS (Software-Defined Storage) NVMe and a 99.90% SLA. Window Server license is included.' The next rows step up cleanly: O1I2 at EUR 4.49 with 2 GB and 40 GB, O2A4 at EUR 6.29 with 2 and 4, O4A8 at EUR 11.79, O8A16 at EUR 19.89, O16A32 at EUR 38.90.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://www.vpsbenchmarks.com/hosters/aruba_cloud",
@@ -63,10 +63,24 @@
       "url": "https://www.vpsbenchmarks.com/hosters/aruba_cloud",
       "date": "2026-10-22",
       "proved": "the pages data-center list reads - Czech Republic - France - Germany, while the Public Cloud instance-type description says data centers in Italy'. Both are quoted because they disagree"
+    },
+    {
+      "url": "https://www.vpsbenchmarks.com/hosters/aruba_cloud",
+      "date": "2026-11-25",
+      "proved": "the cheapest Cloud VPS OpenStack row is 1 core, 1.0GB RAM, 20GB storage at EUR 2.49 per month",
+      "capture": "sha256:3765985639b9f12d22b60e28d2a2f3756faba87d1ecb5be5010d219f07ca1788",
+      "quote": "[VPS O1I1](https://www.vpsbenchmarks.com/hosters/aruba_cloud/plans/vps-o1i1) 1 1.0GB 20GB  2.49€ / month *($2.73 / month)*"
+    },
+    {
+      "url": "https://www.vpsbenchmarks.com/hosters/aruba_cloud",
+      "date": "2026-11-25",
+      "proved": "the captured plan table still lists VPS O1I1 at 1 core, 1.0GB RAM, 20GB and EUR 2.49 per month",
+      "capture": "sha256:3765985639b9f12d22b60e28d2a2f3756faba87d1ecb5be5010d219f07ca1788",
+      "quote": "[VPS O1I1](https://www.vpsbenchmarks.com/hosters/aruba_cloud/plans/vps-o1i1) 1 1.0GB 20GB  2.49€ / month *($2.73 / month)*"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T02:10:49.533Z",
   "notes": "Found via vpsbenchmarks. The data-center list and the instance-type description disagree on country, and both are recorded rather than one being chosen. verification criteria: the vendor's VPS order page for the location list and the port speed.",
   "extras": {
     "wave2": {

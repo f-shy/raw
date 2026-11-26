@@ -15,10 +15,10 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://telegra.ph/api",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: the Telegraph API documents no upload method or per-image byte cap"
   },
   "retention": {
-    "stated": "Unlimited pages and unlimited uploaded images; no account-level byte quota. Each page is an independent object with a permanent URL",
+    "stated": "unverified: no first-party retention period or permanent-URL guarantee was found on the API or home page",
     "source_url": "https://telegra.ph/api",
     "notes": "Extracted from published terms."
   },
@@ -64,10 +64,31 @@
       "proved": "the Telegraph API is a REST interface addressed by HTTPS method URLs",
       "capture": "sha256:881f3ef2341bfb48b8203536f02ef735033c082274ce58945011e84beaa5409e",
       "quote": "All queries to the Telegraph API must be served over HTTPS and should be presented in this form: `https://api.telegra.ph/%method%`."
+    },
+    {
+      "url": "https://telegra.ph/api",
+      "date": "2026-11-25",
+      "proved": "the API page lists HTTPS method URLs",
+      "capture": "sha256:881f3ef2341bfb48b8203536f02ef735033c082274ce58945011e84beaa5409e",
+      "quote": "All queries to the Telegraph API must be served over HTTPS and should be presented in this form: `https://api.telegra.ph/%method%`."
+    },
+    {
+      "url": "https://telegra.ph",
+      "date": "2026-11-25",
+      "proved": "the home page describes Telegraph as a publishing tool",
+      "capture": "sha256:07125df1e52b5e967acc51b01685ad64581fb9425b89f0be0d493f571782d5ea",
+      "quote": "Telegra.ph is a minimalist publishing tool that allows you to create richly formatted posts and push them to the Web in just a click."
+    },
+    {
+      "url": "https://telegra.ph/api",
+      "date": "2026-11-25",
+      "proved": "the API is addressed by HTTPS method URLs",
+      "capture": "sha256:881f3ef2341bfb48b8203536f02ef735033c082274ce58945011e84beaa5409e",
+      "quote": "All queries to the Telegraph API must be served over HTTPS and should be presented in this form: `https://api.telegra.ph/%method%`."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:15:22.053Z",
+  "verified_at": "2026-11-25T19:55:23.966Z",
   "notes": "Unlimited pages and unlimited uploaded images; no account-level byte quota. Each page is an independent object with a permanent URL.",
   "history": [],
   "extras": {

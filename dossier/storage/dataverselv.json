@@ -6,21 +6,21 @@
   "category": "academic repository / Dataverse 6.11",
   "free_tier": {
     "stated": "No quota defined for this collection",
-    "unit": "unlimited",
+    "unit": "none",
     "metered_on": "unstated",
     "source_url": "https://dv.dataverse.lv/api/dataverses/:root/storage/quota?showInherited=true",
     "read_on": "2026-10-21",
-    "notes": "No quota defined for this collection"
+    "notes": "The quota endpoint returns \"No quota defined for this collection\": no numeric quota, unit or metering basis is published."
   },
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://dv.dataverse.lv/api/dataverses/:root/storage/quota?showInherited=true",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "No per-object cap is stated on the homepage, the signup terms page or the quota endpoint; the quota endpoint reports no quota defined for the root collection."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://dv.dataverse.lv/api/dataverses/:root/storage/quota?showInherited=true",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The terms page states long-term preservation of datasets and metadata but gives no retention period; the quota endpoint reports no quota defined for the root collection."
   },
   "egress": {
     "terms": "Cloudflare-fronted; the apex dataverse.lv is Cloudflare-challenged but dv.dataverse.lv answers the API cleanly.",
@@ -78,10 +78,45 @@
       "proved": "the repository's quota endpoint still reports no quota defined for the collection",
       "capture": "sha256:92e8a23f8d2593525bb2e79bf51735a708c6e24f2801ac21bc162790ca0e0aa5",
       "quote": "No quota defined for this collection"
+    },
+    {
+      "url": "https://dv.dataverse.lv/api/dataverses/:root/storage/quota?showInherited=true",
+      "date": "2026-11-25",
+      "proved": "the quota endpoint reports no defined quota, so no unit is denominated; it does not claim unlimited storage",
+      "capture": "sha256:bca45d449b68d59b709824583491cffade884f31957e9f2aaeba9b6237087105",
+      "quote": "{\"status\":\"OK\",\"data\":{\"message\":\"No quota defined for this collection\"}}"
+    },
+    {
+      "url": "https://dv.dataverse.lv/api/dataverses/:root/storage/quota?showInherited=true",
+      "date": "2026-11-25",
+      "proved": "the endpoint returns the exact message No quota defined for this collection",
+      "capture": "sha256:bca45d449b68d59b709824583491cffade884f31957e9f2aaeba9b6237087105",
+      "quote": "{\"status\":\"OK\",\"data\":{\"message\":\"No quota defined for this collection\"}}"
+    },
+    {
+      "url": "https://dv.dataverse.lv/dataverseuser.xhtml?editMode=CREATE",
+      "date": "2026-11-25",
+      "proved": "the terms page lists free browsing, download and reuse conditions and states no per-object cap",
+      "capture": "sha256:559e3a09522c7d70221e8208570f196579298a9ef31a68d096500f0d467afe5c",
+      "quote": "4.2.1. izmantot Repozitoriju bez maksas datu kopu pārlūkošanai, lejupielādei un atkārtotai izmantošanai saskaņā ar metadatu un licenču nosacījumiem;"
+    },
+    {
+      "url": "https://dv.dataverse.lv/dataverseuser.xhtml?editMode=CREATE",
+      "date": "2026-11-25",
+      "proved": "the terms page lists long-term preservation of datasets as a service but states no retention period",
+      "capture": "sha256:559e3a09522c7d70221e8208570f196579298a9ef31a68d096500f0d467afe5c",
+      "quote": "2.3.2. datu kopu ilgtermiņa saglabāšana;"
+    },
+    {
+      "url": "https://dv.dataverse.lv/api/dataverses/:root/storage/quota?showInherited=true",
+      "date": "2026-11-25",
+      "proved": "the root collection quota endpoint still reports no quota defined",
+      "capture": "sha256:bca45d449b68d59b709824583491cffade884f31957e9f2aaeba9b6237087105",
+      "quote": "{\"status\":\"OK\",\"data\":{\"message\":\"No quota defined for this collection\"}}"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:13:26.681Z",
+  "verified_at": "2026-11-25T09:54:58.645Z",
   "notes": "The quota endpoint states \"No quota defined for this collection\".",
   "history": [],
   "extras": {

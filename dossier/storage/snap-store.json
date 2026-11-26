@@ -13,15 +13,15 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "per-object-cap: not documented, empirically ~1.7 GB",
+    "stated": "not documented; a roughly 5.5 GB upload fails with a 500 that Canonical attributes to a timeout in the object storage load balancers, while a 1.7 GB snap is published and served",
     "bytes": 1700000000,
     "source_url": "https://forum.snapcraft.io/t/snap-package-file-size-limit-on-the-store/37450",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "roughly 5.5 GB ... it seems to be related to a timeout in the object storage load balancers."
   },
   "retention": {
-    "stated": "per-object-cap: not documented, empirically ~1.7 GB works and 5.5 GB 500s (object-storage load-balancer timeout). retention: indefinite, full revision history retained (each revision is a separate stored .snap)",
+    "stated": "The store caches several older revisions of every snap, as does the local system.",
     "source_url": "https://forum.snapcraft.io/t/snap-package-file-size-limit-on-the-store/37450",
-    "notes": "Extracted from published terms."
+    "notes": "The store caches several older revisions of every snap, as does the local system."
   },
   "egress": {
     "terms": "Free and CDN-backed. Downloads go through api.snapcraft.io -> redirect -> a CDN; no billing, no per-download accounting.",
@@ -35,11 +35,6 @@
   "tooling": "`snapcraft upload` / `snapcraft push` (the write path), Snap Store API v2 (`api.snapcraft.io/v2/snaps/info/<name>` with header `Snap-Device-Series: 16`) for metadata, and plain HTTPS GET of the channel-map `download.url` for bytes. No rclone backend; a wrapper would have to speak the snapcraft upload protocol to push.",
   "chaining": "unlimited snaps per publisher account x unlimited revisions per snap (revision history is retained server-side - the forum thread discusses 3 GB across 3 revisions of a 1 GB game). Multiply by unlimited free Ubuntu One accounts. Realistically ~1.6 GB x N revisions x N snaps, but upload reliability degrades well before 5 GB.",
   "limits": [
-    {
-      "kind": "write-gated",
-      "value": "application/octet-stream` verified)",
-      "source": "https://forum.snapcraft.io/t/snap-package-file-size-limit-on-the-store/37450"
-    },
     {
       "kind": "per-object-cap",
       "value": "per-object-cap: not documented, empirically ~1.7 GB",
@@ -89,10 +84,24 @@
       "proved": "the large-upload client-side failure report is still present",
       "capture": "sha256:4fdb17385bd260d56916c9609fff98ee708f043d1621b4333b567df7de5de9fd",
       "quote": "I’m trying to upload a new version of Kicad, which is 1,7GBytes (it contains all the component libraries, which needs a lot of disk space), but snapcraft keeps returning this error: ... FATAL ERROR: Data queue size is too large"
+    },
+    {
+      "url": "https://forum.snapcraft.io/t/snap-package-file-size-limit-on-the-store/37450",
+      "date": "2026-11-25",
+      "proved": "the report describes roughly 5.5 GB and Canonical cites a timeout in the object storage load balancers",
+      "capture": "sha256:47699fae7fe759356065f52f38a83dc277c6b260c46e1fcb9bd07a9aea794d5f",
+      "quote": "roughly 5.5 GB ... it seems to be related to a timeout in the object storage load balancers."
+    },
+    {
+      "url": "https://snapcraft.io/docs/explanation/how-snaps-work/revisions/",
+      "date": "2026-11-25",
+      "proved": "the store caches several older revisions of every snap",
+      "capture": "sha256:624d410c329fcfe7b233aacb435e19dc699235d4a67057a8eca501f0b7150a46",
+      "quote": "The store caches several older revisions of every snap, as does the local system."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:15:21.396Z",
+  "verified_at": "2026-11-25T21:21:18.143Z",
   "notes": "No published total-storage quota and no published per-snap byte cap; the practical ceiling is what the upload tooling survives. Evidence of real large artefacts: `kicad` stable snap is 1,659.5 MB and `android-studio` is 1,657.8 MB in the channel map (both served fine). A 5.5 GB upload attempt returned HTTP 500 and was diagnosed by Canonical as 'a timeout in the object storage load balancers'. 1.7 GB is documented as working; ~5 GB class uploads fail with a server-side timeout.",
   "history": [],
   "extras": {

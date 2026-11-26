@@ -5,7 +5,7 @@
   "url": "https://docs.gitlab.com/user/snippets/",
   "category": "registry",
   "free_tier": {
-    "stated": "No documented per-snippet storage cap; snippets are git-backed and unlimited in count, but contribute to namespace storage accounting",
+    "stated": "Snippets are git repositories that count toward the namespace storage size. No limit exists on how many snippets you can create. The default maximum size for a snippet is 50 MB, and a snippet repository is limited to 10 files.",
     "unit": "unlimited",
     "metered_on": "stored-bytes",
     "source_url": "https://docs.gitlab.com/user/storage_usage_quotas/",
@@ -13,17 +13,17 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
-    "source_url": "https://docs.gitlab.com/user/storage_usage_quotas/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "stated": "The default maximum size for a snippet is 50 MB. A snippet repository is limited to 10 files.",
+    "source_url": "https://docs.gitlab.com/user/snippets/",
+    "notes": "The snippets page gives the default maximum snippet size as current as of 2024-04-17, and links the administration page for the setting."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://docs.gitlab.com/user/storage_usage_quotas/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Snippets use version control: each snippet has its own underlying repository, and each saved change records a new commit. No expiry period is stated on the page."
   },
   "egress": {
-    "terms": "Free, Cloudflare-fronted like all of GitLab.com; snippets are cloneable and downloadable via API.",
+    "terms": "unverified: no egress charge or volume quota is stated on the pages read. Public snippets can be cloned, and their raw content can be downloaded.",
     "metered": false
   },
   "interface": [
@@ -32,9 +32,9 @@
   ],
   "interface_detail": "git",
   "tooling": "Snippets API (POST /snippets), git clone of the snippet repo, glab CLI, VS Code extension. Rate limited to 300 creates/hour/authenticated user.",
-  "chaining": "Snippets are versioned git repos -> unlimited snippets x unlimited versions. The 300/hour creation limit is the only throttle, which is trivially high for a bulk loader. Storage counts toward namespace storage but is NOT enforced.",
+  "chaining": "No limits exist as to how many snippets you can create. Versioned snippets are considered part of the namespace storage size, so snippets are not a separate storage pool.",
   "limits": [],
-  "limits_note": "300 creations/hour/user, shared with the GraphQL createSnippet mutation. No documented file or snippet size cap found on the snippet docs page. Worth treating as 'unbounded but undocumented' rather than verified bulk capacity.",
+  "limits_note": "Creating snippets is limited to 300 requests every hour for each authenticated user, shared with creating a project snippet and the createSnippet GraphQL mutation.",
   "identity_cost": {
     "kind": "email",
     "detail": "no identity_cost field and no identity statement in the source record; defaulted to email and flagged, not evidence",
@@ -65,11 +65,53 @@
       "proved": "snippets are still accounted in namespace storage",
       "capture": "sha256:32cb9b13bd82d6395449b56d639b10c9214fbcf89a1a5fa1493dad8fe2e46c49",
       "quote": "The cost factor applies to the project repository, LFS objects, job artifacts, packages, snippets, and the wiki."
+    },
+    {
+      "url": "https://docs.gitlab.com/user/snippets/",
+      "date": "2026-11-25",
+      "proved": "the default maximum snippet size is 50 MB",
+      "capture": "sha256:2ef8aa5b240573540dfb2849af1991fe631abdf69fee2e4b20d2a5295fcc01b2",
+      "quote": "The default [maximum size for a snippet](https://docs.gitlab.com/administration/snippets/) and current (as of 2024-04-17) is 50 MB."
+    },
+    {
+      "url": "https://docs.gitlab.com/api/snippets/",
+      "date": "2026-11-25",
+      "proved": "creation is limited to 300 requests every hour per authenticated user, shared with project snippet creation and the createSnippet GraphQL mutation",
+      "capture": "sha256:7cc4832ce98bdda4113351a33f19b7105ec8dccfbdc6d9c3502101a7852dd40f",
+      "quote": "Creating snippets is rate limited to 300 requests every hour for each authenticated user. The limit is shared between this endpoint, [creating a project snippet](https://docs.gitlab.com/api/project_snippets/#create-a-snippet), and the `createSnippet` GraphQL mutation"
+    },
+    {
+      "url": "https://docs.gitlab.com/user/snippets/",
+      "date": "2026-11-25",
+      "proved": "there is no limit on snippet count",
+      "capture": "sha256:2ef8aa5b240573540dfb2849af1991fe631abdf69fee2e4b20d2a5295fcc01b2",
+      "quote": "No limits exist as to how many snippets you can create."
+    },
+    {
+      "url": "https://docs.gitlab.com/user/snippets/",
+      "date": "2026-11-25",
+      "proved": "raw snippet download is documented",
+      "capture": "sha256:2ef8aa5b240573540dfb2849af1991fe631abdf69fee2e4b20d2a5295fcc01b2",
+      "quote": "You can download the raw content of a snippet."
+    },
+    {
+      "url": "https://docs.gitlab.com/user/snippets/",
+      "date": "2026-11-25",
+      "proved": "each snippet has its own repository",
+      "capture": "sha256:2ef8aa5b240573540dfb2849af1991fe631abdf69fee2e4b20d2a5295fcc01b2",
+      "quote": "This means that all snippets get their own underlying repository initialized with a default branch at the moment the snippet is created."
+    },
+    {
+      "url": "https://docs.gitlab.com/user/snippets/",
+      "date": "2026-11-25",
+      "proved": "snippets are managed with Git, through the snippets API, and in the UI",
+      "capture": "sha256:2ef8aa5b240573540dfb2849af1991fe631abdf69fee2e4b20d2a5295fcc01b2",
+      "quote": "You can manage snippets with Git (because they’re [versioned](https://docs.gitlab.com/user/snippets/#versioned-snippets) by a Git repository), through the [snippets API](https://docs.gitlab.com/api/snippets/), and in the GitLab UI."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:13:28.597Z",
-  "notes": "No documented per-snippet storage cap; snippets are git-backed and unlimited in count, but contribute to namespace storage accounting",
+  "verified_at": "2026-11-25T12:15:41.025Z",
+  "notes": "Snippets are git repositories that count toward the namespace storage size. No limit exists on how many snippets you can create. The default maximum size for a snippet is 50 MB, and a snippet repository is limited to 10 files.",
   "history": [],
   "extras": {
     "seed_source": "storage-research",

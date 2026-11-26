@@ -13,18 +13,18 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "200 GB per file",
-    "bytes": 200000000000,
-    "source_url": "https://help.vimeo.com/hc/en-us/articles/12425432518801-About-the-Vimeo-Free-plan",
-    "notes": "extracted from the quota or limits prose"
+    "stated": "The maximum file size is 300 GB, and the maximum duration is 24 hours.",
+    "bytes": null,
+    "source_url": "https://developer.vimeo.com/api/upload/videos",
+    "notes": "We advise that files are kept within 200 GB for a successful upload. We also do not support uploads of videos longer than 24 hours."
   },
   "retention": {
-    "stated": "The killer is not quota, it is that Vimeo deletes exactly the thing you want to store: 'your source file will be permanently deleted if you are a Free or Basic member'",
+    "stated": "By default, your source file will be **permanently deleted** if you are a Free member or if you are a paid member but haven't enabled source file storage in your account settings as described above.",
     "source_url": "https://help.vimeo.com/hc/en-us/articles/12425432518801-About-the-Vimeo-Free-plan",
-    "notes": "Extracted from published terms."
+    "notes": "By default, your source file will be **permanently deleted** if you are a Free member or if you are a paid member but haven't enabled source file storage in your account settings as described above."
   },
   "egress": {
-    "terms": "Unlimited bandwidth for public non-embeddable videos; 1 TB/month for embeddable and non-public. No per-GB charge on Free.",
+    "terms": "Free accounts also include 1 TB of bandwidth per month, which resets at the start of each billing month. Bandwidth for public and non-embeddable videos is unlimited.",
     "metered": false,
     "free_allowance": "1 TB per month"
   },
@@ -33,16 +33,16 @@
   ],
   "interface_detail": "rest",
   "tooling": "The yt-dlp tool includes a Vimeo extractor that requires authentication cookies for protected content. Vimeo API v3 exposes `/me/videos`, but direct binary download links require paid subscriptions.",
-  "chaining": "Unlimited public videos x unlimited free accounts. In principle unbounded capacity at zero cost. The only thing stopping it is the original-file problem below.",
+  "chaining": "When you create a Free account, you may upload or create an unlimited amount of public and non-embeddable video content.",
   "limits": [
     {
       "kind": "per-object-cap",
-      "value": "200 GB per file",
+      "value": "The maximum file size is 300 GB, and the maximum duration is 24 hours.",
       "source": "https://help.vimeo.com/hc/en-us/articles/12425432518801-About-the-Vimeo-Free-plan"
     },
     {
       "kind": "per-object-cap",
-      "value": "200 GB/file",
+      "value": "We advise that files are kept within 200 GB for a successful upload. We also do not support uploads of videos longer than 24 hours.",
       "source": "https://help.vimeo.com/hc/en-us/articles/12425432518801-About-the-Vimeo-Free-plan"
     }
   ],
@@ -96,10 +96,59 @@
       "proved": "Free members' source files are permanently deleted by default",
       "capture": "sha256:b2b86675503a22a7f28305aceb802a01cae91f8f89ae01b06cd6c157a6554067",
       "quote": "By default, your source file will be permanently deleted if you are a Free member or if you are a paid member but haven't enabled source file storage in your account settings as described above."
+    },
+    {
+      "url": "https://help.vimeo.com/hc/en-us/articles/18774922216721-How-to-upload-a-video-to-Vimeo",
+      "date": "2026-11-25",
+      "proved": "the first-party upload page gives this file-size advice",
+      "capture": "sha256:c0b107ec0394103449c4237d4feaa8acfadbf0a98ef7504de81afccac0a49535",
+      "quote": "We advise that files are kept within 200 GB for a successful upload. We also do not support uploads of videos longer than 24 hours."
+    },
+    {
+      "url": "https://developer.vimeo.com/api/upload/videos",
+      "date": "2026-11-25",
+      "proved": "the first-party API upload guide states the maximum file size",
+      "capture": "sha256:cb05048891a1d0d91e73edd89e0f641d39af81f012489bdd906d7f1789348dc0",
+      "quote": "The maximum file size is 300 GB, and the maximum duration is 24 hours."
+    },
+    {
+      "url": "https://developer.vimeo.com/api/upload/videos",
+      "date": "2026-11-25",
+      "proved": "the first-party API guide states the maximum in GB without a byte count",
+      "capture": "sha256:cb05048891a1d0d91e73edd89e0f641d39af81f012489bdd906d7f1789348dc0",
+      "quote": "The maximum file size is 300 GB, and the maximum duration is 24 hours."
+    },
+    {
+      "url": "https://developer.vimeo.com/api/upload/videos",
+      "date": "2026-11-25",
+      "proved": "the maximum file size is stated on the API upload guide",
+      "capture": "sha256:cb05048891a1d0d91e73edd89e0f641d39af81f012489bdd906d7f1789348dc0",
+      "quote": "The maximum file size is 300 GB, and the maximum duration is 24 hours."
+    },
+    {
+      "url": "https://help.vimeo.com/hc/en-us/articles/46427284891537-Store-your-source-files-on-Vimeo",
+      "date": "2026-11-25",
+      "proved": "the first-party page states that Free members' source files are deleted by default",
+      "capture": "sha256:b2b86675503a22a7f28305aceb802a01cae91f8f89ae01b06cd6c157a6554067",
+      "quote": "By default, your source file will be **permanently deleted** if you are a Free member or if you are a paid member but haven't enabled source file storage in your account settings as described above."
+    },
+    {
+      "url": "https://help.vimeo.com/hc/en-us/articles/12425432518801-About-the-Vimeo-Free-plan",
+      "date": "2026-11-25",
+      "proved": "the Free plan page states the monthly bandwidth allowance and unlimited public bandwidth",
+      "capture": "sha256:08c9ff2fede6cec71f5ce408cfd24c144cf571b7617f558d32d1bcde4dfe9313",
+      "quote": "Free accounts also include 1 TB of bandwidth per month, which resets at the start of each billing month. Bandwidth for public and non-embeddable videos is unlimited."
+    },
+    {
+      "url": "https://help.vimeo.com/hc/en-us/articles/12425432518801-About-the-Vimeo-Free-plan",
+      "date": "2026-11-25",
+      "proved": "the Free plan page states unlimited public and non-embeddable uploads",
+      "capture": "sha256:08c9ff2fede6cec71f5ce408cfd24c144cf571b7617f558d32d1bcde4dfe9313",
+      "quote": "When you create a Free account, you may upload or create an unlimited amount of public and non-embeddable video content."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:15:22.710Z",
+  "verified_at": "2026-11-25T21:21:18.734Z",
   "notes": "Unlimited storage for public, non-embeddable videos; 3 GB total for embeddable and non-public videos. This is a 2024-onwards rewrite of the old '500 MB/week' rule. The weekly quota now applies only to legacy paid Plus/Pro accounts, not Free.",
   "history": [],
   "extras": {

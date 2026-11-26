@@ -1,0 +1,16 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u50-q04",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Which limits[].kind fits a plan-level clean-bandwidth ceiling (Mbps) that is not a byte quota?",
+ "why": "the closed vocabulary has no throughput-cap term; volume-quota was used for Alibaba Anti-DDoS Proxy and per-ip-shaping stays on the Arvoris 15-player cap and the Yggdrasil peer rate",
+ "scope": {
+  "rids": [
+   "egress/alibaba-anti-ddos-proxy",
+   "egress/arvoris",
+   "egress/yggdrasil-public-peers"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u50",
+ "created": "2026-11-25T15:43:52Z"
+}

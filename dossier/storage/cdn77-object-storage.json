@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.cdn77.com/pricing",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "the object-storage limits page publishes a 1,000,000-object account cap and 50 buckets per account; no per-object byte cap is stated"
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.cdn77.com/pricing",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "no retention or expiry clause is published on the object-storage pricing page; the page lists storage prices per TB and per GB without a period"
   },
   "egress": {
     "terms": "Egress traffic* charges only apply to traffic outside of our CDN; USD 0.09/GB, initial 50 GB free. Requests USD 0.03 per 10k, initial 1M free. No egress fees between the storage and CDN77 delivery platform.",
@@ -82,10 +82,38 @@
       "proved": "the object-storage page lists the S3-compatible API",
       "capture": "sha256:c14d2c7da132c15f1836fbeafe41a24d2f2482edf0e90b742b5e8dad99248d9f",
       "quote": "S3-compatible API"
+    },
+    {
+      "url": "https://client.cdn77.com/support/knowledgebase/cdn77-object-storage/object-storage-limits",
+      "date": "2026-11-25",
+      "proved": "the published limit is on account object count, not per-object bytes",
+      "capture": "sha256:d53d16d4e2dbf6461d1d1b7c79e7fd9aaa9b2951414769712c7d932d57d6a822",
+      "quote": "- You can have up to 1,000,000 objects per account"
+    },
+    {
+      "url": "https://client.cdn77.com/support/knowledgebase/cdn77-object-storage/object-storage-pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page states storage prices without a retention term or a month period",
+      "capture": "sha256:42352e1ab666db200d905d9dacd63da42092e8972b28d4e095513cb8c456278e",
+      "quote": "- First 1 TB: $20\n- Beyond 1 TB: $0.02 per GB"
+    },
+    {
+      "url": "https://client.cdn77.com/support/knowledgebase/cdn77-object-storage/cdn77-object-storage-introduction",
+      "date": "2026-11-25",
+      "proved": "the introduction states the S3-compatible interface",
+      "capture": "sha256:e5bc41de946d1be52ea5aeb8576b7279f7effce6f01f22c14921070dc1c17e1f",
+      "quote": "CDN77 Object Storage is an S3-compatible service that lets you store large amounts of data."
+    },
+    {
+      "url": "https://client.cdn77.com/support/knowledgebase/cdn77-object-storage/object-storage-pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page states a 50 GB free egress allowance and $0.09 per GB outside the CDN",
+      "capture": "sha256:42352e1ab666db200d905d9dacd63da42092e8972b28d4e095513cb8c456278e",
+      "quote": "Egress Traffic:\n\n- First 50 GB: Free\n- Beyond 50 GB: $0.09 per GB (charges apply only to traffic outside of our CDN)"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:58.758Z",
+  "verified_at": "2026-11-25T09:54:57.891Z",
   "price_per_tb_month": "USD 20/TB stored; USD 90/TB egress outside CDN77; USD 0 egress through CDN77. Growth plan USD 990/mo for 250 TB delivered (USD 3.96/TB).",
   "notes": "S3-compatible storage, slider up to 50 TB on the page; priced at '$100/month ($0.02/GB)' i.e. $20/TB.",
   "history": [],

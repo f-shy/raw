@@ -46,13 +46,13 @@
       "source": "https://www.alibabacloud.com/product/ddos/pricing"
     },
     {
-      "kind": "per-ip-shaping",
+      "kind": "volume-quota",
       "value": "clean bandwidth is sold in steps: 100 Mbps / 3000 QPS on the entry plan",
       "source": "https://www.alibabacloud.com/product/ddos/pricing"
     }
   ],
   "limits_note": "",
-  "binding": "per-ip-shaping",
+  "binding": "volume-quota",
   "binding_note": "The 100 Mbps clean-bandwidth step is the first ceiling a 1 TiB/month workload could touch, but it is 30 times the 3.24 Mbit/s that 1 TiB/month implies. The price fails long before the bandwidth does.",
   "identity_cost": {
     "kind": "card",
@@ -77,10 +77,24 @@
       "url": "https://www.alibabacloud.com/product/ddos/pricing",
       "date": "2026-10-23",
       "proved": "30 Gbps committed mitigation / 300 Gbps burst / 100 Mbps / 3000 QPS at 3,120 USD per month"
+    },
+    {
+      "url": "https://www.alibabacloud.com/product/ddos/pricing",
+      "date": "2026-11-25",
+      "proved": "clean bandwidth and QPS are priced per mitigation plan; the page describes no per-IP shaping",
+      "capture": "sha256:bf8c183a5a67ff510c9e08a635c888105d50ed7b22ed1ee16b87bac1b9abc98e",
+      "quote": "| 30 Gbps | 300 Gbps | 100 Mbps / 3000 QPS | 3,120 |"
+    },
+    {
+      "url": "https://www.alibabacloud.com/help/en/anti-ddos/anti-ddos-pro-and-premium/user-guide/manage-forwarding-rules",
+      "date": "2026-11-25",
+      "proved": "port forwarding rules accept TCP and UDP, which supports the ingress: tcp+udp part of egress.terms",
+      "capture": "sha256:672a33dab1a6fad9da9977a00efde0d7d5554ed6afcca1c6c5cf45bb0ca7845e",
+      "quote": "Select the protocol for traffic forwarding. Valid values are TCP and UDP."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:52.382Z",
   "price_per_tb_month": "USD 3120 per month",
   "history": [],
   "notes": "The product is Spectrum-class in shape and enterprise in price: the cheapest published row is 3,120 USD/month against Gcore's EUR 17. The UDP default-drop and the 1194 block are the two operational traps. Whether a free trial instance exists was not established.",

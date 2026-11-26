@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u86-q03",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "What does Loophole registration ask for? https://loophole.cloud/signup and https://loophole.cloud/login answer HTTP 404 on 2026-11-25.",
+ "why": "identity_cost.kind is email but no signup form could be read; docs/guides/auth requires an account and an authtoken.",
+ "scope": {
+  "rids": [
+   "egress/loophole-cloud"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u86",
+ "created": "2026-11-25T17:26:44Z"
+}

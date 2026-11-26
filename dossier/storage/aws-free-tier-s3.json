@@ -15,13 +15,13 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://aws.amazon.com/free/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The current free-tier page describes credit amounts and service access but publishes no per-object cap; the S3 upload docs give separate single-PUT and multipart object-size limits for S3 generally, not as a free-tier term."
   },
   "retention": {
     "stated": "6-month account lifetime on the Free plan; credits expire at 6 months (12 if you upgrade to Paid); $200 of credits buys roughly 3-4 TB-months of S3 Standard at ~$0.023/GB-month. A one-shot, not a tier.",
     "days": 180,
     "source_url": "https://aws.amazon.com/free/",
-    "notes": "Extracted from published terms."
+    "notes": "Free Plan accounts expire six months after opening or when credits run out; AWS then deletes the account's content and resources 90 days after a final notice if the account is not upgraded."
   },
   "egress": {
     "terms": "Data transfer out from AWS Regions to the internet: first 100 GB/month free for all customers (announced 2021, still the standing allowance). CloudFront separately gives 1 TB/month free egress + 10M requests, no longer time-limited. But that is a CDN allowance bolted onto a paid origin.",
@@ -86,10 +86,38 @@
       "proved": "the Free plan account lifetime remains 6 months, matching the retention-clamped limit",
       "capture": "sha256:f1bd522d3bc2c66a037741f777877ef5626db5a75e8d3c60268c5235d6058f93",
       "quote": "The account closes on its own 6 months after you open it or when your credits run out, whichever comes first."
+    },
+    {
+      "url": "https://aws.amazon.com/free/",
+      "date": "2026-11-25",
+      "proved": "the free-tier page states monthly service limits and no per-object cap",
+      "capture": "sha256:efe50e26f77a55bfa95991cb579bcc5a3680202b29105c51b557258e4539335a",
+      "quote": "30+ AWS services are always free within monthly usage limits on both the Free and Paid plans."
+    },
+    {
+      "url": "https://aws.amazon.com/free/terms/",
+      "date": "2026-11-25",
+      "proved": "the free-tier terms state deletion of account content 90 days after the Free Plan Period",
+      "capture": "sha256:5f7e976617ebe2707b8d07e80a3361abe596c02de4845f2ddb8f5f0c7caabc4c",
+      "quote": "After 90 days, AWS will permanently close your account and delete the content and resources in your account."
+    },
+    {
+      "url": "https://aws.amazon.com/free/",
+      "date": "2026-11-25",
+      "proved": "the free-tier page still describes monthly service limits",
+      "capture": "sha256:efe50e26f77a55bfa95991cb579bcc5a3680202b29105c51b557258e4539335a",
+      "quote": "30+ AWS services are always free within monthly usage limits on both the Free and Paid plans."
+    },
+    {
+      "url": "https://aws.amazon.com/free/terms/",
+      "date": "2026-11-25",
+      "proved": "the Free Tier Terms continue to bar multiple accounts for additional offers",
+      "capture": "sha256:5f7e976617ebe2707b8d07e80a3361abe596c02de4845f2ddb8f5f0c7caabc4c",
+      "quote": "You will not be eligible for any Offers if you or your entity create(s) more than one account to receive additional benefits under the Offers."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-19T21:12:59.398Z",
+  "verified_at": "2026-11-25T03:33:12.196Z",
   "notes": "No perpetual S3 storage allowance remains in the current published Free Tier. What exists now: up to $200 in credits ($100 at signup + up to $100 for activities), expiring 6 months after account creation, and the account itself 'closes on its own 6 months after you open it or when your credits run out'. The old 5 GB/12-month S3 allowance is not listed on the current free-tier page or S3 pricing page's Free Tier section, which now describes only the credit model.",
   "history": [],
   "extras": {

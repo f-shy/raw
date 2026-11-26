@@ -15,16 +15,16 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://access.redhat.com/articles/quayio-help",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The Red Hat support article states unlimited storage and serving of public repositories but gives no per-object size cap."
   },
   "retention": {
     "stated": "Every paid plan is priced only by private-repo count and lists 'Unlimited public repos'; a free account gets unlimited public repos, private repos require a 30-day trial then a paid plan",
     "days": 30,
     "source_url": "https://access.redhat.com/articles/quayio-help",
-    "notes": "Extracted from published terms."
+    "notes": "The 30-day period is the free trial for a selected account, not a data retention term."
   },
   "egress": {
-    "terms": "Included in 'unlimited storage and serving of public repositories'. No per-GB line item exists for public repos on any plan. Served over quay.io's own CDN edge.",
+    "terms": "Unlimited serving of public repositories is included in the free offer.",
     "metered": false
   },
   "interface": [
@@ -32,7 +32,7 @@
   ],
   "interface_detail": "oci",
   "tooling": "oras push / docker push / skopeo; standard distribution-spec v2 registry (Docker-Distribution-API-Version: registry/2.0). Cosign/notation signing supported natively.",
-  "chaining": "N public repos x N free Red Hat accounts. Repos are namespaced per user/org, so one account already gives effectively unbounded blob count; orgs are free to create.",
+  "chaining": "Public repositories have unlimited storage and serving.",
   "limits": [],
   "limits_note": "Requires a Red Hat SSO account to push (anonymous pull only). Quay is a shared hosted registry: pull QPS and total storage are subject to undisclosed fair use; the paid tiers exist purely to buy private repos, which signals public storage is deliberately not metered.",
   "identity_cost": {
@@ -70,10 +70,52 @@
       "proved": "the support article states unlimited storage and serving of public repositories, unchanged",
       "capture": "sha256:f20d1be5580546b25a64f1e07987d399ddfeadaec1d01ca852922449bc1854c1",
       "quote": "Yes! We offer unlimited storage and serving of public repositories."
+    },
+    {
+      "url": "https://access.redhat.com/articles/quayio-help",
+      "date": "2026-11-25",
+      "proved": "the first-party support article states unlimited storage and serving for public repositories",
+      "capture": "sha256:556a6d6ef8c208c543a44fe895fb2d3344ccdfa0c79e88ec4a22b05e9ed136f4",
+      "quote": "Yes! We offer unlimited storage and serving of public repositories."
+    },
+    {
+      "url": "https://access.redhat.com/articles/quayio-help",
+      "date": "2026-11-25",
+      "proved": "the 30-day figure is the trial period for a paid plan",
+      "capture": "sha256:556a6d6ef8c208c543a44fe895fb2d3344ccdfa0c79e88ec4a22b05e9ed136f4",
+      "quote": "- Select to start a 30-day free trial for your selected account"
+    },
+    {
+      "url": "https://access.redhat.com/articles/quayio-help",
+      "date": "2026-11-25",
+      "proved": "the first-party support article includes unlimited serving in the free offer",
+      "capture": "sha256:556a6d6ef8c208c543a44fe895fb2d3344ccdfa0c79e88ec4a22b05e9ed136f4",
+      "quote": "Yes! We offer unlimited storage and serving of public repositories."
+    },
+    {
+      "url": "https://access.redhat.com/articles/quayio-help",
+      "date": "2026-11-25",
+      "proved": "the first-party support article still states unlimited storage and serving",
+      "capture": "sha256:556a6d6ef8c208c543a44fe895fb2d3344ccdfa0c79e88ec4a22b05e9ed136f4",
+      "quote": "Yes! We offer unlimited storage and serving of public repositories."
+    },
+    {
+      "url": "https://access.redhat.com/articles/quayio-help",
+      "date": "2026-11-25",
+      "proved": "the 30-day figure is a free trial for a selected account",
+      "capture": "sha256:556a6d6ef8c208c543a44fe895fb2d3344ccdfa0c79e88ec4a22b05e9ed136f4",
+      "quote": "- Select to start a 30-day free trial for your selected account"
+    },
+    {
+      "url": "https://access.redhat.com/articles/quayio-help",
+      "date": "2026-11-25",
+      "proved": "the first-party support article describes an OCI artifact registry",
+      "capture": "sha256:556a6d6ef8c208c543a44fe895fb2d3344ccdfa0c79e88ec4a22b05e9ed136f4",
+      "quote": "Quay.io is a registry for storing and building container images as well as distributing other OCI artifacts."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-11T07:23:05.683Z",
+  "verified_at": "2026-11-25T19:55:17.918Z",
   "notes": "\"We offer unlimited storage and serving of public repositories\". Red Hat's own support article. Every paid plan is priced only by private-repo count and lists 'Unlimited public repos'; a free account gets unlimited public repos, private repos require a 30-day trial then a paid plan.",
   "history": [],
   "extras": {

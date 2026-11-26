@@ -26,7 +26,7 @@
     "notes": ""
   },
   "egress": {
-    "terms": "The first 220 GB per month is free: 20 GB for the Chinese mainland and 200 GB for regions outside.; ingress: udp",
+    "terms": "The first 220 GB per month is free: 20 GB for the Chinese mainland and 200 GB for regions outside.",
     "metered": true,
     "free_allowance": "The first 220 GB per month is free: 20 GB for the Chinese mainland and 200 GB for regions outside.",
     "price_per_tb": null,
@@ -76,10 +76,17 @@
       "url": "https://www.alibabacloud.com/help/en/cdt/internet-data-transfers/",
       "date": "2026-10-23",
       "proved": "'The free quota is calculated at the Alibaba Cloud account level ... refreshes at 00:00 on the 1st of each calendar month and does not roll over to the next month.'"
+    },
+    {
+      "url": "https://www.alibabacloud.com/help/en/cdt/internet-data-transfers/",
+      "date": "2026-11-25",
+      "proved": "the page states the 220 GB monthly free quota split 20 GB mainland and 200 GB outside, and no ingress protocol",
+      "capture": "sha256:6d583c91301b696018953f9c6cf211f61a0f01514b323ffaf36ed1de569c6183",
+      "quote": "The first 220 GB per month is free: 20 GB for the Chinese mainland and 200 GB for regions outside. Excess traffic is billed starting from the first tier."
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:52.382Z",
   "price_per_tb_month": "USD 90 of trial credit for 3 months; 220 GB a month of egress free on any account",
   "history": [],
   "notes": "Two clocks: the egress quota is standing and account level, while the VM that would spend it is a 3-month trial. The 220 GB quota applies to pay-by-data-transfer BGP (Multi-ISP) traffic only; pay-by-bandwidth instances cannot use it.",

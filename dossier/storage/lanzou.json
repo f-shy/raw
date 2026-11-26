@@ -13,15 +13,15 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "Per-file cap widely reported at 100 MB",
-    "bytes": 100000000,
+    "stated": "unverified: no per-file cap stated by the provider",
+    "bytes": null,
     "source_url": "https://www.lanzou.com/u",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "unverified: the help page states download speed; no per-file size is stated"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "unverified: no retention clause stated by the provider",
     "source_url": "https://www.lanzou.com/u",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: the help page states download speed, not retention"
   },
   "egress": {
     "terms": "Explicitly unmetered: no download traffic limit, no speed limit, no download-count limit, and shares download without login.",
@@ -30,20 +30,20 @@
   "interface": [
     "unknown"
   ],
-  "interface_detail": "wrapper-only",
-  "tooling": "No official API. Community wrappers exist (lanzou uploader scripts, `lanzou-api` style repos); the browser upload form is the only documented path.",
-  "chaining": "Unlimited total x 100 MB per object is the pure 'per-record unlimited' shape the brief asks about: 20 TiB = ~210k objects. Registration needs a mainland phone number, so chaining is bounded by SIM supply, not by quota.",
+  "interface_detail": "unverified: no interface stated by the provider",
+  "tooling": "unverified: no API stated by the provider; the page shows a web login",
+  "chaining": "unverified: object count cannot be derived from a stated per-object cap",
   "limits": [
     {
       "kind": "per-object-cap",
-      "value": "Per-file cap widely reported at 100 MB",
+      "value": "unverified: no per-file cap stated by the provider",
       "source": "https://www.lanzou.com/u"
     }
   ],
   "limits_note": "Per-file cap is reported at 100 MB for free accounts with account-level adjustments available in settings. Share links are public by design. Registration requires a mobile phone number and SMS verification code.",
   "identity_cost": {
-    "kind": "institution",
-    "detail": "derived from the record's prose, not from an identity field, and no signup was executed: r, which is the hardest registration gate in this slot. No API means any large-scale use depends on an unofficial wrapper that breaks when the web form changes. Unlimited total x 100",
+    "kind": "any-phone",
+    "detail": "手机号 / 获取短信验证码 (mobile phone number and SMS code)",
     "country": null
   },
   "reliability_note": "Registration requires a mainland Chinese phone number for SMS verification. Service provides web upload forms without an official public API.",
@@ -61,20 +61,50 @@
       "proved": "form fields 手机号 / 获取短信验证码 (phone + SMS required)"
     },
     {
-      "url": "https://www.lanzou.com/q/zh/wt.htm",
-      "date": "2026-10-21",
-      "proved": "'关于上传文件大小: 在个人中心 - 文件升级 可以设置单个文件大小' (per-file cap is account-set)"
-    },
-    {
       "url": "https://www.lanzou.com/u",
       "date": "2026-11-19",
       "proved": "the first-party page confirms unlimited total storage and unmetered downloads",
       "capture": "sha256:ddc0f2e6c32a2cdc8a1440273ebcfb8f342b8c373af6f373739f7f6ffbed50b0",
       "quote": "无限制的总存储空间，分享免登录，不限制下载流量，不限速，不限制下载次数"
+    },
+    {
+      "url": "https://pc.woozooo.com/account.php?action=register",
+      "date": "2026-11-25",
+      "proved": "the registration form asks for a mobile phone number and an SMS code",
+      "capture": "sha256:392416d0d364934533ee37ce79a1d509337ab3a498b29033449939cf440c8818",
+      "quote": "手机号 获取短信验证码"
+    },
+    {
+      "url": "https://www.lanzou.com/u",
+      "date": "2026-11-25",
+      "proved": "the first-party page shows a web login link",
+      "capture": "sha256:ddc0f2e6c32a2cdc8a1440273ebcfb8f342b8c373af6f373739f7f6ffbed50b0",
+      "quote": "登录网盘"
+    },
+    {
+      "url": "https://www.lanzou.com/u",
+      "date": "2026-11-25",
+      "proved": "the first-party page names the 普通版 tier only",
+      "capture": "sha256:ddc0f2e6c32a2cdc8a1440273ebcfb8f342b8c373af6f373739f7f6ffbed50b0",
+      "quote": "欢迎体验蓝奏云（普通版）网盘！"
+    },
+    {
+      "url": "https://www.lanzou.com/q/zh/wt.htm",
+      "date": "2026-11-25",
+      "proved": "the help fragment states that download speed is unrestricted",
+      "capture": "sha256:7e8a90a2f237da17ff49a17e0c044cd5018e88a2b8103daf8b8a6ab0f4281d02",
+      "quote": "我们对下载速度不做任何限制。"
+    },
+    {
+      "url": "https://www.lanzou.com/u",
+      "date": "2026-11-25",
+      "proved": "the 普通版 page states unlimited storage and unmetered downloads",
+      "capture": "sha256:ddc0f2e6c32a2cdc8a1440273ebcfb8f342b8c373af6f373739f7f6ffbed50b0",
+      "quote": "无限制的总存储空间，分享免登录，不限制下载流量，不限速，不限制下载次数。"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:00.433Z",
+  "verified_at": "2026-11-25T13:25:55.253Z",
   "notes": "Unlimited total storage on the free 普通版: '无限制的总存储空间，分享免登录，不限制下载流量，不限速，不限制下载次数'. Per-file cap is the binding constraint, and it is tier-set in 个人中心 → 文件升级.",
   "history": [],
   "extras": {

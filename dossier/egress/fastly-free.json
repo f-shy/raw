@@ -40,11 +40,16 @@
       "kind": "request-rate",
       "value": "100,000 requests/month on the free band",
       "source": "https://www.fastly.com/pricing"
+    },
+    {
+      "kind": "volume-quota",
+      "value": "100 GB bandwidth per month per region on the free band",
+      "source": "https://www.fastly.com/pricing"
     }
   ],
   "identity_cost": {
     "kind": "email",
-    "detail": "a Fastly account",
+    "detail": "a Fastly account: the signup form requires first name, last name, company, job title, email and password",
     "country": null
   },
   "reliability_note": "the free band is metered per region",
@@ -54,10 +59,38 @@
       "url": "https://www.fastly.com/pricing",
       "date": "2026-10-22",
       "proved": "'100 GB free' and '100,000 free' requests, with the per-region band table"
+    },
+    {
+      "url": "https://www.fastly.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the free bandwidth band is 100 GB per month in every region",
+      "capture": "sha256:c441e9f9991b007daed6871f364939e7fadcaf1fe5c5351706e2c56dca433493",
+      "quote": "| 0 - 100 GB | Free | Free | Free | Free | Free | Free | Free | Free | Free | Free |"
+    },
+    {
+      "url": "https://www.fastly.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the free request band is 100,000 per month",
+      "capture": "sha256:c441e9f9991b007daed6871f364939e7fadcaf1fe5c5351706e2c56dca433493",
+      "quote": "| 0 - 100,000 | Free |"
+    },
+    {
+      "url": "https://www.fastly.com/signup",
+      "date": "2026-11-25",
+      "proved": "the signup form asks for name, company, job title, email and password and no card or phone number",
+      "capture": "sha256:7e8bb8c6b0f591759083f639551bc61a8fcd1193780a75fa688e9ef896c83469",
+      "quote": "First name \\*\n\nLast name \\*\n\nCompany \\*\n\nJob Title \\*\n\nEmail \\*\n\nPassword \\*"
+    },
+    {
+      "url": "https://www.fastly.com/signup",
+      "date": "2026-11-25",
+      "proved": "the signup form requires an email address",
+      "capture": "sha256:7e8bb8c6b0f591759083f639551bc61a8fcd1193780a75fa688e9ef896c83469",
+      "quote": "Email \\*"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-22T03:20:00.000Z",
+  "verified_at": "2026-11-25T11:04:40.149Z",
   "notes": "100 GB a month is about 3.3 GB a day.",
   "history": [],
   "extras": {

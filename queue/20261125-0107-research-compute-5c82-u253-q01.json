@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u253-q01",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "Does BrowserStack App Automate's sign-up require an email identifier, and which identity_cost.kind fits a Google-OAuth-only registration? The sign-up page at https://www.browserstack.com/users/sign_up shows only 'Sign up with Google' with no email field, card or phone in either an original or a fresh capture (sha256:51cbac0c..., sha256:935b6279..., sha256:34f44881...); the sign-in page for an existing account does show 'Enter your business email'. The corpus has no identity kind for a Google-only OAuth gate, so the draft's $.identity_cost.kind is marked unverified and the nearest term email is used.",
+ "why": "The earlier draft asserted kind email on a trial FAQ quote that states no identity fact; the audit rejected it. The first-party signup captures do not show an email field, and a schema term for OAuth-only registration does not exist, so this is filed rather than asserted.",
+ "scope": {
+  "rids": [
+   "compute/browserstack-app-automate"
+  ]
+ },
+ "origin": "20261125-0107-research-compute-5c82/u253",
+ "created": "2026-11-25T15:03:39Z"
+}

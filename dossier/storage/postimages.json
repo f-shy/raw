@@ -13,15 +13,15 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "32 MB/file",
+    "stated": "Images uploaded by both anonymous users and users with free accounts are limited to a file size of 32Mb and maximum dimensions of 10000 × 10000 pixels.",
     "bytes": 32000000,
     "source_url": "https://postimages.org/faq",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Images uploaded by both anonymous users and users with free accounts are limited to a file size of 32Mb and maximum dimensions of 10000 × 10000 pixels."
   },
   "retention": {
     "stated": "You can upload an unlimited number of images per post, and you will never have to worry about your images being removed due to inactivity.",
     "source_url": "https://postimages.org/faq",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "You can upload an unlimited number of images per post, and you will never have to worry about your images being removed due to inactivity."
   },
   "egress": {
     "terms": "Free, unmetered hotlinking, CDN-served, no published bandwidth tier. Only soft pressure: if you use 'a really large amount' of disk/bandwidth without linking back they reserve the right to contact you.",
@@ -32,11 +32,11 @@
   ],
   "interface_detail": "rest",
   "tooling": "Documented token API. Their own upload endpoint says 'Please use the official API: https://api.postimages.org/'. ShareX ships a Postimages destination keyed on an account API key from the profile page; npm 'postimages-upload'.",
-  "chaining": "Unlimited free accounts, each with unlimited images. Gallery per account, 1,000 images per batch (batch size, not a cap).",
+  "chaining": "unverified: the FAQ states unlimited images per post but does not state unlimited free accounts.",
   "limits": [
     {
       "kind": "per-object-cap",
-      "value": "32 MB/file",
+      "value": "Images uploaded by both anonymous users and users with free accounts are limited to a file size of 32Mb and maximum dimensions of 10000 × 10000 pixels.",
       "source": "https://postimages.org/faq"
     }
   ],
@@ -78,10 +78,59 @@
       "proved": "the FAQ still states the free-account file-size cap",
       "capture": "sha256:c16dd33f1f457db828cd288a161395cc06bbf735cd18c239bbc7558887398644",
       "quote": "a file size of 32Mb"
+    },
+    {
+      "url": "https://postimages.org/faq",
+      "date": "2026-11-25",
+      "proved": "anonymous and free accounts have a 32Mb per-file limit",
+      "capture": "sha256:365fbc6b63600d1139945c7f77251d3a553121dfef69f5cc1178323bc2863f8a",
+      "quote": "Images uploaded by both anonymous users and users with free accounts are limited to a file size of 32Mb and maximum dimensions of 10000 × 10000 pixels."
+    },
+    {
+      "url": "https://postimages.org/faq",
+      "date": "2026-11-25",
+      "proved": "the free and anonymous per-file cap is stated",
+      "capture": "sha256:365fbc6b63600d1139945c7f77251d3a553121dfef69f5cc1178323bc2863f8a",
+      "quote": "Images uploaded by both anonymous users and users with free accounts are limited to a file size of 32Mb and maximum dimensions of 10000 × 10000 pixels."
+    },
+    {
+      "url": "https://postimages.org/faq",
+      "date": "2026-11-25",
+      "proved": "the per-object-cap limit is the 32Mb per-file limit",
+      "capture": "sha256:365fbc6b63600d1139945c7f77251d3a553121dfef69f5cc1178323bc2863f8a",
+      "quote": "Images uploaded by both anonymous users and users with free accounts are limited to a file size of 32Mb and maximum dimensions of 10000 × 10000 pixels."
+    },
+    {
+      "url": "https://postimages.org/faq",
+      "date": "2026-11-25",
+      "proved": "the free per-file cap is 32Mb",
+      "capture": "sha256:365fbc6b63600d1139945c7f77251d3a553121dfef69f5cc1178323bc2863f8a",
+      "quote": "Images uploaded by both anonymous users and users with free accounts are limited to a file size of 32Mb and maximum dimensions of 10000 × 10000 pixels."
+    },
+    {
+      "url": "https://postimages.org/faq",
+      "date": "2026-11-25",
+      "proved": "images are not removed for inactivity",
+      "capture": "sha256:365fbc6b63600d1139945c7f77251d3a553121dfef69f5cc1178323bc2863f8a",
+      "quote": "You can upload an unlimited number of images per post, and you will never have to worry about your images being removed due to inactivity."
+    },
+    {
+      "url": "https://postimages.org/faq",
+      "date": "2026-11-25",
+      "proved": "inactivity does not remove uploaded images",
+      "capture": "sha256:365fbc6b63600d1139945c7f77251d3a553121dfef69f5cc1178323bc2863f8a",
+      "quote": "You can upload an unlimited number of images per post, and you will never have to worry about your images being removed due to inactivity."
+    },
+    {
+      "url": "https://postimages.org/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ states unlimited images per post",
+      "capture": "sha256:365fbc6b63600d1139945c7f77251d3a553121dfef69f5cc1178323bc2863f8a",
+      "quote": "You can upload an unlimited number of images per post"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T07:23:03.223Z",
+  "verified_at": "2026-11-25T19:55:15.334Z",
   "notes": "No storage cap stated: 'we do not impose strict limits on our users... Some users store and share tens of thousands of images'. Explicitly 'you will never have to worry about your images being removed due to inactivity'.",
   "history": [],
   "extras": {

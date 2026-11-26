@@ -154,10 +154,24 @@
       "proved": "using the API needs an API key obtained from the dashboard",
       "capture": "sha256:f5f7a1a523f7bf8c1045ff70d26ef887aa5d36244a671857b09eb6fcb6f6d0c1",
       "quote": "A VoidRun API key (get one from the [VoidRun Dashboard](https://dash.void-run.com))"
+    },
+    {
+      "url": "https://void-run.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the free allocation is a one-time credit, so the offer is a trial rather than a recurring free allowance",
+      "capture": "sha256:4d48ff10f119a30b41e93956bda67d964e8cbbd5f97738737a5f2dae54e08dd0",
+      "quote": "Up to ₹4,600.00 free credits, then pay only for consumed compute, memory, and storage."
+    },
+    {
+      "url": "https://void-run.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page was read again on 2026-11-25; the free allocation is a one-time credit",
+      "capture": "sha256:4d48ff10f119a30b41e93956bda67d964e8cbbd5f97738737a5f2dae54e08dd0",
+      "quote": "Up to ₹4,600.00 free credits, then pay only for consumed compute, memory, and storage."
     }
   ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:15.131Z",
+  "verdict": "trial-only",
+  "verified_at": "2026-11-26T02:53:32.774Z",
   "price_per_tb_month": null,
   "notes": "Free credits are a one-time INR 4,600.00 allowance, not a monthly grant. The meters are per-second for CPU, per GB-second for memory and per GB-second for storage, with the storage meter marked beta at INR 0.000000. An enterprise lane is priced by annual contract and is a separate offer. Self-hosted deployments are documented but the offer priced here is the hosted platform.",
   "extras": {

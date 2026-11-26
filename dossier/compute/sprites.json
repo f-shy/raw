@@ -1,222 +1,236 @@
 {
-  "topic": "compute",
-  "slug": "sprites",
-  "provider": "Sprites (Fly.io)",
-  "url": "https://fly.io/pricing",
-  "category": "container and VM sandbox",
-  "free_tier": {
-    "stated": "Free plan gives $1 of one-time credit with no card, expiring after 7 days, and $5 of usage every month once a card is added; new Free organizations with a card also get a $30 Sprites credit. Compute bills by the second from $0.0030 an hour for a shared-cpu-1x with 256 MB",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://fly.io/pricing",
-    "read_on": "2026-10-22"
+ "topic": "compute",
+ "slug": "sprites",
+ "provider": "Sprites (Fly.io)",
+ "url": "https://fly.io/pricing",
+ "category": "container and VM sandbox",
+ "free_tier": {
+  "stated": "The Free plan gives $5 of usage every month after you add a card.",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://fly.io/pricing",
+  "read_on": "2026-10-22"
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://fly.io/pricing",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "not stated",
+  "days": null,
+  "source_url": "https://fly.io/pricing",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "egress bills by destination: $0.02/GB in North America and Europe, $0.04/GB in Asia Pacific, Oceania and South America, and $0.12/GB in Africa and India; inbound transfer is free",
+  "metered": true,
+  "free_allowance": "inbound data transfer is free; the Free plan's $5 monthly usage and $30 Sprites credit can cover outbound transfer",
+  "price_per_tb": null,
+  "source_url": "https://fly.io/pricing"
+ },
+ "interface": [
+  "cli",
+  "browser"
+ ],
+ "interface_detail": "the flyctl CLI runs sign-up, launch and status; apps are opened and managed in a browser dashboard; Machines are reachable over their published network addresses",
+ "tooling": "not stated",
+ "chaining": "not established",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "$0.0030 an hour for shared-cpu-1x with 256 MB, up to $0.4584 for performance-10x",
+   "source": "https://fly.io/pricing"
   },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://fly.io/pricing",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+  {
+   "kind": "retention-clamped",
+   "value": "a Sprite that is suspended uses no compute, but storage bills per hour of active use on what is provisioned",
+   "source": "https://fly.io/pricing"
   },
-  "retention": {
-    "stated": "not stated",
-    "days": null,
-    "source_url": "https://fly.io/pricing",
-    "notes": "Disk durability across instance stops and deletions is not documented."
+  {
+   "kind": "per-object-cap",
+   "value": "each preset takes more RAM at $6.00 a GB a month, up to 128 GB",
+   "source": "https://fly.io/pricing"
+  }
+ ],
+ "limits_note": "Session cap, idle-reap and network policy are not documented.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "sign-up accepts an email address, a Google account or a GitHub account; $1 of credit is available with no card and $5 of monthly usage plus a $30 Sprites credit require a card",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "documented",
+ "confidence_note": "the fly.io pricing page was read on 2026-10-22 and carries the Sprite meters and the full Machine ladder; the USD 30 Sprites credit for a new Free organization with a card is stated on the Free plan page read on 2026-11-24",
+ "evidence": [
+  {
+   "url": "https://fly.io/pricing",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
   },
-  "egress": {
-    "terms": "egress bills by destination: $0.02/GB in North America and Europe, $0.04/GB in Asia Pacific, Oceania and South America, and $0.12/GB in Africa and India; inbound transfer is free",
-    "metered": true,
-    "free_allowance": "inbound data transfer is free; the Free plan's $5 monthly usage and $30 Sprites credit can cover outbound transfer",
-    "price_per_tb": null,
-    "source_url": "https://fly.io/pricing"
+  {
+   "url": "https://fly.io/pricing",
+   "date": "2026-10-22",
+   "proved": "'Compute bills by the second, storage on what you provision. No plans to pick.' with 'Suspended, it uses no compute' and 'storage are metered per hour of active use; a Sprite that exists but does', plus the preset ladder from 'shared-cpu-1x · 256MB $0.0030 per hour' to 'performance-10x · 20GB $0.4584', quoted"
   },
-  "interface": [
-    "cli",
-    "browser"
-  ],
-  "interface_detail": "the flyctl CLI runs sign-up, launch and status; apps are opened and managed in a browser dashboard; Machines are reachable over their published network addresses",
-  "tooling": "not stated",
-  "chaining": "not established",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "$0.0030 an hour for shared-cpu-1x with 256 MB, up to $0.4584 for performance-10x",
-      "source": "https://fly.io/pricing"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "a Sprite that is suspended uses no compute, but storage bills per hour of active use on what is provisioned",
-      "source": "https://fly.io/pricing"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "each preset takes more RAM at $6.00 a GB a month, up to 128 GB",
-      "source": "https://fly.io/pricing"
-    }
-  ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "sign-up accepts an email address, a Google account or a GitHub account; $1 of credit is available with no card and $5 of monthly usage plus a $30 Sprites credit require a card",
-    "country": null
+  {
+   "url": "https://fly.io/pricing",
+   "date": "2026-11-25",
+   "proved": "the page describes the Free plan with a $1 starter credit without a card and $5 of monthly usage after a card is added",
+   "capture": "sha256:6d197e1c2f9cedc47f1e44e490462d4e39554adc04c2e91f6c5040a07ade39d9",
+   "quote": "Start on the Free plan with $1 of starter credit, no credit card required. Add a card to keep going when it is used up or expires. The Free plan gives $5 of usage every month after you add a card."
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "documented",
-  "confidence_note": "the fly.io pricing page was read on 2026-10-22 and carries the Sprite meters and the full Machine ladder; the USD 30 Sprites credit for a new Free organization with a card is stated on the Free plan page read on 2026-11-24",
-  "evidence": [
-    {
-      "url": "https://fly.io/pricing",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://fly.io/pricing",
-      "date": "2026-10-22",
-      "proved": "'Compute bills by the second, storage on what you provision. No plans to pick.' with 'Suspended, it uses no compute' and 'storage are metered per hour of active use; a Sprite that exists but does', plus the preset ladder from 'shared-cpu-1x · 256MB $0.0030 per hour' to 'performance-10x · 20GB $0.4584', quoted"
-    },
-    {
-      "url": "https://docs.fly.io/about/free-plan.md",
-      "date": "2026-11-24",
-      "proved": "the Free plan credit amounts and card gate",
-      "capture": "sha256:a94c3708f3c6e544421257aeffafb0875cc1d917c9222594e588401b7213afe9",
-      "quote": "Every new Fly.io account starts on the Free plan. You get \\$1 of credit no credit card, and \\$5 of usage every month once you add a card."
-    },
-    {
-      "url": "https://docs.fly.io/about/free-plan.md",
-      "date": "2026-11-24",
-      "proved": "the free allowance is a credit amount",
-      "capture": "sha256:a94c3708f3c6e544421257aeffafb0875cc1d917c9222594e588401b7213afe9",
-      "quote": "Without a credit card:** you get **\\$1 of credit** when you create your account. It"
-    },
-    {
-      "url": "https://fly.io/pricing",
-      "date": "2026-11-24",
-      "proved": "usage is metered by time",
-      "capture": "sha256:6d197e1c2f9cedc47f1e44e490462d4e39554adc04c2e91f6c5040a07ade39d9",
-      "quote": "Compute bills by the second, storage on what you provision."
-    },
-    {
-      "url": "https://fly.io/app/sign-up/?plan=free",
-      "date": "2026-11-24",
-      "proved": "the sign-up accepts email, Google or GitHub",
-      "capture": "sha256:dbb9e3db78167ce67ceeaed0e04fbc0369a9e570bfae34f7aa7e917e1ab6dba3",
-      "quote": "Create my Fly.io account. This opens the sign-up page in my browser, where I can use my email address, Google account, or GitHub account."
-    },
-    {
-      "url": "https://fly.io/pricing",
-      "date": "2026-11-24",
-      "proved": "the egress rate for North America and Europe",
-      "capture": "sha256:6d197e1c2f9cedc47f1e44e490462d4e39554adc04c2e91f6c5040a07ade39d9",
-      "quote": "| Egress, North America and Europe | $0.02 / GB |"
-    },
-    {
-      "url": "https://fly.io/pricing",
-      "date": "2026-11-24",
-      "proved": "egress is metered",
-      "capture": "sha256:6d197e1c2f9cedc47f1e44e490462d4e39554adc04c2e91f6c5040a07ade39d9",
-      "quote": "Egress, North America and Europe"
-    },
-    {
-      "url": "https://fly.io/pricing",
-      "date": "2026-11-24",
-      "proved": "the monthly credit can pay for bandwidth",
-      "capture": "sha256:6d197e1c2f9cedc47f1e44e490462d4e39554adc04c2e91f6c5040a07ade39d9",
-      "quote": "The $5 covers Machines, Sprites, volumes, bandwidth and networking, and a Developer Managed Postgres database."
-    },
-    {
-      "url": "https://docs.fly.io/about/free-plan.md",
-      "date": "2026-11-24",
-      "proved": "a free credit exists but continued use needs a card",
-      "capture": "sha256:a94c3708f3c6e544421257aeffafb0875cc1d917c9222594e588401b7213afe9",
-      "quote": "No. Without a card, you get a one-time \\$1 of credit that lasts 7 days. With a card, you get \\$5 of usage every month."
-    },
-    {
-      "url": "https://fly.io/app/sign-up/?plan=free",
-      "date": "2026-11-24",
-      "proved": "the documented client is the flyctl CLI",
-      "capture": "sha256:dbb9e3db78167ce67ceeaed0e04fbc0369a9e570bfae34f7aa7e917e1ab6dba3",
-      "quote": "1. Install flyctl:\n   curl -L https://fly.io/install.sh | sh"
-    },
-    {
-      "url": "https://fly.io/app/sign-up/?plan=free",
-      "date": "2026-11-24",
-      "proved": "flyctl deploys and manages apps",
-      "capture": "sha256:dbb9e3db78167ce67ceeaed0e04fbc0369a9e570bfae34f7aa7e917e1ab6dba3",
-      "quote": "3. From inside my project source directory, launch my app. This detects my framework, generates a Dockerfile and fly.toml if needed, and deploys it to Machines:"
-    },
-    {
-      "url": "https://fly.io/pricing",
-      "date": "2026-11-24",
-      "proved": "the machine price ladder is unchanged",
-      "capture": "sha256:6d197e1c2f9cedc47f1e44e490462d4e39554adc04c2e91f6c5040a07ade39d9",
-      "quote": "| shared-cpu-1x · 256MB | $0.0030 | $2.19 |"
-    },
-    {
-      "url": "https://docs.fly.io/about/free-plan.md",
-      "date": "2026-11-24",
-      "proved": "a new Free organization with a card also gets a USD 30 Sprites credit, used before the monthly USD 5",
-      "capture": "sha256:a94c3708f3c6e544421257aeffafb0875cc1d917c9222594e588401b7213afe9",
-      "quote": "New Free organizations with a card also get the \\$30 Sprites credit, which is used before the \\$5."
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T13:21:04.871Z",
-  "price_per_tb_month": null,
-  "notes": "",
-  "extras": {
-    "seed_status": "ranked",
-    "talaria_m10h_usd": 69.2,
-    "talaria_m24h_usd": 138.08,
-    "nemo_m10h_usd": 24.76,
-    "keep_rate": 1.0,
-    "keep_rate_basis": "billed for uptime (no suspension feature published)",
-    "billing_model": "unclassified",
-    "shape": {
-      "vcpu": 1,
-      "ram": 0.25,
-      "disk": null,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "shared-cpu-1x with 256 MB is the cheapest preset at $0.0030 an hour"
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "a suspended Sprite uses no compute; the page states no automatic reap"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "granularity": {
-      "min_billed_s": 0,
-      "rounding_s": null
-    },
-    "burst_x": 1.0,
-    "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "ps": {
-      "gib": null,
-      "price": "storage bills on provisioned size, per hour of active use",
-      "durability": "volume",
-      "on_stop": true,
-      "on_destroy": false,
-      "retention": "while the volume exists"
-    },
-    "net": {
-      "out": true,
-      "in": true,
-      "ports": "anycast",
-      "static_ip": true,
-      "ipv6": true,
-      "allowance": null
-    }
+  {
+   "url": "https://fly.io/pricing",
+   "date": "2026-11-25",
+   "proved": "the page states the Free plan supplies $5 of usage every month once a card is added",
+   "capture": "sha256:6d197e1c2f9cedc47f1e44e490462d4e39554adc04c2e91f6c5040a07ade39d9",
+   "quote": "The Free plan gives $5 of usage every month after you add a card."
   },
-  "stale": true,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding": "request-rate",
-  "history": [
-    "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
-  ]
+  {
+   "url": "https://docs.fly.io/about/free-plan.md",
+   "date": "2026-11-24",
+   "proved": "the Free plan credit amounts and card gate",
+   "capture": "sha256:a94c3708f3c6e544421257aeffafb0875cc1d917c9222594e588401b7213afe9",
+   "quote": "Every new Fly.io account starts on the Free plan. You get \\$1 of credit no credit card, and \\$5 of usage every month once you add a card."
+  },
+  {
+   "url": "https://docs.fly.io/about/free-plan.md",
+   "date": "2026-11-24",
+   "proved": "the free allowance is a credit amount",
+   "capture": "sha256:a94c3708f3c6e544421257aeffafb0875cc1d917c9222594e588401b7213afe9",
+   "quote": "Without a credit card:** you get **\\$1 of credit** when you create your account. It"
+  },
+  {
+   "url": "https://fly.io/pricing",
+   "date": "2026-11-24",
+   "proved": "usage is metered by time",
+   "capture": "sha256:6d197e1c2f9cedc47f1e44e490462d4e39554adc04c2e91f6c5040a07ade39d9",
+   "quote": "Compute bills by the second, storage on what you provision."
+  },
+  {
+   "url": "https://fly.io/app/sign-up/?plan=free",
+   "date": "2026-11-24",
+   "proved": "the sign-up accepts email, Google or GitHub",
+   "capture": "sha256:dbb9e3db78167ce67ceeaed0e04fbc0369a9e570bfae34f7aa7e917e1ab6dba3",
+   "quote": "Create my Fly.io account. This opens the sign-up page in my browser, where I can use my email address, Google account, or GitHub account."
+  },
+  {
+   "url": "https://fly.io/pricing",
+   "date": "2026-11-24",
+   "proved": "the egress rate for North America and Europe",
+   "capture": "sha256:6d197e1c2f9cedc47f1e44e490462d4e39554adc04c2e91f6c5040a07ade39d9",
+   "quote": "| Egress, North America and Europe | $0.02 / GB |"
+  },
+  {
+   "url": "https://fly.io/pricing",
+   "date": "2026-11-24",
+   "proved": "egress is metered",
+   "capture": "sha256:6d197e1c2f9cedc47f1e44e490462d4e39554adc04c2e91f6c5040a07ade39d9",
+   "quote": "Egress, North America and Europe"
+  },
+  {
+   "url": "https://fly.io/pricing",
+   "date": "2026-11-24",
+   "proved": "the monthly credit can pay for bandwidth",
+   "capture": "sha256:6d197e1c2f9cedc47f1e44e490462d4e39554adc04c2e91f6c5040a07ade39d9",
+   "quote": "The $5 covers Machines, Sprites, volumes, bandwidth and networking, and a Developer Managed Postgres database."
+  },
+  {
+   "url": "https://docs.fly.io/about/free-plan.md",
+   "date": "2026-11-24",
+   "proved": "a free credit exists but continued use needs a card",
+   "capture": "sha256:a94c3708f3c6e544421257aeffafb0875cc1d917c9222594e588401b7213afe9",
+   "quote": "No. Without a card, you get a one-time \\$1 of credit that lasts 7 days. With a card, you get \\$5 of usage every month."
+  },
+  {
+   "url": "https://fly.io/app/sign-up/?plan=free",
+   "date": "2026-11-24",
+   "proved": "the documented client is the flyctl CLI",
+   "capture": "sha256:dbb9e3db78167ce67ceeaed0e04fbc0369a9e570bfae34f7aa7e917e1ab6dba3",
+   "quote": "1. Install flyctl:\n   curl -L https://fly.io/install.sh | sh"
+  },
+  {
+   "url": "https://fly.io/app/sign-up/?plan=free",
+   "date": "2026-11-24",
+   "proved": "flyctl deploys and manages apps",
+   "capture": "sha256:dbb9e3db78167ce67ceeaed0e04fbc0369a9e570bfae34f7aa7e917e1ab6dba3",
+   "quote": "3. From inside my project source directory, launch my app. This detects my framework, generates a Dockerfile and fly.toml if needed, and deploys it to Machines:"
+  },
+  {
+   "url": "https://fly.io/pricing",
+   "date": "2026-11-24",
+   "proved": "the machine price ladder is unchanged",
+   "capture": "sha256:6d197e1c2f9cedc47f1e44e490462d4e39554adc04c2e91f6c5040a07ade39d9",
+   "quote": "| shared-cpu-1x · 256MB | $0.0030 | $2.19 |"
+  },
+  {
+   "url": "https://docs.fly.io/about/free-plan.md",
+   "date": "2026-11-24",
+   "proved": "a new Free organization with a card also gets a USD 30 Sprites credit, used before the monthly USD 5",
+   "capture": "sha256:a94c3708f3c6e544421257aeffafb0875cc1d917c9222594e588401b7213afe9",
+   "quote": "New Free organizations with a card also get the \\$30 Sprites credit, which is used before the \\$5."
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T15:03:49.561Z",
+ "price_per_tb_month": null,
+ "notes": "The Free plan at $0/mo is free every month, with a $1 starter credit and no card required; the $5 monthly usage applies after a card is added. Sprites bill by CPU-hour, GB-hour of memory and GB-hour of storage; a Sprite that does nothing costs nothing beyond its stored data. Machine presets bill by the second from $0.0030 an hour for shared-cpu-1x with 256MB up to $0.4584 an hour for performance-10x with 20GB.",
+ "extras": {
+  "seed_status": "ranked",
+  "talaria_m10h_usd": 69.2,
+  "talaria_m24h_usd": 138.08,
+  "nemo_m10h_usd": 24.76,
+  "keep_rate": 1.0,
+  "keep_rate_basis": "billed for uptime (no suspension feature published)",
+  "billing_model": "unclassified",
+  "shape": {
+   "vcpu": 1,
+   "ram": 0.25,
+   "disk": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "shared-cpu-1x with 256 MB is the cheapest preset at $0.0030 an hour"
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "a suspended Sprite uses no compute; the page states no automatic reap"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "granularity": {
+   "min_billed_s": 0,
+   "rounding_s": null
+  },
+  "burst_x": 1.0,
+  "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "ps": {
+   "gib": null,
+   "price": "storage bills on provisioned size, per hour of active use",
+   "durability": "volume",
+   "on_stop": true,
+   "on_destroy": false,
+   "retention": "while the volume exists"
+  },
+  "net": {
+   "out": true,
+   "in": true,
+   "ports": "anycast",
+   "static_ip": true,
+   "ipv6": true,
+   "allowance": null
+  }
+ },
+ "stale": true,
+ "stale_checked_at": "2026-10-22T00:00:00.000Z",
+ "binding": "request-rate",
+ "history": [
+  "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
+ ]
 }

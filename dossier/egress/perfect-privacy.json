@@ -58,7 +58,7 @@
     "detail": "unverified beyond the order flow: a plan is selected and paid for before use; the payment and registration fields were not read because every perfect-privacy.com path returned a broker 530.",
     "country": "None"
   },
-  "reliability_note": "The host www.perfect-privacy.com did not resolve (DNS error) on the live probe of 2026-11-04.",
+  "reliability_note": "unverified: the host of https://www.perfect-privacy.com/en/software did not resolve; no live page is available, an archived copy of 2025 is the latest content",
   "confidence": "reported",
   "confidence_note": "Every direct read of perfect-privacy.com, across four paths and two hosts, returned a broker 530, so the forwarding, price and protocol facts are the vendor's own pages as indexed by the search provider rather than pages this lane rendered. One vendor page was reached through a 2025-08-05 archive capture. A live read would raise this to documented and is the single cheapest improvement in this lane.",
   "evidence": [
@@ -130,6 +130,13 @@
       "proved": "the live host did not resolve on the probe date",
       "capture": "sha256:9766e223d4ee01404a46841f138d9036bdcd3fe92a49b541d777a2f3e0841422",
       "quote": "\"error\": \"dns\""
+    },
+    {
+      "url": "probe:www.perfect-privacy.com",
+      "date": "2026-11-25",
+      "proved": "the live probe of the vendor page failed on name resolution",
+      "capture": "sha256:d98e0485f95b6eb4ef4d111dc53878147890cdaaa3b06a1999cf1e41fd91bfd5",
+      "quote": "\"status\": null"
     }
   ],
   "verdict": "paid-only",

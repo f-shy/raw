@@ -1,189 +1,259 @@
 {
-  "topic": "compute",
-  "slug": "nomac",
-  "provider": "NoMac",
-  "url": "https://nomac.app/docs/pricing",
-  "category": "cloud Mac sandbox",
-  "tier": "NoMac Session, pay as you go",
-  "free_tier": {
-    "stated": "No free tier is stated. Mac time is prepaid credit at USD 0.90 an hour, sold in USD 10 packs of 11.1 hours; the credit never expires and there is no subscription. A 7-day money-back guarantee applies to a first purchase.",
-    "unit": "none",
-    "metered_on": "wall-clock",
-    "source_url": "https://nomac.app/docs/pricing",
-    "read_on": "2026-11-24",
-    "notes": "The refund guarantee is a money-back term, not a free allowance."
+ "topic": "compute",
+ "slug": "nomac",
+ "provider": "NoMac",
+ "url": "https://nomac.app/",
+ "category": "on-demand cloud Mac for agents",
+ "tier": "Pay as you go, prepaid credit",
+ "free_tier": {
+  "stated": "no free tier; USD 0.90 an hour billed per minute with a one-minute minimum, paid from prepaid credit sold in USD 10 packs that never expires; there is no subscription",
+  "unit": "none",
+  "metered_on": "wall-clock",
+  "source_url": "https://nomac.app/",
+  "read_on": "2026-11-25",
+  "notes": "The landing page gives a five-minute TestFlight session as 7.5 cents. Larger top-ups lower the rate to USD 0.60 an hour, and a 7-day money-back guarantee applies to the first purchase. A job under a minute is billed as one minute."
+ },
+ "per_object_cap": {
+  "stated": "not an object-storage offer; 20 GB of encrypted persistent drive is kept per Mac between sessions",
+  "bytes": null,
+  "source_url": "https://nomac.app/",
+  "notes": "The 20 GB figure is the persistent drive, not a per-file limit."
+ },
+ "retention": {
+  "stated": "the Mac and every file outside ~/drive are deleted when the session stops; the encrypted 20 GB drive at ~/drive persists between sessions",
+  "days": null,
+  "source_url": "https://nomac.app/install"
+ },
+ "egress": {
+  "terms": "not published as a transfer allowance or per-GB price; upload and download links go through *.r2.cloudflarestorage.com and the Mac has internet access",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://nomac.app/install"
+ },
+ "interface": [
+  "ssh",
+  "rest",
+  "browser",
+  "cli"
+ ],
+ "interface_detail": "MCP over streamable HTTP at mcp.nomac.app/mcp, an @nomac/cli command-line tool, a REST API, SSH into the running Mac, and a browser desktop to watch or take over the session",
+ "tooling": "Node 20 or later and OpenSSH for the CLI; an MCP client such as Claude Code, Codex, Cursor, VS Code or ChatGPT; the hosted MCP needs only a sign-in",
+ "chaining": "an agent opens a disposable Mac over MCP, builds an iOS app with the preinstalled Xcode 27, uploads to TestFlight and stops the machine, with the persistent drive carrying build caches for later runs.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "USD 0.90 an hour billed per minute, one-minute minimum, prepaid in USD 10 packs; no automatic overage",
+   "source": "https://nomac.app/install"
   },
-  "per_object_cap": {
-    "stated": "a 20 GB encrypted drive at ~/drive is kept between sessions; a file in a call is 3 MiB, and an upload or download link is 2 GiB",
-    "source_url": "https://nomac.app/docs/limits"
+  {
+   "kind": "retention-clamped",
+   "value": "a session stops after 10 idle minutes or 2 hours by default, and every session has a spending cap",
+   "source": "https://nomac.app/"
   },
-  "retention": {
-    "stated": "Stopping a Mac deletes it and every file outside its drive. A drive is deleted after 30 days without a session; saved states for Simulators last until deleted or 90 days after the last Simulator, and replays 7 days.",
-    "days": 30,
-    "source_url": "https://nomac.app/terms"
-  },
-  "egress": {
-    "terms": "The Mac has outbound internet from the session; there is no published egress price or per-session byte allowance. Upload and download links move up to 2 GiB each and files travel through *.r2.cloudflarestorage.com.",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://nomac.app/docs/limits"
-  },
-  "interface": [
-    "rest",
-    "cli",
-    "chat",
-    "ssh",
-    "browser"
-  ],
-  "interface_detail": "Drive the Mac over hosted MCP at mcp.nomac.app/mcp, the CLI, the REST API at https://nomac.app/api/v1, or SSH; the desktop is viewable in a browser.",
-  "endpoint": "https://nomac.app/api/v1",
-  "tooling": "Hosted MCP servers, the @nomac/cli CLI, the @nomac/sdk and nomac Python SDK, REST API, and SSH into the Mac.",
-  "chaining": "The 20 GB drive at ~/drive keeps build caches between sessions, and a Mac can be driven from a coding agent in a separate sandbox over MCP or HTTPS.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "USD 0.90 an hour, billed per minute with a one-minute minimum from prepaid credit; credit is sold in USD 10 packs of 11.1 hours, 1 to 100 per purchase, and each Mac has a USD 5 spend cap by default.",
-      "source": "https://nomac.app/docs/pricing"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "A Mac stops after 2 hours by default, with no longest duration; the idle timeout is 10 minutes by default and up to 60, and 1 Mac runs at once by default (up to 5 on request).",
-      "source": "https://nomac.app/docs/limits"
-    }
-  ],
-  "limits_note": "A single command runs up to 1 hour and its retained output is the first 8 MiB plus the last 64 KiB of each stream; the included drives per account are 10.",
-  "binding": "volume-quota",
-  "binding_note": "The per-minute charge against prepaid credit and the USD 5 default spend cap end the session before the 2-hour default time limit at the published rate.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "Signing in at nomac.app/sign-in creates an account; the page offers Apple sign-in. Buying credit is a separate dashboard step at nomac.app/dash, and agents are told to hand the human a payment link rather than enter payment details. The exact signup fields are unverified: behind a sign-in that was not completed.",
-    "country": null
-  },
-  "reliability_note": "A disconnected SSH session does not stop billing; a drive save can be lost if a Mac fails before the upload finishes, so the drive is not a backup. The service may queue, limit or pause use to protect the service.",
-  "confidence": "documented",
-  "confidence_note": "Rates, credit model, session limits, interfaces and retention are quoted from first-party pages read on 2026-11-24; the exact signup fields are not published on the sign-in page.",
-  "evidence": [
-    {
-      "url": "https://nomac.app/docs/pricing",
-      "date": "2026-11-24",
-      "proved": "the published rate is USD 0.90 an hour or 1.5 cents a minute, billed per minute from prepaid credit with no subscription",
-      "capture": "sha256:a88c4a2ccfa59ecb8ec2a5b045d0fd4858a1f5b880004870c1973b2abe426981",
-      "quote": "$0.90 an hour for a Mac or a phone (1.5¢ a minute), billed per minute from prepaid credit. No subscription, no minimum term."
-    },
-    {
-      "url": "https://nomac.app/docs/pricing",
-      "date": "2026-11-24",
-      "proved": "billing covers ready time only, with a one-minute minimum",
-      "capture": "sha256:a88c4a2ccfa59ecb8ec2a5b045d0fd4858a1f5b880004870c1973b2abe426981",
-      "quote": "**Ready time only.** Billing runs while the machine is ready, in whole minutes, one minute at least. Waiting for one and setting it up are free."
-    },
-    {
-      "url": "https://nomac.app/docs/pricing",
-      "date": "2026-11-24",
-      "proved": "credit is sold in USD 10 packs of 11.1 hours and never expires",
-      "capture": "sha256:a88c4a2ccfa59ecb8ec2a5b045d0fd4858a1f5b880004870c1973b2abe426981",
-      "quote": "$10 packs of 11.1 hours, 1 to 100 at a time. Credit never expires, and nothing renews."
-    },
-    {
-      "url": "https://nomac.app/docs/pricing",
-      "date": "2026-11-24",
-      "proved": "each Mac has a USD 5 default spend cap",
-      "capture": "sha256:a88c4a2ccfa59ecb8ec2a5b045d0fd4858a1f5b880004870c1973b2abe426981",
-      "quote": "Every Mac also has a spend cap, $5 unless your agent sets another, so a forgotten Mac never empties the account. See [Limits](https://nomac.app/docs/limits)."
-    },
-    {
-      "url": "https://nomac.app/docs/pricing",
-      "date": "2026-11-24",
-      "proved": "the price has been USD 0.90 an hour since 1 November 2026",
-      "capture": "sha256:a88c4a2ccfa59ecb8ec2a5b045d0fd4858a1f5b880004870c1973b2abe426981",
-      "quote": "The price is $0.90 an hour since November 1, 2026. Credit bought before then keeps the hours it bought: we added the difference to each account as promotional credit."
-    },
-    {
-      "url": "https://nomac.app/docs/limits",
-      "date": "2026-11-24",
-      "proved": "default session length 2 hours, idle stop after 10 minutes, and 1 Mac at once by default",
-      "capture": "sha256:30a4869d538bce706ed00655f1ab8bf160a6730ef0db5dd333effcaeed70855d",
-      "quote": "Session length\n\n2 hours by default, with no longest; `extend_mac` or `nomac extend` adds time. A phone runs up to 8 hours.\n\nIdle stop\n\nAfter 10 minutes without a command, SSH connection or desktop viewer, up to 60.\n\nSpend cap\n\n$5 per Mac by default, enough for 5 hours 33 minutes, set at each start."
-    },
-    {
-      "url": "https://nomac.app/docs/limits",
-      "date": "2026-11-24",
-      "proved": "a 20 GB drive at ~/drive is kept between sessions, with 10 included per account",
-      "capture": "sha256:30a4869d538bce706ed00655f1ab8bf160a6730ef0db5dd333effcaeed70855d",
-      "quote": "One per Mac at `~/drive`, 20 GB each, kept between sessions; 10 included per account, and a drive you name past them costs 1¢ per GB of changed data at each save. Deleted after 30 days without a session."
-    },
-    {
-      "url": "https://nomac.app/docs/limits",
-      "date": "2026-11-24",
-      "proved": "an upload or download link is 2 GiB and a command outputs at most 8 MiB plus a tail",
-      "capture": "sha256:30a4869d538bce706ed00655f1ab8bf160a6730ef0db5dd333effcaeed70855d",
-      "quote": "Upload or download link\n\n2 GiB. A download link works for an hour by default, a day at most."
-    },
-    {
-      "url": "https://nomac.app/",
-      "date": "2026-11-24",
-      "proved": "the Mac has root access, Xcode 27 and iOS Simulator, and is driven over MCP, CLI, API or SSH",
-      "capture": "sha256:0d4ef39c1920967106e46d16f87cf5e21dba4cad27886f4c18321c10bc5b8039",
-      "quote": "On-demand cloud macOS for AI agents.  \n Short-lived, disposable sessions, billed by the minute."
-    },
-    {
-      "url": "https://nomac.app/terms",
-      "date": "2026-11-24",
-      "proved": "credit is prepaid with no subscription, billed by the minute with a one-minute minimum, and there are no overage charges",
-      "capture": "sha256:a6cb5f7e5116a103a20d5668eaa6aaa1485048d481aa5fd25be1b3bb7b5baa76",
-      "quote": "NoMac is paid for with prepaid credit. Polar sells credit as our merchant of record and handles payment, tax and invoices. There is no subscription and nothing renews. Credit does not expire."
-    },
-    {
-      "url": "https://nomac.app/terms",
-      "date": "2026-11-24",
-      "proved": "stopping deletes files outside the drive and the drive is deleted after 30 days without a session",
-      "capture": "sha256:a6cb5f7e5116a103a20d5668eaa6aaa1485048d481aa5fd25be1b3bb7b5baa76",
-      "quote": "A drive keeps your files between sessions. A drive is deleted after 30 days without a session, when you reset it, or when your platform deletes its user's data."
-    },
-    {
-      "url": "https://nomac.app/sign-in",
-      "date": "2026-11-24",
-      "proved": "signing in creates an account and offers Apple sign-in; no other identity field is stated on that page",
-      "capture": "sha256:ff383ee1f25732a12439b915f41fcf3a2194f71b487c51ac11acdbfd3413090e",
-      "quote": "New to NoMac? Signing in creates your account.\n\nSigned up with Apple? Continue with Apple."
-    },
-    {
-      "url": "https://nomac.app/install",
-      "date": "2026-11-24",
-      "proved": "the human buys credit at the dashboard and an agent is told never to enter payment details",
-      "capture": "sha256:25ffdb34ccbd6c17c33c7b4e2cfde848d0456a4eb40118197038c59f6f597f21",
-      "quote": "Sign in at https://nomac.app/dash and add credit: $10 to $1,000, at $0.90 an hour, billed per minute ($10 = 11.1 hours). Credit never expires. No subscription, no Apple setup required. Agents can buy for you: nomac credits buy --packs 1 opens a payment link."
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T10:11:14.949Z",
-  "price_per_tb_month": null,
-  "notes": "An on-demand macOS VM with Xcode 27 for agents, billed at USD 0.90 an hour from prepaid credit with a one-minute minimum. A build example on the same page puts five minutes at 7.5 cents and an eight-hour day at USD 7.20. There is no free tier; the 20 GB ~/drive is the only state kept between sessions.",
-  "extras": {
-    "shape": {
-      "vcpu": "6 cores for CI jobs",
-      "ram_gib": "8 GB for CI jobs",
-      "disk_gib": 20,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "macOS 26.6.2 on Apple silicon with Xcode 27.2; session shape is not stated on the pricing page"
-    },
-    "billing_model": "prepaid credit, per-minute ready time, one-minute minimum, no automatic overage",
-    "term": "no subscription",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": null,
-      "ports": "not published",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": 120,
-      "idle_reap_s": 600,
-      "restart_required": false,
-      "note": "2-hour default with no longest; 10-minute idle default; USD 5 spend cap"
-    }
+  {
+   "kind": "write-gated",
+   "value": "signing in creates the account; prepaid credit must be added before a Mac can start",
+   "source": "https://nomac.app/sign-in?next=/dash"
   }
+ ],
+ "limits_note": "A Mac takes about 30 seconds to become ready. Queue and setup time are free; ready time includes time between commands. A disconnect does not stop billing. App Store submission requires an Apple Developer account, supplied by the user.",
+ "binding": "volume-quota",
+ "binding_note": "The per-minute prepaid credit meter and the one-minute minimum are what a short job hits first; the idle and two-hour caps stop longer sessions.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "the sign-in page says that signing in creates the account and offers Apple sign-in; the setup guide says to sign in at nomac.app and add credit of USD 10 to USD 1000, with agents able to open a payment link. Credit is prepaid through a payment link, not charged automatically; no phone or ID document is requested on the sign-in page.",
+  "country": null
+ },
+ "reliability_note": "Every session uses a fresh Mac that is deleted on stop; a disconnect does not stop billing, so the session must be stopped explicitly or it reaps after 10 idle minutes or 2 hours. Larger top-ups lower the hourly rate and credit never expires.",
+ "confidence": "documented",
+ "confidence_note": "the landing page, install guide, CLI reference and sign-in page were read on 2026-11-25; the quoted lines establish the price, billing minimum, reaping rules, storage, access paths and signup gate. No account, credit purchase or Mac session was created, so the rung is documented rather than measured.",
+ "evidence": [
+  {
+   "url": "https://nomac.app/",
+   "date": "2026-11-25",
+   "proved": "the service sells on-demand cloud macOS for agents at USD 0.90 an hour billed per minute with no subscription",
+   "capture": "sha256:0d4ef39c1920967106e46d16f87cf5e21dba4cad27886f4c18321c10bc5b8039",
+   "quote": "$0.90\n\nan hour, billed per minute.\n\nPay as you go, no subscription. Your credit never expires."
+  },
+  {
+   "url": "https://nomac.app/",
+   "date": "2026-11-25",
+   "proved": "each Mac gets a 20 GB encrypted drive kept between sessions",
+   "capture": "sha256:0d4ef39c1920967106e46d16f87cf5e21dba4cad27886f4c18321c10bc5b8039",
+   "quote": "An encrypted drive for every Mac, kept between sessions."
+  },
+  {
+   "url": "https://nomac.app/",
+   "date": "2026-11-25",
+   "proved": "sessions stop after 10 idle minutes or 2 hours by default with a per-session spending cap",
+   "capture": "sha256:0d4ef39c1920967106e46d16f87cf5e21dba4cad27886f4c18321c10bc5b8039",
+   "quote": "It stops on its own after 10 idle minutes or 2 hours by default, and every session has a spending cap."
+  },
+  {
+   "url": "https://nomac.app/",
+   "date": "2026-11-25",
+   "proved": "App Store submission needs an Apple Developer account supplied by the user",
+   "capture": "sha256:0d4ef39c1920967106e46d16f87cf5e21dba4cad27886f4c18321c10bc5b8039",
+   "quote": "Yes. Your agent signs your app, uploads it to TestFlight and submits it for review. You need an Apple Developer account."
+  },
+  {
+   "url": "https://nomac.app/install",
+   "date": "2026-11-25",
+   "proved": "the setup asks for a sign-in and prepaid credit of USD 10 to USD 1000 at USD 0.90 an hour with no subscription or Apple setup needed",
+   "capture": "sha256:25ffdb34ccbd6c17c33c7b4e2cfde848d0456a4eb40118197038c59f6f597f21",
+   "quote": "Sign in at https://nomac.app/dash and add credit: $10 to $1,000, at $0.90 an hour, billed per minute ($10 = 11.1 hours). Credit never expires. No subscription, no Apple setup required."
+  },
+  {
+   "url": "https://nomac.app/install",
+   "date": "2026-11-25",
+   "proved": "a one-minute minimum applies and there is no automatic overage",
+   "capture": "sha256:25ffdb34ccbd6c17c33c7b4e2cfde848d0456a4eb40118197038c59f6f597f21",
+   "quote": "One-minute minimum, then billed per minute. No automatic overage."
+  },
+  {
+   "url": "https://nomac.app/install",
+   "date": "2026-11-25",
+   "proved": "the Mac is reached over MCP, the CLI, the API or SSH, and uploaded files travel through Cloudflare R2",
+   "capture": "sha256:25ffdb34ccbd6c17c33c7b4e2cfde848d0456a4eb40118197038c59f6f597f21",
+   "quote": "An agent in a sandbox that limits the network needs nomac.app and *.nomac.app allowed, and *.r2.cloudflarestorage.com for upload and download links, whose files travel there."
+  },
+  {
+   "url": "https://nomac.app/docs/cli",
+   "date": "2026-11-25",
+   "proved": "SSH access and a default two-hour session with a USD 5 spending cap are offered",
+   "capture": "sha256:8d1160e060705e60af403cfd79cdfeaef149e6c4a0e19814ffb18275c9224f63",
+   "quote": "nomac start\n\nStarts a Mac, or reconnects to this folder's. It runs 2 hours by default (`--max-duration` sets longer, with no longest), stops after 10 idle minutes (`--idle-timeout`) and spends $5 at most (`--max-cost`)."
+  },
+  {
+   "url": "https://nomac.app/sign-in?next=/dash",
+   "date": "2026-11-25",
+   "proved": "signing in creates the account and Apple sign-in is available",
+   "capture": "sha256:ff383ee1f25732a12439b915f41fcf3a2194f71b487c51ac11acdbfd3413090e",
+   "quote": "New to NoMac? Signing in creates your account.\n\nSigned up with Apple? Continue with Apple."
+  },
+  {
+   "url": "https://nomac.app/docs/pricing",
+   "date": "2026-11-24",
+   "proved": "the published rate is USD 0.90 an hour or 1.5 cents a minute, billed per minute from prepaid credit with no subscription",
+   "capture": "sha256:a88c4a2ccfa59ecb8ec2a5b045d0fd4858a1f5b880004870c1973b2abe426981",
+   "quote": "$0.90 an hour for a Mac or a phone (1.5¢ a minute), billed per minute from prepaid credit. No subscription, no minimum term."
+  },
+  {
+   "url": "https://nomac.app/docs/pricing",
+   "date": "2026-11-24",
+   "proved": "billing covers ready time only, with a one-minute minimum",
+   "capture": "sha256:a88c4a2ccfa59ecb8ec2a5b045d0fd4858a1f5b880004870c1973b2abe426981",
+   "quote": "**Ready time only.** Billing runs while the machine is ready, in whole minutes, one minute at least. Waiting for one and setting it up are free."
+  },
+  {
+   "url": "https://nomac.app/docs/pricing",
+   "date": "2026-11-24",
+   "proved": "credit is sold in USD 10 packs of 11.1 hours and never expires",
+   "capture": "sha256:a88c4a2ccfa59ecb8ec2a5b045d0fd4858a1f5b880004870c1973b2abe426981",
+   "quote": "$10 packs of 11.1 hours, 1 to 100 at a time. Credit never expires, and nothing renews."
+  },
+  {
+   "url": "https://nomac.app/docs/pricing",
+   "date": "2026-11-24",
+   "proved": "each Mac has a USD 5 default spend cap",
+   "capture": "sha256:a88c4a2ccfa59ecb8ec2a5b045d0fd4858a1f5b880004870c1973b2abe426981",
+   "quote": "Every Mac also has a spend cap, $5 unless your agent sets another, so a forgotten Mac never empties the account. See [Limits](https://nomac.app/docs/limits)."
+  },
+  {
+   "url": "https://nomac.app/docs/pricing",
+   "date": "2026-11-24",
+   "proved": "the price has been USD 0.90 an hour since 1 November 2026",
+   "capture": "sha256:a88c4a2ccfa59ecb8ec2a5b045d0fd4858a1f5b880004870c1973b2abe426981",
+   "quote": "The price is $0.90 an hour since November 1, 2026. Credit bought before then keeps the hours it bought: we added the difference to each account as promotional credit."
+  },
+  {
+   "url": "https://nomac.app/docs/limits",
+   "date": "2026-11-24",
+   "proved": "default session length 2 hours, idle stop after 10 minutes, and 1 Mac at once by default",
+   "capture": "sha256:30a4869d538bce706ed00655f1ab8bf160a6730ef0db5dd333effcaeed70855d",
+   "quote": "Session length\n\n2 hours by default, with no longest; `extend_mac` or `nomac extend` adds time. A phone runs up to 8 hours.\n\nIdle stop\n\nAfter 10 minutes without a command, SSH connection or desktop viewer, up to 60.\n\nSpend cap\n\n$5 per Mac by default, enough for 5 hours 33 minutes, set at each start."
+  },
+  {
+   "url": "https://nomac.app/docs/limits",
+   "date": "2026-11-24",
+   "proved": "a 20 GB drive at ~/drive is kept between sessions, with 10 included per account",
+   "capture": "sha256:30a4869d538bce706ed00655f1ab8bf160a6730ef0db5dd333effcaeed70855d",
+   "quote": "One per Mac at `~/drive`, 20 GB each, kept between sessions; 10 included per account, and a drive you name past them costs 1¢ per GB of changed data at each save. Deleted after 30 days without a session."
+  },
+  {
+   "url": "https://nomac.app/docs/limits",
+   "date": "2026-11-24",
+   "proved": "an upload or download link is 2 GiB and a command outputs at most 8 MiB plus a tail",
+   "capture": "sha256:30a4869d538bce706ed00655f1ab8bf160a6730ef0db5dd333effcaeed70855d",
+   "quote": "Upload or download link\n\n2 GiB. A download link works for an hour by default, a day at most."
+  },
+  {
+   "url": "https://nomac.app/",
+   "date": "2026-11-24",
+   "proved": "the Mac has root access, Xcode 27 and iOS Simulator, and is driven over MCP, CLI, API or SSH",
+   "capture": "sha256:0d4ef39c1920967106e46d16f87cf5e21dba4cad27886f4c18321c10bc5b8039",
+   "quote": "On-demand cloud macOS for AI agents.  \n Short-lived, disposable sessions, billed by the minute."
+  },
+  {
+   "url": "https://nomac.app/terms",
+   "date": "2026-11-24",
+   "proved": "credit is prepaid with no subscription, billed by the minute with a one-minute minimum, and there are no overage charges",
+   "capture": "sha256:a6cb5f7e5116a103a20d5668eaa6aaa1485048d481aa5fd25be1b3bb7b5baa76",
+   "quote": "NoMac is paid for with prepaid credit. Polar sells credit as our merchant of record and handles payment, tax and invoices. There is no subscription and nothing renews. Credit does not expire."
+  },
+  {
+   "url": "https://nomac.app/terms",
+   "date": "2026-11-24",
+   "proved": "stopping deletes files outside the drive and the drive is deleted after 30 days without a session",
+   "capture": "sha256:a6cb5f7e5116a103a20d5668eaa6aaa1485048d481aa5fd25be1b3bb7b5baa76",
+   "quote": "A drive keeps your files between sessions. A drive is deleted after 30 days without a session, when you reset it, or when your platform deletes its user's data."
+  },
+  {
+   "url": "https://nomac.app/sign-in",
+   "date": "2026-11-24",
+   "proved": "signing in creates an account and offers Apple sign-in; no other identity field is stated on that page",
+   "capture": "sha256:ff383ee1f25732a12439b915f41fcf3a2194f71b487c51ac11acdbfd3413090e",
+   "quote": "New to NoMac? Signing in creates your account.\n\nSigned up with Apple? Continue with Apple."
+  },
+  {
+   "url": "https://nomac.app/install",
+   "date": "2026-11-24",
+   "proved": "the human buys credit at the dashboard and an agent is told never to enter payment details",
+   "capture": "sha256:25ffdb34ccbd6c17c33c7b4e2cfde848d0456a4eb40118197038c59f6f597f21",
+   "quote": "Sign in at https://nomac.app/dash and add credit: $10 to $1,000, at $0.90 an hour, billed per minute ($10 = 11.1 hours). Credit never expires. No subscription, no Apple setup required. Agents can buy for you: nomac credits buy --packs 1 opens a payment link."
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T02:12:34.836Z",
+ "price_per_tb_month": null,
+ "notes": "The operator's provider list quotes USD 0.90/h billed per minute, matching the landing page. No free allowance is published: a job under a minute is billed as one minute and credit is prepaid. Larger top-ups bring the rate to USD 0.60 an hour on the vendor page. nomac.app/pricing answered HTTP 404 on 2026-11-25; the price is quoted from the landing page and install guide.",
+ "extras": {
+  "shape": {
+   "vcpu": null,
+   "ram_gib": null,
+   "disk_gib": 20,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "real Apple silicon macOS; vCPU and RAM are not published, the persistent drive is 20 GB"
+  },
+  "billing_model": "prepaid pay-as-you-go per minute",
+  "free_tier_kind": "none",
+  "price_arithmetic": "USD 0.90 an hour billed per minute; USD 10 of credit is 11.1 hours as stated on the install guide",
+  "session_cap": {
+   "wall_clock_min": 120,
+   "idle_reap_s": 600,
+   "restart_required": false,
+   "note": "default 2-hour cap and 10-minute idle reap, both configurable in the CLI"
+  },
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": null,
+   "ports": "SSH into the Mac; MCP over streamable HTTP",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  }
+ },
+ "endpoint": "https://nomac.app/api/v1"
 }

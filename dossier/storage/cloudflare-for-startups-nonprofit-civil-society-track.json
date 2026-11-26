@@ -5,8 +5,8 @@
   "url": "https://www.cloudflare.com/forstartups/",
   "category": "paas",
   "free_tier": {
-    "stated": "Up to USD 350,000 in credits for a year on the current program page; the nonprofit track states up to USD 250,000 usable for databases & storage, compute services, AI, media, and performance and security.",
-    "unit": "mixed",
+    "stated": "Up to USD 350,000 in credits for a year on the current program page; the nonprofit track announcement offers up to USD 250,000 in credits usable for databases & storage, compute services, AI, media, and performance and security.",
+    "unit": "credits",
     "metered_on": "stored-bytes",
     "source_url": "https://blog.cloudflare.com/expanding-startups-for-nonprofits/",
     "read_on": "2026-10-21",
@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://blog.cloudflare.com/expanding-startups-for-nonprofits/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "the program page caps R2 Object Storage credit coverage at $2,500 for Tier 3, $5,000 for Tier 2 and $10,000 for Tier 1; no per-object byte cap is stated"
   },
   "retention": {
     "stated": "Award is discretionary and cohort-based (501(c)(3) or equivalent required); the announcement's application window has closed, so treat as 'reapply at next intake'. Nothing about the credits is permanent. After year one the workload reverts to paid or to the small free tier.",
     "source_url": "https://blog.cloudflare.com/expanding-startups-for-nonprofits/",
-    "notes": "Extracted from published terms."
+    "notes": "credits are valid for one year or until fully consumed; the program is a one-time opportunity per startup and credits cannot be transferred between accounts"
   },
   "egress": {
     "terms": "N/A by construction. Everything served through Cloudflare's edge, which is the egress-free property the requirement turns on.",
@@ -99,10 +99,59 @@
       "proved": "the announcement states a cohort application window that closed on 2025-12-01",
       "capture": "sha256:4861cb09e9b743bc76211c404adca33e740e443004d66bf136bddeb42c924cab",
       "quote": "The application period to join Cloudflare's first class of non-profit organizations participating in Cloudflare for Startups is open now, and will close on December 1, 2025."
+    },
+    {
+      "url": "https://www.cloudflare.com/forstartups/",
+      "date": "2026-11-25",
+      "proved": "the offer is denominated in credits",
+      "capture": "sha256:97fb627908f331c5aa750765861d005ccfe7e1a45a3460e18ff6caecc940034b",
+      "quote": "Receive up to $350,000 in credits for a year to support your startup."
+    },
+    {
+      "url": "https://blog.cloudflare.com/expanding-startups-for-nonprofits/",
+      "date": "2026-11-25",
+      "proved": "the nonprofit track announcement states a $250,000 credit ceiling",
+      "capture": "sha256:4861cb09e9b743bc76211c404adca33e740e443004d66bf136bddeb42c924cab",
+      "quote": "participating organizations will be eligible to receive up to $250,000 in Cloudflare credits"
+    },
+    {
+      "url": "https://www.cloudflare.com/forstartups/",
+      "date": "2026-11-25",
+      "proved": "the general program page states a $350,000 annual credit ceiling",
+      "capture": "sha256:97fb627908f331c5aa750765861d005ccfe7e1a45a3460e18ff6caecc940034b",
+      "quote": "Receive up to $350,000 in credits for a year to support your startup."
+    },
+    {
+      "url": "https://www.cloudflare.com/forstartups/",
+      "date": "2026-11-25",
+      "proved": "the program page states tiered R2 credit caps, not a per-object size cap",
+      "capture": "sha256:97fb627908f331c5aa750765861d005ccfe7e1a45a3460e18ff6caecc940034b",
+      "quote": "* **R2 Object Storage:** Covered up to a $2,500 cap for Tier 3, $5,000 for Tier 2, and $10,000 for Tier 1."
+    },
+    {
+      "url": "https://www.cloudflare.com/forstartups/",
+      "date": "2026-11-25",
+      "proved": "the program page states a one-year credit window",
+      "capture": "sha256:97fb627908f331c5aa750765861d005ccfe7e1a45a3460e18ff6caecc940034b",
+      "quote": "Credits are valid for one year or until fully consumed, whichever comes first."
+    },
+    {
+      "url": "https://blog.cloudflare.com/expanding-startups-for-nonprofits/",
+      "date": "2026-11-25",
+      "proved": "the nonprofit track requires registered nonprofit status",
+      "capture": "sha256:4861cb09e9b743bc76211c404adca33e740e443004d66bf136bddeb42c924cab",
+      "quote": "Be a registered 501(c)(3) non-profit organization or equivalent"
+    },
+    {
+      "url": "https://blog.cloudflare.com/expanding-startups-for-nonprofits/",
+      "date": "2026-11-25",
+      "proved": "the announced application window closed on 2025-12-01",
+      "capture": "sha256:4861cb09e9b743bc76211c404adca33e740e443004d66bf136bddeb42c924cab",
+      "quote": "The application period to join Cloudflare's first class of non-profit organizations participating in Cloudflare for Startups is open now, and will close on December 1, 2025."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:58.759Z",
+  "verified_at": "2026-11-25T09:54:57.893Z",
   "notes": "Up to $350,000 in credits for a year on the current program page (tiered: Tier 3 $10k upward). The nonprofit track announced 2025-09-22 offers 'up to $250,000 in Cloudflare credits ... which can be used for a variety of our developer and core products, including databases & storage, compute services, AI, media, and performance and security'.",
   "history": [],
   "extras": {

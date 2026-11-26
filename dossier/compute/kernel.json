@@ -15,7 +15,7 @@
   "limits_note": "hobbyist is USD 30 a month with USD 10 of credit and unlimited proxy use",
   "reliability_note": "no reliability event observed",
   "confidence": "documented",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:29.083Z",
   "price_per_tb_month": null,
   "history": [],
   "slug": "kernel",
@@ -23,7 +23,7 @@
   "url": "https://www.kernel.sh/pricing",
   "category": "browser host",
   "free_tier": {
-    "stated": "free: USD 0 a month plus usage, USD 5 of free credits a month, 5 concurrent browsers, unmarked mode, 3 managed auth connections",
+    "stated": "free: USD 0 a month plus usage, USD 5 of free credits a month, 5 concurrent browsers, live view, stealth mode (captcha solver & proxy), managed auth (3 connections), session replays (1 day), file uploads & downloads, vaults & payments (3 vaults)",
     "unit": "mixed",
     "metered_on": "wall-clock",
     "source_url": "https://www.kernel.sh/pricing",
@@ -68,6 +68,13 @@
       "url": "https://www.kernel.sh/pricing",
       "date": "2026-10-22",
       "proved": "usage is USD 0.0000166667 per GB-second with no charges for idle time or proxies"
+    },
+    {
+      "url": "https://www.kernel.sh/pricing",
+      "date": "2026-11-25",
+      "proved": "the free plan states USD 0 a month plus usage and lists these nine features",
+      "capture": "sha256:2f80c16e075f64d999a98aad8c3f73b9d1c9b8f24e5b6b52d6a339ad49eb8d73",
+      "quote": "free $0/mo. plus usage costs* - $5 / month free credits - 5 concurrent browsers - live view - stealth mode (captcha solver & proxy) - managed auth (3 connections) - session replays (1 day) - file uploads & downloads - vaults & payments (3 vaults)"
     }
   ],
   "verdict": "qualifies-with-caveat",

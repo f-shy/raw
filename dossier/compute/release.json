@@ -5,7 +5,7 @@
   "url": "https://release.com/pricing",
   "category": "dev environment",
   "free_tier": {
-    "stated": "no free tier published",
+    "stated": "Enterprise pricing is based on your specific needs and usage patterns.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://release.com/pricing",
@@ -63,10 +63,24 @@
       "url": "https://release.com/pricing",
       "date": "2026-10-22",
       "proved": "the pricing page was read on 2026-10-22 and describes enterprise plans with SSO, RBAC, Helm and Terraform support and 'Unlimited clusters'; it publishes no free tier"
+    },
+    {
+      "url": "https://release.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the page states pricing is custom enterprise pricing and states no free tier",
+      "capture": "sha256:5f33372f2445872be444a6086795ef15afe91e1a998d18c857dc95040b38e599",
+      "quote": "Enterprise pricing is based on your specific needs and usage patterns."
+    },
+    {
+      "url": "https://release.com/pricing",
+      "date": "2026-11-25",
+      "proved": "pricing remains custom enterprise pricing with no free tier stated",
+      "capture": "sha256:5f33372f2445872be444a6086795ef15afe91e1a998d18c857dc95040b38e599",
+      "quote": "Enterprise pricing is based on your specific needs and usage patterns."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:47:45.605Z",
+  "verified_at": "2026-11-25T15:03:50.982Z",
   "price_per_tb_month": null,
   "notes": " Reclassified: no free tier on the catalogue card is a paid-only product, not a closed one. `dead` is reserved for a product that is withdrawn or unreachable.",
   "extras": {

@@ -1,136 +1,206 @@
 {
-  "topic": "compute",
-  "slug": "box-by-simular",
-  "provider": "box by Simular",
-  "url": "https://box.simular.ai/",
-  "category": "hosted cloud desktop",
-  "tier": "Free box",
-  "free_tier": {
-    "stated": "5,000 credits once, valid 90 days, on the Free box (4 vCPU / 8 GB); 1,000 credits = $1 and box credits pay for box time per second while the box is awake (4 vCPU / 8 GB: 200 credits an hour)",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://box.simular.ai/",
-    "read_on": "2026-11-24"
+ "topic": "compute",
+ "slug": "box-by-simular",
+ "provider": "box by Simular",
+ "url": "https://box.simular.ai/",
+ "category": "sandbox",
+ "tier": "Free / S / M",
+ "free_tier": {
+  "stated": "Free: 5,000 credits to start, valid 90 days, on a box of 4 vCPU / 8 GB; at 200 credits an hour that is 25 hours of awake time. S at $19 a month adds 5,000 credits a month, M at $39 a month adds 10,000.",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://box.simular.ai/",
+  "read_on": "2026-11-25"
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is one cloud Ubuntu desktop with a persistent shell, not a stored object"
+ },
+ "retention": {
+  "stated": "A box asleep 14 consecutive days is deleted with its files and saves, 30 days if the account has paid for box or Sai, and never while it has an S or M plan; any wake resets the count.",
+  "days": 14,
+  "source_url": "https://box.simular.ai/docs/mcp.md"
+ },
+ "egress": {
+  "terms": "A residential IP add-on costs 1,000 credits per 100 MB on paid plans; no general egress allowance or per-GB rate for ordinary traffic is published.",
+  "metered": true,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://box.simular.ai/"
+ },
+ "interface": [
+  "rest",
+  "browser"
+ ],
+ "interface_detail": "One hosted MCP server at https://mcp.box.simular.ai/mcp (Streamable HTTP, OAuth sign-in), plus a live screen at box.simular.ai/box and a personal key for clients that cannot sign in.",
+ "endpoint": "https://mcp.box.simular.ai/mcp",
+ "tooling": "Add the remote MCP URL to Claude, ChatGPT, Gemini, Claude Code, Codex, Cursor, OpenCode or VS Code, or run npx @simular-ai/box@1.2.2 connect on the user's own computer.",
+ "chaining": "A 4 vCPU / 8 GB box at 200 credits an hour is $0.20 an hour, or $0.10 an hour at half duty; its persistent desktop keeps browser logins between agent sessions and hands files to other records.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "5,000 free credits once, valid 90 days; 200 credits an hour for a 4 vCPU / 8 GB awake box, so 25 hours free",
+   "source": "https://box.simular.ai/"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a cloud desktop, not an object",
-    "source_url": "https://box.simular.ai/"
+  {
+   "kind": "retention-clamped",
+   "value": "a box asleep 14 consecutive days is deleted with its files and saves, 30 days if the account has ever paid, never on an S or M plan",
+   "source": "https://box.simular.ai/docs/mcp.md"
   },
-  "retention": {
-    "stated": "A box asleep 14 days in a row is deleted with its files and saves (30 days if the account has ever paid for box or Sai; never while it has an S or M plan); any wake resets the count.",
-    "days": 14,
-    "source_url": "https://box.simular.ai/"
-  },
-  "egress": {
-    "terms": "No general outbound byte allowance or egress price is published; paid plans charge residential IP at 10,000 credits a GB. box says 1,000 credits = $1, so residential IP is USD 10 per GB on the published credit rate.",
-    "metered": true,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://box.simular.ai/"
-  },
-  "interface": [
-    "unknown"
-  ],
-  "interface_detail": "One hosted remote MCP server, https://mcp.box.simular.ai/mcp (Streamable HTTP, OAuth sign-in with a Simular account, or a personal key as Authorization: Bearer cb_...). MCP is not a term in the interface vocabulary.",
-  "endpoint": "https://mcp.box.simular.ai/mcp",
-  "tooling": "Add the server URL to an MCP client, or run npx @simular-ai/box@1.2.2 connect to add box to Claude Code, Codex, Cursor and other local coding apps.",
-  "chaining": "The box runs a browser and shell that an MCP client drives, so an agent with its own AI plan can browse sites signed in with the account's cookies and hand results back to the chat; files on a box that is deleted after 14 idle days need a separate storage record to survive.",
-  "limits": [
-    {
-      "kind": "retention-clamped",
-      "value": "box asleep 14 days in a row is deleted with its files and saves (30 days if the account ever paid; never on S or M); any wake resets the count",
-      "source": "https://box.simular.ai/"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "5,000 credits once, valid 90 days; at 200 credits an hour for the 4 vCPU / 8 GB box the credit is 25 hours of awake time",
-      "source": "https://box.simular.ai/"
-    }
-  ],
-  "limits_note": "One cloud Linux desktop per account. The box sleeps when idle except on the M plan; a plan's own box is not charged by the hour.",
-  "binding": "retention-clamped",
-  "binding_note": "An idle free box is deleted after 14 days even though its 5,000 credits last 90 days and 25 awake hours, so the idle-deletion timer fails first for a box left untouched.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The sign-in screen offers Continue with Google, Continue with Apple and Continue with GitHub, and says 'New accounts start on the free plan'; the app also accepts an email and password. No card or phone field is shown at sign-in. There is no agent self-registration: every credential comes from a person with a Simular account, and an agent uses OAuth with that person's approval or a personal key.",
-    "country": null
-  },
-  "reliability_note": "A box asleep 14 days in a row is deleted with its files and saves; 30 days if the account has ever paid, and never while it has an S or M plan.",
-  "confidence": "documented",
-  "confidence_note": "The rate, free credit, size, idle-deletion rule and residential-IP charge are quoted from the vendor's own landing page read on 2026-11-24; the access route is from the vendor's auth.md and MCP docs and the sign-in gate from the vendor's app script on the same day.",
-  "evidence": [
-    {
-      "url": "https://box.simular.ai/",
-      "date": "2026-11-24",
-      "proved": "box free tier is 5,000 credits once, valid 90 days, on a 4 vCPU / 8 GB box; credits are $1 per 1,000, box time is 200 credits an hour and residential IP on paid plans is 10,000 credits a GB",
-      "capture": "sha256:1fae5aeaa4da8ac4ce614917366cb7696b1ab2b4519448dc4ec5569f43da7ad7",
-      "quote": "1,000 credits = $1. box credits pay for box time by size, per second while the box is awake (4 vCPU / 8 GB: 200 credits an hour), residential IP on paid plans (10,000 credits a GB) and box's own model calls. Free: 5,000 credits once, valid 90 days, on the Free box (4 vCPU / 8 GB)."
-    },
-    {
-      "url": "https://box.simular.ai/",
-      "date": "2026-11-24",
-      "proved": "a box asleep 14 days in a row is deleted with its files and saves; any wake resets the count",
-      "capture": "sha256:1fae5aeaa4da8ac4ce614917366cb7696b1ab2b4519448dc4ec5569f43da7ad7",
-      "quote": "A box asleep 14 days in a row is deleted with its files and saves (30 days if the account has ever paid for box or Sai; never while it has an S or M plan); any wake resets the count."
-    },
-    {
-      "url": "https://box.simular.ai/auth.md",
-      "date": "2026-11-24",
-      "proved": "there is no agent self-registration; credentials come from a person with a Simular account",
-      "capture": "sha256:8b64eea54697af739e2e4442333ccca3515fd2b22e7e138b3a2670a9c0744b71",
-      "quote": "box has **no agent self-registration**. There is no anonymous, email or identity-assertion (ID-JAG) registration. Every credential comes from a person with a Simular account, in one of two ways."
-    },
-    {
-      "url": "https://box.simular.ai/docs/mcp.md",
-      "date": "2026-11-24",
-      "proved": "one remote MCP server at https://mcp.box.simular.ai/mcp with OAuth sign-in or a personal key",
-      "capture": "sha256:2591404e858cd03ed74813fe1a672a842337fde6c604f93136a173095457c323",
-      "quote": "box is one MCP server, named `box`:\n\n```text\nhttps://mcp.box.simular.ai/mcp\n```"
-    },
-    {
-      "url": "https://box.simular.ai/.well-known/mcp/server-card.json",
-      "date": "2026-11-24",
-      "proved": "the remote is Streamable HTTP and the optional Authorization header carries a personal key for clients that cannot use OAuth",
-      "capture": "sha256:ce443c1a7d4533000e302daa409bee056f72f53a29856093a1b297351f01db21",
-      "quote": "\"type\": \"streamable-http\",\n      \"url\": \"https://mcp.box.simular.ai/mcp\","
-    },
-    {
-      "url": "https://box.simular.ai/sign-in",
-      "date": "2026-11-24",
-      "proved": "sign-in offers Google, Apple and GitHub accounts and says new accounts start on the free plan",
-      "capture": "sha256:2c48d36858e75d291cf2cdbbd7e67f5a6b808d205b32641a3b6c783c5e89497b",
-      "quote": "const Vj=\"Sign in to box\",qc=[\"Google\",Af&&\"Apple\",tu&&\"GitHub\"].filter(e=>!!e),Bj=`Use your ${qc.length>1?`${qc.slice(0,-1).join(\", \")} or ${qc.at(-1)}`:qc[0]} account. New accounts start on the free plan.`;"
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.640Z",
-  "price_per_tb_month": null,
-  "notes": "The free offer is 5,000 one-time credits (USD 5 at the published rate) on a 4 vCPU / 8 GB cloud desktop, with 25 awake hours at 200 credits an hour and 90-day validity. General egress is not priced on the pages read; residential IP on paid plans is 10,000 credits a GB, which is USD 10 per GB or USD 10,240 per TB at the published 1,000 credits = $1 rate.",
-  "extras": {
-    "shape": {
-      "vcpu": 4,
-      "ram_gib": 8,
-      "disk_gib": null,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "Free box is 4 vCPU / 8 GB; disk is not stated on the page read"
-    },
-    "billing_model": "one-time credit, per-second while awake",
-    "free_tier_kind": "one-time credit",
-    "status": "live",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": null,
-      "ports": "not stated on the pages read",
-      "static_ip": "residential IP on paid plans",
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": 1209600,
-      "restart_required": false,
-      "note": "14 days idle deletes the box; any wake resets the count"
-    }
+  {
+   "kind": "request-rate",
+   "value": "one box per account; extra boxes cost 200 credits an hour each while awake",
+   "source": "https://box.simular.ai/"
   }
+ ],
+ "binding": "volume-quota",
+ "binding_note": "The 5,000 credits expire after 90 days and are the first limit reached; at 200 credits an hour they buy 25 awake hours before the $19 or $39 plan or a top-up is needed.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "Sign-in is through a Simular account with Google or GitHub OAuth; the MCP connection opens a browser page where the person approves which boxes it may use and for how long. A personal bearer key from box.simular.ai/access works for clients that cannot sign in. No card is asked for on the free tier.",
+  "country": null
+ },
+ "reliability_note": "System images may be reconfigured, so installed packages can need reinstalling; an idle box is deleted after 14 days of sleep and a box's small model calls are billed separately from its awake time.",
+ "confidence": "documented",
+ "confidence_note": "Prices, free credits, sleep deletion, the MCP sign-in and the credit rate are quoted from the vendor's own home page, docs and terms read on 2026-11-25.",
+ "evidence": [
+  {
+   "url": "https://box.simular.ai/",
+   "date": "2026-11-25",
+   "proved": "one credit is $0.001 and a 4 vCPU / 8 GB box costs 200 credits an hour while awake",
+   "capture": "sha256:30ab6c907b4e48440310a9a5593e7ca5c6daac225ba33a977ccc853a0e9cd78d",
+   "quote": "1,000 credits = $1"
+  },
+  {
+   "url": "https://box.simular.ai/",
+   "date": "2026-11-25",
+   "proved": "an extra box costs 200 credits an hour at 4 vCPU / 8 GB while awake",
+   "capture": "sha256:30ab6c907b4e48440310a9a5593e7ca5c6daac225ba33a977ccc853a0e9cd78d",
+   "quote": "200 credits an hour (4 vCPU / 8 GB), only while it's awake."
+  },
+  {
+   "url": "https://box.simular.ai/",
+   "date": "2026-11-25",
+   "proved": "the free tier gives 5,000 credits to start, valid 90 days, on a 4 vCPU / 8 GB box",
+   "capture": "sha256:30ab6c907b4e48440310a9a5593e7ca5c6daac225ba33a977ccc853a0e9cd78d",
+   "quote": "5,000 credits to start"
+  },
+  {
+   "url": "https://box.simular.ai/",
+   "date": "2026-11-25",
+   "proved": "the free credits are valid 90 days and the box is 4 vCPU / 8 GB",
+   "capture": "sha256:30ab6c907b4e48440310a9a5593e7ca5c6daac225ba33a977ccc853a0e9cd78d",
+   "quote": "Valid 90 days"
+  },
+  {
+   "url": "https://box.simular.ai/",
+   "date": "2026-11-25",
+   "proved": "a residential IP add-on costs 1,000 credits per 100 MB",
+   "capture": "sha256:30ab6c907b4e48440310a9a5593e7ca5c6daac225ba33a977ccc853a0e9cd78d",
+   "quote": "1,000 credits per 100 MB."
+  },
+  {
+   "url": "https://box.simular.ai/docs/mcp.md",
+   "date": "2026-11-25",
+   "proved": "an idle box is deleted after 14 days of sleep, 30 days if the account has paid, and never on an S or M plan",
+   "capture": "sha256:c20d34c44919e5520c7a2f9f5d02de3cd5d0af87b6b390fe87fa5725f7174e3e",
+   "quote": "A box asleep 14 days in a row is deleted with its files and saves (30 days if the account has ever paid for box or Sai; never while it has an S or M plan); any wake resets the count."
+  },
+  {
+   "url": "https://box.simular.ai/docs/mcp.md",
+   "date": "2026-11-25",
+   "proved": "the first MCP connection signs in with a Simular account over OAuth and approves box access in a browser",
+   "capture": "sha256:2591404e858cd03ed74813fe1a672a842337fde6c604f93136a173095457c323",
+   "quote": "You sign in with your Simular account the first time your AI connects (MCP authorization, OAuth 2.0): your app opens a browser page where you approve which boxes it may use and for how long."
+  },
+  {
+   "url": "https://box.simular.ai/docs/mcp.md",
+   "date": "2026-11-25",
+   "proved": "a bearer key is available for clients that cannot sign in",
+   "capture": "sha256:2591404e858cd03ed74813fe1a672a842337fde6c604f93136a173095457c323",
+   "quote": "For an app that can't sign in and can only send a fixed header, create a personal key at https://box.simular.ai/access"
+  },
+  {
+   "url": "https://box.simular.ai/terms",
+   "date": "2026-11-25",
+   "proved": "the hosted service is a cloud computer with remote desktop, shell and MCP connections, and system images may be reconfigured",
+   "capture": "sha256:fa20134de198b0caad89e2dc781d8857689dda4192c21f3010df7ba6212c587f",
+   "quote": "Box System Updates. Simular may update, replace, or reconfigure a Box’s system image, operating system, software, or other components"
+  },
+  {
+   "url": "https://box.simular.ai/",
+   "date": "2026-11-24",
+   "proved": "box free tier is 5,000 credits once, valid 90 days, on a 4 vCPU / 8 GB box; credits are $1 per 1,000, box time is 200 credits an hour and residential IP on paid plans is 10,000 credits a GB",
+   "capture": "sha256:1fae5aeaa4da8ac4ce614917366cb7696b1ab2b4519448dc4ec5569f43da7ad7",
+   "quote": "1,000 credits = $1. box credits pay for box time by size, per second while the box is awake (4 vCPU / 8 GB: 200 credits an hour), residential IP on paid plans (10,000 credits a GB) and box's own model calls. Free: 5,000 credits once, valid 90 days, on the Free box (4 vCPU / 8 GB)."
+  },
+  {
+   "url": "https://box.simular.ai/",
+   "date": "2026-11-24",
+   "proved": "a box asleep 14 days in a row is deleted with its files and saves; any wake resets the count",
+   "capture": "sha256:1fae5aeaa4da8ac4ce614917366cb7696b1ab2b4519448dc4ec5569f43da7ad7",
+   "quote": "A box asleep 14 days in a row is deleted with its files and saves (30 days if the account has ever paid for box or Sai; never while it has an S or M plan); any wake resets the count."
+  },
+  {
+   "url": "https://box.simular.ai/auth.md",
+   "date": "2026-11-24",
+   "proved": "there is no agent self-registration; credentials come from a person with a Simular account",
+   "capture": "sha256:8b64eea54697af739e2e4442333ccca3515fd2b22e7e138b3a2670a9c0744b71",
+   "quote": "box has **no agent self-registration**. There is no anonymous, email or identity-assertion (ID-JAG) registration. Every credential comes from a person with a Simular account, in one of two ways."
+  },
+  {
+   "url": "https://box.simular.ai/docs/mcp.md",
+   "date": "2026-11-24",
+   "proved": "one remote MCP server at https://mcp.box.simular.ai/mcp with OAuth sign-in or a personal key",
+   "capture": "sha256:2591404e858cd03ed74813fe1a672a842337fde6c604f93136a173095457c323",
+   "quote": "box is one MCP server, named `box`:\n\n```text\nhttps://mcp.box.simular.ai/mcp\n```"
+  },
+  {
+   "url": "https://box.simular.ai/.well-known/mcp/server-card.json",
+   "date": "2026-11-24",
+   "proved": "the remote is Streamable HTTP and the optional Authorization header carries a personal key for clients that cannot use OAuth",
+   "capture": "sha256:ce443c1a7d4533000e302daa409bee056f72f53a29856093a1b297351f01db21",
+   "quote": "\"type\": \"streamable-http\",\n      \"url\": \"https://mcp.box.simular.ai/mcp\","
+  },
+  {
+   "url": "https://box.simular.ai/sign-in",
+   "date": "2026-11-24",
+   "proved": "sign-in offers Google, Apple and GitHub accounts and says new accounts start on the free plan",
+   "capture": "sha256:2c48d36858e75d291cf2cdbbd7e67f5a6b808d205b32641a3b6c783c5e89497b",
+   "quote": "const Vj=\"Sign in to box\",qc=[\"Google\",Af&&\"Apple\",tu&&\"GitHub\"].filter(e=>!!e),Bj=`Use your ${qc.length>1?`${qc.slice(0,-1).join(\", \")} or ${qc.at(-1)}`:qc[0]} account. New accounts start on the free plan.`;"
+  }
+ ],
+ "verdict": "trial-only",
+ "verified_at": "2026-11-25T11:55:06.337Z",
+ "price_per_tb_month": null,
+ "notes": "The hosted computer is a persistent Ubuntu desktop that sleeps when idle and wakes on connect; 5,000 credits are $5 and buy 25 awake hours at the published 200 credits an hour. The $19 S and $39 M plans include a box and monthly credits; extra boxes are metered. A separate self-hosted CLI configures the user's own AI apps and does not supply the box, so it is listed after this hosted offer.",
+ "extras": {
+  "shape": {
+   "vcpu": 4,
+   "ram_gib": 8,
+   "disk_gb": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "one hosted Ubuntu desktop per account with Chrome, a shell and 4 vCPU / 8 GB"
+  },
+  "billing_model": "credits per second while awake, at 200 credits an hour for the standard box; S and M plans are monthly",
+  "free_tier_kind": "one-time-credit",
+  "term": "5,000 credits valid 90 days; top-ups valid 12 months",
+  "price_arithmetic": "1,000 credits = $1, so 200 credits an hour is $0.20 an hour and 5,000 credits is 25 hours or $5",
+  "derived": "200 credits/hour / 1000 credits per dollar = $0.20 per hour; $0.20 x 0.5 = $0.10 per hour at half duty; 5000 / 200 = 25 hours",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": false,
+   "ports": "a residential IP add-on is 1,000 credits per 100 MB; no general egress allowance is stated",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "the box sleeps when idle and wakes on connection; 14 consecutive days asleep deletes it unless the account has paid or holds an S or M plan"
+  }
+ },
+ "limits_note": "One cloud Linux desktop per account. The box sleeps when idle except on the M plan; a plan's own box is not charged by the hour."
 }

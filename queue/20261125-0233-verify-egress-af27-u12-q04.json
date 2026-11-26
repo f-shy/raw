@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u12-q04",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Can a Pro or Business Spectrum Worker-origin TCP app forward arbitrary TCP to a free VM origin, and does it carry UDP?",
+ "why": "the plan table lists Worker origin TCP for Pro and Business; UDP is No on both; the Worker origin path was not read",
+ "scope": {
+  "rids": [
+   "egress/cloudflare-spectrum"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u12",
+ "created": "2026-11-25T15:23:40Z"
+}

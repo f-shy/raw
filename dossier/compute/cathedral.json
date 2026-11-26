@@ -1,157 +1,215 @@
 {
-  "topic": "compute",
-  "slug": "cathedral",
-  "provider": "Cathedral",
-  "url": "https://cathedral.computer/pricing",
-  "category": "confidential sandbox",
-  "tier": "sealed confidential sandbox, 2 vCPU / 4 GiB",
-  "free_tier": {
-    "stated": "No free tier. Every sandbox is paid at a flat USD 0.01 an hour for 2 vCPU and 4 GiB, billed by the second, with no plans, packs or minimums; a retired one-shot free test no longer starts anything.",
-    "unit": "none",
-    "metered_on": "wall-clock",
-    "source_url": "https://cathedral.computer/pricing",
-    "read_on": "2026-11-24",
-    "notes": "The Attest one-shot and POST /v1/workers/free-test are retired and answer 410 workers_retired with billed:false; nothing starts and nothing is charged, so this is not a usable free tier. Credit is prepaid by card on Stripe or by a Bittensor coldkey."
+ "topic": "compute",
+ "slug": "cathedral",
+ "provider": "Cathedral",
+ "url": "https://cathedral.computer/pricing",
+ "category": "confidential sandbox",
+ "tier": "Pay-as-you-go confidential sandbox",
+ "free_tier": {
+  "stated": "New accounts: one USD 20 trial credit, no card. The homepage may offer one sponsored starter: a 1 vCPU, 2 GiB confidential sandbox with network off that stops after ten minutes, which needs no sign-in or prepaid credit.",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://cathedral.computer/pricing",
+  "read_on": "2026-11-25",
+  "notes": "The USD 20 credit is a one-time account credit. The ten-minute sponsored starter is optional and appears only when the sponsored offer is available. No free recurring allowance is published."
+ },
+ "per_object_cap": {
+  "stated": "Disk is 50 GB, free, at every published size from 1 vCPU / 2 GiB to 8 vCPU / 16 GiB; the per-sandbox disk cap is not stated beyond that.",
+  "bytes": null,
+  "source_url": "https://cathedral.computer/pricing"
+ },
+ "retention": {
+  "stated": "Billing starts when the sandbox is booked and stops when it is deleted or reaches its stop time; deletion removes its files. No separate retention period for stored files is published.",
+  "days": null,
+  "source_url": "https://cathedral.computer/pricing"
+ },
+ "egress": {
+  "terms": "The pricing page prices memory-hours only and states no egress allowance or per-GB price; the console lets the caller lock egress and allow hosts one at a time.",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://cathedral.computer/pricing"
+ },
+ "interface": [
+  "rest",
+  "cli",
+  "browser"
+ ],
+ "interface_detail": "REST API at https://cathedral.computer/v1, the ctcli command-line client and a web console; confidential sandboxes have no SSH today and run each line of the console terminal through a line-mode terminal API.",
+ "tooling": "ctcli command-line client; REST API with a cat_sk_* API key sent as a bearer token.",
+ "chaining": "A paid sandbox can run an agent task and return signed command receipts; an agent can obtain a budgeted key by device login, and files must be saved elsewhere before the sandbox is deleted.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "USD 20 one-time trial credit for new accounts, no card",
+   "source": "https://cathedral.computer/pricing"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a sandbox, not an object; 50 GB disk is included free at every size"
+  {
+   "kind": "request-rate",
+   "value": "600 starts per minute and 1,000 confidential sandboxes at once",
+   "source": "https://cathedral.computer/pricing"
   },
-  "retention": {
-    "stated": "Billing starts when the sandbox is booked and stops when it is deleted or reaches its stop time; one-shot runs ran once on a fresh machine, returned a result and were deleted, and a Worker's unused hold is refunded when it is deleted or expires.",
-    "days": null,
-    "source_url": "https://cathedral.computer/pricing"
-  },
-  "egress": {
-    "terms": "A sandbox's egress policy is locked in Environment and hosts are allowed one at a time; no per-gigabyte transfer price or allowance is published on the pricing page.",
-    "metered": false,
-    "free_allowance": "not stated",
-    "price_per_tb": null,
-    "source_url": "https://cathedral.computer/console/"
-  },
-  "interface": [
-    "rest",
-    "cli",
-    "ssh",
-    "browser"
-  ],
-  "interface_detail": "A REST API under /v1 with a bearer API key, the ctcli client, a browser console and a line-mode terminal API; SSH into confidential sandboxes is not live yet.",
-  "tooling": "the REST API, ctcli 0.6.1 or newer for offline receipt verification, and the console; a key with sandboxes:control creates and runs sandboxes",
-  "chaining": "Paid confidential sandboxes with a signed receipt for every command, priced by the second and usable in fleets of up to 1,000 at once; receipts can be checked offline with a separately trusted public key, and the work can be paired with object storage for artifacts that outlive a sandbox.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "1,000 confidential sandboxes at once and 600 starts per minute self-serve",
-      "source": "https://cathedral.computer/pricing"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "50 GB disk free per sandbox",
-      "source": "https://cathedral.computer/pricing"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "a Worker lives at most 24 hours from start including renewals",
-      "source": "https://cathedral.computer/docs/workers/"
-    }
-  ],
-  "limits_note": "Billing starts when a sandbox is booked and stops when it is deleted or reaches its stop time; an agent key carries a budget and expiry and cannot add credit.",
-  "binding": "volume-quota",
-  "binding_note": "The 1,000-concurrent-sandbox self-serve cap is the first hard ceiling at fleet scale; the per-hour rate is a price, not a quota, and the 24-hour Worker lifetime applies only to Workers.",
-  "identity_cost": {
-    "kind": "card",
-    "detail": "Account creation is email or Google: 'Email a one-time link or continue with Google. New here? That creates your account.' No phone or ID document is asked. Credit is prepaid: 'Choose a one-time pack. You pay by card on Stripe.' An alternative funds a Bittensor coldkey by burning TAO or spending Gamma. Agent keys come from a device login that a person approves with a budget and expiry; an agent cannot pay.",
-    "country": null
-  },
-  "reliability_note": "The earlier Attest one-shot and free test are retired with 410 workers_retired; rooms on one host share a host guest and are separated by gVisor, and the plaintext Worker form exposes the request and output to Cathedral's API.",
-  "confidence": "documented",
-  "confidence_note": "The flat rate, the no-plans statement, the concurrency and start-rate limits, the retired free one-shot, and the email-or-Google sign-in with card-on-Stripe credit are quoted from Cathedral's own pricing, account, Workers and one-shot pages read on 2026-11-24.",
-  "evidence": [
-    {
-      "url": "https://cathedral.computer/pricing",
-      "date": "2026-11-24",
-      "proved": "no plans, packs or minimums and the same rate at any fleet size",
-      "capture": "sha256:5b636783e23ad53b260cfbba1dee64614563916566a97445c38af4fc1a020e7a",
-      "quote": "No plans, no packs, no minimums, and the same price for one sandbox or 1,000 at once."
-    },
-    {
-      "url": "https://cathedral.computer/pricing",
-      "date": "2026-11-24",
-      "proved": "the rate is USD 0.01 an hour for 2 vCPU and 4 GiB, billed by the second",
-      "capture": "sha256:5b636783e23ad53b260cfbba1dee64614563916566a97445c38af4fc1a020e7a",
-      "quote": "$0.01 an hour for 2 vCPU and 4 GiB, billed by the second."
-    },
-    {
-      "url": "https://cathedral.computer/pricing",
-      "date": "2026-11-24",
-      "proved": "the 2 vCPU 4 GiB size includes 50 GB of disk",
-      "capture": "sha256:5b636783e23ad53b260cfbba1dee64614563916566a97445c38af4fc1a020e7a",
-      "quote": "2 vCPU  4 GiB memory  50 GB disk"
-    },
-    {
-      "url": "https://cathedral.computer/docs/sandboxes/one-shot/",
-      "date": "2026-11-24",
-      "proved": "the earlier free one-shot is retired and does not start a sandbox or charge",
-      "capture": "sha256:309593bb02ba14313599bf7f47dc4de88e7030bf1ba505d94b5e25f0831e5996",
-      "quote": "The Attest one-shot is retired."
-    },
-    {
-      "url": "https://cathedral.computer/account/",
-      "date": "2026-11-24",
-      "proved": "sign-in is by email link or Google and creates the account",
-      "capture": "sha256:df1857d9ed338a01641ee048c901d5ad077a551e04c12954bc5d8e7bfb52b4fd",
-      "quote": "Email a one-time link or continue with Google. New here? That creates your account."
-    },
-    {
-      "url": "https://cathedral.computer/account/",
-      "date": "2026-11-24",
-      "proved": "credit is prepaid by card on Stripe",
-      "capture": "sha256:df1857d9ed338a01641ee048c901d5ad077a551e04c12954bc5d8e7bfb52b4fd",
-      "quote": "Choose a one-time pack. You pay by card on Stripe."
-    },
-    {
-      "url": "https://cathedral.computer/docs/keys/",
-      "date": "2026-11-24",
-      "proved": "an agent needs a key a person approves with a budget and prepaid credit; an agent cannot pay",
-      "capture": "sha256:02a7966770fba08ecad3e8a641149c91034dfba1ab1cb1fb9a5f4484ace89724",
-      "quote": "You add prepaid credit at"
-    },
-    {
-      "url": "https://cathedral.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the seed URL returned HTTP 404 with a body of only '# CATHEDRAL'",
-      "capture": "sha256:15e370cb42a7cffba93461bbc09fe730db31f38f0cb7e0e89a1ddc5398e4256f",
-      "quote": "# CATHEDRAL"
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T09:37:16.657Z",
-  "price_per_tb_month": null,
-  "notes": "Paid-only confidential sandbox: the pricing page states one flat rate with no plans or packs, and the formerly free Attest one-shot and free test are retired (410 workers_retired). The rate is billed by the second from booking to deletion or the stop time; credit is prepaid by card on Stripe or through a Bittensor coldkey. Cathedral presents this hardware as confidential under AMD SEV-SNP with a signed receipt per command.",
-  "extras": {
-    "shape": {
-      "vcpu": 2,
-      "ram_gib": 4,
-      "disk_gib": 50,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "sealed-2x4; sizes run from 1 vCPU / 2 GiB at USD 0.005 an hour to 8 vCPU / 16 GiB at USD 0.04 an hour, each with 50 GB disk"
-    },
-    "billing_model": "per-second at a flat per-hour rate from prepaid credit",
-    "free_tier_kind": "none; retired one-shot free test",
-    "term": "pay as you go, no minimum",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "ingress is ssh and published ports only; egress is locked and hosts allowed one at a time",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "Workers live at most 24 hours from start including renewals; sandboxes bill until deleted or their stop time"
-    }
+  {
+   "kind": "retention-clamped",
+   "value": "the optional sponsored starter is a 1 vCPU / 2 GiB sandbox with network off that stops after ten minutes",
+   "source": "https://cathedral.computer/docs"
   }
+ ],
+ "limits_note": "A paid create needs a spend cap above zero and credit covering the sandbox's lifetime at its hourly rate. Per-key rate limits are not enforced yet, and a key carries an approved budget and expiry.",
+ "binding": "volume-quota",
+ "binding_note": "The one-time USD 20 credit is what runs out first for a new account: at the USD 0.01 per hour rate it is 2,000 sandbox-hours, before the 1,000-at-once or 600-starts-per-minute platform limits.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "The paid console asks the user to sign in with Google or an email link, and prepaid credit is added by card on Stripe before the first paid create. The sign-in flow is described on the docs page; an API key for server use is created on the Keys page.",
+  "country": null
+ },
+ "reliability_note": "Several catalogue products and the pool-claim path are marked Coming soon; one-shot runs are retired; there is no SSH into a confidential sandbox today and no public hardware attestation per room, only an attestation of the machine when it joins the pool.",
+ "confidence": "documented",
+ "confidence_note": "The rate, size table, trial credit, platform limits, sign-in methods and prepaid credit requirement were read from first-party pages today.",
+ "evidence": [
+  {
+   "url": "https://cathedral.computer/pricing",
+   "date": "2026-11-25",
+   "proved": "the 2 vCPU / 4 GiB confidential sandbox is USD 0.01 an hour billed by the second",
+   "capture": "sha256:bb1fd93c0da95bd895383e2392114950b72dce29622b2832d13f19b29e621010",
+   "quote": "$0.01 an hour for 2 vCPU and 4 GiB, billed by the second."
+  },
+  {
+   "url": "https://cathedral.computer/pricing",
+   "date": "2026-11-25",
+   "proved": "new accounts get one USD 20 trial credit with no card",
+   "capture": "sha256:bb1fd93c0da95bd895383e2392114950b72dce29622b2832d13f19b29e621010",
+   "quote": "New accounts: one $20 trial credit, no card"
+  },
+  {
+   "url": "https://cathedral.computer/pricing",
+   "date": "2026-11-25",
+   "proved": "the page states a 1,000-sandbox concurrent figure",
+   "capture": "sha256:bb1fd93c0da95bd895383e2392114950b72dce29622b2832d13f19b29e621010",
+   "quote": "1,000"
+  },
+  {
+   "url": "https://cathedral.computer/docs",
+   "date": "2026-11-25",
+   "proved": "paid sign-in uses Google or an email link and prepaid credit is needed before the first paid create",
+   "capture": "sha256:f63e89f2eb6e046801334b266f937ebca1917d166bc11cd5cdf60160d573375d",
+   "quote": "sign in with Google or an email link"
+  },
+  {
+   "url": "https://cathedral.computer/docs",
+   "date": "2026-11-25",
+   "proved": "the first paid create needs credit for its spend cap",
+   "capture": "sha256:f63e89f2eb6e046801334b266f937ebca1917d166bc11cd5cdf60160d573375d",
+   "quote": "Add prepaid credit at /account/ before your first paid create; that create needs credit for its spend cap."
+  },
+  {
+   "url": "https://cathedral.computer/docs",
+   "date": "2026-11-25",
+   "proved": "the optional sponsored starter is a 1 vCPU / 2 GiB sandbox with the network off that stops after ten minutes",
+   "capture": "sha256:f63e89f2eb6e046801334b266f937ebca1917d166bc11cd5cdf60160d573375d",
+   "quote": "a 1 vCPU, 2 GiB confidential sandbox with network off that stops after ten minutes"
+  },
+  {
+   "url": "https://cathedral.computer/docs/keys/",
+   "date": "2026-11-25",
+   "proved": "the API key is created from the Keys page after signing in with Google or a secure email link",
+   "capture": "sha256:02a7966770fba08ecad3e8a641149c91034dfba1ab1cb1fb9a5f4484ace89724",
+   "quote": "Open Keys and continue with Google or a secure email link"
+  },
+  {
+   "url": "https://cathedral.computer/account/",
+   "date": "2026-11-25",
+   "proved": "prepaid credit is paid by card on Stripe",
+   "capture": "sha256:cbc793d55e3908c18b68680b0cd0924fb934419289d168115183736fb5101cb9",
+   "quote": "Choose a one-time pack. You pay by card on Stripe."
+  },
+  {
+   "url": "https://cathedral.computer/pricing",
+   "date": "2026-11-24",
+   "proved": "no plans, packs or minimums and the same rate at any fleet size",
+   "capture": "sha256:5b636783e23ad53b260cfbba1dee64614563916566a97445c38af4fc1a020e7a",
+   "quote": "No plans, no packs, no minimums, and the same price for one sandbox or 1,000 at once."
+  },
+  {
+   "url": "https://cathedral.computer/pricing",
+   "date": "2026-11-24",
+   "proved": "the rate is USD 0.01 an hour for 2 vCPU and 4 GiB, billed by the second",
+   "capture": "sha256:5b636783e23ad53b260cfbba1dee64614563916566a97445c38af4fc1a020e7a",
+   "quote": "$0.01 an hour for 2 vCPU and 4 GiB, billed by the second."
+  },
+  {
+   "url": "https://cathedral.computer/pricing",
+   "date": "2026-11-24",
+   "proved": "the 2 vCPU 4 GiB size includes 50 GB of disk",
+   "capture": "sha256:5b636783e23ad53b260cfbba1dee64614563916566a97445c38af4fc1a020e7a",
+   "quote": "2 vCPU  4 GiB memory  50 GB disk"
+  },
+  {
+   "url": "https://cathedral.computer/docs/sandboxes/one-shot/",
+   "date": "2026-11-24",
+   "proved": "the earlier free one-shot is retired and does not start a sandbox or charge",
+   "capture": "sha256:309593bb02ba14313599bf7f47dc4de88e7030bf1ba505d94b5e25f0831e5996",
+   "quote": "The Attest one-shot is retired."
+  },
+  {
+   "url": "https://cathedral.computer/account/",
+   "date": "2026-11-24",
+   "proved": "sign-in is by email link or Google and creates the account",
+   "capture": "sha256:df1857d9ed338a01641ee048c901d5ad077a551e04c12954bc5d8e7bfb52b4fd",
+   "quote": "Email a one-time link or continue with Google. New here? That creates your account."
+  },
+  {
+   "url": "https://cathedral.computer/account/",
+   "date": "2026-11-24",
+   "proved": "credit is prepaid by card on Stripe",
+   "capture": "sha256:df1857d9ed338a01641ee048c901d5ad077a551e04c12954bc5d8e7bfb52b4fd",
+   "quote": "Choose a one-time pack. You pay by card on Stripe."
+  },
+  {
+   "url": "https://cathedral.computer/docs/keys/",
+   "date": "2026-11-24",
+   "proved": "an agent needs a key a person approves with a budget and prepaid credit; an agent cannot pay",
+   "capture": "sha256:02a7966770fba08ecad3e8a641149c91034dfba1ab1cb1fb9a5f4484ace89724",
+   "quote": "You add prepaid credit at"
+  },
+  {
+   "url": "https://cathedral.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the seed URL returned HTTP 404 with a body of only '# CATHEDRAL'",
+   "capture": "sha256:15e370cb42a7cffba93461bbc09fe730db31f38f0cb7e0e89a1ddc5398e4256f",
+   "quote": "# CATHEDRAL"
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T11:55:06.271Z",
+ "price_per_tb_month": null,
+ "notes": "The price is USD 0.0025 per GiB-hour at every size, so 2 vCPU / 4 GiB is USD 0.01 an hour and 730 hours is USD 7.30. A new account's USD 20 credit covers 2,000 hours of that size at list price. The ten-minute sponsored starter is anonymous but optional and may not be offered. The hosted sandbox needs prepaid card credit for the first paid create.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 4,
+   "disk_gib": 50,
+   "gpu_class": null,
+   "gpu_count": null
+  },
+  "billing_model": "per-second, prepaid credit",
+  "free_tier_kind": "one-time-credit",
+  "term": "no minimum",
+  "price_arithmetic": "USD 0.0025 per GiB-hour x 4 GiB = USD 0.01/hour; USD 20 / USD 0.01 = 2,000 hours",
+  "status": "live, pay-as-you-go; several catalogue SKUs marked Coming soon",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "published ports and ssh for non-confidential sandboxes; egress allowlisted per host",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "paid sandbox stops at its booked stop time; the optional sponsored starter stops after ten minutes"
+  }
+ }
 }

@@ -13,15 +13,15 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "per-object-cap: 'Individual files larger than 10 GB",
+    "stated": "Individual files larger than 10 GB will not replicate out to our mirrors and can not be downloaded.",
     "bytes": 10000000000,
     "source_url": "https://sourceforge.net/p/forge/documentation/Disk%20Quotas/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The release-files documentation states that individual files larger than 10 GB will not replicate to the mirrors and cannot be downloaded."
   },
   "retention": {
-    "stated": "per-object-cap: 'Individual files larger than 10 GB will not replicate out to our mirrors and can not be downloaded.' That is the hard number and it is published. retention: indefinite - download stats are keyed to path+filename and files are never pruned for age; but the docs warn 'Users are responsible for backing up all of their files",
+    "stated": "Users are responsible for backing up all of their files. SourceForge.net will not restore individual files.",
     "source_url": "https://sourceforge.net/p/forge/documentation/Disk%20Quotas/",
-    "notes": "Extracted from published terms."
+    "notes": "The release-files documentation says users are responsible for backing up all files and SourceForge.net will not restore individual files."
   },
   "egress": {
     "terms": "Free and genuinely CDN'd: 'Unlimited bandwidth for Open Source projects' (create page) plus 'a geographically-distributed network of mirror servers, which receive copies of the files and dispense them to users'. No billing relationship anywhere. Downloads 302 to a geo-selected mirror (zenlayer.dl.sourceforge.net from this vantage) and are served by nginx.",
@@ -39,7 +39,7 @@
   "limits": [
     {
       "kind": "per-object-cap",
-      "value": "per-object-cap: 'Individual files larger than 10 GB",
+      "value": "Individual files larger than 10 GB will not replicate out to our mirrors and can not be downloaded.",
       "source": "https://sourceforge.net/p/forge/documentation/Disk%20Quotas/"
     }
   ],
@@ -109,10 +109,52 @@
       "proved": "a non-admin project registrant must enter a phone number and submit it",
       "capture": "sha256:279fd360d7c087cf1bf3244e010d7cf1a6ffce0a82cfee45d9e82196ff3c36c9",
       "quote": "Enter your phone number, then click Submit"
+    },
+    {
+      "url": "https://sourceforge.net/p/forge/documentation/Release%20Files%20for%20Download/",
+      "date": "2026-11-25",
+      "proved": "the release-files page states the 10 GB mirror-replication limit",
+      "capture": "sha256:dba282f20a661a32f2a919f9749fb4e42f4e8e71527d2e778eb07eb84ebbcbd0",
+      "quote": "Individual files larger than 10 GB will not replicate out to our mirrors and can not be downloaded."
+    },
+    {
+      "url": "https://sourceforge.net/p/forge/documentation/Release%20Files%20for%20Download/",
+      "date": "2026-11-25",
+      "proved": "the release-files page still states the 10 GB mirror-replication limit",
+      "capture": "sha256:dba282f20a661a32f2a919f9749fb4e42f4e8e71527d2e778eb07eb84ebbcbd0",
+      "quote": "Individual files larger than 10 GB will not replicate out to our mirrors and can not be downloaded."
+    },
+    {
+      "url": "https://sourceforge.net/p/forge/documentation/Release%20Files%20for%20Download/",
+      "date": "2026-11-25",
+      "proved": "the release-files page disclaims restoring individual files",
+      "capture": "sha256:dba282f20a661a32f2a919f9749fb4e42f4e8e71527d2e778eb07eb84ebbcbd0",
+      "quote": "Users are responsible for backing up all of their files. SourceForge.net will not restore individual files."
+    },
+    {
+      "url": "https://sourceforge.net/p/forge/documentation/Release%20Files%20for%20Download/",
+      "date": "2026-11-25",
+      "proved": "the release-files page still disclaims restoring individual files",
+      "capture": "sha256:dba282f20a661a32f2a919f9749fb4e42f4e8e71527d2e778eb07eb84ebbcbd0",
+      "quote": "Users are responsible for backing up all of their files. SourceForge.net will not restore individual files."
+    },
+    {
+      "url": "https://sourceforge.net/create/",
+      "date": "2026-11-25",
+      "proved": "unlimited bandwidth for open-source projects means downloads are not metered per byte",
+      "capture": "sha256:979bb2ba4959476e711fcb9c949f7ae6aefbc18e7294bf07497f0ece475b826a",
+      "quote": "Unlimited bandwidth for Open Source projects"
+    },
+    {
+      "url": "https://sourceforge.net/p/forge/documentation/Project%20Web%20Services/",
+      "date": "2026-11-25",
+      "proved": "the Project Web docs list SFTP, SCP and rsync as upload protocols",
+      "capture": "sha256:9b2f2f0de16e3ae6b67074d89705c4379ba80255a67bf405c0d5fdb3e4ef08f3",
+      "quote": "Use one of our supported protocols, like SFTP, SCP, or rsync to upload your files."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-11T08:05:39.937Z",
+  "verified_at": "2026-11-25T19:55:21.395Z",
   "notes": "NO PUBLISHED QUOTA. The Service Quotas page says verbatim: 'There are currently no fixed capacity limits around usage of our services. In lieu of specific disk usage caps (quotas), we may contact projects if they are using significant storage.' It then gives a soft expectation rather than a cap: 'Keep disk usage to a reasonable level: 5GB or less is ideal. 20-30GB may be permissible. (limits may vary and be flexible depending on the situation)'. So the real number is 20-30 GB of tolerated storage per project, soft, and multiplied by unlimited projects per account.",
   "history": [],
   "extras": {

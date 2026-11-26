@@ -16,12 +16,12 @@
     "stated": "single file of 65.83 GiB",
     "bytes": 70684424273,
     "source_url": "https://civitai.com/content/training/data-policy",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "no per-file byte cap is published; the data-storage policy states retention only, and the API reference reports a per-file size in a sizeKB field without stating a cap"
   },
   "retention": {
     "stated": "By default, uploaded content will be stored indefinitely with the exception of input and output files related to model training that occurs from Civitai.",
     "source_url": "https://civitai.com/content/training/data-policy",
-    "notes": "Extracted from published terms."
+    "notes": "uploaded content is stored indefinitely by default; training input files are kept 30 days and training output files 30 days after the job completes"
   },
   "egress": {
     "terms": "Unmetered; downloads 307-redirect to civitai-delivery-worker-prod...r2.cloudflarestorage.com with a 24 h X-Amz-Expires, then serve 206 with Accept-Ranges: bytes. No per-GB egress charge exists on any Civitai page.",
@@ -100,10 +100,45 @@
       "proved": "the data-storage policy states the 30-day retention of training input files",
       "capture": "sha256:d1130bf3b47a788334efc33253f7b9f1ed4136f236f0c0f94f292ed579f04ee4",
       "quote": "By default, this data will be retained for *30 days* to allow for future re-use in the LoRA Trainer"
+    },
+    {
+      "url": "https://developer.civitai.com/site/reference/model-versions",
+      "date": "2026-11-25",
+      "proved": "the API reference example reports a per-file size in a sizeKB field and states no cap",
+      "capture": "sha256:9d68bef698f2165d7814a1366f1f0dc5648abacf4c5b9f9454e62b161673ab36",
+      "quote": "\"sizeKB\": 6775430.35,"
+    },
+    {
+      "url": "https://civitai.com/content/training/data-policy",
+      "date": "2026-11-25",
+      "proved": "the data-storage policy states retention and no per-object size cap",
+      "capture": "sha256:681fb17c73b93cdfcaf61651ad4702f5509b47ec8b17cde290ce4f9fd1111863",
+      "quote": "By default, uploaded content will be stored indefinitely with the exception of input and output files related to model training that occurs from Civitai."
+    },
+    {
+      "url": "https://civitai.com/content/training/data-policy",
+      "date": "2026-11-25",
+      "proved": "the policy states 30-day retention for training outputs",
+      "capture": "sha256:681fb17c73b93cdfcaf61651ad4702f5509b47ec8b17cde290ce4f9fd1111863",
+      "quote": "The images and models that result from completion of training will be retained for 30 days after the completion of the training job."
+    },
+    {
+      "url": "https://civitai.com/content/training/data-policy",
+      "date": "2026-11-25",
+      "proved": "the data policy still states indefinite retention except for training files",
+      "capture": "sha256:681fb17c73b93cdfcaf61651ad4702f5509b47ec8b17cde290ce4f9fd1111863",
+      "quote": "By default, uploaded content will be stored indefinitely with the exception of input and output files related to model training that occurs from Civitai."
+    },
+    {
+      "url": "https://civitai.com/content/training/data-policy",
+      "date": "2026-11-25",
+      "proved": "the policy states 30-day retention for training inputs",
+      "capture": "sha256:681fb17c73b93cdfcaf61651ad4702f5509b47ec8b17cde290ce4f9fd1111863",
+      "quote": "By default, this data will be retained for *30 days* to allow for future re-use in the LoRA Trainer, unless you elect (and have the appropriate ownership rights) to share your dataset publicly."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:12:58.759Z",
+  "verified_at": "2026-11-25T09:54:57.892Z",
   "notes": "No published per-account or per-file byte quota. Its own Data Storage Policy states: 'By default, uploaded content will be stored indefinitely with the exception of input and output files related to model training.' Empirically: a single file of 65.83 GiB exists in production, and single free accounts hold 453 GiB (Lykon, 212 models) and 97 GiB (NanashiAnon, 412 models).",
   "history": [],
   "extras": {

@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u251-q01",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "For compute/quave-one-agent-sandboxes-direct, what identity_cost.kind does the signup require? The public app access page exposes only a /continue-with-email route name in a script and loads Meteor passwordless plus Google and GitHub OAuth packages; no rendered signup text was captured.",
+ "why": "the audit judged kind 'email' unsupported; every route to the app signup page renders no signup text, so the registration gate cannot be quoted",
+ "scope": {
+  "rids": [
+   "compute/quave-one-agent-sandboxes-direct"
+  ]
+ },
+ "origin": "20261125-0107-research-compute-5c82/u251",
+ "created": "2026-11-25T15:03:37Z"
+}

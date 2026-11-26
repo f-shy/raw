@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u134-q01",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Does Huawei Cloud SWR Basic Edition impose an image quota? The General FAQ (updated 2025-03-25) says 'No quotas are imposed on SWR images', and the Basic Edition push and console-upload pages (updated 2026-09-28) say a tenant can push up to 500 images and 300 tags for each image.",
+ "why": "free_tier.stated, unit 'unlimited', verdict 'qualifies' and the limits list rest on the FAQ; the newer user-guide pages contradict them, so the free tier is bounded by image and tag counts.",
+ "scope": {
+  "rids": [
+   "storage/huawei-cloud-swr-basic-edition"
+  ]
+ },
+ "origin": "20261125-0129-verify-storage-1818/u134",
+ "created": "2026-11-25T12:15:44Z"
+}

@@ -5,7 +5,7 @@
   "url": "https://apexweave.com/free-tier",
   "category": "platform host",
   "free_tier": {
-    "stated": "'a 14-day live trial plus a 120-day grace period during which your app keeps serving traffic while you decide', with a 'Managed Postgres database - Postgres 16, daily snapshots, automatic backups', 'Free SSL certificate', 'Git push deploys' and 'No credit card up front'. Paid plans are flat monthly and start at 'Starter plans for indie developers' without a published entry price on the free-tier page.",
+    "stated": "ApexWeave's free tier is a working production environment: a 14-day live trial plus a 120-day grace period during which your app keeps serving traffic while you decide.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://apexweave.com/free-tier",
@@ -69,10 +69,24 @@
       "url": "https://apexweave.com/pricing",
       "date": "2026-10-22",
       "proved": "'14-day full production trial, then 120-day grace period. Includes a managed Postgres database, free SSL, and full git push workflow. No credit card up front.', quoted"
+    },
+    {
+      "url": "https://apexweave.com/free-tier",
+      "date": "2026-11-25",
+      "proved": "the free-tier page states a working production environment with a 14-day trial and a 120-day grace period",
+      "capture": "sha256:cdff02b46e6397563c3706901196963b402eb4968e6ed76c1f69244cfbe715bf",
+      "quote": "ApexWeave's free tier is a working production environment: a 14-day live trial plus a 120-day grace period during which your app keeps serving traffic while you decide."
+    },
+    {
+      "url": "https://apexweave.com/free-tier",
+      "date": "2026-11-25",
+      "proved": "the free-tier page still states a working production environment with a 14-day trial and a 120-day grace period",
+      "capture": "sha256:cdff02b46e6397563c3706901196963b402eb4968e6ed76c1f69244cfbe715bf",
+      "quote": "ApexWeave's free tier is a working production environment: a 14-day live trial plus a 120-day grace period during which your app keeps serving traffic while you decide."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:32.751Z",
   "notes": "Aggregator claim checked: dalisoft/awesome-hosting lists 'ApexWeave | Plans (5 USD/m) | Trial yes | Free yes | Dynamic'. The trial-plus-grace shape is confirmed by the vendor, and the USD 5 figure is the aggregator's, not the vendor's: neither the pricing page nor the free-tier page publishes a plan price, so it is not recorded. Capacity is the real unknown: no vCPU, memory or disk figure appears on either page, and the comparison page describes the service in prose only. A probe of a deployed app would be needed to size it.",
   "extras": {
     "wave2": {

@@ -1,178 +1,275 @@
 {
-  "topic": "compute",
-  "slug": "genspark-sb-box",
-  "provider": "Genspark SB-Box",
-  "url": "https://www.genspark.ai/sb-box/billing",
-  "category": "hosted VM sandbox",
-  "tier": "Plus (paid plan required; per-credit metering)",
-  "free_tier": {
-    "stated": "None for SB-Box: Free is not supported, SB-Box is available on paid plans only (Plus, Pro, Team, Enterprise), and a Free account gets a 403 sb_box_plan_required refusal on any call that creates or runs something; the underlying Genspark Free account grants 100 credits per day up to a lifetime allowance, which cannot unlock SB-Box",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://www.genspark.ai/sb-box/billing",
-    "read_on": "2026-11-24",
-    "notes": "The meter is in Genspark credits: 25 credits per vCPU-hour and 8 credits per GB of memory-hour while running, and 0.05 credits per GB-hour of disk while the sandbox or template exists, running or frozen, until killed or deleted. The paid plan entry is Plus at USD 24.99 per month or USD 19.99 per month billed annually at USD 239.99 per year, which includes 10,000 monthly credits. Credits run out freezes running sandboxes and keeps frozen ones at most 30 days."
+ "topic": "compute",
+ "slug": "genspark-sb-box",
+ "provider": "Genspark SB-Box",
+ "url": "https://www.genspark.ai/sb-box/docs",
+ "category": "agent sandbox",
+ "tier": "Plus and above (paid plans)",
+ "free_tier": {
+  "stated": "No sandbox free tier: SB-Box is available on paid plans only, and a Free account gets 403 on every call that creates or runs a sandbox. The account-level Free plan is 100 credits a day with a lifetime cap, but that plan cannot create or run a sandbox.",
+  "unit": "none",
+  "metered_on": "wall-clock",
+  "source_url": "https://www.genspark.ai/sb-box/billing.md",
+  "read_on": "2026-11-25",
+  "notes": "100 daily credits on the Free plan expire 24 hours after grant and stop once the lifetime allowance is used; they do not buy SB-Box access."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a sandbox, not an object",
+  "notes": "Disk size is 10 to 100 GB; the public base template is 20 GB."
+ },
+ "retention": {
+  "stated": "A frozen sandbox keeps its disk until it is killed and its memory snapshot for 14 days of inactivity; sandboxes are frozen when credits run out and kept at most 30 days after that.",
+  "source_url": "https://www.genspark.ai/sb-box/docs"
+ },
+ "egress": {
+  "terms": "Outbound internet is on by default; per-sandbox rules can block internet or allow/deny IP ranges, and port URLs can be gated behind a token. No separate data-out price or allowance is published.",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://www.genspark.ai/sb-box/docs"
+ },
+ "interface": [
+  "rest",
+  "cli",
+  "browser"
+ ],
+ "interface_detail": "REST API at https://www.genspark.ai/api/sb-box/v1, the gsk CLI, a console, and official Python, TypeScript, Go and Rust SDKs.",
+ "tooling": "The user installs the gsk CLI or an SDK and logs in with a Genspark account to obtain a gsk- key; sandboxes run on Genspark's infrastructure.",
+ "chaining": "Sandbox disk snapshots become versioned templates that can be cloned or rolled back, and credits are shared with other Genspark products.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "25 credits per vCPU-hour plus 8 credits per GB-hour while running and 0.05 credits per GB-hour disk while it exists",
+   "source": "https://www.genspark.ai/sb-box/billing.md"
   },
-  "per_object_cap": {
-    "stated": "Every sandbox gets a 20 GB root disk; disk can grow to 10-100 GB within the plan's maxDiskGB, which is 20 GB on every current plan",
-    "bytes": null,
-    "source_url": "https://www.genspark.ai/sb-box/docs"
+  {
+   "kind": "volume-quota",
+   "value": "100 daily Free-plan credits with a lifetime cap, expiring 24 hours after grant",
+   "source": "https://www.genspark.ai/helpcenter/credits-guide"
   },
-  "retention": {
-    "stated": "A frozen sandbox holds its disk until killed and bills for it; the memory snapshot is kept for 14 days of inactivity, after which resume answers 428 memory_expired and only reset recovers it; after credits run out frozen sandboxes are kept for at most 30 days",
-    "days": 14,
-    "source_url": "https://www.genspark.ai/sb-box/docs",
-    "notes": "The 14 days applies to the memory snapshot, not the disk: the disk survives until the sandbox is killed, while the disk rate continues to bill. A killed sandbox is terminal and its id answers 404."
+  {
+   "kind": "retention-clamped",
+   "value": "memory snapshot kept 14 days; frozen sandboxes kept at most 30 days after credits run out; disk 10 to 100 GB",
+   "source": "https://www.genspark.ai/sb-box/docs"
   },
-  "egress": {
-    "terms": "Outbound internet is on by default and is controlled per sandbox at create time with allowInternetAccess, allowOut and denyOut; each listening port is reachable at https://<port>-<sandbox-id>.sandbox.<region>-prod.sspark.ai, and allowPublicTraffic false puts every port URL behind a token; no per-GB or per-TB traffic price is stated",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://www.genspark.ai/sb-box/docs"
+  {
+   "kind": "request-rate",
+   "value": "50 running sandboxes on Plus, 100 on Pro and Team, 1,100 on Enterprise; 5 concurrent template builds",
+   "source": "https://www.genspark.ai/sb-box/billing.md"
+  }
+ ],
+ "limits_note": "A frozen sandbox bills only its disk and does not count against the concurrency cap; credits running out freeze sandboxes rather than killing them immediately.",
+ "binding": "volume-quota",
+ "binding_note": "The Free plan cannot create or run a sandbox at all, so the paid credit balance is the first gate; a running sandbox then spends 82 credits an hour at the 2 vCPU/4 GiB base size.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "gsk login is a browser login to a Genspark account; the account plans are Free, Plus, Pro, Team and Enterprise. The exact registration form fields were not read.",
+  "country": null
+ },
+ "reliability_note": "A sandbox freezes after 10 quiet minutes; its memory snapshot is dropped after 14 days and its disk is frozen but retained while billed. Credits reaching zero freeze running sandboxes and suspend commands with 402 until a top-up.",
+ "confidence": "documented",
+ "confidence_note": "Rates, plan gate, lifecycle and limits are quoted from Genspark's own billing page and user guide read on 2026-11-25; the signup form itself was not seen.",
+ "evidence": [
+  {
+   "url": "https://www.genspark.ai/sb-box/billing.md",
+   "date": "2026-11-25",
+   "capture": "sha256:96185fae08ccac5b2b207658c633e3d439e9d967e0b727c1bfc85b607ae9a82a",
+   "quote": "| **CPU** | **25** | vCPU-hour | the sandbox is **running** |",
+   "proved": "CPU credit rate"
   },
-  "interface": [
-    "rest",
-    "cli"
-  ],
-  "interface_detail": "Three surfaces reach the same objects: the web console, the gsk sb-box CLI installed from npm, and the REST API at https://www.genspark.ai/api/sb-box/v1, all authenticated by one gsk- API key; a WebSocket PTY is also documented.",
-  "tooling": "npm install -g @genspark/cli followed by gsk login; the gsk sb-box CLI and REST calls with an X-Api-Key or Bearer gsk- key. sandbox files move by path over CLI read/write or REST files/stream.",
-  "chaining": "A sandbox is a full VM restored from a template snapshot in under half a second, freezes when quiet with only the disk billing, and resumes with memory intact, so a long job can be checkpointed across freezes; the credit balance, not a time cap, is the standing limit, and a paid plan is the gate before any of it is reachable.",
-  "limits": [
-    {
-      "kind": "write-gated",
-      "value": "Free plan: SB-Box not supported; create, resume, clone, reset, build, commands and files answer 403 sb_box_plan_required",
-      "source": "https://www.genspark.ai/sb-box/billing"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "25 credits per vCPU-hour and 8 credits per GB memory-hour while running; 0.05 credits per GB disk-hour while the sandbox or template exists; Plus includes 10,000 monthly credits at USD 24.99 per month",
-      "source": "https://www.genspark.ai/sb-box/billing"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "20 GB root disk; maxDiskGB 20 GB on every current plan; disk grow allowed only up to 100 GB and within plan cap",
-      "source": "https://www.genspark.ai/sb-box/docs"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "memory snapshot kept 14 days frozen; frozen sandboxes kept at most 30 days after credits run out",
-      "source": "https://www.genspark.ai/sb-box/docs"
-    }
-  ],
-  "limits_note": "Plus caps concurrent running sandboxes at 50 with 8 vCPU, 8 GiB memory and 20 GB disk per sandbox and 5 concurrent template builds; Pro, Team and Enterprise raise running sandboxes to 100 or 1,100 and memory to 16 GiB but keep the 20 GB disk cap. The idle timer freezes a sandbox after 600 quiet seconds. An exec call is capped at 600 seconds and a run-code cell at 540 seconds. Frozen sandboxes do not count against the concurrency cap.",
-  "binding": "write-gated",
-  "binding_note": "The Free plan cannot call any create or run endpoint at all, so the plan gate fails before the credit meter or the 20 GB disk cap can bind; once on a paid plan the credit balance is the standing limit because no maximum run duration is published.",
-  "identity_cost": {
-    "kind": "card",
-    "detail": "An account is needed: sign-in methods are Google, Apple, or email with a one-time code or password, and the CLI saves a gsk- API key after gsk login; SB-Box access requires a paid Plus, Pro, Team or Enterprise plan, and subscribing on the web uses a Stripe payment page where payment details are entered. No phone number or ID document is stated.",
-    "country": null
+  {
+   "url": "https://www.genspark.ai/sb-box/billing.md",
+   "date": "2026-11-25",
+   "capture": "sha256:96185fae08ccac5b2b207658c633e3d439e9d967e0b727c1bfc85b607ae9a82a",
+   "quote": "| **Memory** | **8** | GB-hour | the sandbox is **running** |",
+   "proved": "memory credit rate"
   },
-  "reliability_note": "After 14 days frozen the memory snapshot expires and resume answers 428 memory_expired, requiring a cold reset; after credits run out sandboxes freeze, further calls answer 402 until a top-up, and frozen sandboxes are kept at most 30 days. Parallel creates, resumes and clones on one account are serialised and one may wait up to 10 seconds. A reset is a power loss and unflushed writes are lost.",
-  "confidence": "documented",
-  "confidence_note": "The credit rates and per-plan caps are quoted from Genspark's own SB-Box billing page read 2026-11-24; the Free-plan 403, the 20 GB disk, the 14-day memory snapshot and the port-URL egress policy are quoted from Genspark's own SB-Box documentation; the paid-plan prices and the Google/Apple/email sign-in methods are quoted from Genspark's own help center.",
-  "evidence": [
-    {
-      "url": "https://www.genspark.ai/sb-box/billing",
-      "date": "2026-11-24",
-      "proved": "CPU bills 25 credits per vCPU-hour while the sandbox runs",
-      "capture": "sha256:8e64bfd15c2d9afbe0cb94cda9bf907e8e54424a9904c1d8dba5271387388281",
-      "quote": "| **CPU** | **25** | vCPU-hour | the sandbox is **running** |"
-    },
-    {
-      "url": "https://www.genspark.ai/sb-box/billing",
-      "date": "2026-11-24",
-      "proved": "memory bills 8 credits per GB-hour while running and disk 0.05 credits per GB-hour while the sandbox or template exists",
-      "capture": "sha256:8e64bfd15c2d9afbe0cb94cda9bf907e8e54424a9904c1d8dba5271387388281",
-      "quote": "| **Memory** | **8** | GB-hour | the sandbox is **running** |\n| **Disk** | **0.05** | GB-hour | the sandbox or template **exists** (running or frozen), until it is killed / deleted |"
-    },
-    {
-      "url": "https://www.genspark.ai/sb-box/billing",
-      "date": "2026-11-24",
-      "proved": "the Free plan does not support SB-Box",
-      "capture": "sha256:8e64bfd15c2d9afbe0cb94cda9bf907e8e54424a9904c1d8dba5271387388281",
-      "quote": "| Free | not supported |  |  |"
-    },
-    {
-      "url": "https://www.genspark.ai/sb-box/billing",
-      "date": "2026-11-24",
-      "proved": "Plus allows 50 concurrent running sandboxes with 8 vCPU, 8 GiB memory, 20 GB disk and 5 concurrent builds",
-      "capture": "sha256:8e64bfd15c2d9afbe0cb94cda9bf907e8e54424a9904c1d8dba5271387388281",
-      "quote": "| Plus | 50 | 8 · 8 GiB · 20 GB | 5 |"
-    },
-    {
-      "url": "https://www.genspark.ai/sb-box/billing",
-      "date": "2026-11-24",
-      "proved": "running out of credits freezes sandboxes and keeps frozen ones at most 30 days, with no cap on run length",
-      "capture": "sha256:8e64bfd15c2d9afbe0cb94cda9bf907e8e54424a9904c1d8dba5271387388281",
-      "quote": "There is no cap on how long a sandbox may run: your balance is the limit."
-    },
-    {
-      "url": "https://www.genspark.ai/sb-box/docs",
-      "date": "2026-11-24",
-      "proved": "SB-Box requires a paid plan and a Free account gets a 403 sb_box_plan_required refusal",
-      "capture": "sha256:78a0efe8de9897c2bbdfc2dd4dc1d2d2e344693b2b168efd4bcae705d3aec8cd",
-      "quote": "SB-Box is available on **paid plans** (Plus, Pro, Team, Enterprise)."
-    },
-    {
-      "url": "https://www.genspark.ai/sb-box/docs",
-      "date": "2026-11-24",
-      "proved": "each sandbox gets a 20 GB root disk billed running or frozen with no free allowance",
-      "capture": "sha256:78a0efe8de9897c2bbdfc2dd4dc1d2d2e344693b2b168efd4bcae705d3aec8cd",
-      "quote": "Every sandbox gets a 20 GB root disk, billed running or frozen with no free allowance"
-    },
-    {
-      "url": "https://www.genspark.ai/sb-box/docs",
-      "date": "2026-11-24",
-      "proved": "the idle timer is 600 seconds and a quiet sandbox freezes 10 to 15 minutes after last activity",
-      "capture": "sha256:78a0efe8de9897c2bbdfc2dd4dc1d2d2e344693b2b168efd4bcae705d3aec8cd",
-      "quote": "no guest activity (network traffic, CPU) for this long → automatic **freeze**, landing up to 5 minutes later than the timeout"
-    },
-    {
-      "url": "https://www.genspark.ai/sb-box/docs",
-      "date": "2026-11-24",
-      "proved": "outbound internet is on by default and is restricted per sandbox with allowInternetAccess, allowOut and denyOut",
-      "capture": "sha256:78a0efe8de9897c2bbdfc2dd4dc1d2d2e344693b2b168efd4bcae705d3aec8cd",
-      "quote": "Outbound internet is **on by default**. Restrict it per sandbox with the `network` block on create:"
-    },
-    {
-      "url": "https://www.genspark.ai/sb-box/docs",
-      "date": "2026-11-24",
-      "proved": "the memory snapshot expires after 14 days frozen and only reset recovers the sandbox",
-      "capture": "sha256:78a0efe8de9897c2bbdfc2dd4dc1d2d2e344693b2b168efd4bcae705d3aec8cd",
-      "quote": "A frozen sandbox holds its **disk** (files) for as long as it exists and its **memory snapshot** (processes, sockets, interpreter variables, shell history) for **14 days from the freeze**."
-    },
-    {
-      "url": "https://www.genspark.ai/sb-box/docs",
-      "date": "2026-11-24",
-      "proved": "three surfaces reach the same objects: console, gsk CLI and REST API at /api/sb-box/v1",
-      "capture": "sha256:78a0efe8de9897c2bbdfc2dd4dc1d2d2e344693b2b168efd4bcae705d3aec8cd",
-      "quote": "**REST API** `https://www.genspark.ai/api/sb-box/v1` (§15) | your own integrations |"
-    },
-    {
-      "url": "https://www.genspark.ai/helpcenter/membership-plans",
-      "date": "2026-11-24",
-      "proved": "Genspark Free account gets 100 credits per day and 1 GB storage; SB-Box needs a paid plan",
-      "capture": "sha256:211c88a0a606f9a0c6da226e141364663b84b051d0f083d0a919588575dbb9bf",
-      "quote": "- **Free** — the default plan for every new account, with 100 credits per day and 1 GB of AI Drive storage."
-    },
-    {
-      "url": "https://www.genspark.ai/helpcenter/membership-plans",
-      "date": "2026-11-24",
-      "proved": "Plus costs USD 24.99 per month and includes 10,000 monthly credits",
-      "capture": "sha256:211c88a0a606f9a0c6da226e141364663b84b051d0f083d0a919588575dbb9bf",
-      "quote": "| Plus | $24.99 / month | $19.99 / month, billed annually at $239.99 / year |"
-    },
-    {
-      "url": "https://www.genspark.ai/helpcenter/account-management",
-      "date": "2026-11-24",
-      "proved": "sign-in methods are Google, Apple or an email address with a one-time code or password",
-      "capture": "sha256:83fbc3d1816e589598b304822ff944ef54f62c47481fe61382fb656b4d59e2a8",
-      "quote": "Your account keeps the sign-in method it was created with (Google, Apple, or email and password)."
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T10:11:14.747Z",
-  "price_per_tb_month": null,
-  "notes": "There is no no-cost lane: the Free plan is explicitly unsupported and returns 403 sb_box_plan_required on create and run calls. The meter is in Genspark credits at 25 per vCPU-hour, 8 per GB memory-hour and 0.05 per GB disk-hour, and the cheapest paid entry is Plus at USD 24.99 per month with 10,000 monthly credits. The credit balance, with no published maximum run duration, is the standing limit once a paid plan is held."
+  {
+   "url": "https://www.genspark.ai/sb-box/billing.md",
+   "date": "2026-11-25",
+   "capture": "sha256:96185fae08ccac5b2b207658c633e3d439e9d967e0b727c1bfc85b607ae9a82a",
+   "quote": "| **Disk** | **0.05** | GB-hour | the sandbox or template **exists** (running or frozen), until it is killed / deleted |",
+   "proved": "disk credit rate"
+  },
+  {
+   "url": "https://www.genspark.ai/sb-box/billing.md",
+   "date": "2026-11-25",
+   "capture": "sha256:96185fae08ccac5b2b207658c633e3d439e9d967e0b727c1bfc85b607ae9a82a",
+   "quote": "| Free | not supported | | |",
+   "proved": "Free plan cannot run sandboxes"
+  },
+  {
+   "url": "https://www.genspark.ai/sb-box/docs",
+   "date": "2026-11-25",
+   "capture": "sha256:78a0efe8de9897c2bbdfc2dd4dc1d2d2e344693b2b168efd4bcae705d3aec8cd",
+   "quote": "SB-Box is available on **paid plans** (Plus, Pro, Team, Enterprise).",
+   "proved": "paid-plan requirement"
+  },
+  {
+   "url": "https://www.genspark.ai/sb-box/docs",
+   "date": "2026-11-25",
+   "capture": "sha256:78a0efe8de9897c2bbdfc2dd4dc1d2d2e344693b2b168efd4bcae705d3aec8cd",
+   "quote": "An account without SB-Box access gets `403 {\"detail\": \"SB-Box is not enabled for this account\"}` on every call.",
+   "proved": "403 gate without access"
+  },
+  {
+   "url": "https://www.genspark.ai/sb-box/docs",
+   "date": "2026-11-25",
+   "capture": "sha256:78a0efe8de9897c2bbdfc2dd4dc1d2d2e344693b2b168efd4bcae705d3aec8cd",
+   "quote": "Outbound internet is **on by default**. Restrict it per sandbox with the `network` block on create:",
+   "proved": "default outbound internet"
+  },
+  {
+   "url": "https://www.genspark.ai/sb-box/docs",
+   "date": "2026-11-25",
+   "capture": "sha256:78a0efe8de9897c2bbdfc2dd4dc1d2d2e344693b2b168efd4bcae705d3aec8cd",
+   "quote": "A frozen sandbox holds its **disk** (files) for as long as it exists and its **memory snapshot** (processes, sockets, interpreter variables, shell history) for **14 days from the freeze**.",
+   "proved": "freeze retention"
+  },
+  {
+   "url": "https://www.genspark.ai/helpcenter/membership-plans",
+   "date": "2026-11-25",
+   "capture": "sha256:211c88a0a606f9a0c6da226e141364663b84b051d0f083d0a919588575dbb9bf",
+   "quote": "- **Free** — the default plan for every new account, with 100 credits per day and 1 GB of AI Drive storage.",
+   "proved": "Free account daily credits"
+  },
+  {
+   "url": "https://www.genspark.ai/helpcenter/credits-guide",
+   "date": "2026-11-25",
+   "capture": "sha256:433ba3609e4bc5fb3443bbd7f7413fb99f59138aed2728ee486525783b8ff487",
+   "quote": "| Daily free credits (Free plan) | 24 hours after they're granted |",
+   "proved": "expiry of daily free credits"
+  },
+  {
+   "url": "https://www.genspark.ai/sb-box/billing",
+   "date": "2026-11-24",
+   "proved": "CPU bills 25 credits per vCPU-hour while the sandbox runs",
+   "capture": "sha256:8e64bfd15c2d9afbe0cb94cda9bf907e8e54424a9904c1d8dba5271387388281",
+   "quote": "| **CPU** | **25** | vCPU-hour | the sandbox is **running** |"
+  },
+  {
+   "url": "https://www.genspark.ai/sb-box/billing",
+   "date": "2026-11-24",
+   "proved": "memory bills 8 credits per GB-hour while running and disk 0.05 credits per GB-hour while the sandbox or template exists",
+   "capture": "sha256:8e64bfd15c2d9afbe0cb94cda9bf907e8e54424a9904c1d8dba5271387388281",
+   "quote": "| **Memory** | **8** | GB-hour | the sandbox is **running** |\n| **Disk** | **0.05** | GB-hour | the sandbox or template **exists** (running or frozen), until it is killed / deleted |"
+  },
+  {
+   "url": "https://www.genspark.ai/sb-box/billing",
+   "date": "2026-11-24",
+   "proved": "the Free plan does not support SB-Box",
+   "capture": "sha256:8e64bfd15c2d9afbe0cb94cda9bf907e8e54424a9904c1d8dba5271387388281",
+   "quote": "| Free | not supported |  |  |"
+  },
+  {
+   "url": "https://www.genspark.ai/sb-box/billing",
+   "date": "2026-11-24",
+   "proved": "Plus allows 50 concurrent running sandboxes with 8 vCPU, 8 GiB memory, 20 GB disk and 5 concurrent builds",
+   "capture": "sha256:8e64bfd15c2d9afbe0cb94cda9bf907e8e54424a9904c1d8dba5271387388281",
+   "quote": "| Plus | 50 | 8 · 8 GiB · 20 GB | 5 |"
+  },
+  {
+   "url": "https://www.genspark.ai/sb-box/billing",
+   "date": "2026-11-24",
+   "proved": "running out of credits freezes sandboxes and keeps frozen ones at most 30 days, with no cap on run length",
+   "capture": "sha256:8e64bfd15c2d9afbe0cb94cda9bf907e8e54424a9904c1d8dba5271387388281",
+   "quote": "There is no cap on how long a sandbox may run: your balance is the limit."
+  },
+  {
+   "url": "https://www.genspark.ai/sb-box/docs",
+   "date": "2026-11-24",
+   "proved": "SB-Box requires a paid plan and a Free account gets a 403 sb_box_plan_required refusal",
+   "capture": "sha256:78a0efe8de9897c2bbdfc2dd4dc1d2d2e344693b2b168efd4bcae705d3aec8cd",
+   "quote": "SB-Box is available on **paid plans** (Plus, Pro, Team, Enterprise)."
+  },
+  {
+   "url": "https://www.genspark.ai/sb-box/docs",
+   "date": "2026-11-24",
+   "proved": "each sandbox gets a 20 GB root disk billed running or frozen with no free allowance",
+   "capture": "sha256:78a0efe8de9897c2bbdfc2dd4dc1d2d2e344693b2b168efd4bcae705d3aec8cd",
+   "quote": "Every sandbox gets a 20 GB root disk, billed running or frozen with no free allowance"
+  },
+  {
+   "url": "https://www.genspark.ai/sb-box/docs",
+   "date": "2026-11-24",
+   "proved": "the idle timer is 600 seconds and a quiet sandbox freezes 10 to 15 minutes after last activity",
+   "capture": "sha256:78a0efe8de9897c2bbdfc2dd4dc1d2d2e344693b2b168efd4bcae705d3aec8cd",
+   "quote": "no guest activity (network traffic, CPU) for this long → automatic **freeze**, landing up to 5 minutes later than the timeout"
+  },
+  {
+   "url": "https://www.genspark.ai/sb-box/docs",
+   "date": "2026-11-24",
+   "proved": "outbound internet is on by default and is restricted per sandbox with allowInternetAccess, allowOut and denyOut",
+   "capture": "sha256:78a0efe8de9897c2bbdfc2dd4dc1d2d2e344693b2b168efd4bcae705d3aec8cd",
+   "quote": "Outbound internet is **on by default**. Restrict it per sandbox with the `network` block on create:"
+  },
+  {
+   "url": "https://www.genspark.ai/sb-box/docs",
+   "date": "2026-11-24",
+   "proved": "the memory snapshot expires after 14 days frozen and only reset recovers the sandbox",
+   "capture": "sha256:78a0efe8de9897c2bbdfc2dd4dc1d2d2e344693b2b168efd4bcae705d3aec8cd",
+   "quote": "A frozen sandbox holds its **disk** (files) for as long as it exists and its **memory snapshot** (processes, sockets, interpreter variables, shell history) for **14 days from the freeze**."
+  },
+  {
+   "url": "https://www.genspark.ai/sb-box/docs",
+   "date": "2026-11-24",
+   "proved": "three surfaces reach the same objects: console, gsk CLI and REST API at /api/sb-box/v1",
+   "capture": "sha256:78a0efe8de9897c2bbdfc2dd4dc1d2d2e344693b2b168efd4bcae705d3aec8cd",
+   "quote": "**REST API** `https://www.genspark.ai/api/sb-box/v1` (§15) | your own integrations |"
+  },
+  {
+   "url": "https://www.genspark.ai/helpcenter/membership-plans",
+   "date": "2026-11-24",
+   "proved": "Genspark Free account gets 100 credits per day and 1 GB storage; SB-Box needs a paid plan",
+   "capture": "sha256:211c88a0a606f9a0c6da226e141364663b84b051d0f083d0a919588575dbb9bf",
+   "quote": "- **Free** — the default plan for every new account, with 100 credits per day and 1 GB of AI Drive storage."
+  },
+  {
+   "url": "https://www.genspark.ai/helpcenter/membership-plans",
+   "date": "2026-11-24",
+   "proved": "Plus costs USD 24.99 per month and includes 10,000 monthly credits",
+   "capture": "sha256:211c88a0a606f9a0c6da226e141364663b84b051d0f083d0a919588575dbb9bf",
+   "quote": "| Plus | $24.99 / month | $19.99 / month, billed annually at $239.99 / year |"
+  },
+  {
+   "url": "https://www.genspark.ai/helpcenter/account-management",
+   "date": "2026-11-24",
+   "proved": "sign-in methods are Google, Apple or an email address with a one-time code or password",
+   "capture": "sha256:83fbc3d1816e589598b304822ff944ef54f62c47481fe61382fb656b4d59e2a8",
+   "quote": "Your account keeps the sign-in method it was created with (Google, Apple, or email and password)."
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T02:12:34.751Z",
+ "price_per_tb_month": null,
+ "notes": "Hosted full-VM sandboxes billed in Genspark credits: 25 per vCPU-hour, 8 per GB-hour, 0.05 per disk GB-hour. Free accounts cannot create or run one; Plus starts at USD 24.99 a month.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 4,
+   "disk_gib": 20,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "public base template is 2 vCPU/4 GB/20 GB; per sandbox up to 8 vCPU, 16 GiB on Pro"
+  },
+  "billing_model": "credit meter on a paid subscription",
+  "free_tier_kind": "none for sandboxes",
+  "term": "paid plan, per-second-equivalent credit meter",
+  "price_arithmetic": "2 vCPU × 25 + 4 GB × 8 = 82 credits per running hour; disk 20 GB × 0.05 = 1 credit per hour while it exists",
+  "status": "live",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "public port URLs, token-gateable with allowPublicTraffic false",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": 600,
+   "restart_required": false,
+   "note": "freezes after 10 quiet minutes; memory snapshot expires after 14 days; no cap on total run time while credits remain"
+  }
+ }
 }

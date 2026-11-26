@@ -16,15 +16,15 @@
     "stated": "10 MB/file",
     "bytes": 10000000,
     "source_url": "https://support.atlassian.com/trello/docs/which-trello-plan-is-best-for-me/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "10MB limit for each attachment; no total storage limit."
   },
   "retention": {
-    "stated": "unverified: https://support.atlassian.com/trello/docs/which-trello-plan-is-best-for-me/ states no retention period",
+    "stated": "Deleting an attachment permanently removes the file from Amazon S3; deleting a card also deletes its attached files.",
     "source_url": "https://support.atlassian.com/trello/docs/which-trello-plan-is-best-for-me/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Deleting an attachment permanently removes the file from Amazon S3; deleting a card also deletes its attached files."
   },
   "egress": {
-    "terms": "free direct download links, Atlassian CDN; no egress metering published",
+    "terms": "Uploaded attachments require user authorization to display; attachments and previews on public boards remain accessible without an account.",
     "metered": false
   },
   "interface": [
@@ -33,7 +33,7 @@
   ],
   "interface_detail": "rest",
   "tooling": "documented Trello REST API: POST /1/cards/{id}/attachments (multipart file or url), plus GET /1/cards/{id}/attachments; py-trello and trello-rclone-style wrappers exist",
-  "chaining": "unlimited cards x 10 MB x unlimited boards x unlimited free Workspaces (10 members each). This is genuinely 'per-record unlimited': no bucket cap, only a per-file cap. 500 GB = 51,200 attachments",
+  "chaining": "Free plan: up to 10 open boards and up to 10 Collaborators; 10MB per attachment with no total storage limit.",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -72,10 +72,38 @@
       "proved": "the Free plan allows a 10MB attachment with no total storage limit",
       "capture": "sha256:781986390b01ac35a0fe016a68ee87df95a30ba0280674aa76d68bbccafe14af",
       "quote": "10MB limit for each attachment (there is no total limit for storage, just a per-file limit)"
+    },
+    {
+      "url": "https://support.atlassian.com/trello/docs/which-trello-plan-is-best-for-me/",
+      "date": "2026-11-25",
+      "proved": "the free plan limits each attachment to 10MB with no total storage limit",
+      "capture": "sha256:781986390b01ac35a0fe016a68ee87df95a30ba0280674aa76d68bbccafe14af",
+      "quote": "10MB limit for each attachment (there is no total limit for storage, just a per-file limit)"
+    },
+    {
+      "url": "https://support.atlassian.com/trello/docs/adding-attachments-to-cards/",
+      "date": "2026-11-25",
+      "proved": "attachment and card deletion permanently removes the stored files",
+      "capture": "sha256:149082f49aae8ae0166ad7e3fe128b1f430a79ea8e91c6b6216b608f6c7da0e8",
+      "quote": "Deleting the attachment in Trello permanently removes the file from Amazon S3. Deleting a card will also delete any files attached to that card."
+    },
+    {
+      "url": "https://support.atlassian.com/trello/docs/adding-attachments-to-cards/",
+      "date": "2026-11-25",
+      "proved": "uploaded attachments check authorization, except on public boards where they remain accessible without an account",
+      "capture": "sha256:149082f49aae8ae0166ad7e3fe128b1f430a79ea8e91c6b6216b608f6c7da0e8",
+      "quote": "Effective December 1, 2023, all uploaded attachments will check for user authorization in order to display the file due to security considerations. ... Attachments and previews on public boards will remain fully accessible without an account."
+    },
+    {
+      "url": "https://support.atlassian.com/trello/docs/which-trello-plan-is-best-for-me/",
+      "date": "2026-11-25",
+      "proved": "the free plan lists 10 open boards, 10 collaborators and a 10MB attachment limit with no total storage limit",
+      "capture": "sha256:781986390b01ac35a0fe016a68ee87df95a30ba0280674aa76d68bbccafe14af",
+      "quote": "- Up to 10 open boards\n- Up to 10 [Collaborators](https://support.atlassian.com/trello/docs/workspace-user-limit/)\n- Unlimited Power-Ups\n- 10MB limit for each attachment (there is no total limit for storage, just a per-file limit)"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:34.759Z",
+  "verified_at": "2026-11-25T19:55:24.771Z",
   "notes": "10 MB per attachment on Free, 250 MB on Standard. And explicitly 'there is no total limit for storage, just a per-file limit'.",
   "history": [],
   "extras": {

@@ -66,10 +66,24 @@
       "url": "https://www.scaleway.com/en/pricing/virtual-instances/",
       "date": "2026-10-23",
       "proved": "the PLAY2 range row reads '| PLAY2-PICO | 1 vCPU | 2 GB | 100 Mbps | EUR 0.01428 /HOUR | ~EUR 10.42 /MONTH |'"
+    },
+    {
+      "url": "https://www.scaleway.com/en/pricing/virtual-instances/",
+      "date": "2026-11-25",
+      "proved": "egress is inside the list price; public IPv4 is extra",
+      "capture": "sha256:31b59cc1927b1890477cf6c176a1c58791868f0c1855d6b943143d662ebbee3b",
+      "quote": "List prices include egress and IPv6 addresses. Storage (local, block) and attached public IPv4 addresses are excluded."
+    },
+    {
+      "url": "https://www.scaleway.com/en/pricing/virtual-instances/",
+      "date": "2026-11-25",
+      "proved": "PLAY2-PICO price and 100 Mbps bandwidth",
+      "capture": "sha256:31b59cc1927b1890477cf6c176a1c58791868f0c1855d6b943143d662ebbee3b",
+      "quote": "| PLAY2-PICO | 1 vCPU | 2 GB | 100 Mbps | €0.01428/HOUR | ~€10.42/MONTH |"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:47.436Z",
   "price_per_tb_month": "about EUR 10.42 a month for PLAY2-PICO; egress included",
   "history": [],
   "notes": "For a 1 TiB a month path this is the second cheapest comparator found after OVHcloud: EUR 10.42 a month for 100 Mbps with egress inside the price, and an IPv6 address free with the instance so the public IPv4 surcharge can be skipped entirely.",

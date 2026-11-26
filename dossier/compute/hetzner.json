@@ -5,7 +5,7 @@
   "url": "https://www.hetzner.com/dedicated-rootserver/matrix-sx/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "Three SX models, all with SATA HDD plus NVMe. SX65: 4 x 16 TB up to 4 x 22 TB SATA, 2 x 1 TB NVMe, 128 GB DDR4 ECC, Ryzen 7 3700X, from EUR 84.00 to EUR 159.00/month excl. VAT, EUR 39.00 one-time setup. SX135: 8 x 16 TB up to 8 x 22 TB, 2 x 1.92 TB NVMe, 256 GB, Ryzen 9 3900, EUR 289.00 to EUR 309.00/month, EUR 144.00 setup. SX295: 14 x 22 TB SATA (308 TB), 2 x 7.68 TB NVMe, EPYC 7502P, EUR 599.00 to EUR 879.00/month, EUR 439.00 setup. Traffic is unlimited and the port is 1 Gbit/s.",
+    "stated": "SX65 3 Types starting from max/mo. max/mo. € 84.00 per month, excl. VAT",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://www.hetzner.com/dedicated-rootserver/matrix-sx/",
@@ -79,10 +79,31 @@
       "url": "https://docs.hetzner.com/general/security-and-identify/fraud-prevention-faq/",
       "date": "2026-10-24",
       "proved": "quoted, identity: 'You can do this in two ways: Verification via ID document: You provide us with a copy of a valid government-issued ID (e.g., ID card or passport)... Verification via prepayment (credit card)' and 'please, if it is possible, do not use a free email address ... And during the registration process, do not use a VPN service.'"
+    },
+    {
+      "url": "https://www.hetzner.com/dedicated-rootserver/matrix-sx/",
+      "date": "2026-11-25",
+      "proved": "the SX card states the entry price of the SX65 model at EUR 84.00 per month excl. VAT",
+      "capture": "sha256:52d4acc07d1cc08e5fe965e977eca2af17e1429915d02fd63e641e8d4fc4fa0d",
+      "quote": "SX65 3 Types starting from max/mo. max/mo. € 84.00 per month, excl. VAT"
+    },
+    {
+      "url": "https://www.hetzner.com/dedicated-rootserver/matrix-sx/",
+      "date": "2026-11-25",
+      "proved": "the spec table lists the SATA HDD configurations of the three SX models",
+      "capture": "sha256:52d4acc07d1cc08e5fe965e977eca2af17e1429915d02fd63e641e8d4fc4fa0d",
+      "quote": "| SATA HDD Software RAID is only available in combination with one of our preinstalled operating systems | 4x 16 TB up to 4x 22 TB SATA | 8x 16 TB up to 8x 22 TB SATA | 14x 22 TB SATA |"
+    },
+    {
+      "url": "https://www.hetzner.com/dedicated-rootserver/matrix-sx/",
+      "date": "2026-11-25",
+      "proved": "the SX page still states the SX65 entry price at EUR 84.00 per month excl. VAT",
+      "capture": "sha256:52d4acc07d1cc08e5fe965e977eca2af17e1429915d02fd63e641e8d4fc4fa0d",
+      "quote": "SX65 3 Types starting from max/mo. max/mo. € 84.00 per month, excl. VAT"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-24T03:19:16.612Z",
+  "verified_at": "2026-11-25T15:03:55.163Z",
   "notes": "The two prices per card are read as a low and a high configuration of the same model, because the card says '3 Types' for SX65 and '1 Type' for SX295, but the page never prints a price beside a disk count. A per-TB figure for SX65 or SX135 would therefore be an inference about which price pairs with which drive set, so only SX295 is given one. Hetzner also sells a Storage Box on the same page at EUR 3.20/TB (1 TB), EUR 10.90 (5 TB), EUR 20.80 (10 TB) and EUR 40.60 (20 TB); that is a managed NAS product, not a rented machine, and it is out of this document's scope. The identity cost is documented from the billing and fraud-prevention docs. The material finding is not the card but the ID gate: Hetzner may demand a copy of a government-issued ID or an advance card payment before processing an order, and asks for a paid email domain and no VPN at signup.",
   "extras": {
     "wave2": {

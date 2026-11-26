@@ -16,12 +16,12 @@
     "stated": "5 GB per file",
     "bytes": 5000000000,
     "source_url": "https://help.osf.io/article/555-add-ons-storage-api-integration-faq-s",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Individual files must be 5GB or less to be uploaded to OSF Storage."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://help.osf.io/article/555-add-ons-storage-api-integration-faq-s",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "No retention statement documented on the cited OSF Storage FAQ page."
   },
   "egress": {
     "terms": "Unmetered; downloads served from OSF Storage (US/Canada/Germany/Australia regions)",
@@ -99,10 +99,38 @@
       "proved": "the 5 GB per-file limit is unchanged",
       "capture": "sha256:4690800e909bc8df0c0560a0d694fe7fbffbd7dfe54ca5c43f3b9380bde9cef2",
       "quote": "Individual files must be 5GB or less to be uploaded to OSF Storage."
+    },
+    {
+      "url": "https://help.osf.io/article/555-add-ons-storage-api-integration-faq-s",
+      "date": "2026-11-25",
+      "proved": "the OSF FAQ states a 5 GB per-file limit for OSF Storage",
+      "capture": "sha256:4690800e909bc8df0c0560a0d694fe7fbffbd7dfe54ca5c43f3b9380bde9cef2",
+      "quote": "Individual files must be 5GB or less to be uploaded to OSF Storage. Larger files can be stored in an add-on. [Learn more about storage add-ons](https://help.osf.io/article/395-storage-add-ons)"
+    },
+    {
+      "url": "https://help.osf.io/article/555-add-ons-storage-api-integration-faq-s",
+      "date": "2026-11-25",
+      "proved": "the cited FAQ page contains no retention period statement; it states deleted files or projects cannot be recovered",
+      "capture": "sha256:4690800e909bc8df0c0560a0d694fe7fbffbd7dfe54ca5c43f3b9380bde9cef2",
+      "quote": "Unfortunately, no. When a user deletes a file or project from OSF, access to this content is removed for all users."
+    },
+    {
+      "url": "https://help.osf.io/article/555-add-ons-storage-api-integration-faq-s",
+      "date": "2026-11-25",
+      "proved": "the OSF FAQ states the 5 GB per-file cap for OSF Storage",
+      "capture": "sha256:4690800e909bc8df0c0560a0d694fe7fbffbd7dfe54ca5c43f3b9380bde9cef2",
+      "quote": "Individual files must be 5GB or less to be uploaded to OSF Storage. Larger files can be stored in an add-on. [Learn more about storage add-ons](https://help.osf.io/article/395-storage-add-ons)"
+    },
+    {
+      "url": "https://help.osf.io/article/555-add-ons-storage-api-integration-faq-s",
+      "date": "2026-11-25",
+      "proved": "the cited OSF FAQ page does not state a retention period; it states deleted content cannot be recovered",
+      "capture": "sha256:4690800e909bc8df0c0560a0d694fe7fbffbd7dfe54ca5c43f3b9380bde9cef2",
+      "quote": "Unfortunately, no. When a user deletes a file or project from OSF, access to this content is removed for all users."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:37.735Z",
+  "verified_at": "2026-11-25T21:21:16.851Z",
   "notes": "Currently, there is no applied overall cap on the amount of OSF Storage per user.",
   "history": [],
   "extras": {

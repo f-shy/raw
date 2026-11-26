@@ -91,13 +91,6 @@
       "quote": "\"consecutive_failures\": 0"
     },
     {
-      "url": "probe:https://pan.roxylib.com/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:bc2ce086c89af49f9c53c6990e9731a729beba4c9db7434da5606c84ca6997d8",
-      "quote": "\"alive\": true"
-    },
-    {
       "url": "probe:https://pan.roxylib.com",
       "date": "2026-11-19",
       "proved": "the probe's checked_at instant is the fresh last-alive verification time",
@@ -117,6 +110,13 @@
       "proved": "the /api/public/settings request answered HTTP 200 in this run",
       "capture": "sha256:4f47c8e14773d85f229178223de93aadc2cbb763911ba3c9543a79e8f0ac459b",
       "quote": "\"status\": 200"
+    },
+    {
+      "url": "probe:https://pan.roxylib.com/",
+      "date": "2026-11-25",
+      "proved": "the anonymous settings and mount-list requests answered at this instant",
+      "capture": "sha256:070268791b6e27b899e4ab9025b987e4f5c4135aa1e606c4b9bd1544fbc32075",
+      "quote": "\"alive\": true"
     },
     {
       "url": "probe:https://pan.roxylib.com/",
@@ -152,17 +152,10 @@
       "proved": "the guest role has this permission bitmask, base path and advertised write flags",
       "capture": "sha256:3777ef9da951cc8eced4d9bac0c896d3d994b3dd174f88242cd988df4d52b8ee",
       "quote": "\"permission\": 0, ... \"base_path\": \"/\", ... \"write_advertised\": true, ... \"write_content_bypass\": false,"
-    },
-    {
-      "url": "probe:https://pan.roxylib.com/",
-      "date": "2026-11-25",
-      "proved": "the guest session answered and the settings endpoint returned HTTP 200",
-      "capture": "sha256:3777ef9da951cc8eced4d9bac0c896d3d994b3dd174f88242cd988df4d52b8ee",
-      "quote": "\"alive\": true, ... \"status\": 200,"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T11:08:35.120Z",
+  "verified_at": "2026-11-25T21:46:10.685Z",
   "binding": "write-gated",
   "notes": "1 root entry on OpenList v4.2.3. The smallest listing in the population, and it still advertises write:true and denies the oracle.",
   "history": [],
@@ -179,7 +172,7 @@
     "listing_sha256": "4e4fd534",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-25T01:38:33.938Z",
+    "last_verified_alive": "2026-11-25T02:34:39.845Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "listing_hash_method": "sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters"

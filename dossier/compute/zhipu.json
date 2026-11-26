@@ -5,7 +5,7 @@
   "url": "https://docs.bigmodel.cn/cn/managed-agents/overview.md",
   "category": "container and VM sandbox",
   "free_tier": {
-    "stated": "no free tier published: a managed-agent platform whose sessions emit an idle status when a round ends, with memory mountable across several sessions and cron creating new ones",
+    "stated": "Managed Agents is billed per open-platform API usage at the inference price of the named model (glm-5.3, glm-5.3-flash, glm-5.3-flashx), with Coding Plan quota not supported. The sandbox and runtime environment are '限时免费至 2026 年 10 月 31 日' (free for a limited time until 2026-10-31), and Web Search / Web Fetch tool calls are '工具调用费用限时免费至 2026 年 10 月 31 日，之后按调用收费；模型 token 费用仍产生' (free until 2026-10-31, then charged per call, with model token fees still incurred). The platform drives the loop and emits session.status_idle when a round ends, Memory mounts into several sessions with audited changes, and cron creates new sessions on schedule.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://docs.bigmodel.cn/cn/managed-agents/overview.md",
@@ -72,10 +72,17 @@
       "url": "https://docs.bigmodel.cn/cn/managed-agents/overview.md",
       "date": "2026-10-22",
       "proved": "'平台驱动循环；一轮结束后发出 session.status_idle'  -  the platform drives the loop and emits session.status_idle when a round ends  -  and 'Memory 可挂载到多个会话并审计变更；定时任务按 cron 自动创建新会话', quoted"
+    },
+    {
+      "url": "https://docs.bigmodel.cn/cn/managed-agents/overview.md",
+      "date": "2026-11-25",
+      "proved": "the overview states the sandbox and runtime environment are free for a limited time until 2026-10-31",
+      "capture": "sha256:716e719ae13ca2c4f4c0c5ba6e47073012a087189e2b49c9fd437b65ee8762ff",
+      "quote": "沙箱与运行环境：限时免费至 2026 年 10 月 31 日。后续计费规则以平台公告为准。"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:48:26.000Z",
+  "verified_at": "2026-11-25T05:18:28.044Z",
   "price_per_tb_month": null,
   "notes": " Reclassified: no free tier on the catalogue card is a paid-only product, not a closed one. `dead` is reserved for a product that is withdrawn or unreachable.",
   "extras": {

@@ -5,7 +5,7 @@
   "url": "https://dedirock.com/storage-vps/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "A large-disk VPS line in New York and Los Angeles, monthly: Starter at USD 3.99 for 512 MB RAM, 256 GB of space, 1 TB a month and a 200 Mbps port; Essentials at USD 5.99 for 1 GB, 1 TB, 2 TB and 400 Mbps; Plus at USD 9.99 for 2 GB, 2 TB, 4 TB and 600 Mbps; Advanced at USD 18.99 for 4 GB, 4 TB, 8 TB and 800 Mbps; Premium at USD 35.99 for 8 GB, 8 TB, 16 TB and 1 Gbps. Every tier has one vCPU core, one IPv4 and full root. Annual promo pricing is lower: a 256 GB plan at USD 11.88 a year, 1 TB at USD 17.68 and 2 TB at USD 27.68, on pages headed 'All Prices are Yearly Plans'.",
+    "stated": "Storage Promo Starter BF\n\n$11.88 /year\n\n- 256 GB Space\n- 512 MB RAM\n- 1x vCore CPU\n- 1 TB Bandwith\n- 1 Gbp/s connection\n- 1 IPv4\n- Virtualizor panel",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://dedirock.com/storage-vps/",
@@ -69,10 +69,17 @@
       "url": "https://billing.dedirock.com/index.php?rp=/announcements",
       "date": "2026-10-22",
       "proved": "three announcements dated 18 Jan 2026, 2 Feb 2026 and 7 Mar 2026 state that the New York storage nodes are 'moving from RAID-0 to RAID-5', 'will soon be fully upgraded to RAID-5' and 'are being moved to RAID-5'; the 12 Oct 2026 announcement names no RAID status"
+    },
+    {
+      "url": "https://dedirock.com/black-friday/",
+      "date": "2026-11-25",
+      "proved": "the Black Friday page states the Storage Promo Starter BF plan at $11.88 per year with 256 GB space, 512 MB RAM, 1 vCore, 1 TB bandwidth, 1 Gbp/s and 1 IPv4",
+      "capture": "sha256:588873625318544d23fbfac855b4104b781e2e69975b42efa992a47ace5f3efb",
+      "quote": "Storage Promo Starter BF\n\n$11.88 /year\n\n- 256 GB Space\n- 512 MB RAM\n- 1x vCore CPU\n- 1 TB Bandwith\n- 1 Gbp/s connection\n- 1 IPv4\n- Virtualizor panel"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:40.580Z",
   "notes": "A separate record from dedirock.json, which covers the KVM promo line at USD 10.88 a year with 10 GB of disk. The two products differ in disk, traffic, price and purchase path. The affiliate seeds that surfaced this line overstate it in three ways: they print 1 Gbps across all plans where the vendor prints 200 to 1,000 Mbps by tier, they describe RAID-5 as delivered rather than in progress, and one prints a 'Storage Wars' batch that no vendor page read carries. Unverified: whether the annual promo plans are still orderable, because the billing store returns 403, and whether the renewal price equals the promo price.",
   "extras": {
     "wave2": {

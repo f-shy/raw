@@ -19,13 +19,13 @@
     "notes": "extracted from the quota or limits prose"
   },
   "retention": {
-    "stated": "Over-quota: at +25% or 14 days, uploads and Docs creation stop but download keeps working.",
-    "days": 14,
+    "stated": "No automatic deletion is stated. An organization over its storage limit by 25% or for 14 days can't upload new files to Drive, and can still view and download its files.",
+    "days": null,
     "source_url": "https://knowledge.workspace.google.com/admin/getting-started/editions/overview-of-google-workspace-for-education-storage",
     "notes": "Extracted from published terms."
   },
   "egress": {
-    "terms": "Not metered for Drive reads. Google's own storage page says over-quota tenants 'can still sign in to .. view and download their files' — i.e. reads are never blocked by quota. Direct-download URLs are served from Google's edge; put behind Cloudflare if you want a cache.",
+    "terms": "Drive API egress quota: 1 TiB per day per project, not yet enforced. The pages read state no per-GB egress price.",
     "metered": true
   },
   "interface": [
@@ -34,7 +34,7 @@
   ],
   "interface_detail": "rest",
   "tooling": "rclone backend 'drive' (Tier 1, server-side copy, shared-drive support); Google Drive API v3; GAM (github.com/GAM-team/GAM) for admin-side bulk operations; gclone for service-account fan-out.",
-  "chaining": "One qualifying institution = one tenant = 100 TB. Google explicitly forbids multi-tenant reuse ('When a customer is approved .. they are approved for a single tenant. No user should be part of multiple tenants') and an institution with ineligible business 'must establish a separate domain for the school'. So the multiplier is *domains*, not users. Inside a tenant the multiplier is shared drives (unlimited count) and user count: up to 2,500 licenses per new domain, all drawing on the same 100 TB pool. Adding Teaching & Learning add-on licences adds 100 GB each 'with no cap' (paid).",
+  "chaining": "A customer approved for a Google Workspace for Education domain is approved for a single tenant, and no user should be part of multiple tenants. The license-count and add-on figures of the earlier text are not on the pages read.",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -104,10 +104,59 @@
       "proved": "the page states the confirmed value",
       "capture": "sha256:3da23ea96895a79019b4f81e3f6cd667959039853382de8794013f9071c4cbfc",
       "quote": "If a organization exceeds its storage limit by 25% or for 14 days (whichever comes first), the following services will be impacted:"
+    },
+    {
+      "url": "https://developers.google.com/workspace/drive/api/guides/limits",
+      "date": "2026-11-25",
+      "proved": "the daily per-project egress quota is 1 TiB and not yet enforced",
+      "capture": "sha256:78f85a74062c131b3d6805523e97f0d7449430c95e357d80ca7828480560e321",
+      "quote": "| Per day per project | 1 TiB (not yet enforced) |"
+    },
+    {
+      "url": "https://knowledge.workspace.google.com/admin/getting-started/editions/overview-of-google-workspace-for-education-storage",
+      "date": "2026-11-25",
+      "proved": "over-quota organizations keep sign-in, view and download",
+      "capture": "sha256:3da23ea96895a79019b4f81e3f6cd667959039853382de8794013f9071c4cbfc",
+      "quote": "- They can still sign in to and access their Google Workspace for Education account, view and download their files, and send and receive emails."
+    },
+    {
+      "url": "https://knowledge.workspace.google.com/admin/getting-started/editions/overview-of-google-workspace-for-education-storage",
+      "date": "2026-11-25",
+      "proved": "the 25% or 14-day over-quota consequence is an upload block, not loss of data",
+      "capture": "sha256:3da23ea96895a79019b4f81e3f6cd667959039853382de8794013f9071c4cbfc",
+      "quote": "- They can't upload new files or images to Google Drive."
+    },
+    {
+      "url": "https://knowledge.workspace.google.com/admin/getting-started/editions/qualifications-for-google-workspace-for-education",
+      "date": "2026-11-25",
+      "proved": "one approved customer is one tenant; no user in multiple tenants",
+      "capture": "sha256:83fcc6c50068ee3d1f22d19650eefc0098f82ae535a2220d899e16a36467b95d",
+      "quote": "**Note:** When a customer is approved for a Google Workspace for Education domain, they are approved for a single tenant. This tenant can be used at the level the admin chooses, but should only govern a single group. No user should be part of multiple tenants."
+    },
+    {
+      "url": "https://knowledge.workspace.google.com/admin/getting-started/editions/overview-of-google-workspace-for-education-storage",
+      "date": "2026-11-25",
+      "proved": "the baseline is 100 TB of pooled storage",
+      "capture": "sha256:3da23ea96895a79019b4f81e3f6cd667959039853382de8794013f9071c4cbfc",
+      "quote": "Schools and universities with Google Workspace for Education subscriptions have a baseline of 100 TB of pooled storage shared across all users."
+    },
+    {
+      "url": "https://support.google.com/a/answer/172541",
+      "date": "2026-11-25",
+      "proved": "the upload size limit is 5 TB",
+      "capture": "sha256:e3b5be7b57aa566e08a929c67f1bd39e1faaea865be0e36c907f347fa1d5a4e3",
+      "quote": "*   You can upload and synchronize files up to 5 TB in size. Only the first file that breaks the limit completes uploading."
+    },
+    {
+      "url": "https://knowledge.workspace.google.com/admin/getting-started/editions/qualifications-for-google-workspace-for-education",
+      "date": "2026-11-25",
+      "proved": "only K-12 schools and degree-granting institutions are eligible",
+      "capture": "sha256:83fcc6c50068ee3d1f22d19650eefc0098f82ae535a2220d899e16a36467b95d",
+      "quote": "K–12 schools and degree-granting higher-education institutions globally are eligible for Google Workspace for Education if they meet certain criteria, including:"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-10T00:50:18.126Z",
+  "verified_at": "2026-11-25T12:15:41.804Z",
   "notes": "100 TB of pooled cloud storage per institution, at 'No cost'. Pooled across Drive + Gmail + Photos and all shared drives. Confirmed twice on Google's own pages: 'Schools and universities with Google Workspace for Education subscriptions have a baseline of 100 TB of pooled storage shared across all users' and 'Google Workspace for Education Fundamentals / Standard — 100 TB total for all End Users'.",
   "history": [],
   "extras": {

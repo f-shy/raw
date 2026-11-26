@@ -1,139 +1,146 @@
 {
-  "topic": "compute",
-  "slug": "fal",
-  "provider": "fal",
-  "url": "https://fal.ai/pricing",
-  "category": "GPU cloud",
-  "free_tier": {
-    "stated": "No free GPU credit amount is published. The quickstart states 'A fal account is free' and that Model APIs can be called without Serverless approval; fal Serverless deploys need approval for each account.",
-    "unit": "none",
-    "metered_on": "wall-clock",
-    "source_url": "https://fal.ai/pricing",
-    "read_on": "2026-10-02",
-    "notes": "Historical research record."
+ "topic": "compute",
+ "slug": "fal",
+ "provider": "fal",
+ "url": "https://fal.ai/pricing",
+ "category": "GPU cloud",
+ "free_tier": {
+  "stated": "no free tier published: fal Serverless GPUs are priced per hour and billed per second, and Model APIs are priced per output and drawn from prepaid credits",
+  "unit": "none",
+  "metered_on": "wall-clock",
+  "source_url": "https://fal.ai/pricing",
+  "read_on": "2026-10-02",
+  "notes": "Historical research record."
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://fal.ai/pricing",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "not stated",
+  "days": null,
+  "source_url": "https://fal.ai/pricing",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "not published",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://fal.ai/pricing"
+ },
+ "interface": [
+  "unknown"
+ ],
+ "interface_detail": "Access interface not documented in published terms.",
+ "tooling": "not stated",
+ "chaining": "not established",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "Model APIs are priced per output from prepaid credits; GPU runners are billed per second, the per-second price being the hourly price divided by 3,600",
+   "source": "https://fal.ai/pricing"
   },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://fal.ai/pricing",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+  {
+   "kind": "write-gated",
+   "value": "fal Serverless rents GPUs per second, from $4.00/h list for an RTX PRO 6000 and $12.99/h for a B300; Model APIs are priced per output from prepaid credits",
+   "source": "https://fal.ai/pricing"
+  }
+ ],
+ "limits_note": "Session cap, idle-reap and network policy are not documented. GPU only.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "The login page offers 'Continue with GitHub', 'Continue with Google' and 'Continue with Microsoft'. A free fal account is required for an API key; fal Serverless deploys need access approved for each account.",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "documented",
+ "confidence_note": "the pricing page was read on 2026-10-22 and carries per-second and per-token model rates. There is no free tier and no machine to rent, so the verdict moves to paid-only on the correct grounds: this is an inference API, not compute",
+ "evidence": [
+  {
+   "url": "https://fal.ai/pricing",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
   },
-  "retention": {
-    "stated": "not stated",
-    "days": null,
-    "source_url": "https://fal.ai/pricing",
-    "notes": "Disk durability across instance stops and deletions is not documented."
+  {
+   "url": "https://fal.ai/pricing",
+   "date": "2026-10-22",
+   "proved": "the pricing page was read on 2026-10-22 and is a model price table: 'FLUX 3 Max, seconds, $0.085, $0.425' and similar per-second and per-token rates. It prices inference, not machines, and states no free tier"
   },
-  "egress": {
-    "terms": "not published",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://fal.ai/pricing"
+  {
+   "url": "https://fal.ai/pricing",
+   "date": "2026-11-25",
+   "proved": "the pricing page prices GPU runners by the hour billed per second and model calls from prepaid credits, stating no free tier or credit amount",
+   "capture": "sha256:95aa32f91e07a2847aaf737e9a3aa61e8b144e45aef691b7ef9764a91c9d740f",
+   "quote": "Model APIs are priced per output, per model, and drawn from prepaid credits. fal Serverless GPUs are priced per hour and billed per second."
   },
-  "interface": [
-    "unknown"
-  ],
-  "interface_detail": "Access interface not documented in published terms.",
-  "tooling": "not stated",
-  "chaining": "not established",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "Model APIs are priced per output from prepaid credits; GPU runners are billed per second, the per-second price being the hourly price divided by 3,600",
-      "source": "https://fal.ai/pricing"
-    },
-    {
-      "kind": "write-gated",
-      "value": "fal Serverless rents GPUs per second, from $4.00/h list for an RTX PRO 6000 and $12.99/h for a B300; Model APIs are priced per output from prepaid credits",
-      "source": "https://fal.ai/pricing"
-    }
-  ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented. GPU only.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The login page offers 'Continue with GitHub', 'Continue with Google' and 'Continue with Microsoft'. A free fal account is required for an API key; fal Serverless deploys need access approved for each account.",
-    "country": null
+  {
+   "url": "https://fal.ai/docs/documentation/development/getting-started/quick-start",
+   "date": "2026-11-24",
+   "proved": "the account is free while serverless deployments need per-account approval; no GPU credit amount is published",
+   "capture": "sha256:0a19724ca349fbb26acf112e2e5f9cc69d0769adfc9801c3c2c4c835dd90bb28",
+   "quote": "**Serverless access is approved per account.** A fal account is free. To deploy your own apps on fal Serverless, the fal team must approve access for your account."
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "documented",
-  "confidence_note": "the pricing page was read on 2026-10-22 and carries per-second and per-token model rates. There is no free tier and no machine to rent, so the verdict moves to paid-only on the correct grounds: this is an inference API, not compute",
-  "evidence": [
-    {
-      "url": "https://fal.ai/pricing",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://fal.ai/pricing",
-      "date": "2026-10-22",
-      "proved": "the pricing page was read on 2026-10-22 and is a model price table: 'FLUX 3 Max, seconds, $0.085, $0.425' and similar per-second and per-token rates. It prices inference, not machines, and states no free tier"
-    },
-    {
-      "url": "https://fal.ai/docs/documentation/development/getting-started/quick-start",
-      "date": "2026-11-24",
-      "proved": "the account is free while serverless deployments need per-account approval; no GPU credit amount is published",
-      "capture": "sha256:0a19724ca349fbb26acf112e2e5f9cc69d0769adfc9801c3c2c4c835dd90bb28",
-      "quote": "**Serverless access is approved per account.** A fal account is free. To deploy your own apps on fal Serverless, the fal team must approve access for your account."
-    },
-    {
-      "url": "https://fal.ai/login",
-      "date": "2026-11-24",
-      "proved": "sign-in uses social providers on the login page",
-      "capture": "sha256:48a1b3ad569d63cd2a3105de54227daa43b5170def0a0772a32771b36e1ff8cd",
-      "quote": "Login or sign up"
-    },
-    {
-      "url": "https://fal.ai/pricing",
-      "date": "2026-11-24",
-      "proved": "a machine is rented per second, contradicting the record's claim that there is no machine to rent",
-      "capture": "sha256:95aa32f91e07a2847aaf737e9a3aa61e8b144e45aef691b7ef9764a91c9d740f",
-      "quote": "| RTX PRO 6000 | 96GB | $4.00/h ($0.001111/s) | $1.99/h ($0.000553/s) |"
-    },
-    {
-      "url": "https://fal.ai/pricing",
-      "date": "2026-11-24",
-      "proved": "the billed unit is a second of a live runner",
-      "capture": "sha256:95aa32f91e07a2847aaf737e9a3aa61e8b144e45aef691b7ef9764a91c9d740f",
-      "quote": "Runners are billed per second while they are alive: in the SETUP, IDLE, RUNNING, DRAINING and TERMINATING states, including keep_alive time spent idle."
-    },
-    {
-      "url": "https://fal.ai/pricing",
-      "date": "2026-11-24",
-      "proved": "the page publishes compute and model rates and states no egress term",
-      "capture": "sha256:95aa32f91e07a2847aaf737e9a3aa61e8b144e45aef691b7ef9764a91c9d740f",
-      "quote": "Model APIs are priced per output, per model, and drawn from prepaid credits. fal Serverless GPUs are priced per hour and billed per second."
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T11:38:13.594Z",
-  "price_per_tb_month": null,
-  "notes": "",
-  "extras": {
-    "seed_status": "gpu-only",
-    "talaria_m10h_usd": null,
-    "talaria_m24h_usd": null,
-    "nemo_m10h_usd": null,
-    "keep_rate": null,
-    "keep_rate_basis": "no field in the source",
-    "billing_model": "unclassified",
-    "shape": null,
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "the unit is a second of generated video or a token; there is no session"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22"
+  {
+   "url": "https://fal.ai/login",
+   "date": "2026-11-24",
+   "proved": "sign-in uses social providers on the login page",
+   "capture": "sha256:48a1b3ad569d63cd2a3105de54227daa43b5170def0a0772a32771b36e1ff8cd",
+   "quote": "Login or sign up"
   },
-  "stale": true,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding": "write-gated",
-  "history": [
-    "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
-  ]
+  {
+   "url": "https://fal.ai/pricing",
+   "date": "2026-11-24",
+   "proved": "a machine is rented per second, contradicting the record's claim that there is no machine to rent",
+   "capture": "sha256:95aa32f91e07a2847aaf737e9a3aa61e8b144e45aef691b7ef9764a91c9d740f",
+   "quote": "| RTX PRO 6000 | 96GB | $4.00/h ($0.001111/s) | $1.99/h ($0.000553/s) |"
+  },
+  {
+   "url": "https://fal.ai/pricing",
+   "date": "2026-11-24",
+   "proved": "the billed unit is a second of a live runner",
+   "capture": "sha256:95aa32f91e07a2847aaf737e9a3aa61e8b144e45aef691b7ef9764a91c9d740f",
+   "quote": "Runners are billed per second while they are alive: in the SETUP, IDLE, RUNNING, DRAINING and TERMINATING states, including keep_alive time spent idle."
+  },
+  {
+   "url": "https://fal.ai/pricing",
+   "date": "2026-11-24",
+   "proved": "the page publishes compute and model rates and states no egress term",
+   "capture": "sha256:95aa32f91e07a2847aaf737e9a3aa61e8b144e45aef691b7ef9764a91c9d740f",
+   "quote": "Model APIs are priced per output, per model, and drawn from prepaid credits. fal Serverless GPUs are priced per hour and billed per second."
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T15:03:49.560Z",
+ "price_per_tb_month": null,
+ "notes": "",
+ "extras": {
+  "seed_status": "gpu-only",
+  "talaria_m10h_usd": null,
+  "talaria_m24h_usd": null,
+  "nemo_m10h_usd": null,
+  "keep_rate": null,
+  "keep_rate_basis": "no field in the source",
+  "billing_model": "unclassified",
+  "shape": null,
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "the unit is a second of generated video or a token; there is no session"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22"
+ },
+ "stale": true,
+ "stale_checked_at": "2026-10-22T00:00:00.000Z",
+ "binding": "write-gated",
+ "history": [
+  "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
+ ]
 }

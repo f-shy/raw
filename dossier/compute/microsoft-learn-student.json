@@ -5,7 +5,7 @@
   "url": "https://learn.microsoft.com/en-us/training/student-hub/become-a-student-ambassador",
   "category": "dev environment",
   "free_tier": {
-    "stated": "'Complete the registration activities, receive your invitation, and onboard as a new member of the Student Ambassadors program. Unlock program benefits, including Microsoft 365, Visual Studio Enterprise, $150 USD monthly Azure credits, badges, swag, and more.' Registration is 'Open to students across all degree fields and levels, including those attending 2- or 4-year universities and studying part-time or full-time', and 'No application required'.",
+    "stated": "Unlock program benefits, including Microsoft 365, Visual Studio Enterprise, $150 USD monthly Azure credits, badges, swag, and more.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://learn.microsoft.com/en-us/training/student-hub/become-a-student-ambassador",
@@ -64,10 +64,24 @@
       "url": "https://mvp.microsoft.com/en-us/faq",
       "date": "2026-10-22",
       "proved": "Eligibility is: '(a.) be at least 18 years old at time of registration, (b.) be enrolled full-time in an accredited academic institution (e.g., college, university), (c.) be an Azure for Students account holder'; onboarded ambassadors 'receive Office 365, Visual Studio Enterprise, and monthly Azure credits'."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/training/student-hub/become-a-student-ambassador",
+      "date": "2026-11-25",
+      "proved": "onboarded members unlock $150 USD monthly Azure credits among the program benefits",
+      "capture": "sha256:653e3fe1a983676bca8926e1b2a47349ddc64ed14795372a86c16e9ac1b64547",
+      "quote": "Unlock program benefits, including Microsoft 365, Visual Studio Enterprise, $150 USD monthly Azure credits, badges, swag, and more."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/training/student-hub/become-a-student-ambassador",
+      "date": "2026-11-25",
+      "proved": "the page still states $150 USD monthly Azure credits as a Student Ambassador benefit",
+      "capture": "sha256:653e3fe1a983676bca8926e1b2a47349ddc64ed14795372a86c16e9ac1b64547",
+      "quote": "Unlock program benefits, including Microsoft 365, Visual Studio Enterprise, $150 USD monthly Azure credits, badges, swag, and more."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:30.539Z",
   "notes": "Two Microsoft pages disagree on the figure. The official program FAQ says only 'monthly Azure credits' with no amount, while the Microsoft Learn student-hub page states '$150 USD monthly Azure credits'. The figure is recorded from the page that states it, at documented rung, and the absence of the number on the FAQ is noted rather than smoothed over. The FAQ also names an Azure for Students account as a prerequisite, which the Learn page does not mention; taking both, the gate is full-time enrollment at two points. The Learn page says part-time study qualifies, the FAQ says full-time; where they conflict, full-time is the reading that binds. Regional exclusions named on the FAQ are Cuba, Iran, North Korea, Sudan, Syria, Russia, Belarus and Crimea.",
   "extras": {
     "wave2": {

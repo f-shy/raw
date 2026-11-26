@@ -1,185 +1,259 @@
 {
-  "topic": "compute",
-  "slug": "mobilebox",
-  "provider": "Mobilebox",
-  "url": "https://mobilebox.dev/pricing",
-  "category": "cloud phone sandbox for AI agents",
-  "tier": "pay as you go",
-  "free_tier": {
-    "stated": "No priced free tier: new workspaces get free credit, boot time before a phone is ready and parked phones are free; there are no seats, plans or subscriptions.",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://mobilebox.dev/pricing",
-    "read_on": "2026-11-24",
-    "notes": "The size of the new-workspace free credit is not published on the pages read."
+ "topic": "compute",
+ "slug": "mobilebox",
+ "provider": "Mobilebox",
+ "url": "https://mobilebox.dev/pricing",
+ "category": "hosted Android phone sandbox",
+ "tier": "Cloud Android 14 phone (arm64)",
+ "free_tier": {
+  "stated": "new workspaces get free credit, with no amount published; boot time and parked phones are free, and a phone parks itself after 5 idle minutes with installed apps, saved data and logins kept",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://mobilebox.dev/pricing",
+  "read_on": "2026-11-25",
+  "notes": "one-time credit, amount unstated"
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a cloud phone, not an object",
+  "bytes": null,
+  "source_url": "https://mobilebox.dev/pricing"
+ },
+ "retention": {
+  "stated": "a parked phone keeps installed apps, saved app data and logins for free; unsaved in-memory state does not survive a resume, and no maximum park duration is published",
+  "days": null,
+  "source_url": "https://mobilebox.dev/"
+ },
+ "egress": {
+  "terms": "a data-center IP is included; a residential IP costs USD 8 per GB and a mobile carrier IP USD 15 per GB of traffic, and a customer's own proxy can be set at no charge",
+  "metered": true,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://mobilebox.dev/pricing"
+ },
+ "interface": [
+  "rest",
+  "unknown"
+ ],
+ "interface_detail": "a REST API and a stateless Streamable HTTP MCP server at https://mobilebox.dev/mcp with a bearer API key; 21 MCP tools cover phone lifecycle, app installs, screen observation, actions and recording; the network proxies raise egress price, not a storage interface",
+ "tooling": "any MCP client or any code that makes HTTP requests; a team-issued key is used to sign in and an agent key is created in the dashboard; a Python package wraps the same REST API",
+ "chaining": "one phone per task for an agent that tests an app it built in a cloud sandbox without KVM: install the APK, read the screen as numbered elements, tap and swipe, then park the phone so the next task can resume it with saved logins. A hosted service, not self-hosted software. The free credit amount is unstated, so the published price of USD 0.01 a phone-minute is the entry cost after it runs out.",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "at most 20 actions per observation call; a phone parks itself after 5 idle minutes and after 15 minutes of running unless a longer duration up to 3 hours is requested",
+   "source": "https://mobilebox.dev/"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a phone session, not an object"
-  },
-  "retention": {
-    "stated": "A parked phone keeps its installed apps, saved app data and logins; unsaved in-memory state does not survive a resume, and the terms state that data on a phone can be lost.",
-    "days": null,
-    "source_url": "https://mobilebox.dev/terms"
-  },
-  "egress": {
-    "terms": "Standard network with a data-centre IP is included; a city-targeted residential IP costs $8 per GB and a mobile carrier IP costs $15 per GB, both billed per GB of traffic. Bringing your own SOCKS5 or HTTP proxy has no network fee.",
-    "metered": true,
-    "free_allowance": null,
-    "price_per_tb": "USD 8,000 per TB on residential, USD 15,000 per TB on mobile carrier",
-    "source_url": "https://mobilebox.dev/pricing"
-  },
-  "interface": [
-    "rest",
-    "chat"
-  ],
-  "interface_detail": "One sandbox lifecycle over a REST API and an HTTP MCP server with 19 tools; observations return numbered screen elements or screenshots, and up to 20 actions per call.",
-  "tooling": "claude mcp add --transport http mobilebox https://mobilebox.dev/mcp with a bearer API key, or plain HTTP calls from curl and any SDK; a CI job needs nothing but curl.",
-  "chaining": "A phone per task can be started from a coding agent, driven over MCP and parked when done; a residential or mobile IP from this record, or a dedicated egress record, is needed where the destination keys on source address.",
-  "limits": [
-    {
-      "kind": "per-ip-shaping",
-      "value": "$8 per GB for a city-targeted residential IP and $15 per GB for a mobile carrier IP, billed per GB of traffic",
-      "source": "https://mobilebox.dev/pricing"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "one-minute minimum per session; a phone parks itself after 5 idle minutes and after 15 minutes of running unless a duration up to 3 hours is requested",
-      "source": "https://mobilebox.dev/pricing"
-    },
-    {
-      "kind": "write-gated",
-      "value": "an account and an API key are required; sign-up offers GitHub, email or a team API key",
-      "source": "https://mobilebox.dev/signup"
-    }
-  ],
-  "limits_note": "The longest possible session is held from the balance when a phone starts, up to $0.15 by default for 15 minutes; when the balance cannot cover the hold the start fails with insufficient_credits.",
-  "binding": "per-ip-shaping",
-  "binding_note": "Per-second phone time at $0.01 a minute is cheap, but a residential or mobile exit metered at $8 or $15 per GB is the cost that binds a traffic-heavy agent before the one-minute session minimum.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The sign-up page asks the user to pick how to sign in and offers GitHub, email or a team API key; no password is needed for the email route. The terms require the user to be at least 18 or to act for a business, but state no phone number or ID document requirement. Paid credit is prepaid through Stripe.",
-    "country": null
-  },
-  "reliability_note": "The terms give no uptime guarantee, state that phones can fail to start and that data on a phone can be lost; cloud Android is an emulator without Google Play or Google services, and a phone may park after 5 idle minutes.",
-  "confidence": "documented",
-  "confidence_note": "The per-minute prices, network rates, session timeout and sign-in methods are quoted from the vendor's own pricing, sign-up and terms pages read on 2026-11-24.",
-  "evidence": [
-    {
-      "url": "https://mobilebox.dev/pricing",
-      "date": "2026-11-24",
-      "proved": "a cloud Android 14 arm64 phone costs $0.01 per phone-minute",
-      "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
-      "quote": "Cloud Android 14 phone (arm64) | $0.01 per phone-minute"
-    },
-    {
-      "url": "https://mobilebox.dev/pricing",
-      "date": "2026-11-24",
-      "proved": "a running phone is billed each second with a one-minute minimum",
-      "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
-      "quote": "Each second a phone is ready"
-    },
-    {
-      "url": "https://mobilebox.dev/pricing",
-      "date": "2026-11-24",
-      "proved": "there is a one-minute minimum per session",
-      "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
-      "quote": "One-minute minimum per session"
-    },
-    {
-      "url": "https://mobilebox.dev/pricing",
-      "date": "2026-11-24",
-      "proved": "boot time is free",
-      "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
-      "quote": "Boot time, until the phone is ready"
-    },
-    {
-      "url": "https://mobilebox.dev/pricing",
-      "date": "2026-11-24",
-      "proved": "parked phones keep their apps, data and logins and are free",
-      "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
-      "quote": "Parked phones, with apps, data and logins kept"
-    },
-    {
-      "url": "https://mobilebox.dev/pricing",
-      "date": "2026-11-24",
-      "proved": "new workspaces receive free credit",
-      "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
-      "quote": "Free credit for new workspaces"
-    },
-    {
-      "url": "https://mobilebox.dev/pricing",
-      "date": "2026-11-24",
-      "proved": "a city-targeted residential IP costs $8 per GB of traffic",
-      "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
-      "quote": "Residential IPCity targeting, sticky per phone | $8 per GB"
-    },
-    {
-      "url": "https://mobilebox.dev/pricing",
-      "date": "2026-11-24",
-      "proved": "a phone parks after 5 idle minutes and after 15 minutes unless a longer duration is set",
-      "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
-      "quote": "A phone parks itself after 5 idle minutes, and after 15 minutes of running unless you ask for up to 3 hours."
-    },
-    {
-      "url": "https://mobilebox.dev/signup",
-      "date": "2026-11-24",
-      "proved": "the sign-up page asks the user to pick a sign-in method",
-      "capture": "sha256:02a5f7ce9e66434793624c8756398e1c917da779ea3fe8b390e78895188e30d7",
-      "quote": "Pick how you sign in."
-    },
-    {
-      "url": "https://mobilebox.dev/",
-      "date": "2026-11-24",
-      "proved": "sign-up is with GitHub and new workspaces get free credit",
-      "capture": "sha256:68d38eb74f6769aac02b812e022249a510fc969a2e6fa8a4468a20febd73a91f",
-      "quote": "Sign up with GitHub; new workspaces get free credit."
-    },
-    {
-      "url": "https://mobilebox.dev/terms",
-      "date": "2026-11-24",
-      "proved": "an account is required and the user must be 18 or act for a business",
-      "capture": "sha256:d40e9f4635a4dc31a2cf9349a04a86b6e11c2fd8cb5a08bde6608076e9707c90",
-      "quote": "You need an account and must be at least 18 or act for a business."
-    },
-    {
-      "url": "https://mobilebox.dev/terms",
-      "date": "2026-11-24",
-      "proved": "the vendor gives no uptime guarantee and warns of data loss on a phone",
-      "capture": "sha256:d40e9f4635a4dc31a2cf9349a04a86b6e11c2fd8cb5a08bde6608076e9707c90",
-      "quote": "Data on a phone can be lost; keep your own copies of anything that matters."
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.914Z",
-  "price_per_tb_month": null,
-  "notes": "Cloud Android and iPhone sandboxes for agents, billed by the second with no plan or seat fee. Egress arithmetic: $8 per GB x 1000 GB = USD 8,000 per TB on residential; $15 per GB x 1000 GB = USD 15,000 per TB on mobile carrier. The amount of the new-workspace free credit is not published on the pages read; a dedicated team-phone tier from $79 a month is a separate hosted offer.",
-  "extras": {
-    "shape": {
-      "vcpu": null,
-      "ram_gib": 4,
-      "disk_gib": 16,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "Android 14 on arm64; a large phone has 4 GB RAM and 16 GB storage at $0.02 a minute"
-    },
-    "billing_model": "per-second prepaid credit with one-minute minimum",
-    "free_tier_kind": "signup-credit",
-    "term": "none, prepaid",
-    "price_arithmetic": "USD 0.01 per cloud Android phone-minute, USD 0.03 per iPhone-minute, USD 0.02 per large-phone-minute",
-    "status": "live hosted paid service with unpublished signup credit",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": null,
-      "ports": "up to 20 actions per MCP call; no inbound port statement",
-      "static_ip": false,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": 180,
-      "idle_reap_s": 300,
-      "restart_required": false,
-      "note": "a phone parks after 5 idle minutes or after 15 minutes by default, with a maximum requested duration of 3 hours"
-    }
+  {
+   "kind": "volume-quota",
+   "value": "a one-minute minimum per session and a hold of the longest possible session from the balance when a phone starts; a start fails with insufficient_credits if the balance cannot cover the hold",
+   "source": "https://mobilebox.dev/pricing"
   }
+ ],
+ "limits_note": "prices: USD 0.01 per phone-minute for a cloud Android 14 (arm64) phone or a real Android device, USD 0.02 for a large phone with 4 GB RAM and 16 GB storage, USD 0.03 for iPhone and iPad, and from USD 79 a month for dedicated team phones. Residential and mobile IPs bill per GB; free credit has no cash value.",
+ "binding": "volume-quota",
+ "binding_note": "the per-second billing with a one-minute minimum and the balance hold at start bind first: a short task still costs one minute and a start fails when the balance cannot cover the hold. The free credit amount is unstated.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "the signup page offers GitHub or Google sign-in, an existing team API key, and email, and says no password is needed; the docs name a configured GitHub/Google provider or a team-issued key, then an agent key created in the dashboard; paid credit is prepaid in USD through Stripe",
+  "country": null
+ },
+ "reliability_note": "phones can fail to start with no uptime guarantee and data on a phone can be lost; a failed DELETE can still leave a phone, and the docs advise inspecting the account and retrying creates with an Idempotency-Key.",
+ "confidence": "documented",
+ "confidence_note": "prices, devices, network prices, billing rules and signup options are quoted from the vendor's own pricing page, home page, docs and terms read on 2026-11-25.",
+ "evidence": [
+  {
+   "url": "https://mobilebox.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "a cloud Android phone costs USD 0.01 a minute, billed by the second while it runs",
+   "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
+   "quote": "Mobilebox cloud Android phones for AI agents cost $0.01 a minute, billed by the second while a phone runs."
+  },
+  {
+   "url": "https://mobilebox.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "the device table lists the cloud Android 14 arm64 phone at USD 0.01 per phone-minute",
+   "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
+   "quote": "| Cloud Android 14 phone (arm64) | $0.01 per phone-minute |"
+  },
+  {
+   "url": "https://mobilebox.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "new workspaces get free credit, boot time and parked phones are free",
+   "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
+   "quote": "- Free credit for new workspaces"
+  },
+  {
+   "url": "https://mobilebox.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "signup accepts GitHub or email",
+   "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
+   "quote": "Sign up with GitHub or email"
+  },
+  {
+   "url": "https://mobilebox.dev/docs",
+   "date": "2026-11-25",
+   "proved": "sign-in uses a configured GitHub/Google provider or a team-issued key, and the agent key is created in the dashboard",
+   "capture": "sha256:c1858be3c0383ad272bd9386f0362eeeba4cef4c84faddf9a330ed2787aa84a8",
+   "quote": "Sign in at [/login](/login) using a configured GitHub/Google provider or an existing team-issued key, then create an agent key in [/dashboard](/dashboard). Issued agent keys cannot sign into the browser or manage other keys."
+  },
+  {
+   "url": "https://mobilebox.dev/terms",
+   "date": "2026-11-25",
+   "proved": "new workspaces get free credit, and paid credit is prepaid in USD through Stripe with a one-minute minimum",
+   "capture": "sha256:d40e9f4635a4dc31a2cf9349a04a86b6e11c2fd8cb5a08bde6608076e9707c90",
+   "quote": "New workspaces get free credit. Running phones cost the price on the [pricing page](https://mobilebox.dev/pricing?via=md), billed per second from the moment a phone is ready, with a one-minute minimum per session."
+  },
+  {
+   "url": "https://mobilebox.dev/terms",
+   "date": "2026-11-25",
+   "proved": "paid credit is prepaid through Stripe and not refundable once used",
+   "capture": "sha256:d40e9f4635a4dc31a2cf9349a04a86b6e11c2fd8cb5a08bde6608076e9707c90",
+   "quote": "Paid credit is prepaid, billed in US dollars through Stripe and kept on your workspace; it is not refundable once used."
+  },
+  {
+   "url": "https://mobilebox.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "billing is per second with a one-minute minimum and no seats or subscriptions",
+   "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
+   "quote": "- Each second a phone is ready\n\n- One-minute minimum per session"
+  },
+  {
+   "url": "https://mobilebox.dev/",
+   "date": "2026-11-25",
+   "proved": "Android is USD 0.01 a minute in a hosted phone reached over API or MCP",
+   "capture": "sha256:055c570418dda8d9b4cc6315d9f688e3407166eee27d6ef0c040c6d5bc24ce9c",
+   "quote": "Mobilebox gives AI agents cloud Android phones and iPhones: Android is $0.01 a minute and was ready for a first screenshot in 1.35 s in our 22 November 2026 benchmark."
+  },
+  {
+   "url": "https://mobilebox.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "a residential IP costs USD 8 per GB and a mobile carrier IP USD 15 per GB",
+   "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
+   "quote": "| Residential IPCity targeting, sticky per phone | $8 per GB |"
+  },
+  {
+   "url": "https://mobilebox.dev/",
+   "date": "2026-11-25",
+   "proved": "an observation numbers the screen and allows up to 20 actions per call",
+   "capture": "sha256:055c570418dda8d9b4cc6315d9f688e3407166eee27d6ef0c040c6d5bc24ce9c",
+   "quote": "Each observation numbers what is on screen. Tap, type and swipe by ref, up to 20 actions per call."
+  },
+  {
+   "url": "https://mobilebox.dev/pricing",
+   "date": "2026-11-24",
+   "proved": "a cloud Android 14 arm64 phone costs $0.01 per phone-minute",
+   "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
+   "quote": "Cloud Android 14 phone (arm64) | $0.01 per phone-minute"
+  },
+  {
+   "url": "https://mobilebox.dev/pricing",
+   "date": "2026-11-24",
+   "proved": "a running phone is billed each second with a one-minute minimum",
+   "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
+   "quote": "Each second a phone is ready"
+  },
+  {
+   "url": "https://mobilebox.dev/pricing",
+   "date": "2026-11-24",
+   "proved": "there is a one-minute minimum per session",
+   "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
+   "quote": "One-minute minimum per session"
+  },
+  {
+   "url": "https://mobilebox.dev/pricing",
+   "date": "2026-11-24",
+   "proved": "boot time is free",
+   "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
+   "quote": "Boot time, until the phone is ready"
+  },
+  {
+   "url": "https://mobilebox.dev/pricing",
+   "date": "2026-11-24",
+   "proved": "parked phones keep their apps, data and logins and are free",
+   "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
+   "quote": "Parked phones, with apps, data and logins kept"
+  },
+  {
+   "url": "https://mobilebox.dev/pricing",
+   "date": "2026-11-24",
+   "proved": "new workspaces receive free credit",
+   "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
+   "quote": "Free credit for new workspaces"
+  },
+  {
+   "url": "https://mobilebox.dev/pricing",
+   "date": "2026-11-24",
+   "proved": "a city-targeted residential IP costs $8 per GB of traffic",
+   "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
+   "quote": "Residential IPCity targeting, sticky per phone | $8 per GB"
+  },
+  {
+   "url": "https://mobilebox.dev/pricing",
+   "date": "2026-11-24",
+   "proved": "a phone parks after 5 idle minutes and after 15 minutes unless a longer duration is set",
+   "capture": "sha256:cf3c566c2dcdc598d757a1ecd95e4ce8d77ab76ab5da9a53348f135730da1f16",
+   "quote": "A phone parks itself after 5 idle minutes, and after 15 minutes of running unless you ask for up to 3 hours."
+  },
+  {
+   "url": "https://mobilebox.dev/signup",
+   "date": "2026-11-24",
+   "proved": "the sign-up page asks the user to pick a sign-in method",
+   "capture": "sha256:02a5f7ce9e66434793624c8756398e1c917da779ea3fe8b390e78895188e30d7",
+   "quote": "Pick how you sign in."
+  },
+  {
+   "url": "https://mobilebox.dev/",
+   "date": "2026-11-24",
+   "proved": "sign-up is with GitHub and new workspaces get free credit",
+   "capture": "sha256:68d38eb74f6769aac02b812e022249a510fc969a2e6fa8a4468a20febd73a91f",
+   "quote": "Sign up with GitHub; new workspaces get free credit."
+  },
+  {
+   "url": "https://mobilebox.dev/terms",
+   "date": "2026-11-24",
+   "proved": "an account is required and the user must be 18 or act for a business",
+   "capture": "sha256:d40e9f4635a4dc31a2cf9349a04a86b6e11c2fd8cb5a08bde6608076e9707c90",
+   "quote": "You need an account and must be at least 18 or act for a business."
+  },
+  {
+   "url": "https://mobilebox.dev/terms",
+   "date": "2026-11-24",
+   "proved": "the vendor gives no uptime guarantee and warns of data loss on a phone",
+   "capture": "sha256:d40e9f4635a4dc31a2cf9349a04a86b6e11c2fd8cb5a08bde6608076e9707c90",
+   "quote": "Data on a phone can be lost; keep your own copies of anything that matters."
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T02:12:34.878Z",
+ "notes": "A hosted cloud Android 14 (arm64) phone for agents, USD 0.01 per phone-minute (USD 0.60/hour over 60 minutes) billed by the second with a one-minute minimum; the free credit amount for new workspaces is not published. The list's USD 0.60/hour is 60 × USD 0.01, not a separate list price. Free boot time and free parked phones are included, and signup needs a GitHub/Google account or an email, no card for the free credit.",
+ "extras": {
+  "shape": {
+   "vcpu": null,
+   "ram_gib": null,
+   "disk_gib": 16,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "a cloud Android 14 phone on arm64 in the vendor's servers; iOS simulators are hosted by a provider and cost USD 0.03 a minute"
+  },
+  "billing_model": "per-second while a phone is ready, one-minute minimum, prepaid credit with a start hold",
+  "free_tier_kind": "one-time-credit-amount-unstated",
+  "term": "no subscription; credit is prepaid",
+  "price_arithmetic": "USD 0.01/minute × 60 = USD 0.60/hour; a 15-minute default session costs USD 0.15",
+  "status": "available",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": null,
+   "ports": "REST and MCP; a customer proxy can be set",
+   "static_ip": "residential or mobile IP is a paid add-on",
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": 1,
+   "idle_reap_s": 300,
+   "restart_required": false,
+   "note": "a one-minute minimum, auto-park after 5 idle minutes and after 15 minutes unless a longer duration up to 3 hours is requested"
+  }
+ },
+ "price_per_tb_month": null
 }

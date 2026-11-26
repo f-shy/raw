@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u11-rerun",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Re-check each record against its first-party page: does the egress path still work, and what limit binds it? Record a limits[] row for the binding constraint where the record lacks one.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- egress/azure-front-door $.binding: A protocol limit is not write-gated: the vocabulary defines it as a curator, review, build recipe or phone PIN between account and write (dossier/README.md). The page names none.\n- egress/border0 $.limits[0]: Socket types listed match the text, but kind write-gated is not shown: authentication on a TCP socket is not a curator, review, build recipe or phone PIN. Missing UDP is not a write gate.\n- egress/border0 $.binding: Same: the page lists socket types; none is a curator, review, build recipe or phone PIN, so write-gated is not supported.\n- egress/chmlfrp $.egress.terms: The first half is supported. The page (fresh read, same hash) says nothing about bandwidth being limited for excessive use, and nothing about 'ingress: udp'.\n- egress/chmlfrp $.reliability_note: The per-node UDP flag is supported. 'FAQ documents nodes going offline or being abandoned' is not in this capture and I found no FAQ page that says it; 'silently stop' is inference.",
+ "scope": {
+  "rids": [
+   "egress/azure-for-students",
+   "egress/azure-front-door",
+   "egress/beeceptor",
+   "egress/bili-nat",
+   "egress/border0",
+   "egress/chmlfrp"
+  ]
+ },
+ "origin": "audit u52 of 20261125-0233-verify-egress-af27/u11 failed: 5 of 29 unsupported",
+ "created": "2026-11-25T16:37:37Z"
+}

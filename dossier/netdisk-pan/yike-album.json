@@ -5,7 +5,7 @@
   "url": "https://www.yike.com",
   "category": "photo cloud",
   "free_tier": {
-    "stated": "1、无限存储空间：无限量原画质备份照片视频，任意手机设备都能访问。",
+    "stated": "unverified: the service page advertises unlimited album space but publishes no free capacity figure, price or tier",
     "unit": "unlimited",
     "metered_on": "stored-bytes",
     "source_url": "https://linux.do/t/topic/802517",
@@ -36,7 +36,7 @@
   "limits": [
     {
       "kind": "per-object-cap",
-      "value": "media only, and the album path re-encodes at ingest so the original is not guaranteed back",
+      "value": "unverified: the service page publishes no original-byte return test or re-encoding behaviour",
       "source": "https://linux.do/t/topic/802517"
     }
   ],
@@ -59,13 +59,6 @@
       "proved": "the seed pass recorded, at this URL: '自己存色图都用谷歌无限相册', an adjacent forum thread on the same unlimited-photo-album pattern"
     },
     {
-      "url": "https://yike.baidu.com",
-      "date": "2026-11-03",
-      "proved": "the album service's own page on yike.baidu.com is titled as a claim of unlimited album space",
-      "capture": "sha256:4cdfa432e79c7ace73cb3b48c571579a63d5e185f4effb5521915ad13a2b0021",
-      "quote": "<title>领取无限相册空间</title>"
-    },
-    {
       "url": "probe:https://yike.baidu.com",
       "date": "2026-11-03",
       "proved": "the page on yike.baidu.com answers 200 with the unlimited album space title; the record's own URL www.yike.com did not answer",
@@ -80,22 +73,22 @@
       "quote": "\"error\": \"timeout\""
     },
     {
+      "url": "https://yike.baidu.com",
+      "date": "2026-11-25",
+      "proved": "the service page title advertises unlimited album space",
+      "capture": "sha256:a08b6a8eca3017dce2fa5d3d01a6af0b56df44c3f5cda3e2aac1795138a63172",
+      "quote": "<title>领取无限相册空间</title>"
+    },
+    {
       "url": "https://mobile.baidu.com/appitemp/3869444",
       "date": "2026-11-25",
       "proved": "the Baidu app listing states unlimited storage space with unlimited original-quality photo and video backup",
       "capture": "sha256:9baf247822f806ba9c1168ef92271b235625010f59c09a4a89cfc7fe3d566dff",
       "quote": "1、无限存储空间：无限量原画质备份照片视频，任意手机设备都能访问。"
-    },
-    {
-      "url": "https://mobile.baidu.com/appitemp/3869444",
-      "date": "2026-11-25",
-      "proved": "the app listing states unlimited storage space for photos and video",
-      "capture": "sha256:9baf247822f806ba9c1168ef92271b235625010f59c09a4a89cfc7fe3d566dff",
-      "quote": "1、无限存储空间：无限量原画质备份照片视频，任意手机设备都能访问。"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-25T13:26:30.703Z",
+  "verified_at": "2026-11-25T14:57:25.809Z",
   "history": [],
   "binding": "per-object-cap",
   "binding_note": "The quota is unlimited and the gate is that only photographs and video are accepted, with re-encoding at ingest, so the number that binds is the per-object type restriction and not a byte count. An unlimited store that returns different bytes is not capacity.",

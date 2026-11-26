@@ -15,15 +15,15 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://storage.datum.org/getstarted",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "No object-size limit is stated on the home or get-started pages; the S3-compatible endpoint is documented without a size clause."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://storage.datum.org/getstarted",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The home page states a free terabyte for the first year and US$3.99 per terabyte per month; no data-retention term is stated."
   },
   "egress": {
-    "terms": "Not published on the getstarted page; sold as 'decentralized cloud storage' with S3 API compatibility (unverified per-GB)",
+    "terms": "unverified: no egress charge or allowance is stated on the home or get-started pages",
     "metered": false
   },
   "interface": [
@@ -80,10 +80,31 @@
       "proved": "the first-party home page carries the current free-tier statement",
       "capture": "sha256:78c6be50d6a64312179d90368c25b320ec414f06d5b1d861a6b1815356974657",
       "quote": "Datum Storage gives you one free terabyte of space for the first year, but soon you'll be able to add as much additional storage as you need."
+    },
+    {
+      "url": "https://storage.datum.org/",
+      "date": "2026-11-25",
+      "proved": "the home page states the first-year free terabyte and the US$3.99 per terabyte per month price, with no egress or retention term",
+      "capture": "sha256:78c6be50d6a64312179d90368c25b320ec414f06d5b1d861a6b1815356974657",
+      "quote": "Datum Storage gives you one free terabyte of space for the first year, but soon you'll be able to add as much additional storage as you need. Pay just US$3.99 per terabyte per month."
+    },
+    {
+      "url": "https://storage.datum.org/getstarted",
+      "date": "2026-11-25",
+      "proved": "the get-started page documents the S3-compatible endpoint and states no object-size limit",
+      "capture": "sha256:5939a38180f950c8f39152a4cb901d63a5a2939a9a9d4928332a0889c3c8c297",
+      "quote": "Datum Storage is designed to be compatible with the Amazon S3 API format."
+    },
+    {
+      "url": "https://storage.datum.org/getstarted",
+      "date": "2026-11-25",
+      "proved": "the get-started page states the mobile-app Datum Identity with email and phone verification and the S3-compatible endpoint",
+      "capture": "sha256:5939a38180f950c8f39152a4cb901d63a5a2939a9a9d4928332a0889c3c8c297",
+      "quote": "Datum Storage accounts are attached to a Datum Identity. To create your Datum Identity, download the Datum ID app and follow the on-screen instructions. ... Please note that creating a Datum Identity will require verification of your email address and phone number. ... Datum Storage is designed to be compatible with the Amazon S3 API format."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-19T21:13:29.380Z",
+  "verified_at": "2026-11-25T09:54:53.002Z",
   "notes": "1 TB free from signup ('Get 1TB Free Cloud Storage From Datum'), S3-compatible endpoint",
   "history": [],
   "extras": {

@@ -21,7 +21,7 @@
   "limits_note": "A 30-day expiration limit applies to free PostgreSQL database instances.",
   "reliability_note": "no reliability event observed",
   "confidence": "reported",
-  "verified_at": "2026-10-22T04:24:35.000Z",
+  "verified_at": "2026-11-25T11:17:39.260Z",
   "price_per_tb_month": null,
   "notes": "Render PostgreSQL database service carries a 30-day inactivity limit on free tier instances.",
   "slug": "render-postgres",
@@ -63,6 +63,13 @@
       "url": "https://render.com/docs/free",
       "date": "2026-10-22",
       "proved": "read live: free Postgres expires 30 days after creation"
+    },
+    {
+      "url": "https://render.com/docs/free",
+      "date": "2026-11-25",
+      "proved": "the free Postgres database expires 30 days after creation and is inaccessible until upgraded",
+      "capture": "sha256:1ac216ffd5518ff357c7b6eb671ced37320ad4ac635451ebea2f486839dfce2c",
+      "quote": "*Free Render Postgres databases expire 30 days after creation.* An expired Free database is inaccessible unless you upgrade it to a paid compute plan."
     }
   ],
   "verdict": "trial-only",

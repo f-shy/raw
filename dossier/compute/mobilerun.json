@@ -1,178 +1,261 @@
 {
-  "topic": "compute",
-  "slug": "mobilerun",
-  "provider": "Mobilerun",
-  "url": "https://mobilerun.ai/pricing/",
-  "category": "cloud phone for AI agents",
-  "tier": "Free",
-  "free_tier": {
-    "stated": "Free, $0 a month: 1 concurrent phone, 60 phone credits a month (60 Android or 20 iPhone minutes), 500 AI credits ($5), 1 GB residential traffic, 1 seat; no overage charges and prepaid top-ups available.",
-    "unit": "minutes",
-    "metered_on": "wall-clock",
-    "source_url": "https://mobilerun.ai/pricing/",
-    "read_on": "2026-11-24",
-    "notes": "A stopped Android phone keeps its apps and data and uses no phone credits; phone credits are pooled per month across phones."
+ "topic": "compute",
+ "slug": "mobilerun",
+ "provider": "MobileRun",
+ "url": "https://mobilerun.ai/pricing/",
+ "category": "hosted cloud phone",
+ "tier": "Free plan (Android and iPhone by the minute)",
+ "free_tier": {
+  "stated": "Free plan at USD 0 a month: 1 concurrent phone, 60 phone credits (60 Android or 20 iPhone minutes) a month, 500 AI credits (USD 5), 1 GB residential traffic, 1 GB storage and no overage charges.",
+  "unit": "minutes",
+  "metered_on": "wall-clock",
+  "source_url": "https://mobilerun.ai/pricing/",
+  "read_on": "2026-11-25",
+  "notes": "An Android minute uses 1 phone credit and an iPhone minute uses 3. Free has no overage; 100 phone credits can be topped up for USD 3 at any time. Paid plans start at USD 20 a month."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the metered unit is phone time, not an object"
+ },
+ "retention": {
+  "stated": "A stopped Android phone keeps its apps and data; free-plan storage is 1 GB.",
+  "days": null,
+  "source_url": "https://mobilerun.ai/pricing/"
+ },
+ "egress": {
+  "terms": "residential traffic is pooled across the phones per month: 1 GB included on Free, then a USD 3 top-up of 100 phone credits does not add traffic; paid plans charge USD 10 per GB",
+  "metered": true,
+  "free_allowance": "1 GB residential traffic a month on Free",
+  "price_per_tb": null,
+  "source_url": "https://mobilerun.ai/pricing/"
+ },
+ "interface": [
+  "rest",
+  "cli",
+  "browser"
+ ],
+ "interface_detail": "A Cloud REST API at api.mobilerun.ai/v1, TypeScript and Python SDKs, a hosted MCP server, and a web console; a cloud device is created, driven by a task, then stopped.",
+ "tooling": "@mobilerun/sdk (npm), mobilerun-sdk (pip), MCP server, cURL against the REST API, and Puppeteer or Playwright over CDP on a cloud Android phone.",
+ "chaining": "An agent provisions a hosted Android phone by the minute, drives it with an SDK or MCP, and reads SMS and email from add-on numbers and mailboxes; a dedicated always-on Android phone costs USD 50 a month, or USD 64 a month billed annually with a dedicated residential IP.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "60 phone credits a month on Free: 60 Android minutes or 20 iPhone minutes; top up 100 credits for USD 3",
+   "source": "https://mobilerun.ai/pricing/"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is phone minutes, not an object; Free includes 1 GB of storage per the plan comparison table"
+  {
+   "kind": "per-object-cap",
+   "value": "1 concurrent phone and 1 GB storage on Free",
+   "source": "https://mobilerun.ai/pricing/"
   },
-  "retention": {
-    "stated": "A stopped Android phone keeps its apps and data; terminating it erases them. No fixed retention window is published for cloud phones.",
-    "days": null,
-    "source_url": "https://docs.mobilerun.ai/device-types.md"
-  },
-  "egress": {
-    "terms": "1 GB of residential traffic is included on Free with no overage available on that plan; paid plans include 5 to 15 GB and then pay $10 per GB. A dedicated residential IP with unlimited bandwidth is a separate $20 per 4 weeks add-on.",
-    "metered": true,
-    "free_allowance": "1 GB of residential traffic a month on Free",
-    "price_per_tb": "USD 10,000 per TB on paid plans",
-    "source_url": "https://mobilerun.ai/pricing/"
-  },
-  "interface": [
-    "rest",
-    "chat"
-  ],
-  "interface_detail": "Cloud devices and agent tasks are driven through a hosted dashboard, a REST API with API keys, an MCP server and TypeScript and Python SDKs.",
-  "tooling": "pip or npm install the Mobilerun SDK, or call the REST API at api.mobilerun.ai; an MCP server connects Claude Code, Codex and other coding agents.",
-  "chaining": "A cloud Android phone paid by the minute runs an agent that can open apps and read SMS, with residential traffic from this plan or a dedicated residential IP for a stable exit address.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "60 phone credits a month on Free, equal to 60 Android or 20 iPhone minutes, pooled across phones",
-      "source": "https://mobilerun.ai/pricing/"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "1 concurrent phone and 1 GB of residential traffic a month on Free",
-      "source": "https://mobilerun.ai/pricing/"
-    },
-    {
-      "kind": "write-gated",
-      "value": "Free stops at its limit with no paid overage; paid plans continue up to a monthly overage limit",
-      "source": "https://docs.mobilerun.ai/credits.md"
-    }
-  ],
-  "limits_note": "An iPhone minute uses 3 phone credits against 1 for Android, and Free includes enough credits for 20 iPhone minutes a month.",
-  "binding": "volume-quota",
-  "binding_note": "On Free the 60 phone credits and 1 GB of residential traffic run out first, and with no paid overage the phone is then stopped while keeping its data, so the monthly allowance binds before the single-phone concurrency cap.",
-  "identity_cost": {
-    "kind": "institution",
-    "detail": "The terms state that the service is directed exclusively at business customers and that DroidRun may require proof of business status before the contract; registration requires a DroidRun account with complete information about the person or entity, and paid plans are confirmed by email. The pricing page notes that one slot to connect your own phone needs no credit card on eligible accounts. No phone number or ID document is stated on the pages read.",
-    "country": null
-  },
-  "reliability_note": "The terms provide the service as is with no warranty of availability or correctness; stopping and resuming a Cloud iOS phone is not available yet, and a pay-as-you-go phone is stopped when its minutes run out, keeping its data.",
-  "confidence": "documented",
-  "confidence_note": "The free allowance, credit rates, traffic allowance and registration terms are quoted from the vendor's own pricing page, credits documentation and terms read on 2026-11-24.",
-  "evidence": [
-    {
-      "url": "https://mobilerun.ai/pricing/",
-      "date": "2026-11-24",
-      "proved": "the Free plan is $0 a month",
-      "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
-      "quote": "**$0**/ month"
-    },
-    {
-      "url": "https://mobilerun.ai/pricing/",
-      "date": "2026-11-24",
-      "proved": "Free includes 60 phone credits a month, equal to 60 Android or 20 iPhone minutes",
-      "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
-      "quote": "60 phone credits Phone time, pooled per month. 60 phone credits are 60 Android or 20 iPhone minutes. Free has no overage charges. Top up 100 phone credits for $3 any time.60 Android or 20 iPhone minutes"
-    },
-    {
-      "url": "https://mobilerun.ai/pricing/",
-      "date": "2026-11-24",
-      "proved": "Free has 1 concurrent phone, Android or iPhone",
-      "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
-      "quote": "1 concurrent phone Run up to 1 phone at the same time, Android or iPhone. Dedicated phones from add-ons are separate.Android or iPhone"
-    },
-    {
-      "url": "https://mobilerun.ai/pricing/",
-      "date": "2026-11-24",
-      "proved": "Free includes 1 GB of residential traffic a month",
-      "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
-      "quote": "| Residential traffic | 1 GB | 5 GB | 10 GB | 15 GB | Custom |"
-    },
-    {
-      "url": "https://mobilerun.ai/pricing/",
-      "date": "2026-11-24",
-      "proved": "Free has no overage and stops at its allowance",
-      "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
-      "quote": "Free has no overage charges. When its allowance runs out, top up prepaid packs (100 phone credits for $3, 500 AI credits for $5) or upgrade."
-    },
-    {
-      "url": "https://mobilerun.ai/pricing/",
-      "date": "2026-11-24",
-      "proved": "one free slot to connect your own phone needs no credit card on eligible accounts",
-      "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
-      "quote": "Eligible accounts can claim one free slot to connect their own Android or iPhone, free for life, with no credit card required."
-    },
-    {
-      "url": "https://docs.mobilerun.ai/credits.md",
-      "date": "2026-11-24",
-      "proved": "Free plans stop at the credit limit without paid overage",
-      "capture": "sha256:0ee514a859c3c1f4544c44e8f6788e544308b63aa0b3fca0f7dd5471dfcc3e67",
-      "quote": "Free plans stop at the limit."
-    },
-    {
-      "url": "https://mobilerun.ai/connect/",
-      "date": "2026-11-24",
-      "proved": "a dedicated residential IP keeps one address and has unlimited bandwidth",
-      "capture": "sha256:ff923d6a05f5c44f9a1c6912f4566a482ccef97c0a0a91a1645c29490c3023ab",
-      "quote": "Dedicated residential IP | One residential IP that stays yours for as long as the subscription runs"
-    },
-    {
-      "url": "https://docs.mobilerun.ai/device-types.md",
-      "date": "2026-11-24",
-      "proved": "one personal phone slot is free for life with no credit card on eligible accounts",
-      "capture": "sha256:67d9175d0221579cbe2b4265c6114eef3b619c64b28d0d49438f38b3b0dd15ca",
-      "quote": "Eligible accounts can claim one free Personal Phone slot, free for life, with no credit card required."
-    },
-    {
-      "url": "https://mobilerun.ai/terms/",
-      "date": "2026-11-24",
-      "proved": "the service is directed exclusively at business customers who may have to prove that status",
-      "capture": "sha256:605434603d231b60cd62a55bc914fbbe381ec34c42764981b1fa6fc0c2f12387",
-      "quote": "The Service is directed exclusively at business customers (Unternehmer) within the meaning of Sec. 14 German Civil Code (Bürgerliches Gesetzbuch, BGB)"
-    },
-    {
-      "url": "https://mobilerun.ai/terms/",
-      "date": "2026-11-24",
-      "proved": "registration requires a DroidRun account with complete information about the person or entity",
-      "capture": "sha256:605434603d231b60cd62a55bc914fbbe381ec34c42764981b1fa6fc0c2f12387",
-      "quote": "3.3 The Customer is obliged (i) to provide complete and correct information about their person or entity at the time of registration"
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.914Z",
-  "price_per_tb_month": null,
-  "notes": "Cloud Android and iOS phones for agents with a free plan of 60 phone credits and 500 AI credits a month; a stopped Android phone keeps its data. Egress arithmetic: $10 per GB x 1000 GB = USD 10,000 per TB on paid plans. Dedicated Android from $64 a month and a real iPhone from $160 a month are separate hosted offers, and connecting the user's own phone is a hosted lane of user-owned hardware.",
-  "extras": {
-    "shape": {
-      "vcpu": null,
-      "ram_gib": null,
-      "disk_gib": 1,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "Free includes 1 GB of storage and 1 GB of residential traffic; phone hardware is not specified"
-    },
-    "billing_model": "monthly allowance with prepaid top-ups and paid overage on paid plans",
-    "free_tier_kind": "recurring-allowance",
-    "term": "monthly, no commitment",
-    "price_arithmetic": "Free at USD 0 a month; Android minute uses 1 phone credit, iPhone minute uses 3; paid overage USD 0.03 per phone credit",
-    "status": "live hosted service with a free plan",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": null,
-      "ports": "not stated for the free plan",
-      "static_ip": false,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "an idle pay-as-you-go phone is stopped by the idle timeout; when its credits run out it is stopped and keeps its data"
-    }
+  {
+   "kind": "write-gated",
+   "value": "1 seat and 1 agent slot on Free; an account, an API key and a cloud device are required before a task can run",
+   "source": "https://docs.mobilerun.ai/cloud/quickstart"
   }
+ ],
+ "limits_note": "Free has no overage charges: when the allowance runs out, prepaid packs are required or the user upgrades. Paid plans continue past the allowance at USD 0.03 per phone credit, USD 0.01 per AI credit and USD 10 per GB of residential traffic, up to a monthly overage limit.",
+ "binding": "volume-quota",
+ "binding_note": "The 60 monthly phone credits run out after 60 Android minutes or 20 iPhone minutes, well before the 1 GB storage cap, and on Free there is no overage billing once they are spent.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "The service requires a DroidRun account: the terms state that registration and setting up a DroidRun Account is required. The console sign-in page is a JavaScript app whose configuration reports emailSignUpEnabled false, so the exact sign-up fields on the live page are unverified: behind a sign-up. The pricing FAQ states that eligible accounts can claim one free slot to connect their own phone with no credit card required; that is an add-on, not the Free cloud-phone plan.",
+  "country": null
+ },
+ "reliability_note": "Free has no overage charges and stops at its allowance until a top-up or upgrade. The terms state that DroidRun disclaims liability for storage, accessibility and integrity of stored data, and paid plans stop at a monthly overage limit until the user requests a higher one.",
+ "confidence": "documented",
+ "confidence_note": "Prices, allowances and API access are quoted from first-party pricing, device and docs pages read on 2026-11-25. The account requirement is quoted from the first-party terms; the exact live sign-up form was not read because the console is a JavaScript app and email signup is reported disabled there.",
+ "evidence": [
+  {
+   "url": "https://mobilerun.ai/pricing/",
+   "date": "2026-11-25",
+   "proved": "the Free plan is USD 0 a month with 60 phone credits and no overage charges",
+   "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
+   "quote": "No overage, top up any time"
+  },
+  {
+   "url": "https://mobilerun.ai/pricing/",
+   "date": "2026-11-25",
+   "proved": "60 phone credits a month are 60 Android or 20 iPhone minutes",
+   "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
+   "quote": "60 phone credits Phone time, pooled per month. 60 phone credits are 60 Android or 20 iPhone minutes."
+  },
+  {
+   "url": "https://mobilerun.ai/pricing/",
+   "date": "2026-11-25",
+   "proved": "a top-up of 100 phone credits costs USD 3 at any time",
+   "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
+   "quote": "Top up 100 phone credits for $3 any time."
+  },
+  {
+   "url": "https://mobilerun.ai/pricing/",
+   "date": "2026-11-25",
+   "proved": "an iPhone minute costs USD 0.09 (3 phone credits)",
+   "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
+   "quote": "$0.09 per iPhone minute (3 phone credits)"
+  },
+  {
+   "url": "https://mobilerun.ai/pricing/",
+   "date": "2026-11-25",
+   "proved": "extra phone credits on paid plans cost USD 0.03 each",
+   "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
+   "quote": "Extra phone credits cost $0.03 each."
+  },
+  {
+   "url": "https://mobilerun.ai/pricing/",
+   "date": "2026-11-25",
+   "proved": "Free includes 1 GB residential traffic a month",
+   "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
+   "quote": "| Residential traffic | 1 GB | 5 GB | 10 GB | 15 GB | Custom |"
+  },
+  {
+   "url": "https://mobilerun.ai/pricing/",
+   "date": "2026-11-25",
+   "proved": "Free allows 1 concurrent phone and 1 GB storage",
+   "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
+   "quote": "| Storage | 1 GB | 5 GB | 25 GB | 100 GB | Custom |"
+  },
+  {
+   "url": "https://mobilerun.ai/devices/",
+   "date": "2026-11-25",
+   "proved": "on-demand Android and iPhone instances run by the minute, with a stopped Android phone keeping its apps and data",
+   "capture": "sha256:1bd318326cc35aa1008d164bf2a5a8d568a063ffae4c5ad02685b53eda06e0b2",
+   "quote": "A stopped Android phone keeps its apps and data and uses no phone credits."
+  },
+  {
+   "url": "https://docs.mobilerun.ai/cloud/quickstart",
+   "date": "2026-11-25",
+   "proved": "an account, a cloud API key and SDK or cURL access are needed to provision and drive a hosted device",
+   "capture": "sha256:050982b03ec2642e5d26d0041f7f9d84980cfd7e081dc572b8f1946ec52b76e9",
+   "quote": "Sign in or create an account, then create a cloud API key"
+  },
+  {
+   "url": "https://cloud.mobilerun.ai/legal/terms-of-service",
+   "date": "2026-11-25",
+   "proved": "registration of a DroidRun account is required to use the service",
+   "capture": "sha256:605434603d231b60cd62a55bc914fbbe381ec34c42764981b1fa6fc0c2f12387",
+   "quote": "3.1 In order to use the Services, the registration and setting up of a DroidRun Account is required."
+  },
+  {
+   "url": "https://cloud.mobilerun.ai/sign-in",
+   "date": "2026-11-25",
+   "proved": "the console sign-in page reports email signup disabled in its client configuration",
+   "capture": "sha256:c060427532be31f517e8beea4e21a3462b74eb26958eb84d8f073e8f7c54e83c",
+   "quote": "NEXT_PUBLIC_EMAIL_SIGNUP_ENABLED\":\"false"
+  },
+  {
+   "url": "https://mobilerun.ai/pricing/",
+   "date": "2026-11-24",
+   "proved": "the Free plan is $0 a month",
+   "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
+   "quote": "**$0**/ month"
+  },
+  {
+   "url": "https://mobilerun.ai/pricing/",
+   "date": "2026-11-24",
+   "proved": "Free includes 60 phone credits a month, equal to 60 Android or 20 iPhone minutes",
+   "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
+   "quote": "60 phone credits Phone time, pooled per month. 60 phone credits are 60 Android or 20 iPhone minutes. Free has no overage charges. Top up 100 phone credits for $3 any time.60 Android or 20 iPhone minutes"
+  },
+  {
+   "url": "https://mobilerun.ai/pricing/",
+   "date": "2026-11-24",
+   "proved": "Free has 1 concurrent phone, Android or iPhone",
+   "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
+   "quote": "1 concurrent phone Run up to 1 phone at the same time, Android or iPhone. Dedicated phones from add-ons are separate.Android or iPhone"
+  },
+  {
+   "url": "https://mobilerun.ai/pricing/",
+   "date": "2026-11-24",
+   "proved": "Free includes 1 GB of residential traffic a month",
+   "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
+   "quote": "| Residential traffic | 1 GB | 5 GB | 10 GB | 15 GB | Custom |"
+  },
+  {
+   "url": "https://mobilerun.ai/pricing/",
+   "date": "2026-11-24",
+   "proved": "Free has no overage and stops at its allowance",
+   "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
+   "quote": "Free has no overage charges. When its allowance runs out, top up prepaid packs (100 phone credits for $3, 500 AI credits for $5) or upgrade."
+  },
+  {
+   "url": "https://mobilerun.ai/pricing/",
+   "date": "2026-11-24",
+   "proved": "one free slot to connect your own phone needs no credit card on eligible accounts",
+   "capture": "sha256:9d81a4f924c50540053151b654440fb625f46b3411230b9fd772c2d97ddd0205",
+   "quote": "Eligible accounts can claim one free slot to connect their own Android or iPhone, free for life, with no credit card required."
+  },
+  {
+   "url": "https://docs.mobilerun.ai/credits.md",
+   "date": "2026-11-24",
+   "proved": "Free plans stop at the credit limit without paid overage",
+   "capture": "sha256:0ee514a859c3c1f4544c44e8f6788e544308b63aa0b3fca0f7dd5471dfcc3e67",
+   "quote": "Free plans stop at the limit."
+  },
+  {
+   "url": "https://mobilerun.ai/connect/",
+   "date": "2026-11-24",
+   "proved": "a dedicated residential IP keeps one address and has unlimited bandwidth",
+   "capture": "sha256:ff923d6a05f5c44f9a1c6912f4566a482ccef97c0a0a91a1645c29490c3023ab",
+   "quote": "Dedicated residential IP | One residential IP that stays yours for as long as the subscription runs"
+  },
+  {
+   "url": "https://docs.mobilerun.ai/device-types.md",
+   "date": "2026-11-24",
+   "proved": "one personal phone slot is free for life with no credit card on eligible accounts",
+   "capture": "sha256:67d9175d0221579cbe2b4265c6114eef3b619c64b28d0d49438f38b3b0dd15ca",
+   "quote": "Eligible accounts can claim one free Personal Phone slot, free for life, with no credit card required."
+  },
+  {
+   "url": "https://mobilerun.ai/terms/",
+   "date": "2026-11-24",
+   "proved": "the service is directed exclusively at business customers who may have to prove that status",
+   "capture": "sha256:605434603d231b60cd62a55bc914fbbe381ec34c42764981b1fa6fc0c2f12387",
+   "quote": "The Service is directed exclusively at business customers (Unternehmer) within the meaning of Sec. 14 German Civil Code (Bürgerliches Gesetzbuch, BGB)"
+  },
+  {
+   "url": "https://mobilerun.ai/terms/",
+   "date": "2026-11-24",
+   "proved": "registration requires a DroidRun account with complete information about the person or entity",
+   "capture": "sha256:605434603d231b60cd62a55bc914fbbe381ec34c42764981b1fa6fc0c2f12387",
+   "quote": "3.3 The Customer is obliged (i) to provide complete and correct information about their person or entity at the time of registration"
+  },
+  {
+   "url": "https://mobilerun.ai/terms/",
+   "date": "2026-11-24",
+   "proved": "the page establishes the offer and its constraints but no public read path was probed, so the verdict keeps its caveat",
+   "capture": "sha256:605434603d231b60cd62a55bc914fbbe381ec34c42764981b1fa6fc0c2f12387",
+   "quote": "3.3 The Customer is obliged (i) to provide complete and correct information about their person or entity at th"
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T02:12:34.899Z",
+ "price_per_tb_month": null,
+ "notes": "Hosted Android and iPhone phones by the minute: 60 free Android minutes or 20 free iPhone minutes a month on the USD 0 plan, with 1 concurrent phone and no overage charges. Paid plans start at USD 20 a month; an always-on hosted Android phone is USD 50 a month. The open-source agent framework is a separate self-hosted option and is not the offer priced here.",
+ "extras": {
+  "shape": {
+   "vcpu": null,
+   "ram_gib": null,
+   "disk_gib": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "hosted Android phones and real iPhones billed in phone credits, not by vCPU"
+  },
+  "billing_model": "monthly free phone credits, per-minute top-ups and paid plans",
+  "free_tier_kind": "recurring-allowance",
+  "term": "no commitment on Free; paid plans billed monthly",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": null,
+   "ports": null,
+   "static_ip": "dedicated residential IP add-on",
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "a stopped Android phone keeps its apps and data and uses no phone credits"
+  }
+ }
 }

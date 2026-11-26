@@ -72,13 +72,6 @@
     {
       "url": "probe:https://pan.iosi.vip/",
       "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:bdcbc557424e4037fd44a80557d4b8aaec78374ab3afc5ba597e056c938cb533",
-      "quote": "\"listing_sha256\": \"d4817232\""
-    },
-    {
-      "url": "probe:https://pan.iosi.vip/",
-      "date": "2026-11-11",
       "proved": "the probe record states the hash method used for the listing",
       "capture": "sha256:bdcbc557424e4037fd44a80557d4b8aaec78374ab3afc5ba597e056c938cb533",
       "quote": "\"listing_hash_method\": \"sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters\""
@@ -92,17 +85,31 @@
     },
     {
       "url": "probe:https://pan.iosi.vip/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:bdcbc557424e4037fd44a80557d4b8aaec78374ab3afc5ba597e056c938cb533",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://pan.iosi.vip/",
       "date": "2026-11-19",
       "proved": "the liveness and mount-list probe answered at this instant",
       "capture": "sha256:33cb773ab19bb4a1ceb64d9d5bb61f8b06c0dcf100c622bc9184bcf66e125b4d",
       "quote": "\"checked_at\": \"2026-11-19T03:33:37.140Z\""
+    },
+    {
+      "url": "probe:https://pan.iosi.vip/",
+      "date": "2026-11-25",
+      "proved": "a fresh anonymous probe of pan.iosi.vip answered the settings, session and mount-list requests at this timestamp",
+      "capture": "sha256:cf61ec7004f0976debb990836b6f32af4a0e2662844086ca8aae50ce7c05b71f",
+      "quote": "\"probed_at\": \"2026-11-25T02:34:36.629Z\""
+    },
+    {
+      "url": "probe:https://pan.iosi.vip/",
+      "date": "2026-11-25",
+      "proved": "the fresh probe completed the anonymous settings, session and mount-list requests at pan.iosi.vip",
+      "capture": "sha256:cf61ec7004f0976debb990836b6f32af4a0e2662844086ca8aae50ce7c05b71f",
+      "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://pan.iosi.vip/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing of pan.iosi.vip hashed to the recorded value, so the listing is unchanged",
+      "capture": "sha256:cf61ec7004f0976debb990836b6f32af4a0e2662844086ca8aae50ce7c05b71f",
+      "quote": "\"listing_sha256\": \"d4817232\""
     },
     {
       "url": "probe:https://pan.iosi.vip/",
@@ -114,27 +121,13 @@
     {
       "url": "probe:https://pan.iosi.vip/",
       "date": "2026-11-25",
-      "proved": "the anonymous guest session answered and the root listing returned entries",
-      "capture": "sha256:cf3137cb0cb17df16818307268ebb9e5228e64a484d5dfdce5a6fe93a2f46c5f",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://pan.iosi.vip/",
-      "date": "2026-11-25",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:cf3137cb0cb17df16818307268ebb9e5228e64a484d5dfdce5a6fe93a2f46c5f",
-      "quote": "\"listing_sha256\": \"d4817232\""
-    },
-    {
-      "url": "probe:https://pan.iosi.vip/",
-      "date": "2026-11-25",
       "proved": "the anonymous root listing returned 6 entries",
       "capture": "sha256:cf3137cb0cb17df16818307268ebb9e5228e64a484d5dfdce5a6fe93a2f46c5f",
       "quote": "\"root_entries\": 6"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T11:08:34.600Z",
+  "verified_at": "2026-11-25T19:55:34.328Z",
   "binding": "write-gated",
   "notes": "6 root entries on AList v3.45.0, write:false, read-only by configuration.",
   "history": [],
@@ -151,7 +144,7 @@
     "listing_sha256": "d4817232",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-25T01:38:31.564Z",
+    "last_verified_alive": "2026-11-25T02:34:36.629Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "listing_hash_method": "sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters"

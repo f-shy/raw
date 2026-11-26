@@ -1,258 +1,255 @@
 {
-  "topic": "compute",
-  "per_object_cap": {
-    "stated": "'You can provision 1 or an even number of vCPUs between 2 and 32 depending on your plan ... The default is 2 vCPUs' and 'Each vCPU includes 2 GB of memory'.",
-    "bytes": null,
-    "source_url": "https://vercel.com/docs/sandbox/pricing",
-    "notes": "Default 2 vCPU / 4 GB, which is the shape used in the arithmetic."
+ "topic": "compute",
+ "per_object_cap": {
+  "stated": "'You can provision 1 or an even number of vCPUs between 2 and 32 depending on your plan ... The default is 2 vCPUs' and 'Each vCPU includes 2 GB of memory'.",
+  "bytes": null,
+  "source_url": "https://vercel.com/docs/sandbox/pricing",
+  "notes": "Default 2 vCPU / 4 GB, which is the shape used in the arithmetic."
+ },
+ "interface": [
+  "rest",
+  "cli"
+ ],
+ "interface_detail": "SDK and REST; persistent sandboxes and snapshots",
+ "tooling": "Vercel SDK, CLI, snapshots and drives",
+ "chaining": "active-CPU billing makes an idle agent nearly free here, and the 45-minute session cap is what stops it being a host",
+ "limits_note": "Active CPU is billed only while code runs, but provisioned memory is billed for the whole time the sandbox exists, so an idle box is not free.",
+ "reliability_note": "A sandbox that reaches 45 minutes is stopped by the platform, and its state is only preserved if a snapshot was taken.",
+ "confidence": "documented",
+ "verified_at": "2026-11-25T15:03:53.355Z",
+ "price_per_tb_month": null,
+ "history": [],
+ "slug": "vercel-sandbox",
+ "provider": "Vercel Sandbox",
+ "url": "https://vercel.com/docs/sandbox/pricing",
+ "category": "container and VM sandbox",
+ "free_tier": {
+  "stated": "'Sandbox is free for Hobby users within the usage quotas': 'Sandbox Active CPU | 5 hours/month', 'Sandbox Provisioned Memory | 420 GB-hours/month', 'Sandbox Creations | 5,000/month', 'Sandbox Data Transfer | 20 GB/month', 'Snapshot Storage | 15 GB (lifetime)'. 'Max Session Duration | 45 minutes' on Hobby.",
+  "unit": "mixed",
+  "metered_on": "wall-clock",
+  "source_url": "https://vercel.com/docs/sandbox/pricing",
+  "read_on": "2026-10-24",
+  "notes": "No cash credit on Hobby; the Pro plan's USD 20 monthly credit is a plan credit."
+ },
+ "retention": {
+  "stated": "Snapshot storage is 15 GB lifetime on Hobby and Drive storage 15 GB lifetime; each sandbox has 64 GB of ephemeral NVMe. Snapshots expire 30 days after last use by default, and the expiration can be configured or removed.",
+  "days": null,
+  "source_url": "https://vercel.com/docs/sandbox/pricing"
+ },
+ "egress": {
+  "terms": "'Data your sandbox sends to the internet, plus all traffic to and from exposed ports, is billable and measured in GB'; downloads into the sandbox are free. Hobby includes 20 GB a month, then USD 0.15/GB.",
+  "metered": true,
+  "free_allowance": "20 GB a month",
+  "price_per_tb": "USD 0.15 per GB on Enterprise (USD 150 per TB at 1000 GB per TB)",
+  "source_url": "https://vercel.com/docs/sandbox/pricing"
+ },
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "5 hours of active CPU and 420 GB-hours of provisioned memory a month on Hobby",
+   "source": "https://vercel.com/docs/sandbox/pricing"
   },
-  "interface": [
-    "rest",
-    "cli"
-  ],
-  "interface_detail": "SDK and REST; persistent sandboxes and snapshots",
-  "tooling": "Vercel SDK, CLI, snapshots and drives",
-  "chaining": "active-CPU billing makes an idle agent nearly free here, and the 45-minute session cap is what stops it being a host",
-  "limits_note": "Active CPU is billed only while code runs, but provisioned memory is billed for the whole time the sandbox exists, so an idle box is not free.",
-  "reliability_note": "A sandbox that reaches 45 minutes is stopped by the platform, and its state is only preserved if a snapshot was taken.",
-  "confidence": "documented",
-  "verified_at": "2026-11-24T13:21:07.388Z",
-  "price_per_tb_month": null,
-  "history": [],
-  "slug": "vercel-sandbox",
-  "provider": "Vercel Sandbox",
-  "url": "https://vercel.com/docs/sandbox/pricing",
-  "category": "container and VM sandbox",
-  "free_tier": {
-    "stated": "'Sandbox is free for Hobby users within the usage quotas': 'Sandbox Active CPU | 5 hours/month', 'Sandbox Provisioned Memory | 420 GB-hours/month', 'Sandbox Creations | 5,000/month', 'Sandbox Data Transfer | 20 GB/month', 'Snapshot Storage | 15 GB (lifetime)'. 'Max Session Duration | 45 minutes' on Hobby.",
-    "unit": "mixed",
+  {
+   "kind": "volume-quota",
+   "value": "45-minute maximum session on Hobby; 24 hours on Pro; the maximum applies to a session, not the sandbox lifetime, which is effectively unbounded when a persistent sandbox stops and resumes",
+   "source": "https://vercel.com/docs/sandbox/pricing"
+  },
+  {
+   "kind": "volume-quota",
+   "value": "20 GB of data transfer a month on Hobby",
+   "source": "https://vercel.com/docs/sandbox/pricing"
+  }
+ ],
+ "identity_cost": {
+  "kind": "email",
+  "detail": "A Hobby account needs only a Vercel login; no card is required for the free sandbox quota. No hold exists at that tier.",
+  "country": null
+ },
+ "evidence": [
+  {
+   "url": "https://vercel.com/docs/sandbox/pricing",
+   "date": "2026-10-22",
+   "proved": "Hobby: 5 hours active CPU and 420 GB-hours memory a month, 45-minute maximum session, 10 concurrent sandboxes"
+  },
+  {
+   "url": "https://boat.dev/compare",
+   "date": "2026-10-22",
+   "proved": "a competitor's comparison table lists Vercel Sandbox at USD 0.682 per hour for a 4 vCPU / 8 GB / 50 GB machine, with list prices dated 2026-09-26; this is a reported rate about a third party and not a reading of the vendor's own page"
+  },
+  {
+   "url": "https://vercel.com/docs/sandbox/pricing",
+   "date": "2026-10-24",
+   "proved": "quoted: 'Sandbox Active CPU | 5 hours/month | $0.128/hour', 'Sandbox Provisioned Memory | 420 GB-hours/month | $0.0212/GB-hour', 'Max Session Duration | 45 minutes' on Hobby and '24 hours' on Pro, 'Sandbox is free for Hobby users within the usage quotas', 'Each vCPU includes 2 GB of memory'."
+  },
+  {
+   "url": "https://vercel.com/docs/sandbox/pricing",
+   "date": "2026-11-25",
+   "proved": "Hobby Sandbox use is free within the usage quotas shown in the pricing table",
+   "capture": "sha256:58c44975529c386a8f9e91fbdc28acc3d102aa2313e0950803a6f5a1161bdfe3",
+   "quote": "Sandbox is free for Hobby users within the usage quotas detailed above."
+  },
+  {
+   "url": "https://vercel.com/docs/sandbox/pricing",
+   "date": "2026-11-24",
+   "proved": "the clock is per session and resets on resume",
+   "capture": "sha256:6efdfb926fb531b77088084d2864e608dd92780feec77010f8d4a89cc204508e",
+   "quote": "The limit resets every time a sandbox stops and resumes, so the total lifetime of a [persistent sandbox](/docs/sandbox/concepts/persistent-sandboxes) is effectively unbounded."
+  },
+  {
+   "url": "https://vercel.com/docs/sandbox/pricing",
+   "date": "2026-11-24",
+   "proved": "the default snapshot retention is now published",
+   "capture": "sha256:6efdfb926fb531b77088084d2864e608dd92780feec77010f8d4a89cc204508e",
+   "quote": "Snapshots expire **30 days after their last use by default**."
+  },
+  {
+   "url": "https://vercel.com/docs/sandbox/pricing",
+   "date": "2026-11-24",
+   "proved": "the per-GB rate is on the pricing page; the per-TB figure is arithmetic",
+   "capture": "sha256:6efdfb926fb531b77088084d2864e608dd92780feec77010f8d4a89cc204508e",
+   "quote": "| Sandbox Data Transfer | 20 GB/month | Included in Flat Rate CDN | $0.15/GB |"
+  },
+  {
+   "url": "https://vercel.com/docs/sandbox/pricing",
+   "date": "2026-11-24",
+   "proved": "the Hobby memory allowance and Pro rate are unchanged",
+   "capture": "sha256:6efdfb926fb531b77088084d2864e608dd92780feec77010f8d4a89cc204508e",
+   "quote": "| Sandbox Provisioned Memory | 420 GB-hours/month | $0.0212/GB-hour | $0.0212/GB-hour |"
+  },
+  {
+   "url": "https://vercel.com/docs/sandbox/pricing",
+   "date": "2026-11-24",
+   "proved": "Hobby sandbox use is free within the published quotas",
+   "capture": "sha256:6efdfb926fb531b77088084d2864e608dd92780feec77010f8d4a89cc204508e",
+   "quote": "Sandbox is free for Hobby users within the usage quotas detailed above."
+  },
+  {
+   "url": "https://vercel.com/docs/sandbox/pricing",
+   "date": "2026-11-24",
+   "proved": "inbound data is free; outbound and exposed-port traffic is billable",
+   "capture": "sha256:6efdfb926fb531b77088084d2864e608dd92780feec77010f8d4a89cc204508e",
+   "quote": "Data your sandbox downloads from the internet, such as packages, Git repositories, artifacts, and datasets, is free."
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "notes": "The Hobby allowance cannot hold a box up: a full month of a 2 vCPU / 4 GB sandbox needs 4 GB of memory for every hour against 420 GB-hours included, and more active CPU than the 5 hours included. The 45-minute limit is per session and resets when a persistent sandbox resumes. This row is for batch jobs.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 4,
+   "disk_gib": null,
+   "gpu_class": null,
+   "gpu_count": null
+  },
+  "billing_model": "per-hour on active CPU plus provisioned memory",
+  "granularity": {
+   "min_billed_s": 60,
+   "rounding_s": 60
+  },
+  "session_cap": {
+   "wall_clock_min": 45,
+   "idle_reap_s": null,
+   "restart_required": true,
+   "note": "45 minutes on Hobby, 24 hours on Pro"
+  },
+  "keep_rate": {
+   "value": 0.0,
+   "basis": "only active CPU and provisioned memory while running are billed",
+   "source": "https://vercel.com/docs/sandbox/pricing"
+  },
+  "persistent_storage": {
+   "included_gib": 64,
+   "price_gib_month": "snapshot storage USD 0.08 per GB-month on Pro",
+   "durability": "ephemeral NVMe; snapshots are separate",
+   "survives_stop": false,
+   "survives_destroy": false,
+   "max_retention": "a snapshot persists until deleted"
+  },
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "exposed ports",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "free_tier_kind": "monthly-allowance",
+  "m10h_usd": null,
+  "m24h_usd": 61.9,
+  "price_arithmetic": "4 GB x 730 h = 2920 GB-h x 0.0212 = 61.90 for memory; active CPU at 5% of a 2 vCPU box = 36.5 CPU-h x 0.128 = 4.67; total about 66.57 a month if CPU is near idle",
+  "seed_m10h_usd": 102.24,
+  "seed_m24h_usd": 63.84,
+  "price_note": "2 vCPU and 4 GiB billed as active CPU plus provisioned memory, at 100 per cent CPU. At 50 per cent CPU the same shape is USD 63.84 for 300 hours. The two seed figures are the two utilizations and neither is wrong.",
+  "price_basis": "10 h/day x 30 = 300 h; 24/7 x 30 = 730 h; computed by .tmp/work/w-compute/price.py",
+  "seed_min_bill": "$6e-07 per start",
+  "burst_x": 1.0,
+  "burst_bill": "$6e-07 per start",
+  "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
+  "crosscheck": {
+   "boat_compare_2026-09-26": "USD 0.682/h at 4 vCPU / 8 GB"
+  },
+  "term": "monthly allowance",
+  "credit_usd": 0,
+  "credit_months_at_shape": 0.144,
+  "credit_hours_at_shape": 105,
+  "credit_expiry": "resets monthly",
+  "superseded": {
+   "free_tier": {
+    "stated": "Hobby: 5 hours of active CPU and 420 GB-hours of provisioned memory a month, 5,000 sandbox creations, 20 GB of data transfer, 15 GB of snapshot storage, 10 concurrent sandboxes",
+    "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://vercel.com/docs/sandbox/pricing",
-    "read_on": "2026-10-24",
-    "notes": "No cash credit on Hobby; the Pro plan's USD 20 monthly credit is a plan credit."
-  },
-  "retention": {
-    "stated": "Snapshot storage is 15 GB lifetime on Hobby and Drive storage 15 GB lifetime; each sandbox has 64 GB of ephemeral NVMe. Snapshots expire 30 days after last use by default, and the expiration can be configured or removed.",
-    "days": null,
-    "source_url": "https://vercel.com/docs/sandbox/pricing"
-  },
-  "egress": {
-    "terms": "'Data your sandbox sends to the internet, plus all traffic to and from exposed ports, is billable and measured in GB'; downloads into the sandbox are free. Hobby includes 20 GB a month, then USD 0.15/GB.",
+    "read_on": "2026-10-22",
+    "notes": "active CPU excludes time spent waiting on I/O"
+   },
+   "per_object_cap": {
+    "stated": "not applicable: the unit is a machine, not an object",
+    "bytes": null,
+    "notes": "the disk ceiling is in extras.shape.disk_gib"
+   },
+   "retention": {
+    "stated": "a snapshot persists until deleted; each sandbox is provisioned 64 GB of ephemeral NVMe",
+    "days": 0
+   },
+   "egress": {
+    "terms": "20 GB a month on Hobby; USD 0.15/GB on Enterprise",
     "metered": true,
-    "free_allowance": "20 GB a month",
-    "price_per_tb": "USD 0.15 per GB on Enterprise (USD 150 per TB at 1000 GB per TB)",
+    "free_allowance": "20 GB a month on Hobby",
+    "price_per_tb": "USD 150 on Enterprise",
     "source_url": "https://vercel.com/docs/sandbox/pricing"
-  },
-  "limits": [
+   },
+   "limits": [
     {
-      "kind": "volume-quota",
-      "value": "5 hours of active CPU and 420 GB-hours of provisioned memory a month on Hobby",
-      "source": "https://vercel.com/docs/sandbox/pricing"
+     "kind": "retention-clamped",
+     "value": "maximum session duration 45 minutes on Hobby; 24 hours on Pro",
+     "source": "https://vercel.com/docs/sandbox/pricing"
     },
     {
-      "kind": "volume-quota",
-      "value": "45-minute maximum session on Hobby; 24 hours on Pro; the maximum applies to a session, not the sandbox lifetime, which is effectively unbounded when a persistent sandbox stops and resumes",
-      "source": "https://vercel.com/docs/sandbox/pricing"
+     "kind": "request-rate",
+     "value": "10 concurrent sandboxes on Hobby; 5,000 creations a month",
+     "source": "https://vercel.com/docs/sandbox/pricing"
     },
     {
-      "kind": "volume-quota",
-      "value": "20 GB of data transfer a month on Hobby",
-      "source": "https://vercel.com/docs/sandbox/pricing"
+     "kind": "per-object-cap",
+     "value": "Hobby: 4 vCPU, 8 GB memory, 64 GB disk; 15 open ports",
+     "source": "https://vercel.com/docs/sandbox/pricing"
     }
-  ],
-  "identity_cost": {
+   ],
+   "limits_note": "provisioned memory bills in one-minute minimum increments; drives default to 1 GiB on Hobby and 1 TiB otherwise",
+   "binding": "retention-clamped",
+   "binding_note": "the 45-minute maximum session binds first: 5 active-CPU hours is generous across sessions and each one is capped",
+   "identity_cost": {
     "kind": "email",
-    "detail": "A Hobby account needs only a Vercel login; no card is required for the free sandbox quota. No hold exists at that tier.",
+    "detail": "a Vercel account; Hobby is included at no cost",
     "country": null
-  },
-  "evidence": [
-    {
-      "url": "https://vercel.com/docs/sandbox/pricing",
-      "date": "2026-10-22",
-      "proved": "Hobby: 5 hours active CPU and 420 GB-hours memory a month, 45-minute maximum session, 10 concurrent sandboxes"
-    },
-    {
-      "url": "https://vercel.com/docs/sandbox/pricing",
-      "date": "2026-10-22",
-      "proved": "active CPU is time actually using the CPU; waiting on I/O does not count"
-    },
-    {
-      "url": "https://vercel.com/docs/sandbox/pricing",
-      "date": "2026-10-22",
-      "proved": "Hobby: max 4 vCPU, 8 GB memory, 64 GB disk, 15 open ports; over the included limit, creation pauses until the next cycle"
-    },
-    {
-      "url": "https://boat.dev/compare",
-      "date": "2026-10-22",
-      "proved": "a competitor's comparison table lists Vercel Sandbox at USD 0.682 per hour for a 4 vCPU / 8 GB / 50 GB machine, with list prices dated 2026-09-26; this is a reported rate about a third party and not a reading of the vendor's own page"
-    },
-    {
-      "url": "https://vercel.com/docs/sandbox/pricing",
-      "date": "2026-10-24",
-      "proved": "quoted: 'Sandbox Active CPU | 5 hours/month | $0.128/hour', 'Sandbox Provisioned Memory | 420 GB-hours/month | $0.0212/GB-hour', 'Max Session Duration | 45 minutes' on Hobby and '24 hours' on Pro, 'Sandbox is free for Hobby users within the usage quotas', 'Each vCPU includes 2 GB of memory'."
-    },
-    {
-      "url": "https://vercel.com/docs/sandbox/pricing",
-      "date": "2026-11-24",
-      "proved": "the clock is per session and resets on resume",
-      "capture": "sha256:6efdfb926fb531b77088084d2864e608dd92780feec77010f8d4a89cc204508e",
-      "quote": "The limit resets every time a sandbox stops and resumes, so the total lifetime of a [persistent sandbox](/docs/sandbox/concepts/persistent-sandboxes) is effectively unbounded."
-    },
-    {
-      "url": "https://vercel.com/docs/sandbox/pricing",
-      "date": "2026-11-24",
-      "proved": "the default snapshot retention is now published",
-      "capture": "sha256:6efdfb926fb531b77088084d2864e608dd92780feec77010f8d4a89cc204508e",
-      "quote": "Snapshots expire **30 days after their last use by default**."
-    },
-    {
-      "url": "https://vercel.com/docs/sandbox/pricing",
-      "date": "2026-11-24",
-      "proved": "the per-GB rate is on the pricing page; the per-TB figure is arithmetic",
-      "capture": "sha256:6efdfb926fb531b77088084d2864e608dd92780feec77010f8d4a89cc204508e",
-      "quote": "| Sandbox Data Transfer | 20 GB/month | Included in Flat Rate CDN | $0.15/GB |"
-    },
-    {
-      "url": "https://vercel.com/docs/sandbox/pricing",
-      "date": "2026-11-24",
-      "proved": "the Hobby memory allowance and Pro rate are unchanged",
-      "capture": "sha256:6efdfb926fb531b77088084d2864e608dd92780feec77010f8d4a89cc204508e",
-      "quote": "| Sandbox Provisioned Memory | 420 GB-hours/month | $0.0212/GB-hour | $0.0212/GB-hour |"
-    },
-    {
-      "url": "https://vercel.com/docs/sandbox/pricing",
-      "date": "2026-11-24",
-      "proved": "Hobby sandbox use is free within the published quotas",
-      "capture": "sha256:6efdfb926fb531b77088084d2864e608dd92780feec77010f8d4a89cc204508e",
-      "quote": "Sandbox is free for Hobby users within the usage quotas detailed above."
-    },
-    {
-      "url": "https://vercel.com/docs/sandbox/pricing",
-      "date": "2026-11-24",
-      "proved": "inbound data is free; outbound and exposed-port traffic is billable",
-      "capture": "sha256:6efdfb926fb531b77088084d2864e608dd92780feec77010f8d4a89cc204508e",
-      "quote": "Data your sandbox downloads from the internet, such as packages, Git repositories, artifacts, and datasets, is free."
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "notes": "The Hobby allowance cannot hold a box up: a full month of a 2 vCPU / 4 GB sandbox needs 4 GB of memory for every hour against 420 GB-hours included, and more active CPU than the 5 hours included. The 45-minute limit is per session and resets when a persistent sandbox resumes. This row is for batch jobs.",
-  "extras": {
-    "shape": {
-      "vcpu": 2,
-      "ram_gib": 4,
-      "disk_gib": null,
-      "gpu_class": null,
-      "gpu_count": null
-    },
-    "billing_model": "per-hour on active CPU plus provisioned memory",
-    "granularity": {
-      "min_billed_s": 60,
-      "rounding_s": 60
-    },
-    "session_cap": {
-      "wall_clock_min": 45,
-      "idle_reap_s": null,
-      "restart_required": true,
-      "note": "45 minutes on Hobby, 24 hours on Pro"
-    },
-    "keep_rate": {
-      "value": 0.0,
-      "basis": "only active CPU and provisioned memory while running are billed",
-      "source": "https://vercel.com/docs/sandbox/pricing"
-    },
-    "persistent_storage": {
-      "included_gib": 64,
-      "price_gib_month": "snapshot storage USD 0.08 per GB-month on Pro",
-      "durability": "ephemeral NVMe; snapshots are separate",
-      "survives_stop": false,
-      "survives_destroy": false,
-      "max_retention": "a snapshot persists until deleted"
-    },
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "exposed ports",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "free_tier_kind": "monthly-allowance",
-    "m10h_usd": null,
-    "m24h_usd": 61.9,
-    "price_arithmetic": "4 GB x 730 h = 2920 GB-h x 0.0212 = 61.90 for memory; active CPU at 5% of a 2 vCPU box = 36.5 CPU-h x 0.128 = 4.67; total about 66.57 a month if CPU is near idle",
-    "seed_m10h_usd": 102.24,
-    "seed_m24h_usd": 63.84,
-    "price_note": "2 vCPU and 4 GiB billed as active CPU plus provisioned memory, at 100 per cent CPU. At 50 per cent CPU the same shape is USD 63.84 for 300 hours. The two seed figures are the two utilizations and neither is wrong.",
-    "price_basis": "10 h/day x 30 = 300 h; 24/7 x 30 = 730 h; computed by .tmp/work/w-compute/price.py",
-    "seed_min_bill": "$6e-07 per start",
-    "burst_x": 1.0,
-    "burst_bill": "$6e-07 per start",
-    "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
-    "crosscheck": {
-      "boat_compare_2026-09-26": "USD 0.682/h at 4 vCPU / 8 GB"
-    },
-    "term": "monthly allowance",
-    "credit_usd": 0,
-    "credit_months_at_shape": 0.144,
-    "credit_hours_at_shape": 105,
-    "credit_expiry": "resets monthly",
-    "superseded": {
-      "free_tier": {
-        "stated": "Hobby: 5 hours of active CPU and 420 GB-hours of provisioned memory a month, 5,000 sandbox creations, 20 GB of data transfer, 15 GB of snapshot storage, 10 concurrent sandboxes",
-        "unit": "hours",
-        "metered_on": "wall-clock",
-        "source_url": "https://vercel.com/docs/sandbox/pricing",
-        "read_on": "2026-10-22",
-        "notes": "active CPU excludes time spent waiting on I/O"
-      },
-      "per_object_cap": {
-        "stated": "not applicable: the unit is a machine, not an object",
-        "bytes": null,
-        "notes": "the disk ceiling is in extras.shape.disk_gib"
-      },
-      "retention": {
-        "stated": "a snapshot persists until deleted; each sandbox is provisioned 64 GB of ephemeral NVMe",
-        "days": 0
-      },
-      "egress": {
-        "terms": "20 GB a month on Hobby; USD 0.15/GB on Enterprise",
-        "metered": true,
-        "free_allowance": "20 GB a month on Hobby",
-        "price_per_tb": "USD 150 on Enterprise",
-        "source_url": "https://vercel.com/docs/sandbox/pricing"
-      },
-      "limits": [
-        {
-          "kind": "retention-clamped",
-          "value": "maximum session duration 45 minutes on Hobby; 24 hours on Pro",
-          "source": "https://vercel.com/docs/sandbox/pricing"
-        },
-        {
-          "kind": "request-rate",
-          "value": "10 concurrent sandboxes on Hobby; 5,000 creations a month",
-          "source": "https://vercel.com/docs/sandbox/pricing"
-        },
-        {
-          "kind": "per-object-cap",
-          "value": "Hobby: 4 vCPU, 8 GB memory, 64 GB disk; 15 open ports",
-          "source": "https://vercel.com/docs/sandbox/pricing"
-        }
-      ],
-      "limits_note": "provisioned memory bills in one-minute minimum increments; drives default to 1 GiB on Hobby and 1 TiB otherwise",
-      "binding": "retention-clamped",
-      "binding_note": "the 45-minute maximum session binds first: 5 active-CPU hours is generous across sessions and each one is capped",
-      "identity_cost": {
-        "kind": "email",
-        "detail": "a Vercel account; Hobby is included at no cost",
-        "country": null
-      },
-      "reliability_note": "no reliability event observed in this session",
-      "notes": "The seed argued over USD 102.24 against USD 63.84, which is a wall-clock model against an active-CPU model. The page says active CPU, so nemo's model is right and talaria's number is what you pay if the CPU never sleeps. 5 hours of active CPU a month is a very small amount of real work.",
-      "verified_at": "2026-10-22T00:00:00.000Z"
-    }
-  },
-  "binding": "volume-quota",
-  "binding_note": "The 45-minute session cap is the first wall; 5 hours of active CPU a month is the second, and neither reaches a day of uptime, let alone a month.",
-  "tier": "Hobby",
-  "confidence_note": "Quotas, the session cap, the vCPU rule and the transfer terms are on the pricing doc read today."
+   },
+   "reliability_note": "no reliability event observed in this session",
+   "notes": "The seed argued over USD 102.24 against USD 63.84, which is a wall-clock model against an active-CPU model. The page says active CPU, so nemo's model is right and talaria's number is what you pay if the CPU never sleeps. 5 hours of active CPU a month is a very small amount of real work.",
+   "verified_at": "2026-10-22T00:00:00.000Z"
+  }
+ },
+ "binding": "volume-quota",
+ "binding_note": "The 45-minute session cap is the first wall; 5 hours of active CPU a month is the second, and neither reaches a day of uptime, let alone a month.",
+ "tier": "Hobby",
+ "confidence_note": "Quotas, the session cap, the vCPU rule and the transfer terms are on the pricing doc read today."
 }

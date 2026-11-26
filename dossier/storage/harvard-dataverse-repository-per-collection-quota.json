@@ -16,26 +16,23 @@
     "stated": "All researchers from any discipline, both inside and out of the Harvard University community, can deposit files of up to 2.5GB, and store up to 1TB of data on the Harvard Dataverse Repository.",
     "bytes": 2500000000,
     "source_url": "https://support.dataverse.harvard.edu/researchers",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The 2.5 GB limit is stated for a file deposited; the same sentence gives 1 TB as the data a researcher can store."
   },
   "retention": {
-    "stated": "| write-once: publishing is irreversible, no delete without support intervention, no embargo; 'Submit for Review' spam screen before publication; per-file 2.5 GB in the browser path; 1,000 files/dataset is the observed effectiveDatasetFileCountLimit; S3 direct upload is admin-enabled per install and is the only route past the 2.5 GB file cap.",
-    "source_url": "https://support.dataverse.harvard.edu/researchers",
-    "notes": "Extracted from published terms."
+    "stated": "Once a dataset is published it cannot be unpublished and can only be deaccessioned under extreme circumstances, such as a legal requirement to destroy that dataset.",
+    "source_url": "https://support.dataverse.harvard.edu/harvard-dataverse-preservation-policy",
+    "notes": "Harvard states it supports permanent bit-level preservation of all materials directly deposited in the Harvard Dataverse."
   },
   "egress": {
     "terms": "Free anonymous access without login. Endpoint GET /api/access/datafile/<id> returns HTTP 303 to a signed S3 URL with 1-hour expiration, supporting Range requests.",
     "metered": false
   },
   "interface": [
-    "s3",
-    "rest",
-    "rclone",
-    "cli"
+    "rest"
   ],
   "interface_detail": "rest",
   "tooling": "REST native API (create dataset, add files, direct S3 upload), plus the official Python/CLI clients. dataset count 306,027 live. rclone has no native backend but the S3 direct-upload path accepts any S3 client.",
-  "chaining": "Storage quota attaches to collections, which logged-in users can create as of June 2024. Each collection receives a 1 TiB allocation, and collections can be nested into hierarchical trees for sharding.",
+  "chaining": "Collection creation is open to any logged-in user. The quota endpoint returns a 1 TiB allocation (1,099,511,627,776 bytes) for some collections and no quota for others, so a per-collection allocation is not shown for every collection.",
   "limits": [
     {
       "kind": "write-gated",
@@ -113,10 +110,73 @@
       "proved": "the kgwas collection quota endpoint reports a 2.5 TB allocation",
       "capture": "sha256:efc5f8985587623570159fefbc362a570de31738d2b383e73f987586ac2414d3",
       "quote": "{\"status\":\"OK\",\"data\":{\"message\":\"Total quota allocation for this collection: 2,748,779,069,440 bytes\"}}"
+    },
+    {
+      "url": "https://support.dataverse.harvard.edu/researchers",
+      "date": "2026-11-25",
+      "proved": "the researchers page states 2.5GB per deposited file and 1TB stored",
+      "capture": "sha256:d5ca82c902a8056117a8137752c474a732c83a9f10334f5c4caf5d7f0f1df249",
+      "quote": "All researchers from any discipline, both inside and out of the Harvard University community, can deposit files of up to 2.5GB, and store up to 1TB of data on the Harvard Dataverse Repository."
+    },
+    {
+      "url": "https://support.dataverse.harvard.edu/harvard-dataverse-preservation-policy",
+      "date": "2026-11-25",
+      "proved": "the preservation policy says a published dataset cannot be unpublished",
+      "capture": "sha256:8ad0e7e7a2d76fe4888dcbf7fd92605ba60a657474341649995e26781301069b",
+      "quote": "once a dataset is published it can not be unpublished and can only be deaccessioned under extreme circumstances, such as a legal requirement to destroy that dataset."
+    },
+    {
+      "url": "https://support.dataverse.harvard.edu/harvard-dataverse-preservation-policy",
+      "date": "2026-11-25",
+      "proved": "the retention statement is on the preservation policy page",
+      "capture": "sha256:8ad0e7e7a2d76fe4888dcbf7fd92605ba60a657474341649995e26781301069b",
+      "quote": "once a dataset is published it can not be unpublished and can only be deaccessioned under extreme circumstances, such as a legal requirement to destroy that dataset."
+    },
+    {
+      "url": "https://support.dataverse.harvard.edu/harvard-dataverse-preservation-policy",
+      "date": "2026-11-25",
+      "proved": "the preservation policy commits to permanent bit-level preservation",
+      "capture": "sha256:8ad0e7e7a2d76fe4888dcbf7fd92605ba60a657474341649995e26781301069b",
+      "quote": "Harvard University supports permanent bit-level preservation of all materials directly deposited in the Harvard Dataverse."
+    },
+    {
+      "url": "https://support.dataverse.harvard.edu/harvard-dataverse-api-terms-use",
+      "date": "2026-11-25",
+      "proved": "Harvard publishes APIs to access the Harvard Dataverse",
+      "capture": "sha256:870631d282cb2c837682fd4b3b8fb0dd8752eb3c03becd1a00f07d791e7fea49",
+      "quote": "This Terms of Use agreement governs and includes all APIs whose full or partial purpose is to provide access to the Harvard Dataverse and its services and materials"
+    },
+    {
+      "url": "probe:dataverse.harvard.edu/quota-ISM_ISNNA_Interes_Superior_del_NNA",
+      "date": "2026-11-25",
+      "proved": "a recently created collection reports a 1 TiB allocation",
+      "capture": "sha256:108d501edf7718c33f20750c2a62901fd83e2b1b9aa8571c02160db35b869cf3",
+      "quote": "Total quota allocation for this collection: 1,099,511,627,776 bytes"
+    },
+    {
+      "url": "probe:dataverse.harvard.edu/quota-xiaolu",
+      "date": "2026-11-25",
+      "proved": "a recently created personal collection reports no quota",
+      "capture": "sha256:627a0c166ef99595acfde854dc6a73248578ad7d7f2f064a30bcff617aede2c7",
+      "quote": "No quota defined for this collection"
+    },
+    {
+      "url": "https://github.com/IQSS/dataverse.harvard.edu/issues/207",
+      "date": "2026-11-25",
+      "proved": "the repository maintainer states collection creation is open to anyone",
+      "capture": "sha256:ebc0173b2e8767bc122eb3fc89c69795edab1e8ee9766155a67cbfe717af46d6",
+      "quote": "Anyone can create collections in Harvard Dataverse now, as of sometime in June 2024"
+    },
+    {
+      "url": "https://support.dataverse.harvard.edu/researchers",
+      "date": "2026-11-25",
+      "proved": "the researchers page states the 2.5GB per-file limit in the cited sentence",
+      "capture": "sha256:d5ca82c902a8056117a8137752c474a732c83a9f10334f5c4caf5d7f0f1df249",
+      "quote": "All researchers from any discipline, both inside and out of the Harvard University community, can deposit files of up to 2.5GB, and store up to 1TB of data on the Harvard Dataverse Repository."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-10T00:50:18.129Z",
+  "verified_at": "2026-11-25T12:15:42.696Z",
   "notes": "1 TB per Dataverse Collection allocation (2.5 TB for Harvard affiliates). Per-file 2.5 GB through UI/API; larger via the S3 direct-upload path. The 1 TB is enforced as a *collection* allocation, not a per-person cap: GET /api/dataverses/<alias>/storage/quota?showInherited=true returns {\"Total quota allocation for this collection\": 1099511627776} for ordinary collections, and one live collection returns 2748779069440 (2.5 TB).",
   "history": [],
   "extras": {

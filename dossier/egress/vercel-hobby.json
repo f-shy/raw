@@ -35,7 +35,18 @@
   ],
   "tooling": "vercel CLI",
   "chaining": "composes with a git repository and a domain; the 100 GB is the whole allowance and the excess pauses rather than bills.",
-  "limits": [],
+  "limits": [
+    {
+      "kind": "volume-quota",
+      "value": "first 100 GB of fast data transfer per month, then usage pauses until the window resets",
+      "source": "https://vercel.com/docs/plans/hobby"
+    },
+    {
+      "kind": "request-rate",
+      "value": "first 1,000,000 CDN requests per month",
+      "source": "https://vercel.com/docs/plans/hobby"
+    }
+  ],
   "identity_cost": {
     "kind": "email",
     "detail": "a Vercel account",
@@ -48,10 +59,31 @@
       "url": "https://vercel.com/docs/plans/hobby",
       "date": "2026-10-22",
       "proved": "100 GB fast data transfer per month"
+    },
+    {
+      "url": "https://vercel.com/docs/plans/hobby",
+      "date": "2026-11-25",
+      "proved": "the Hobby page still lists 100 GB of included fast data transfer per month",
+      "capture": "sha256:b90310c1dbe15192684aec5334749b34a348e2d496b21667792078c92f1c983b",
+      "quote": "| Fast Data Transfer | First 100 GB |"
+    },
+    {
+      "url": "https://vercel.com/docs/plans/hobby",
+      "date": "2026-11-25",
+      "proved": "excess usage pauses until the 30-day window resets rather than billing",
+      "capture": "sha256:b90310c1dbe15192684aec5334749b34a348e2d496b21667792078c92f1c983b",
+      "quote": "As the Hobby plan is a free tier there are no billing cycles. In most cases, if you exceed your usage limits on the Hobby plan, you will have to wait until 30 days have passed before you can use the feature again."
+    },
+    {
+      "url": "https://vercel.com/signup",
+      "date": "2026-11-25",
+      "proved": "the sign-up page offers email as the registration path",
+      "capture": "sha256:aed1ef71f4676bc15e55e65f6832a2cedda03413e380386a8ba46f6ae13ec71e",
+      "quote": "Continue with Email"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-22T03:20:00.000Z",
+  "verified_at": "2026-11-25T11:04:40.150Z",
   "notes": "The same 100 GB ceiling as Fastly and the same verdict for the same arithmetic.",
   "history": [],
   "extras": {

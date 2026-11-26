@@ -6,7 +6,7 @@
   "category": "L3/L4 DDoS mitigation for Azure virtual networks",
   "tier": "payg",
   "free_tier": {
-    "stated": "No free tier and no forwarding: the service is enabled on an Azure virtual network and protects the public IPs of resources inside it.",
+    "stated": "A paid service with no free allowance stated: Network Protection has a fixed monthly charge which includes protection for 100 public IP resources, and it is enabled on a virtual network rather than forwarding traffic.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://learn.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview",
@@ -67,10 +67,24 @@
       "url": "https://learn.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview",
       "date": "2026-10-23",
       "proved": "Azure DDoS Protection applies three auto-tuned mitigation policies (TCP SYN, TCP, and UDP) for each public IP of the protected resource, in the virtual network that has DDoS enabled."
+    },
+    {
+      "url": "https://azure.microsoft.com/pricing/details/ddos-protection/",
+      "date": "2026-11-25",
+      "proved": "Network Protection is a fixed monthly charge covering 100 public IP resources",
+      "capture": "sha256:6ee136d1025bca543119903c0ca3cd5725854becbd031abdb3e865a7d79a4e3e",
+      "quote": "Network Protection will have a fixed monthly charge, which includes protection for 100 public IP resources."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview",
+      "date": "2026-11-25",
+      "proved": "protection is enabled on a virtual network",
+      "capture": "sha256:ac771215020abfedd145ad2ebba325a2016218544e0270dd11357b87f17c5f80",
+      "quote": "Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes."
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:54.996Z",
   "price_per_tb_month": "unpublished in this lane",
   "history": [],
   "notes": "Provides DDoS mitigation for public IP addresses associated with Azure Virtual Networks. Does not provide standalone proxy addresses, origin mapping or port forwarding.",

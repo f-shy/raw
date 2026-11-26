@@ -1,176 +1,183 @@
 {
-  "topic": "compute",
-  "slug": "machine0",
-  "provider": "machine0",
-  "url": "https://machine0.io/",
-  "category": "container and VM sandbox",
-  "free_tier": {
-    "stated": "No free tier: per-minute billing from USD 0.013 per hour for 1 vCPU, 1 GB and 25 GB; suspend freezes state and stops compute billing.",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://machine0.io/",
-    "read_on": "2026-10-22"
+ "topic": "compute",
+ "slug": "machine0",
+ "provider": "machine0",
+ "url": "https://machine0.io/",
+ "category": "container and VM sandbox",
+ "free_tier": {
+  "stated": "no free tier: pay-as-you-go billed per minute, CPU VMs from $0.013/hr, the smallest `small` VM being 1 vCPU, 1 GB RAM and 25 GB disk at $0.013/hr (~$9/month); suspend freezes a VM's state, stops billing and resumes later",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://machine0.io/",
+  "read_on": "2026-10-22"
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://machine0.io/",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "A suspended VM keeps its disk image and bills USD 0.078 per GB-month while suspended; unused credits are refundable; no deletion clock is published.",
+  "days": null,
+  "source_url": "https://machine0.io/",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "Each VM has a dedicated public IP and HTTPS at <vm>.mac0.io; no egress volume allowance or price is published.",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://machine0.io/"
+ },
+ "interface": [
+  "cli",
+  "ssh"
+ ],
+ "interface_detail": "CLI and SSH: every operation is a CLI command with --json; machine0 ssh my-vm; HTTPS at <vm>.mac0.io.",
+ "tooling": "machine0 CLI installed by https://machine0.io/install.sh; remote MCP server; NixOS or Ubuntu images.",
+ "chaining": "not established",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "$0.013 an hour for the smallest VM, up to $0.208 for xxl at 8 vCPU and 16 GB",
+   "source": "https://machine0.io/"
   },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://machine0.io/",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+  {
+   "kind": "retention-clamped",
+   "value": "a VM stays on unless stopped or suspended; suspend freezes state and stops compute billing while image storage bills USD 0.078 per GB-month",
+   "source": "https://machine0.io/"
   },
-  "retention": {
-    "stated": "A suspended VM keeps its disk image and bills USD 0.078 per GB-month while suspended; unused credits are refundable; no deletion clock is published.",
-    "days": null,
-    "source_url": "https://machine0.io/",
-    "notes": "Disk durability across instance stops and deletions is not documented."
+  {
+   "kind": "per-object-cap",
+   "value": "GPUs run from $0.836 an hour up to eight H200s on one VM",
+   "source": "https://machine0.io/"
+  }
+ ],
+ "limits_note": "A VM stays on unless stopped or suspended; suspend freezes state and stops compute billing while image storage bills USD 0.078 per GB-month.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "Authentication is browser OAuth with a session token; funds are added through Stripe with a USD 5 minimum; the OAuth provider's identity fields are not published.",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "documented",
+ "confidence_note": "the site was read on 2026-10-22 and states the VM ladder, per-minute billing and the suspend behaviour. There is no free tier, so the verdict moves to paid-only, and suspend-stops-billing is the keeper cost",
+ "evidence": [
+  {
+   "url": "https://machine0.io/",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
   },
-  "egress": {
-    "terms": "Each VM has a dedicated public IP and HTTPS at <vm>.mac0.io; no egress volume allowance or price is published.",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://machine0.io/"
+  {
+   "url": "https://machine0.io/",
+   "date": "2026-10-22",
+   "proved": "'VMs remain on unless stopped or suspended.' and 'Start, Suspend, Snapshot & Resume: Freeze a VM's state, stop billing, restore later. Create golden images from any VM and spin up clones.' with the ladder: 'small 1 vCPU 1 GB 25 GB $0.013/hr ~$9/month' to 'xxl 8 vCPU 16 GB 320 GB $0.208/hr', quoted"
   },
-  "interface": [
-    "cli",
-    "ssh"
-  ],
-  "interface_detail": "CLI and SSH: every operation is a CLI command with --json; machine0 ssh my-vm; HTTPS at <vm>.mac0.io.",
-  "tooling": "machine0 CLI installed by https://machine0.io/install.sh; remote MCP server; NixOS or Ubuntu images.",
-  "chaining": "not established",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "$0.013 an hour for the smallest VM, up to $0.208 for xxl at 8 vCPU and 16 GB",
-      "source": "https://machine0.io/"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "a VM stays on unless stopped or suspended; suspend freezes state and stops compute billing while image storage bills USD 0.078 per GB-month",
-      "source": "https://machine0.io/"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "GPUs run from $0.836 an hour up to eight H200s on one VM",
-      "source": "https://machine0.io/"
-    }
-  ],
-  "limits_note": "A VM stays on unless stopped or suspended; suspend freezes state and stops compute billing while image storage bills USD 0.078 per GB-month.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "Authentication is browser OAuth with a session token; funds are added through Stripe with a USD 5 minimum; the OAuth provider's identity fields are not published.",
-    "country": null
+  {
+   "url": "https://machine0.io/",
+   "date": "2026-11-25",
+   "proved": "the pricing table states the smallest paid VM's shape and per-hour price",
+   "capture": "sha256:fa017346ccce8ac1ac196a8561174ff306ab2a91f75022dbd2e5e5f6a3c920e5",
+   "quote": "| `small` | 1 vCPU | 1 GB | 25 GB | $0.013 | $9 |"
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "documented",
-  "confidence_note": "the site was read on 2026-10-22 and states the VM ladder, per-minute billing and the suspend behaviour. There is no free tier, so the verdict moves to paid-only, and suspend-stops-billing is the keeper cost",
-  "evidence": [
-    {
-      "url": "https://machine0.io/",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://machine0.io/",
-      "date": "2026-10-22",
-      "proved": "'VMs remain on unless stopped or suspended.' and 'Start, Suspend, Snapshot & Resume: Freeze a VM's state, stop billing, restore later. Create golden images from any VM and spin up clones.' with the ladder: 'small 1 vCPU 1 GB 25 GB $0.013/hr ~$9/month' to 'xxl 8 vCPU 16 GB 320 GB $0.208/hr', quoted"
-    },
-    {
-      "url": "https://machine0.io/",
-      "date": "2026-11-24",
-      "proved": "the entry CPU and GPU hourly prices",
-      "capture": "sha256:fa017346ccce8ac1ac196a8561174ff306ab2a91f75022dbd2e5e5f6a3c920e5",
-      "quote": "CPU VMs from $0.013/hr. GPU VMs from $0.836/hr, up to 8x H200."
-    },
-    {
-      "url": "https://machine0.io/",
-      "date": "2026-11-24",
-      "proved": "the platform is driven by a CLI with JSON output and a remote MCP server",
-      "capture": "sha256:fa017346ccce8ac1ac196a8561174ff306ab2a91f75022dbd2e5e5f6a3c920e5",
-      "quote": "Every operation is a CLI command with `--json`. A remote MCP server lets agents drive everything programmatically."
-    },
-    {
-      "url": "https://docs.machine0.io/introduction/quickstart",
-      "date": "2026-11-24",
-      "proved": "the quickstart uses SSH to reach a VM",
-      "capture": "sha256:7e81adea6fb02b25fa674eec339d995e5762412690a5ea9f2ed1d41cd949bc23",
-      "quote": "machine0 ssh my-vm"
-    },
-    {
-      "url": "https://machine0.io/",
-      "date": "2026-11-24",
-      "proved": "suspension stops compute billing, image storage has a per-GB-month rate and the minimum top-up is USD 5",
-      "capture": "sha256:fa017346ccce8ac1ac196a8561174ff306ab2a91f75022dbd2e5e5f6a3c920e5",
-      "quote": "Suspend VMs to stop billing. You pay only for image storage ($0.078/GB/month) while suspended. Minimum top-up $5. Unused credits are refundable."
-    },
-    {
-      "url": "https://machine0.io/",
-      "date": "2026-11-24",
-      "proved": "each VM has a public IP and an HTTPS endpoint",
-      "capture": "sha256:fa017346ccce8ac1ac196a8561174ff306ab2a91f75022dbd2e5e5f6a3c920e5",
-      "quote": "Every VM gets a public IP and HTTPS at `<vm>.mac0.io`. No NAT, no tunnels."
-    },
-    {
-      "url": "https://docs.machine0.io/cli/account.md",
-      "date": "2026-11-24",
-      "proved": "authentication uses a browser OAuth login",
-      "capture": "sha256:8523b8d4d3580e8d798b493678db8a8c53ff2b811684dde86ad67cd8ea5cc998",
-      "quote": "Log in via browser OAuth. Session token stored at `~/.machine0/auth-token`."
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T13:20:55.906Z",
-  "price_per_tb_month": null,
-  "notes": "",
-  "extras": {
-    "seed_status": "ranked",
-    "talaria_m10h_usd": 15.6,
-    "talaria_m24h_usd": 37.44,
-    "nemo_m10h_usd": 15.6,
-    "keep_rate": 0.0,
-    "keep_rate_basis": "first-party: very operation is a CLI command with --json . A remote MCP server lets agents drive everything programmaticall",
-    "billing_model": "unclassified",
-    "shape": {
-      "vcpu": 1,
-      "ram": 1,
-      "disk": 25,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "small at $0.013 an hour; GPUs including H100, H200, L40S, MI300X and RTX Ada are optional per VM"
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "VMs remain on unless stopped or suspended: the default is no reap, and suspend is a user action"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "burst_x": 1.0,
-    "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "ps": {
-      "gib": 25,
-      "price": "included in the VM size",
-      "durability": "VM disk, frozen on suspend",
-      "on_stop": true,
-      "on_destroy": false,
-      "retention": "until deleted"
-    },
-    "net": {
-      "out": true,
-      "in": true,
-      "ports": "dedicated resources with static IPs",
-      "static_ip": true,
-      "ipv6": null,
-      "allowance": null
-    }
+  {
+   "url": "https://machine0.io/",
+   "date": "2026-11-24",
+   "proved": "the entry CPU and GPU hourly prices",
+   "capture": "sha256:fa017346ccce8ac1ac196a8561174ff306ab2a91f75022dbd2e5e5f6a3c920e5",
+   "quote": "CPU VMs from $0.013/hr. GPU VMs from $0.836/hr, up to 8x H200."
   },
-  "stale": true,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding": "request-rate",
-  "history": [
-    "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
-  ]
+  {
+   "url": "https://machine0.io/",
+   "date": "2026-11-24",
+   "proved": "the platform is driven by a CLI with JSON output and a remote MCP server",
+   "capture": "sha256:fa017346ccce8ac1ac196a8561174ff306ab2a91f75022dbd2e5e5f6a3c920e5",
+   "quote": "Every operation is a CLI command with `--json`. A remote MCP server lets agents drive everything programmatically."
+  },
+  {
+   "url": "https://docs.machine0.io/introduction/quickstart",
+   "date": "2026-11-24",
+   "proved": "the quickstart uses SSH to reach a VM",
+   "capture": "sha256:7e81adea6fb02b25fa674eec339d995e5762412690a5ea9f2ed1d41cd949bc23",
+   "quote": "machine0 ssh my-vm"
+  },
+  {
+   "url": "https://machine0.io/",
+   "date": "2026-11-24",
+   "proved": "suspension stops compute billing, image storage has a per-GB-month rate and the minimum top-up is USD 5",
+   "capture": "sha256:fa017346ccce8ac1ac196a8561174ff306ab2a91f75022dbd2e5e5f6a3c920e5",
+   "quote": "Suspend VMs to stop billing. You pay only for image storage ($0.078/GB/month) while suspended. Minimum top-up $5. Unused credits are refundable."
+  },
+  {
+   "url": "https://machine0.io/",
+   "date": "2026-11-24",
+   "proved": "each VM has a public IP and an HTTPS endpoint",
+   "capture": "sha256:fa017346ccce8ac1ac196a8561174ff306ab2a91f75022dbd2e5e5f6a3c920e5",
+   "quote": "Every VM gets a public IP and HTTPS at `<vm>.mac0.io`. No NAT, no tunnels."
+  },
+  {
+   "url": "https://docs.machine0.io/cli/account.md",
+   "date": "2026-11-24",
+   "proved": "authentication uses a browser OAuth login",
+   "capture": "sha256:8523b8d4d3580e8d798b493678db8a8c53ff2b811684dde86ad67cd8ea5cc998",
+   "quote": "Log in via browser OAuth. Session token stored at `~/.machine0/auth-token`."
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T11:17:40.889Z",
+ "price_per_tb_month": null,
+ "notes": "",
+ "extras": {
+  "seed_status": "ranked",
+  "talaria_m10h_usd": 15.6,
+  "talaria_m24h_usd": 37.44,
+  "nemo_m10h_usd": 15.6,
+  "keep_rate": 0.0,
+  "keep_rate_basis": "first-party: very operation is a CLI command with --json . A remote MCP server lets agents drive everything programmaticall",
+  "billing_model": "unclassified",
+  "shape": {
+   "vcpu": 1,
+   "ram": 1,
+   "disk": 25,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "small at $0.013 an hour; GPUs including H100, H200, L40S, MI300X and RTX Ada are optional per VM"
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "VMs remain on unless stopped or suspended: the default is no reap, and suspend is a user action"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "burst_x": 1.0,
+  "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "ps": {
+   "gib": 25,
+   "price": "included in the VM size",
+   "durability": "VM disk, frozen on suspend",
+   "on_stop": true,
+   "on_destroy": false,
+   "retention": "until deleted"
+  },
+  "net": {
+   "out": true,
+   "in": true,
+   "ports": "dedicated resources with static IPs",
+   "static_ip": true,
+   "ipv6": null,
+   "allowance": null
+  }
+ },
+ "stale": true,
+ "stale_checked_at": "2026-10-22T00:00:00.000Z",
+ "binding": "request-rate",
+ "history": [
+  "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
+ ]
 }

@@ -91,13 +91,6 @@
       "quote": "\"consecutive_failures\": 0"
     },
     {
-      "url": "probe:https://pan.jinnan.top/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:c5c130c3d7bc9cc6bc6ce461f8f2d1f6a5d0be5c439ecaeaa706ddcadb9c8760",
-      "quote": "\"alive\": true"
-    },
-    {
       "url": "probe:https://pan.jinnan.top",
       "date": "2026-11-19",
       "proved": "the probe's checked_at instant is the fresh last-alive verification time",
@@ -117,6 +110,13 @@
       "proved": "the /api/public/settings request answered HTTP 200 in this run",
       "capture": "sha256:1d49c5010861ef510e479ac51fc4b3b6aa57608b9b363d91acf751e1aede146e",
       "quote": "\"status\": 200"
+    },
+    {
+      "url": "probe:https://pan.jinnan.top/",
+      "date": "2026-11-25",
+      "proved": "the anonymous settings and mount-list requests answered at this instant",
+      "capture": "sha256:d01852121b4851b0e5b274dbd7f20ab473936a124a2da3bd01931f228f266009",
+      "quote": "\"alive\": true"
     },
     {
       "url": "probe:https://pan.jinnan.top/",
@@ -156,13 +156,6 @@
     {
       "url": "probe:https://pan.jinnan.top/",
       "date": "2026-11-25",
-      "proved": "the guest session answered and the settings endpoint returned HTTP 200",
-      "capture": "sha256:bbd2413b5fc62b767f8c52b2e8bc3ed38272cb2681cc91fa5c19714401cae5bb",
-      "quote": "\"alive\": true, ... \"status\": 200,"
-    },
-    {
-      "url": "probe:https://pan.jinnan.top/",
-      "date": "2026-11-25",
       "proved": "the anonymous listing names this upstream provider",
       "capture": "sha256:bbd2413b5fc62b767f8c52b2e8bc3ed38272cb2681cc91fa5c19714401cae5bb",
       "quote": "\"provider\": \"139Yun\","
@@ -176,7 +169,7 @@
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T14:05:42.796Z",
+  "verified_at": "2026-11-25T21:46:10.684Z",
   "binding": "write-gated",
   "notes": "The cleanest illustration of the write-flag lie: its root listing contains a directory named 05 游客上传, every mount advertises write:true, and every PUT returns permission denied inside an HTTP 200. The operator intended guest upload and the permission never reached the guest role.",
   "history": [],
@@ -193,7 +186,7 @@
     "listing_sha256": "5b758cf9",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-25T01:38:31.756Z",
+    "last_verified_alive": "2026-11-25T02:34:38.482Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "aliases": [

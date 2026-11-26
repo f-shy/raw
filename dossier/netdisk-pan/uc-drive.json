@@ -5,7 +5,7 @@
   "url": "https://drive.uc.cn",
   "category": "consumer-pan",
   "free_tier": {
-    "stated": "1 TB permanent handed out as claimable promo codes that are repeatable and stackable: '加上之前的活动，有 2t 了' and '都是永久'. A separate 1 TB plus 10 GB baseline per a 2026 comparison post",
+    "stated": "unverified: the vendor page advertises a paid SVIP tier and publishes no free capacity",
     "unit": "TiB",
     "metered_on": "stored-bytes",
     "source_url": "https://linux.do/t/topic/269012",
@@ -105,36 +105,22 @@
       "quote": "开通UC网盘SVIP畅享6TB存储空间"
     },
     {
+      "url": "https://drive.uc.cn",
+      "date": "2026-11-25",
+      "proved": "the vendor page advertises 6 TB as part of the paid SVIP tier",
+      "capture": "sha256:622c94b57c266dd2e22a3d49c272358f1804ea158fd3d87a7e12dcc81c40f822",
+      "quote": "开通UC网盘SVIP畅享6TB存储空间"
+    },
+    {
       "url": "https://fast.uc.cn/",
       "date": "2026-11-25",
       "proved": "the first-party page states a 10 GB per-file cap for free users and 100 GB after membership",
       "capture": "sha256:490b8b2f5bab33429263c6b01dac846f083403218a41723e1a4d3bd344a99617",
       "quote": "大文件单文件最大支持10GB 成为会员后支持至100GB"
-    },
-    {
-      "url": "https://fast.uc.cn/",
-      "date": "2026-11-25",
-      "proved": "the first-party page states a 10 GB per-file cap for free users",
-      "capture": "sha256:490b8b2f5bab33429263c6b01dac846f083403218a41723e1a4d3bd344a99617",
-      "quote": "大文件单文件最大支持10GB 成为会员后支持至100GB"
-    },
-    {
-      "url": "https://fast.uc.cn/",
-      "date": "2026-11-25",
-      "proved": "the first-party page is the source for the per-file cap",
-      "capture": "sha256:490b8b2f5bab33429263c6b01dac846f083403218a41723e1a4d3bd344a99617",
-      "quote": "大文件单文件最大支持10GB 成为会员后支持至100GB"
-    },
-    {
-      "url": "https://fast.uc.cn/",
-      "date": "2026-11-25",
-      "proved": "the first-party page is the source for the per-file cap limit",
-      "capture": "sha256:490b8b2f5bab33429263c6b01dac846f083403218a41723e1a4d3bd344a99617",
-      "quote": "大文件单文件最大支持10GB 成为会员后支持至100GB"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-11-25T14:53:24.615Z",
+  "verified_at": "2026-11-25T14:57:25.808Z",
   "history": [],
   "binding": "per-object-cap",
   "binding_note": "2 TB of claimable promo capacity is real and permanent, and 1 GB per file turns a 20 TiB archive into 20,000 objects. The per-file cap is what closes it, not the quota or the identity.",

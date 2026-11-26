@@ -95,23 +95,9 @@
     {
       "url": "probe:https://data.yanshiqwq.cn/",
       "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:9ee485117b1d2f478de46a5384c8bc90abd11bd30fbb0c5570b14eefb36c0b01",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://data.yanshiqwq.cn/",
-      "date": "2026-11-11",
       "proved": "the settings request for this host answered HTTP 200 at this instant",
       "capture": "sha256:9ee485117b1d2f478de46a5384c8bc90abd11bd30fbb0c5570b14eefb36c0b01",
       "quote": "\"checked_at\": \"2026-11-11T00:20:03.505Z\""
-    },
-    {
-      "url": "probe:https://data.yanshiqwq.cn/",
-      "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:9ee485117b1d2f478de46a5384c8bc90abd11bd30fbb0c5570b14eefb36c0b01",
-      "quote": "\"listing_sha256\": \"8b066b5f\""
     },
     {
       "url": "probe:https://data.yanshiqwq.cn/",
@@ -130,16 +116,30 @@
     {
       "url": "probe:https://data.yanshiqwq.cn/",
       "date": "2026-11-25",
-      "proved": "the re-probe of this host was taken at this instant",
-      "capture": "sha256:28cfc5baa1bed071ba6c2649f2fb0b55b710b011d2f8316e522728ff2afb288b",
-      "quote": "\"checked_at\": \"2026-11-25T01:38:28.687Z\""
+      "proved": "a fresh anonymous probe of data.yanshiqwq.cn answered the settings, session and mount-list requests at this timestamp",
+      "capture": "sha256:584efaf271c55279e30b70cebdf37d8e93a2fa5a309af4400008818a99cd43a7",
+      "quote": "\"probed_at\": \"2026-11-25T02:34:33.368Z\""
     },
     {
       "url": "probe:https://data.yanshiqwq.cn/",
       "date": "2026-11-25",
-      "proved": "the settings, guest session and root listing all answered, so no consecutive failure",
-      "capture": "sha256:28cfc5baa1bed071ba6c2649f2fb0b55b710b011d2f8316e522728ff2afb288b",
+      "proved": "the fresh probe completed the anonymous settings, session and mount-list requests at data.yanshiqwq.cn",
+      "capture": "sha256:584efaf271c55279e30b70cebdf37d8e93a2fa5a309af4400008818a99cd43a7",
       "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://data.yanshiqwq.cn/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing of data.yanshiqwq.cn hashed to the recorded value, so the listing is unchanged",
+      "capture": "sha256:584efaf271c55279e30b70cebdf37d8e93a2fa5a309af4400008818a99cd43a7",
+      "quote": "\"listing_sha256\": \"8b066b5f\""
+    },
+    {
+      "url": "probe:https://data.yanshiqwq.cn/",
+      "date": "2026-11-25",
+      "proved": "the re-probe of this host was taken at this instant",
+      "capture": "sha256:28cfc5baa1bed071ba6c2649f2fb0b55b710b011d2f8316e522728ff2afb288b",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:28.687Z\""
     },
     {
       "url": "probe:https://data.yanshiqwq.cn/",
@@ -157,7 +157,7 @@
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T11:08:34.136Z",
+  "verified_at": "2026-11-25T19:55:33.830Z",
   "binding": "write-gated",
   "notes": "The only host of 170 that accepted a write and gave the bytes back. It passes the zero-byte oracle with 'file exists', reports permission 256 with no bit 3, and is writable only because a per-path meta overrides the role. Two runs of the same probe in this session agreed on the verdict, and the seed's independent wave found the same host one day earlier. Probes left 32-byte files named *-r6probe.bin in its root, because delete is denied.",
   "history": [],
@@ -170,7 +170,7 @@
     "advertised_write_flag": true,
     "first_seen": "2026-10-21",
     "first_seen_source": "seed storage-research A-A11, one day before this probe",
-    "last_verified_alive": "2026-11-25T01:38:28.687Z",
+    "last_verified_alive": "2026-11-25T02:34:33.368Z",
     "last_verified_dead": null,
     "permission_bitmask": 256,
     "bit3_upload": false,

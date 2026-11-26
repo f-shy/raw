@@ -1,0 +1,21 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u135-rerun",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/iiif-archive-org $.retention.notes: Test-item 30-day removal is on the page; the 'IIIF workshop describes ... as a test feature' attribution is not in this capture, and a fresh read of the iiif.io workshop page I tried did not show it.\n- storage/incite $.limits_note: Call window, 1-3 years and peer-reviewed renewal are in the FAQ; 'Data must be research data; personal/non-work use prohibited' appears nowhere in the FAQ capture.\n- storage/imgbb $.per_object_cap.notes: 32 MB homepage and API 32 MB are supported (fresh read of api.imgbb.com), but the 'session-token path for anonymous browser uploads' appears on neither the homepage nor the API page.\n- storage/icpsr-consortium-archive $.free_tier.stated: Free curated deposit is stated, but 'Size is negotiated per study rather than metered' is not on the page.\n- storage/icpsr-consortium-archive $.per_object_cap.notes: The page states no per-object ceiling, but 'the curated path negotiates size per study' is not on the page.\n- storage/imgbb $.limits_note: 32 MB and expiration 60-15552000 are on api.imgbb.com (fresh read), but 'anonymous upload endpoint needs a session token' is not on either page.\n- storage/incite $.chaining: FAQ says no charge for access but not '100+ PB Lustre (Eagle/Orion)', 200 TB nearline allocation per project, or that storage is not separately metered; the OLCF page shows Orion at 679 PB and 200 TB default quotas, Eagle is not mentioned.\n- storage/impossible-cloud $.retention.days: The page gives a 30-day trial period, not a 30-day data retention/deletion term.\n- storage/imgbb $.per_object_cap.notes: Same as c05: session-token claim unsupported.\n- storage/iiif-archive-org $.per_object_cap.notes: 1TB, 1000 files, 500GB supported; 'IIIF workshop requires one image per item' is not in the capture.\n- storage/incite $.interface: Neither the FAQ nor the OLCF doc lists S3 or sftp; the OLCF doc names scp, rsync and Globus. s3/sftp/ssh are unsupported.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/incite $.retention.stated: The page conditions purge on not being accessed or modified within 90 days; the claim omits the modification condition.\n- storage/incite $.chaining: The chaining value repeats the same incomplete purge condition; the page requires neither access nor modification within 90 days.\n- storage/iiif-archive-org $.retention.notes: The same page says other kinds of files may be removed, so removal is not limited to test items; the approximately 30-day removal term is stated only for test items.",
+ "scope": {
+  "rids": [
+   "storage/icpsr-consortium-archive",
+   "storage/iiif-archive-org",
+   "storage/ilanzou",
+   "storage/imgbb",
+   "storage/impossible-cloud",
+   "storage/incite"
+  ]
+ },
+ "origin": "audit u155 of 20261125-0129-verify-storage-1818/u135 failed: 3 of 30 unsupported",
+ "created": "2026-11-25T13:25:56Z",
+ "queue_files": [
+  "queue/20261125-0129-verify-storage-1818-u33-rerun.json"
+ ]
+}

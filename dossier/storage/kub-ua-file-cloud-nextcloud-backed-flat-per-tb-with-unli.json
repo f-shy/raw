@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://kub.ua/file-cloud/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: the pricing page lists disk space, users, traffic and simultaneous connections but states no per-object cap"
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://kub.ua/file-cloud/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: the pricing page states backup is included but states no retention period or deletion schedule"
   },
   "egress": {
     "terms": "«Трафік не обмежений» (traffic unlimited), stated in the plan table. No meter or overage rate on the page.",
@@ -75,10 +75,31 @@
       "proved": "the 5 TB plan is 1840.36 UAH/mo with unlimited traffic and 100 concurrent connections",
       "capture": "sha256:fae352aac991b1729ed6552c1c577fad97e93ac438438ff74b59a02ad2ace007",
       "quote": "FILE CLOUD 5\n1840.36₴/міс\nДисковий простір 5 Tb\nКористувачів необмежено\nТрафік не обмежений\nОдночасні підключення: 100"
+    },
+    {
+      "url": "https://kub.ua/file-cloud/",
+      "date": "2026-11-25",
+      "proved": "the plan table states unlimited traffic",
+      "capture": "sha256:fae352aac991b1729ed6552c1c577fad97e93ac438438ff74b59a02ad2ace007",
+      "quote": "Трафік не обмежений"
+    },
+    {
+      "url": "https://kub.ua/file-cloud/",
+      "date": "2026-11-25",
+      "proved": "the plan lists disk space and other attributes; no per-object cap is stated on the page",
+      "capture": "sha256:fae352aac991b1729ed6552c1c577fad97e93ac438438ff74b59a02ad2ace007",
+      "quote": "Дисковий простір 1 Tb"
+    },
+    {
+      "url": "https://kub.ua/file-cloud/",
+      "date": "2026-11-25",
+      "proved": "the plan lists backup as included; no retention period is stated on the page",
+      "capture": "sha256:fae352aac991b1729ed6552c1c577fad97e93ac438438ff74b59a02ad2ace007",
+      "quote": "Резервне копіювання"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:13:59.619Z",
+  "verified_at": "2026-11-25T21:21:13.740Z",
   "price_per_tb_month": "$8.16/TB/mo at 5 TB ($40.81/mo), $19.28/TB/mo at 1 TB ($19.28/mo). At 20 TB: $8.16/TB/mo if 4× the 5 TB plan is allowed, derived. UAH at 0.022177 USD/UAH. Egress $0.",
   "notes": "FILE CLOUD 1: 869.57 ₴/mo for 1 TB; FILE CLOUD 5: 1,840.36 ₴/mo for 5 TB. Unlimited users, unlimited traffic, 50 concurrent connections, 7-day trial, Nextcloud platform.",
   "history": [],

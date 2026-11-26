@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://designsafe-ci.org/user-guide/curating/faq/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "No per-object cap published; the data-curation FAQ states no limit on the number of files that can be published, and the policies page states no published-dataset size restriction, with largest published datasets at ~5 TB."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
-    "source_url": "https://designsafe-ci.org/user-guide/curating/faq/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "stated": "DDR does not conduct re-appraisals or deaccessions, and does not delete data.",
+    "source_url": "https://designsafe-ci.org/user-guide/curating/policies/",
+    "notes": "Published data is preserved with no deletion or deaccession; TACC commits to keeping landing pages and DOIs indefinitely, with an archive copy on Ranch if resources are constrained."
   },
   "egress": {
     "terms": "Globus and HTTPS downloads from public Data Depot. Zip downloads are capped at 2 GB per request. Public metadata API endpoints return complete file manifests with lengths and paths.",
@@ -99,10 +99,52 @@
       "proved": "the data-curation FAQ states that the number of files published in DesignSafe is unlimited",
       "capture": "sha256:851accda894279bac0bef5f3e86e77a309fa5870356cc6464d88ee043ab9fe85",
       "quote": "While right now there is no limit to the amount of files that can be published in DesignSafe, the comprehension and reuse potential of the data should be important considerations when selecting what data can be published."
+    },
+    {
+      "url": "https://designsafe-ci.org/user-guide/curating/policies/",
+      "date": "2026-11-25",
+      "proved": "The published-data policy sets no size restriction and reports the largest published datasets at ~5 TB.",
+      "capture": "sha256:03b81c82591d4f3ef6351711b98f5d7607bfae0b6ead43adaf71ad93e757ea82",
+      "quote": "Currently we do not impose restrictions on the size of the datasets that can be published. This approach recognizes the necessity of comprehensive data collection and the increasingly large sizes of datasets in natural hazards research. Largest published datasets in DDR are ~5 TB."
+    },
+    {
+      "url": "https://designsafe-ci.org/user-guide/curating/policies/",
+      "date": "2026-11-25",
+      "proved": "Published data is not deleted or deaccessioned by DDR.",
+      "capture": "sha256:03b81c82591d4f3ef6351711b98f5d7607bfae0b6ead43adaf71ad93e757ea82",
+      "quote": "DDR does not conduct re-appraisals or deaccessions, and does not delete data."
+    },
+    {
+      "url": "https://designsafe-ci.org/user-guide/curating/policies/",
+      "date": "2026-11-25",
+      "proved": "Published data is retained without deletion or deaccession.",
+      "capture": "sha256:03b81c82591d4f3ef6351711b98f5d7607bfae0b6ead43adaf71ad93e757ea82",
+      "quote": "DDR does not conduct re-appraisals or deaccessions, and does not delete data."
+    },
+    {
+      "url": "https://designsafe-ci.org/user-guide/curating/policies/",
+      "date": "2026-11-25",
+      "proved": "The policies page is the source of the retention statement.",
+      "capture": "sha256:03b81c82591d4f3ef6351711b98f5d7607bfae0b6ead43adaf71ad93e757ea82",
+      "quote": "DDR does not conduct re-appraisals or deaccessions, and does not delete data."
+    },
+    {
+      "url": "https://designsafe-ci.org/user-guide/curating/faq/",
+      "date": "2026-11-25",
+      "proved": "The published file count is not capped.",
+      "capture": "sha256:851accda894279bac0bef5f3e86e77a309fa5870356cc6464d88ee043ab9fe85",
+      "quote": "While right now there is no limit to the amount of files that can be published in DesignSafe, the comprehension and reuse potential of the data should be important considerations when selecting what data can be published."
+    },
+    {
+      "url": "https://designsafe-ci.org/user-guide/curating/policies/",
+      "date": "2026-11-25",
+      "proved": "Published data and DOIs are preserved indefinitely; the continuity plan backs the chaining field.",
+      "capture": "sha256:03b81c82591d4f3ef6351711b98f5d7607bfae0b6ead43adaf71ad93e757ea82",
+      "quote": "TACC has formally committed to preserving the data with landing pages and corresponding DOIs indefinitely."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:13.389Z",
+  "verified_at": "2026-11-25T04:14:20.834Z",
   "notes": "No published cap on published dataset size or file count: 'right now there is no limit to the amount of files that can be published in DesignSafe'. Policies page describes largest published datasets as ~5 TB (CoreTrustSeal submission: 'Publications range up to a maximum of 5TB; seven current published datasets are over 1TB'), while a 2025 Frontiers paper reports individual datasets 'as large as 26' TB. Private working space ('My Data' / 'My Projects') is separate and unlimited in policy terms; uploads of 1 TB+ require a support ticket first.",
   "history": [],
   "extras": {

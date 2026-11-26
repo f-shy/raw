@@ -38,9 +38,15 @@
   "interface_detail": "CLI and Kubernetes operator.",
   "tooling": "vendor CLI plus Rust daemon.",
   "chaining": "Mesh between rented boxes; HTTPS ingress for services.",
-  "limits": [],
+  "limits": [
+    {
+      "kind": "write-gated",
+      "value": "public tunnels are HTTPS; no public TCP or UDP tunnel is described",
+      "source": "https://tunnet.io/"
+    }
+  ],
   "limits_note": "",
-  "binding": "none",
+  "binding": "write-gated",
   "binding_note": "No quota is published; public ingress is HTTPS only, so the protocol fails first. Private mesh paths carry TCP and UDP but require both peers to enrol.",
   "identity_cost": {
     "kind": "email",
@@ -55,10 +61,17 @@
       "url": "https://tunnet.io/",
       "date": "2026-10-23",
       "proved": "'SSH, internal apps, and public HTTPS - without a VPN. Open source. Start for free.'; 'Direct paths first, relay when a firewall gets in the way'"
+    },
+    {
+      "url": "https://tunnet.io/",
+      "date": "2026-11-25",
+      "proved": "the public side of the product is HTTPS; no TCP or UDP public tunnel is named",
+      "capture": "sha256:5eb33e44cb66ec35fa9ef4f57b8c0d10739d343ebd32cea6b35dd466b09286b3",
+      "quote": "Private access, SSH, internal apps, and public HTTPS - one identity, not four products stitched together."
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:49.307Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Built on iroh. The public side is an HTTPS tunnel with a relay fallback; the private side is a mesh.",

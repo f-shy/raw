@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u21-rerun",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/drime-secure-cloud-storage-10-tb-lifetime $.egress.metered: Page lists Unlimited Bandwidth as Included on all plans; nothing says transfer is metered. metered=true contradicts the source.\n- storage/drime-secure-cloud-storage-10-tb-lifetime $.free_tier.stated: Capture (re-read fresh, same hash) holds only verified-buyer reviews; no '$476.99', '$1,299.00' or '63% off', and the review is about the 6TB plan, not 10TB.\n- storage/drime-secure-cloud-storage-10-tb-lifetime $.egress.metered: Page lists Unlimited Bandwidth Included on all plans; nothing says transfer is metered. metered=true contradicts the source.",
+ "scope": {
+  "rids": [
+   "storage/discourse-hosted-free-plan",
+   "storage/docker-hub",
+   "storage/drime-secure-cloud-storage-10-tb-lifetime",
+   "storage/ena-webin",
+   "storage/eveo-object-storage-s3-the-only-zero-egress-s3-endpoint",
+   "storage/fandom"
+  ]
+ },
+ "origin": "audit u87 of 20261125-0129-verify-storage-1818/u21 failed: 3 of 30 unsupported",
+ "created": "2026-11-25T07:46:19Z"
+}

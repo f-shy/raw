@@ -5,7 +5,7 @@
   "url": "https://ix.dev/pricing",
   "category": "container and VM sandbox",
   "free_tier": {
-    "stated": "Three meters only: USD 0.0288 per vCPU-hour of CPU time used, USD 0.0108 per GiB-hour of memory in use, USD 0.101 per GiB-month of disk, and egress at USD 0 for measured outbound traffic. Memory the host caches is free and identical disk bytes are stored once across all machines. An idle machine costs about USD 0.14 a day, a stopped one pays only its disk, a removed one pays nothing. 'There is no free credit on signup.'",
+    "stated": "No free tier: the pricing page meters CPU at USD 0.0288 per vCPU-hour of CPU time used, memory at USD 0.0108 per GiB-hour in use, disk at USD 0.101 per GiB-month stored, and egress at USD 0 measured and free. Memory the host caches for the machine is free and identical disk bytes are stored once across all machines. An idle machine costs about 14¢ a day, a stopped machine pays only for its disk, a removed machine pays nothing, and \"There is no free credit on signup.\"",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://ix.dev/pricing",
@@ -63,10 +63,17 @@
       "url": "https://ix.dev/pricing",
       "date": "2026-10-22",
       "proved": "when funds run out running machines stop at once with no grace period, disks and snapshots are kept 24 hours, and after that window data is deleted"
+    },
+    {
+      "url": "https://ix.dev/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page states the four meters, the free cached memory and deduplicated disk, the idle, stopped and removed machine costs and that there is no free credit on signup",
+      "capture": "sha256:f5ac455fb7c1d8620c6e9de6930d246fb48ecf22d892e07e6188c9cd900338c7",
+      "quote": "| Meter | Price | Unit | ... | CPU | $0.0288 | per vCPU-hour of CPU time used | ... | Memory | $0.0108 | per GiB-hour of memory in use | ... | Disk | $0.101 | per GiB-month stored | ... | Egress | $0 | measured, and free | ... Memory the host caches for the machine is free. Identical disk bytes are stored once across all your machines. ... An idle machine costs about 14¢ a day. A stopped machine pays only for its disk. A removed machine pays nothing. ... There is no free credit on signup."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:28.797Z",
   "notes": "Classified as paid-only because the vendor states plainly that there is no free credit on signup; that sentence is the finding, since three other providers among evaluated providers give USD 20 to USD 100 without a card. The notable terms are the free egress and the idle arithmetic: USD 4.20 for a month of an idle 0.5 GiB machine against USD 47.95 for BoxLite's Small box running 30 days and USD 20 flat for RemoteHost's Starter. Machines go up to 100 vCPUs. What kills a running job is the balance, with no grace period and a 24-hour window before the disk is deleted.",
   "extras": {
     "wave2": {

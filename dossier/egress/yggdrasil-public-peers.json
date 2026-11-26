@@ -38,7 +38,7 @@
   "limits": [
     {
       "kind": "per-ip-shaping",
-      "value": "whatever the peer grants; the directory lists 100 Mbit/s to 1 Gbit/s per node, which bounds overlay traffic between Yggdrasil nodes",
+      "value": "whatever the peer grants; the directory entries read list 480 Mbps to 10 Gbit/s per node, which bounds overlay traffic between Yggdrasil nodes",
       "source": "https://github.com/yggdrasil-network/public-peers"
     }
   ],
@@ -64,10 +64,24 @@
       "url": "probe:tcp://ygg.mkg20001.io:443",
       "date": "2026-10-22",
       "proved": "3 of 4 sampled peers accepted a TCP connection from this host: mkg20001, mk16.de and yggdrasil.su open; the Oracle Ashburn address timed out"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/yggdrasil-network/public-peers/master/north-america/united-states.md",
+      "date": "2026-11-25",
+      "proved": "directory entries list rates up to 10 Gbit/s, above the 1 Gbit/s the record states as the maximum; the Oracle Ashburn entry lists 480Mbps",
+      "capture": "sha256:242ce426d34e0c639923e50ee5ce39981ede46f3280fcb0ca259f04e5594ad83",
+      "quote": "* Minneapolis, MN Public Node, operated by [Triplebit](https://www.triplebit.org/), 10 Gbit/s, Dual-Stack"
+    },
+    {
+      "url": "https://yggdrasil-network.github.io/about.html",
+      "date": "2026-11-25",
+      "proved": "the project states it has no exit nodes",
+      "capture": "sha256:24b6cb5acf31ef38d006075ae3559cc4cd2bc4253d97318c76f2e631704b4d85",
+      "quote": "nor does it have any concept of exit nodes, for providing access to the public Internet or to other networks."
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-22T03:20:00.000Z",
+  "verified_at": "2026-11-25T15:43:52.383Z",
   "notes": "Carried forward from the seed: a rate cap does not bound a day's volume, a byte quota does, so one peer at 200 Mbit/s is 2.16 TB/day or 1.96 TiB/day with no quota. Two corrections. The seed's example peer, the Oracle Always Free node at Ashburn, is labelled 'Metered' in the directory because Oracle's 10 TB/month quota sits behind it, so it is the one case where a byte quota does apply. And 200 Mbit/s is 2.16 TB, not 2.16 TiB.",
   "history": [
     "history/2026-10-22T033203Z/yggdrasil-example-peer-is-metered.md",

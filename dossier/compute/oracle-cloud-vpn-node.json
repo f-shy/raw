@@ -92,10 +92,17 @@
       "url": "https://www.oracle.com/cloud/free/",
       "date": "2026-10-24",
       "proved": "quoted: 'Accounts left idle for 30 days or more may be deemed abandoned and become eligible for suspension or termination.'"
+    },
+    {
+      "url": "https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm",
+      "date": "2026-11-25",
+      "proved": "Always Free includes 1,500 OCPU hours and 9,000 GB hours free on A1, equivalent to 2 OCPUs and 12 GB of memory",
+      "capture": "sha256:f574f79e65c50e5bc9403d143eb77d5ffaf3a50b958b9a20f49fc4c9600126e5",
+      "quote": "- ** OCI Ampere A1 Compute instances (Arm processor):** All tenancies get the first 1,500 OCPU hours and 9,000 GB hours per month for free for VM instances using the VM.Standard.A1.Flex [shape](https://docs.oracle.com/iaas/Content/Compute/References/computeshapes.htm), which has an [Arm processor](https://docs.oracle.com/iaas/Content/Compute/References/arm.htm). For Always Free tenancies, this is equivalent to 2 OCPUs and 12 GB of memory."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-24T01:53:22.000Z",
+  "verified_at": "2026-11-25T15:03:53.356Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "The 10 TB egress figure is not on the Always Free Resources page: a full read of that page today returned 2,119 words and no data-transfer section. The figure is on the VCN pricing page and in the price table on the networking pricing page. Any record that cites the Always Free document for the 10 TB figure has cited a page that does not carry it. Whether Oracle blocks inbound UDP 51820 by default on a VCN security list was not tested; the security list is the account's to configure and the docs do not single out UDP.",

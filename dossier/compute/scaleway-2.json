@@ -5,8 +5,8 @@
   "url": "https://www.scaleway.com/en/pricing/virtual-instances/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "STARDUST1-S: 1 shared vCPU (AMD EPYC 7281 or equivalent), 1 GiB RAM, 100 Mb/s public bandwidth, at EUR 0.0006/hour, about EUR 0.43/month on the vendor's own estimate. Available only in FR-PAR-1, NL-AMS-1 and PL-WAW-2. The page states list prices include egress and IPv6 and exclude storage and attached public IPv4.",
-    "unit": "GiB",
+    "stated": "STARDUST1-S: 1 vCPU, 1 GB RAM, 100 Mbps bandwidth, at €0.0006/hour, about €0.43/month in PAR-1. List prices include egress and IPv6 addresses; storage (local, block) and attached public IPv4 addresses are excluded.",
+    "unit": "GB",
     "metered_on": "wall-clock",
     "source_url": "https://www.scaleway.com/en/pricing/virtual-instances/",
     "read_on": "2026-10-22",
@@ -74,10 +74,17 @@
       "url": "https://www.scaleway.com/en/pricing/network/",
       "date": "2026-10-22",
       "proved": "'Additional IP address | Instance | Type: IPv4 IP per asset - 1 IP | EUR 0.005 /hour'"
+    },
+    {
+      "url": "https://www.scaleway.com/en/pricing/virtual-instances/",
+      "date": "2026-11-25",
+      "proved": "the pricing page states the STARDUST1-S row at EUR 0.0006 an hour and about EUR 0.43 a month with 1 vCPU, 1 GB and 100 Mbps, and the included and excluded items",
+      "capture": "sha256:66102778e63630e1773bd109ec8c137ad5da2adbfc7b51fe8ae9c4a3ec564e4b",
+      "quote": "List prices include egress and IPv6 addresses. Storage (local, block) and attached public IPv4 addresses are excluded. ... STARDUST1-S | 1 vCPU | 1 GB | 100 Mbps | €0.0006 /HOUR | ~€0.43 /MONTH"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:35.329Z",
   "notes": "CHANGES an existing record: dossier/compute/scaleway.json holds the entry rung as PLAY2-PICO at EUR 0.01428/h, about EUR 10.42 a month, and has no STARDUST1-S row at all. The live page prices STARDUST1-S at EUR 0.0006/h, 23.8 times cheaper per hour than the rung documented records. The IPv4 figure is uncertain: the network page labels EUR 0.005/hour as 'Additional IP address' while the instances page says attached public IPv4 is excluded, so whether the first address carries that rate is not established by either page. Unverified: an order-form probe showing a first-month total.",
   "extras": {
     "wave2": {

@@ -1,169 +1,230 @@
 {
-  "topic": "compute",
-  "slug": "getmac",
-  "provider": "GetMac",
-  "url": "https://getmac.io/pricing",
-  "category": "hosted macOS CI runners and virtual machines",
-  "tier": "Free",
-  "free_tier": {
-    "stated": "$0 per month, including 100 compute minutes per month and up to 1 concurrent virtual machine.",
-    "unit": "minutes",
-    "metered_on": "wall-clock",
-    "source_url": "https://getmac.io/pricing",
-    "read_on": "2026-11-24",
-    "notes": "The pricing page states no credit card requirement. Compute minutes are consumed as base minutes multiplied by the machine-type multiplier: Mac M4 Base is 1x, Mac M4 Pro is 2x, and Mac M4 Max is 4x."
+ "topic": "compute",
+ "slug": "getmac",
+ "provider": "GetMac",
+ "url": "https://getmac.io/pricing",
+ "category": "hosted macOS VM / CI runner",
+ "tier": "Free plan",
+ "free_tier": {
+  "stated": "USD 0 a month with 100 compute minutes per month and up to 1 concurrent virtual machine",
+  "unit": "minutes",
+  "metered_on": "wall-clock",
+  "source_url": "https://getmac.io/pricing",
+  "read_on": "2026-11-25",
+  "notes": "Compute minutes are consumed with a machine-type multiplier: the Mac M4 Base is 1x, the M4 Pro is 2x and the M4 Max is 4x; only the 4-core 8 GB Base is generally available. The Developer plan is USD 11.99 a month with 1000 compute minutes."
+ },
+ "per_object_cap": {
+  "stated": "not an object-storage offer; no per-file size ceiling is published on the pricing or instance pages",
+  "bytes": null,
+  "source_url": "https://getmac.io/pricing"
+ },
+ "retention": {
+  "stated": "not stated on the pricing page; CI runners are provisioned per workflow job and deleted when the job completes, while dashboard VMs persist until stopped",
+  "days": null,
+  "source_url": "https://getmac.io/docs"
+ },
+ "egress": {
+  "terms": "not published: the pricing page states no egress allowance or transfer price; the paid Team plan rate is quoted at USD 0.011 per compute minute against GitHub Hosted at USD 0.062 per minute",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://getmac.io/pricing"
+ },
+ "interface": [
+  "ssh",
+  "rest",
+  "browser"
+ ],
+ "interface_detail": "a REST API for VM management, an integrated remote terminal and remote display in the dashboard, and SSH access to a virtual machine; GitHub Actions and GitLab CI jobs use a custom runner label",
+ "tooling": "a GitHub account to install the GetMac GitHub App, or the GetMac dashboard; Golang and Python SDKs are published; a GitHub Actions workflow sets runs-on: getmac",
+ "chaining": "the free 100 compute minutes a month cover short Xcode and Fastlane CI jobs through a drop-in GitHub Actions runner label, with longer or parallel jobs requiring a paid plan.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "100 compute minutes a month on Free; up to 1 concurrent virtual machine; extra usage needs a paid plan",
+   "source": "https://getmac.io/pricing"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a running macOS virtual machine, not a stored object"
+  {
+   "kind": "per-object-cap",
+   "value": "machine type multiplier: Mac M4 Base 4 cores/8 GB at 1x, M4 Pro 2x and M4 Max 4x, the latter two marked Coming Soon",
+   "source": "https://getmac.io/pricing"
   },
-  "retention": {
-    "stated": "Virtual machines are ephemeral: when a VM is terminated, deleted or expires its disk image and all data written to it are deleted from the host and are not retained; a CI runner is destroyed when its job completes.",
-    "days": null,
-    "source_url": "https://getmac.io/terms-of-service",
-    "notes": "A manually created instance is deleted after 60 minutes; a CI job can run for up to 6 hours."
+  {
+   "kind": "write-gated",
+   "value": "a GetMac account is required; sign-in offers Google, GitHub or an email address",
+   "source": "https://cloud.getmac.io"
+  }
+ ],
+ "limits_note": "The pricing page does not state a job wall-clock cap, an idle reap rule or an egress quota.",
+ "binding": "volume-quota",
+ "binding_note": "The 100 compute minutes a month and single concurrent VM limit what a Free account can run before it must move to a paid plan.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "the marketing page says no credit card is required; the dashboard sign-in page offers Continue with Google, Continue with GitHub or an Email field with Continue with email. No phone or ID document is requested on that page.",
+  "country": null
+ },
+ "reliability_note": "The vendor states a 99.9% uptime SLA on owned Apple Silicon hardware in a TIER III data center; runner jobs use fresh isolated macOS environments. The pricing page does not state a job timeout or idle reap rule.",
+ "confidence": "documented",
+ "confidence_note": "the pricing page, landing page, documentation index and dashboard sign-in page were read on 2026-11-25; the quoted lines establish the free allowance, concurrent VM cap, no-card statement and signup gate. The sign-in page's public form was read directly; the rung stays documented because no live VM was measured.",
+ "evidence": [
+  {
+   "url": "https://getmac.io/pricing",
+   "date": "2026-11-25",
+   "proved": "the Free plan is USD 0 a month and includes 100 compute minutes a month",
+   "capture": "sha256:8c4ed07f2363156dace2b1aec88d2e0b9501e79a1b57eb23e47099de510ea99f",
+   "quote": "Includes 100 compute minutes per month"
   },
-  "egress": {
-    "terms": "not published: the pricing page, homepage and terms read state no outbound data allowance or price; the API, dashboard and website are served over TLS.",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://getmac.io/terms-of-service"
+  {
+   "url": "https://getmac.io/pricing",
+   "date": "2026-11-25",
+   "proved": "the Free plan allows up to 1 concurrent virtual machine",
+   "capture": "sha256:8c4ed07f2363156dace2b1aec88d2e0b9501e79a1b57eb23e47099de510ea99f",
+   "quote": "Up to 1 concurrent virtual machine"
   },
-  "interface": [
-    "rest",
-    "ssh",
-    "browser",
-    "cli"
-  ],
-  "interface_detail": "A REST API manages VMs, a built-in remote terminal and remote display are in the dashboard, and direct native SSH reaches a VM; GitHub Actions and GitLab CI use the getmac runner label. Golang and Python SDKs are offered.",
-  "endpoint": "unverified: no API endpoint URL is stated on the pages read",
-  "tooling": "GitHub App installation and runs-on: getmac in workflows, GitLab CI executor, REST API, Golang and Python SDKs, SSH client and dashboard terminal; the user installs the repo integration.",
-  "chaining": "A macOS CI job fits an existing GitHub Actions or GitLab pipeline; because a runner is destroyed with its data at job end, build artifacts must go to a separate storage record.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "100 compute minutes per month on the Free plan; usage = base minutes x machine-type multiplier (1x M4 Base, 2x M4 Pro, 4x M4 Max)",
-      "source": "https://getmac.io/pricing"
-    },
-    {
-      "kind": "request-rate",
-      "value": "up to 1 concurrent virtual machine on the Free plan",
-      "source": "https://getmac.io/pricing"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "a CI job can run for up to 6 hours; a manually created instance is deleted after 60 minutes",
-      "source": "https://getmac.io/docs/github-runners/getting-started"
-    }
-  ],
-  "limits_note": "Free trials and proofs of concept may be modified, suspended or discontinued without notice; self-service plans carry no specific availability commitment.",
-  "binding": "volume-quota",
-  "binding_note": "The 100 included compute minutes are consumed before the single concurrent VM slot becomes the obstruction on occasional builds.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The dashboard sign-in page offers OAuth sign-in methods and links to the terms; the homepage states no credit card is required. Connecting a GitHub repository requires installing the GetMac GitHub App and logging in to GitHub. An email address is used for service notices under the terms.",
-    "country": null
+  {
+   "url": "https://getmac.io/pricing",
+   "date": "2026-11-25",
+   "proved": "the smallest instance is a 4-core 8 GB Mac M4 at a 1x multiplier, with larger multipliers marked Coming Soon",
+   "capture": "sha256:8c4ed07f2363156dace2b1aec88d2e0b9501e79a1b57eb23e47099de510ea99f",
+   "quote": "4 Cores - 8GB • Perfect for development and testing"
   },
-  "reliability_note": "CI runners are single-use and destroyed at job end; VMs are ephemeral with no backup, self-service plans have no availability commitment, and free trials may be withdrawn without notice.",
-  "confidence": "documented",
-  "confidence_note": "Free-plan minutes and concurrency, the multiplier rule, sign-in gate, retention and job limits are quoted from GetMac's own pricing, homepage, terms and documentation read on 2026-11-24.",
-  "evidence": [
-    {
-      "url": "https://getmac.io/pricing",
-      "date": "2026-11-24",
-      "proved": "the Free plan costs USD 0 per month and includes 100 compute minutes per month",
-      "capture": "sha256:848a33a1c702be9d9be8ed5c741cf24a895d5bf48181df45fac6600c03db5749",
-      "quote": "Includes 100 compute minutes per month"
-    },
-    {
-      "url": "https://getmac.io/pricing",
-      "date": "2026-11-24",
-      "proved": "the Free plan allows up to 1 concurrent virtual machine",
-      "capture": "sha256:848a33a1c702be9d9be8ed5c741cf24a895d5bf48181df45fac6600c03db5749",
-      "quote": "Up to 1 concurrent virtual machine"
-    },
-    {
-      "url": "https://getmac.io/pricing",
-      "date": "2026-11-24",
-      "proved": "the paid Developer plan is USD 11.99 per month with 1000 included minutes",
-      "capture": "sha256:848a33a1c702be9d9be8ed5c741cf24a895d5bf48181df45fac6600c03db5749",
-      "quote": "$11.99/ month\n\nIncludes 1,000 compute minutes per month"
-    },
-    {
-      "url": "https://getmac.io/pricing",
-      "date": "2026-11-24",
-      "proved": "minutes are charged as base minutes multiplied by the machine-type multiplier",
-      "capture": "sha256:848a33a1c702be9d9be8ed5c741cf24a895d5bf48181df45fac6600c03db5749",
-      "quote": "Usage = Base Minutes × Machine Type Multiplier"
-    },
-    {
-      "url": "https://getmac.io/",
-      "date": "2026-11-24",
-      "proved": "the service offers a REST API, SSH, a dashboard terminal and display, and states no credit card is required",
-      "capture": "sha256:552bd8cd19eb787f8360346bb8ccc94df31c8c66049c2b2d43237bedeec61912",
-      "quote": "No credit card required • 5-minute setup"
-    },
-    {
-      "url": "https://cloud.getmac.io/auth/signin?callbackUrl=%2Fprojects",
-      "date": "2026-11-24",
-      "proved": "the dashboard asks the user to choose a sign-in method before continuing",
-      "capture": "sha256:b65a638372be4c16daeb02b0701def8ba6fe3ff88b16d8d667f3b2de72fdaac0",
-      "quote": "Choose a sign-in method to continue to the dashboard"
-    },
-    {
-      "url": "https://getmac.io/docs/github-runners/getting-started",
-      "date": "2026-11-24",
-      "proved": "a GitHub Actions job can run up to 6 hours and a manual instance is deleted after 60 minutes",
-      "capture": "sha256:c19a35166dd3de5a5c8bc83660db0144d288dcd49e4fb1e15150b353b47ebccc",
-      "quote": "A job can run for up to 6 hours on a GetMac runner. Instances you create by hand are for debugging only and are deleted after 60 minutes."
-    },
-    {
-      "url": "https://getmac.io/terms-of-service",
-      "date": "2026-11-24",
-      "proved": "VM data is deleted on termination and CI runner data does not persist beyond the job",
-      "capture": "sha256:411cdec26cce5b53f7b364e2eda382d8efbc6bd3240bbee719772ac45ac4f713",
-      "quote": "When a virtual machine is terminated, deleted, or expires:"
-    },
-    {
-      "url": "https://getmac.io/terms-of-service",
-      "date": "2026-11-24",
-      "proved": "free trials may be changed, suspended or discontinued without notice",
-      "capture": "sha256:411cdec26cce5b53f7b364e2eda382d8efbc6bd3240bbee719772ac45ac4f713",
-      "quote": "We reserve the right to modify, suspend, or discontinue any free trial or promotion at any time without prior notice."
-    }
-  ],
-  "verdict": "qualifies",
-  "verified_at": "2026-11-24T10:11:14.768Z",
-  "price_per_tb_month": null,
-  "notes": "Hosted macOS runners on Apple Silicon in a Lithuania data centre, with a USD 0 plan that includes 100 compute minutes a month and one concurrent VM. The 100 minutes are a standing monthly allowance, unlike a one-time trial. Paid tiers run from USD 11.99 a month. The sign-in methods shown on the dashboard page were not named in the captured text, so the exact identity gate beyond an email-based account is unverified; no card is stated as required.",
-  "extras": {
-    "shape": {
-      "vcpu": null,
-      "ram_gib": null,
-      "disk_gib": null,
-      "gpu_class": "Apple Silicon M4",
-      "gpu_count": null,
-      "note": "Mac M4 Base has 4 cores and 8 GB; M4 Pro 8 cores and 16 GB and M4 Max 12 cores and 32 GB are marked Coming Soon"
-    },
-    "billing_model": "monthly included compute minutes with machine-type multipliers",
-    "free_tier_kind": "recurring monthly allowance",
-    "term": "monthly or yearly with 10 percent off",
-    "price_arithmetic": "100 compute minutes included at USD 0 per month; the Team plan quotes USD 0.011 per minute against GitHub's USD 0.062 per minute",
-    "status": "active",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": null,
-      "ports": "not stated",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": 360,
-      "idle_reap_s": 3600,
-      "restart_required": false,
-      "note": "CI jobs end at 6 hours; manual debug instances are deleted after 60 minutes"
-    }
+  {
+   "url": "https://getmac.io/pricing",
+   "date": "2026-11-25",
+   "proved": "the paid Team rate used in the savings calculator is USD 0.011 per compute minute",
+   "capture": "sha256:8c4ed07f2363156dace2b1aec88d2e0b9501e79a1b57eb23e47099de510ea99f",
+   "quote": "Estimates based on new GitHub standard pricing ($0.062/min) vs GetMac Team plan pricing ($0.011/min)."
   },
-  "self_hosted": false
+  {
+   "url": "https://getmac.io/",
+   "date": "2026-11-25",
+   "proved": "the landing page says no credit card is required",
+   "capture": "sha256:552bd8cd19eb787f8360346bb8ccc94df31c8c66049c2b2d43237bedeec61912",
+   "quote": "No credit card required • 5-minute setup"
+  },
+  {
+   "url": "https://getmac.io/",
+   "date": "2026-11-25",
+   "proved": "a REST API and SSH access are offered for the VMs",
+   "capture": "sha256:552bd8cd19eb787f8360346bb8ccc94df31c8c66049c2b2d43237bedeec61912",
+   "quote": "Automate with our REST API"
+  },
+  {
+   "url": "https://getmac.io/",
+   "date": "2026-11-25",
+   "proved": "the hardware is owned Apple Silicon in a TIER III data center with a 99.9% uptime SLA",
+   "capture": "sha256:552bd8cd19eb787f8360346bb8ccc94df31c8c66049c2b2d43237bedeec61912",
+   "quote": "99.9% uptime SLA, because every build matters"
+  },
+  {
+   "url": "https://cloud.getmac.io",
+   "date": "2026-11-25",
+   "proved": "the dashboard sign-in offers Google, GitHub or email, with no card field",
+   "capture": "sha256:d90e7eff97f8040df80a8fe2adceb1dc8971dbf39dc0023d5b861939f8c37076",
+   "quote": "Choose a sign-in method to continue to the dashboard"
+  },
+  {
+   "url": "https://cloud.getmac.io",
+   "date": "2026-11-25",
+   "proved": "an email sign-in option exists",
+   "capture": "sha256:d90e7eff97f8040df80a8fe2adceb1dc8971dbf39dc0023d5b861939f8c37076",
+   "quote": "Continue with email"
+  },
+  {
+   "url": "https://getmac.io/pricing",
+   "date": "2026-11-24",
+   "proved": "the Free plan costs USD 0 per month and includes 100 compute minutes per month",
+   "capture": "sha256:848a33a1c702be9d9be8ed5c741cf24a895d5bf48181df45fac6600c03db5749",
+   "quote": "Includes 100 compute minutes per month"
+  },
+  {
+   "url": "https://getmac.io/pricing",
+   "date": "2026-11-24",
+   "proved": "the Free plan allows up to 1 concurrent virtual machine",
+   "capture": "sha256:848a33a1c702be9d9be8ed5c741cf24a895d5bf48181df45fac6600c03db5749",
+   "quote": "Up to 1 concurrent virtual machine"
+  },
+  {
+   "url": "https://getmac.io/pricing",
+   "date": "2026-11-24",
+   "proved": "the paid Developer plan is USD 11.99 per month with 1000 included minutes",
+   "capture": "sha256:848a33a1c702be9d9be8ed5c741cf24a895d5bf48181df45fac6600c03db5749",
+   "quote": "$11.99/ month\n\nIncludes 1,000 compute minutes per month"
+  },
+  {
+   "url": "https://getmac.io/pricing",
+   "date": "2026-11-24",
+   "proved": "minutes are charged as base minutes multiplied by the machine-type multiplier",
+   "capture": "sha256:848a33a1c702be9d9be8ed5c741cf24a895d5bf48181df45fac6600c03db5749",
+   "quote": "Usage = Base Minutes × Machine Type Multiplier"
+  },
+  {
+   "url": "https://getmac.io/",
+   "date": "2026-11-24",
+   "proved": "the service offers a REST API, SSH, a dashboard terminal and display, and states no credit card is required",
+   "capture": "sha256:552bd8cd19eb787f8360346bb8ccc94df31c8c66049c2b2d43237bedeec61912",
+   "quote": "No credit card required • 5-minute setup"
+  },
+  {
+   "url": "https://cloud.getmac.io/auth/signin?callbackUrl=%2Fprojects",
+   "date": "2026-11-24",
+   "proved": "the dashboard asks the user to choose a sign-in method before continuing",
+   "capture": "sha256:b65a638372be4c16daeb02b0701def8ba6fe3ff88b16d8d667f3b2de72fdaac0",
+   "quote": "Choose a sign-in method to continue to the dashboard"
+  },
+  {
+   "url": "https://getmac.io/docs/github-runners/getting-started",
+   "date": "2026-11-24",
+   "proved": "a GitHub Actions job can run up to 6 hours and a manual instance is deleted after 60 minutes",
+   "capture": "sha256:c19a35166dd3de5a5c8bc83660db0144d288dcd49e4fb1e15150b353b47ebccc",
+   "quote": "A job can run for up to 6 hours on a GetMac runner. Instances you create by hand are for debugging only and are deleted after 60 minutes."
+  },
+  {
+   "url": "https://getmac.io/terms-of-service",
+   "date": "2026-11-24",
+   "proved": "VM data is deleted on termination and CI runner data does not persist beyond the job",
+   "capture": "sha256:411cdec26cce5b53f7b364e2eda382d8efbc6bd3240bbee719772ac45ac4f713",
+   "quote": "When a virtual machine is terminated, deleted, or expires:"
+  },
+  {
+   "url": "https://getmac.io/terms-of-service",
+   "date": "2026-11-24",
+   "proved": "free trials may be changed, suspended or discontinued without notice",
+   "capture": "sha256:411cdec26cce5b53f7b364e2eda382d8efbc6bd3240bbee719772ac45ac4f713",
+   "quote": "We reserve the right to modify, suspend, or discontinue any free trial or promotion at any time without prior notice."
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T02:12:34.836Z",
+ "price_per_tb_month": null,
+ "notes": "The operator's provider list prices GetMac at USD 0.66/h billed per minute, which corresponds to the paid Team plan at USD 0.011 per compute minute (derived: 0.011 x 60 = USD 0.66 per hour); the Free plan is 100 compute minutes a month. The free allowance is a small monthly quota, hence the caveat.",
+ "extras": {
+  "shape": {
+   "vcpu": 4,
+   "ram_gib": 8,
+   "disk_gib": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "Mac M4 Base at a 1x compute-minute multiplier; M4 Pro and M4 Max are marked Coming Soon"
+  },
+  "billing_model": "monthly compute-minute allowance, paid plans add minutes",
+  "free_tier_kind": "recurring-allowance",
+  "price_arithmetic": "Free: 100 compute minutes a month; Team: USD 33.99 a month for 3000 minutes (USD 0.01133 per minute)",
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "no job wall-clock cap or idle reap rule published on the pricing page"
+  },
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": null,
+   "ports": "not published",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  }
+ },
+ "endpoint": "unverified: no API endpoint URL is stated on the pages read",
+ "self_hosted": false
 }

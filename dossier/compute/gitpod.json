@@ -21,7 +21,7 @@
   "limits_note": "Gitpod and Ona are one provider under two names; the catalogue carries both",
   "reliability_note": "no reliability event observed",
   "confidence": "documented",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:26.441Z",
   "price_per_tb_month": null,
   "notes": "Classified as its own slug because the catalogue carries both names and a reader may look up either. The record for the product is `ona`; this one exists so a search for Gitpod lands on the fact rather than a dead link.",
   "slug": "gitpod",
@@ -29,7 +29,7 @@
   "url": "https://www.gitpod.io/pricing",
   "category": "dev environment",
   "free_tier": {
-    "stated": "no self-serve free tier is reachable: the pricing URL resolves to a sales contact form",
+    "stated": "no self-serve free tier is published at the cited URL: the page reached is a 'Talk to us' sales contact form requiring full name, work e-mail, company website, total numbers of engineers, phone number and cloud infrastructure.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://www.gitpod.io/pricing",
@@ -62,6 +62,20 @@
       "url": "https://ona.com/contact/sales",
       "date": "2026-10-22",
       "proved": "a sales contact form asking for full name, work email, company website, headcount and cloud provider"
+    },
+    {
+      "url": "https://www.gitpod.io/pricing",
+      "date": "2026-11-25",
+      "proved": "the cited pricing URL resolves to a sales contact page rather than a published price or free tier",
+      "capture": "sha256:d6b08305da3d3348910d38c67768b45636aeead25a3a75d5f175a305780f2800",
+      "quote": "# Talk to us"
+    },
+    {
+      "url": "https://ona.com/contact/sales",
+      "date": "2026-11-25",
+      "proved": "the page reached from the cited pricing URL is a sales contact form, with no self-serve free tier stated",
+      "capture": "sha256:681201cd7be00092eb66770627a5100f262d25bdc40817b4baac431100446ad8",
+      "quote": "Fill out the form below and our team will get in touch."
     }
   ],
   "verdict": "paid-only",

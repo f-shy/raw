@@ -1,0 +1,21 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u94-rerun",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/bigfile-net $.egress.terms: Cloudflare Cache-Control max-age=3600 is not in the capture; a fresh header read today gave 'cache-control: public, max-age=0, must-revalidate' (server: cloudflare)\n- storage/azure-for-students $.reliability_note: page says disabled if you do not move to pay as you go; nothing about year-end disablement 'until renewed', and nothing about data loss on lapse or reactivation\n- storage/blomp $.free_tier.stated: 40 GB base, up to 400 GB, +40 per friend and the three paid prices are on the page; but the page does not say 'Get Up to 400 GB for Free' verbatim, '40 GB x 10 referrals = 400 GB' (40+10x40 is 440), a hard stop, or that you must buy past 400 GB\n- storage/bitrix24-free $.chaining: unlimited users and 5 GB shared storage are on the page; 'WebDAV' appears in no Bitrix capture (helpdesk 22141216 fresh read documents a Windows network drive but never says WebDAV)\n- storage/biostudies-arrayexpress $.retention.stated: the cited span supports only post-public restrictions; the 7 KB/s and 25 KB/s per-IP FTP shaping figures and 'hold until published indefinitely' are not in the capture; DOI auto-assignment is on the page\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/blomp $.limits: The write-gated item (invited account must log in at least once a year or the granter loses the 40 GB) is in neither the forum post nor the homepage capture. Homepage only says 'No Yearly Logins Required' on paid plans. The 5 GB item is supported.\n- storage/bitrix24-free $.chaining: 5 GB shared storage and unlimited users are supported; 'separate free portals multiply that 5 GB', the helpdesk Windows network drive and the third-party WebDAV report are not in the capture.\n- storage/bigfile-net $.egress.terms: Homepage header is confirmed, but 'cache-control: public, max-age=3600 on an object download' is not in the capture (no 3600 anywhere). The unmetered quote is on a different capture (8a80...).\n- storage/bigfile-net $.interface: Page describes an account-less upload-and-link service; it names no REST API and no rclone support, so interface ['rest','rclone'] is not supported.",
+ "scope": {
+  "rids": [
+   "storage/azure-for-students",
+   "storage/baidu-ai-studio-dataset-notebook-storage",
+   "storage/bigfile-net",
+   "storage/biostudies-arrayexpress",
+   "storage/bitrix24-free",
+   "storage/blomp"
+  ]
+ },
+ "origin": "audit u119 of 20261125-0129-verify-storage-1818/u94 failed: 4 of 30 unsupported",
+ "created": "2026-11-25T11:42:55Z",
+ "queue_files": [
+  "queue/20261125-0129-verify-storage-1818-u14-rerun.json"
+ ]
+}

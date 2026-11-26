@@ -1,155 +1,204 @@
 {
-  "topic": "compute",
-  "slug": "dory",
-  "provider": "Dory (usedory.dev)",
-  "url": "https://usedory.dev/",
-  "category": "agent sandbox runtime (self-hosted)",
-  "tier": "Docker Core with Agent Sandboxes (GPL-3.0)",
-  "free_tier": {
-    "stated": "The whole system is free and open source: 'No account. No telemetry. No required cloud. GPL-3.0.' and 'There is no required Docker Desktop, external VM manager, account, cloud control plane, telemetry, or commercial-use tier. Dory is GPL-3.0 software and stores workload data on your Mac.' The signed Docker Core app is a free download; optional signed components (Kubernetes, machine runtime, desktop runtime, guest images) are separately downloadable payloads. The remote workspace surface is named Preview, but no hosted paid tier with a published price was found.",
-    "unit": "unlimited",
-    "metered_on": "none",
-    "source_url": "https://usedory.dev/",
-    "read_on": "2026-11-24",
-    "notes": "Capacity is bounded by the Mac the software runs on, not by a vendor quota. The Docker data disk starts with a 128 GiB logical ceiling and grows on demand up to 2 TiB; each agent sandbox is a dedicated headless VM with bounded CPU, memory, disk, process, open-file and wall-time limits recorded in a manifest."
+ "topic": "compute",
+ "slug": "dory",
+ "provider": "Dory",
+ "url": "https://augani.github.io/dory/",
+ "category": "local development runtime with agent sandbox VMs",
+ "tier": "Docker Core (free, open source)",
+ "free_tier": {
+  "stated": "No hosted allowance: Dory is a native macOS app the user installs and runs locally, free and open source under GPL-3.0, with no account, no telemetry, no required cloud and no paid tier. Docker Core is the only required download and optional signed components add Kubernetes and Linux machine or desktop VMs.",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://augani.github.io/dory/",
+  "read_on": "2026-11-25",
+  "notes": "The operator list's $0.029 an hour for Dory has no basis on any first-party page: the product has no hosted meter. The hosted sandboxes of the other providers in this topic rank ahead of this download."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a local virtual machine, not a stored object; a managed .dorydrive grows from 128 GiB to 2 TiB and a machine disk is thin-provisioned at 64 GiB",
+  "bytes": null,
+  "source_url": "https://augani.github.io/dory/",
+  "notes": "The disk ceiling is local and set by the user."
+ },
+ "retention": {
+  "stated": "Local Linux machines have their own disks and snapshots in the user's .dorydrive, preserved across normal uninstall; retention is set by the user, not by a vendor clock.",
+  "days": null,
+  "source_url": "https://augani.github.io/dory/"
+ },
+ "egress": {
+  "terms": "not applicable: the software runs on a machine the user supplies, so Dory meters no traffic and publishes no egress price or allowance",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://augani.github.io/dory/"
+ },
+ "interface": [
+  "cli",
+  "unknown"
+ ],
+ "interface_detail": "A versioned local JSON contract over stdio, an MCP server implementing protocol 2025-11-25, stable non-interactive CLI schemas and a Docker API context; sandbox VMs are driven by dory sandbox run, not by a public hosted endpoint.",
+ "tooling": "the user installs the signed Docker Core macOS app, then optional signed components for Kubernetes, headless Linux and desktop VMs; the user runs the app on their own Apple Silicon Mac and uses the dory CLI or MCP server, with no vendor-run capacity.",
+ "chaining": "A policy-enforced Linux VM per agent run with read-only mounts, allowlisted egress, resource caps, rollback and TTL cleanup can replace a hosted sandbox only where the user already has an Apple Silicon Mac; a hosted sandbox record ranks ahead of it.",
+ "limits": [
+  {
+   "kind": "write-gated",
+   "value": "the user installs and runs the app on an Apple Silicon Mac; there is no hosted capacity to allocate, and Windows 11 ARM and Intel hosts are unavailable",
+   "source": "https://augani.github.io/dory/"
+  }
+ ],
+ "limits_note": "Apple Silicon only; desktop images are limited to Debian 13, Ubuntu 24.04 LTS and Kali rolling. USB passthrough and Intel host releases are unavailable, and custom ARM64 guest images are preview. The agent sandbox is policy-enforced with allowlisted egress and a daemon TTL.",
+ "binding": "write-gated",
+ "binding_note": "The offer is software the user installs on their own Mac, so there is no hosted quota, rate or retention clock to bind; the requirement to install it is the gate.",
+ "identity_cost": {
+  "kind": "anonymous",
+  "detail": "No account is required: the site states 'No account. No telemetry. No required cloud. GPL-3.0.' and '0 accounts, telemetry, paid tiers'. Signing in is not an option because there is no vendor-hosted service. The user supplies their own Apple Silicon Mac and local disk.",
+  "country": null
+ },
+ "reliability_note": "Capability support is labelled supported, preview or unavailable; the agent sandbox and custom guest images are preview, USB passthrough and Intel hosts unavailable, and signed updates keep a last-good snapshot for automatic rollback. No hosted service reliability event exists.",
+ "confidence": "documented",
+ "confidence_note": "The no-hosted-capacity finding, GPL-3.0 licence, no-account statement, component model and local sandbox description are read from the vendor's site and a third-party directory page on 2026-11-25 and quoted below.",
+ "evidence": [
+  {
+   "url": "https://paste.ajam.dev/raw/WCLUsa",
+   "date": "2026-11-25",
+   "proved": "the operator's list places Dory at $0.029 an hour; no first-party page states such a price",
+   "capture": "sha256:4d220f8008ed2a6126e4b7f8bc4639bd9e625605ec428846fde2bdf593cc5c95",
+   "quote": "22. Dory → $0.029/h · billed per second"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a VM with a sparse disk, not a stored object",
-    "notes": "The Docker data disk has a 128 GiB logical ceiling that grows on demand up to 2 TiB; shrinking is rejected. No per-object cap is published."
+  {
+   "url": "https://augani.github.io/dory/",
+   "date": "2026-11-25",
+   "proved": "Dory is a free open-source macOS app with no account or telemetry",
+   "capture": "sha256:fa81c24e51bc280c3176495f86622c321f72da83173912e495854529188b4b29",
+   "quote": "Free and open source macOS 14+ No account or telemetry"
   },
-  "retention": {
-    "stated": "A sandbox run is deleted by default; '--keep --name NAME' preserves it and '--ttl-seconds N' is persisted and reconciled by the daemon, surviving CLI and daemon restarts. '--rollback' restores a pre-run snapshot and .dorydrive holds images, volumes, machines and snapshots locally.",
-    "days": null,
-    "source_url": "https://usedory.dev/",
-    "notes": "Retention is local and TTL-driven, with no vendor-side expiry."
+  {
+   "url": "https://augani.github.io/dory/",
+   "date": "2026-11-25",
+   "proved": "Dory runs a policy-enforced Linux VM per agent run locally, with resource caps, rollback and TTL",
+   "capture": "sha256:fa81c24e51bc280c3176495f86622c321f72da83173912e495854529188b4b29",
+   "quote": "A dedicated non-root Linux VM per run. Read-only mount defaults, allowlisted egress, credential grants, resource caps, rollback, manifests, kill, and daemon TTL."
   },
-  "egress": {
-    "terms": "Sandbox network policy defaults to none, which blocks all workload egress; 'outbound' permits Dory DNS plus only explicit --allow-network destinations; 'full' grants all egress and is required before --elevated is accepted. Loopback, host services, private LANs and link-local metadata are denied unless individually granted. Published ports bind to localhost unless deliberately widened; a temporary public HTTPS tunnel can be printed via cloudflared. No per-GB price: the software runs on the user's own machine.",
-    "metered": false,
-    "free_allowance": "not metered; outbound policy is set per sandbox run",
-    "price_per_tb": null,
-    "source_url": "https://usedory.dev/"
+  {
+   "url": "https://augani.github.io/dory/",
+   "date": "2026-11-25",
+   "proved": "the engine, disks and data live in a managed local drive on the user's Mac, not with a vendor",
+   "capture": "sha256:fa81c24e51bc280c3176495f86622c321f72da83173912e495854529188b4b29",
+   "quote": "Images, containers, named volumes, networks, machines, and snapshots stay in one managed `.dorydrive` on local APFS storage."
   },
-  "interface": [
-    "cli",
-    "rest"
-  ],
-  "interface_detail": "A local stdio MCP server (`dory mcp serve --read-only`) with a versioned JSON tool contract (dev.dory.agent.guide v1), plus the `dory` CLI; commands run in persistent Linux machines or disposable agent sandboxes. No hosted API endpoint is published.",
-  "tooling": "The user installs and runs the signed Dory app and daemon on an Apple Silicon Mac (macOS 14 or later): the user downloads Dory-0.4.5-arm64.dmg from the GitHub release, installs the Docker Core, and drives it with the `dory` CLI or a stdio MCP client. Optional signed components add k3s, headless/desktop VM runtimes and guest images. This is self-hosted software, not a hosted service.",
-  "chaining": "A local sandbox with an explicit network policy and a read-only-first MCP contract can call other records' HTTP endpoints only when the destination is allowlisted, while .dorydrive keeps machine and snapshot state on the same Mac.",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "no vendor request rate: capacity is the Mac running the software; the Docker data disk has a 128 GiB logical ceiling growing on demand up to 2 TiB",
-      "source": "https://usedory.dev/"
-    },
-    {
-      "kind": "write-gated",
-      "value": "sandbox runs are non-root with no host files by default, read-only mounts when omitted, network none by default, ephemeral secret and SSH grants, --rollback and daemon-owned TTL cleanup; writes need explicit --apply/--include-volumes or an unlocked MCP client",
-      "source": "https://usedory.dev/"
-    }
-  ],
-  "limits_note": "CPU, memory, disk, process, open-file and wall-time limits are recorded in each dev.dory.sandbox.manifest v1; their numeric defaults are not published in the captured pages. Guest images, Windows 11 ARM and macOS guests are Preview or deferred with no ETA. Custom ARM64 ISO is Preview.",
-  "binding": "write-gated",
-  "binding_note": "The sandbox's explicit policy boundary is what a caller meets first: network is none, host mounts absent and writes blocked in read-only MCP mode until the user grants them; there is no vendor byte or request quota to exhaust.",
-  "identity_cost": {
-    "kind": "anonymous",
-    "detail": "'No account. No telemetry. No required cloud. GPL-3.0.' and 'No Dory account or sign-in'; the software is downloaded and run locally without registration, card, phone or ID. It requires an Apple Silicon Mac (macOS 14 or later), which is local hardware the user already has, not a purchase from the vendor.",
-    "country": null
+  {
+   "url": "https://usedory.dev/",
+   "date": "2026-11-25",
+   "proved": "Dory is a native open-source macOS system that requires no cloud and has no account",
+   "capture": "sha256:ecd53152264b2c1b77ed509facc3861748eb40711c69172a4034601f409b434b",
+   "quote": "No account. No telemetry. No required cloud. GPL-3.0."
   },
-  "reliability_note": "Sandbox runs are deleted by default and retained runs are reconciled by a daemon-owned TTL; optional signed components stay removable and a narrow repair targets only the named layer. Windows 11 ARM and macOS guests have no ETA and custom ARM64 ISO is Preview, so those paths are not qualified.",
-  "confidence": "documented",
-  "confidence_note": "The free/open-source terms, local nature, disk ceiling, sandbox policy ladder, MCP contract and no-account gate are quoted from the vendor's own site, GitHub README and docs captured 2026-11-24. Numeric CPU/memory/wall-time defaults are not published in those pages.",
-  "evidence": [
-    {
-      "url": "https://usedory.dev/",
-      "date": "2026-11-24",
-      "proved": "Dory is free, open source, local and needs no account or cloud service",
-      "capture": "sha256:571984f79fce67a7b6ebec40b375360d865ea4af8dce4200c96a14a2c3157631",
-      "quote": "No account. No telemetry. No required cloud. GPL-3.0."
-    },
-    {
-      "url": "https://usedory.dev/",
-      "date": "2026-11-24",
-      "proved": "the Docker data disk starts at a 128 GiB logical ceiling and grows on demand to 2 TiB",
-      "capture": "sha256:571984f79fce67a7b6ebec40b375360d865ea4af8dce4200c96a14a2c3157631",
-      "quote": "The Docker data disk starts with a 128 GiB logical ceiling without reserving that physical space."
-    },
-    {
-      "url": "https://usedory.dev/",
-      "date": "2026-11-24",
-      "proved": "published ports bind to localhost unless deliberately widened",
-      "capture": "sha256:571984f79fce67a7b6ebec40b375360d865ea4af8dce4200c96a14a2c3157631",
-      "quote": "Published ports bind to localhost unless you deliberately widen them."
-    },
-    {
-      "url": "https://github.com/Augani/dory",
-      "date": "2026-11-24",
-      "proved": "no account, cloud control plane, telemetry or commercial-use tier is required; the software runs on the user's Mac",
-      "capture": "sha256:f4138e9c7d644623e539454be47a11959b883288ca5c32931f01aa93610d8ea1",
-      "quote": "There is no required Docker Desktop, external VM manager, account, cloud control plane, telemetry, or commercial-use tier. Dory is GPL-3.0 software and stores workload data on your Mac."
-    },
-    {
-      "url": "https://github.com/Augani/dory",
-      "date": "2026-11-24",
-      "proved": "there is no Dory account or sign-in",
-      "capture": "sha256:f4138e9c7d644623e539454be47a11959b883288ca5c32931f01aa93610d8ea1",
-      "quote": "No Dory account or sign-in"
-    },
-    {
-      "url": "https://augani.github.io/dory/docs/agents.md",
-      "date": "2026-11-24",
-      "proved": "sandbox egress defaults to none and blocks all workload egress, with explicit outbound and full modes",
-      "capture": "sha256:13f9f0a574eb43286043bd78e026effee9d33a8ee96ca9c8bc000b9d87196d1e",
-      "quote": "`none` is the default and blocks all workload egress."
-    },
-    {
-      "url": "https://augani.github.io/dory/docs/agents.md",
-      "date": "2026-11-24",
-      "proved": "the local stdio MCP contract needs no account, cloud service or control plane and starts read-only",
-      "capture": "sha256:13f9f0a574eb43286043bd78e026effee9d33a8ee96ca9c8bc000b9d87196d1e",
-      "quote": "Dory exposes a local, versioned automation contract for coding agents. It does not require a Dory account, cloud service, or remote control plane."
-    },
-    {
-      "url": "https://augani.github.io/dory/docs/agents.md",
-      "date": "2026-11-24",
-      "proved": "sandbox runs are deleted by default, see no host files unless mounted and keep a daemon-owned TTL",
-      "capture": "sha256:13f9f0a574eb43286043bd78e026effee9d33a8ee96ca9c8bc000b9d87196d1e",
-      "quote": "The sandbox is a dedicated VM, runs non-root, and is deleted by default. It sees no host files unless a mount is supplied; omitted mount modes are read-only:"
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.707Z",
-  "price_per_tb_month": null,
-  "notes": "Dory is a free GPL-3.0 local development system for Apple Silicon that bundles Docker, k3s, Linux VMs and policy-bound agent sandboxes, with no account, telemetry or required cloud. It is software the user installs and runs on a Mac, so it is self-hosted and the last resort: a hosted sandbox offer (free, trial or paid) is preferred where one exists. This record prices no hosted capacity. The remote workspace surface is Preview and no hosted price is published.",
-  "extras": {
-    "shape": {
-      "vcpu": null,
-      "ram_gib": null,
-      "disk_gib": 128,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "a dedicated headless ARM64 Linux VM per sandbox; the Docker data disk has a 128 GiB logical ceiling growing to 2 TiB"
-    },
-    "billing_model": "free open-source software, no vendor metering",
-    "free_tier_kind": "self-hosted-software",
-    "term": "no term; GPL-3.0",
-    "price_arithmetic": "no price: the user installs and runs the software on a Mac; disk ceiling 128 GiB growing to 2 TiB",
-    "status": "live release 0.4.5 arm64, Docker Core stable and remote workspace preview",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "published ports bind to localhost by default; an optional cloudflared temporary public HTTPS tunnel is documented",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "per-sandbox CPU, memory, disk, process, open-file and wall-time limits are recorded in dev.dory.sandbox.manifest v1; numeric defaults not published in the captured pages"
-    }
+  {
+   "url": "https://www.everydev.ai/tools/dory",
+   "date": "2026-11-25",
+   "proved": "a third-party directory describes Dory as a free, open-source local macOS app requiring no account and with no paid tiers",
+   "capture": "sha256:09c18e3df87259b73427cdc6a5b70569ca77be8fe80e80f6ee91fca836364f9b",
+   "quote": "Fully free, GPL-3.0 licensed. No account, no telemetry, no paid tiers."
   },
-  "self_hosted": true
+  {
+   "url": "https://usedory.dev/",
+   "date": "2026-11-24",
+   "proved": "Dory is free, open source, local and needs no account or cloud service",
+   "capture": "sha256:571984f79fce67a7b6ebec40b375360d865ea4af8dce4200c96a14a2c3157631",
+   "quote": "No account. No telemetry. No required cloud. GPL-3.0."
+  },
+  {
+   "url": "https://usedory.dev/",
+   "date": "2026-11-24",
+   "proved": "the Docker data disk starts at a 128 GiB logical ceiling and grows on demand to 2 TiB",
+   "capture": "sha256:571984f79fce67a7b6ebec40b375360d865ea4af8dce4200c96a14a2c3157631",
+   "quote": "The Docker data disk starts with a 128 GiB logical ceiling without reserving that physical space."
+  },
+  {
+   "url": "https://usedory.dev/",
+   "date": "2026-11-24",
+   "proved": "published ports bind to localhost unless deliberately widened",
+   "capture": "sha256:571984f79fce67a7b6ebec40b375360d865ea4af8dce4200c96a14a2c3157631",
+   "quote": "Published ports bind to localhost unless you deliberately widen them."
+  },
+  {
+   "url": "https://github.com/Augani/dory",
+   "date": "2026-11-24",
+   "proved": "no account, cloud control plane, telemetry or commercial-use tier is required; the software runs on the user's Mac",
+   "capture": "sha256:f4138e9c7d644623e539454be47a11959b883288ca5c32931f01aa93610d8ea1",
+   "quote": "There is no required Docker Desktop, external VM manager, account, cloud control plane, telemetry, or commercial-use tier. Dory is GPL-3.0 software and stores workload data on your Mac."
+  },
+  {
+   "url": "https://github.com/Augani/dory",
+   "date": "2026-11-24",
+   "proved": "there is no Dory account or sign-in",
+   "capture": "sha256:f4138e9c7d644623e539454be47a11959b883288ca5c32931f01aa93610d8ea1",
+   "quote": "No Dory account or sign-in"
+  },
+  {
+   "url": "https://augani.github.io/dory/docs/agents.md",
+   "date": "2026-11-24",
+   "proved": "sandbox egress defaults to none and blocks all workload egress, with explicit outbound and full modes",
+   "capture": "sha256:13f9f0a574eb43286043bd78e026effee9d33a8ee96ca9c8bc000b9d87196d1e",
+   "quote": "`none` is the default and blocks all workload egress."
+  },
+  {
+   "url": "https://augani.github.io/dory/docs/agents.md",
+   "date": "2026-11-24",
+   "proved": "the local stdio MCP contract needs no account, cloud service or control plane and starts read-only",
+   "capture": "sha256:13f9f0a574eb43286043bd78e026effee9d33a8ee96ca9c8bc000b9d87196d1e",
+   "quote": "Dory exposes a local, versioned automation contract for coding agents. It does not require a Dory account, cloud service, or remote control plane."
+  },
+  {
+   "url": "https://augani.github.io/dory/docs/agents.md",
+   "date": "2026-11-24",
+   "proved": "sandbox runs are deleted by default, see no host files unless mounted and keep a daemon-owned TTL",
+   "capture": "sha256:13f9f0a574eb43286043bd78e026effee9d33a8ee96ca9c8bc000b9d87196d1e",
+   "quote": "The sandbox is a dedicated VM, runs non-root, and is deleted by default. It sees no host files unless a mount is supplied; omitted mount modes are read-only:"
+  },
+  {
+   "url": "https://augani.github.io/dory/",
+   "date": "2026-11-25",
+   "proved": "Dory is a free local system with no account, no hosted control plane and no paid tier, so no hosted quota failure is documented",
+   "capture": "sha256:fa81c24e51bc280c3176495f86622c321f72da83173912e495854529188b4b29",
+   "quote": "No Dory account, no telemetry, no remote control plane, and no paid commercial-use tier. Sandboxes share no files by default and support bundles are redacted."
+  },
+  {
+   "url": "https://github.com/Augani/dory",
+   "date": "2026-11-25",
+   "proved": "Dory is free GPL-3.0 software the user installs and runs on their own Mac, with no hosted capacity and no quota, so qualifies-with-caveat stands",
+   "capture": "sha256:f4138e9c7d644623e539454be47a11959b883288ca5c32931f01aa93610d8ea1",
+   "quote": "There is no required Docker Desktop, external VM manager, account, cloud control plane, telemetry, or commercial-use tier. Dory is GPL-3.0 software and stores workload data on your Mac."
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T16:38:10.342Z",
+ "price_per_tb_month": null,
+ "notes": "Dory is not hosted compute capacity: it is software the user installs and runs on an Apple Silicon Mac. The $0.029 an hour in the operator list has no source on any Dory page. It is the last-resort option: every hosted sandbox of the other providers in this topic ranks ahead of it.",
+ "extras": {
+  "shape": {
+   "vcpu": null,
+   "ram_gib": null,
+   "disk_gib": 64,
+   "gpu_class": "experimental in-guest GPU acceleration on Apple Silicon",
+   "gpu_count": null
+  },
+  "billing_model": "none: a free GPL-3.0 download with no hosted meter",
+  "free_tier_kind": "none",
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "the agent sandbox carries a daemon TTL set by the user; no vendor clock"
+  },
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": false,
+   "ports": "published ports bind to localhost unless widened deliberately",
+   "static_ip": false,
+   "ipv6": null,
+   "per_session_bytes": null
+  }
+ },
+ "stale": false,
+ "self_hosted": true
 }

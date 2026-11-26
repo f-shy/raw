@@ -26,9 +26,9 @@
     "notes": ""
   },
   "egress": {
-    "terms": "Bandwidth is metered per plan: Pro includes 150 GB, Business 1 TB. Nothing is free.; ingress: tcp",
+    "terms": "Bandwidth is metered per plan: Hobby 100 GB, Pro 500 GB and Business 2.5 TB a month.",
     "metered": true,
-    "free_allowance": "Bandwidth is metered per plan: Pro includes 150 GB, Business 1 TB. Nothing is free.",
+    "free_allowance": "Bandwidth is metered per plan: Hobby 100 GB, Pro 500 GB and Business 2.5 TB a month.",
     "price_per_tb": null,
     "source_url": "https://localport.io/pricing"
   },
@@ -41,16 +41,16 @@
   "limits": [
     {
       "kind": "volume-quota",
-      "value": "1 TB on Business; tunnels stop when the monthly bandwidth is used up",
+      "value": "Hobby 100 GB, Pro 500 GB and Business 2.5 TB a month",
       "source": "https://localport.io/pricing"
     }
   ],
   "limits_note": "",
   "binding": "volume-quota",
-  "binding_note": "There is no free tier, so the first failure is the invoice, not a quota. At $20/month Pro the 150 GB cap is 0.136 TiB.",
+  "binding_note": "An overage is never invoiced: when the monthly bandwidth is used up, tunnels stop until the next cycle or until you upgrade.",
   "identity_cost": {
     "kind": "email",
-    "detail": "A paid team account is required after the trial; no card-free tier exists. The signup form was not read.",
+    "detail": "an email address: 'Enter your email to get started'",
     "country": "None"
   },
   "reliability_note": "Hard stop at the monthly bandwidth cap rather than a throttle.",
@@ -66,10 +66,38 @@
       "url": "https://localport.io/tunnels",
       "date": "2026-10-23",
       "proved": "HTTP, TCP and TLS tunnels over port 443; no UDP listed."
+    },
+    {
+      "url": "https://localport.io/pricing",
+      "date": "2026-11-25",
+      "proved": "the monthly bandwidth allowance of each plan",
+      "capture": "sha256:6feac1041579a96be5d3e173541928b2720bc3dd132c0f2248a787e746269dc0",
+      "quote": "| Bandwidth a month | 100 GB | 500 GB | 2.5 TB | Custom |"
+    },
+    {
+      "url": "https://localport.io/pricing",
+      "date": "2026-11-25",
+      "proved": "the cap stops the tunnels instead of billing an overage",
+      "capture": "sha256:6feac1041579a96be5d3e173541928b2720bc3dd132c0f2248a787e746269dc0",
+      "quote": "Nothing extra is billed. When the monthly bandwidth is used up, tunnels stop until the next cycle or until you upgrade."
+    },
+    {
+      "url": "https://dashboard.localport.io/auth/login?plan=hobby&cycle=yearly",
+      "date": "2026-11-25",
+      "proved": "the dashboard login asks for an email address",
+      "capture": "sha256:6f4807347b6e993758708e17549c62fe8c7d61628de294a00758b64a58308bfd",
+      "quote": "Enter your email to get started"
+    },
+    {
+      "url": "https://localport.io/pricing",
+      "date": "2026-11-25",
+      "proved": "TCP is offered on every plan",
+      "capture": "sha256:6feac1041579a96be5d3e173541928b2720bc3dd132c0f2248a787e746269dc0",
+      "quote": "HTTP, TCP and TLS Every protocol on every plan"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T17:26:44.695Z",
   "price_per_tb_month": "USD 5/month",
   "history": [],
   "notes": "Recorded to close the question: a 2026 entrant that deliberately has no free tier. Nothing here is reachable at zero cost, and it does not carry UDP.",
@@ -78,7 +106,7 @@
     "wg_detail": "The tunnel page offers HTTP, TCP and TLS. No UDP protocol is listed, and the pricing page counts bandwidth rather than ports.",
     "ingress": "tcp",
     "volume_tib_month": 0.0,
-    "volume_stated": "Bandwidth is metered per plan: Pro includes 150 GB, Business 1 TB. Nothing is free.",
+    "volume_stated": "Bandwidth is metered per plan: Hobby 100 GB, Pro 500 GB and Business 2.5 TB a month.",
     "bytes_transit": "yes",
     "transit_note": "Localport relays through its regional edge.",
     "promoted_from": ".tmp/egress/new-startups"

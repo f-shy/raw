@@ -13,15 +13,15 @@
     "notes": "All Azure Sponsorships renew at $2,000 USD per year."
   },
   "per_object_cap": {
-    "stated": "per-object-cap: Blob block blob max ~190.7 TiB",
+    "stated": "Maximum size of a block blob: 50,000 x 4,000 MiB (approximately 190.7 TiB)",
     "bytes": 209676867416883,
-    "source_url": "https://learn.microsoft.com/en-us/industry/nonprofit/microsoft-for-nonprofits/renew-azure-grant",
-    "notes": "extracted from the quota or limits prose"
+    "source_url": "https://learn.microsoft.com/en-us/azure/storage/blobs/scalability-targets",
+    "notes": "| Maximum size of a block blob | 50,000 x 4,000 MiB (approximately 190.7 TiB) |"
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://learn.microsoft.com/en-us/industry/nonprofit/microsoft-for-nonprofits/renew-azure-grant",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Any remaining balance expires at the end of the grant year."
   },
   "egress": {
     "terms": "Azure egress is metered and would eat the credit; this only works as *archive* (rare read) or behind a CDN whose own free tier covers delivery. Archive-tier reads also carry retrieval cost.",
@@ -38,8 +38,8 @@
   "limits": [
     {
       "kind": "per-object-cap",
-      "value": "per-object-cap: Blob block blob max ~190.7 TiB",
-      "source": "https://learn.microsoft.com/en-us/industry/nonprofit/microsoft-for-nonprofits/renew-azure-grant"
+      "value": "Maximum size of a block blob: 50,000 x 4,000 MiB (approximately 190.7 TiB)",
+      "source": "https://learn.microsoft.com/en-us/azure/storage/blobs/scalability-targets"
     }
   ],
   "limits_note": "Per-object-cap: Blob block blob max ~190.7 TiB, single PUT 5,000 MiB. Not the constraint. The constraint is *budget*: the grant is a spend cap, and any per-GB/month rate times 10 TiB must fit inside $2,000/yr. request-rate: standard storage account limits (20,000 IOPS-class). retention: balance expires at the annual renewal date; 'Early consumption of the $2,000 balance does not trigger or permit early renewal'.",
@@ -87,10 +87,45 @@
       "proved": "a credit card is required as the payment method and for verification",
       "capture": "sha256:7e935a93c7549f74985873aae935a590f31cbe98fb419897383f0ebd402f9159",
       "quote": "Add a valid payment method (a credit card is required for verification and to cover any overages)."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/industry/nonprofit/microsoft-for-nonprofits/renew-azure-grant",
+      "date": "2026-11-25",
+      "proved": "unused grant balance expires at the end of the grant year",
+      "capture": "sha256:7e935a93c7549f74985873aae935a590f31cbe98fb419897383f0ebd402f9159",
+      "quote": "Any remaining balance expires at the end of the grant year."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/scalability-targets",
+      "date": "2026-11-25",
+      "proved": "the Blob storage limits table gives the maximum block blob size",
+      "capture": "sha256:1ceb987e621d5679cce431c4e05e94d87dabe13b28457f4059c2860c619443d9",
+      "quote": "| Maximum size of a block blob | 50,000 x 4,000 MiB (approximately 190.7 TiB) |"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/nonprofits/azure",
+      "date": "2026-11-25",
+      "proved": "the nonprofit page states the annual donated credit amount",
+      "capture": "sha256:56ffd019358baf8f02dfbb3d0920b4debaaa78920525de2dc4c91a3cabb3b336",
+      "quote": "Leverage $2,000 (USD) donated Azure services credits per year and access the complete portfolio of Azure products and cloud services."
+    },
+    {
+      "url": "https://azure.microsoft.com/en-us/pricing/details/bandwidth/",
+      "date": "2026-11-25",
+      "proved": "egress beyond the free first 100 GB per month is priced per GB",
+      "capture": "sha256:17b0834dc9bfb334d1ea1d89035316e3d5c65a5b6fe295104b858e261f5491e6",
+      "quote": "| From North America, Europe to any destination | Free | $0.087 per GB | $0.083 per GB | $0.07 per GB | $0.05 per GB |"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/industry/nonprofit/microsoft-for-nonprofits/renew-azure-grant",
+      "date": "2026-11-25",
+      "proved": "the renewal steps require a credit card as the payment method",
+      "capture": "sha256:7e935a93c7549f74985873aae935a590f31cbe98fb419897383f0ebd402f9159",
+      "quote": "Add a valid payment method (a credit card is required for verification and to cover any overages)."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:25.164Z",
+  "verified_at": "2026-11-25T19:55:11.735Z",
   "notes": "$2,000 (USD) in donated Azure services credits per year, renewable. Not a byte quota. A credit grant usable against 'the complete portfolio of Azure products and cloud services', which includes Blob Storage / Data Lake Storage Gen2 / Azure Files.",
   "history": [],
   "extras": {

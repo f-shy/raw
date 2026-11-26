@@ -6,7 +6,7 @@
   "category": "game L4/L7 reverse proxy (Minecraft)",
   "tier": "free",
   "free_tier": {
-    "stated": "Free tier ships with real DDoS protection, no credit card, no time limit.",
+    "stated": "Free plan: a permanent free tier with no time limit; bandwidth is unlimited.",
     "unit": "unlimited",
     "metered_on": "none",
     "source_url": "https://www.infinity-filter.com/pricing/",
@@ -51,11 +51,11 @@
     }
   ],
   "limits_note": "",
-  "binding": "none",
+  "binding": "write-gated",
   "binding_note": "Bandwidth is unlimited on the free plan, so no byte counter is reached at 1 TiB/month. What fails first is the plan class: the free tier cannot carry UDP at all, because the Geyser module is a paid add-on and the free column has zero module backends.",
   "identity_cost": {
     "kind": "email",
-    "detail": "No credit card is required for the free tier, per the pricing page. The register form was not opened, so the fields it requires are unread.",
+    "detail": "unverified: the pricing page does not state what free registration requires.",
     "country": "None"
   },
   "reliability_note": "Free tier is limited to 20 players online and one backend; the vendor sells nothing else on that column.",
@@ -76,10 +76,45 @@
       "url": "https://www.infinity-filter.com/minecraft-geyser-ddos-protection/",
       "date": "2026-10-23",
       "proved": "The reason UDP costs money: Bedrock's UDP packets carry no server address, so there is nothing to route by and each Bedrock setup needs its own IP"
+    },
+    {
+      "url": "https://www.infinity-filter.com/minecraft-geyser-ddos-protection/",
+      "date": "2026-11-25",
+      "proved": "UDP (Bedrock) is not available on the free plan; the write-gated limits row already records it",
+      "capture": "sha256:24ed0062ebd026e739767924ae47cece193540bcb3094af7215f95f46a60579c",
+      "quote": "Geyser is not part of the Free plan, and we'd rather you know before signing up."
+    },
+    {
+      "url": "https://www.infinity-filter.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the free plan has no time limit",
+      "capture": "sha256:98ca6b15b3e8526274e7dc8669b47000b747a9bc2e00df8532c775fc61a9eed5",
+      "quote": "The Free plan is a permanent free tier with no time limit, use it as your trial."
+    },
+    {
+      "url": "https://www.infinity-filter.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the page names payment methods for paid plans and no free-signup requirement",
+      "capture": "sha256:98ca6b15b3e8526274e7dc8669b47000b747a9bc2e00df8532c775fc61a9eed5",
+      "quote": "Credit card (Visa, Mastercard, Amex) and PayPal."
+    },
+    {
+      "url": "https://www.infinity-filter.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "bandwidth is unlimited on every plan",
+      "capture": "sha256:98ca6b15b3e8526274e7dc8669b47000b747a9bc2e00df8532c775fc61a9eed5",
+      "quote": "Burst is a temporary boost to your player-slot limit, bandwidth is always unlimited on every plan, so it's never throttled."
+    },
+    {
+      "url": "https://www.infinity-filter.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "UDP/Bedrock is paid only",
+      "capture": "sha256:98ca6b15b3e8526274e7dc8669b47000b747a9bc2e00df8532c775fc61a9eed5",
+      "quote": "Bedrock support (via Geyser) is available from the Starter plan and above. It requires a dedicated IP, which costs an extra €4.99/month on top of your plan."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:43.556Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "DDoS mitigation for Minecraft Java over TCP. Free plan provides unmetered bandwidth for up to 20 concurrent players. UDP port forwarding requires dedicated IP assignments and paid plans.",

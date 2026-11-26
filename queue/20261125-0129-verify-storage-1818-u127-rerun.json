@@ -1,0 +1,21 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u127-rerun",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/gitbook $.per_object_cap.notes: 100MB per file supported, but the page says nothing about total storage quota; 'no total storage quota' is not stated.\n- storage/github-gist $.retention.notes: No retention/expiry period appears in the Gists page, but the page has no text on deletion; claim says documentation describes deletion. Part unverified.\n- storage/github-gist $.retention.notes: No retention period in either page, but neither page describes deletion; claim says documentation describes deletion. Part unverified.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/gigawatasu $.per_object_cap.bytes: The page states 300GB for guests and free members, not the byte figure 300000000000; no byte count or GB-to-byte convention appears on it.\n- storage/gigafile $.per_object_cap.bytes: The page states 500G per file, not the byte figure 500000000000; no byte count or GB-to-byte convention appears on it.\n- storage/gigafile $.tooling: The capture publishes max_size and chunk_size JS vars but says nothing about rclone, the upload_chunk.php endpoint and its field names, or a ~40-line client; those parts are not in the source page.",
+ "scope": {
+  "rids": [
+   "storage/gigafile",
+   "storage/gigawatasu",
+   "storage/gitbook",
+   "storage/github-actions-artifacts",
+   "storage/github-container-registry-via-oras-known-numbers-re-veri",
+   "storage/github-gist"
+  ]
+ },
+ "origin": "audit u147 of 20261125-0129-verify-storage-1818/u127 failed: 3 of 30 unsupported",
+ "created": "2026-11-25T13:25:56Z",
+ "queue_files": [
+  "queue/20261125-0129-verify-storage-1818-u25-rerun.json"
+ ]
+}

@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u15-q01",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Is the freehold public relay still operated under another hostname? freehold.lit.app and lit.app both return DNS status 3, and the README (line '# Register port, receive raw UDP') also describes a raw UDP registration mode that the record's http-only reading does not cover.",
+ "why": "If the relay is gone the verdict is dead-service for the hosted lane; if the raw UDP mode is public, the record's ingress http-only and verdict fails-egress need a re-read.",
+ "scope": {
+  "rids": [
+   "egress/freehold"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u15",
+ "created": "2026-11-25T15:23:42Z"
+}

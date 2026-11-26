@@ -5,7 +5,7 @@
   "url": "https://www.hetzner.com/sb/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "The auction listing served on 2026-10-22 holds 116 machines; the cheapest is EUR 64 a month for an Intel Core i7-8700 with 128 GB RAM, no setup fee, a 1 Gbit/s port and 'Traffic: unlimited'. The cheapest machine with 64 GB RAM and 2x NVMe 512 GB is EUR 70. The median listing is EUR 99.50 a month and the dearest is EUR 918.",
+    "stated": "On the listing read 2026-11-25 the cheapest paid machine is EUR 81 per month (Id 3119121, Intel Core i7-6700, 64 GB RAM), with EUR 0 setup, 'Traffic: unlimited' and Bandwidth 1000 (1 Gbit/s).",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://www.hetzner.com/sb/",
@@ -78,10 +78,17 @@
       "url": "https://www.hetzner.com/sb/",
       "date": "2026-10-22",
       "proved": "the page states 'All without setup fees', 'Traffic: Unlimited' and 'Bandwidth: 1 Gbit/s-Port'"
+    },
+    {
+      "url": "https://www.hetzner.com/_resources/app/data/app/live_data_sb.json",
+      "date": "2026-11-25",
+      "proved": "the cheapest machine in the auction JSON is Id 3119121 at EUR 81 per month with EUR 0 setup, an Intel Core i7-6700, 64 GB RAM, two 4.0 TB Enterprise HDDs and a 1 Gbit/s NIC",
+      "capture": "sha256:f86f96239793d95084e96858445586a585a4fdaef105fb2f2105e708dc180047",
+      "quote": "\"Id\":3119121,\"Hardware\":{\"CPU\":{\"Name\":\"Intel Core i7-6700\",\"CoreCount\":1},\"RAM\":{\"RealSize\":16384,\"Size\":64,\"SizeUnit\":\"GB\",\"Amount\":4,\"ecc\":false},\"Storage\":{\"RealSize\":8192,\"Size\":4096,\"SizeUnit\":\"GB\",\"Amount\":2,\"Disks\":[\"4.0 TB Enterprise HDD\",\"4.0 TB Enterprise HDD\"],\"Details\":{\"nvme\":[],\"sata\":[],\"hdd\":[4000,4000],\"general\":[4000]}}},\"Prices\":{\"monthly\":{\"EUR\":81,\"USD\":90},\"hourly\":{\"EUR\":0.1298,\"USD\":0.1442},\"setup\":{\"EUR\":0,\"USD\":0}"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:27.268Z",
   "notes": "no open question recorded",
   "extras": {
     "wave2": {

@@ -5,7 +5,7 @@
   "url": "https://www.res.es/en/faq",
   "category": "national HPC allocation",
   "free_tier": {
-    "stated": "RES resources are free of charge through open competitive calls and open to all scientists working in open research within the European Union and associated states, with the principal investigator allowed to be from an institution in any of those countries; typical requests run between 50,000 and 2,000,000 hours, and fast access activities are evaluated weekly with no priority guarantee.",
+    "stated": "The RES provides free access to supercomputing resources for open R&D through open competitive calls.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://www.res.es/en/faq",
@@ -74,10 +74,24 @@
       "url": "https://www.res.es/en/services/access-and-calls",
       "date": "2026-10-22",
       "proved": "'Fast access activities: These are activities designed for projects with low computational requirements that allow quick access to shared RES machine resources ... The evaluation of this type of proposal is carried out weekly', quoted"
+    },
+    {
+      "url": "https://www.res.es/en/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ page states that RES gives free access to supercomputing resources through open competitive calls",
+      "capture": "sha256:68d29d04b733402f1ef02b8587751ece1156513020fde28ae268aa37597b6bd3",
+      "quote": "The RES provides free access to supercomputing resources for open R&D through open competitive calls."
+    },
+    {
+      "url": "https://www.res.es/en/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ page still states free access to supercomputing resources through open competitive calls",
+      "capture": "sha256:68d29d04b733402f1ef02b8587751ece1156513020fde28ae268aa37597b6bd3",
+      "quote": "The RES provides free access to supercomputing resources for open R&D through open competitive calls."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:46.646Z",
   "notes": "This is the most nationality-open allocation programme found in the whole assignment, and it is the one row a reconciler should prioritise: the PI may be from any EU or associated-state institution, not a Spanish one, and there is no minimum request size. It is still fails-identity because no European institutional affiliation is in place, and the distinction matters: RES fails on affiliation, not on nationality or on the science case. The hours are site-hours, not GPU-hours or core-hours, so no conversion is offered. Deadlines per the FAQ were HPC/AI/Quantum 15 September 2026, with fast access weekly.",
   "extras": {
     "wave2": {

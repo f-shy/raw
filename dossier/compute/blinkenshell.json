@@ -13,7 +13,7 @@
   "limits_note": "the port-22 assumption is what hid this class: the host answers on 2222",
   "reliability_note": "no reliability event observed",
   "confidence": "documented",
-  "verified_at": "2026-10-24T01:56:00.000Z",
+  "verified_at": "2026-11-25T11:17:45.491Z",
   "price_per_tb_month": null,
   "history": [],
   "slug": "blinkenshell",
@@ -21,7 +21,7 @@
   "url": "https://blinkenshell.org/docs/signup-process/",
   "category": "shared shell",
   "free_tier": {
-    "stated": "100 MB disk quota, 128 MB memory limit, SSH and SFTP, detached screen or tmux; listening on a custom TCP or UDP port is a supporter-only feature",
+    "stated": "a free account with SSH & SFTP access, a 100 MB disk quota, 128 MB memory limit and detached GNU Screen or tmux, with a Free! monthly price; listening on a custom TCP/UDP port is supporter-only, from EUR 3 a month",
     "unit": "MB",
     "metered_on": "stored-bytes",
     "source_url": "https://blinkenshell.org/",
@@ -87,6 +87,13 @@
       "url": "https://blinkenshell.org/",
       "date": "2026-10-24",
       "proved": "quoted: 'Disk Quota 100 MB', 'Memory limit 128 MB', and 'Listen TCP/UDP port (custom server)' checked only in the Supporter column"
+    },
+    {
+      "url": "https://blinkenshell.org/",
+      "date": "2026-11-25",
+      "proved": "the Free column of the account table lists SSH & SFTP, a 100 MB disk quota, a 128 MB memory limit, detach and a Free! monthly price, and leaves the custom TCP/UDP port to the supporter column at From 3€/mo",
+      "capture": "sha256:1431416826ac3e23ee1580e17364225936bfc8b0b0046cf305e53a4639a7b404",
+      "quote": "| SSH & SFTP Access | ✔ | ✔ | | [Disk Quota](https://blinkenshell.org/docs/disk-quota) | 100 MB[(x4~)](https://blinkenshell.org/docs/disk-quota) | 1000 MB [(x4~)](https://blinkenshell.org/docs/disk-quota) | | [Memory limit](https://blinkenshell.org/docs/resource-limits) | 128 MB | 256 MB | | Detach (GNU Screen, tmux) | ✔ | ✔ | | Listen TCP/UDP port (custom server) |  | ✔ | | Monthly Price | Free! | [From 3€/mo](https://blinkenshell.org/docs/supporter) |"
     }
   ],
   "verdict": "fails-identity",

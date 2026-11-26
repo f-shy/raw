@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u53-rerun",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it. Every value and every path a confirm names must be proved by that operation's own captured quote; write no detail the quote does not contain.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/seedhost-eu-hd-24 $.egress.terms: The page lists monthly traffic per plan and this throttle, and says there is no bandwidth overage bill, but it never says only outgoing traffic counts toward the limit and incoming does not; that UL/DL sentence is absent from both the original capture and a fresh read.\n- storage/servarica-polar-bear-killer-whale-mammoth-storage $.egress.terms: The cited Polar Bear page presents unlimited transfer as Option 1 on this same plan, not as a separate product line, and gives only a 12TB monthly cap for Option 2; it has no 4TB/18TB/24TB per-plan figures and no 2-3x storage ratio.\n- storage/servarica-polar-bear-killer-whale-mammoth-storage $.egress.metered: Option 1 is unlimited, but Option 2 has a 12TB monthly quota. A bare metered:false is conditional on Option 1 and does not describe the plan as a whole.\n- storage/servarica-storage-vps $.egress.terms: The page says the bandwidth options are chosen at checkout, not switchable in the control panel, and contains no LET thread 199994 or 'We count traffic from both directions' statement; those two additions are not in the cited source.\n- storage/servarica-storage-vps $.egress.metered: Option 1 is unlimited, but Option 2 has a 12TB monthly quota. A bare metered:false is conditional on Option 1 and does not describe the plan as a whole.\n- storage/seznam-cz-email-unlimited-size-mailbox-message-count-bou $.free_tier.stated: The page states unlimited size and the raisable 120,000-message cap, but it says nothing about this being the only webmail whose published limit is a message count; that uniqueness claim is not in the cited source.",
+ "scope": {
+  "rids": [
+   "storage/seedhost-eu-hd-24",
+   "storage/sellfy",
+   "storage/servarica-polar-bear-killer-whale-mammoth-storage",
+   "storage/servarica-storage-vps",
+   "storage/seznam-cz",
+   "storage/seznam-cz-email-unlimited-size-mailbox-message-count-bou"
+  ]
+ },
+ "origin": "audit u203 of 20261125-0129-verify-storage-1818/u53 failed: 6 of 21 unsupported",
+ "created": "2026-11-25T21:43:50Z"
+}

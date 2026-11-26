@@ -35,7 +35,7 @@
   "interface": [
     "cli"
   ],
-  "interface_detail": "loophole http 3000 -s name",
+  "interface_detail": "loophole http <port> [host] [flags]; --hostname sets the custom hostname",
   "tooling": "loophole CLI",
   "chaining": "HTTP ingress only",
   "limits": [],
@@ -44,7 +44,7 @@
   "binding_note": "No quantity binds because the proxy speaks HTTP only; at 1 TiB the first failure is that there is nothing to forward.",
   "identity_cost": {
     "kind": "email",
-    "detail": "a sign-up account and an authtoken: 'you need to sign up for an account'",
+    "detail": "an account and an authtoken: 'To access Loophole services described in further sections, you need to sign up for an account. Once you've signed up, you need to configure loophole with the authtoken.'",
     "country": "None"
   },
   "reliability_note": "one small operator; no published uptime",
@@ -60,10 +60,45 @@
       "url": "https://loophole.cloud/",
       "date": "2026-10-23",
       "proved": "'Instantly create a public HTTPS url for a website running locally'"
+    },
+    {
+      "url": "https://loophole.cloud/docs/commands/http",
+      "date": "2026-11-25",
+      "proved": "the command's usage line and its hostname flag",
+      "capture": "sha256:9f40bd9a45f62596c4ea811c797fa0ea2954e6939e53b7e6823cf0d49fc9fc82",
+      "quote": "loophole http <port> [host] [flags]"
+    },
+    {
+      "url": "https://loophole.cloud/docs/guides/auth",
+      "date": "2026-11-25",
+      "proved": "an account and an authtoken are required",
+      "capture": "sha256:581c4c023cc39fe641ba4526847fbf42c99e158ff21fc96503c59c9cd948530e",
+      "quote": "To access Loophole services described in further sections, you need to sign up for an account. Once you've signed up, you need to configure loophole with the authtoken."
+    },
+    {
+      "url": "https://loophole.cloud/login",
+      "date": "2026-11-25",
+      "proved": "the login and signup pages answer HTTP 404, so the form could not be read",
+      "capture": "sha256:e029278752496e0584545ac87ac810d0e98ff33f11219fecfd0fc3f171af9469",
+      "quote": "Page Not Found"
+    },
+    {
+      "url": "https://loophole.cloud/docs/faq",
+      "date": "2026-11-25",
+      "proved": "no published limit on connections, requests or bandwidth",
+      "capture": "sha256:f70b047001cc629a5cc043f253b3493a5cb0b8fd3c476381c4f3f3c766bc39f7",
+      "quote": "We do not enforce any limitations on concurrent connections, number of requests or bandwidth."
+    },
+    {
+      "url": "https://loophole.cloud/docs/faq",
+      "date": "2026-11-25",
+      "proved": "the proxy carries http/https only",
+      "capture": "sha256:f70b047001cc629a5cc043f253b3493a5cb0b8fd3c476381c4f3f3c766bc39f7",
+      "quote": "Loophole currently supports http/https connections only."
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T17:26:44.696Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "A generous free service disqualified by protocol alone, which is the classic case the memo's tooling rule warns against confusing with a capacity judgement.",

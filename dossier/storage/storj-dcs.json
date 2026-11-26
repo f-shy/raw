@@ -22,7 +22,7 @@
     "stated": "no expiry of stored objects is stated; objects deleted before 30 days are billed for the rest of the 30 days, and accounts with a USD 0 balance at the end of a billing cycle and no active storage are suspended and then deleted",
     "days": null,
     "source_url": "https://www.storj.io/pricing",
-    "notes": "Extracted from published terms."
+    "notes": "In the Standard tier, objects have a minimum storage retention period of 30 days. If you delete an object before 30 days, the remaining GB-month is charged as an early deletion fee at the same rate. Customers using Object Mount with Storj Object Storage will be exempt from this charge."
   },
   "egress": {
     "terms": "metered: '$7/TB' on Standard, plus a '$5' monthly minimum invoice floor that 'is not a usage credit'.",
@@ -173,10 +173,31 @@
       "proved": "the sign-up page states the trial as upload and download of 25GB free for 30 days",
       "capture": "sha256:672fed52fb089a638011be54c29dab90411c92e63b927866644a47a2f763c5b2",
       "quote": "Upload and download 25GB free for 30 days."
+    },
+    {
+      "url": "https://www.storj.io/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page states a 30-day minimum storage retention on Standard and the early-deletion charge",
+      "capture": "sha256:e36516d3ea0357a5cbe3f816596cf5b54ecdb0a010bcba969568bd2441a76731",
+      "quote": "In the Standard tier, objects have a minimum storage retention period of 30 days. If you delete an object before 30 days, the remaining GB-month is charged as an early deletion fee at the same rate. Customers using Object Mount with Storj Object Storage will be exempt from this charge."
+    },
+    {
+      "url": "https://www.storj.io/pricing",
+      "date": "2026-11-25",
+      "proved": "Standard objects carry a 30-day minimum retention with an early-deletion fee and an Object Mount exemption",
+      "capture": "sha256:e36516d3ea0357a5cbe3f816596cf5b54ecdb0a010bcba969568bd2441a76731",
+      "quote": "In the Standard tier, objects have a minimum storage retention period of 30 days. If you delete an object before 30 days, the remaining GB-month is charged as an early deletion fee at the same rate. Customers using Object Mount with Storj Object Storage will be exempt from this charge."
+    },
+    {
+      "url": "https://storj.dev/dcs/api/s3/s3-compatibility",
+      "date": "2026-11-25",
+      "proved": "the S3 compatibility documentation states no maximum object size",
+      "capture": "sha256:7dbdb30297460285f152437625c535da525a3d7e55f985e9ae3ce7075b04f634",
+      "quote": "| Maximum object size | No limit |"
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-11-04T02:43:31.135Z",
+  "verified_at": "2026-11-25T19:55:26.955Z",
   "notes": "The Free Tier was discontinued in 2024: users had until March 31 to upgrade to a Pro Account; the trial is the only free access left.",
   "history": [],
   "extras": {

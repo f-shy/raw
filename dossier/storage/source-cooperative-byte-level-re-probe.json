@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://docs.source.coop/what-is-source",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The core-concepts page describes data products of hundreds of terabytes and a 100TB example; it states no per-object size cap."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://docs.source.coop/what-is-source",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The what-is-source page says all hosted data is available to the public and publishes no retention interval."
   },
   "egress": {
     "terms": "Free and unmetered in practice for the reader: anonymous GET with no credentials, Cloudflare in front, R2/Turbo-adjacent CDN headers. No egress meter appears anywhere in the docs.",
@@ -100,10 +100,45 @@
       "proved": "the data-proxy docs still state unauthenticated S3-compatible access",
       "capture": "sha256:d9c3defe66691a4fe79bd2223e453fdec3bebbf8c4a8c7e3f0fdf6c4abbf7bb9",
       "quote": "The Source Data Proxy provides S3-compatible access to all data hosted on Source Cooperative. You can access data through the proxy without authentication"
+    },
+    {
+      "url": "https://docs.source.coop/core-concepts",
+      "date": "2026-11-25",
+      "proved": "the docs describe data-product scale and state no per-object size cap",
+      "capture": "sha256:ac5f8bf014d0d1018d4c9cc09578178a8275ff267a6960b8eb3b0a2010fc7b75",
+      "quote": "While platforms like GitHub limit project size to around 5GB, Source data products can be hundreds of terabytes. For example, the RapidAI4EO dataset on Source is over 100TB."
+    },
+    {
+      "url": "https://docs.source.coop/core-concepts",
+      "date": "2026-11-25",
+      "proved": "the docs still give the data-product scale without a per-object cap",
+      "capture": "sha256:ac5f8bf014d0d1018d4c9cc09578178a8275ff267a6960b8eb3b0a2010fc7b75",
+      "quote": "While platforms like GitHub limit project size to around 5GB, Source data products can be hundreds of terabytes. For example, the RapidAI4EO dataset on Source is over 100TB."
+    },
+    {
+      "url": "https://docs.source.coop/what-is-source",
+      "date": "2026-11-25",
+      "proved": "the docs state public availability of hosted data and give no retention interval",
+      "capture": "sha256:c8cbda942db7385cb1a331b0fcfbe44ca6c2fd67927277d45ea41701a151a9ac",
+      "quote": "Source is currently in beta. While all data hosted in Source is available to the public, publishing data requires applying to be a beta tester."
+    },
+    {
+      "url": "https://docs.source.coop/what-is-source",
+      "date": "2026-11-25",
+      "proved": "the docs still state public availability and beta-gated publishing",
+      "capture": "sha256:c8cbda942db7385cb1a331b0fcfbe44ca6c2fd67927277d45ea41701a151a9ac",
+      "quote": "Source is currently in beta. While all data hosted in Source is available to the public, publishing data requires applying to be a beta tester."
+    },
+    {
+      "url": "https://docs.source.coop/data-proxy",
+      "date": "2026-11-25",
+      "proved": "the data proxy is documented as S3-compatible and unauthenticated for reads",
+      "capture": "sha256:d9c3defe66691a4fe79bd2223e453fdec3bebbf8c4a8c7e3f0fdf6c4abbf7bb9",
+      "quote": "The Source Data Proxy provides S3-compatible access to all data hosted on Source Cooperative. You can access data through the proxy without authentication, making it easy to programmatically download datasets using standard AWS CLI commands."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:15:21.397Z",
+  "verified_at": "2026-11-25T19:55:21.393Z",
   "notes": "No published byte quota. The platform documents hosting over 5 petabytes of data across 330+ products from 130+ organizations, serving approximately 700 TB per month for public data publishing. Documentation specifies no per-product, per-account, or per-file cap.",
   "history": [],
   "extras": {

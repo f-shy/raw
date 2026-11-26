@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://advinservers.com/vps",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: the direct storage product URL answered HTTP 404 on 2026-11-25; the cited page serves a generic Cloud VPS table with no per-object cap clause."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://advinservers.com/vps",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: the cited page shows a generic Cloud VPS plan table with no file retention clause; the direct storage product URL answered HTTP 404."
   },
   "egress": {
     "terms": "Bundled bandwidth without published overage schedule: 8 TB, 16 TB, 32 TB, and 48 TB per month across tiers. The 20 TB tier provides 48 TB of transfer.",
@@ -93,6 +93,13 @@
       "proved": "the cited URL still serves the generic Standard Cloud page, not the Storage 1-4 plan table",
       "capture": "sha256:9ebddfa47f1a7e0c5628199954d7b3f5010cef692b92add993c9fa7354e10f81",
       "quote": "High performance cloud compute, powered by KVM. No contract, billed by the hour."
+    },
+    {
+      "url": "probe:https://advinservers.com/vps/storage-1",
+      "date": "2026-11-25",
+      "proved": "the direct storage product URL answered HTTP 404",
+      "capture": "sha256:25466c5043f150001f3207b606dec26f36f2b08de5785b38621361e0bf110fdd",
+      "quote": "\"status\": 404"
     }
   ],
   "verdict": "qualifies-with-caveat",

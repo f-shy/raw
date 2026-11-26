@@ -5,11 +5,11 @@
   "url": "https://yun.139.com",
   "category": "carrier cloud",
   "free_tier": {
-    "stated": "1,000 GB (1 TB) free per the Wikipedia table, with 20 GB the base grant and 1 TB or 2 TB obtained through carrier promotions. Membership promos are cited at 8 TB",
-    "unit": "TiB",
+    "stated": "20G initial space, with 1T, 2T and larger capacities claimable through campaigns",
+    "unit": "GB",
     "metered_on": "stored-bytes",
-    "source_url": "https://zh.wikipedia.org/zh-cn/中国大陆网盘列表",
-    "read_on": "2026-10-21"
+    "source_url": "https://yun.139.com/intro/",
+    "read_on": "2026-11-25"
   },
   "per_object_cap": {
     "stated": "Varies by tier; single-file and upload caps are not published as one number",
@@ -22,7 +22,7 @@
     "source_url": "https://yun.139.com/intro/"
   },
   "egress": {
-    "terms": "2. 不限速：上传下载不限速，支持5G网络环境下高速传输。",
+    "terms": "Upload and download are stated as not rate-limited: '不限速：上传下载不限速'",
     "metered": false,
     "free_allowance": "unlimited on net",
     "price_per_tb": null,
@@ -82,20 +82,6 @@
     {
       "url": "https://yun.139.com/intro/",
       "date": "2026-11-03",
-      "proved": "the vendor page still states a 20G base space with 1T and 2T larger grants through campaigns",
-      "capture": "sha256:b75183a9c12d8148de4b862c5d8110bf81fe4bc966cdc5bc439c4191cbf5102c",
-      "quote": "初始空间20G且用户可直接通过丰富的网盘活动，轻松领取1T、2T等更大容量的空间"
-    },
-    {
-      "url": "https://yun.139.com/intro/",
-      "date": "2026-11-03",
-      "proved": "the vendor page still states upload and download are not rate-limited",
-      "capture": "sha256:b75183a9c12d8148de4b862c5d8110bf81fe4bc966cdc5bc439c4191cbf5102c",
-      "quote": "不限速：上传下载不限速，支持5G网络环境下高速传输。"
-    },
-    {
-      "url": "https://yun.139.com/intro/",
-      "date": "2026-11-03",
       "proved": "the 尊享云计划 membership still lists an extra 8T of space",
       "capture": "sha256:b75183a9c12d8148de4b862c5d8110bf81fe4bc966cdc5bc439c4191cbf5102c",
       "quote": "额外8T超大空间"
@@ -127,6 +113,27 @@
       "proved": "the share page answers 200 with a 4,541-byte SPA shell titled as a share page and carries no data",
       "capture": "sha256:391aeea336ee8a4694fad765bad0dcf7ae7530662baf7304313c7ca0b239e5a3",
       "quote": "<title>中国移动云盘分享</title>"
+    },
+    {
+      "url": "https://yun.139.com/intro/",
+      "date": "2026-11-25",
+      "proved": "the vendor page states a 20G initial space and 1T/2T grants through campaigns",
+      "capture": "sha256:b75183a9c12d8148de4b862c5d8110bf81fe4bc966cdc5bc439c4191cbf5102c",
+      "quote": "初始空间20G且用户可直接通过丰富的网盘活动，轻松领取1T、2T等更大容量的空间"
+    },
+    {
+      "url": "https://yun.139.com/intro/",
+      "date": "2026-11-25",
+      "proved": "the vendor page states upload and download are not rate-limited",
+      "capture": "sha256:b75183a9c12d8148de4b862c5d8110bf81fe4bc966cdc5bc439c4191cbf5102c",
+      "quote": "不限速：上传下载不限速，支持5G网络环境下高速传输。"
+    },
+    {
+      "url": "https://yun.139.com/intro/",
+      "date": "2026-11-25",
+      "proved": "China Mobile subscribers who take the cloud membership get zero-rated traffic when using the cloud",
+      "capture": "sha256:b75183a9c12d8148de4b862c5d8110bf81fe4bc966cdc5bc439c4191cbf5102c",
+      "quote": "会员免流量：中国移动用户开通中国移动云盘会员，可畅享超大容量定向免流，使用中国移动云盘无惧流量消耗。"
     },
     {
       "url": "https://yun.139.com/intro/",

@@ -48,10 +48,15 @@
       "kind": "per-ip-shaping",
       "value": "free server is capped at 20 players at once",
       "source": "https://turtleguard.cloud/en/tcp-udp"
+    },
+    {
+      "kind": "write-gated",
+      "value": "the paid Other TCP and Other UDP lines are sold as 'Not for VPNs or proxies', so a WireGuard use is outside both",
+      "source": "https://turtleguard.cloud/en/tcp-udp"
     }
   ],
   "limits_note": "",
-  "binding": "none",
+  "binding": "write-gated",
   "binding_note": "The free entitlement is one Java server with no stated byte counter, and UDP is a paid line item, so nothing free reaches a 1 TiB/month quota. The paid 'Other UDP' line is explicitly 'Not for VPNs or proxies', which is the relevant limit for a WireGuard use.",
   "identity_cost": {
     "kind": "email",
@@ -71,10 +76,31 @@
       "url": "https://turtleguard.cloud/en/tcp-udp",
       "date": "2026-10-23",
       "proved": "Any TCP or UDP and Bedrock are sold from USD 5-7 per month; 'Other UDP' is 'Packet and flow limits per address. Not for VPNs or proxies.'"
+    },
+    {
+      "url": "https://turtleguard.cloud/en/tcp-udp",
+      "date": "2026-11-25",
+      "proved": "the Other UDP line excludes VPN and proxy traffic",
+      "capture": "sha256:df2946fe318767fe4533b6baf5e65191b7ee916b12c05c0fe0f3ffce654ff051",
+      "quote": "Packet and flow limits per address. Not for VPNs or proxies."
+    },
+    {
+      "url": "https://turtleguard.cloud/en/tcp-udp",
+      "date": "2026-11-25",
+      "proved": "the free server is one Minecraft Java server with a 20-player cap",
+      "capture": "sha256:df2946fe318767fe4533b6baf5e65191b7ee916b12c05c0fe0f3ffce654ff051",
+      "quote": "The first Minecraft Java server on the default worldwide region is free: up to 20 players at once."
+    },
+    {
+      "url": "https://turtleguard.cloud/en/tcp-udp",
+      "date": "2026-11-25",
+      "proved": "free is one Java server on the Start plan",
+      "capture": "sha256:df2946fe318767fe4533b6baf5e65191b7ee916b12c05c0fe0f3ffce654ff051",
+      "quote": "One Minecraft Java server in the default worldwide region on the Start plan: up to 20 players at once, no charges."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:49.813Z",
   "price_per_tb_month": "USD 0 for one Java server; USD 5-7 per month for Bedrock or other UDP",
   "history": [],
   "notes": "DDoS protection proxy for Minecraft servers. Free tier provides TCP protection for up to 20 players; UDP port forwarding requires paid tiers.",

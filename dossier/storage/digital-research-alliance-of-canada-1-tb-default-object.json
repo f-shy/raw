@@ -15,16 +15,16 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://docs.alliancecan.ca/wiki/Arbutus_object_storage",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "No per-object byte ceiling stated; objects are managed as whole units and cannot be edited in place."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "The object store itself is not backed up; backups are self-service.",
     "source_url": "https://docs.alliancecan.ca/wiki/Arbutus_object_storage",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The object store itself is not backed up; container management including backups is self-service."
   },
   "egress": {
     "terms": "Unmetered egress. OpenStack Swift and S3 interfaces serve objects over HTTPS, and buckets can be configured for public read access.",
-    "metered": true
+    "metered": false
   },
   "interface": [
     "s3",
@@ -105,10 +105,52 @@
       "proved": "the page states that object-storage management is self-service and that the object store itself is not backed up",
       "capture": "sha256:4e222b4f96934bfade9ba38483152ef5a2744d1d8f721d7e4b4fec7cc0d4b8d2",
       "quote": "management of a project's object storage containers is self-service. This includes operations such as [backups](https://docs.alliancecan.ca/wiki/Backing_up_your_VM \"Backing up your VM\") because the object store itself is not backed up."
+    },
+    {
+      "url": "https://docs.alliancecan.ca/wiki/Arbutus_object_storage",
+      "date": "2026-11-25",
+      "proved": "Arbutus object storage manages each object as a whole with no per-object size ceiling stated.",
+      "capture": "sha256:4e222b4f96934bfade9ba38483152ef5a2744d1d8f721d7e4b4fec7cc0d4b8d2",
+      "quote": "Unlike other storage types, a unit of data or _object_ is managed as a whole, and the information within it cannot be modified in place."
+    },
+    {
+      "url": "https://docs.alliancecan.ca/wiki/Arbutus_object_storage",
+      "date": "2026-11-25",
+      "proved": "Arbutus object store has no service backups; backup is the project's responsibility.",
+      "capture": "sha256:4e222b4f96934bfade9ba38483152ef5a2744d1d8f721d7e4b4fec7cc0d4b8d2",
+      "quote": "management of a project's object storage containers is self-service. This includes operations such as [backups](https://docs.alliancecan.ca/wiki/Backing_up_your_VM \"Backing up your VM\") because the object store itself is not backed up."
+    },
+    {
+      "url": "https://docs.alliancecan.ca/wiki/Arbutus_object_storage",
+      "date": "2026-11-25",
+      "proved": "Arbutus states no service backup of the object store.",
+      "capture": "sha256:4e222b4f96934bfade9ba38483152ef5a2744d1d8f721d7e4b4fec7cc0d4b8d2",
+      "quote": "management of a project's object storage containers is self-service. This includes operations such as [backups](https://docs.alliancecan.ca/wiki/Backing_up_your_VM \"Backing up your VM\") because the object store itself is not backed up."
+    },
+    {
+      "url": "https://docs.alliancecan.ca/wiki/Arbutus_object_storage",
+      "date": "2026-11-25",
+      "proved": "The default 1 TB object-storage allocation is unchanged.",
+      "capture": "sha256:4e222b4f96934bfade9ba38483152ef5a2744d1d8f721d7e4b4fec7cc0d4b8d2",
+      "quote": "All Arbutus projects are allocated a default 1TB of object storage."
+    },
+    {
+      "url": "https://docs.alliancecan.ca/wiki/Arbutus_object_storage",
+      "date": "2026-11-25",
+      "proved": "Arbutus exposes Swift and S3 protocols.",
+      "capture": "sha256:4e222b4f96934bfade9ba38483152ef5a2744d1d8f721d7e4b4fec7cc0d4b8d2",
+      "quote": "We offer access to the OpenStack Object Store via two different protocols: Swift or Amazon Simple Storage Service (S3)."
+    },
+    {
+      "url": "https://docs.alliancecan.ca/wiki/Arbutus_object_storage",
+      "date": "2026-11-25",
+      "proved": "A public Arbutus container is readable over HTTPS without credentials.",
+      "capture": "sha256:4e222b4f96934bfade9ba38483152ef5a2744d1d8f721d7e4b4fec7cc0d4b8d2",
+      "quote": "If you create a new container as **Public**, anyone on the internet can read its contents by simply navigating to"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:13.389Z",
+  "verified_at": "2026-11-25T04:14:20.835Z",
   "notes": "'All Arbutus projects are allocated a default 1TB of object storage. If more is required, you can either request an additional 9TB available through our Rapid Access Service. More than 10TB must be requested and allocated under the annual Resource Allocation Competition.' The RAS policy adds: PIs 'can request additional storage resources in any General Purpose cluster without submitting a RAC application, up to a maximum of 40 TB of project storage and 100 TB of nearline storage', with the total across all clusters capped at those numbers.",
   "history": [],
   "extras": {

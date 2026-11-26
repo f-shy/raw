@@ -1,171 +1,222 @@
 {
-  "topic": "compute",
-  "slug": "kubi",
-  "provider": "Kubi",
-  "url": "https://trykubi.com/pricing",
-  "category": "cloud desktop",
-  "tier": "Persistent (founding price)",
-  "free_tier": {
-    "stated": "There is no free tier: disposable screens run on prepaid credit from $10, and $5 of credit for disposable screens is granted when a card is added, about 140 hours. A persistent screen is $20 a month at the founding price, or $0.035 an hour while a disposable screen runs.",
-    "unit": "none",
-    "metered_on": "wall-clock",
-    "source_url": "https://trykubi.com/pricing",
-    "read_on": "2026-11-24",
-    "notes": "The $5 of credit for disposable screens is conditional on adding a card; the pricing page calls it a trial credit and says it is about 140 hours. The persistent price of $20 a screen a month is a founding price, kept while the subscriber stays, against a $25 list price; yearly is $200 for 12 months. Each screen is 4 vCPU, 8 GB RAM and 50 GB disk."
+ "topic": "compute",
+ "slug": "kubi",
+ "provider": "Kubi",
+ "url": "https://trykubi.com/pricing",
+ "category": "cloud desktop sandbox",
+ "tier": "Persistent screen / disposable screen",
+ "free_tier": {
+  "stated": "no free tier: a persistent screen is USD 20 a month at the founding price, USD 25 list, and a disposable screen is USD 0.035 an hour from prepaid credit starting at USD 10; USD 5 of credit for disposable screens is given when a card is added",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://trykubi.com/pricing",
+  "read_on": "2026-11-25",
+  "notes": "The USD 5 card credit is a one-time card-gated amount, not a standing free tier."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a VM with a disk, not an object; each screen has a 50 GB disk",
+  "bytes": null,
+  "source_url": "https://trykubi.com/pricing",
+  "notes": "Snapshots are 3 per screen, up to 50 GB of changes."
+ },
+ "retention": {
+  "stated": "a persistent screen runs until stopped or deleted and keeps its disk when stopped; a stopped disposable screen is deleted after 7 days unless started again; each call and its screenshot are kept for 30 days",
+  "days": null,
+  "source_url": "https://trykubi.com/pricing"
+ },
+ "egress": {
+  "terms": "all screen traffic leaves through the user's own proxy; if it fails the screen goes offline instead of using the Kubi network; no egress price or allowance is published on the pages read",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://trykubi.com/"
+ },
+ "interface": [
+  "rest",
+  "chat",
+  "browser"
+ ],
+ "interface_detail": "An API, a TypeScript SDK and a hosted MCP server; screen control by pixels or accessibility tree, root and Tailscale SSH, and a live dashboard view",
+ "tooling": "a hosted MCP server for Claude Code, Codex and Cursor, a TypeScript SDK and a plain HTTP and JSON API; bring your own model",
+ "chaining": "a hosted Linux cloud desktop for computer-use agents, with the browser logins and open apps kept between sessions; it runs on a private VM with its own proxy",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "a disposable screen bills USD 0.035 an hour by the minute from prepaid credit, USD 0.003 an hour stopped, with a USD 10 minimum top-up",
+   "source": "https://trykubi.com/pricing"
   },
-  "per_object_cap": {
-    "stated": "file upload or download is capped at 64 MiB; a screen has a 50 GB disk; templates are 5 per organization and snapshots 3 per screen, up to 50 GB of changes",
-    "bytes": 67108864,
-    "source_url": "https://docs.trykubi.com/reference/limits",
-    "notes": "The 64 MiB figure is the single file transfer cap. The 50 GB figure is the screen's disk, not a per-object limit."
+  {
+   "kind": "volume-quota",
+   "value": "a persistent screen is USD 20 a month running or stopped at the founding price, USD 25 list, with one subscription per organization and a screen cap per organization",
+   "source": "https://trykubi.com/pricing"
   },
-  "retention": {
-    "stated": "every call on a screen is kept in its history for 30 days; a stopped disposable screen is deleted after 7 days; recovery copies of screen disks are kept 7 nights and are not a backup service",
-    "days": 30,
-    "source_url": "https://trykubi.com/legal/terms"
-  },
-  "egress": {
-    "terms": "exports and switching are free, including their data transfer, and a screen's whole disk can be exported at any time as one qcow2 image convertible to raw or VMDK; outbound traffic for a screen goes through the user's own proxy and fails closed when that proxy is down, while inbound connections are refused and ports expose only HTTP and WebSocket behind a token or secret link",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://trykubi.com/legal/terms"
-  },
-  "interface": [
-    "rest",
-    "cli",
-    "chat",
-    "browser"
-  ],
-  "interface_detail": "A screen is driven through a REST API with plain HTTP and JSON and a Bearer API key, a TypeScript SDK, a hosted MCP server at https://mcp.trykubi.com, and a dashboard with live view and Take control. Ports give a service inside a screen its own HTTPS URL on trykubi.dev behind a token or link.",
-  "endpoint": "https://api.trykubi.com/v1/",
-  "tooling": "npm install @trykubi/sdk, curl against the REST API, or an MCP connection from Claude Code, Claude Desktop, Codex, Cursor or VS Code; a Python SDK generated from the same spec comes later. Files move through the API, the SDK or exec, up to 64 MiB each.",
-  "chaining": "A persistent Linux desktop with browser logins and root access gives a computer-use agent a stable address, while the user's own proxy carries all screen traffic and an exported qcow2 disk moves the work to another provider.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "$20 a screen a month at the founding price, or $200 a year for 12 months; $0.035 an hour while a disposable screen runs, from prepaid credit of $10 to $500",
-      "source": "https://trykubi.com/pricing"
-    },
-    {
-      "kind": "request-rate",
-      "value": "60 requests a minute per key for each screen, at least 300; 2 screenshots a second per screen; 10 other calls a second per screen; 300 requests a second through ports, bursting to 2,000",
-      "source": "https://docs.trykubi.com/reference/limits"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "64 MiB per file upload or download; 3 open ports per screen included in the price",
-      "source": "https://docs.trykubi.com/reference/limits"
-    }
-  ],
-  "limits_note": "Each organization has one screen cap across persistent and disposable screens, so a runaway agent cannot exceed it; creating one past the cap gives 402 QUOTA_EXCEEDED. Disposable screens stop when credit runs out, persistent screens never do. Screens have no public inbound connection; ports carry HTTP and WebSocket only, not raw TCP. There is no GPU and no Windows or macOS.",
-  "binding": "volume-quota",
-  "binding_note": "The prepaid credit and flat monthly screen price are the first constraint: disposable screens stop when the credit is spent and persistent screens bill monthly whether running or stopped, before the per-key request rate or 64 MiB file cap is reached.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The terms say 'Anyone can sign up and start using Kubi at once' and '3.3 You sign in with a link sent to your email, with GitHub or Google, or with a passkey'; section 3.4 adds that the provider may ask the user to verify identity or payment method. A card is needed for the $5 trial credit and to buy a persistent screen through Stripe. No phone number, ID document or institution is stated as a sign-up requirement. The user must be at least 18 and the service is for business use only.",
-    "country": null
-  },
-  "reliability_note": "Kubi promises no uptime; screens are credited for a fault over 4 hours if claimed within 30 days, and the agreement disclaims that websites will accept traffic from screen IP addresses. A card that declines or needs 3-D Secure fails a screen create with PAYMENT_REQUIRED; a port request over its limit gets 429 RATE_LIMITED with Retry-After.",
-  "confidence": "documented",
-  "confidence_note": "The $20 founding price, $0.035 hourly rate, $10 minimum top-up, no-free-tier statement, $5 card credit, 4 vCPU/8 GB/50 GB shape and free disk export are quoted from Kubi's own pricing page read on 2026-11-24; the sign-in methods, free data-transfer export and 30-day history are quoted from its terms; the 64 MiB and request-rate figures are quoted from its limits reference.",
-  "evidence": [
-    {
-      "url": "https://trykubi.com/pricing",
-      "date": "2026-11-24",
-      "proved": "a persistent screen is $20 a month at the founding price",
-      "capture": "sha256:0fceb7774aa8dfa28714938c1fa3b25e8ec3c756a52b3c78646ca4001019f354",
-      "quote": "$20a screen a month"
-    },
-    {
-      "url": "https://trykubi.com/pricing",
-      "date": "2026-11-24",
-      "proved": "a disposable screen is $0.035 an hour while running",
-      "capture": "sha256:0fceb7774aa8dfa28714938c1fa3b25e8ec3c756a52b3c78646ca4001019f354",
-      "quote": "$0.035an hour while running"
-    },
-    {
-      "url": "https://trykubi.com/pricing",
-      "date": "2026-11-24",
-      "proved": "there is no free tier and disposable credit starts at $10 for about 285 running hours",
-      "capture": "sha256:0fceb7774aa8dfa28714938c1fa3b25e8ec3c756a52b3c78646ca4001019f354",
-      "quote": "No. Disposable screens run on prepaid credit from $10, about 285 hours of a running disposable screen."
-    },
-    {
-      "url": "https://trykubi.com/pricing",
-      "date": "2026-11-24",
-      "proved": "each screen has 4 vCPU, 8 GB of memory and a 50 GB disk in its own VM",
-      "capture": "sha256:0fceb7774aa8dfa28714938c1fa3b25e8ec3c756a52b3c78646ca4001019f354",
-      "quote": "4 vCPU, 8 GB of memory, 50 GB disk, its own virtual machine"
-    },
-    {
-      "url": "https://trykubi.com/",
-      "date": "2026-11-24",
-      "proved": "$5 of credit for disposable screens is granted when a card is added, about 140 hours",
-      "capture": "sha256:9061d76cf38b1c06e4b8eba357612751b4db62c621112932b096bf73cc685ac1",
-      "quote": "$5 of credit for disposable screens when you add a card, about 140 hours."
-    },
-    {
-      "url": "https://trykubi.com/legal/terms",
-      "date": "2026-11-24",
-      "proved": "sign-in uses an emailed link, GitHub, Google or a passkey, and anyone can sign up at once",
-      "capture": "sha256:2fda537d68f0a149a9c323b3bd581e174bdc97457fe96489eb35df5760457bab",
-      "quote": "3.3 You sign in with a link sent to your email, with GitHub or Google, or with a passkey."
-    },
-    {
-      "url": "https://trykubi.com/legal/terms",
-      "date": "2026-11-24",
-      "proved": "exports and switching, including their data transfer, are free",
-      "capture": "sha256:2fda537d68f0a149a9c323b3bd581e174bdc97457fe96489eb35df5760457bab",
-      "quote": "12.5 Exports and switching are free, including their data transfer, and there are no early termination fees."
-    },
-    {
-      "url": "https://docs.trykubi.com/reference/limits",
-      "date": "2026-11-24",
-      "proved": "file upload or download is capped at 64 MiB",
-      "capture": "sha256:7e167c5a64590e1b79ba44a5b27b83bc3b78b83ec6b3444e3ce68d8cae4cd63c",
-      "quote": "File upload or download | 64 MiB"
-    },
-    {
-      "url": "https://docs.trykubi.com/reference/limits",
-      "date": "2026-11-24",
-      "proved": "requests are limited to 60 a minute per key for each screen, at least 300",
-      "capture": "sha256:7e167c5a64590e1b79ba44a5b27b83bc3b78b83ec6b3444e3ce68d8cae4cd63c",
-      "quote": "Requests per key | 60 a minute for each screen in your organization, at least 300"
-    },
-    {
-      "url": "https://docs.trykubi.com/guides/ports",
-      "date": "2026-11-24",
-      "proved": "a screen makes no inbound connections and ports carry HTTP and WebSocket only",
-      "capture": "sha256:d9ca4f1ea8ca08812e6be585c9e6930b363a6dffcf6ae25aa89b442ce6ba6dd4",
-      "quote": "A screen makes no connections inbound: nothing on the internet can reach it directly."
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T10:11:14.863Z",
-  "price_per_tb_month": null,
-  "notes": "Hosted persistent Linux desktop for computer-use agents, at $20 a screen a month on the founding price or $0.035 an hour for a disposable screen. There is no free tier: the $5 of credit for disposable screens requires adding a card. Egress is free including data transfer and disk export, while inbound connections are refused and ports are limited to HTTP and WebSocket.",
-  "extras": {
-    "shape": {
-      "vcpu": 4,
-      "ram_gib": 8,
-      "disk_gib": 50,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "4 vCPU, 8 GB RAM, 50 GB disk, Debian 13 desktop with Chromium and Firefox in its own VM; no GPU and no Windows or macOS"
-    },
-    "billing_model": "monthly or yearly persistent subscription, or prepaid hourly disposable credit",
-    "free_tier_kind": "none-with-card-credit",
-    "term": "monthly or yearly; disposable credit never expires",
-    "price_arithmetic": "$20 a month founding price against $25 list, or $200 a year; $0.035 an hour disposable",
-    "status": "private beta with founding price; no waitlist and no approval",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": false,
-      "ports": "3 per screen, HTTP and WebSocket only, behind a token or secret link",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    }
+  {
+   "kind": "per-object-cap",
+   "value": "each screen has 4 vCPU, 8 GB of memory and a 50 GB disk; 5 templates per organization and 3 snapshots per screen",
+   "source": "https://trykubi.com/pricing"
   }
+ ],
+ "limits_note": "Private beta with early access sign-up and no waitlist or approval; no Windows, macOS or GPU; AI models are not included.",
+ "binding": "volume-quota",
+ "binding_note": "The USD 20 monthly subscription price, or the USD 10 prepaid credit minimum for a disposable screen, is what a reader must pay before any sandbox time is available.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "the hosted sign-up page offers Google, GitHub, passkey or email magic-link sign-in; the vendor states there is no waitlist and no approval at sign-up. A card is required for the USD 5 disposable-screen credit and for a persistent subscription through Stripe; no phone number or ID document is stated",
+  "country": null
+ },
+ "reliability_note": "a persistent screen has no idle timeout and keeps its disk when stopped; a failed proxy leaves the screen with no internet; all traffic is recorded for 30 days",
+ "confidence": "documented",
+ "confidence_note": "the vendor's home and pricing pages were read on 2026-11-25; the sign-in methods are from the hosted console's own sign-in JavaScript, and the free-tier statement from the pricing FAQ",
+ "evidence": [
+  {
+   "url": "https://trykubi.com/pricing",
+   "date": "2026-11-25",
+   "proved": "a persistent screen is USD 20 a month at the founding price, USD 25 list, and a disposable screen is USD 0.035 an hour by the minute from prepaid credit, USD 0.003 an hour stopped",
+   "capture": "sha256:0fceb7774aa8dfa28714938c1fa3b25e8ec3c756a52b3c78646ca4001019f354",
+   "quote": "Disposable\n\n$0.035an hour while running\n\nCharged by the minute from prepaid credit. $0.003 an hour stopped."
+  },
+  {
+   "url": "https://trykubi.com/pricing",
+   "date": "2026-11-25",
+   "proved": "each screen has 4 vCPU, 8 GB of memory and a 50 GB disk, and the API, TypeScript SDK and hosted MCP server are included",
+   "capture": "sha256:0fceb7774aa8dfa28714938c1fa3b25e8ec3c756a52b3c78646ca4001019f354",
+   "quote": "4 vCPU, 8 GB of memory, 50 GB disk, its own virtual machine"
+  },
+  {
+   "url": "https://trykubi.com/pricing",
+   "date": "2026-11-25",
+   "proved": "there is no free tier and disposable screens run on prepaid credit from USD 10",
+   "capture": "sha256:0fceb7774aa8dfa28714938c1fa3b25e8ec3c756a52b3c78646ca4001019f354",
+   "quote": "No. Disposable screens run on prepaid credit from $10, about 285 hours of a running disposable screen."
+  },
+  {
+   "url": "https://trykubi.com/",
+   "date": "2026-11-25",
+   "proved": "the vendor gives USD 5 of credit for disposable screens when a card is added, and states there is no waitlist or approval at sign-up",
+   "capture": "sha256:9061d76cf38b1c06e4b8eba357612751b4db62c621112932b096bf73cc685ac1",
+   "quote": "$5 of credit for disposable screens when you add a card, about 140 hours."
+  },
+  {
+   "url": "https://trykubi.com/",
+   "date": "2026-11-25",
+   "proved": "all screen traffic leaves through the user's own proxy and a failed proxy leaves the screen offline",
+   "capture": "sha256:9061d76cf38b1c06e4b8eba357612751b4db62c621112932b096bf73cc685ac1",
+   "quote": "All of a screen's traffic leaves through your own proxy, not just the browser. If it fails, the screen goes offline instead of using Kubi's network."
+  },
+  {
+   "url": "https://docs.trykubi.com/",
+   "date": "2026-11-25",
+   "proved": "an agent reaches a screen through an MCP connection, a TypeScript SDK quickstart or a plain HTTP and JSON API",
+   "capture": "sha256:d43cdb53c4877d76acde32ca9cd4bc839116204d5eed43ea45666205adad7563",
+   "quote": "| Any language | [API reference](https://docs.trykubi.com/api) | Plain HTTP and JSON, `curl` works |"
+  },
+  {
+   "url": "https://paste.ajam.dev/raw/WCLUsa",
+   "date": "2026-11-25",
+   "proved": "the operator's list prices Kubi at USD 0.035 per hour billed per minute, a reported rate about a third party and not a reading of the vendor's own page",
+   "capture": "sha256:4d220f8008ed2a6126e4b7f8bc4639bd9e625605ec428846fde2bdf593cc5c95",
+   "quote": "27. Kubi → $0.035/h · billed per minute"
+  },
+  {
+   "url": "https://trykubi.com/pricing",
+   "date": "2026-11-24",
+   "proved": "a persistent screen is $20 a month at the founding price",
+   "capture": "sha256:0fceb7774aa8dfa28714938c1fa3b25e8ec3c756a52b3c78646ca4001019f354",
+   "quote": "$20a screen a month"
+  },
+  {
+   "url": "https://trykubi.com/pricing",
+   "date": "2026-11-24",
+   "proved": "a disposable screen is $0.035 an hour while running",
+   "capture": "sha256:0fceb7774aa8dfa28714938c1fa3b25e8ec3c756a52b3c78646ca4001019f354",
+   "quote": "$0.035an hour while running"
+  },
+  {
+   "url": "https://trykubi.com/pricing",
+   "date": "2026-11-24",
+   "proved": "there is no free tier and disposable credit starts at $10 for about 285 running hours",
+   "capture": "sha256:0fceb7774aa8dfa28714938c1fa3b25e8ec3c756a52b3c78646ca4001019f354",
+   "quote": "No. Disposable screens run on prepaid credit from $10, about 285 hours of a running disposable screen."
+  },
+  {
+   "url": "https://trykubi.com/pricing",
+   "date": "2026-11-24",
+   "proved": "each screen has 4 vCPU, 8 GB of memory and a 50 GB disk in its own VM",
+   "capture": "sha256:0fceb7774aa8dfa28714938c1fa3b25e8ec3c756a52b3c78646ca4001019f354",
+   "quote": "4 vCPU, 8 GB of memory, 50 GB disk, its own virtual machine"
+  },
+  {
+   "url": "https://trykubi.com/",
+   "date": "2026-11-24",
+   "proved": "$5 of credit for disposable screens is granted when a card is added, about 140 hours",
+   "capture": "sha256:9061d76cf38b1c06e4b8eba357612751b4db62c621112932b096bf73cc685ac1",
+   "quote": "$5 of credit for disposable screens when you add a card, about 140 hours."
+  },
+  {
+   "url": "https://trykubi.com/legal/terms",
+   "date": "2026-11-24",
+   "proved": "sign-in uses an emailed link, GitHub, Google or a passkey, and anyone can sign up at once",
+   "capture": "sha256:2fda537d68f0a149a9c323b3bd581e174bdc97457fe96489eb35df5760457bab",
+   "quote": "3.3 You sign in with a link sent to your email, with GitHub or Google, or with a passkey."
+  },
+  {
+   "url": "https://trykubi.com/legal/terms",
+   "date": "2026-11-24",
+   "proved": "exports and switching, including their data transfer, are free",
+   "capture": "sha256:2fda537d68f0a149a9c323b3bd581e174bdc97457fe96489eb35df5760457bab",
+   "quote": "12.5 Exports and switching are free, including their data transfer, and there are no early termination fees."
+  },
+  {
+   "url": "https://docs.trykubi.com/reference/limits",
+   "date": "2026-11-24",
+   "proved": "file upload or download is capped at 64 MiB",
+   "capture": "sha256:7e167c5a64590e1b79ba44a5b27b83bc3b78b83ec6b3444e3ce68d8cae4cd63c",
+   "quote": "File upload or download | 64 MiB"
+  },
+  {
+   "url": "https://docs.trykubi.com/reference/limits",
+   "date": "2026-11-24",
+   "proved": "requests are limited to 60 a minute per key for each screen, at least 300",
+   "capture": "sha256:7e167c5a64590e1b79ba44a5b27b83bc3b78b83ec6b3444e3ce68d8cae4cd63c",
+   "quote": "Requests per key | 60 a minute for each screen in your organization, at least 300"
+  },
+  {
+   "url": "https://docs.trykubi.com/guides/ports",
+   "date": "2026-11-24",
+   "proved": "a screen makes no inbound connections and ports carry HTTP and WebSocket only",
+   "capture": "sha256:d9ca4f1ea8ca08812e6be585c9e6930b363a6dffcf6ae25aa89b442ce6ba6dd4",
+   "quote": "A screen makes no connections inbound: nothing on the internet can reach it directly."
+  },
+  {
+   "url": "https://trykubi.com/legal/terms",
+   "date": "2026-11-25",
+   "proved": "the first-party terms name an emailed sign-in link as one sign-in route, so email is a stated sign-up identity",
+   "capture": "sha256:2fda537d68f0a149a9c323b3bd581e174bdc97457fe96489eb35df5760457bab",
+   "quote": "3.3 You sign in with a link sent to your email, with GitHub or Google, or with a passkey."
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T16:38:11.396Z",
+ "price_per_tb_month": null,
+ "notes": "This is a hosted cloud desktop that a computer-use agent drives, not a general code sandbox: the vendor states explicitly that a screen is not a sandbox and is priced to stay on. The operator's list USD 0.035 per hour matches the vendor's disposable-screen rate.",
+ "extras": {
+  "shape": {
+   "vcpu": 4,
+   "ram_gib": 8,
+   "disk_gib": 50,
+   "gpu_class": null,
+   "gpu_count": null
+  },
+  "billing_model": "monthly subscription for a persistent screen, or by-the-minute prepaid credit for a disposable screen",
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "a persistent screen has no idle timeout; a stopped disposable screen is deleted after 7 days"
+  },
+  "free_tier_kind": "card-gated one-time credit",
+  "term": "monthly or prepaid credit",
+  "source_scope": "the disposable-screen rate is the one that matches the operator's hourly list price"
+ },
+ "endpoint": "https://api.trykubi.com/v1/"
 }

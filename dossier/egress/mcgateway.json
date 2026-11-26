@@ -6,10 +6,10 @@
   "category": "Bedrock console gateway (Xbox Live friend bot)",
   "tier": "free",
   "free_tier": {
-    "stated": "The core MCGateway transfer service is free and is intended to remain free.",
+    "stated": "Joining servers through MCGateway is free. Donations and optional services for server owners are separate.",
     "unit": "none",
     "metered_on": "unstated",
-    "source_url": "https://mcgateway.net/",
+    "source_url": "https://mcgateway.net/faq",
     "read_on": "2026-10-23",
     "notes": ""
   },
@@ -26,7 +26,7 @@
     "notes": ""
   },
   "egress": {
-    "terms": "No byte allowance is published and none would apply: the service is a bot the player friends, not a port.; ingress: none",
+    "terms": "The join flow runs through a bot: add an access bot, join MCGateway Hub through the Friends tab, then choose the destination server.; ingress: none",
     "metered": false,
     "free_allowance": "none published",
     "price_per_tb": null,
@@ -71,10 +71,31 @@
       "url": "https://mcgateway.net/",
       "date": "2026-10-23",
       "proved": "'The core MCGateway transfer service is free and is intended to remain free.'"
+    },
+    {
+      "url": "https://mcgateway.net/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ states that joining servers is free and that donations and optional server-owner services are separate",
+      "capture": "sha256:d781db56ecbe6d699d17676dc82b025e937128c9e4c598a9390bb77dd93bffe2",
+      "quote": "Yes. Joining servers through MCGateway is free. Donations and optional services for server owners are separate."
+    },
+    {
+      "url": "https://mcgateway.net/faq",
+      "date": "2026-11-25",
+      "proved": "the free-tier statement is on the FAQ page",
+      "capture": "sha256:d781db56ecbe6d699d17676dc82b025e937128c9e4c598a9390bb77dd93bffe2",
+      "quote": "Yes. Joining servers through MCGateway is free. Donations and optional services for server owners are separate."
+    },
+    {
+      "url": "https://mcgateway.net/faq",
+      "date": "2026-11-25",
+      "proved": "the join flow is: add an access bot, join MCGateway Hub through the Friends tab, then choose a destination server",
+      "capture": "sha256:d781db56ecbe6d699d17676dc82b025e937128c9e4c598a9390bb77dd93bffe2",
+      "quote": "Add an MCGateway access bot, join MCGateway Hub from Friends, then choose a destination server."
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T19:55:30.545Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "DNS and proxy utility for console Minecraft players to connect to external Bedrock servers without requiring server-side port forwarding configuration.",

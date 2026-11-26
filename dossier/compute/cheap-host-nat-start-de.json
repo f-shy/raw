@@ -6,7 +6,7 @@
  "category": "NAT VPS",
  "tier": "NAT Start",
  "free_tier": {
-  "stated": "No free tier. NAT Start is 59 RUB a month: 1 vCPU Intel Xeon, 1 GB RAM, 10 GB NVMe, unlimited traffic at 100 Mbit/s, one shared IPv4 with 999 TCP/UDP ports plus SSH, no IPv6, Germany. The larger rungs are NAT Base at 99 RUB for 2 GB, NAT Pro at 199 RUB for 4 GB and NAT Plus at 349 RUB for 8 GB.",
+  "stated": "No free tier. NAT Start is 89 RUB/mo: 1 vCPU Intel Xeon, 1 GB RAM, 12 GB NVMe, 1 TB traffic, Shared IPv4 + 1x IPv6, 999 TCP/UDP ports + SSH, SMTP (25) blocked, 100 Mbit/s, location Germany.",
   "unit": "none",
   "metered_on": "none",
   "source_url": "https://cheap-host.onl/nat-vps/?lang=en",
@@ -105,10 +105,24 @@
    "url": "https://cheap-host.onl/nat-vps/?lang=en",
    "date": "2026-10-24",
    "proved": "the four-card ladder renders 'NAT Start 59 RUB/mo, vCPU 1, RAM 1 GB, NVMe 10 GB'; 'NAT Base 99 RUB/mo, vCPU 1, RAM 2 GB, NVMe 15 GB'; 'NAT Pro 199 RUB/mo, vCPU 2, RAM 4 GB, NVMe 25 GB'; 'NAT Plus 349 RUB/mo, vCPU 4, RAM 8 GB, NVMe 50 GB'; each with 'Traffic: Unlimited', 'IP Address: Shared IPv4 (no IPv6)', 'Ports: 999 TCP/UDP + SSH', 'SMTP (25): Blocked', 'Network: 100 Mbit/s', 'location: Germany'"
+  },
+  {
+   "url": "https://cheap-host.onl/nat-vps/?lang=en",
+   "date": "2026-11-25",
+   "proved": "the current NAT Start card states the price, shape, traffic, address and port allocation",
+   "capture": "sha256:7ce636512ade77143357d3708cff7be74c5a0a56074fa74e03f4732325bc8437",
+   "quote": "### NAT Start\n89 RUB/mo\n- CPU**Intel Xeon**\n- vCPU**1**\n- RAM**1 GB**\n- NVMe**12 GB**\n- Traffic**1 TB**\n- IP Address**Shared IPv4 + 1x IPv6**\n- Ports**999 TCP/UDP + SSH**\n- SMTP (25)**Blocked**\n- Network**100 Mbit/s**\n- location**Germany**"
+  },
+  {
+   "url": "https://cheap-host.onl/nat-vps/?lang=en",
+   "date": "2026-11-25",
+   "proved": "the current NAT Start plan and its price are unchanged on the plan page",
+   "capture": "sha256:7ce636512ade77143357d3708cff7be74c5a0a56074fa74e03f4732325bc8437",
+   "quote": "### NAT Start\n89 RUB/mo\n- CPU**Intel Xeon**\n- vCPU**1**\n- RAM**1 GB**\n- NVMe**12 GB**\n- Traffic**1 TB**\n- IP Address**Shared IPv4 + 1x IPv6**\n- Ports**999 TCP/UDP + SSH**\n- SMTP (25)**Blocked**\n- Network**100 Mbit/s**\n- location**Germany**"
   }
  ],
  "verdict": "qualifies-with-caveat",
- "verified_at": "2026-10-24T04:26:37.000Z",
+ "verified_at": "2026-11-25T11:17:20.283Z",
  "price_per_tb_month": null,
  "history": [],
  "notes": "The best port story in the band and the weakest entity story. 999 TCP and UDP ports on one shared IPv4 removes the entire problem the other NAT sellers have: no port budget, no mapping panel, no ticket, so a WireGuard listener can sit on its default port. 1 GB and 10 GB of NVMe for 59 RUB is USD 0.7257 a month at the rate read today, which is 1.8 times the C-Servers monthly rate for 2.7 times the RAM. Two things hold it back. The shared IPv4 is explicitly not permanent: the offer reserves the right to reassign it at any time and tells the buyer to update their own DNS when it happens, which for a WireGuard endpoint means reissuing every peer's config. And the seller has no findable legal entity: the offer is signed '© Cheap-Host', prints no company name, no INN or OGRN and no address, and the domain was registered on 2026-06-14, four months before this reading. That is not the dissolved-company pattern - there is no company to dissolve - but it is also not an entity that can be checked, and evaluated offerings brief asks for exactly that check. Payment is the other wall: SBP, SberPay, YooMoney and MIR cards are Russian domestic rails, so a buyer outside Russia is left with cryptocurrency. Not established: the entity, whether a non-Russian buyer can pay at all, the stock of the NAT Start rung, and whether the 999 ports are reachable end to end rather than advertised.",

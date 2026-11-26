@@ -66,10 +66,24 @@
       "url": "https://www.twingate.com/docs/how-twingate-works",
       "date": "2026-10-23",
       "proved": "'The Connector is intended to be deployed behind the firewall of a private Remote network'; the client-to-connector path is a 'certificate-pinned TLS tunnel'"
+    },
+    {
+      "url": "https://www.twingate.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the Starter plan is capped at 5 users",
+      "capture": "sha256:05459051d3c525216e39a80842ad6a96e2548b855669f525f88744a8958ef72e",
+      "quote": "Up to 5 users"
+    },
+    {
+      "url": "https://www.twingate.com/docs/how-twingate-works",
+      "date": "2026-11-25",
+      "proved": "the Connector sits inside a private network and dials out to a Relay, so there is no public ingress",
+      "capture": "sha256:1fb06c83007a671697d8e49213bd7aee7821c6a39a39c3597f1dab0491a54f75",
+      "quote": "Because a Connector is intended to be deployed behind the firewall of a private Remote network, it maintains active outbound connection(s) with at least one Relay."
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:49.813Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Fails the ingress test by design: every path needs a Twingate client and an ACL issued by the Controller. The Connector does proxy 'TCP and UDP traffic for protected Resources', which is why UDP appears in the product and still carries nothing to a public reader.",

@@ -5,7 +5,7 @@
   "url": "https://platform.claude.com/docs/en/about-claude/pricing#claude-managed-agents-pricing",
   "category": "container and VM sandbox",
   "free_tier": {
-    "stated": "no compute tier: the product is priced per million tokens with postpaid billing only and no prepaid credits; there is no machine and no free compute allowance",
+    "stated": "Claude Managed Agents is billed on two dimensions: tokens and session runtime. | Session runtime | $0.08 USD per session-hour | `running` status duration | New users receive free credits to test the API.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://platform.claude.com/docs/en/about-claude/pricing#claude-managed-agents-pricing",
@@ -67,10 +67,24 @@
       "url": "https://platform.claude.com/docs/en/about-claude/pricing#claude-managed-agents-pricing",
       "date": "2026-10-22",
       "proved": "the Claude Platform pricing page was read on 2026-10-22 and is a per-million-token model ladder with prompt-caching rates: 'Claude Opus 5.5 $4 / MTok, $5 / MTok, $8 / MTok' and 'Claude Sonnet 5.5 $2 / MTok', with 'Arrears only (postpaid); no prepaid credits'. It prices tokens, not machines"
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing#claude-managed-agents-pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page states the two billing dimensions, the $0.08 per session-hour charge metered on running status duration, and free credits for new users",
+      "capture": "sha256:33f79dec151f2d6df80e8789feb876ea4e4c000f963b1dbab50cfa66180d288f",
+      "quote": "Claude Managed Agents is billed on two dimensions: tokens and session runtime. ... | Session runtime | $0.08 USD per session-hour | `running` status duration | ... New users receive free credits to test the API."
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing#claude-managed-agents-pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page still states the two billed dimensions, the $0.08 running-status session-hour rate, and free credits for new users",
+      "capture": "sha256:33f79dec151f2d6df80e8789feb876ea4e4c000f963b1dbab50cfa66180d288f",
+      "quote": "Claude Managed Agents is billed on two dimensions: tokens and session runtime. ... | Session runtime | $0.08 USD per session-hour | `running` status duration | ... New users receive free credits to test the API."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:46:34.000Z",
+  "verified_at": "2026-11-25T15:03:49.122Z",
   "price_per_tb_month": null,
   "notes": "",
   "extras": {

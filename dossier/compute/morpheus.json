@@ -5,7 +5,7 @@
   "url": "https://mor.org/inference-api",
   "category": "inference API",
   "free_tier": {
-    "stated": "OpenAI-compatible inference through TEE-backed providers on a decentralized network, priced per model: Gemma 4 26B at USD 0.15 input and USD 0.40 output per 1M tokens, Kimi K2.5 at USD 0.60 and USD 3.00. Access without paying per token is bought by staking: 'Stake your MOR to get inference from the Morpheus network.'",
+    "stated": "OpenAI-compatible AI inference for developers: route production AI traffic through a decentralized inference network with TEE-backed providers, no vendor lock-in, and the same API shape existing apps use; endpoint https://api.mor.org/api/v1.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://mor.org/inference-api",
@@ -69,10 +69,31 @@
       "url": "https://api.coingecko.com/api/v3/simple/price?ids=morpheusai&vs_currencies=usd",
       "date": "2026-10-22",
       "proved": "MOR USD 0.859515"
+    },
+    {
+      "url": "https://mor.org/inference-api",
+      "date": "2026-11-25",
+      "proved": "the page describes an OpenAI-compatible inference API at https://api.mor.org/api/v1 over TEE-backed providers",
+      "capture": "sha256:3621b104b072d17a244db66594d31bc722096066e3f48902b4acbc047245cc60",
+      "quote": "OpenAI-compatible AI inference for developers.\n\nRoute production AI traffic through a decentralized inference network with TEE-backed providers, no vendor lock-in, and the same API shape your apps already use."
+    },
+    {
+      "url": "https://mor.org/inference-api",
+      "date": "2026-11-25",
+      "proved": "the inference API exposes GLM 5, Kimi K2.5, MiniMax M2.5, Qwen3 Coder, Gemma 4, Arcee Trinity and 40+ more models through one API",
+      "capture": "sha256:3621b104b072d17a244db66594d31bc722096066e3f48902b4acbc047245cc60",
+      "quote": "Access GLM 5, Kimi K2.5, MiniMax M2.5, Qwen3 Coder, Gemma 4, Arcee Trinity, and 40+ more models through one API."
+    },
+    {
+      "url": "https://mor.org/inference-api",
+      "date": "2026-11-25",
+      "proved": "the page still describes the OpenAI-compatible inference API at https://api.mor.org/api/v1 over TEE-backed providers",
+      "capture": "sha256:3621b104b072d17a244db66594d31bc722096066e3f48902b4acbc047245cc60",
+      "quote": "OpenAI-compatible AI inference for developers.\n\nRoute production AI traffic through a decentralized inference network with TEE-backed providers, no vendor lock-in, and the same API shape your apps already use."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:30.951Z",
   "notes": "The MOR-per-inference conversion rate is not published on the pages read; mor.org/calc.html is the comparison tool and runs client-side. Without that rate the staking route cannot be priced, and a per-token comparison at USD 0.15 per 1M input is close to centralized list prices, so the stake is a convenience, not a discount, unless the rate is generous.",
   "extras": {
     "wave2": {

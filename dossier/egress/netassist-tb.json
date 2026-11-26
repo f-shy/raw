@@ -6,7 +6,7 @@
   "category": "IPv6 tunnel broker (Ukraine, protocol unnamed)",
   "tier": "free",
   "free_tier": {
-    "stated": "'Please, fill in this form to get your FREE IPv6 tunnel.' The form asks for an email and 'IPv4 address of your side of the tunnel'.",
+    "stated": "'Please, fill in this form to get your FREE IPv6 tunnel.'",
     "unit": "unlimited",
     "metered_on": "none",
     "source_url": "https://tb.netassist.ua/reg.php",
@@ -26,7 +26,7 @@
     "notes": ""
   },
   "egress": {
-    "terms": "'We provide our service free of charge.' No traffic allowance, rate or fair-use clause is published.; ingress: udp",
+    "terms": "'We provide our service free of charge.' No traffic allowance, rate or fair-use clause is published; no page read names an ingress protocol.",
     "metered": false,
     "free_allowance": "none published",
     "price_per_tb": null,
@@ -41,10 +41,10 @@
   "limits": [],
   "limits_note": "A public IPv4 address is required at the user's end of the tunnel.",
   "binding": "none",
-  "binding_note": "No quota, rate or object cap is published, so nothing in the vocabulary fails at 1 TiB/month. What is unproven is whether the tunnel can carry the traffic at all, which is a protocol question rather than a limit.",
+  "binding_note": "No quota, rate or object cap is published, so nothing in the vocabulary fails at 1 TiB/month. The one stated prerequisite is a public IPv4 address at the user's end of the tunnel, which is a capability rather than a quota.",
   "identity_cost": {
     "kind": "email",
-    "detail": "'E-mail (will be your login)'. No card, phone or national identity is asked for. The vendor warns against hotmail and live.com addresses because mail to them is blocked.",
+    "detail": "The registration form's login field is 'E-mail (will be your login)'; the only other field is the IPv4 address of the user's side of the tunnel, with no card, phone or identity field. The vendor warns against hotmail.com and live.com addresses.",
     "country": "None"
   },
   "reliability_note": "mail to hotmail and live.com addresses is blocked by the mail provider, so a password may never arrive; support is one address and a phone number in Kyiv.",
@@ -102,17 +102,66 @@
       "proved": "the service is free of charge, no allowance published",
       "capture": "sha256:5871043008e3832455df3816735ebf90ff3b9431ebf1c83286232a0e3d5c8df7",
       "quote": "We provide our service free of charge."
+    },
+    {
+      "url": "https://netassist.ua/en/service/ipv6",
+      "date": "2026-11-25",
+      "proved": "the tunnel needs a public IPv4 address at the user's end",
+      "capture": "sha256:8e23a7e9b8ce4e1ec9692862bda5ee2b7e291875787766013ab342003e82cc3c",
+      "quote": "To work the tunnel, you need to have a public (\"honest\") IPv4 address."
+    },
+    {
+      "url": "https://tb.netassist.ua/reg.php",
+      "date": "2026-11-25",
+      "proved": "the registration page states the tunnel is free",
+      "capture": "sha256:d6cf38e36b31eaf9588780cfa73afe1b04036ca60fa92ac873308d34767e178b",
+      "quote": "Please, fill in this form to get your FREE IPv6 tunnel."
+    },
+    {
+      "url": "https://tb.netassist.ua/reg.php",
+      "date": "2026-11-25",
+      "proved": "the registration form on reg.php (raw HTML) has an e-mail login field and one IPv4 field, no card, phone or identity field",
+      "capture": "sha256:d6cf38e36b31eaf9588780cfa73afe1b04036ca60fa92ac873308d34767e178b",
+      "quote": "<tr><td>E-mail (will be your login):</td><td><input type=\"text\" name=\"email\" value=\"\"></td></tr>"
+    },
+    {
+      "url": "https://tb.netassist.ua/",
+      "date": "2026-11-25",
+      "proved": "the homepage states the service is free; it gives no allowance, rate, fair-use clause or ingress protocol",
+      "capture": "sha256:5871043008e3832455df3816735ebf90ff3b9431ebf1c83286232a0e3d5c8df7",
+      "quote": "We provide our service free of charge."
+    },
+    {
+      "url": "https://tb.netassist.ua/",
+      "date": "2026-11-25",
+      "proved": "the homepage names no tunnel protocol",
+      "capture": "sha256:5871043008e3832455df3816735ebf90ff3b9431ebf1c83286232a0e3d5c8df7",
+      "quote": "We provide our service free of charge."
+    },
+    {
+      "url": "https://tb.netassist.ua/",
+      "date": "2026-11-25",
+      "proved": "the service is free of charge, no price",
+      "capture": "sha256:5871043008e3832455df3816735ebf90ff3b9431ebf1c83286232a0e3d5c8df7",
+      "quote": "We provide our service free of charge."
+    },
+    {
+      "url": "https://tb.netassist.ua/reg.php",
+      "date": "2026-11-25",
+      "proved": "the first-party registration page states the tunnel service is free of charge",
+      "capture": "sha256:9e536dd503603b88fde361cf39621be5dc61be452238bafde84a12984c4c0294",
+      "quote": "We provide our service free of charge."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-04T06:52:57.443Z",
+  "verified_at": "2026-11-25T17:26:44.225Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Recorded as unverified because the lane's W test cannot be answered from the vendor's pages. The site is a 2011-era broker with an email login, an IPv4 endpoint field and a dynamic-IP updater, which is the classic protocol-41 shape described in the Wikipedia tunnel broker article; that is inference, not evidence. The 1 TiB question is unanswerable until the protocol is known, because a proto-41 tunnel is capped by the endpoint's own uplink while a routed prefix is capped by the broker's policy.",
   "extras": {
     "wg_path": "unknown",
     "wg_detail": "No page read names the tunnel protocol. WireGuard is not mentioned on the front page, the registration page, or either FAQ path tried (both returned 404). The endpoint field is an IPv4 address, which is the 6in4 or GRE shape.",
-    "ingress": "udp",
+    "ingress": "unverified: no NetAssist page names the tunnel protocol or an ingress protocol",
     "volume_tib_month": null,
     "volume_stated": "'We provide our service free of charge.' No traffic allowance, rate or fair-use clause is published.",
     "bytes_transit": "yes",

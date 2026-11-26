@@ -1,123 +1,213 @@
 {
-  "topic": "compute",
-  "slug": "ventaw",
-  "provider": "Ventaw",
-  "url": "https://ventaw.mmogomedia.com/pricing",
-  "category": "sandbox and database cloud",
-  "tier": "API sandboxes (pricing unpublished)",
-  "free_tier": {
-    "stated": "unverified: the vendor's pricing page redirects to a parked domain and no published rate, credit or free allowance was readable on 2026-11-24",
-    "unit": "none",
-    "metered_on": "unstated",
-    "source_url": "https://ventaw.mmogomedia.com/pricing",
-    "read_on": "2026-11-24",
-    "notes": "Unknown is a value: the page could not be read, so no free tier is claimed."
+ "topic": "compute",
+ "slug": "ventaw",
+ "provider": "Ventaw",
+ "url": "https://www.ventaw.com/pricing",
+ "category": "sandbox",
+ "tier": "Pay as you go",
+ "free_tier": {
+  "stated": "R500 of welcome credit after the first card payment, once per card; credits never expire. Free accounts can run 2 sandboxes at a time, each with up to 2 vCPU, 2 GB of memory and 5 GB of disk.",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://www.ventaw.com/terms",
+  "read_on": "2026-11-25"
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a sandbox with up to 5 GB of disk on a free account, not a stored object"
+ },
+ "retention": {
+  "stated": "Files, installed packages and browser logins live on persistent disks and survive restarts; when credits run out, running sandboxes are paused rather than deleted.",
+  "days": null,
+  "source_url": "https://www.ventaw.com/terms"
+ },
+ "egress": {
+  "terms": "Sandboxes cannot reach each other, private networks or cloud metadata; egress is limited to the public internet. Managed internet transfer is not separately priced on the pricing page.",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://www.ventaw.com/"
+ },
+ "interface": [
+  "rest",
+  "ssh"
+ ],
+ "interface_detail": "A public HTTPS address per sandbox, SSH access, file APIs, a Python SDK and a hosted MCP server at api.ventaw.com/mcp.",
+ "tooling": "Python SDK, REST API, hosted MCP server, SSH and file APIs; noVNC for browser and desktop templates.",
+ "chaining": "R0.45 per vCPU-hour and R0.15 per GB-hour put a two-vCPU, 4 GB sandbox near R1.50 an hour; a public HTTPS URL lets an agent hand results to a separate object-storage record.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "R500 of welcome credit after the first card payment, once per card; credits never expire",
+   "source": "https://www.ventaw.com/terms"
   },
-  "per_object_cap": {
-    "stated": "unverified: no per-object cap is published on a page that could be read",
-    "bytes": null,
-    "source_url": "https://ventaw.mmogomedia.com/pricing",
-    "notes": "The SDK documents file read, write and list operations in the sandbox workspace but states no size cap."
+  {
+   "kind": "request-rate",
+   "value": "free accounts run at most 2 sandboxes at a time, each with up to 2 vCPU, 2 GB of memory and 5 GB of disk",
+   "source": "https://www.ventaw.com/terms"
   },
-  "retention": {
-    "stated": "unverified: no retention period for sandbox disks or databases is published on a page that could be read",
-    "days": null,
-    "source_url": "https://ventaw.mmogomedia.com/pricing",
-    "notes": "The SDK documents deleting a database and its data, but no automatic retention window."
-  },
-  "egress": {
-    "terms": "unverified: no egress allowance, price or quota is published on a page that could be read; the SDK documents an access_url for sandbox access but does not price data out",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://ventaw.mmogomedia.com/pricing"
-  },
-  "interface": [
-    "rest",
-    "cli",
-    "unknown"
-  ],
-  "interface_detail": "A JavaScript/TypeScript SDK (npm ventaw-sdk) and a LangChain toolkit (pip langchain-ventaw) drive sandboxes and databases over an API at https://ventaw.mmogomedia.com/v1; the SDK documents create, list, execute, file, git-diff and database methods.",
-  "endpoint": "https://ventaw.mmogomedia.com/v1",
-  "tooling": "npm ventaw-sdk and pip langchain-ventaw; an API key in config.apiKey or VENTAW_API_KEY. No rclone backend is documented.",
-  "chaining": "Ventaw sandboxes and PostgreSQL or Valkey databases are reachable from an agent framework, so they can compose with coding agents and CI; a hosted provider such as Nanite or TestMu AI remains a documented alternative while Ventaw's rate is unread.",
-  "limits": [
-    {
-      "kind": "write-gated",
-      "value": "unverified: the SDK requires an API key in config.apiKey or VENTAW_API_KEY; the identity and payment gate to obtain one is behind a sign-up that could not be read",
-      "source": "https://github.com/ventaw/nodejs"
-    }
-  ],
-  "limits_note": "unverified: the LangChain execute_command tool has a 30-second command timeout and a 180-second default wait for a sandbox or database to start, but no published quota, rate or concurrency cap was readable.",
-  "binding": "write-gated",
-  "binding_note": "The only documented gate is the API key needed to call the API; the rate, concurrency and identity gates are unverified because the pricing page redirects away.",
-  "identity_cost": {
-    "kind": "institution",
-    "detail": "unverified: the SDK requires an API key, but the sign-up page and the identity or payment needed to obtain one could not be read; the API host redirects to a parked domain. Institution is the nearest vocabulary term; the true identity requirement is unknown, not stated to be an institution.",
-    "country": null
-  },
-  "reliability_note": "The API host answered 302 to a parked domain and the pricing page answered 403 on 2026-11-24; current availability and stability are unverified.",
-  "confidence": "unverified",
-  "confidence_note": "The SDK pages were read and quoted, but the vendor's own pricing page could not be read through any route; every rate, quota and identity value is therefore unverified.",
-  "evidence": [
-    {
-      "url": "probe:ventaw.mmogomedia.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the pricing page answered a 302 redirect to a parked domain, so no price or free tier could be read",
-      "capture": "sha256:c050b7d1e42ea030b9fd78443a3f1386bb5b405b11f5379a77fcba0dda432edd",
-      "quote": "\"status\": 302"
-    },
-    {
-      "url": "probe:ventaw.mmogomedia.com/v1/templates",
-      "date": "2026-11-24",
-      "proved": "the API host answered a 302 redirect to a parked domain, so the offer could not be exercised or its limits read",
-      "capture": "sha256:f839807c20e12fbdfc3192a21878f7ae5baf9e806a5a6906d0185d482b41eaf5",
-      "quote": "\"status\": 302"
-    },
-    {
-      "url": "https://github.com/ventaw/nodejs",
-      "date": "2026-11-24",
-      "proved": "the JavaScript SDK requires an API key and drives sandboxes over an API at ventaw.mmogomedia.com/v1",
-      "capture": "sha256:eb9220cf1d6a09141fb87a618d189ac405fb508aea79b409234c7b0ef2e306fd",
-      "quote": "config.apiKey = \"your-api-key\";"
-    },
-    {
-      "url": "https://github.com/ventaw/langchain-ventaw",
-      "date": "2026-11-24",
-      "proved": "the LangChain toolkit uses VENTAW_API_KEY to create sandboxes and PostgreSQL or Valkey databases",
-      "capture": "sha256:76ee78d07ee33bb1014b9ad772a04f6b6d60d870333b961605a8e98cb4a0a4af",
-      "quote": "export VENTAW_API_KEY=..."
-    },
-    {
-      "url": "https://ventaw.mmogomedia.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the broker fetch reached a parked-domain page rather than the vendor's pricing page",
-      "capture": "sha256:13db4539040c908422bb4bf0c10d29cd8cabc606bd89ce3751bff4dd3d826d19",
-      "quote": "x-web-final-url: https://www.hugedomains.com/domain_profile.cfm?d=mmogomedia.com"
-    }
-  ],
-  "verdict": "fails-identity",
-  "verified_at": "2026-11-24T10:11:15.113Z",
-  "price_per_tb_month": null,
-  "notes": "Ventaw offers API sandboxes and databases with npm and pip SDKs, but its pricing page and API host redirected to a parked domain on 2026-11-24. The identity gate to obtain an API key is unknown, so the offer is not reachable as documented; the SDK's API-key requirement and the parked-domain answer are the finding. Institution is the nearest identity term for an unknown gate and is named as unknown in the field, so an open_question requests the true term.",
-  "extras": {
-    "billing_model": "unverified: not published on a readable page",
-    "free_tier_kind": "unverified",
-    "term": "unverified",
-    "network_out": {
-      "allow_outbound": null,
-      "allow_inbound_listen": null,
-      "ports": null,
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null,
-      "price": "unverified: not published on a readable page"
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": null,
-      "note": "the LangChain toolkit sets a 30-second command timeout and a 180-second default start wait"
-    }
+  {
+   "kind": "volume-quota",
+   "value": "first 5 GB of storage free, then R3.00 per GB-month; when credits are used up, sandboxes are paused",
+   "source": "https://www.ventaw.com/"
   }
+ ],
+ "binding": "volume-quota",
+ "binding_note": "The R500 welcome credit is spendable only after a first card payment and bounds how long a sandbox runs; the two-sandbox cap bounds concurrency, not the balance.",
+ "identity_cost": {
+  "kind": "card",
+  "detail": "Sign-up asks for first name, surname, email and password, or a third-party sign-in; usage is charged in rand from a prepaid balance topped up by card through Paystack, and the R500 credit is released only after the first card payment.",
+  "country": "South Africa"
+ },
+ "reliability_note": "When the prepaid balance reaches zero, running sandboxes are paused; the vendor states it does not promise that the service will never be interrupted and does not promise data restoration from backups.",
+ "confidence": "documented",
+ "confidence_note": "Prices, the welcome credit, the free-account caps and the signup fields are quoted from the vendor's own pricing page, terms and sign-up page read on 2026-11-25.",
+ "evidence": [
+  {
+   "url": "https://www.ventaw.com/",
+   "date": "2026-11-25",
+   "proved": "usage is billed per second and creating sandboxes is free",
+   "capture": "sha256:5e3aaca19b11698c244186d0325260b8a15288d00e715cba5106e56d401a27d4",
+   "quote": "Pay for what runs, billed per second. Creating sandboxes is free."
+  },
+  {
+   "url": "https://www.ventaw.com/",
+   "date": "2026-11-25",
+   "proved": "compute is R0.45 per vCPU-hour, memory R0.15 per GB-hour and storage R3.00 per GB-month with the first 5 GB free",
+   "capture": "sha256:5e3aaca19b11698c244186d0325260b8a15288d00e715cba5106e56d401a27d4",
+   "quote": "Compute\n\nR0.45\n\nper vCPU-hour\n\nMemory\n\nR0.15\n\nper GB-hour\n\nStorage\n\nR3.00\n\nper GB-month · first 5 GB free"
+  },
+  {
+   "url": "https://www.ventaw.com/",
+   "date": "2026-11-25",
+   "proved": "each sandbox is a Firecracker microVM with a public HTTPS address, SSH and file APIs",
+   "capture": "sha256:5e3aaca19b11698c244186d0325260b8a15288d00e715cba5106e56d401a27d4",
+   "quote": "Every sandbox gets an HTTPS address you can open or share, plus SSH access and file APIs."
+  },
+  {
+   "url": "https://www.ventaw.com/",
+   "date": "2026-11-25",
+   "proved": "egress is limited to the public internet and sandboxes cannot reach each other or private networks",
+   "capture": "sha256:5e3aaca19b11698c244186d0325260b8a15288d00e715cba5106e56d401a27d4",
+   "quote": "Sandboxes cannot reach each other, your private networks or cloud metadata. Egress is limited to the public internet."
+  },
+  {
+   "url": "https://www.ventaw.com/terms",
+   "date": "2026-11-25",
+   "proved": "usage is charged per second in rand from a prepaid balance topped up by card through Paystack",
+   "capture": "sha256:c8b2a6171103c09991fa82ca979c521d308fa83eedf7a4048402297ecaa15595",
+   "quote": "Usage is charged in South African rand, per second, from a prepaid balance that you top up by card through Paystack."
+  },
+  {
+   "url": "https://www.ventaw.com/terms",
+   "date": "2026-11-25",
+   "proved": "the R500 credit follows the first card payment and a free account runs 2 sandboxes with 2 vCPU, 2 GB and 5 GB",
+   "capture": "sha256:c8b2a6171103c09991fa82ca979c521d308fa83eedf7a4048402297ecaa15595",
+   "quote": "You get R500 of welcome credit after your first card payment, once per card. Free accounts can run 2 sandboxes at a time, each with up to 2 vCPU, 2 GB of memory and 5 GB of disk."
+  },
+  {
+   "url": "https://www.ventaw.com/accounts/signup",
+   "date": "2026-11-25",
+   "proved": "the sign-up page asks for a first name and offers the welcome credit after a first card payment",
+   "capture": "sha256:e25a4a16a5269567660ea619fd698a8df22cf07798bd7ea9e3758023fc25e6ad",
+   "quote": "Get R500 of welcome credit after your first card payment."
+  },
+  {
+   "url": "https://www.ventaw.com/accounts/signup",
+   "date": "2026-11-25",
+   "proved": "the sign-up form asks for a first name and a surname",
+   "capture": "sha256:e25a4a16a5269567660ea619fd698a8df22cf07798bd7ea9e3758023fc25e6ad",
+   "quote": "First name"
+  },
+  {
+   "url": "https://www.ventaw.com/accounts/signup",
+   "date": "2026-11-25",
+   "proved": "the sign-up form asks for an email and a password",
+   "capture": "sha256:e25a4a16a5269567660ea619fd698a8df22cf07798bd7ea9e3758023fc25e6ad",
+   "quote": "Password"
+  },
+  {
+   "url": "https://www.ventaw.com/accounts/signup",
+   "date": "2026-11-25",
+   "proved": "the sign-up page offers a third-party sign-in option",
+   "capture": "sha256:e25a4a16a5269567660ea619fd698a8df22cf07798bd7ea9e3758023fc25e6ad",
+   "quote": "Or sign up with"
+  },
+  {
+   "url": "https://www.ventaw.com/pricing",
+   "date": "2026-11-25",
+   "proved": "the always-on plan is R100 a month for 1 shared vCPU, 512 MB and 5 GB, and credits never expire",
+   "capture": "sha256:574b3a15872a9850e9a854f293a324139b580fff9066e7cf9a5cce3808ffa0fb",
+   "quote": "Credits that never expire."
+  },
+  {
+   "url": "probe:ventaw.mmogomedia.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the pricing page answered a 302 redirect to a parked domain, so no price or free tier could be read",
+   "capture": "sha256:c050b7d1e42ea030b9fd78443a3f1386bb5b405b11f5379a77fcba0dda432edd",
+   "quote": "\"status\": 302"
+  },
+  {
+   "url": "probe:ventaw.mmogomedia.com/v1/templates",
+   "date": "2026-11-24",
+   "proved": "the API host answered a 302 redirect to a parked domain, so the offer could not be exercised or its limits read",
+   "capture": "sha256:f839807c20e12fbdfc3192a21878f7ae5baf9e806a5a6906d0185d482b41eaf5",
+   "quote": "\"status\": 302"
+  },
+  {
+   "url": "https://github.com/ventaw/nodejs",
+   "date": "2026-11-24",
+   "proved": "the JavaScript SDK requires an API key and drives sandboxes over an API at ventaw.mmogomedia.com/v1",
+   "capture": "sha256:eb9220cf1d6a09141fb87a618d189ac405fb508aea79b409234c7b0ef2e306fd",
+   "quote": "config.apiKey = \"your-api-key\";"
+  },
+  {
+   "url": "https://github.com/ventaw/langchain-ventaw",
+   "date": "2026-11-24",
+   "proved": "the LangChain toolkit uses VENTAW_API_KEY to create sandboxes and PostgreSQL or Valkey databases",
+   "capture": "sha256:76ee78d07ee33bb1014b9ad772a04f6b6d60d870333b961605a8e98cb4a0a4af",
+   "quote": "export VENTAW_API_KEY=..."
+  },
+  {
+   "url": "https://ventaw.mmogomedia.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the broker fetch reached a parked-domain page rather than the vendor's pricing page",
+   "capture": "sha256:13db4539040c908422bb4bf0c10d29cd8cabc606bd89ce3751bff4dd3d826d19",
+   "quote": "x-web-final-url: https://www.hugedomains.com/domain_profile.cfm?d=mmogomedia.com"
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T11:55:06.337Z",
+ "price_per_tb_month": null,
+ "notes": "Prices are published in South African rand: R0.45 per vCPU-hour, R0.15 per GB-hour and R3.00 per GB-month give about R1.50 an hour at two vCPU and 4 GB, which is roughly the operator list's $0.091 an hour at the rand exchange rate; no first-party USD price is published. The R500 welcome credit follows a card payment, so the free usage is card-gated. There is also an R100 per 30 days always-on plan for one 512 MB VM.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gb": 4,
+   "disk_gb": 5,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "free accounts are capped at 2 vCPU, 2 GB of memory and 5 GB of disk per sandbox"
+  },
+  "billing_model": "per-second prepaid wallet in rand, topped up by card through Paystack",
+  "free_tier_kind": "card-gated-welcome-credit",
+  "term": "credits never expire; welcome credit once per card",
+  "price_arithmetic": "R0.45 per vCPU-hour x 2 plus R0.15 per GB-hour x 4 is R1.50 an hour at 2 vCPU and 4 GB",
+  "derived": "R0.45 x 2 + R0.15 x 4 = R1.50 per hour; the operator list's $0.091 per hour is a USD conversion of that rand figure, for which no first-party rate was captured",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "a public HTTPS URL per sandbox; no inbound port charge is stated",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "a sandbox can be paused to keep state without paying for CPU; pause stops CPU and memory charges but disk continues"
+  }
+ },
+ "endpoint": "https://ventaw.mmogomedia.com/v1",
+ "limits_note": "unverified: the LangChain execute_command tool has a 30-second command timeout and a 180-second default wait for a sandbox or database to start, but no published quota, rate or concurrency cap was readable."
 }

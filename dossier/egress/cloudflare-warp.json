@@ -35,7 +35,13 @@
   ],
   "tooling": "warp-cli",
   "chaining": "gives a device a new exit and does not give a server one, so it composes with a client and not with a serving origin.",
-  "limits": [],
+  "limits": [
+    {
+      "kind": "per-ip-shaping",
+      "value": "unverified: the first-party WARP client pages publish no data cap, request rate or traffic shaping figure",
+      "source": "https://developers.cloudflare.com/warp-client/"
+    }
+  ],
   "identity_cost": {
     "kind": "email",
     "detail": "a Cloudflare account",
@@ -48,10 +54,24 @@
       "url": "https://developers.cloudflare.com/warp-client/",
       "date": "2026-10-22",
       "proved": "the consumer client is free with no published cap"
+    },
+    {
+      "url": "https://developers.cloudflare.com/warp-client/",
+      "date": "2026-11-25",
+      "proved": "the consumer WARP client page states no traffic cap and describes the client without a quota",
+      "capture": "sha256:c68d9cc9ce09346076d6e8f89cb81b76fe3ae63d5b9d27701ee9c22a5c393031",
+      "quote": "Available on all plans"
+    },
+    {
+      "url": "https://developers.cloudflare.com/warp-client/",
+      "date": "2026-11-25",
+      "proved": "the consumer WARP client page is unchanged and states no published data cap",
+      "capture": "sha256:c68d9cc9ce09346076d6e8f89cb81b76fe3ae63d5b9d27701ee9c22a5c393031",
+      "quote": "The Cloudflare WARP client allows individuals to have a faster, more secure, and more private experience online."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-22T03:20:00.000Z",
+  "verified_at": "2026-11-25T11:04:40.149Z",
   "notes": "Nothing here can be planned against: no cap and no rate.",
   "history": [],
   "extras": {

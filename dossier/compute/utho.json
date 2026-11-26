@@ -5,7 +5,7 @@
   "url": "https://utho.com/pricing",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "no free tier; the smallest cloud plan listed is INR 1,435 a month, or INR 4,305 a quarter",
+    "stated": "The cheapest cloud plan listed is Basic 1 at INR 1,435 a month or INR 4,305 a quarter, with 2 vCPU, 4 GB RAM, 80 GB NVMe and 1000 GB transfer.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://utho.com/pricing",
@@ -70,10 +70,24 @@
       "url": "https://utho.com/pricing",
       "date": "2026-10-24",
       "proved": "quoted: '| 2 vCPU, 4 GB RAM<br>80 GB NVMe, 1000 GB Transfer | ₹1,435<br>/month |' and '| Basic 1 | 2 vCPU | 4 GB | 80 GB NVMe | 1000 GB | ₹4,305/qtr |'"
+    },
+    {
+      "url": "https://utho.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page lists Basic 1 with 2 vCPU, 4 GB RAM, 80 GB NVMe, 1000 GB transfer at INR 4,305 per quarter",
+      "capture": "sha256:bfbed3046b4e5c3f5f56f0909721040760ee5577de4434e9e005e829bd8724b4",
+      "quote": "| Basic 1 | 2 vCPU | 4 GB | 80 GB NVMe | 1000 GB | ₹4,305/qtr | [Deploy](https://console.utho.com/cloud/deploy?dclocation=inmumbaizone2&planid=10314&storage=ebs) |"
+    },
+    {
+      "url": "https://utho.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page still lists the Basic 1 plan, its shape and its price",
+      "capture": "sha256:bfbed3046b4e5c3f5f56f0909721040760ee5577de4434e9e005e829bd8724b4",
+      "quote": "| Basic 1 | 2 vCPU | 4 GB | 80 GB NVMe | 1000 GB | ₹4,305/qtr | [Deploy](https://console.utho.com/cloud/deploy?dclocation=inmumbaizone2&planid=10314&storage=ebs) |"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-24T02:05:00.000Z",
+  "verified_at": "2026-11-25T15:03:54.714Z",
   "notes": "INR 1,435 / 95.036492 = USD 15.10. The quarterly price is the same rate (4,305/3 = 1,435). Nothing on this page is near the line, so the identity question does not need answering to close the lead.",
   "extras": {
     "wave2": {

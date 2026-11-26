@@ -16,13 +16,13 @@
     "stated": "up to 300 GB per file",
     "bytes": 300000000000,
     "source_url": "https://1fichier.com/tarifs.html",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "The help page states the 300 GB file-size cap applies to every plan, with an unlimited file count on every plan."
   },
   "retention": {
     "stated": "the file is removed 30 days after it was uploaded, or 90 days after its last qualified access.",
     "days": 30,
     "source_url": "https://1fichier.com/tarifs.html",
-    "notes": "Extracted from published terms."
+    "notes": "The help page states 15 days without an account, 30 days on a free account, the whole subscription period on a paid plan; a qualified access extends a free file to 90 days."
   },
   "egress": {
     "terms": "Downloads are unlimited on the free tier but ad/wait-gated and speed-limited, with a human-verification step; Premium removes ads and gives 300 GB per file and unlimited speed. Free-tier egress is 'unmetered but shaped'. The shaping, not the bytes, is the limit.",
@@ -191,10 +191,38 @@
       "proved": "Premium GOLD is from EUR 108 a year with 10 TB of cold storage, replacing the old EUR 120 figure",
       "capture": "sha256:1a6a16b3cc58411e12c442503c214796ec6337a8c4f756021cdc65472795e779",
       "quote": "**Premium GOLD***everything in Premium, plus* Support for common VPNs* · cold storage **raised to 10 TB** · CDN credits **raised to 500 GB** per month · 1 hour of priority support per month  from **€108**/year"
+    },
+    {
+      "url": "https://1fichier.com/hlp.html",
+      "date": "2026-11-25",
+      "proved": "the 300 GB per-file cap applies on every plan, with no limit on file count",
+      "capture": "sha256:740725a79f1e2dbe2875db44eb7f31bb6f11b3c69ae88135056687afed6db573",
+      "quote": "- **File size**: up to 300 GB.\n- **Number of files**: unlimited, whatever your plan."
+    },
+    {
+      "url": "https://1fichier.com/hlp.html",
+      "date": "2026-11-25",
+      "proved": "the help page states the retention periods for anonymous, free and paid accounts",
+      "capture": "sha256:740725a79f1e2dbe2875db44eb7f31bb6f11b3c69ae88135056687afed6db573",
+      "quote": "- **Retention**: 15 days without an account, 30 days on a free account, the whole subscription period on a paid plan."
+    },
+    {
+      "url": "https://1fichier.com/hlp.html",
+      "date": "2026-11-25",
+      "proved": "a qualified access extends the free-account retention clock to 90 days",
+      "capture": "sha256:740725a79f1e2dbe2875db44eb7f31bb6f11b3c69ae88135056687afed6db573",
+      "quote": "How long a file uploaded to a free account is kept depends on its last **qualified access**: the file is removed 30 days after it was uploaded, or 90 days after its last qualified access."
+    },
+    {
+      "url": "https://1fichier.com/hlp.html",
+      "date": "2026-11-25",
+      "proved": "the first-party help page still states the retention periods",
+      "capture": "sha256:740725a79f1e2dbe2875db44eb7f31bb6f11b3c69ae88135056687afed6db573",
+      "quote": "- **Retention**: 15 days without an account, 30 days on a free account, the whole subscription period on a paid plan."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:08.436Z",
+  "verified_at": "2026-11-25T03:33:10.195Z",
   "notes": "Every service is available free of charge, in a limited form, so you can evaluate it before subscribing. Paid plans carry no commitment: they do not renew automatically.",
   "history": [],
   "extras": {

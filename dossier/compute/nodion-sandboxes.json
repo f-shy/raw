@@ -1,195 +1,251 @@
 {
-  "topic": "compute",
-  "slug": "nodion-sandboxes",
-  "provider": "Nodion",
-  "url": "https://www.nodion.com/en/ai-sandboxes/",
-  "category": "agent sandbox",
-  "tier": "GP-G2 per-second sandbox packages",
-  "free_tier": {
-    "stated": "No recurring free tier. New accounts can earn up to EUR 15 in signup credit, EUR 5 each for product updates, following on X and joining the Discord community, granted once the email address is confirmed.",
-    "unit": "credits",
-    "metered_on": "unstated",
-    "source_url": "https://www.nodion.com/en/docs/billing/",
-    "read_on": "2026-11-24",
-    "notes": "There is no perpetual monthly free allowance. Signup offers a one-time credit, not a recurring sandbox allowance."
+ "topic": "compute",
+ "slug": "nodion-sandboxes",
+ "provider": "Nodion Sandboxes",
+ "url": "https://www.nodion.com/en/ai-sandboxes/",
+ "category": "container and VM sandbox",
+ "tier": "GP-G2-4GB sandbox package",
+ "free_tier": {
+  "stated": "no standing free tier: a new account can earn up to EUR 15 in credit when signing up, and running time is capped by a package monthly price",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://www.nodion.com/en/docs/",
+  "read_on": "2026-11-25",
+  "notes": "The EUR 15 sign-up credit is stated on the documentation index; the amount a given account earns is not stated there."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a microVM with a workspace disk, not an object; the GP-G2-4GB package carries 32 GB of workspace",
+  "bytes": null,
+  "source_url": "https://www.nodion.com/en/ai-sandboxes/",
+  "notes": "The workspace sizes are stated per package, for example 32 GB on GP-G2-4GB."
+ },
+ "retention": {
+  "stated": "a sandbox lives until the user deletes it; after 5 idle minutes it sleeps and only its workspace disk is billed; max_lifetime_sec sets automatic cleanup",
+  "days": null,
+  "source_url": "https://www.nodion.com/en/ai-sandboxes/"
+ },
+ "egress": {
+  "terms": "not published for sandboxes on the page read: outbound internet over NAT in isolated mode, no access to the project private network unless overlay mode is opted in",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://www.nodion.com/en/ai-sandboxes/"
+ },
+ "interface": [
+  "rest",
+  "cli",
+  "browser"
+ ],
+ "interface_detail": "REST API at https://api.nodion.com, a hosted MCP server and a web terminal; the CLI page states sandboxes are not in the CLI yet",
+ "endpoint": "https://api.nodion.com",
+ "tooling": "a personal API key (nodion_…) scoped to sandbox read, write or exec; REST, MCP and a dashboard web terminal; sandboxes are not in the CLI yet",
+ "chaining": "a hosted microVM for running untrusted agent code, with HTTPS previews and access to the same project's databases in overlay mode",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "EUR 20,00 per month of running time at most on the GP-G2-4GB package (EUR 0,0278 per hour)",
+   "source": "https://www.nodion.com/en/ai-sandboxes/"
   },
-  "per_object_cap": {
-    "stated": "workspace disk is 16 GB on GP-G2-2GB, 32 GB on GP-G2-4GB, 64 GB on GP-G2-8GB and 128 GB on GP-G2-16GB"
+  {
+   "kind": "retention-clamped",
+   "value": "after 5 idle minutes the sandbox sleeps and only its workspace disk is billed; max_lifetime_sec sets automatic cleanup",
+   "source": "https://www.nodion.com/en/ai-sandboxes/"
   },
-  "retention": {
-    "stated": "A sandbox lives until the user deletes it. After 5 idle minutes it sleeps and only its workspace disk is billed; the next command or file call wakes it.",
-    "days": null,
-    "source_url": "https://www.nodion.com/en/ai-sandboxes/"
-  },
-  "egress": {
-    "terms": "In the default isolated mode a sandbox reaches the internet over NAT and not the project's private network; overlay mode opts in to project databases and apps. Outbound traffic from applications and databases is not billed per GB: every instance includes 1 TB of outbound traffic per month as fair use, and object-storage and CDN egress are EUR 0.005 per GB.",
-    "metered": true,
-    "free_allowance": "1 TB of outbound traffic per month as fair use per instance",
-    "price_per_tb": "EUR 0.005 per GB for object storage and CDN egress",
-    "source_url": "https://www.nodion.com/en/pricing/"
-  },
-  "interface": [
-    "rest",
-    "cli",
-    "chat",
-    "ssh",
-    "browser"
-  ],
-  "interface_detail": "Create, run and delete sandboxes over the REST API, MCP, CLI or dashboard; the web terminal, files API, HTTPS previews and token-gated noVNC desktop supplement the API.",
-  "endpoint": "https://api.nodion.com",
-  "tooling": "Hosted MCP server at mcp.nodion.com, nodion CLI, HTTP API at https://api.nodion.com with OpenAPI at /v2/openapi.yaml, and preinstalled coding CLIs in the Agents image.",
-  "chaining": "Sandboxes join the same project, team and invoice as apps and databases; in overlay mode they reach project databases at <slug>.internal and apps at <app>.app.internal.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "Running time is billed per second and never costs more than the package's monthly price: GP-G2-2GB at EUR 0.0139/hour and EUR 10.00 per month of running time, GP-G2-4GB at EUR 0.0278/hour and EUR 20.00, GP-G2-8GB at EUR 0.0556/hour and EUR 40.00, GP-G2-16GB at EUR 0.1111/hour and EUR 80.00.",
-      "source": "https://www.nodion.com/en/ai-sandboxes/"
-    },
-    {
-      "kind": "request-rate",
-      "value": "Commands run over the API take up to 15 minutes per call; key-authenticated API calls are rate limited per account with RateLimit headers and HTTP 429 plus Retry-After.",
-      "source": "https://www.nodion.com/en/docs/api/"
-    }
-  ],
-  "limits_note": "A sleeping sandbox bills only its workspace disk, and deleting it stops billing. Personal API keys can be limited to sandbox read, write and exec.",
-  "binding": "volume-quota",
-  "binding_note": "The package monthly running-time ceiling (EUR 10 for the smallest tier) is what a long-running workload reaches first; the 15-minute command cap is per call, not per sandbox.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "Signup offers Continue with GitHub or an email address with Start free; creating services needs an account balance above zero or a payment method, and the signup credit is granted after email confirmation. Card, SEPA direct debit or PayPal are the accepted payment methods.",
-    "country": null
-  },
-  "reliability_note": "Sandbox images base on Ubuntu 26.04; HTTPS previews and the browser desktop are available in isolated mode only, and overlay mode is needed to reach project databases.",
-  "confidence": "documented",
-  "confidence_note": "Rates, idle sleep, egress, API and signup terms are quoted from first-party pages read on 2026-11-24; no account or sandbox was created.",
-  "evidence": [
-    {
-      "url": "https://www.nodion.com/en/ai-sandboxes/",
-      "date": "2026-11-24",
-      "proved": "smallest sandbox package is EUR 0.0139 per hour with a EUR 10 monthly running-time ceiling and 1 vCPU, 2 GB RAM, 16 GB workspace",
-      "capture": "sha256:e9db0e5818bf67a3fb56b8506786f099e0c9bb5e21d6b769c38be09f96f55a15",
-      "quote": "GP-G2-2GB\n\n0,0139 € / hour\n\nFor scripts, tests and a single coding agent.\n\n10,00 € per month of running time at most.\n\n1 vCPU, 2 GB RAM, 16 GB workspace"
-    },
-    {
-      "url": "https://www.nodion.com/en/ai-sandboxes/",
-      "date": "2026-11-24",
-      "proved": "largest listed sandbox package is EUR 0.1111 per hour with an EUR 80 monthly ceiling",
-      "capture": "sha256:e9db0e5818bf67a3fb56b8506786f099e0c9bb5e21d6b769c38be09f96f55a15",
-      "quote": "GP-G2-16GB\n\n0,1111 € / hour\n\nFor heavy builds and several services at once.\n\n80,00 € per month of running time at most.\n\n8 vCPU, 16 GB RAM, 128 GB workspace"
-    },
-    {
-      "url": "https://www.nodion.com/en/ai-sandboxes/",
-      "date": "2026-11-24",
-      "proved": "sandboxes are created and driven over MCP, CLI and REST API",
-      "capture": "sha256:e9db0e5818bf67a3fb56b8506786f099e0c9bb5e21d6b769c38be09f96f55a15",
-      "quote": "You or your agent create it from the dashboard, over MCP, the CLI or the REST API, and running time is billed per second."
-    },
-    {
-      "url": "https://www.nodion.com/en/ai-sandboxes/",
-      "date": "2026-11-24",
-      "proved": "default network mode is internet over NAT with no project network access, and overlay mode opts in",
-      "capture": "sha256:e9db0e5818bf67a3fb56b8506786f099e0c9bb5e21d6b769c38be09f96f55a15",
-      "quote": "Network\n\n### Isolated by default.\n\nOutbound internet over NAT, no access to your project's private network. Overlay mode opts in when the code should reach your databases."
-    },
-    {
-      "url": "https://www.nodion.com/en/ai-sandboxes/",
-      "date": "2026-11-24",
-      "proved": "a sandbox sleeps after 5 idle minutes and only its disk is billed",
-      "capture": "sha256:e9db0e5818bf67a3fb56b8506786f099e0c9bb5e21d6b769c38be09f96f55a15",
-      "quote": "After 5 idle minutes the sandbox goes to sleep. Only its disk is billed."
-    },
-    {
-      "url": "https://www.nodion.com/en/ai-sandboxes/",
-      "date": "2026-11-24",
-      "proved": "API commands take at most 15 minutes per call",
-      "capture": "sha256:e9db0e5818bf67a3fb56b8506786f099e0c9bb5e21d6b769c38be09f96f55a15",
-      "quote": "Run any command over the API and get its output and exit code, up to 15 minutes per call."
-    },
-    {
-      "url": "https://www.nodion.com/en/ai-sandboxes/",
-      "date": "2026-11-24",
-      "proved": "a sandbox lives until deleted and its disk is billed while it sleeps",
-      "capture": "sha256:e9db0e5818bf67a3fb56b8506786f099e0c9bb5e21d6b769c38be09f96f55a15",
-      "quote": "A sandbox lives until you delete it. While it sleeps, only its workspace disk is billed."
-    },
-    {
-      "url": "https://www.nodion.com/en/pricing/",
-      "date": "2026-11-24",
-      "proved": "each application instance includes 1 TB outbound per month as fair use, and object storage and CDN egress are EUR 0.005 per GB",
-      "capture": "sha256:ee27ed26d1dad37840b7bb8ca1574425ee8a046df3c451d4add9f9b73f3b2693",
-      "quote": "Outbound traffic from applications and databases is not billed per GB. Every instance includes 1 TB of outbound traffic per month as fair use; if an app regularly needs more, we get in touch with you first. Object storage and CDN egress are billed per GB at the outbound rate listed above. Inbound and internal traffic is always free."
-    },
-    {
-      "url": "https://www.nodion.com/en/pricing/",
-      "date": "2026-11-24",
-      "proved": "signup credit is one-time and there is no recurring monthly free tier",
-      "capture": "sha256:ee27ed26d1dad37840b7bb8ca1574425ee8a046df3c451d4add9f9b73f3b2693",
-      "quote": "There is no recurring monthly free allowance. New accounts can earn up to 15 € in credit when signing up, then usage is billed as you go."
-    },
-    {
-      "url": "https://www.nodion.com/en/docs/billing/",
-      "date": "2026-11-24",
-      "proved": "signup credit is EUR 5 each for product updates, X and Discord, granted on email confirmation",
-      "capture": "sha256:88ecc9c5eb0b1bc898f9037460721391357229729f35c44d1a9face0bcc6262f",
-      "quote": "There is no monthly free tier. New accounts can earn **up to 15 € in credit** when signing up: 5 € each for subscribing to product updates, following Nodion on X and joining the Discord community. Claimed credit is granted once your email address is confirmed."
-    },
-    {
-      "url": "https://www.nodion.com/en/docs/billing/",
-      "date": "2026-11-24",
-      "proved": "the accepted payment methods are card, SEPA direct debit and PayPal, charged monthly for the previous month",
-      "capture": "sha256:7bb452e648a3233db46cc05e789677bf379def70d4cc4e78ee36870bba270b0e",
-      "quote": "Add a card, SEPA direct debit, or PayPal. The default method is charged monthly for the previous month. Usage is metered (apps and databases down to the second)."
-    },
-    {
-      "url": "https://www.nodion.com/en/pricing/",
-      "date": "2026-11-24",
-      "proved": "creating services needs a positive balance or a chargeable payment method",
-      "capture": "sha256:ee27ed26d1dad37840b7bb8ca1574425ee8a046df3c451d4add9f9b73f3b2693",
-      "quote": "To create services, your account needs a balance > 0 € or a payment method we can charge. New accounts can earn up to 15 € in credit when signing up."
-    },
-    {
-      "url": "https://www.nodion.com/en/docs/getting-started/",
-      "date": "2026-11-24",
-      "proved": "signup accepts GitHub OAuth or an email address",
-      "capture": "sha256:8ec92e792670522dc73e02df74e1e08ea805fc834ec1b81690caaac51bde1562",
-      "quote": "Continue with GitHub\n\nor with email\n\nEmail addressStart free"
-    },
-    {
-      "url": "https://www.nodion.com/en/docs/api/",
-      "date": "2026-11-24",
-      "proved": "API calls are rate limited per account and a 429 carries Retry-After",
-      "capture": "sha256:a8e86c2bf0a82230d228d0d4e744988eae902808580b28365f595716662a16ce",
-      "quote": "Key-authenticated calls are rate limited per account. Responses include `RateLimit-Limit`, `RateLimit-Remaining`, and `RateLimit-Reset`. A `429` also sends `Retry-After`. Every response has `X-Request-Id`."
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T10:11:14.949Z",
-  "price_per_tb_month": null,
-  "notes": "Sandboxes are metered per second with a per-package monthly running-time ceiling: EUR 10, 20, 40 or 80 depending on the GP-G2 package. The 1 TB-per-month outbound fair-use allowance attaches to application instances; object-storage and CDN egress are EUR 0.005 per GB. Signup credit is one-time, not a recurring free tier.",
-  "extras": {
-    "shape": {
-      "vcpu": "1 to 8 vCPU by package",
-      "ram_gib": "2 to 16 GB by package",
-      "disk_gib": "16 to 128 GB workspace by package",
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "GP-G2 package shapes from the sandbox page"
-    },
-    "billing_model": "per-second running time with a per-package monthly running-time ceiling",
-    "term": "month-to-month",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "HTTPS previews token-gated by default, public when shared",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": 300,
-      "restart_required": false,
-      "note": "5 idle minutes to sleep, wakes on the next command or file call; max_lifetime_sec can be set at creation or with PATCH"
-    }
+  {
+   "kind": "request-rate",
+   "value": "a command over the API runs up to 15 minutes per call",
+   "source": "https://www.nodion.com/en/ai-sandboxes/"
   }
+ ],
+ "limits_note": "Personal API keys can be limited to sandbox read, write or exec. Billing starts once the sandbox runs, and deleting it stops billing.",
+ "binding": "volume-quota",
+ "binding_note": "The package's EUR 20,00 monthly ceiling on running time is the first hard cap; a sandbox that runs for the whole month cannot exceed it.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "the hosted sign-in page presents 'Log in or sign up' with a Google or GitHub provider button or an email and password; no phone number, ID document or card is shown at sign-in, and a card is not stated for the sign-up credit",
+  "country": null
+ },
+ "reliability_note": "the sandbox sleeps after 5 idle minutes and is deleted only when the user deletes it or max_lifetime_sec elapses; no further reliability event is stated on the pages read",
+ "confidence": "documented",
+ "confidence_note": "the sandbox page, the documentation index and the API page were read on 2026-11-25; the sign-in gate was read from the hosted app's own JavaScript bundle, and the pricing from the vendor's sandbox page",
+ "evidence": [
+  {
+   "url": "https://www.nodion.com/en/ai-sandboxes/",
+   "date": "2026-11-25",
+   "proved": "the GP-G2-4GB sandbox package is EUR 0,0278 per hour with a EUR 20,00 monthly running-time ceiling and 2 vCPU, 4 GB RAM, 32 GB workspace",
+   "capture": "sha256:e9db0e5818bf67a3fb56b8506786f099e0c9bb5e21d6b769c38be09f96f55a15",
+   "quote": "20,00 € per month of running time at most.\n\n2 vCPU, 4 GB RAM, 32 GB workspace"
+  },
+  {
+   "url": "https://www.nodion.com/en/ai-sandboxes/",
+   "date": "2026-11-25",
+   "proved": "the sandbox sleeps after 5 idle minutes and only its disk is billed",
+   "capture": "sha256:e9db0e5818bf67a3fb56b8506786f099e0c9bb5e21d6b769c38be09f96f55a15",
+   "quote": "After 5 idle minutes the sandbox goes to sleep. Only its disk is billed."
+  },
+  {
+   "url": "https://www.nodion.com/en/ai-sandboxes/",
+   "date": "2026-11-25",
+   "proved": "API commands run up to 15 minutes per call",
+   "capture": "sha256:e9db0e5818bf67a3fb56b8506786f099e0c9bb5e21d6b769c38be09f96f55a15",
+   "quote": "Run any command over the API and get its output and exit code, up to 15 minutes per call."
+  },
+  {
+   "url": "https://www.nodion.com/en/docs/",
+   "date": "2026-11-25",
+   "proved": "a new account can earn up to EUR 15 in credit at sign-up",
+   "capture": "sha256:c3363f50a5c102fb9860a643e219fcf405b2f96e20773b486b436d8934275d6f",
+   "quote": "New accounts can earn up to 15 € in credit when signing up."
+  },
+  {
+   "url": "https://www.nodion.com/en/docs/api/",
+   "date": "2026-11-25",
+   "proved": "the API is reachable at https://api.nodion.com with a bearer token",
+   "capture": "sha256:662b058d4bc568539ac56847349710d42acf6853758a2691cedb629ef1b049b0",
+   "quote": "Base: `https://api.nodion.com`"
+  },
+  {
+   "url": "https://app.nodion.com/assets/index-CsJ_Rknj.js",
+   "date": "2026-11-25",
+   "proved": "the hosted sign-in offers a social provider or an email and password, with no phone, ID or card at sign-in",
+   "capture": "sha256:08061cb6cca5653b20573c4db76b0e4bb83f34373f2cdd6c32b7c3329c7b6d51",
+   "quote": "Log in or sign up"
+  },
+  {
+   "url": "https://paste.ajam.dev/raw/WCLUsa",
+   "date": "2026-11-25",
+   "proved": "the operator's list prices Nodion Sandboxes at USD 0.031 per hour billed per second, a reported rate about a third party and not a reading of the vendor's own page",
+   "capture": "sha256:4d220f8008ed2a6126e4b7f8bc4639bd9e625605ec428846fde2bdf593cc5c95",
+   "quote": "25. Nodion Sandboxes → $0.031/h · billed per second (new)"
+  },
+  {
+   "url": "https://www.nodion.com/en/ai-sandboxes/",
+   "date": "2026-11-24",
+   "proved": "smallest sandbox package is EUR 0.0139 per hour with a EUR 10 monthly running-time ceiling and 1 vCPU, 2 GB RAM, 16 GB workspace",
+   "capture": "sha256:e9db0e5818bf67a3fb56b8506786f099e0c9bb5e21d6b769c38be09f96f55a15",
+   "quote": "GP-G2-2GB\n\n0,0139 € / hour\n\nFor scripts, tests and a single coding agent.\n\n10,00 € per month of running time at most.\n\n1 vCPU, 2 GB RAM, 16 GB workspace"
+  },
+  {
+   "url": "https://www.nodion.com/en/ai-sandboxes/",
+   "date": "2026-11-24",
+   "proved": "largest listed sandbox package is EUR 0.1111 per hour with an EUR 80 monthly ceiling",
+   "capture": "sha256:e9db0e5818bf67a3fb56b8506786f099e0c9bb5e21d6b769c38be09f96f55a15",
+   "quote": "GP-G2-16GB\n\n0,1111 € / hour\n\nFor heavy builds and several services at once.\n\n80,00 € per month of running time at most.\n\n8 vCPU, 16 GB RAM, 128 GB workspace"
+  },
+  {
+   "url": "https://www.nodion.com/en/ai-sandboxes/",
+   "date": "2026-11-24",
+   "proved": "sandboxes are created and driven over MCP, CLI and REST API",
+   "capture": "sha256:e9db0e5818bf67a3fb56b8506786f099e0c9bb5e21d6b769c38be09f96f55a15",
+   "quote": "You or your agent create it from the dashboard, over MCP, the CLI or the REST API, and running time is billed per second."
+  },
+  {
+   "url": "https://www.nodion.com/en/ai-sandboxes/",
+   "date": "2026-11-24",
+   "proved": "default network mode is internet over NAT with no project network access, and overlay mode opts in",
+   "capture": "sha256:e9db0e5818bf67a3fb56b8506786f099e0c9bb5e21d6b769c38be09f96f55a15",
+   "quote": "Network\n\n### Isolated by default.\n\nOutbound internet over NAT, no access to your project's private network. Overlay mode opts in when the code should reach your databases."
+  },
+  {
+   "url": "https://www.nodion.com/en/ai-sandboxes/",
+   "date": "2026-11-24",
+   "proved": "a sandbox sleeps after 5 idle minutes and only its disk is billed",
+   "capture": "sha256:e9db0e5818bf67a3fb56b8506786f099e0c9bb5e21d6b769c38be09f96f55a15",
+   "quote": "After 5 idle minutes the sandbox goes to sleep. Only its disk is billed."
+  },
+  {
+   "url": "https://www.nodion.com/en/ai-sandboxes/",
+   "date": "2026-11-24",
+   "proved": "API commands take at most 15 minutes per call",
+   "capture": "sha256:e9db0e5818bf67a3fb56b8506786f099e0c9bb5e21d6b769c38be09f96f55a15",
+   "quote": "Run any command over the API and get its output and exit code, up to 15 minutes per call."
+  },
+  {
+   "url": "https://www.nodion.com/en/ai-sandboxes/",
+   "date": "2026-11-24",
+   "proved": "a sandbox lives until deleted and its disk is billed while it sleeps",
+   "capture": "sha256:e9db0e5818bf67a3fb56b8506786f099e0c9bb5e21d6b769c38be09f96f55a15",
+   "quote": "A sandbox lives until you delete it. While it sleeps, only its workspace disk is billed."
+  },
+  {
+   "url": "https://www.nodion.com/en/pricing/",
+   "date": "2026-11-24",
+   "proved": "each application instance includes 1 TB outbound per month as fair use, and object storage and CDN egress are EUR 0.005 per GB",
+   "capture": "sha256:ee27ed26d1dad37840b7bb8ca1574425ee8a046df3c451d4add9f9b73f3b2693",
+   "quote": "Outbound traffic from applications and databases is not billed per GB. Every instance includes 1 TB of outbound traffic per month as fair use; if an app regularly needs more, we get in touch with you first. Object storage and CDN egress are billed per GB at the outbound rate listed above. Inbound and internal traffic is always free."
+  },
+  {
+   "url": "https://www.nodion.com/en/pricing/",
+   "date": "2026-11-24",
+   "proved": "signup credit is one-time and there is no recurring monthly free tier",
+   "capture": "sha256:ee27ed26d1dad37840b7bb8ca1574425ee8a046df3c451d4add9f9b73f3b2693",
+   "quote": "There is no recurring monthly free allowance. New accounts can earn up to 15 € in credit when signing up, then usage is billed as you go."
+  },
+  {
+   "url": "https://www.nodion.com/en/docs/billing/",
+   "date": "2026-11-24",
+   "proved": "signup credit is EUR 5 each for product updates, X and Discord, granted on email confirmation",
+   "capture": "sha256:88ecc9c5eb0b1bc898f9037460721391357229729f35c44d1a9face0bcc6262f",
+   "quote": "There is no monthly free tier. New accounts can earn **up to 15 € in credit** when signing up: 5 € each for subscribing to product updates, following Nodion on X and joining the Discord community. Claimed credit is granted once your email address is confirmed."
+  },
+  {
+   "url": "https://www.nodion.com/en/docs/billing/",
+   "date": "2026-11-24",
+   "proved": "the accepted payment methods are card, SEPA direct debit and PayPal, charged monthly for the previous month",
+   "capture": "sha256:7bb452e648a3233db46cc05e789677bf379def70d4cc4e78ee36870bba270b0e",
+   "quote": "Add a card, SEPA direct debit, or PayPal. The default method is charged monthly for the previous month. Usage is metered (apps and databases down to the second)."
+  },
+  {
+   "url": "https://www.nodion.com/en/pricing/",
+   "date": "2026-11-24",
+   "proved": "creating services needs a positive balance or a chargeable payment method",
+   "capture": "sha256:ee27ed26d1dad37840b7bb8ca1574425ee8a046df3c451d4add9f9b73f3b2693",
+   "quote": "To create services, your account needs a balance > 0 € or a payment method we can charge. New accounts can earn up to 15 € in credit when signing up."
+  },
+  {
+   "url": "https://www.nodion.com/en/docs/getting-started/",
+   "date": "2026-11-24",
+   "proved": "signup accepts GitHub OAuth or an email address",
+   "capture": "sha256:8ec92e792670522dc73e02df74e1e08ea805fc834ec1b81690caaac51bde1562",
+   "quote": "Continue with GitHub\n\nor with email\n\nEmail addressStart free"
+  },
+  {
+   "url": "https://www.nodion.com/en/docs/api/",
+   "date": "2026-11-24",
+   "proved": "API calls are rate limited per account and a 429 carries Retry-After",
+   "capture": "sha256:a8e86c2bf0a82230d228d0d4e744988eae902808580b28365f595716662a16ce",
+   "quote": "Key-authenticated calls are rate limited per account. Responses include `RateLimit-Limit`, `RateLimit-Remaining`, and `RateLimit-Reset`. A `429` also sends `Retry-After`. Every response has `X-Request-Id`."
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T02:12:34.630Z",
+ "price_per_tb_month": null,
+ "notes": "Not a standing free tier: the sign-up credit is up to EUR 15 and the package monthly price caps running time. The operator's list quotes USD 0.031 per hour at 2 vCPU and 4 GB, against the vendor's EUR 0,0278 per hour for the GP-G2-4GB package.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 4,
+   "disk_gib": 32,
+   "gpu_class": null,
+   "gpu_count": null
+  },
+  "billing_model": "per-second running time with a monthly running-time ceiling per package",
+  "session_cap": {
+   "wall_clock_min": 15,
+   "idle_reap_s": 300,
+   "restart_required": false,
+   "note": "15 minutes per API command call; 5 idle minutes before sleep; max_lifetime_sec can end a sandbox"
+  },
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "HTTPS previews per port, token-gated or public",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "free_tier_kind": "sign-up credit",
+  "term": "per-second, capped at a package monthly running-time price",
+  "source_scope": "the GP-G2-4GB package is priced here; the list rate is for a 2 vCPU / 4 GB machine"
+ }
 }

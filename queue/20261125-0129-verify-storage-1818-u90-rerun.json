@@ -1,0 +1,21 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u90-rerun",
+ "kind": "verify",
+ "topic": "storage",
+ "question": "Re-read each record against its first-party page and establish the values its unknown classes name, at least the retention and per-object-cap notes, plus any interface, chaining, retention, per-object-cap or egress value listed for it.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/hdx-humanitarian-data-exchange $.retention.stated: Cited page has no retention statement either way; absence in published terms not shown by this evidence (quote is about file size).\n- storage/frontproxy $.interface: Page states HTTP(S) proxy support; does not support interface \"unknown\" (the cited quote is about bandwidth).\n- storage/hdx-humanitarian-data-exchange $.chaining: Linking is supported, but page does not mention CKAN resource_create, stable/content-addressable URLs, or serving-tier suitability.\n- storage/filecoin-onchain-cloud $.interface: Page describes SDK and on-chain contracts; no REST interface stated.\n- storage/google-play-books-partner-center $.limits: 2 GB supported; \"write-gated review\" is not stated on this page.\n- storage/google-play-books-partner-center $.retention.notes: Guidelines page has no retention term, but claim also names the automated content-fetching help page, which was not read; no quote shows the absence.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- storage/fex-net $.chaining: page ties 50 GB/7 days to the separate 'Trial period' plan and says 'up to 50 GB worth of files without registration' with no window; it never calls anonymous sharing a 7-day trial and never says per-share\n- storage/google-play-books-partner-center $.limits[0].source: value is only the page URL as the source of a limit (a review gate); the page states no limit, review gate or retention term, and the quote is about delivery protocols\n- storage/google-play-books-partner-center $.limits[0].source: same as c13: the span describes scheduled fetching, not a limit; the page states no limit that this source could back\n- storage/google-play-books-partner-center $.free_tier.stated: a per-file size limit is not a free tier; the page says nothing about a free tier",
+ "scope": {
+  "rids": [
+   "storage/fex-net",
+   "storage/filecoin-onchain-cloud",
+   "storage/frontproxy",
+   "storage/google-play-books-partner-center",
+   "storage/hdx-humanitarian-data-exchange",
+   "storage/hearthis-at-free-tier"
+  ]
+ },
+ "origin": "audit u115 of 20261125-0129-verify-storage-1818/u90 failed: 4 of 30 unsupported",
+ "created": "2026-11-25T11:42:55Z",
+ "queue_files": [
+  "queue/20261125-0129-verify-storage-1818-u06-rerun.json"
+ ]
+}

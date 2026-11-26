@@ -16,12 +16,12 @@
     "stated": "per-object-cap: npm publish-side (~100 MB",
     "bytes": 100000000,
     "source_url": "https://unpkg.com/",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "unverified: no per-object cap is stated on the UNPKG loading-files page"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "- Exact versions are permanent and cache best; updates are deliberate.",
     "source_url": "https://unpkg.com/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "- Exact versions are permanent and cache best; updates are deliberate."
   },
   "egress": {
     "terms": "Free, no account, Cloudflare-fronted (cf-cache-status HIT on repeat). No published bandwidth limit.",
@@ -84,10 +84,24 @@
       "proved": "unpkg is described as a CDN for npm served by URL",
       "capture": "sha256:91ea035ee33716384755c591a8a300e72ab8f21bb05af5464dae0dc84da7f9d7",
       "quote": "UNPKG is a fast, global content delivery network for everything on npm. Load any file from any package with a URL like"
+    },
+    {
+      "url": "https://unpkg.com/guides/loading-files.md",
+      "date": "2026-11-25",
+      "proved": "the loading-files page describes npm file serving without stating a per-object cap",
+      "capture": "sha256:49f09802e4e2f9568c952ae44857ad126596c2c59d2072039eb6aa6ab006a374",
+      "quote": "Every file on npm is available at a UNPKG URL."
+    },
+    {
+      "url": "https://unpkg.com/",
+      "date": "2026-11-25",
+      "proved": "the UNPKG home page states that exact versions are permanent",
+      "capture": "sha256:91ea035ee33716384755c591a8a300e72ab8f21bb05af5464dae0dc84da7f9d7",
+      "quote": "- Exact versions are permanent and cache best; updates are deliberate."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:15:20.587Z",
+  "verified_at": "2026-11-25T21:21:18.732Z",
   "notes": "No storage quota of its own. It serves the npm registry, so the ceiling is npm's ~100 MB publish limit. Probed 28.3 MB, 32.2 MB, 54.0 MB and 64.5 MB single files: all HTTP 200, all full length, sha256 identity with hop.js on the 54 MB and 64.5 MB cases. No per-file cap was encountered.",
   "history": [],
   "extras": {

@@ -5,12 +5,12 @@
   "url": "https://aws.amazon.com/free/",
   "category": "GPU cloud",
   "free_tier": {
-    "stated": "The AWS Free Tier is now a plan with an instance-type allowlist. New accounts from 15 July 2025 get 'USD 100 in credits immediately' plus 'up to USD 100 more', valid 6 months, and on the Free plan the account 'closes on its own 6 months after you open it or when your credits run out'. Reporting of the console restriction is consistent: 'This instance type is not eligible under the Free Plan. Upgrade your account plan to access this instance type', and the eligible list is T3.micro, T3.small, T4g.micro, T4g.small, C7i-flex.large and M7i-flex.large. No GPU family is on it.",
+    "stated": "Free plan: on creating a new AWS Free Tier account you get $100 in credits immediately and can earn up to $100 more, up to $200 over 6 months, with no charges and no surprise bills on the Free plan; the account closes on its own 6 months after you open it or when the credits run out, whichever comes first, and you are not charged unless you convert to a Paid plan.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://aws.amazon.com/free/",
     "read_on": "2026-10-22",
-    "notes": "one-time-credit"
+    "notes": "The Free plan is limited to select services; access to all AWS services requires the Paid plan, and promotional credits are not eligible on the Free plan."
   },
   "per_object_cap": {
     "stated": "not applicable: the unit is a machine, not an object",
@@ -114,10 +114,24 @@
       "url": "https://aws.amazon.com/ec2/spot/instance-advisor/",
       "date": "2026-10-22",
       "proved": "the page states 'save up to 90% compared to On-Demand pricing' and 'the average frequency of interruption across all Regions and instance types has historically been <5%', but the per-pool table did not appear in the extracted text, so the read is marked low confidence"
+    },
+    {
+      "url": "https://aws.amazon.com/free/",
+      "date": "2026-11-25",
+      "proved": "the free-tier page states $200 of credits over 6 months with no charges on the Free plan",
+      "capture": "sha256:efe50e26f77a55bfa95991cb579bcc5a3680202b29105c51b557258e4539335a",
+      "quote": "That's up to $200 over 6 months to build, break things, and experiment with no charges and no surprise bills on the Free plan."
+    },
+    {
+      "url": "https://aws.amazon.com/free/",
+      "date": "2026-11-25",
+      "proved": "the plan comparison limits the Free plan to select services",
+      "capture": "sha256:efe50e26f77a55bfa95991cb579bcc5a3680202b29105c51b557258e4539335a",
+      "quote": "Access to all AWS services ✖ Limited to select services only ✔"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:21.728Z",
   "notes": "Two separate walls, and the credit is behind both: the plan allowlist blocks the instance type, and the Spot quota blocks the family. A user who upgrades to the paid plan keeps the remaining credit for 12 months, so the credit is not lost by upgrading, which makes upgrading the cheapest way to convert the trial into GPU time. Conflicting verdicts across agents: dead via a05-spot; qualifies-with-caveat via a05-spot; qualifies-with-caveat via a05-spot; qualifies-with-caveat via a05-spot; qualifies-with-caveat via a05-spot. The one recorded is the better-evidenced. Verdict corrected 2026-10-22: the gate is a service quota, not an identity check. Spot is a paid product and the rates in this record are purchasable; what blocks a new account is a GPU Spot vCPU quota that defaults to zero, which needs a quota-increase request. `fails-quota` names that; `fails-identity` named a gate that is reachable.",
   "extras": {
     "wave2": {

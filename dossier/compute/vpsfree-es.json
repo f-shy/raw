@@ -5,7 +5,7 @@
   "url": "https://vpsfree.es/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "Not free. The vendor sells VPS from EUR 2.45 a month: \"VPS baratos en Espana desde 2,45 EUR/mes con hardware propio en Madrid, NVMe, IPv4 dedicada, trafico ilimitado\". The domain name misleads the same way vpsFree.cz does.",
+    "stated": "Not free: Elige entre Intel Xeon desde 4,49 €, AMD EPYC desde 4,99 €, Ryzen 5950X desde 5,99 € o Ryzen EVO desde 6,00 € al mes, sin impuestos.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://vpsfree.es/",
@@ -58,10 +58,17 @@
       "url": "https://anyun.org/a/jishu/2023/1226/15857.html",
       "date": "2026-10-22",
       "proved": "a collected list of free VPS offers classifies vpsfree.es as a free IPv6-only 1 core 2 GB LXC host with no renewal requirement, which is the claim this record refutes"
+    },
+    {
+      "url": "https://vpsfree.es/",
+      "date": "2026-11-25",
+      "proved": "the cheapest published VPS price on the vendor page is Intel Xeon from EUR 4.49 per month, taxes excluded",
+      "capture": "sha256:5ee5dcb84fec8f7a7aa3e69b87c19e6d9604fad8994fe962b4032b51239874a5",
+      "quote": "Elige entre Intel Xeon desde 4,49 €, AMD EPYC desde 4,99 €, Ryzen 5950X desde 5,99 € o Ryzen EVO desde 6,00 € al mes, sin impuestos."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:37.953Z",
   "notes": "vpsFree.es sells commercial VPS hosting plans with no free tier. Account registration requires standard payment.",
   "extras": {
     "wave2": {

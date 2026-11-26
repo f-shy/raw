@@ -1,0 +1,138 @@
+{
+  "topic": "compute",
+  "slug": "sauce-labs",
+  "provider": "Sauce Labs",
+  "url": "https://saucelabs.com/pricing",
+  "category": "browser and mobile device testing cloud",
+  "tier": "Live Testing plan, with 28-day free trial",
+  "free_tier": {
+    "stated": "A free 28-day trial includes 60 Automated and Live Testing minutes, 3 virtual machines in parallel, and real devices and mobile emulators; the Live Testing plan is $39 a month billed annually or $49 month to month.",
+    "unit": "minutes",
+    "metered_on": "wall-clock",
+    "source_url": "https://saucelabs.com/sign-up",
+    "read_on": "2026-11-25",
+    "notes": "$39 a month divided by 730 hours is about $0.053 an hour; the plan includes one parallel test and unlimited live testing minutes. No card is required for the free trial."
+  },
+  "per_object_cap": {
+    "stated": "not applicable: the unit is a browser or device test session, not an object",
+    "source_url": "https://saucelabs.com/pricing"
+  },
+  "retention": {
+    "stated": "unverified: the pricing and signup pages read state no retention period for test videos and screenshots",
+    "days": null,
+    "source_url": "https://saucelabs.com/pricing"
+  },
+  "egress": {
+    "terms": "A secure local tunnel (Sauce Connect) is included on the Live Testing plan; no separate egress allowance or price is stated on the pages read.",
+    "metered": false,
+    "free_allowance": null,
+    "price_per_tb": null,
+    "source_url": "https://saucelabs.com/pricing"
+  },
+  "interface": [
+    "rest",
+    "browser"
+  ],
+  "interface_detail": "REST API access is included on the Live Testing plan; tests run from browsers, real devices, emulators and simulators with a live view.",
+  "endpoint": "unverified: the endpoint is not stated on the pages read",
+  "tooling": "A user drives live tests from the browser or automates them with the REST API and Sauce Connect; higher plans add virtual and real device automation.",
+  "chaining": "A test suite can use real devices, emulators and browser/OS combinations with a local tunnel, and collect videos and screenshots of a run.",
+  "limits": [
+    {
+      "kind": "volume-quota",
+      "value": "60 Automated and Live Testing minutes in the 28-day free trial; the Live Testing plan has unlimited live testing minutes with 1 parallel test",
+      "source": "https://saucelabs.com/sign-up"
+    },
+    {
+      "kind": "request-rate",
+      "value": "1 parallel test on the base Live Testing plan; 3 virtual machines in parallel on the free trial",
+      "source": "https://saucelabs.com/pricing"
+    }
+  ],
+  "limits_note": "The Virtual Device Cloud ($149/month billed annually) and Real Device Cloud ($199/month billed annually) plans add automated testing minutes and 1 to 5 concurrent sessions; Enterprise adds private device cloud and SSO.",
+  "binding": "volume-quota",
+  "binding_note": "The 60 trial minutes, and then the single parallel test on the $39 plan, bind before any other limit for one user.",
+  "identity_cost": {
+    "kind": "email",
+    "detail": "Signup offers Google, GitHub or email signup and states that no credit card is required for the free account; the paid plan is charged to a card at purchase.",
+    "country": null
+  },
+  "reliability_note": "Secure, single-use VMs are included on the paid plans; no ban, throttle or data-loss behaviour is stated on the pages read.",
+  "confidence": "documented",
+  "confidence_note": "Plan prices, trial minutes and signup gate are quoted from Sauce Labs' own pricing and signup pages read on 2026-11-25.",
+  "evidence": [
+    {
+      "url": "https://saucelabs.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the Live Testing plan is $39 a month billed annually or $49 month to month",
+      "capture": "sha256:dafee9226da549cf9ab516d716463587fcf5ed63d78e5c45547ad97c47404ff8",
+      "quote": "$39"
+    },
+    {
+      "url": "https://saucelabs.com/pricing",
+      "date": "2026-11-25",
+      "proved": "Live Testing includes unlimited live testing minutes",
+      "capture": "sha256:dafee9226da549cf9ab516d716463587fcf5ed63d78e5c45547ad97c47404ff8",
+      "quote": "Unlimited live testing minutes"
+    },
+    {
+      "url": "https://saucelabs.com/pricing",
+      "date": "2026-11-25",
+      "proved": "Live Testing covers manual cross-browser and mobile app testing on browsers, real devices and emulators",
+      "capture": "sha256:dafee9226da549cf9ab516d716463587fcf5ed63d78e5c45547ad97c47404ff8",
+      "quote": "Manual cross-browser and mobile app testing on 1000s of desktop browsers, real mobile devices, emulators and simulators"
+    },
+    {
+      "url": "https://saucelabs.com/pricing",
+      "date": "2026-11-25",
+      "proved": "card plans are charged at purchase",
+      "capture": "sha256:dafee9226da549cf9ab516d716463587fcf5ed63d78e5c45547ad97c47404ff8",
+      "quote": "Credit-card plans are charged at purchase — your invoice is ready in Billing within an hour."
+    },
+    {
+      "url": "https://saucelabs.com/sign-up",
+      "date": "2026-11-25",
+      "proved": "the free account needs no card and offers Google, GitHub or email signup",
+      "capture": "sha256:b81647058681d694fdc4390fb8e77882b05c3d0a3e63c8f88a16fffb7089ae4d",
+      "quote": "Get your free account today. No credit card required"
+    },
+    {
+      "url": "https://saucelabs.com/sign-up",
+      "date": "2026-11-25",
+      "proved": "the free trial lasts 28 days",
+      "capture": "sha256:b81647058681d694fdc4390fb8e77882b05c3d0a3e63c8f88a16fffb7089ae4d",
+      "quote": "### Your free 28-day trial includes"
+    },
+    {
+      "url": "https://saucelabs.com/sign-up",
+      "date": "2026-11-25",
+      "proved": "the free trial includes 60 Automated and Live Testing minutes and 3 parallel virtual machines",
+      "capture": "sha256:b81647058681d694fdc4390fb8e77882b05c3d0a3e63c8f88a16fffb7089ae4d",
+      "quote": "- 60 Automated and Live Testing minutes"
+    }
+  ],
+  "verdict": "trial-only",
+  "verified_at": "2026-11-25T02:12:34.925Z",
+  "price_per_tb_month": null,
+  "notes": "Live Testing is a hosted manual browser/device testing plan at $39 a month billed annually, about $0.053 an hour divided by 730 hours; the 28-day free trial gives 60 minutes with no card. Virtual Device Cloud and Real Device Cloud are materially different offers priced at $149 and $199 a month billed annually.",
+  "extras": {
+    "billing_model": "monthly plan with unlimited live testing minutes and a parallel-test count",
+    "free_tier_kind": "time-boxed trial with minute allowance",
+    "term": "monthly or annual",
+    "price_arithmetic": "$39/month ÷ 730 hours = $0.053/hour",
+    "session_cap": {
+      "wall_clock_min": null,
+      "idle_reap_s": null,
+      "note": "not stated on the pages read"
+    },
+    "network_out": {
+      "allow_outbound": true,
+      "allow_inbound_listen": true,
+      "ports": "not stated",
+      "static_ip": null,
+      "per_session_bytes": null,
+      "tunnel": "Sauce Connect secure local tunneling"
+    },
+    "other_plans": "Virtual Device Cloud $149/month billed annually ($199 monthly); Real Device Cloud $199/month billed annually ($249 monthly)"
+  }
+}

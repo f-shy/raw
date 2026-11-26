@@ -72,13 +72,6 @@
     {
       "url": "probe:https://s3.776161.xyz/",
       "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:6db2c772e13260b2645c0b9d43b863f0c890b1907db6b2ef11941ec46495f46e",
-      "quote": "\"listing_sha256\": \"bf5dac27\""
-    },
-    {
-      "url": "probe:https://s3.776161.xyz/",
-      "date": "2026-11-11",
       "proved": "the probe record states the hash method used for the listing",
       "capture": "sha256:6db2c772e13260b2645c0b9d43b863f0c890b1907db6b2ef11941ec46495f46e",
       "quote": "\"listing_hash_method\": \"sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters\""
@@ -92,24 +85,10 @@
     },
     {
       "url": "probe:https://s3.776161.xyz/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:6db2c772e13260b2645c0b9d43b863f0c890b1907db6b2ef11941ec46495f46e",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://s3.776161.xyz/",
       "date": "2026-11-19",
       "proved": "the liveness and mount-list probe checked this host at this instant",
       "capture": "sha256:fc79bb6c266f8f984058c03e1f66ed0a0c5e9f8c1fa858acfdf1cee64727ff6a",
       "quote": "\"checked_at\": \"2026-11-19T03:42:33.623Z\""
-    },
-    {
-      "url": "probe:https://s3.776161.xyz/",
-      "date": "2026-11-19",
-      "proved": "the anonymous session, settings and mount list all answered, so the fresh alive timestamp stands",
-      "capture": "sha256:fc79bb6c266f8f984058c03e1f66ed0a0c5e9f8c1fa858acfdf1cee64727ff6a",
-      "quote": "\"alive\": true"
     },
     {
       "url": "probe:https://s3.776161.xyz/",
@@ -121,16 +100,30 @@
     {
       "url": "probe:https://s3.776161.xyz/",
       "date": "2026-11-25",
-      "proved": "the liveness and mount-list probe checked this host at this instant",
-      "capture": "sha256:bbac713d9bed06238632724702ffe50ece10c931a2c2292a86fe56001d29853d",
-      "quote": "\"checked_at\": \"2026-11-25T01:38:35.229Z\""
+      "proved": "a fresh anonymous probe of s3.776161.xyz answered the settings, guest session and mount-list requests at this timestamp",
+      "capture": "sha256:4e86d769fb15b46466418ef8d1cfa33b5465a285ecee2182d8b3a1425259dd01",
+      "quote": "\"probed_at\": \"2026-11-25T02:34:42.454Z\""
     },
     {
       "url": "probe:https://s3.776161.xyz/",
       "date": "2026-11-25",
-      "proved": "the anonymous root listing hashed to this value in the fresh probe",
-      "capture": "sha256:bbac713d9bed06238632724702ffe50ece10c931a2c2292a86fe56001d29853d",
+      "proved": "the fresh probe completed the anonymous settings, guest session and mount list, so the new liveness timestamp stands",
+      "capture": "sha256:4e86d769fb15b46466418ef8d1cfa33b5465a285ecee2182d8b3a1425259dd01",
+      "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://s3.776161.xyz/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing hashed to the stored value, so the listing is unchanged",
+      "capture": "sha256:4e86d769fb15b46466418ef8d1cfa33b5465a285ecee2182d8b3a1425259dd01",
       "quote": "\"listing_sha256\": \"bf5dac27\""
+    },
+    {
+      "url": "probe:https://s3.776161.xyz/",
+      "date": "2026-11-25",
+      "proved": "the liveness and mount-list probe checked this host at this instant",
+      "capture": "sha256:bbac713d9bed06238632724702ffe50ece10c931a2c2292a86fe56001d29853d",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:35.229Z\""
     },
     {
       "url": "probe:https://s3.776161.xyz/",
@@ -176,7 +169,7 @@
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T13:26:33.161Z",
+  "verified_at": "2026-11-25T19:55:35.335Z",
   "binding": "write-gated",
   "notes": "8 root entries on OpenList v4.2.2, write:true advertised and denied. The hostname says s3 and the API is AList; the name is not the protocol.",
   "history": [],
@@ -193,7 +186,7 @@
     "listing_sha256": "bf5dac27",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-25T01:38:35.229Z",
+    "last_verified_alive": "2026-11-25T02:34:42.454Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "aliases": [

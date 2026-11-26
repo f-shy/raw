@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0233-verify-egress-af27-u28-q01",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "ssh-j.com's banner states 'Limits: 50 exposed services (ports) per username', while the repository README states 6. Which limits[].kind fits a per-username count of exposed ports? No closed term does.",
+ "why": "the vocabulary has no count-of-services kind, so no limits row was proposed for egress/ssh-j",
+ "scope": {
+  "rids": [
+   "egress/ssh-j"
+  ]
+ },
+ "origin": "20261125-0233-verify-egress-af27/u28",
+ "created": "2026-11-25T15:43:47Z"
+}

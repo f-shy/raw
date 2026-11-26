@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://deluxhost.net/en/storage",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "No per-object cap is stated on the storage page; it states a 500 GB to 20 TB range of plan disks, unlimited traffic under fair use and RAID redundancy."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
-    "source_url": "https://deluxhost.net/en/storage",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "stated": "On service suspension or termination, server data is retained for 7 days and customer-panel backups for 14 days from the end of service.",
+    "source_url": "https://deluxhost.net/en/legal/fair-use-policy",
+    "notes": "The retention periods apply after service suspension or termination; the Storage VPS comparison says snapshots and sub-accounts are 'Up to you to set up'."
   },
   "egress": {
     "terms": "'Unlimited Traffic, fair usage' on every storage plan. The Fair Use Policy states: 'DeluxHost does not apply hard caps or automatic blocks to the monthly traffic of its Services' and calculates combined inbound and outbound traffic during the calendar month. Indicative thresholds on German documentation cite 20 TB to 30 TB per month per storage service.",
@@ -97,10 +97,52 @@
       "proved": "the storage page's FAQ states RAID redundancy and that one drive failure does not lose data",
       "capture": "sha256:44e8a8f435632b6176272382aff3a44119782a2f74efa7a4dbf2f3c3590d1dba",
       "quote": "All storage volumes are backed by enterprise-grade hardware with RAID redundancy, so a single drive failure will never result in data loss."
+    },
+    {
+      "url": "https://deluxhost.net/en/storage",
+      "date": "2026-11-25",
+      "proved": "the storage page states unlimited traffic under fair use and no per-object cap",
+      "capture": "sha256:158f25225bdc728bbdae6a5e979e155b923d2d85a11b3f7aeaf9a06c65dd3315",
+      "quote": "Unlimited Traffic, fair usage"
+    },
+    {
+      "url": "https://deluxhost.net/en/legal/fair-use-policy",
+      "date": "2026-11-25",
+      "proved": "the fair-use policy states a 7-day server-data and 14-day backup retention after service end",
+      "capture": "sha256:c25557c7495da17f0b2cd22abd7c8fd255361d99111b2023863b9c934e1c0336",
+      "quote": "- Server data: 7 days from the end of service.\n- Backups made by the customer through the panel: 14 days total from the end of service."
+    },
+    {
+      "url": "https://deluxhost.net/en/legal/fair-use-policy",
+      "date": "2026-11-25",
+      "proved": "the retention periods are stated in section 7 of the fair-use policy",
+      "capture": "sha256:c25557c7495da17f0b2cd22abd7c8fd255361d99111b2023863b9c934e1c0336",
+      "quote": "- Server data: 7 days from the end of service.\n- Backups made by the customer through the panel: 14 days total from the end of service."
+    },
+    {
+      "url": "https://deluxhost.net/en/storage",
+      "date": "2026-11-25",
+      "proved": "the Storage VPS comparison says snapshots and sub-accounts are set up by the user",
+      "capture": "sha256:158f25225bdc728bbdae6a5e979e155b923d2d85a11b3f7aeaf9a06c65dd3315",
+      "quote": "Up to you to set up"
+    },
+    {
+      "url": "https://deluxhost.net/en/storage",
+      "date": "2026-11-25",
+      "proved": "the storage page still states RAID redundancy and that one drive failure does not lose data",
+      "capture": "sha256:158f25225bdc728bbdae6a5e979e155b923d2d85a11b3f7aeaf9a06c65dd3315",
+      "quote": "All storage volumes are backed by enterprise-grade hardware with RAID redundancy, so a single drive failure will never result in data loss."
+    },
+    {
+      "url": "https://deluxhost.net/en/legal/fair-use-policy",
+      "date": "2026-11-25",
+      "proved": "the fair-use policy gives storage servers an indicative 20 to 30 TB per month traffic threshold",
+      "capture": "sha256:c25557c7495da17f0b2cd22abd7c8fd255361d99111b2023863b9c934e1c0336",
+      "quote": "Storage servers and Storage Boxes: from 20 TB to 30 TB per month;"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-11T02:51:01.494Z",
+  "verified_at": "2026-11-25T09:54:58.646Z",
   "price_per_tb_month": "$2.22/TB/mo at 20 TB (promo €39.59 = $44.48/mo), $2.47/TB at the steady €43.99 = $49.42/mo. At 5 TB: €10.79 promo = $12.12/mo = $2.42/TB; steady €11.99 = $13.47/mo = $2.69/TB. At 2 TB: $2.02-2.24/TB. This is the cheapest storage outside Europe that is actually orderable today.",
   "notes": "All storage volumes are backed by enterprise-grade hardware with RAID redundancy, so a single drive failure will never result in data loss.",
   "history": [],

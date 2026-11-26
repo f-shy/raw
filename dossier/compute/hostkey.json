@@ -5,7 +5,7 @@
   "url": "https://hostkey.ru/vps/vps-vds-testovyy-period/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "No free trial, stated in the provider's own words on two pages, while a third page offers three days of free access and the refund documentation invites a request to discuss free testing, so the provider publishes two answers at once. What is real is hourly billing on every virtual server: the machine is charged from delivery to cancellation, so a few hours of a full machine cost a few roubles and the unused remainder of a month returns to the balance as credit rather than as money. The cheapest shape is vm.v2-pico at 1 vCPU, 1 GB RAM, 40 GB SSD, a 1 Gbit/s port and 3 TB of traffic included, for RUB 490 a month.",
+    "stated": "We do not provide a free trial period for virtual machines. All virtual machines are on hourly billing. The cheapest shape is vm.pico at 1 vCPU, 1 GB RAM, 40 GB SSD, a 1 Gbit/s port and 3 TB of traffic included, for RUB 490 a month.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://hostkey.ru/vps/vps-vds-testovyy-period/",
@@ -79,10 +79,17 @@
       "url": "https://hostkey.ru/vps/s-testovym-periodom/",
       "date": "2026-10-22",
       "proved": "payment is in roubles by Russian bank cards including Mir, by bank transfer and by electronic payment systems, with locations in Moscow, Europe, Turkey and the United States"
+    },
+    {
+      "url": "https://hostkey.ru/vps/vps-vds-testovyy-period/",
+      "date": "2026-11-25",
+      "proved": "all virtual servers are billed hourly and the provider does not offer a free trial period for virtual machines",
+      "capture": "sha256:1a16c746ab910956ab4a21fc4ed528f043bb32ab4346247b2a74af84b6175017",
+      "quote": "Все виртуальные серверы (VPS/VDS) доступны на базе почасовой оплаты. Вы можете арендовать сервер на несколько часов и проверить его параметры и совместимость с вашими задачами. Мы не предоставляем бесплатный тестовый период для виртуальных машин."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:27.647Z",
   "notes": "New provider for the corpus. Recorded as paid-only because the provider's own FAQ and trial page both say there is no free trial; the three-day claim on the marketing page is not a contract and is contradicted twice on the same domain, so a reader should treat it as copy rather than as an offer. Arithmetic: 490 / 730 = 0.67 RUB an hour; 490 / 3 = 163 RUB a terabyte. Not established: which of the two trial statements is honoured in practice, since that needs an account and a support conversation, and whether foreign cards work (the payment page names Mir and Russian transfers only).",
   "extras": {
     "wave2": {

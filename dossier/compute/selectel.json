@@ -5,7 +5,7 @@
   "url": "https://selectel.ru/services/cloud/servers/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "No free test. The provider's own FAQ states outright that there is no free testing for cloud servers and that the minimum way to evaluate one is to top up RUB 100 and run it hourly; a separate grant of up to RUB 30,000 exists but only for legal entities and sole proprietors.",
+    "stated": "No free testing: the FAQ states 'У нас нет бесплатного тестирования, но чтобы оценить работу сервера, вам достаточно пополнить баланс хотя бы на минимальную сумму — 100 рублей.' The example is a server with 2 vCPU and 4 ГБ RAM. Billing is pay-as-you-go: 'Вы платите только за потребленные ресурсы. Каждый час со счета списывается почасовая оплата.'",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://selectel.ru/services/cloud/servers/",
@@ -69,10 +69,17 @@
       "url": "https://docs.selectel.ru/cloud-servers/about/payment/",
       "date": "2026-10-22",
       "proved": "the billing documentation states, in Russian, that pay-as-you-go billing deducts hourly for the previous hour of resources plus external traffic consumed above the free allowance of 3 TB across all projects of the account"
+    },
+    {
+      "url": "https://selectel.ru/services/cloud/servers/",
+      "date": "2026-11-25",
+      "proved": "the cloud servers FAQ states there is no free testing, that a minimum RUB 100 top-up suffices, gives a 2 vCPU and 4 GB example, and states hourly pay-as-you-go billing",
+      "capture": "sha256:7efeea6320b0ac296575558a19b13350b864173d16d2c220fd1de74091504b31",
+      "quote": "У нас нет бесплатного тестирования, но чтобы оценить работу сервера, вам достаточно пополнить баланс хотя бы на минимальную сумму — 100 рублей. ... например, оценить, подходит ли вам сервер с 2 vCPU и 4 ГБ RAM или вам нужно больше ресурсов. ... Вы платите только за потребленные ресурсы. Каждый час со счета списывается почасовая оплата."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:35.329Z",
   "notes": "Recorded as a refutation of the assumption that a large regional provider has some entry lane. Selectel is one of the two largest Russian clouds and it publishes the opposite, in plain words, which is more useful than a page that hides it. The RUB 30,000 grant is the number the next session will find and it is entity-only.",
   "extras": {
     "wave2": {

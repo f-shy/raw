@@ -77,30 +77,9 @@
     {
       "url": "probe:https://al.chirmyram.com/",
       "date": "2026-11-11",
-      "proved": "this host answered every request of this run's probe",
-      "capture": "sha256:05b13f5d8a1e09768467258892fbb58c5a5ffb46627813e1763eebeb3dc405ff",
-      "quote": "\"consecutive_failures\": 0"
-    },
-    {
-      "url": "probe:https://al.chirmyram.com/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:05b13f5d8a1e09768467258892fbb58c5a5ffb46627813e1763eebeb3dc405ff",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://al.chirmyram.com/",
-      "date": "2026-11-11",
       "proved": "the settings request for this host answered HTTP 200 at this instant",
       "capture": "sha256:05b13f5d8a1e09768467258892fbb58c5a5ffb46627813e1763eebeb3dc405ff",
       "quote": "\"checked_at\": \"2026-11-11T00:20:01.880Z\""
-    },
-    {
-      "url": "probe:https://al.chirmyram.com/",
-      "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:05b13f5d8a1e09768467258892fbb58c5a5ffb46627813e1763eebeb3dc405ff",
-      "quote": "\"listing_sha256\": \"0f64ec2f\""
     },
     {
       "url": "probe:https://al.chirmyram.com/",
@@ -112,23 +91,30 @@
     {
       "url": "probe:https://al.chirmyram.com/",
       "date": "2026-11-19",
-      "proved": "the anonymous session, settings and mount list all answered, so the fresh alive timestamp stands",
-      "capture": "sha256:f21490628c00c80ce1efcc9e0ceaaa4a9484502f946afa592ef5fc49c8745d19",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://al.chirmyram.com/",
-      "date": "2026-11-19",
-      "proved": "the anonymous root listing hashed to 0f64ec2f, equal to the recorded value; no hash change",
-      "capture": "sha256:f21490628c00c80ce1efcc9e0ceaaa4a9484502f946afa592ef5fc49c8745d19",
-      "quote": "\"listing_sha256\": \"0f64ec2f\""
-    },
-    {
-      "url": "probe:https://al.chirmyram.com/",
-      "date": "2026-11-19",
       "proved": "the host answered every request of this probe, so the failure count stayed at zero",
       "capture": "sha256:f21490628c00c80ce1efcc9e0ceaaa4a9484502f946afa592ef5fc49c8745d19",
       "quote": "\"consecutive_failures\": 0"
+    },
+    {
+      "url": "probe:https://al.chirmyram.com/api/public/settings",
+      "date": "2026-11-25",
+      "proved": "a fresh anonymous probe of the AList public settings endpoint of al.chirmyram.com answered at this instant (HTTP 200, JSON, no challenge)",
+      "capture": "sha256:2fb539aed2c1e1af4f487905b8a83c1c4958442f3be7bb1f6b8c695822daa59b",
+      "quote": "\"probed_at\": \"2026-11-25T04:07:25.905Z\""
+    },
+    {
+      "url": "probe:https://al.chirmyram.com/api/public/settings",
+      "date": "2026-11-25",
+      "proved": "the settings endpoint of al.chirmyram.com answered HTTP 200 to an anonymous request",
+      "capture": "sha256:2fb539aed2c1e1af4f487905b8a83c1c4958442f3be7bb1f6b8c695822daa59b",
+      "quote": "\"status\": 200"
+    },
+    {
+      "url": "probe:https://al.chirmyram.com/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing hashed to the recorded value, so the listing is unchanged",
+      "capture": "sha256:6a51e8585e3a3425ae63166b01ceea71212d586eb453b22ecf2b78fb475888f1",
+      "quote": "\"listing_sha256\": \"0f64ec2f\""
     },
     {
       "url": "probe:https://al.chirmyram.com/",
@@ -170,7 +156,7 @@
     "listing_sha256": "0f64ec2f",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-25T01:38:28.678Z",
+    "last_verified_alive": "2026-11-25T04:07:25.905Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "aliases": [

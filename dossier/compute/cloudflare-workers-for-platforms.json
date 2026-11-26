@@ -5,7 +5,7 @@
   "url": "https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/reference/pricing/",
   "category": "platform host",
   "free_tier": {
-    "stated": "no free tier published",
+    "stated": "no free tier published: the Workers for Platforms Paid plan is $25 monthly, with 20 million requests and 60 million CPU milliseconds included per month, then $0.30 per additional million requests and $0.02 per additional million CPU milliseconds; 1000 scripts are included, then $0.02 per additional script",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/reference/pricing/",
@@ -68,10 +68,31 @@
       "url": "https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/reference/pricing/",
       "date": "2026-10-22",
       "proved": "'The Workers for Platforms Paid plan is $25 monthly' with '20,000,000 included requests', '60,000,000 included CPU ms' and '1,000 included scripts', quoted"
+    },
+    {
+      "url": "https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/reference/pricing/",
+      "date": "2026-11-25",
+      "proved": "the page publishes only a $25 monthly Workers for Platforms Paid plan",
+      "capture": "sha256:40537a229674b4f4c86da66dc12c8180588585c31dc4e1a3075fe74b1b02d972",
+      "quote": "The Workers for Platforms Paid plan is **$25 monthly**. Workers for Platforms can be purchased through the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/?to=/:account/workers-for-platforms)."
+    },
+    {
+      "url": "https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/reference/pricing/",
+      "date": "2026-11-25",
+      "proved": "the allotment table states the included requests, CPU milliseconds and scripts and their overage rates",
+      "capture": "sha256:40537a229674b4f4c86da66dc12c8180588585c31dc4e1a3075fe74b1b02d972",
+      "quote": "requests ... 20 million requests included per month <br><br> +$0.30 per additional million ... CPU time ... 60 million CPU milliseconds included per month<br><br> +$0.02 per additional million CPU milliseconds ... Scripts ... 1000 scripts <br> <br>+$0.02 per additional script"
+    },
+    {
+      "url": "https://developers.cloudflare.com/cloudflare-for-platforms/workers-for-platforms/reference/pricing/",
+      "date": "2026-11-25",
+      "proved": "the allotment table still states the included requests, CPU milliseconds and scripts and their overage rates",
+      "capture": "sha256:40537a229674b4f4c86da66dc12c8180588585c31dc4e1a3075fe74b1b02d972",
+      "quote": "requests ... 20 million requests included per month <br><br> +$0.30 per additional million ... CPU time ... 60 million CPU milliseconds included per month<br><br> +$0.02 per additional million CPU milliseconds ... Scripts ... 1000 scripts <br> <br>+$0.02 per additional script"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:46:37.000Z",
+  "verified_at": "2026-11-25T11:17:39.907Z",
   "price_per_tb_month": null,
   "notes": "",
   "extras": {

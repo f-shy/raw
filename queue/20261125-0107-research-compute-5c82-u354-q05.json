@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u354-q05",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "compute/freevps-edu-pl: no path value is supported well enough by a capture. The best candidate is $.free_tier.stated (source https://freevps.edu.pl/), but the current capture does not reproduce the quoted headline strings ('Free Windows VPS Hosting For Students & Developers', 'No Credit Card Instant Activation Student Verified', 'No credit card required - simply verify your student status'). Which capture states the free-tier value as the record words it?",
+ "why": "PROPOSALS.jsonl marks compute/freevps-edu-pl as review: 'no path value is supported well enough by a capture'; best path $.free_tier.stated at https://freevps.edu.pl/. The homepage capture (sha256:7ba91b5...) discusses a VPS lab, 4GB RAM and institutional-email verification but not the three quoted headline strings, so the stated value cannot be confirmed or corrected from it. Record left alone.",
+ "scope": {
+  "rids": [
+   "compute/freevps-edu-pl"
+  ]
+ },
+ "origin": "20261125-0107-research-compute-5c82/u354",
+ "created": "2026-11-25T15:40:38Z"
+}

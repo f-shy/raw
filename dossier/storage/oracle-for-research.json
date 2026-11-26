@@ -15,15 +15,15 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://go.oracle.com/research-project-award",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Maximum object size: 10 TiB"
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://go.oracle.com/research-project-award",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: the award page states no retention period for objects stored with awarded credits"
   },
   "egress": {
-    "terms": "Includes 10 TB per month free outbound internet egress on Oracle Cloud Infrastructure, followed by standard metered rates.",
+    "terms": "As part of your Always Free resources, you get 10 TB per month of outbound data.",
     "metered": true,
     "free_allowance": "10 TB per month"
   },
@@ -77,10 +77,31 @@
       "proved": "the regional restriction is still stated",
       "capture": "sha256:22acae8bdd06c649b4ed321a92a53d74cffb2b14e9d894ed7d6713f0b50fccd1",
       "quote": "Oracle for Research Project Award is subject to regional restrictions."
+    },
+    {
+      "url": "https://docs.oracle.com/en-us/iaas/Content/Object/Concepts/objectstorageoverview.htm",
+      "date": "2026-11-25",
+      "proved": "OCI Object Storage caps an object at 10 TiB",
+      "capture": "sha256:519cc667c5a8cd33a8e4afa5f6cb8ea16850fd7da7ca3ebf4552e169f666ec96",
+      "quote": "Maximum object size: 10 TiB"
+    },
+    {
+      "url": "https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm",
+      "date": "2026-11-25",
+      "proved": "Always Free resources include 10 TB per month of outbound data",
+      "capture": "sha256:a0678a50db5b0c61354631e886a4a3a43102d5c907c6c495d3f5497991a22575",
+      "quote": "As part of your Always Free resources, you get 10 TB per month of outbound data."
+    },
+    {
+      "url": "https://go.oracle.com/research-project-award",
+      "date": "2026-11-25",
+      "proved": "awarded credit amounts vary with the proposal",
+      "capture": "sha256:22acae8bdd06c649b4ed321a92a53d74cffb2b14e9d894ed7d6713f0b50fccd1",
+      "quote": "Awarded Oracle Cloud credit amounts will vary depending on the proposal and usage requirements documented in the application form."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:37.734Z",
+  "verified_at": "2026-11-25T19:55:13.344Z",
   "notes": "Credit-based, amount 'will vary depending on the proposal and usage requirements'. OCI Object Storage list price ~$25.5/TB-month, so $10k is roughly 32 TB-months.",
   "history": [],
   "extras": {

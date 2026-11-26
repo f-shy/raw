@@ -6,7 +6,7 @@
   "category": "tunnel",
   "tier": "free",
   "free_tier": {
-    "stated": "Open-source CLI - Free tunnels - 3 free apps. The 3-second tunnel that started it all - still free, still first-class. HTTPS, WebSocket, TCP, UDP, TLS.",
+    "stated": "Free plan, $0 per month: tunnels with no time limit, 2 at once, random subdomain; 3 deployed apps that sleep when idle. Raw TCP, UDP and TLS tunnels are experimental.",
     "unit": "none",
     "metered_on": "unstated",
     "source_url": "https://tunr.sh/",
@@ -82,10 +82,31 @@
       "url": "https://news.ycombinator.com/item?id=48623146",
       "date": "2026-06-21",
       "proved": "Show HN launch date."
+    },
+    {
+      "url": "https://tunr.sh/docs.html",
+      "date": "2026-11-25",
+      "proved": "the relay exposes raw TCP and UDP only as a WebSocket stream, so a WireGuard client cannot dial it",
+      "capture": "sha256:b81368beea8ad27b7541a7d9bd8bd533685ed8674aa2cfdddaf50b40f86ff33e",
+      "quote": "There's no raw TCP/UDP port on the relay yet, so native clients like `psql` or `ssh` can't connect directly — you need a client that speaks that WebSocket."
+    },
+    {
+      "url": "https://tunr.sh/docs.html",
+      "date": "2026-11-25",
+      "proved": "the deploy upload cap is 50 MB",
+      "capture": "sha256:b81368beea8ad27b7541a7d9bd8bd533685ed8674aa2cfdddaf50b40f86ff33e",
+      "quote": "The compressed upload is limited to **50 MB**."
+    },
+    {
+      "url": "https://tunr.sh/",
+      "date": "2026-11-25",
+      "proved": "the Free plan allows 2 concurrent tunnels with no time limit",
+      "capture": "sha256:86e15050970fd85e3cb06b9efd5661f767b6d0a0811243b690dd94cbf261b706",
+      "quote": "Tunnels No time limit · 2 at once"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:49.812Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Launched 2026-06-21 as a 3-second tunnel and has since pivoted to an app-deploy platform. The homepage claim of TCP and UDP support is true only in the WebSocket-framing sense, which the docs admit.",

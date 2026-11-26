@@ -15,28 +15,23 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://my.hostbrr.com/order/main/packages/storagebox/?group_id=65",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The order page states no per-object size limit; the largest plan lists 16 TB of NVMe Cached HDD."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://my.hostbrr.com/order/main/packages/storagebox/?group_id=65",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "No retention period for stored files is stated. The terms page states unpaid services are terminated three days past the due date and active data and backups are destroyed."
   },
   "egress": {
     "terms": "Bandwidth is quoted as a hard multiple of storage. \"5 TB Bandwidth @ 10 Gbps\" on 1 TB, \"40 TB\" on 8 TB, \"80 TB\" on 16 TB. So 5x storage per month. NOT unmetered. A LET poster claims \"its actually unmetered if you know how to set it up\". Treat that as unverified forum folklore, not a policy.",
     "metered": false
   },
   "interface": [
-    "s3",
-    "webdav",
-    "sftp",
-    "ftp",
-    "rsync",
-    "smb",
     "ssh",
-    "rclone"
+    "ftp",
+    "rsync"
   ],
-  "interface_detail": "SSH, FTP, rsync, SFTP, DirectAdmin panel. **No WebDAV, no SMB**. Confirmed by LET users comparing it to Hetzner.",
+  "interface_detail": "SSH, FTP and rSync; DirectAdmin Control Panel",
   "tooling": "rsync/rclone-over-SFTP only. No S3, no WebDAV, no object API.",
   "chaining": "Protocol support is limited to SFTP, rsync, and Borg without native WebDAV or S3 interfaces. Well-suited for backend backup targets rather than public origin distribution.",
   "limits": [],
@@ -91,10 +86,38 @@
       "proved": "the 16 TB US StorageBox costs $35.50 a month or $355.00 a year and includes 80 TB bandwidth at 10 Gbps in Utah",
       "capture": "sha256:2174b27e25a2f3c457eee9f9a1a4d578f5fec9c34389d4b734e824e43cc057fc",
       "quote": "StorageBox 16 TB - USA Choose your billing cycle. 1 Month @ $35.50 USD 1 Year @ $355.00 USD 16 TB NVMe Cached HDD 80 TB Bandwidth @ 10 Gbps SSH/FTP/rSync UNLIMITED Domains UNLIMITED Subdomains UNLIMITED Databases Free SSL Certificates Softaculous Script Installer DirectAdmin Control Panel Hosted in Utah, USA"
+    },
+    {
+      "url": "https://my.hostbrr.com/order/main/packages/storagebox/?group_id=65",
+      "date": "2026-11-25",
+      "proved": "the 16 TB US plan lists $35.50 a month, $355.00 a year, 80 TB bandwidth at 10 Gbps and Utah",
+      "capture": "sha256:99affa597fccb32f513c39f10fd4b76500deed47e3fc481930d81677b6fc57a8",
+      "quote": "StorageBox 16 TB - USA Choose your billing cycle. 1 Month @ $35.50 USD 1 Year @ $355.00 USD 16 TB NVMe Cached HDD 80 TB Bandwidth @ 10 Gbps SSH/FTP/rSync UNLIMITED Domains UNLIMITED Subdomains UNLIMITED Databases Free SSL Certificates Softaculous Script Installer DirectAdmin Control Panel Hosted in Utah, USA"
+    },
+    {
+      "url": "https://my.hostbrr.com/order/main/packages/storagebox/?group_id=65",
+      "date": "2026-11-25",
+      "proved": "the plan lists SSH, FTP and rSync access",
+      "capture": "sha256:99affa597fccb32f513c39f10fd4b76500deed47e3fc481930d81677b6fc57a8",
+      "quote": "SSH/FTP/rSync"
+    },
+    {
+      "url": "https://my.hostbrr.com/order/main/packages/storagebox/?group_id=65",
+      "date": "2026-11-25",
+      "proved": "the largest plan lists 16 TB of storage",
+      "capture": "sha256:99affa597fccb32f513c39f10fd4b76500deed47e3fc481930d81677b6fc57a8",
+      "quote": "16 TB NVMe Cached HDD 80 TB Bandwidth @ 10 Gbps"
+    },
+    {
+      "url": "https://hostbrr.com/terms.html",
+      "date": "2026-11-25",
+      "proved": "unpaid services are terminated three days past the due date and active data and backups are destroyed",
+      "capture": "sha256:28e32272e884efd2c4f9f51a82a9ad6fca3cbaf4e26581e2adba7813f1990ad4",
+      "quote": "All configuration, container structures, active data, and backups will be destroyed."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:20.509Z",
+  "verified_at": "2026-11-25T12:15:44.282Z",
   "price_per_tb_month": "List: $1.85/TB/mo at 16 TB ($355/yr), $1.93 at 8 TB. With BFBOX 40% recurring on yearly: 16 TB = $213/yr = $1.11/TB/mo; 8 TB = $111/yr = $1.16/TB/mo; 4 TB = $57/yr = $1.19/TB/mo. 5 TB workload: 8 TB plan = $1.16/TB/mo. 20 TB workload: two 16 TB boxes = $2.22/TB/mo (16 TB is their ceiling, so the di…",
   "notes": "500 GB / 1 / 2 / 4 / 8 / 16 TB, US (Utah) and DE (Falkenstein). 16 TB = $35.50/mo or $355/yr. 8 TB = $18.50/mo or $185/yr. 4 TB = $9.50/mo or $95/yr.",
   "history": [],

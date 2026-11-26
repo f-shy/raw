@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://docs.nebulablock.com/products/object-storage.md",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "unverified: no per-object size limit is published in the object-storage documentation"
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "Upon your request or upon termination of your account, we will delete Your Data from our active systems within thirty (30) days. Residual copies in backup systems will be purged within ninety (90) days.",
     "source_url": "https://docs.nebulablock.com/products/object-storage.md",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "Deletion from active systems within thirty (30) days on request or account termination; residual backup copies purged within ninety (90) days."
   },
   "egress": {
     "terms": "Outgoing traffic is billed at $0.01 per GB on all tiers while incoming traffic is included. At $0.01 per GB ($10 per TB), reading 20 TB costs approximately $200, and a continuous 500 GB to 1 TiB daily transfer volume costs $150 to $300 monthly.",
@@ -222,10 +222,24 @@
       "proved": "the Standard tier stores data free; egress is $0.01/GB on all tiers; a tier can be out of stock",
       "capture": "sha256:df5196d79673bd2c6a41db15bea91b81b6748415008280795d392c1cc16d6e51",
       "quote": "Tier Stored data Notes ... | **Standard**    | Free            | Durable, high-capacity storage. The default | ... Outgoing traffic is billed at $0.01/GB on all tiers; incoming traffic is included. Availability varies — a tier can show as out of stock."
+    },
+    {
+      "url": "https://docs.nebulablock.com/products/object-storage.md",
+      "date": "2026-11-25",
+      "proved": "the object storage documentation describes the S3-compatible product",
+      "capture": "sha256:c54d4434060c729ac52efb2dde5ce4b8ddb47a64ea5bfab52dede18f79579d1f",
+      "quote": "S3-compatible object storage for datasets, checkpoints, and generated media."
+    },
+    {
+      "url": "https://docs.nebulablock.com/resources/legal/data-policy",
+      "date": "2026-11-25",
+      "proved": "data is deleted from active systems within 30 days and backups within 90 days on request or account termination",
+      "capture": "sha256:e4172c052d649155a4a554e5d6acc6735e324ff8b41a2122bb2e2205ae287e36",
+      "quote": "Upon your request or upon termination of your account, we will delete Your Data from our active systems within thirty (30) days. Residual copies in backup systems will be purged within ninety (90) days."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T06:50:27.991Z",
+  "verified_at": "2026-11-25T21:21:15.501Z",
   "price_per_tb_month": "USD 0/TB/month stored on Standard; egress USD 0.01/GB (USD 10/TB); Performance USD 0.015/GB/month (USD 15/TB/month); Accelerated USD 0.02/GB/month (USD 20/TB/month)",
   "notes": "No storage quota on the Standard tier. It is priced at $0/GB/month by design: 'Standard — Stored data: Free — Durable, high-capacity storage. The default'. The paid tiers are Performance at $0.015/GB/month and Accelerated at $0.02/GB/month. There is no published cap on bytes stored, only 'availability varies — a tier can show as out of stock'.",
   "history": [],

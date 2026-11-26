@@ -1,180 +1,187 @@
 {
-  "topic": "compute",
-  "slug": "rentamac",
-  "provider": "RentaMac (rentamac.io)",
-  "url": "https://rentamac.io/pricing",
-  "category": "macOS host",
-  "free_tier": {
-    "stated": "no free tier: continuous 24/7 Mac access billed monthly, starting immediately after payment and auto-renewing",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://rentamac.io/pricing",
-    "read_on": "2026-10-22"
+ "topic": "compute",
+ "slug": "rentamac",
+ "provider": "RentaMac (rentamac.io)",
+ "url": "https://rentamac.io/pricing",
+ "category": "macOS host",
+ "free_tier": {
+  "stated": "Your access starts immediately after payment and auto-renews unless you cancel from the User Portal.",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://rentamac.io/pricing",
+  "read_on": "2026-10-22"
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://rentamac.io/pricing",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "not stated",
+  "days": null,
+  "source_url": "https://rentamac.io/pricing",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "not published",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://rentamac.io/pricing"
+ },
+ "interface": [
+  "ssh"
+ ],
+ "interface_detail": "Remote desktop through DeskIn after payment, full SSH terminal access with scp/sftp, and full root administrator privileges; credentials arrive by email after purchase.",
+ "tooling": "not stated",
+ "chaining": "not established",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "a monthly term with continuous 24/7 access; no hourly rate and no free tier",
+   "source": "https://rentamac.io/pricing"
   },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://rentamac.io/pricing",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+  {
+   "kind": "write-gated",
+   "value": "access starts only after payment and auto-renews, so a card is the gate",
+   "source": "https://rentamac.io/pricing"
+  }
+ ],
+ "limits_note": "Session cap, idle-reap and network policy are not documented.",
+ "identity_cost": {
+  "kind": "card",
+  "detail": "Email and password, or Google, create a portal account; access to the rented Mac starts only after payment and auto-renews monthly. No phone or ID document is stated.",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "documented",
+ "confidence_note": "the pricing page was read on 2026-10-22 and states continuous 24/7 access on a monthly term. There is no free tier, so the verdict moves to paid-only",
+ "evidence": [
+  {
+   "url": "https://rentamac.io/pricing",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
   },
-  "retention": {
-    "stated": "not stated",
-    "days": null,
-    "source_url": "https://rentamac.io/pricing",
-    "notes": "Disk durability across instance stops and deletions is not documented."
+  {
+   "url": "https://rentamac.io/pricing",
+   "date": "2026-10-22",
+   "proved": "'1 month access. Continuous 24/7 access  -  not working days or limited hours. Your access starts immediately after payment and auto-renews unless you cancel from the User Portal.' and 'Billed monthly', quoted"
   },
-  "egress": {
-    "terms": "not published",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://rentamac.io/pricing"
+  {
+   "url": "https://rentamac.io/pricing",
+   "date": "2026-11-25",
+   "proved": "paid access starts on payment and auto-renews; no free tier is stated",
+   "capture": "sha256:ac2ff89442ed2e95bea67572fd232621bd4f03ac12767fda8f6d5246f3e892b1",
+   "quote": "Your access starts immediately after payment and auto-renews unless you cancel from the User Portal."
   },
-  "interface": [
-    "ssh"
-  ],
-  "interface_detail": "Remote desktop through DeskIn after payment, full SSH terminal access with scp/sftp, and full root administrator privileges; credentials arrive by email after purchase.",
-  "tooling": "not stated",
-  "chaining": "not established",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "a monthly term with continuous 24/7 access; no hourly rate and no free tier",
-      "source": "https://rentamac.io/pricing"
-    },
-    {
-      "kind": "write-gated",
-      "value": "access starts only after payment and auto-renews, so a card is the gate",
-      "source": "https://rentamac.io/pricing"
-    }
-  ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented.",
-  "identity_cost": {
-    "kind": "card",
-    "detail": "Email and password, or Google, create a portal account; access to the rented Mac starts only after payment and auto-renews monthly. No phone or ID document is stated.",
-    "country": null
+  {
+   "url": "https://rentamac.io/pricing",
+   "date": "2026-11-24",
+   "proved": "the rented Mac exposes full SSH terminal access and scp/sftp file transfer",
+   "capture": "sha256:ac2ff89442ed2e95bea67572fd232621bd4f03ac12767fda8f6d5246f3e892b1",
+   "quote": "SSHFull SSH terminal access to your Mac for remote development, running builds, and file transfers (scp/sftp). Connect from any terminal using the credentials provided after purchase."
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "documented",
-  "confidence_note": "the pricing page was read on 2026-10-22 and states continuous 24/7 access on a monthly term. There is no free tier, so the verdict moves to paid-only",
-  "evidence": [
-    {
-      "url": "https://rentamac.io/pricing",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://rentamac.io/pricing",
-      "date": "2026-10-22",
-      "proved": "'1 month access. Continuous 24/7 access  -  not working days or limited hours. Your access starts immediately after payment and auto-renews unless you cancel from the User Portal.' and 'Billed monthly', quoted"
-    },
-    {
-      "url": "https://rentamac.io/pricing",
-      "date": "2026-11-24",
-      "proved": "the rented Mac exposes full SSH terminal access and scp/sftp file transfer",
-      "capture": "sha256:ac2ff89442ed2e95bea67572fd232621bd4f03ac12767fda8f6d5246f3e892b1",
-      "quote": "SSHFull SSH terminal access to your Mac for remote development, running builds, and file transfers (scp/sftp). Connect from any terminal using the credentials provided after purchase."
-    },
-    {
-      "url": "https://rentamac.io/pricing",
-      "date": "2026-11-24",
-      "proved": "the access interface is DeskIn remote desktop with emailed credentials",
-      "capture": "sha256:ac2ff89442ed2e95bea67572fd232621bd4f03ac12767fda8f6d5246f3e892b1",
-      "quote": "Remote desktopConnect via DeskIn remote desktop software. After purchase, you’ll receive credentials by email."
-    },
-    {
-      "url": "https://rentamac.io/pricing",
-      "date": "2026-11-24",
-      "proved": "payment is required before access starts, so a card is the binding identity gate for the paid service",
-      "capture": "sha256:ac2ff89442ed2e95bea67572fd232621bd4f03ac12767fda8f6d5246f3e892b1",
-      "quote": "Your access starts immediately after payment and auto-renews unless you cancel from the User Portal."
-    },
-    {
-      "url": "https://portal.rentamac.io/register",
-      "date": "2026-11-24",
-      "proved": "the sign-up page asks for an email and password and offers Google sign-in",
-      "capture": "sha256:2c9201722626896a09143d9bbf9359303726a29b40f9f7cc9d0292f5c54ba162",
-      "quote": "Enter your details to get started with Rent a Mac"
-    },
-    {
-      "url": "https://rentamac.io/pricing",
-      "date": "2026-11-24",
-      "proved": "there is no free tier; continuous 24/7 access is a paid monthly term",
-      "capture": "sha256:ac2ff89442ed2e95bea67572fd232621bd4f03ac12767fda8f6d5246f3e892b1",
-      "quote": "1 month accessContinuous 24/7 access — not working days or limited hours. Your access starts immediately after payment and auto-renews unless you cancel from the User Portal."
-    },
-    {
-      "url": "https://rentamac.io/faq/",
-      "date": "2026-11-24",
-      "proved": "disk data is wiped after each rental session",
-      "capture": "sha256:4e2ab96ffdef1c21c9228b4fcef88ed7589d658b27c914301c18b9f2b17ee38b",
-      "quote": "After your session, we ensure all data is removed by performing a full system wipe."
-    },
-    {
-      "url": "https://www.rentamac.io",
-      "date": "2026-11-24",
-      "proved": "the rented Mac is advertised from USD 3.97 a day, with daily, weekly and monthly terms",
-      "capture": "sha256:7ca1c82dcfae64fce192bac8cc8dd897f22fe9e8a684791fb97c5bd397956fa3",
-      "quote": "From $3.97/day"
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T13:21:02.387Z",
-  "price_per_tb_month": null,
-  "notes": "",
-  "extras": {
-    "seed_status": "ranked",
-    "talaria_m10h_usd": 43.77,
-    "talaria_m24h_usd": 105.04,
-    "nemo_m10h_usd": null,
-    "keep_rate": 1.0,
-    "keep_rate_basis": "always-on by contract",
-    "billing_model": "unclassified",
-    "shape": {
-      "vcpu": null,
-      "ram": null,
-      "disk": null,
-      "gpu_class": "Apple Silicon",
-      "gpu_count": 1,
-      "note": "a rented Mac; the page prices the term rather than the shape"
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "continuous access with no hour cap and no resource to reap"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "granularity": {
-      "min_billed_s": 0,
-      "rounding_s": null
-    },
-    "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "ps": {
-      "gib": null,
-      "price": "included in the monthly term",
-      "durability": "the rented device",
-      "on_stop": true,
-      "on_destroy": false,
-      "retention": "the rental term"
-    },
-    "net": {
-      "out": true,
-      "in": true,
-      "ports": "any",
-      "static_ip": null,
-      "ipv6": null,
-      "allowance": null
-    }
+  {
+   "url": "https://rentamac.io/pricing",
+   "date": "2026-11-24",
+   "proved": "the access interface is DeskIn remote desktop with emailed credentials",
+   "capture": "sha256:ac2ff89442ed2e95bea67572fd232621bd4f03ac12767fda8f6d5246f3e892b1",
+   "quote": "Remote desktopConnect via DeskIn remote desktop software. After purchase, you’ll receive credentials by email."
   },
-  "stale": true,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding": "write-gated",
-  "history": [
-    "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
-  ]
+  {
+   "url": "https://rentamac.io/pricing",
+   "date": "2026-11-24",
+   "proved": "payment is required before access starts, so a card is the binding identity gate for the paid service",
+   "capture": "sha256:ac2ff89442ed2e95bea67572fd232621bd4f03ac12767fda8f6d5246f3e892b1",
+   "quote": "Your access starts immediately after payment and auto-renews unless you cancel from the User Portal."
+  },
+  {
+   "url": "https://portal.rentamac.io/register",
+   "date": "2026-11-24",
+   "proved": "the sign-up page asks for an email and password and offers Google sign-in",
+   "capture": "sha256:2c9201722626896a09143d9bbf9359303726a29b40f9f7cc9d0292f5c54ba162",
+   "quote": "Enter your details to get started with Rent a Mac"
+  },
+  {
+   "url": "https://rentamac.io/pricing",
+   "date": "2026-11-24",
+   "proved": "there is no free tier; continuous 24/7 access is a paid monthly term",
+   "capture": "sha256:ac2ff89442ed2e95bea67572fd232621bd4f03ac12767fda8f6d5246f3e892b1",
+   "quote": "1 month accessContinuous 24/7 access — not working days or limited hours. Your access starts immediately after payment and auto-renews unless you cancel from the User Portal."
+  },
+  {
+   "url": "https://rentamac.io/faq/",
+   "date": "2026-11-24",
+   "proved": "disk data is wiped after each rental session",
+   "capture": "sha256:4e2ab96ffdef1c21c9228b4fcef88ed7589d658b27c914301c18b9f2b17ee38b",
+   "quote": "After your session, we ensure all data is removed by performing a full system wipe."
+  },
+  {
+   "url": "https://www.rentamac.io",
+   "date": "2026-11-24",
+   "proved": "the rented Mac is advertised from USD 3.97 a day, with daily, weekly and monthly terms",
+   "capture": "sha256:7ca1c82dcfae64fce192bac8cc8dd897f22fe9e8a684791fb97c5bd397956fa3",
+   "quote": "From $3.97/day"
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T15:03:51.315Z",
+ "price_per_tb_month": null,
+ "notes": "",
+ "extras": {
+  "seed_status": "ranked",
+  "talaria_m10h_usd": 43.77,
+  "talaria_m24h_usd": 105.04,
+  "nemo_m10h_usd": null,
+  "keep_rate": 1.0,
+  "keep_rate_basis": "always-on by contract",
+  "billing_model": "unclassified",
+  "shape": {
+   "vcpu": null,
+   "ram": null,
+   "disk": null,
+   "gpu_class": "Apple Silicon",
+   "gpu_count": 1,
+   "note": "a rented Mac; the page prices the term rather than the shape"
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "continuous access with no hour cap and no resource to reap"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "granularity": {
+   "min_billed_s": 0,
+   "rounding_s": null
+  },
+  "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "ps": {
+   "gib": null,
+   "price": "included in the monthly term",
+   "durability": "the rented device",
+   "on_stop": true,
+   "on_destroy": false,
+   "retention": "the rental term"
+  },
+  "net": {
+   "out": true,
+   "in": true,
+   "ports": "any",
+   "static_ip": null,
+   "ipv6": null,
+   "allowance": null
+  }
+ },
+ "stale": true,
+ "stale_checked_at": "2026-10-22T00:00:00.000Z",
+ "binding": "write-gated",
+ "history": [
+  "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
+ ]
 }

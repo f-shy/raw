@@ -5,7 +5,7 @@
   "url": "https://elevenlabs.io/startup-grants",
   "category": "inference API",
   "free_tier": {
-    "stated": "'Scale for 12 months ... 33,000,000 characters ... That's over 680 hours of Agents usage. More than $5,500+ in value.' The gate is a company: 'The ElevenLabs Grants program is open to all startups or companies with less than 25 employees', 'Only applications with valid business emails will be considered', 'Agencies, consulting firms and SMBs are not eligible', 'One application per company', and the programme requires 'a business or monetization strategy' with 'No short-term or one-off projects'.",
+    "stated": "'Scale for 12 months' and '33,000,000 characters': \"That's over 680 hours of Agents usage. More than $5,500+ in value.\"",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://elevenlabs.io/startup-grants",
@@ -74,10 +74,17 @@
       "url": "https://elevenlabs.io/pricing",
       "date": "2026-10-22",
       "proved": "the pricing page repeats the offer as '12 Months free ... 33M Characters ... Valid for 12 months', corroborating the size"
+    },
+    {
+      "url": "https://elevenlabs.io/startup-grants",
+      "date": "2026-11-25",
+      "proved": "the grant page states a 12-month scale grant of 33,000,000 characters worth more than $5,500",
+      "capture": "sha256:76ebceff15ffe60f0378cb3e007c33d258bb8592a1238232b92ba4b30855b9e6",
+      "quote": "### Scale for 12 months\n\nTo build, test, and launch your product with ElevenLabs.\n\n![Characters icon](https://eleven-public-cdn.elevenlabs.io/payloadcms/2u95pfyra6c-9a1xgn626g-graphic-02.svg)![Characters icon white](https://eleven-public-cdn.elevenlabs.io/payloadcms/6i0xef9wyl-cwzwzgdc1kd-graphic-02-white.svg)\n\n### 33,000,000 characters\n\nThat's over 680 hours of Agents usage. More than $5,500+ in value."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:24.731Z",
   "notes": "These are inference credits, not general compute. Classified as a refutation: the largest per-person voice credit in this market is not reachable by a person. An applicant would need a registered company, a domain email and a product with a monetisation strategy, and even then the decision is discretionary. The value claim of 'USD 5,500+' is the vendor's own arithmetic, not measured.",
   "extras": {
     "wave2": {

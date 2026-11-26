@@ -15,12 +15,12 @@
   "per_object_cap": {
     "stated": "You're allowed to upload a file with up to 15 GB in space",
     "source_url": "https://streamtape.com/",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "The homepage states that a file may be uploaded with up to 15 GB in space."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://streamtape.com/",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The homepage states that active files will be saved and gives no retention period."
   },
   "egress": {
     "terms": "Unlimited Bandwidth",
@@ -31,7 +31,7 @@
   ],
   "interface_detail": "rest",
   "tooling": "Documented API at https://streamtape.com/api with account info, download ticket, get download link, file info and upload endpoints. Widely integrated into upload bots.",
-  "chaining": "Free accounts x unlimited storage x unlimited files. Video-only in practice (it is a streaming host); the useful play is media/checkpoint shards, not raw datasets.",
+  "chaining": "Upload as many Videos as you wish. Active files will be saved on a system of safe and secured servers",
   "limits": [],
   "limits_note": "Video formats only; files are encoded/re-encoded on ingest (lossy for anything not already a video). 'Active files' only are kept. Inactive files are purged. Downloads require a generated ticket.",
   "identity_cost": {
@@ -85,10 +85,66 @@
       "proved": "the homepage states unlimited storage and a 15 GB per-file limit",
       "capture": "sha256:51b88f2935d9484de5b993efa2ee8739e1827dc69baf89f0e7b6ffc46e848b3e",
       "quote": "Unlimited Storage ... You're allowed to upload a file with up to 15 GB in space"
+    },
+    {
+      "url": "https://streamtape.com/",
+      "date": "2026-11-25",
+      "proved": "the homepage states a 15 GB per-file upload limit",
+      "capture": "sha256:56851f07c36ec3a4fc637acf3ec5c83ad13acc327aa7530d3b3b82fa3b261653",
+      "quote": "You're allowed to upload a file with up to 15 GB in space"
+    },
+    {
+      "url": "https://streamtape.com/",
+      "date": "2026-11-25",
+      "proved": "the homepage states the 15 GB upload limit",
+      "capture": "sha256:56851f07c36ec3a4fc637acf3ec5c83ad13acc327aa7530d3b3b82fa3b261653",
+      "quote": "You're allowed to upload a file with up to 15 GB in space"
+    },
+    {
+      "url": "https://streamtape.com/",
+      "date": "2026-11-25",
+      "proved": "the homepage describes active files being saved and states no retention period",
+      "capture": "sha256:56851f07c36ec3a4fc637acf3ec5c83ad13acc327aa7530d3b3b82fa3b261653",
+      "quote": "Upload as many Videos as you wish. Active files will be saved on a system of safe and secured servers"
+    },
+    {
+      "url": "https://streamtape.com/",
+      "date": "2026-11-25",
+      "proved": "the homepage describes active files and states no retention period",
+      "capture": "sha256:56851f07c36ec3a4fc637acf3ec5c83ad13acc327aa7530d3b3b82fa3b261653",
+      "quote": "Upload as many Videos as you wish. Active files will be saved on a system of safe and secured servers"
+    },
+    {
+      "url": "https://streamtape.com/",
+      "date": "2026-11-25",
+      "proved": "the homepage states that bandwidth and speed are not limited",
+      "capture": "sha256:56851f07c36ec3a4fc637acf3ec5c83ad13acc327aa7530d3b3b82fa3b261653",
+      "quote": "Stream the videos from anywhere, anytime, with no Bandwidth and speed limit"
+    },
+    {
+      "url": "https://streamtape.com/api",
+      "date": "2026-11-25",
+      "proved": "the API documentation specifies HTTP requests",
+      "capture": "sha256:2ae809c77936f9c177bb06decfabe7f06d4b1c5aa1e9edfeee413a71eb051a86",
+      "quote": "All requests to the API shall be HTTP"
+    },
+    {
+      "url": "https://streamtape.com/",
+      "date": "2026-11-25",
+      "proved": "the homepage states that users may upload as many videos as they wish",
+      "capture": "sha256:56851f07c36ec3a4fc637acf3ec5c83ad13acc327aa7530d3b3b82fa3b261653",
+      "quote": "Upload as many Videos as you wish. Active files will be saved on a system of safe and secured servers"
+    },
+    {
+      "url": "https://streamtape.com/",
+      "date": "2026-11-25",
+      "proved": "the homepage still states that users may upload as many videos as they wish",
+      "capture": "sha256:56851f07c36ec3a4fc637acf3ec5c83ad13acc327aa7530d3b3b82fa3b261653",
+      "quote": "Upload as many Videos as you wish. Active files will be saved on a system of safe and secured servers"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:32.479Z",
+  "verified_at": "2026-11-25T19:55:23.059Z",
   "notes": "'Unlimited Storage — Upload as many Videos as you wish. Active files will be saved'.",
   "history": [],
   "extras": {

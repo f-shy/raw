@@ -16,15 +16,15 @@
     "stated": "Per-file 512 MB",
     "bytes": 512000000,
     "source_url": "https://docs.x.ai/developers/files",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "Maximum file size: 512 MB per file."
   },
   "retention": {
     "stated": "Files default to permanent storage until you delete them.",
     "source_url": "https://docs.x.ai/developers/files",
-    "notes": "Extracted from published terms."
+    "notes": "Files default to permanent storage until you delete them."
   },
   "egress": {
-    "terms": "Every file can mint a public URL on files-cdn.x.ai, Cloudflare-fronted, no API key needed to fetch, no egress charge documented. URL is permanent if the file has no expiry and no expires_after is passed.",
+    "terms": "Public URLs turn a stored file into a permanent, shareable link on the SpaceXSI CDN that anyone can open — no API key required.",
     "metered": false
   },
   "interface": [
@@ -32,7 +32,7 @@
   ],
   "interface_detail": "OpenAI-compatible REST at https://api.x.ai/v1/files. POST upload, GET list, GET {id}, GET {id}/content (streams raw bytes, Content-Type application/octet-stream), DELETE, plus POST {id}/public-url and /public-url/revoke.",
   "tooling": "openai-python with base_url swapped to https://api.x.ai/v1; xai_sdk; curl",
-  "chaining": "Upload workflow generates public URLs cached at CDN edge locations. Files maintain one active public URL at a time, and repeated requests return the existing public link idempotently.",
+  "chaining": "A file can have at most one active public URL at a time; calling create_public_url on a file that already has one returns the existing URL without producing a new one.",
   "limits": [
     {
       "kind": "per-object-cap",
@@ -98,10 +98,66 @@
       "proved": "the page states the 512 MB ceiling the basis names",
       "capture": "sha256:19da60bcccf156f5bf1e5184c0f9316b6f17de6fbce5a3755485359f6c6dca80",
       "quote": "* **File size**: Maximum 512 MB per file"
+    },
+    {
+      "url": "https://docs.x.ai/developers/files/managing-files",
+      "date": "2026-11-25",
+      "proved": "files are stored permanently until deletion",
+      "capture": "sha256:61a840305e06e7f260e000f47046701ec2baa0047ac9ab00d6aebf315e159e81",
+      "quote": "Files default to permanent storage until you delete them."
+    },
+    {
+      "url": "https://docs.x.ai/developers/files/managing-files",
+      "date": "2026-11-25",
+      "proved": "the first-party file-size limit is 512 MB per file",
+      "capture": "sha256:61a840305e06e7f260e000f47046701ec2baa0047ac9ab00d6aebf315e159e81",
+      "quote": "* **Maximum file size**: 512 MB per file"
+    },
+    {
+      "url": "https://docs.x.ai/developers/files/public-urls",
+      "date": "2026-11-25",
+      "proved": "public URL creation is idempotent with one active URL per file",
+      "capture": "sha256:5fc70c0bf2b6bec36f592a30f6e91bfb1926a4a7f679aa424e3e60d37be6e20d",
+      "quote": "A file can have **at most one active public URL at a time**. Calling `create_public_url` on a file that already has one returns the existing URL without producing a new one — it's safe to call repeatedly."
+    },
+    {
+      "url": "https://docs.x.ai/developers/files/public-urls",
+      "date": "2026-11-25",
+      "proved": "public CDN links are shareable without an API key",
+      "capture": "sha256:5fc70c0bf2b6bec36f592a30f6e91bfb1926a4a7f679aa424e3e60d37be6e20d",
+      "quote": "Public URLs turn a stored file into a permanent, shareable link on the SpaceXSI CDN that anyone can open — no API key required."
+    },
+    {
+      "url": "https://docs.x.ai/developers/files/managing-files",
+      "date": "2026-11-25",
+      "proved": "files are permanent by default",
+      "capture": "sha256:61a840305e06e7f260e000f47046701ec2baa0047ac9ab00d6aebf315e159e81",
+      "quote": "Files default to permanent storage until you delete them."
+    },
+    {
+      "url": "https://docs.x.ai/developers/files/managing-files",
+      "date": "2026-11-25",
+      "proved": "the file-size limit is 512 MB per file",
+      "capture": "sha256:61a840305e06e7f260e000f47046701ec2baa0047ac9ab00d6aebf315e159e81",
+      "quote": "* **Maximum file size**: 512 MB per file"
+    },
+    {
+      "url": "https://docs.x.ai/developers/files/public-urls",
+      "date": "2026-11-25",
+      "proved": "one active public URL per file, idempotent creation",
+      "capture": "sha256:5fc70c0bf2b6bec36f592a30f6e91bfb1926a4a7f679aa424e3e60d37be6e20d",
+      "quote": "A file can have **at most one active public URL at a time**. Calling `create_public_url` on a file that already has one returns the existing URL without producing a new one — it's safe to call repeatedly."
+    },
+    {
+      "url": "https://docs.x.ai/developers/files/public-urls",
+      "date": "2026-11-25",
+      "proved": "CDN links need no API key to fetch",
+      "capture": "sha256:5fc70c0bf2b6bec36f592a30f6e91bfb1926a4a7f679aa424e3e60d37be6e20d",
+      "quote": "Public URLs turn a stored file into a permanent, shareable link on the SpaceXSI CDN that anyone can open — no API key required."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:35.599Z",
+  "verified_at": "2026-11-25T19:55:25.449Z",
   "notes": "No published total-storage quota. Per-file 512 MB (some pages say 50 MB for the upload reference and 50 MiB for public URLs). Files are PERMANENT by default. `expires_after` is opt-in.",
   "history": [],
   "extras": {

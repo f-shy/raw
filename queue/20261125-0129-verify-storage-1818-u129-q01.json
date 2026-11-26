@@ -1,0 +1,18 @@
+{
+ "id": "20261125-0129-verify-storage-1818-u129-q01",
+ "kind": "verify",
+ "topic": "egress",
+ "question": "Does GitLab.com state anywhere that Git LFS or registry downloads are free of egress charges or volume quotas?",
+ "why": "egress.metered stays false for storage/gitlab-com-git-lfs, storage/gitlab-container-registry, storage/gitlab-package-registry, storage/gitlab-com-snippets and storage/gitlab-snippets-gitlab-com-projects without a page that says so; none of the GitLab pages captured mentions egress, bandwidth or data transfer",
+ "scope": {
+  "rids": [
+   "storage/gitlab-com-git-lfs",
+   "storage/gitlab-container-registry",
+   "storage/gitlab-package-registry",
+   "storage/gitlab-com-snippets",
+   "storage/gitlab-snippets-gitlab-com-projects"
+  ]
+ },
+ "origin": "20261125-0129-verify-storage-1818/u129",
+ "created": "2026-11-25T12:15:41Z"
+}

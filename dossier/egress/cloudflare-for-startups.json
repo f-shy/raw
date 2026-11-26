@@ -51,10 +51,10 @@
   "binding_note": "two things fail before volume: the applicant must be a company, and the credit spends only on Cloudflare products, which already carry no egress meter. There is nothing for 1 TiB a month to run out of.",
   "identity_cost": {
     "kind": "institution",
-    "detail": "early-stage companies, with the tiers set by funding stage: 'Under $1M raised' for the $10k tier and 'Under $5M raised' for the $100k tier",
+    "detail": "a for-profit business with a business email matching its domain, no personal email addresses; tiers set by funding stage ('Under $1M raised' for the $10k tier, 'Under $5M raised' for the $100k tier)",
     "country": "None"
   },
-  "reliability_note": "credits are tied to programme membership and expire with it",
+  "reliability_note": "credits last one year from approval; R2 is covered only up to a cap per tier",
   "confidence": "documented",
   "confidence_note": "the tier structure is first-party and read today; whether a sole founder with no entity can apply is not stated",
   "evidence": [
@@ -62,10 +62,38 @@
       "url": "https://www.cloudflare.com/forstartups/",
       "date": "2026-10-23",
       "proved": "'up to $350k in credits', 'Get started with $10k in credits ... no minimum funding required', 'Under $1M raised', 'Credits: $10k', 'Under $5M raised', 'Credits: $100k'"
+    },
+    {
+      "url": "https://www.cloudflare.com/forstartups/",
+      "date": "2026-11-25",
+      "proved": "applicants need a business email matching their domain",
+      "capture": "sha256:97fb627908f331c5aa750765861d005ccfe7e1a45a3460e18ff6caecc940034b",
+      "quote": "Business email required — no personal email addresses"
+    },
+    {
+      "url": "https://www.cloudflare.com/forstartups/",
+      "date": "2026-11-25",
+      "proved": "credits are for one year",
+      "capture": "sha256:97fb627908f331c5aa750765861d005ccfe7e1a45a3460e18ff6caecc940034b",
+      "quote": "Receive up to $350,000 in credits for a year to support your startup."
+    },
+    {
+      "url": "https://www.cloudflare.com/forstartups/",
+      "date": "2026-11-25",
+      "proved": "R2 credit cover is capped at $2,500 (Tier 3), $5,000 (Tier 2), $10,000 (Tier 1)",
+      "capture": "sha256:97fb627908f331c5aa750765861d005ccfe7e1a45a3460e18ff6caecc940034b",
+      "quote": "R2 Object Storage:** Covered up to a $2,500 cap for Tier 3, $5,000 for Tier 2, and $10,000 for Tier 1."
+    },
+    {
+      "url": "https://www.cloudflare.com/forstartups/",
+      "date": "2026-11-25",
+      "proved": "the programme is for companies, not individuals",
+      "capture": "sha256:97fb627908f331c5aa750765861d005ccfe7e1a45a3460e18ff6caecc940034b",
+      "quote": "For-profit business with a business email matching your domain"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:23:40.712Z",
   "price_per_tb_month": "USD 10,000 to 350,000 of credit",
   "history": [],
   "notes": "Startup program providing Cloudflare credits up to USD 100,000 for funded companies. Standard free tiers on Workers and R2 already include zero-egress data transfer.",

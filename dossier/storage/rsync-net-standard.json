@@ -13,14 +13,14 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "ZFS limits individual files to ~18000 Petabytes (16 exbibytes).",
     "source_url": "https://www.rsync.net/pricing.html",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "It is unlikely that you will encounter this limit."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "All accounts have seven daily snapshots **free of charge**.",
     "source_url": "https://www.rsync.net/pricing.html",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "You do not need to set up or maintain these snapshots - they are automatically created and rotated."
   },
   "egress": {
     "terms": "No Egress Charges",
@@ -76,10 +76,52 @@
       "proved": "the pricing page header states no egress charges",
       "capture": "sha256:38100aff45a6fa53048f87a9a55cf19e6a3cb5a50958aa743f55ff6a4982af37",
       "quote": "No Egress Charges"
+    },
+    {
+      "url": "https://www.rsync.net/resources/faq.html",
+      "date": "2026-11-25",
+      "proved": "the FAQ states the ZFS per-file limit",
+      "capture": "sha256:e3af2c7d8d17c241b7d74ea401dc3edfcee4939bb0bfadf9977739f52d611995",
+      "quote": "ZFS limits individual files to ~18000 Petabytes (16 exbibytes)."
+    },
+    {
+      "url": "https://www.rsync.net/resources/faq.html",
+      "date": "2026-11-25",
+      "proved": "the FAQ qualifies the per-file limit as far above normal use",
+      "capture": "sha256:e3af2c7d8d17c241b7d74ea401dc3edfcee4939bb0bfadf9977739f52d611995",
+      "quote": "It is unlikely that you will encounter this limit."
+    },
+    {
+      "url": "https://rsync.net/resources/howto/snapshots.html",
+      "date": "2026-11-25",
+      "proved": "all accounts receive seven daily snapshots",
+      "capture": "sha256:69a539c8189bd85421fa35d24a7dfd64f2f4971fcaff6a11605ee29341c8b217",
+      "quote": "All accounts have seven daily snapshots **free of charge**."
+    },
+    {
+      "url": "https://rsync.net/resources/howto/snapshots.html",
+      "date": "2026-11-25",
+      "proved": "snapshot creation and rotation are automatic",
+      "capture": "sha256:69a539c8189bd85421fa35d24a7dfd64f2f4971fcaff6a11605ee29341c8b217",
+      "quote": "You do not need to set up or maintain these snapshots - they are automatically created and rotated."
+    },
+    {
+      "url": "https://www.rsync.net/pricing.html",
+      "date": "2026-11-25",
+      "proved": "the pricing page states there are no egress charges",
+      "capture": "sha256:e00641865d2dc78fd26ef66ed8a3c00af25cb3f5e2dc418dd4f15434894bbf7e",
+      "quote": "No Egress Charges"
+    },
+    {
+      "url": "https://www.rsync.net/pricing.html",
+      "date": "2026-11-25",
+      "proved": "the pricing page states an 800 GB minimum order",
+      "capture": "sha256:ca5db9035b16a9efda238a1046754b2c1a48bfe620aef13e39b175c7ebdca1b5",
+      "quote": "*800 GB Minimum Order*"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:30.562Z",
+  "verified_at": "2026-11-25T19:55:19.659Z",
   "price_per_tb_month": "0-9TB: $15.00/TB/mo. 10-99TB: $12.50/TB. 100TB+: $7.50/TB. restic accounts: $10.00/TB (200 GB min). openSUSE-developer Standard Single Region: $8.00/TB. openSUSE 500 GB tier is free-forever",
   "notes": "800 GB minimum order; 0-9 TB, 10-99 TB, 100+ TB bands",
   "history": [],

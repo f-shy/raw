@@ -16,12 +16,12 @@
     "stated": "30 GB per file",
     "bytes": 30000000000,
     "source_url": "https://www.openicpsr.org/openicpsr/faqs",
-    "notes": "extracted from the quota or limits prose"
+    "notes": "unverified: the current FAQ states no per-file size cap and describes the platform as integrated into ICPSR"
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.openicpsr.org/openicpsr/faqs",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: the current FAQ states no retention period for deposited data"
   },
   "egress": {
     "terms": "Free, 'no cost dissemination to other data users'. Downloads are immediate and public in the format submitted; no egress pricing exists in the product. Restricted-use options exist but are optional.",
@@ -85,10 +85,24 @@
       "proved": "self-published data are now screened, delayed up to 40 business hours, and get no DOI",
       "capture": "sha256:eb78f24206e90b0a79f641efc245af1518ecba7791e160c2896acca2f32c512e",
       "quote": "NEW: Self-published data will no longer be assigned a persistent identifier (DOI) or be published immediately, but they will be viewable in ICPSR’s catalog within 40 business hours."
+    },
+    {
+      "url": "https://www.openicpsr.org/openicpsr/faqs",
+      "date": "2026-11-25",
+      "proved": "the former openICPSR self-publishing platform is now integrated into ICPSR",
+      "capture": "sha256:f9061865aa8ed0b47d5ac2eca80fef0d0ab4fcdb044c38af2579f6b497691012",
+      "quote": "openICPSR’s self-publishing platform, including associated repositories, has become fully integrated into ICPSR."
+    },
+    {
+      "url": "https://www.openicpsr.org/openicpsr/faqs",
+      "date": "2026-11-25",
+      "proved": "self-published data are screened and appear in the catalog within 40 business hours",
+      "capture": "sha256:f9061865aa8ed0b47d5ac2eca80fef0d0ab4fcdb044c38af2579f6b497691012",
+      "quote": "NEW: Self-published data will no longer be assigned a persistent identifier (DOI) or be published immediately, but they will be viewable in ICPSR’s catalog within 40 business hours."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-19T21:14:37.733Z",
+  "verified_at": "2026-11-25T19:55:13.342Z",
   "notes": "30 GB per file with a 30 GB total per deposit and 1,000 files/folders per deposit; explicitly 'no cost to you'. Because deposits are unlimited and instant, the effective ceiling is per-deposit, not per-person.",
   "history": [],
   "extras": {

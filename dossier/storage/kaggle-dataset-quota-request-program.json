@@ -13,14 +13,14 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "Our default limits today are 200GB per dataset.",
     "source_url": "https://www.kaggle.com/discussions/product-feedback/346049",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Our default limits today are 200GB per dataset."
   },
   "retention": {
     "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
     "source_url": "https://www.kaggle.com/discussions/product-feedback/346049",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "unverified: the quota-request post states no retention period"
   },
   "egress": {
     "terms": "Same free GCS-backed delivery as any other public dataset.",
@@ -31,7 +31,7 @@
   ],
   "interface_detail": "rest",
   "tooling": "Same as Kaggle Datasets. The request form is forms.gle/jh4uBjtP7CsfH97C9 (linked from the staff post).",
-  "chaining": "This is what turns 200 GB/dataset into multi-TB single objects. Kaggle's own advice is to shard by meaningful subset, which is exactly the sharding pattern the workload needs anyway. Combine: N shards x 200 GB each (no request needed) OR one request for a multi-TB dataset.",
+  "chaining": "1. Consider sharding the dataset according to meaningful subsets (e.g., geographies)",
   "limits": [
     {
       "kind": "write-gated",
@@ -72,10 +72,24 @@
       "proved": "Kaggle invites researchers and organizations running into quota limitations to request additional per-dataset storage quota through a short Google Form",
       "capture": "sha256:abf55a6d91c93cff977afa3ca799d78a4eb108cafcb243242c2ecd02b4431f23",
       "quote": "If you’re a researcher or part of an organization that would like to make a dataset for ML research available to the community, but you’re running into quota limitations, **we invite you to fill out [this short Google Form](https://forms.gle/jh4uBjtP7CsfH97C9)**."
+    },
+    {
+      "url": "https://www.kaggle.com/discussions/product-feedback/346049",
+      "date": "2026-11-25",
+      "proved": "the staff post states the default 200GB per-dataset limit",
+      "capture": "sha256:40c4198942c8f9cdc1de7922382e5f1fd7aeb53c351eb041f7ff91b3024205c8",
+      "quote": "Our default limits today are 200GB per dataset."
+    },
+    {
+      "url": "https://www.kaggle.com/discussions/product-feedback/346049",
+      "date": "2026-11-25",
+      "proved": "the staff post advises sharding a dataset by meaningful subsets",
+      "capture": "sha256:40c4198942c8f9cdc1de7922382e5f1fd7aeb53c351eb041f7ff91b3024205c8",
+      "quote": "1. Consider sharding the dataset according to meaningful subsets (e.g., geographies)"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-10T00:50:22.848Z",
+  "verified_at": "2026-11-25T21:21:12.712Z",
   "notes": "Not a fixed number: Kaggle staff grant additional per-dataset storage quota on request via a short Google Form, explicitly to 'host large, important public datasets'. This is the documented path past the 200 GB per-dataset ceiling.",
   "history": [],
   "extras": {

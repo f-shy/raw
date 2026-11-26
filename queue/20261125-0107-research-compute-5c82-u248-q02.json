@@ -1,0 +1,15 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u248-q02",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "Does the corpus have a term for SUFY's free local and persistent storage when no free compute time is given, and for a one-time-but-expiring credit that is not a recurring allowance?",
+ "why": "SUFY's only free quantity is 20 GiB local storage per sandbox and 10 GiB persistent storage per account per month; compute is billed from the first second, so verdict is paid-only. box by Simular's 5,000 credits are one-time and valid 90 days, so verdict is trial-only; neither free_tier.unit nor verdict has a dedicated term for these shapes.",
+ "scope": {
+  "rids": [
+   "compute/sufy-sandbox",
+   "compute/box-by-simular"
+  ]
+ },
+ "origin": "20261125-0107-research-compute-5c82/u248",
+ "created": "2026-11-25T15:03:35Z"
+}

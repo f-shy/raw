@@ -13,14 +13,14 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "500 MB per file; 50 MB per URL upload",
     "source_url": "https://cyberdrop.cr/faq",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "the beta REST API has a separate 100 MB per-upload cap"
   },
   "retention": {
     "stated": "Yes, we also offer a temporary uploads feature which will automatically delete your files after a certain period of time.",
     "source_url": "https://cyberdrop.cr/faq",
-    "notes": "Extracted from published terms."
+    "notes": "the FAQ offers temporary uploads that are deleted after a period it does not quantify; no numeric expiry is published on the pages read"
   },
   "egress": {
     "terms": "No stated cap; files served directly.",
@@ -30,13 +30,13 @@
     "rest"
   ],
   "interface_detail": "rest",
-  "tooling": "No public API documented. Community downloader cyberdrop-dl exists. Upload is web-only per published documentation.",
+  "tooling": "the FAQ documents a beta REST API with a personal token header, node discovery, multipart upload and uploaded-file listing; web upload is also available",
   "chaining": "Unlimited email-less accounts x no stated quota x permanent retention. The classic anonfiles shape. The practical limit is extension whitelisting, which forbids arbitrary binary blobs.",
   "limits": [],
   "limits_note": "Strict extension allowlist: only video/audio/image/archive/doc extensions (.mp4 .mkv .mp3 .flac .png .pdf .zip .7z .tar .iso .torrent .kdbx ..). No .bin/.parquet/.npy. This kills it as a raw dataset store. CSAM scanning via Cloudflare tooling purges the entire account on any hit.",
   "identity_cost": {
     "kind": "anonymous",
-    "detail": "derived from the record's prose, not from an identity field, and no signup was executed: ia Cloudflare tooling purges the entire account on any hit. anonymous-dump",
+    "detail": "registration asks for a username and a password of 6-72 characters, explicitly does not use email, and is open",
     "country": null
   },
   "reliability_note": "Retention claims 'forever' and has been stable for years, but the extension allowlist and account-wide purge on a single CSAM hash match are real technical failure modes. Domain has rotated (.me -> .cr) more than once.",
@@ -59,10 +59,80 @@
       "proved": "the FAQ answers that files are kept and only temporary uploads are deleted",
       "capture": "sha256:a23b5c755a15fb73dc3c33a655eb85c18ff3c78b6371afc38afde5ac81399b37",
       "quote": "Yes, we also offer a temporary uploads feature which will automatically delete your files after a certain period of time."
+    },
+    {
+      "url": "https://cyberdrop.cr/",
+      "date": "2026-11-25",
+      "proved": "the home page states a 500 MB ceiling per uploaded file and a 50 MB ceiling for URL uploads",
+      "capture": "sha256:effb24345d27b53e0ecb072a107d3d73ffd2ad925bbca0a2303bb1a9d0933cc9",
+      "quote": "### Maximum upload size per file is 500 MB"
+    },
+    {
+      "url": "https://cyberdrop.cr/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ states a 100 MB cap for the beta API upload path",
+      "capture": "sha256:f2d96825689bca6238f1344b01efd9c14c22afc6cf18733124ebfad48b5eadcf",
+      "quote": "Please note that our `API` is currently in BETA and has a MAX UPLOAD SIZE of `100 MB`. You will not be able to upload files larger than `100MB`."
+    },
+    {
+      "url": "https://cyberdrop.cr/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ confirms automatic deletion of temporary uploads without stating a numeric period",
+      "capture": "sha256:993c003152c6d7c0509ebe0e644df774697567253880822a2f0dd394a0298e5c",
+      "quote": "Yes, we also offer a temporary uploads feature which will automatically delete your files after a certain period of time."
+    },
+    {
+      "url": "https://cyberdrop.cr/auth",
+      "date": "2026-11-25",
+      "proved": "the registration page states a password-length rule and a username requirement",
+      "capture": "sha256:606ed092b308c0796e4142016823e498c9a907673006c7c531c7e65b27427297",
+      "quote": "- Password must be 6-72 characters"
+    },
+    {
+      "url": "https://cyberdrop.cr/auth",
+      "date": "2026-11-25",
+      "proved": "registration explicitly does not use an email address",
+      "capture": "sha256:606ed092b308c0796e4142016823e498c9a907673006c7c531c7e65b27427297",
+      "quote": "Do not use email"
+    },
+    {
+      "url": "https://cyberdrop.cr/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ documents a token-authenticated REST API for uploads and file listing",
+      "capture": "sha256:f2d96825689bca6238f1344b01efd9c14c22afc6cf18733124ebfad48b5eadcf",
+      "quote": "- Provide your personal `token` as an HTTP header. Register, and you'll get a token."
+    },
+    {
+      "url": "https://cyberdrop.cr/",
+      "date": "2026-11-25",
+      "proved": "the home page still states the 500 MB per-file ceiling",
+      "capture": "sha256:effb24345d27b53e0ecb072a107d3d73ffd2ad925bbca0a2303bb1a9d0933cc9",
+      "quote": "### Maximum upload size per file is 500 MB"
+    },
+    {
+      "url": "https://cyberdrop.cr/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ still documents the token-based API and its 100 MB cap",
+      "capture": "sha256:f2d96825689bca6238f1344b01efd9c14c22afc6cf18733124ebfad48b5eadcf",
+      "quote": "Please note that our `API` is currently in BETA and has a MAX UPLOAD SIZE of `100 MB`. You will not be able to upload files larger than `100MB`."
+    },
+    {
+      "url": "https://cyberdrop.cr/faq",
+      "date": "2026-11-25",
+      "proved": "the FAQ still states that temporary uploads are automatically deleted",
+      "capture": "sha256:993c003152c6d7c0509ebe0e644df774697567253880822a2f0dd394a0298e5c",
+      "quote": "Yes, we also offer a temporary uploads feature which will automatically delete your files after a certain period of time."
+    },
+    {
+      "url": "https://cyberdrop.cr/auth",
+      "date": "2026-11-25",
+      "proved": "the registration page still states that email is not used",
+      "capture": "sha256:606ed092b308c0796e4142016823e498c9a907673006c7c531c7e65b27427297",
+      "quote": "Do not use email"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-11T04:53:53.182Z",
+  "verified_at": "2026-11-25T04:14:18.949Z",
   "notes": "Not stated numerically. 'Will you keep my files forever? Yes'. No published storage ceiling found; account creation is unverified and email-less.",
   "history": [],
   "extras": {

@@ -93,23 +93,9 @@
     {
       "url": "probe:https://w2.apachecn.org/",
       "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:74a256a63363e33534f8499658525261e1fa6a72a7d02b69d009540ec0ba2e17",
-      "quote": "\"listing_sha256\": \"0d46fd71\""
-    },
-    {
-      "url": "probe:https://w2.apachecn.org/",
-      "date": "2026-11-11",
       "proved": "the probe record states the hash method used for the listing",
       "capture": "sha256:74a256a63363e33534f8499658525261e1fa6a72a7d02b69d009540ec0ba2e17",
       "quote": "\"listing_hash_method\": \"sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters\""
-    },
-    {
-      "url": "probe:https://w2.apachecn.org/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:74a256a63363e33534f8499658525261e1fa6a72a7d02b69d009540ec0ba2e17",
-      "quote": "\"alive\": true"
     },
     {
       "url": "probe:https://w2.apachecn.org/",
@@ -135,13 +121,6 @@
     {
       "url": "probe:https://w2.apachecn.org/",
       "date": "2026-11-19",
-      "proved": "the anonymous session, settings and mount list all answered, so the fresh alive timestamp stands",
-      "capture": "sha256:4ce083ec4a966fa8db29b6ead18c4ed112c378e0ccce17755b3bd1a02b403ed5",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://w2.apachecn.org/",
-      "date": "2026-11-19",
       "proved": "the root listing hashed to the recorded 0d46fd71 on both runs and the host answered every request",
       "capture": "sha256:4ce083ec4a966fa8db29b6ead18c4ed112c378e0ccce17755b3bd1a02b403ed5",
       "quote": "\"listing_sha256\": \"0d46fd71\"...\"consecutive_failures\": 0"
@@ -149,16 +128,30 @@
     {
       "url": "probe:https://w2.apachecn.org/",
       "date": "2026-11-25",
-      "proved": "the liveness and mount-list probe checked this host at this instant",
-      "capture": "sha256:38e9341e5b44c020800481fb5b90f90b151c767eeae36754082dd2d012dbc5df",
-      "quote": "\"checked_at\": \"2026-11-25T01:38:35.459Z\""
+      "proved": "a fresh anonymous probe of w2.apachecn.org answered the settings, guest session and mount-list requests at this timestamp",
+      "capture": "sha256:631a9d977a89ac93895609c1d454f2838443e7ad1aee4a67556955f613260251",
+      "quote": "\"probed_at\": \"2026-11-25T02:34:42.884Z\""
     },
     {
       "url": "probe:https://w2.apachecn.org/",
       "date": "2026-11-25",
-      "proved": "the anonymous root listing hashed to this value in the fresh probe",
-      "capture": "sha256:38e9341e5b44c020800481fb5b90f90b151c767eeae36754082dd2d012dbc5df",
+      "proved": "the fresh probe completed the anonymous settings, guest session and root mount list, so the new liveness timestamp stands",
+      "capture": "sha256:631a9d977a89ac93895609c1d454f2838443e7ad1aee4a67556955f613260251",
+      "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://w2.apachecn.org/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing hashed to the stored value, so the listing is unchanged",
+      "capture": "sha256:631a9d977a89ac93895609c1d454f2838443e7ad1aee4a67556955f613260251",
       "quote": "\"listing_sha256\": \"0d46fd71\""
+    },
+    {
+      "url": "probe:https://w2.apachecn.org/",
+      "date": "2026-11-25",
+      "proved": "the liveness and mount-list probe checked this host at this instant",
+      "capture": "sha256:38e9341e5b44c020800481fb5b90f90b151c767eeae36754082dd2d012dbc5df",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:35.459Z\""
     },
     {
       "url": "probe:https://w2.apachecn.org/",
@@ -197,7 +190,7 @@
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T13:26:33.162Z",
+  "verified_at": "2026-11-25T19:55:35.336Z",
   "binding": "write-gated",
   "notes": "anonymous POST /api/fs/list on / returned code 200 with 18 root entries (listing sha256 0d46fd71)",
   "history": [],
@@ -214,7 +207,7 @@
     "listing_sha256": "0d46fd71",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-25T01:38:35.459Z",
+    "last_verified_alive": "2026-11-25T02:34:42.884Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "aliases": [

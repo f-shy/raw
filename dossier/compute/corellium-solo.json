@@ -1,0 +1,178 @@
+{
+  "topic": "compute",
+  "slug": "corellium-solo",
+  "provider": "Corellium",
+  "url": "https://www.corellium.com/products/solo",
+  "category": "hosted mobile-device virtualization",
+  "tier": "Solo Explorer (student/EDU)",
+  "free_tier": {
+    "stated": "A free trial by request: support documentation states 14 days to use 6 hours of credit for a 6-core device, or 18 hours on a 2-core device; Solo trial requests are manually approved and delivered by email invitation. The paid Solo Explorer rate is USD 3 per device-hour.",
+    "unit": "hours",
+    "metered_on": "wall-clock",
+    "source_url": "https://support.corellium.com/troubleshooting-faqs/why-cant-i-log-into-my-trial",
+    "read_on": "2026-11-25",
+    "notes": "The vendor's trial page gives no numeric credit; the 14-day and 6-hour figures are from the vendor's support FAQ and describe a cloud trial generally, not a Solo-specific public offer. Stored devices count USD 0.25 a day towards the credit."
+  },
+  "per_object_cap": {
+    "stated": "not applicable: the metered unit is a virtual device-hour, not an object"
+  },
+  "retention": {
+    "stated": "Trial devices are stored between sessions and count towards trial credit; after a subscription expires Corellium removes customer data from the SaaS generally within 30 days.",
+    "days": null,
+    "source_url": "https://www.corellium.com/legal/terms"
+  },
+  "egress": {
+    "terms": "not published as a device-hour allowance: the pricing and terms pages read state no separate egress price or quota for Solo",
+    "metered": false,
+    "free_allowance": null,
+    "price_per_tb": null,
+    "source_url": "https://support.corellium.com/subscriptions/pricing"
+  },
+  "interface": [
+    "rest",
+    "ssh",
+    "cli",
+    "browser"
+  ],
+  "interface_detail": "A Solo Cloud REST API at app.corellium.com/api/docs; virtual devices are reached through ADB, SSH, GDB, serial console and VPN, with Quick Connect over SSH tunnelling.",
+  "tooling": "Corellium REST API with API keys, a Python API client, ADB and SSH clients, and an OpenVPN client for project network access.",
+  "chaining": "An agent or researcher creates a virtual iOS or Android device, connects with ADB or SSH, snapshots and clones device state, and runs security tooling such as Frida; the paid Solo rate is USD 3 per device-hour with no prepaid minimum and one active device.",
+  "limits": [
+    {
+      "kind": "volume-quota",
+      "value": "14 days and 6 hours of credit on a 6-core device (18 hours on a 2-core device) for a cloud trial",
+      "source": "https://support.corellium.com/troubleshooting-faqs/why-cant-i-log-into-my-trial"
+    },
+    {
+      "kind": "per-object-cap",
+      "value": "Solo allows 1 user and 1 active device; Pay-As-You-Go-style plans elsewhere default to 2 simultaneous devices",
+      "source": "https://www.corellium.com/products/solo"
+    },
+    {
+      "kind": "write-gated",
+      "value": "trials are manually approved for individuals and businesses, with automated checks and manual review; Solo is for student users only",
+      "source": "https://support.corellium.com/subscriptions/trials"
+    }
+  ],
+  "limits_note": "A device hour is any hour the device is on, paused, turning on or turning off; usage is measured by the minute and totalled at month end, rounded up. Burst hours above plan hours are charged at the same plan rate. Stored trial devices cost USD 0.25 a day against credit.",
+  "binding": "write-gated",
+  "binding_note": "The manually approved, student-only trial gate binds before the 6-hour credit: a request can be denied and a trial invitation is sent by email only on approval.",
+  "identity_cost": {
+    "kind": "email",
+    "detail": "The app login asks for email and password and directs account creation to a trial request. The trial request form asks whether the applicant is an individual or a company; individual applicants need a valid personal email and company applicants a professional email and company details. Trials are manually approved with automated checks that include an OFAC lookup. The exact form fields are unverified: behind a sign-up, since no request was submitted. Burst hours above plan hours require a credit card.",
+    "country": null
+  },
+  "reliability_note": "Trials are manually approved and expire after 14 days; if an expired trial is not converted to a subscription, the account is suspended and data is deleted. Device-hours accrue while a device is on or paused, and stored trial devices draw down credit.",
+  "confidence": "documented",
+  "confidence_note": "The USD 3 per device-hour rate, device-hour definition, student-only scope, manual trial approval, email invitation and login fields are quoted from first-party Corellium pages read on 2026-11-25. The 14-day/6-hour credit comes from the vendor's general cloud-trial FAQ, not a Solo-specific price page.",
+  "evidence": [
+    {
+      "url": "https://www.corellium.com/products/solo",
+      "date": "2026-11-25",
+      "proved": "Solo is priced at USD 3 per device-hour with one user and one active device",
+      "capture": "sha256:f63883b2bbe31e3418e4b8f88ac187a5c45992c88adcf0a0edc1fc725e62c45d",
+      "quote": "Solo  $3/device-hour"
+    },
+    {
+      "url": "https://www.corellium.com/products/solo",
+      "date": "2026-11-25",
+      "proved": "Solo is limited to student users",
+      "capture": "sha256:f63883b2bbe31e3418e4b8f88ac187a5c45992c88adcf0a0edc1fc725e62c45d",
+      "quote": "Solo is for student users only."
+    },
+    {
+      "url": "https://support.corellium.com/subscriptions/pricing",
+      "date": "2026-11-25",
+      "proved": "the Solo Explorer plan rate is USD 3 per device-hour",
+      "capture": "sha256:7b6302afab3f79774f36b9a47274ea481a37c91ce02d2883b5cf3fce5f5057dc",
+      "quote": "Plan rates are only available for Solo Explorer and are currently $3 per/device-hour."
+    },
+    {
+      "url": "https://support.corellium.com/subscriptions/pricing",
+      "date": "2026-11-25",
+      "proved": "a device hour is billed while a device is not off, including paused devices",
+      "capture": "sha256:7b6302afab3f79774f36b9a47274ea481a37c91ce02d2883b5cf3fce5f5057dc",
+      "quote": "A device hour is one hour of device usage while the device is not `off`."
+    },
+    {
+      "url": "https://www.corellium.com/trial-solo",
+      "date": "2026-11-25",
+      "proved": "a Solo trial starts with a request and an email invitation on approval",
+      "capture": "sha256:30a22884f594f7368a93383e3eed96221a1b672d22b49ca55e0a84131c4ab159",
+      "quote": "If approved, you will receive a trial invitation by email."
+    },
+    {
+      "url": "https://support.corellium.com/subscriptions/trials",
+      "date": "2026-11-25",
+      "proved": "trials are manually approved with automated checks and manual review",
+      "capture": "sha256:5e16dffb6aa94913f420ffbc5c6d094a490731c58ad12f310a7e0abed61c507e",
+      "quote": "Trials are manually approved for individuals and businesses."
+    },
+    {
+      "url": "https://support.corellium.com/troubleshooting-faqs/why-cant-i-log-into-my-trial",
+      "date": "2026-11-25",
+      "proved": "a cloud trial gives 14 days and 6 hours of credit on a 6-core device, or 18 hours on a 2-core device",
+      "capture": "sha256:c6c8d7f520204ca8c2d2d8b5018b9a59e44cb3332f29bf931d75f329e8784bb7",
+      "quote": "You have 14 days to use 6 hours of credit for a 6-core device."
+    },
+    {
+      "url": "https://app.corellium.com/",
+      "date": "2026-11-25",
+      "proved": "the app login asks for email and password and account creation goes through a trial request",
+      "capture": "sha256:21c178ef319fa7666edc9b709459a7d8060c4d8c1c8a18b49f48121a96186ae0",
+      "quote": "Email Password"
+    },
+    {
+      "url": "https://www.corellium.com/legal/terms",
+      "date": "2026-11-25",
+      "proved": "trial access is limited to evaluation and at most 14 calendar days unless stated otherwise",
+      "capture": "sha256:f73a3183f0b31ba1f8424f0dfb4a186889a202922b5a62b22bb8236b16657c48",
+      "quote": "Customer may access and use Trial Software during the applicable trial period solely for Customer’s internal business purposes and solely to test or evaluate the Trial Software."
+    },
+    {
+      "url": "https://support.corellium.com/sdk/apis/rest/",
+      "date": "2026-11-25",
+      "proved": "Solo Cloud customers have a REST API for programmatic device control",
+      "capture": "sha256:19fe80178db042319894913b483bad2076910cbcb48d493e79c21fb9031d3c1c",
+      "quote": "Solo Cloud customers can access the Corellium REST API at `https://app.corellium.com/api/docs`."
+    },
+    {
+      "url": "https://support.corellium.com/features/connect/",
+      "date": "2026-11-25",
+      "proved": "virtual devices are reachable over ADB, SSH, GDB, serial console and VPN",
+      "capture": "sha256:91fbc3b64695dec7fcb96d4bb1bb6fa8f062af4cef95a54d7a7989d4a3b76500",
+      "quote": "Corellium’s Quick Connect feature lets you connect to your virtual devices and access tools such as ADB, HTTP proxying, and Frida, without the need for a VPN by leveraging SSH tunneling."
+    }
+  ],
+  "verdict": "qualifies-with-caveat",
+  "verified_at": "2026-11-25T02:12:34.899Z",
+  "price_per_tb_month": null,
+  "notes": "Hosted virtual iOS and Android devices for security research: Solo Explorer is USD 3 per device-hour with no prepaid minimum, one user and one active device, restricted to students. A free trial is available only on application, manually approved, with 14 days and 6 hours of credit on a 6-core device; the exact sign-up fields were not seen. On-site appliances and Corellium's other products are different offers.",
+  "extras": {
+    "shape": {
+      "vcpu": null,
+      "ram_gib": null,
+      "disk_gib": null,
+      "gpu_class": null,
+      "gpu_count": null,
+      "note": "virtual iOS and Android devices priced per device-hour; a 6-core device is named in the trial FAQ"
+    },
+    "billing_model": "per device-hour with no prepaid minimum; bank burst device-hours charged at the plan rate",
+    "free_tier_kind": "manually-approved-trial",
+    "term": "no commitment stated for Solo; trial limited to 14 days",
+    "network_out": {
+      "allow_outbound": true,
+      "allow_inbound_listen": "port forwarding and virtual Wi-Fi listed as Solo capabilities",
+      "ports": null,
+      "static_ip": null,
+      "ipv6": null,
+      "per_session_bytes": null
+    },
+    "session_cap": {
+      "wall_clock_min": null,
+      "idle_reap_s": null,
+      "restart_required": false,
+      "note": "device-hours accrue while a device is on or paused; paused devices are not off"
+    }
+  }
+}

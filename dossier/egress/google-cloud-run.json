@@ -26,7 +26,7 @@
     "notes": ""
   },
   "egress": {
-    "terms": "Outbound internet data transfer is charged at Google Cloud networking rates \"with a free tier of 1GiB free data transfer within North America per month\".; ingress: http-only",
+    "terms": "Outbound internet data transfer is charged at Google Cloud networking rates \"with a free tier of 1GiB free data transfer within North America per month\".",
     "metered": true,
     "free_allowance": "Outbound internet data transfer is charged at Google Cloud networking rates \"with a free tier of 1GiB free data transfer within North America per month\".",
     "price_per_tb": null,
@@ -82,10 +82,24 @@
       "url": "https://stackoverflow.com/questions/56525366/how-to-deploy-an-udp-server-google-cloud-run",
       "date": "2026-10-23",
       "proved": "third party: the container contract requires an HTTP server, so UDP will not work"
+    },
+    {
+      "url": "https://cloud.google.com/run/pricing",
+      "date": "2026-11-25",
+      "proved": "Cloud Run still charges outbound transfer at Google Cloud networking rates with 1GiB free within North America each month",
+      "capture": "sha256:beb2182316ea9da87d3496c49789d6b9edfb49f69d25240cae31edc06b6e0512",
+      "quote": "with a free tier of 1GiB free data transfer within North America per month"
+    },
+    {
+      "url": "https://cloud.google.com/run/pricing",
+      "date": "2026-11-25",
+      "proved": "the free transfer allowance is still 1 GiB a month within North America",
+      "capture": "sha256:beb2182316ea9da87d3496c49789d6b9edfb49f69d25240cae31edc06b6e0512",
+      "quote": "with a free tier of 1GiB free data transfer within North America per month"
     }
   ],
   "verdict": "fails-egress",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T19:55:29.662Z",
   "price_per_tb_month": "USD 0",
   "history": [],
   "notes": "Cloud Run also requires a card, so it fails identity for a no-card client even before the transport does. Included here because it is the most common answer to \"where do I run this\".",

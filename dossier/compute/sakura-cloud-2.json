@@ -5,12 +5,12 @@
   "url": "https://cloud.sakura.ad.jp/faq/free-trial/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "No free trial, stated outright: 'さくらのクラウドは無料トライアルを提供しておりません' (Sakura Cloud does not offer a free trial). Free capacity arrives only as coupon codes distributed at seminars, campaigns and through the Sakura Cloud certification exam.",
+    "stated": "無料トライアルを提供しておりません。",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://cloud.sakura.ad.jp/faq/free-trial/",
     "read_on": "2026-10-22",
-    "notes": "none"
+    "notes": "It is stated outright that Sakura Cloud does not offer a free trial; coupons are distributed at seminars and campaigns and through the Sakura Cloud certification exam."
   },
   "per_object_cap": {
     "stated": "not applicable: the unit is a machine, not an object",
@@ -74,10 +74,24 @@
       "url": "https://manual.sakura.ad.jp/cloud/payment/coupon.html",
       "date": "2026-10-22",
       "proved": "' 0 ' (billing on the registered credit card starts when the coupon balance reaches zero), so a coupon requires a card on file, quoted"
+    },
+    {
+      "url": "https://cloud.sakura.ad.jp/faq/free-trial/",
+      "date": "2026-11-25",
+      "proved": "the Sakura Cloud FAQ states outright that no free trial is offered",
+      "capture": "sha256:32bc72b17d0740b36a388176dc8721ad6ca91fcbecda72bd1c43fe4283f424ee",
+      "quote": "無料トライアルを提供しておりません。"
+    },
+    {
+      "url": "https://cloud.sakura.ad.jp/faq/free-trial/",
+      "date": "2026-11-25",
+      "proved": "the FAQ states no free trial and points to coupons for trying the service",
+      "capture": "sha256:32bc72b17d0740b36a388176dc8721ad6ca91fcbecda72bd1c43fe4283f424ee",
+      "quote": "無料トライアルを提供しておりません。"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:47.059Z",
   "notes": "Paid-only for the general public. A coupon channel existed, it was large (JPY 50,000), and it is closed. The control panel also has a free 'Sandbox' test zone for exercising the console; the Sakura user community names it, but no first-party page that was read names it, so it is not part of the offer.",
   "extras": {
     "wave2": {

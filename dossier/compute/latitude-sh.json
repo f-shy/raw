@@ -5,7 +5,7 @@
   "url": "https://www.latitude.sh/pricing",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "no free compute tier: metal, VM and GPU instances are priced with 20 TB of free outbound per month and unlimited inbound; a yearly commitment is 65% cheaper than hourly",
+    "stated": "Network20 TB free out / ∞ in",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://www.latitude.sh/pricing",
@@ -67,12 +67,33 @@
       "url": "https://www.latitude.sh/pricing",
       "date": "2026-10-22",
       "proved": "'Network 20 TB free out / ∞ in' on the Metal, VM and bare-metal tables, and 'Paid yearly 65% cheaper than hourly' with 'Monthly 50% cheaper than hourly', quoted"
+    },
+    {
+      "url": "https://www.latitude.sh/pricing",
+      "date": "2026-11-25",
+      "proved": "the metal, GPU and VM tables state the free outbound and unlimited inbound allowance",
+      "capture": "sha256:b3c98939b3b7aa7c598e73522469fb59a12b78da731d14f83f082e9422e5dca1",
+      "quote": "Network20 TB free out / ∞ in"
+    },
+    {
+      "url": "https://www.latitude.sh/pricing",
+      "date": "2026-11-25",
+      "proved": "the page was read on 2026-11-25 and still states the free egress allowance",
+      "capture": "sha256:b3c98939b3b7aa7c598e73522469fb59a12b78da731d14f83f082e9422e5dca1",
+      "quote": "Network20 TB free out / ∞ in"
+    },
+    {
+      "url": "https://www.latitude.sh/pricing",
+      "date": "2026-11-25",
+      "proved": "the reserved-instance table states the yearly discount",
+      "capture": "sha256:b3c98939b3b7aa7c598e73522469fb59a12b78da731d14f83f082e9422e5dca1",
+      "quote": "Paid yearly 65% cheaper than hourly"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:47:17.953Z",
+  "verified_at": "2026-11-25T15:03:50.407Z",
   "price_per_tb_month": null,
-  "notes": "",
+  "notes": "Metal, VM and GPU instances are priced. Paid yearly is 65% cheaper than hourly and monthly is 50% cheaper than hourly. The capture states no period for the 20 TB free outbound and does not state that no free compute tier exists.",
   "extras": {
     "seed_status": "ranked",
     "talaria_m10h_usd": 57.0,

@@ -5,7 +5,7 @@
   "url": "https://firstvds.ru/products/vps-vds-gpu",
   "category": "GPU cloud",
   "free_tier": {
-    "stated": "No free GPU trial; the minimum paid period is one day, and daily billing means only the days used are charged. Four vGPU profiles slice one Nvidia L40S into 4, 8, 12 and 16 GB shares: the smallest is vGPU 4, an L40S-4Q with 4 GB of video memory, 2 cores, 4 GB RAM and 50 GB NVMe, at RUB 299 a day or RUB 8,970 a month; vGPU 8 is RUB 549 a day, vGPU 12 RUB 799 and vGPU 16 RUB 949. Whole-card passthrough runs from RUB 1,150 a day for an L4 with 24 GB, RUB 2,055 a day for an RTX 4090 and RUB 2,550 a day for an L40S with 48 GB. A CPU-only server gets a different offer: one to three days free, granted by the sales department after a request in the control panel, unavailable for the warming tariff and for Windows.",
+    "stated": "Бесплатного пробного периода нет, но вы можете заказать сервер на 1 сутки — это минимально возможный платный период, которого достаточно для проведения тестов производительности, загрузки моделей и проверки окружения GPU.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://firstvds.ru/products/vps-vds-gpu",
@@ -79,10 +79,24 @@
       "url": "https://zeroquant.ru/arenda/istoriya-cen/firstvds",
       "date": "2026-10-22",
       "proved": "an independent price archive records the L40S vGPU rate at RUB 299 a day observed since 27 August 2026 and still holding on 15 October 2026"
+    },
+    {
+      "url": "https://firstvds.ru/products/vps-vds-gpu",
+      "date": "2026-11-25",
+      "proved": "the GPU page states no free trial and a one-day minimum paid period",
+      "capture": "sha256:badc1aff0ebf333d36573752751d8761783dbe772b333c7d9277e5855fa71c76",
+      "quote": "Бесплатного пробного периода нет, но вы можете заказать сервер на 1 сутки — это минимально возможный платный период, которого достаточно для проведения тестов производительности, загрузки моделей и проверки окружения GPU."
+    },
+    {
+      "url": "https://firstvds.ru/products/vps-vds-gpu",
+      "date": "2026-11-25",
+      "proved": "the no-free-trial and one-day minimum statement is unchanged",
+      "capture": "sha256:badc1aff0ebf333d36573752751d8761783dbe772b333c7d9277e5855fa71c76",
+      "quote": "Бесплатного пробного периода нет, но вы можете заказать сервер на 1 сутки — это минимально возможный платный период, которого достаточно для проведения тестов производительности, загрузки моделей и проверки окружения GPU."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:41.090Z",
   "notes": "New provider for the corpus, and the cheapest published Russian GPU entry point found in this lane at RUB 299 a day. Arithmetic: 299 x 30 = 8,970, so monthly billing is exactly 30 days and the daily price carries no premium; 299 / 24 = 12.46 RUB an hour. The entity-only title on the promotions page is the same contradiction that appears at AdminVPS, and this lane found it twice in two different providers, so both should be treated as unresolved. Not established: whether a foreign card reaches the balance, and whether a vGPU profile can be held for under a day.",
   "extras": {
     "wave2": {

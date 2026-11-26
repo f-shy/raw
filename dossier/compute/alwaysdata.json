@@ -34,7 +34,7 @@
   "limits_note": "a 24/7 service on the free plan risks suspension, which makes it a relay endpoint rather than a node",
   "reliability_note": "no reliability event observed",
   "confidence": "documented",
-  "verified_at": "2026-10-24T01:56:00.000Z",
+  "verified_at": "2026-11-25T15:40:40.879Z",
   "price_per_tb_month": null,
   "notes": "Worth recording because it looks like the answer and is not: 1 GB and SSH for 0 EUR, ruled out by one sentence in the footnote. It remains usable as a place to serve a static site or run a cron-driven script, if the script is not a service.",
   "slug": "alwaysdata",
@@ -101,6 +101,13 @@
       "url": "https://help.alwaysdata.com/en/docs/admin-billing/profile/suspension/",
       "date": "2026-10-24",
       "proved": "quoted: 'a profile created in less than a year must connect every 120 days'"
+    },
+    {
+      "url": "https://www.alwaysdata.com/en/pricing/",
+      "date": "2026-11-25",
+      "proved": "the page was read on 2026-11-25 and still states this value",
+      "capture": "sha256:dff48cad9339f433c5e3c9088ddc6eab15ec4b472767229d5f709bb565a29faa",
+      "quote": "- **3 days** of backups"
     }
   ],
   "verdict": "fails-quota",

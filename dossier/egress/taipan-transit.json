@@ -6,7 +6,7 @@
   "category": "routed public IP over WireGuard",
   "tier": "wireguard",
   "free_tier": {
-    "stated": "No free tier. The WireGuard tunnel is \"2 [EUR] per month\" at the campaign rate (list \"5 [EUR]\"), with \"Included transit 1 TB free\".",
+    "stated": "No free tier. Regular Performance WireGuard: EUR 2 per tunnel, EUR 0.70 per IPv4, first 1 TB of transit included.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://taipantransit.com/pricing",
@@ -41,7 +41,7 @@
   "limits": [
     {
       "kind": "volume-quota",
-      "value": "1 TB per month included, then EUR 0.35 per TB",
+      "value": "Regular Performance: 1 TB included, then EUR 0.35 per TB; Cost-Optimized: EUR 0.35 per TB billed from the first TB",
       "source": "https://taipantransit.com/pricing"
     },
     {
@@ -52,7 +52,7 @@
   ],
   "limits_note": "",
   "binding": "volume-quota",
-  "binding_note": "Monthly bandwidth includes 1 TB; additional transfer is metered and billed at EUR 0.04 per GB without hard cutoffs.",
+  "binding_note": "Regular Performance includes 1 TB of transit; additional transit is EUR 0.35 per TB (EUR 0.50 per TB on IPsec), billed on consumption.",
   "identity_cost": {
     "kind": "card",
     "detail": "Registration is an email plus a 6-digit mail code, but the service is gated on payment and on a verified account: \"Once your account is verified, getting your tunnel online is sssssimple.\" The privacy page names what is collected: \"Identite et contact : prenom, nom, email, telephone\", and Stripe is the payment processor.",
@@ -81,10 +81,38 @@
       "url": "https://taipantransit.com/privacy",
       "date": "2026-10-23",
       "proved": "name, email and phone are collected at signup; Stripe is the payment processor"
+    },
+    {
+      "url": "https://taipantransit.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page now lists Regular Performance at EUR 2 per tunnel and EUR 0.70 per IPv4 with the first TB included, and no campaign or list price",
+      "capture": "sha256:f17b6d48742bada45227b18aeac1440bfe8854b3ed99c0a0494247629a9a8b29",
+      "quote": "Regular Performance coûte 0,70 € par IPv4 et 2 € par tunnel, avec le premier To inclus; le trafic supplémentaire coûte 0,35 €/To en GRE et WireGuard, ou 0,50 €/To en IPsec."
+    },
+    {
+      "url": "https://taipantransit.com/pricing",
+      "date": "2026-11-25",
+      "proved": "Cost-Optimized bills transit from the first TB; Regular Performance includes 1 TB",
+      "capture": "sha256:f17b6d48742bada45227b18aeac1440bfe8854b3ed99c0a0494247629a9a8b29",
+      "quote": "| Volume ou capacité | Facturé dès le premier To | 1 TB offert | Débit engagé |"
+    },
+    {
+      "url": "https://taipantransit.com/pricing",
+      "date": "2026-11-25",
+      "proved": "additional transit is EUR 0.35 per TB on WireGuard and EUR 0.50 per TB on IPsec",
+      "capture": "sha256:f17b6d48742bada45227b18aeac1440bfe8854b3ed99c0a0494247629a9a8b29",
+      "quote": "Regular Performance coûte 0,70 € par IPv4 et 2 € par tunnel, avec le premier To inclus; le trafic supplémentaire coûte 0,35 €/To en GRE et WireGuard, ou 0,50 €/To en IPsec."
+    },
+    {
+      "url": "https://taipantransit.com/pricing",
+      "date": "2026-11-25",
+      "proved": "paid transit with 1 TB included then EUR 0.35 per TB, so volume-quota still binds and the verdict stays paid-only",
+      "capture": "sha256:f17b6d48742bada45227b18aeac1440bfe8854b3ed99c0a0494247629a9a8b29",
+      "quote": "Regular Performance coûte 0,70 € par IPv4 et 2 € par tunnel, avec le premier To inclus; le trafic supplémentaire coûte 0,35 €/To en GRE et WireGuard, ou 0,50 €/To en IPsec."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-23T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:43:48.837Z",
   "price_per_tb_month": "EUR 2 per month for a WireGuard tunnel, EUR 0.70 per additional IPv4, EUR 0.35 per TB above the first TB",
   "history": [],
   "notes": "Cheapest per TiB with a real included terabyte: EUR 0.35 per extra TB is about USD 0.40 per TiB at the campaign rate, and mitigated DDoS traffic is excluded from the count. The price is a campaign price with a struck-through list price, so it can end. Registration collects a phone number even though the form marks optional fields as optional.",

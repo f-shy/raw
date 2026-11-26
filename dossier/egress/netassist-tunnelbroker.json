@@ -26,7 +26,7 @@
     "notes": ""
   },
   "egress": {
-    "terms": "No traffic allowance is published in available documentation; ingress: tcp+udp",
+    "terms": "No traffic allowance is published in available documentation; no page read names an ingress protocol.",
     "metered": false,
     "free_allowance": "none published",
     "price_per_tb": null,
@@ -41,7 +41,7 @@
   "limits": [],
   "limits_note": "",
   "binding": "none",
-  "binding_note": "Nothing in the vocabulary is stated: the /48 is free, no byte meter is published and no rate is published. The gate is a capability rather than a quota: 'To work the tunnel, you need to have a public (\"honest\") IPv4 address', so a client behind CGNAT cannot use it at all. Reachability is IPv6-only.",
+  "binding_note": "Nothing in the vocabulary is stated: the /48 is free, no byte meter is published and no rate is published. The gate is a capability rather than a quota: 'To work the tunnel, you need to have a public (\"honest\") IPv4 address'.",
   "identity_cost": {
     "kind": "email",
     "detail": "https://tb.netassist.ua/ offers 'register a new user (it's FREE!)'; the login page warns 'Please, do NOT use hotmail and live.com mail accounts! They've baned us for some unknown reasons'.",
@@ -87,10 +87,38 @@
       "proved": "the service page states the broker is free and publishes no byte cap",
       "capture": "sha256:84964a32db6f4e7eb62fc200efec95eee3f7d4233885e43a971c5e6219007a87",
       "quote": "We provide this service for free!"
+    },
+    {
+      "url": "https://netassist.ua/en/service/ipv6",
+      "date": "2026-11-25",
+      "proved": "the page states the service is free and grants a /48; it gives no allowance and names no ingress protocol",
+      "capture": "sha256:8e23a7e9b8ce4e1ec9692862bda5ee2b7e291875787766013ab342003e82cc3c",
+      "quote": "We provide this service for free! Also, each user of the tunnel broker is provided with his own IPv6 network of size / 48."
+    },
+    {
+      "url": "https://netassist.ua/en/service/ipv6",
+      "date": "2026-11-25",
+      "proved": "the page names no ingress protocol",
+      "capture": "sha256:8e23a7e9b8ce4e1ec9692862bda5ee2b7e291875787766013ab342003e82cc3c",
+      "quote": "We provide this service for free! Also, each user of the tunnel broker is provided with his own IPv6 network of size / 48."
+    },
+    {
+      "url": "https://netassist.ua/en/service/ipv6",
+      "date": "2026-11-25",
+      "proved": "the tunnel needs a public IPv4 address at the user's end",
+      "capture": "sha256:8e23a7e9b8ce4e1ec9692862bda5ee2b7e291875787766013ab342003e82cc3c",
+      "quote": "To work the tunnel, you need to have a public (\"honest\") IPv4 address."
+    },
+    {
+      "url": "https://netassist.ua/en/service/ipv6",
+      "date": "2026-11-25",
+      "proved": "the free /48 is unchanged",
+      "capture": "sha256:8e23a7e9b8ce4e1ec9692862bda5ee2b7e291875787766013ab342003e82cc3c",
+      "quote": "We provide this service for free! Also, each user of the tunnel broker is provided with his own IPv6 network of size / 48."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-04T06:53:00.067Z",
+  "verified_at": "2026-11-25T15:43:51.322Z",
   "price_per_tb_month": "USD 0",
   "history": [
     "history/2026-10-23T004500Z/duplicate-egress-records-merged.md"
@@ -99,7 +127,7 @@
   "extras": {
     "wg_path": "none",
     "wg_detail": "no WireGuard option appears on any NetAssist page read today; the broker is described as a classic 6in4 service and its own page names no protocol at all.",
-    "ingress": "tcp+udp",
+    "ingress": "unverified: no NetAssist page names the tunnel protocol or an ingress protocol",
     "volume_tib_month": null,
     "volume_stated": "no traffic allowance is published anywhere on the broker or company pages read",
     "bytes_transit": "yes",

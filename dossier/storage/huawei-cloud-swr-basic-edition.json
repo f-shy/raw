@@ -13,14 +13,14 @@
     "notes": "Headline offer; binding constraint specified in limits."
   },
   "per_object_cap": {
-    "stated": "No per-object cap documented in published terms; absence is not an unlimited claim.",
+    "stated": "50 GB per image layer when pushed with a container engine client; a console upload file is limited to 2 GB.",
     "source_url": "https://support.huaweicloud.com/intl/en-us/swr_faq/swr_faq_0014.html",
-    "notes": "extraction found no per-object clause; some of these providers meter on object count rather than bytes, and some state no cap"
+    "notes": "Console push: up to 10 files at a time, each file (including each decompressed file) at most 2 GB; the console is for small images and a container engine client for large ones."
   },
   "retention": {
-    "stated": "No retention statement documented in published terms; absence is not an unlimited claim.",
+    "stated": "Basic Edition has an image retention policy per single image (by days, 1 to 365, or by number of tags, 1 to 1,000); one policy per image; retention of images in a batch is not available in Basic Edition.",
     "source_url": "https://support.huaweicloud.com/intl/en-us/swr_faq/swr_faq_0014.html",
-    "notes": "extraction found no retention clause; the seed's limits text may still state one, see extras.limits_verbatim"
+    "notes": "The Basic Edition and Enterprise Edition comparison lists retention of a single image as available in Basic and retention of images in a batch as available only in Enterprise."
   },
   "egress": {
     "terms": "No per-GB egress fee is published for Basic Edition. The FAQ states 'The bandwidth of SWR dynamically changes based on actual usage', and only private-network access is discussed for billing: 'No additional fees are charged for private network access'. Public-network pushes are rate-limited rather than metered: 'the image push traffic for a single tenant is limited to 20 QPS. The traffic exceeding this value will be blocked ... Docker will receive 503'. Enterprise Edition is the metered one: images sit in OBS and 'you are billed for the OBS storage and traffic usage.'",
@@ -31,7 +31,7 @@
   ],
   "interface_detail": "oci",
   "tooling": "docker/skopeo/ORAS. Huawei's own SWR client (huaweicloud-sdk) plus standard OCI tooling.",
-  "chaining": "Organisation quota-bounded but image count unbounded, x N Huawei accounts. Because there is no byte quota, the limit is orgs/registries per account and 20 QPS push. Parallel-push strategies must stay under that.",
+  "chaining": "Per tenant: up to 500 images and 300 tags for each image, 50 GB per image layer, and at most 20 image layers pushed concurrently.",
   "limits": [],
   "limits_note": "20 QPS image push per tenant over the internet (503 + retry on excess); organisation and registry counts capped; no per-image byte quota published; Basic Edition lacks tags management, batch retention, OCI 1.1 (Enterprise has OCI v1.0/v1.1).",
   "identity_cost": {
@@ -69,10 +69,52 @@
       "proved": "SWR Basic Edition imposes no quota on image count",
       "capture": "sha256:56ac23ebaa2c2a11f777fbcbc17d6f53a1a540afb88b49d89c2971076e9ef0b0",
       "quote": "No quotas are imposed on SWR images. You can push as many images as you need."
+    },
+    {
+      "url": "https://support.huaweicloud.com/intl/en-us/usermanual-swr/swr_01_0011.html",
+      "date": "2026-11-25",
+      "proved": "the Basic Edition push page caps each image layer at 50 GB",
+      "capture": "sha256:9684527622ae844dd649ab624f4b9de4f99986270b2f647afa6d97e034aa67a1",
+      "quote": "The size of each image layer cannot exceed 50 GB."
+    },
+    {
+      "url": "https://support.huaweicloud.com/intl/en-us/usermanual-swr/swr_01_0011.html",
+      "date": "2026-11-25",
+      "proved": "console pushes are limited to 10 files of at most 2 GB each",
+      "capture": "sha256:9684527622ae844dd649ab624f4b9de4f99986270b2f647afa6d97e034aa67a1",
+      "quote": "A maximum of 10 files can be pushed at a time through the console. The size of a single file (including each decompressed file) cannot exceed 2 GB."
+    },
+    {
+      "url": "https://support.huaweicloud.com/intl/en-us/usermanual-swr/swr_01_0102.html",
+      "date": "2026-11-25",
+      "proved": "Basic Edition retention is a per-image policy, one rule per image",
+      "capture": "sha256:45b49e74c9ec61bc08a93710d44611e76f90f4f5f220abd063287fa3e72d9861",
+      "quote": "Only one retention rule can be added to an image. If you want to add a new retention policy, you must delete the existing policy."
+    },
+    {
+      "url": "https://support.huaweicloud.com/intl/en-us/productdesc-swr/swr_03_0020.html",
+      "date": "2026-11-25",
+      "proved": "batch retention is not in Basic Edition and is in Enterprise Edition",
+      "capture": "sha256:1a9f164b476bbb1068ced07f7b7379c2f08d0535a7c6de565831e1b50eb5af40",
+      "quote": "Retention of images in a batch | × | √"
+    },
+    {
+      "url": "https://support.huaweicloud.com/intl/en-us/usermanual-swr/swr_01_0011.html",
+      "date": "2026-11-25",
+      "proved": "a tenant can push at most 500 images with 300 tags each",
+      "capture": "sha256:9684527622ae844dd649ab624f4b9de4f99986270b2f647afa6d97e034aa67a1",
+      "quote": "A single tenant can push up to 500 images and 300 tags for each image. If the quotas are exceeded, the push will fail."
+    },
+    {
+      "url": "https://support.huaweicloud.com/intl/en-us/usermanual-swr/swr_01_0011.html",
+      "date": "2026-11-25",
+      "proved": "the push page states the image, tag and layer constraints",
+      "capture": "sha256:9684527622ae844dd649ab624f4b9de4f99986270b2f647afa6d97e034aa67a1",
+      "quote": "A single tenant can push up to 500 images and 300 tags for each image. If the quotas are exceeded, the push will fail."
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-11-19T21:13:58.577Z",
+  "verified_at": "2026-11-25T12:15:44.835Z",
   "notes": "Free, and explicitly without a byte cap. The strongest storage wording of any registry checked: 'SWR is a free service, but some features (such as image scans and triggers) use other cloud services.' and 'No quotas are imposed on SWR images. You can push as many images as you need.' Quotas exist only on organisation/registry counts.",
   "history": [],
   "extras": {

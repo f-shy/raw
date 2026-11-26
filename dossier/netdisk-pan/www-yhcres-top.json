@@ -93,23 +93,9 @@
     {
       "url": "probe:https://www.yhcres.top/",
       "date": "2026-11-11",
-      "proved": "the anonymous root listing hashed to this value in this run",
-      "capture": "sha256:1a815a21d5604d0483979a95c1d5b400c9d7cf8149b172e660661ebcae059f9d",
-      "quote": "\"listing_sha256\": \"296e8611\""
-    },
-    {
-      "url": "probe:https://www.yhcres.top/",
-      "date": "2026-11-11",
       "proved": "the probe record states the hash method used for the listing",
       "capture": "sha256:1a815a21d5604d0483979a95c1d5b400c9d7cf8149b172e660661ebcae059f9d",
       "quote": "\"listing_hash_method\": \"sha256 of the canonical JSON array of [name, size, is_dir] triples sorted by name, first 8 hex characters\""
-    },
-    {
-      "url": "probe:https://www.yhcres.top/",
-      "date": "2026-11-11",
-      "proved": "the anonymous guest session answered and its root listing returned entries, so the instance is reachable without an account",
-      "capture": "sha256:1a815a21d5604d0483979a95c1d5b400c9d7cf8149b172e660661ebcae059f9d",
-      "quote": "\"alive\": true"
     },
     {
       "url": "probe:https://www.yhcres.top/",
@@ -135,13 +121,6 @@
     {
       "url": "probe:https://www.yhcres.top/",
       "date": "2026-11-19",
-      "proved": "the anonymous session, settings and mount list all answered, so the fresh alive timestamp stands",
-      "capture": "sha256:92ffc27f8b73e911752b77300c698ba17f29011814eec0e3fb8db6bdb351dc9a",
-      "quote": "\"alive\": true"
-    },
-    {
-      "url": "probe:https://www.yhcres.top/",
-      "date": "2026-11-19",
       "proved": "the root listing hashed to the recorded 296e8611 on both runs and the host answered every request",
       "capture": "sha256:92ffc27f8b73e911752b77300c698ba17f29011814eec0e3fb8db6bdb351dc9a",
       "quote": "\"listing_sha256\": \"296e8611\"...\"consecutive_failures\": 0"
@@ -149,16 +128,30 @@
     {
       "url": "probe:https://www.yhcres.top/",
       "date": "2026-11-25",
-      "proved": "the liveness and mount-list probe checked this host at this instant",
-      "capture": "sha256:acaf7be7fa68ba450ddd1c9ce5f05908299726a186e4a74ee73b18231ec7a343",
-      "quote": "\"checked_at\": \"2026-11-25T01:38:35.555Z\""
+      "proved": "a fresh anonymous probe of www.yhcres.top answered the settings, guest session and mount-list requests at this timestamp",
+      "capture": "sha256:f3846125b7bd8b2637ae86dbccc0400b91f41682b6bf19864d00cd68c2c90850",
+      "quote": "\"probed_at\": \"2026-11-25T02:34:43.781Z\""
     },
     {
       "url": "probe:https://www.yhcres.top/",
       "date": "2026-11-25",
-      "proved": "the anonymous root listing hashed to this value in the fresh probe",
-      "capture": "sha256:acaf7be7fa68ba450ddd1c9ce5f05908299726a186e4a74ee73b18231ec7a343",
+      "proved": "the fresh probe completed the anonymous settings, guest session and root mount list, so the new liveness timestamp stands",
+      "capture": "sha256:f3846125b7bd8b2637ae86dbccc0400b91f41682b6bf19864d00cd68c2c90850",
+      "quote": "\"alive\": true"
+    },
+    {
+      "url": "probe:https://www.yhcres.top/",
+      "date": "2026-11-25",
+      "proved": "the fresh anonymous root listing hashed to the stored value, so the listing is unchanged",
+      "capture": "sha256:f3846125b7bd8b2637ae86dbccc0400b91f41682b6bf19864d00cd68c2c90850",
       "quote": "\"listing_sha256\": \"296e8611\""
+    },
+    {
+      "url": "probe:https://www.yhcres.top/",
+      "date": "2026-11-25",
+      "proved": "the liveness and mount-list probe checked this host at this instant",
+      "capture": "sha256:acaf7be7fa68ba450ddd1c9ce5f05908299726a186e4a74ee73b18231ec7a343",
+      "quote": "\"checked_at\": \"2026-11-25T01:38:35.555Z\""
     },
     {
       "url": "probe:https://www.yhcres.top/",
@@ -204,7 +197,7 @@
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-25T13:26:33.162Z",
+  "verified_at": "2026-11-25T19:55:35.337Z",
   "binding": "write-gated",
   "notes": "anonymous POST /api/fs/list on / returned code 200 with 13 root entries (listing sha256 296e8611)",
   "history": [],
@@ -221,7 +214,7 @@
     "listing_sha256": "296e8611",
     "first_seen": "2024-01-20",
     "first_seen_source": "kuhehe.github.io/20240120224502, whose page was edited in place until 2025-06-17",
-    "last_verified_alive": "2026-11-25T01:38:35.555Z",
+    "last_verified_alive": "2026-11-25T02:34:43.781Z",
     "last_verified_dead": null,
     "consecutive_failures": 0,
     "aliases": [
