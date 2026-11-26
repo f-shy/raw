@@ -5,7 +5,7 @@
   "url": "https://github.com/f00-sh/joule",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "Free access is real but is earned by contributing hardware. Quoted: 'Access to the OpenAI-compatible API is earned only by contributing compute - free on the public pool (no cash).' Quoted: 'No live contribution / balance => no access.' The economy is quoted as millijoules minted from 'verified contribution (heartbeats, shards, challenges)', scaled by square root of VRAM with a tenure boost.",
+    "stated": "Free access is real but is earned by contributing hardware. The API is 'earned only by contributing compute — free on the public pool (no cash)', under 'an auditable fairness algorithm (√VRAM, tenure boost, leecher penalties)'. Millijoules are minted from 'verified contribution (heartbeats, shards, challenges), scaled fairly'; 'No live contribution / balance ⇒ no access.'",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://github.com/f00-sh/joule",
@@ -64,10 +64,24 @@
       "url": "https://joule.f00.sh/",
       "date": "2026-10-22",
       "proved": "quoted: '100% free - no money - peer-seeded - website only'; 'You bring the watts'; millijoules are 'a sealed ledger of what you give in'"
+    },
+    {
+      "url": "https://github.com/f00-sh/joule",
+      "date": "2026-11-25",
+      "proved": "API access is free on the public pool but earned only by contributing compute, and credits are millijoules under a fairness algorithm",
+      "capture": "sha256:06fe673873400463f11f0dab83add5ae56e32d900f22cdcc982c5b1c2b22f819",
+      "quote": "Access to the OpenAI-compatible API is earned only by contributing compute — **free on the public pool (no cash)**."
+    },
+    {
+      "url": "https://github.com/f00-sh/joule",
+      "date": "2026-11-25",
+      "proved": "the README still states API access is earned by contributing compute, free on the public pool, with millijoules under a fairness algorithm",
+      "capture": "sha256:06fe673873400463f11f0dab83add5ae56e32d900f22cdcc982c5b1c2b22f819",
+      "quote": "Access to the OpenAI-compatible API is earned only by contributing compute — **free on the public pool (no cash)**."
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:12.886Z",
   "notes": "Documented because it is the cleanest statement of a pattern that recurs across this class: a pool that is free in dollars but priced in donated compute. Gensyn does the same with testnet points, and Dreamify does it with somebody else's 4090s. Without owned hardware, 'no cash buy-in' is not the same as 'reachable'.",
   "extras": {
     "wave2": {

@@ -6,7 +6,7 @@
   "category": "VPS",
   "tier": "K-3",
   "free_tier": {
-    "stated": "no free tier; K-1 at Rp29.900 a month is the entry plan",
+    "stated": "No free tier is published. The entry plan is K-1 at Rp29.900 / bulan for 1 CPU, 1 GB RAM, 10 GB SSD and a 50Mbps port. The page also states \"Bandwidth unlimited dengan kecepatan jaringan sesuai paket yang dipilih.\"",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://kencang.com/vps-iix-murah",
@@ -62,10 +62,24 @@
       "url": "https://kencang.com/vps-iix-murah",
       "date": "2026-10-24",
       "proved": "quoted: 'Unlimited bandwidth dengan kecepatan jaringan sesuai paket yang dipilih.'"
+    },
+    {
+      "url": "https://kencang.com/vps-iix-murah",
+      "date": "2026-11-25",
+      "proved": "the K-1 monthly table row states the entry plan's price and shape",
+      "capture": "sha256:db8954cd0ac299acf4c72be0b1f923d67c250fa0eed19204767575ef8e92bdeb",
+      "quote": "| **K-1** | 1 CPU | 1 GB | 10 GB | Hingga 50Mbps | **Rp29.900** / bulan | [Pilih paket](https://kencang.com/client/cart.php?a=add&pid=1) |"
+    },
+    {
+      "url": "https://kencang.com/vps-iix-murah",
+      "date": "2026-11-25",
+      "proved": "the K-1 monthly table row still states the entry plan's price and shape",
+      "capture": "sha256:db8954cd0ac299acf4c72be0b1f923d67c250fa0eed19204767575ef8e92bdeb",
+      "quote": "| **K-1** | 1 CPU | 1 GB | 10 GB | Hingga 50Mbps | **Rp29.900** / bulan | [Pilih paket](https://kencang.com/client/cart.php?a=add&pid=1) |"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-24T03:25:00.000Z",
+  "verified_at": "2026-11-25T11:17:49.024Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "The monthly price is Rp99.900, USD 5.52, over the line; only the annual prepay of Rp999.900 brings it to USD 4.61, costing USD 55.27 out of pocket once. The annual table lists '1 CPU' on K-3 where the monthly table lists '4 CPU' for the same plan name, a defect on the vendor's page; the shape recorded is the monthly one because it is the more specific. What would settle it: the order page for the annual term, which shows the provisioned shape.",

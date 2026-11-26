@@ -5,7 +5,7 @@
   "url": "https://www.tencentcloud.com/act/pro/FreeTier",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "A 3-month free trial of one Lighthouse 2C2G30M instance or one CVM S5 2C4G instance, plus 50 GB of COS storage for 6 months, 14 days of EdgeOne, a free monthly TRTC quota, and about 26 further product trials, all at once, for a new account. The free tier page states the trial runs to at least 2026-12-31.",
+    "stated": "A 3-month free trial of one Lighthouse 2C2G30M instance or one CVM S5 2C4G instance, plus 50 GB of COS storage for 6 months, 14 days of EdgeOne and 10,000 free TRTC minutes monthly; the page lists 'Show you 30 trial products'. The free product trial is only open to new users of the product.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://www.tencentcloud.com/act/pro/FreeTier",
@@ -119,10 +119,24 @@
       "url": "https://www.tencentcloud.com/act/pro/FreeTier",
       "date": "2026-10-24",
       "proved": "quoted, shape, term and the absence of auto-renewal: 'Trial configuration: Lighthouse 2C2G30M' for '3 months', 'Trial configuration：CVM S5 2C4G' for '3 months', 'COS' '50GB Free Trial for 6 months', 'Free Trial for 14 days'; 'Before the product expires, you can renew it in the product control panel'; 'The discounted renewal will not be available for the products purchased during the free trial period, and the renewal will be charged at the official selling price.'; 'From now until Dec 31, 2026, 24:00 GMT+8'"
+    },
+    {
+      "url": "https://www.tencentcloud.com/act/pro/FreeTier",
+      "date": "2026-11-25",
+      "proved": "the Free Tier banner states 3-month Lighthouse and CVM trials and a free monthly TRTC quota",
+      "capture": "sha256:69ccc0afcee6ecde3445f342bd0c809f755105e162e890d4912ff67424f1c258",
+      "quote": "LighthouseFree Trial for 3 monthsCloud Virtual MachineFree Trial for 3 monthsTRTCFree Monthly Quota"
+    },
+    {
+      "url": "https://www.tencentcloud.com/act/pro/FreeTier",
+      "date": "2026-11-25",
+      "proved": "the page still states the 3-month Lighthouse and CVM trials and the free monthly TRTC quota",
+      "capture": "sha256:69ccc0afcee6ecde3445f342bd0c809f755105e162e890d4912ff67424f1c258",
+      "quote": "LighthouseFree Trial for 3 monthsCloud Virtual MachineFree Trial for 3 monthsTRTCFree Monthly Quota"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-24T04:09:20.000Z",
+  "verified_at": "2026-11-25T11:17:20.280Z",
   "notes": "CONTRADICTION SETTLED 2026-10-24: THE VERDICT WAS RIGHT AND THE RECORD'S REASON FOR IT WAS WRONG. The record's identity_cost.detail asserted nothing ('as stated by the provider's signup page'), and its retention text overstated the gate - 'the account cannot be opened at all without a government document' is false. The two first-party stories are both true of different things. The Identity Verification Overview scopes verification to three triggers - mainland-China purchases, partner applications and self-service invoicing - and buying a Lighthouse or CVM instance in Singapore, Bangkok or Frankfurt is none of them. But the free trial is a campaign, not a purchase, and its own Rules make authentication an eligibility condition: 'All international site users who have registered on Tencent Cloud and completed enterprise or individual authentication ... are eligible to participate.' The Chinese original says 实名认证, the same term the verification doc is titled with, so this is the ID-document check and not an email confirmation. So the answer to 'is it mainland only' is: mainland only for ordinary purchases, ALL regions for the free trial. The earlier lane's reading was half right, and the half it got wrong is the half that decides the verdict. Hence fails-identity stands, now resting on a quoted sentence instead of a placeholder, and the account gate is correctly described as email + phone + card rather than a document. What this does NOT establish: whether the checkout enforces the campaign rule before or after the trial order is placed. No account was created, so nobody watched it refuse. The rule is stated, and the enforcement is inferred from the rule. Card detail that the record previously left contested: the USD 1.00 pre-authorisation is confirmed by Tencent's own signup doc, and virtual and gift cards are refused outright.",
   "extras": {
     "wave2": {

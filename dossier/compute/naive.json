@@ -1,0 +1,156 @@
+{
+  "topic": "compute",
+  "slug": "naive",
+  "provider": "naïve",
+  "url": "https://usenaive.ai/blogs/introducing-sandbox",
+  "category": "microVM sandbox",
+  "free_tier": {
+    "stated": "Start free with 5,000 credits (USD 1) and no card to start; the Standard 7-day trial grants 50,000 credits (USD 10) but requires adding a card, and converts to USD 20 a month unless cancelled before day 7.",
+    "unit": "credits",
+    "metered_on": "wall-clock",
+    "source_url": "https://usenaive.ai/pricing",
+    "read_on": "2026-11-25",
+    "notes": "5,000 credits are the free starting balance, not a recurring monthly allowance. A computer is billed per second on provisioned vCPU and memory; a session's 1 vCPU / 1 GiB computer costs 333 credits (USD 0.0666) per running hour, and a 2 vCPU / 4 GiB computer costs USD 0.1656 an hour at published rates."
+  },
+  "per_object_cap": {
+    "stated": "The unit is a microVM, not an object. A session's computer is 1 vCPU / 1 GiB; one created directly defaults to 2 vCPU / 4096 MiB, with a range of 1 to 16 vCPU and 128 to 65536 MiB, disk up to 100 GiB.",
+    "bytes": null,
+    "source_url": "https://usenaive.ai/blogs/introducing-sandbox"
+  },
+  "retention": {
+    "stated": "A computer is disposable: state is ephemeral by default and a destroy tears it down. A snapshot is a durable checkpoint that survives destroy, a persistent volume keeps disk and paused memory across park and sleep but not destroy, and files that must outlive the sandbox are published to Files.",
+    "days": null,
+    "source_url": "https://usenaive.ai/blogs/introducing-sandbox"
+  },
+  "egress": {
+    "terms": "A computer has general outbound access by default with cloud metadata and internal ranges filtered; allow_outbound: false is an immutable kill-switch for all outbound traffic. Nothing reaches in: there is no port-preview surface. No egress price or volume allowance is published.",
+    "metered": false,
+    "free_allowance": null,
+    "price_per_tb": null,
+    "source_url": "https://usenaive.ai/blogs/introducing-sandbox"
+  },
+  "interface": [
+    "rest",
+    "cli"
+  ],
+  "interface_detail": "A TypeScript SDK (@usenaive-sdk/managed-agents) and a CLI (naive computer create/exec/fs/snapshot/pause/delete) against the API base URL https://api.vetta.sh with an API key.",
+  "tooling": "The naive CLI and TypeScript SDK create and drive computers; a session's agent reaches the same machine through built-in shell, filesystem and browser tools.",
+  "chaining": "A computer pauses between agent turns and wakes on the next operation, so a multi-hour task pays only for running seconds; publish_file moves artifacts out to organization-scoped Files that outlive the sandbox.",
+  "limits": [
+    {
+      "kind": "volume-quota",
+      "value": "5,000 free credits (USD 1) at start; vCPU USD 0.000014 per second and memory USD 0.0000045 per GiB-second, with no creation fee",
+      "source": "https://usenaive.ai/blogs/introducing-sandbox"
+    },
+    {
+      "kind": "write-gated",
+      "value": "the Standard 7-day trial requires a card and grants 50,000 credits; every route outside billing needs an active plan, and a paused computer resumes only if the balance covers one 10-minute block",
+      "source": "https://usenaive.ai/pricing"
+    },
+    {
+      "kind": "retention-clamped",
+      "value": "12-hour maximum runtime from create to destroy, fixed with no per-computer override; the computer is auto-destroyed at the ceiling",
+      "source": "https://usenaive.ai/docs/computer/limits-and-billing"
+    }
+  ],
+  "limits_note": "A computer you create is billed in advance in 10-minute blocks; a session's computer is billed per running second. The browser is capped at 360 minutes per session. Automatic destroy at zero balance and per-organization concurrency caps are not enforced yet.",
+  "binding": "volume-quota",
+  "binding_note": "The USD 1 starting credit runs out first: it buys about 15 hours of a session's 1 vCPU / 1 GiB computer or about 6 hours of the 2 vCPU / 4 GiB default, both shorter than the 12-hour runtime ceiling.",
+  "identity_cost": {
+    "kind": "email",
+    "detail": "The register page at app.usenaive.ai/register renders an Email field and a terms agreement; the onboarding manifest documents 'naive auth register --email ... --password ...' with a confirmation mail, and states an account starts at 0 credits until a plan is chosen. No card is needed to start free, but the 7-day Standard trial and any paid plan require a card.",
+    "country": null
+  },
+  "reliability_note": "Automatic destroy at zero balance and after the maximum runtime is not enforced yet, so a user must delete a computer when finished; cloud metadata, 10.0.0.0/8 and 172.16.0.0/12 are blocked but 192.168.0.0/16 is not reliably blocked, so private-range blocking is not a security boundary for the shell.",
+  "confidence": "documented",
+  "confidence_note": "The computer price, egress behaviour and lifecycle are quoted from the vendor's launch post read on 2026-11-25; the free credits, trial card gate and 12-hour ceiling are from the vendor pricing and limits pages on the same date.",
+  "evidence": [
+    {
+      "url": "https://usenaive.ai/blogs/introducing-sandbox",
+      "date": "2026-11-25",
+      "capture": "sha256:c69753df518886449435af547b73f1ae589ffda7a4a75363598e2454a780af85",
+      "quote": "There is no creation fee. Running time is metered per second on provisioned vCPU and memory; a full hour of a session's 1 vCPU / 1 GiB computer is $0.0666.",
+      "proved": "the per-second price with no creation fee and the USD 0.0666 session computer hour"
+    },
+    {
+      "url": "https://usenaive.ai/blogs/introducing-sandbox",
+      "date": "2026-11-25",
+      "capture": "sha256:c69753df518886449435af547b73f1ae589ffda7a4a75363598e2454a780af85",
+      "quote": "A computer has general outbound access by default, so the agent can install packages, call APIs, and fetch data without configuration.",
+      "proved": "outbound network access is available by default"
+    },
+    {
+      "url": "https://usenaive.ai/blogs/introducing-sandbox",
+      "date": "2026-11-25",
+      "capture": "sha256:c69753df518886449435af547b73f1ae589ffda7a4a75363598e2454a780af85",
+      "quote": "The one control that is a boundary is `allow_outbound: false` at create time: a complete, verified kill-switch for all outbound traffic, immutable for the life of the computer.",
+      "proved": "an immutable outbound kill-switch is available at create time"
+    },
+    {
+      "url": "https://usenaive.ai/blogs/introducing-sandbox",
+      "date": "2026-11-25",
+      "capture": "sha256:c69753df518886449435af547b73f1ae589ffda7a4a75363598e2454a780af85",
+      "quote": "Automatic destroy at a zero balance or after a max runtime is not enforced yet, so delete a computer when you are done with it.",
+      "proved": "the advertised zero-balance and max-runtime destruction failsafes are not enforced"
+    },
+    {
+      "url": "https://usenaive.ai/pricing",
+      "date": "2026-11-25",
+      "capture": "sha256:4c4416f7c3b773e99cbd618c70a21b5fbdbb733dbda03331fd5d79ddcf17a8a5",
+      "quote": "Your AI team does the work. Start free with 5,000 credits. Then $20 a month, with 100,000 credits your agents spend as they work.",
+      "proved": "5,000 free starting credits and the USD 20 monthly plan with 100,000 credits"
+    },
+    {
+      "url": "https://usenaive.ai/pricing",
+      "date": "2026-11-25",
+      "capture": "sha256:4c4416f7c3b773e99cbd618c70a21b5fbdbb733dbda03331fd5d79ddcf17a8a5",
+      "quote": "Standard starts with 7 days free and 50,000 credits. You add a card to start, and if you cancel before day 7 you pay nothing.",
+      "proved": "the 7-day trial requires a card and grants 50,000 credits"
+    },
+    {
+      "url": "https://usenaive.ai/docs/computer/limits-and-billing",
+      "date": "2026-11-25",
+      "capture": "sha256:0daac77756b6abddb52662e46d39738ad7ce93f30523f3470072f78e6c122b4b",
+      "quote": "Max runtime | 12 hours, fixed | A computer exceeding it is auto-destroyed. There is no per-computer override.",
+      "proved": "the fixed 12-hour runtime ceiling"
+    },
+    {
+      "url": "https://app.usenaive.ai/register",
+      "date": "2026-11-25",
+      "capture": "sha256:c9d2cf3a7473b25be66d303a3e9ad617465265fa5558916c49f379678dc3aff9",
+      "quote": "Email",
+      "proved": "the registration form asks for an email address"
+    }
+  ],
+  "verdict": "qualifies-with-caveat",
+  "verified_at": "2026-11-25T02:12:34.732Z",
+  "price_per_tb_month": null,
+  "notes": "naïve sells a hosted disposable Linux microVM ('computer') as part of Naive Managed Agents, either provisioned by a session or created directly through the CLI or SDK. A session computer is 1 vCPU / 1 GiB at USD 0.0666 per running hour; the directly created default 2 vCPU / 4 GiB is USD 0.1656 an hour. Idle between turns costs nothing because the machine sleeps. The account starts with 5,000 free credits and no card; a card is required for the 7-day trial and any paid plan. The 12-hour lifetime cap and unenforced failsafes are the caveats.",
+  "extras": {
+    "shape": {
+      "vcpu": 2,
+      "ram_gib": 4,
+      "disk_gib": null,
+      "gpu_class": null,
+      "gpu_count": null,
+      "note": "the directly created default; a session computer is 1 vCPU / 1 GiB"
+    },
+    "billing_model": "per-second running time, 10-minute blocks for a directly created computer",
+    "free_tier_kind": "one-time-credit",
+    "status": "hosted, available",
+    "network_out": {
+      "allow_outbound": true,
+      "allow_inbound_listen": false,
+      "ports": "no port-preview surface; nothing reaches in",
+      "static_ip": null,
+      "ipv6": null,
+      "per_session_bytes": null
+    },
+    "session_cap": {
+      "wall_clock_min": 720,
+      "idle_reap_s": null,
+      "restart_required": false,
+      "note": "12-hour maximum runtime from create to destroy, with auto-destroy not enforced yet"
+    }
+  }
+}

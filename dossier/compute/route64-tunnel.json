@@ -6,7 +6,7 @@
   "category": "IPv6 tunnel broker",
   "tier": "free IPv6 tunnel, /56",
   "free_tier": {
-    "stated": "free IPv6 tunnel with a routed /56 subnet over WireGuard, GRE, IP6IP, SIT, GRETAP, VXLAN or L2TPv3, self-service",
+    "stated": "based on sponsors, the great community and love - get it for free!",
     "unit": "unlimited",
     "metered_on": "none",
     "source_url": "https://route64.org/en",
@@ -75,10 +75,24 @@
       "url": "https://forsale.godaddy.com/forsale/route64.com",
       "date": "2026-10-24",
       "proved": "route64.com is a parked domain listed for sale; a request for route64.com redirected to the GoDaddy for-sale page, so the provider is route64.org and the .com is not it"
+    },
+    {
+      "url": "https://route64.org/en",
+      "date": "2026-11-25",
+      "proved": "the provider states the tunnelbroker, peering and transit platform is available for free",
+      "capture": "sha256:328c570cbf140a80da4d7072922b91132662728adfa5cab9d36ec83cd47173eb",
+      "quote": "based on sponsors, the great community and love - get it for free!"
+    },
+    {
+      "url": "https://route64.org/en",
+      "date": "2026-11-25",
+      "proved": "the provider states the platform is free, confirming the rewritten free_tier.stated value",
+      "capture": "sha256:328c570cbf140a80da4d7072922b91132662728adfa5cab9d36ec83cd47173eb",
+      "quote": "based on sponsors, the great community and love - get it for free!"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-24T01:53:22.000Z",
+  "verified_at": "2026-11-25T15:03:53.356Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "This is not a machine and cannot be one: it gives an address and a peer, and something is still needed to terminate the tunnel on. It is recorded because it is the way an IPv6-only or CGNAT machine acquires a routable prefix. A blog read in search results claims a 200M throughput cap in its terms of service and forbids filesharing; the terms were not read by us, so that is reported and not verified. The egress topic owns the tunnel; this record covers only the address space.",

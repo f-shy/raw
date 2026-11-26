@@ -6,7 +6,7 @@
   "category": "VPS",
   "tier": "NVMe 2 GB",
   "free_tier": {
-    "stated": "no free tier; 'NVMe 2 GB from $4.00 / month'",
+    "stated": "no free tier; the cheapest compute VM is 'NVMe 2 GB from $4.00 / month', with 1 AMD EPYC core (fair share), 2 GB DDR4, 10 GB NVMe and 1 TB bandwidth",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://hosthatch.com/products",
@@ -63,10 +63,17 @@
       "url": "https://hosthatch.com/products",
       "date": "2026-10-24",
       "proved": "quoted: 'NVMe 4 GB from $6.00 / month', '2 AMD EPYC cores ( fair share )', '4 GB DDR4', '20 GB NVMe'"
+    },
+    {
+      "url": "https://hosthatch.com/products",
+      "date": "2026-11-25",
+      "proved": "the Compute VMs table lists NVMe 2 GB from USD 4.00 per month with 1 AMD EPYC core, 2 GB DDR4, 10 GB NVMe and 1 TB bandwidth",
+      "capture": "sha256:eb05a4760c129cc5c9337994b46d569c0907cee78ad63b123d5089d190f0a16e",
+      "quote": "**NVMe 2 GB**\n\n  from **$4.00** / month\n\n  1 AMD EPYC core ( fair share )\n\n  2 GB DDR4\n\n  10 GB NVMe\n\n  1 TB"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-24T01:56:00.000Z",
+  "verified_at": "2026-11-25T11:17:45.492Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "Inside the line at USD 4.00 for 2 GiB, but the 10 GB disk and 1 TB traffic make it the thinnest row in evaluated offerings per dollar of RAM. The 4 GB rung is USD 6.00 and therefore out. Prices are 'from', so a location may quote higher; the page does not enumerate per-location rates.",

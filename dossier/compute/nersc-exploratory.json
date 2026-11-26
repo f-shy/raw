@@ -5,7 +5,7 @@
   "url": "https://www.nersc.gov/users/become-a-nersc-user/working-with-us",
   "category": "national HPC allocation",
   "free_tier": {
-    "stated": "\"Research projects that are new to NERSC and/or HPC may apply for small Exploratory awards, up to 250 node hours\". Exploratory requests are accepted at any time, decided within four weeks of applying, and last 18 months. A Perlmutter CPU node is 2 AMD EPYC 7763 processors totalling 128 cores and 512 GB of memory, so 250 node-hours is 32,000 core-hours. The NERSC Director's Reserve, the other discretionary pool, is explicitly \"not generally open to the public\" and needs \"prior arrangements with NERSC\".",
+    "stated": "Research projects that are new to NERSC and/or HPC may apply for small Exploratory awards, up to 250 node hours. Exploratory and educational allocation requests may be submitted at any time. The award decision is within 4 weeks of applying (pending DOE approval for Exploratory) and the allocation period is 18 months from award, but must be renewed for the next allocation year. The Director's Discretionary Reserve is not generally open to the public, and proposals require prior arrangements with NERSC.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://www.nersc.gov/users/become-a-nersc-user/working-with-us",
@@ -84,10 +84,24 @@
       "url": "https://iris.nersc.gov/add-pi",
       "date": "2026-10-22",
       "proved": "\"All NERSC users are required to have a valid ORCID id\", quoted"
+    },
+    {
+      "url": "https://www.nersc.gov/users/become-a-nersc-user/working-with-us",
+      "date": "2026-11-25",
+      "proved": "new NERSC or HPC projects may apply for small Exploratory awards of up to 250 node hours",
+      "capture": "sha256:540ebed65a0322c0b4bf857f9f8f72ccdcefdc8976a4f05f07b16239e7d63a08",
+      "quote": "Research projects that are new to NERSC and/or HPC may apply for small Exploratory awards, up to 250 [node hours](https://docs.nersc.gov/policies/resource-usage/#compute-usage-charging \"Read the docs to understand node hours and how NERSC charges against your allocation.\"). This is a great vehicle for first-time PIs to try out NERSC resources."
+    },
+    {
+      "url": "https://www.nersc.gov/users/become-a-nersc-user/working-with-us",
+      "date": "2026-11-25",
+      "proved": "new NERSC or HPC projects may still apply for up to 250 node hours",
+      "capture": "sha256:540ebed65a0322c0b4bf857f9f8f72ccdcefdc8976a4f05f07b16239e7d63a08",
+      "quote": "Research projects that are new to NERSC and/or HPC may apply for small Exploratory awards, up to 250 [node hours](https://docs.nersc.gov/policies/resource-usage/#compute-usage-charging \"Read the docs to understand node hours and how NERSC charges against your allocation.\"). This is a great vehicle for first-time PIs to try out NERSC resources."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:13.619Z",
   "notes": "The corpus holds alcf-director-s-discretionary, which is the Argonne counterpart, and holds no NERSC record at all. The finding worth carrying is the refutation: NERSC's Director's Reserve is widely described as an open door and the vendor page says the opposite in one sentence, while the Exploratory award is the real small route and needs an agreement rather than a review panel. Foreign nationals are permitted under the appropriate use policy except in embargoed countries and on restricted party lists, which is a separate gate from the funding one. No account was created, so the rung is documented.",
   "extras": {
     "wave2": {

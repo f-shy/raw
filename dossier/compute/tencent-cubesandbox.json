@@ -5,7 +5,7 @@
   "url": "https://github.com/TencentCloud/CubeSandbox",
   "category": "container and VM sandbox",
   "free_tier": {
-    "stated": "no hosted tier: the project is self-hosted software for x86_64 Linux with KVM, so there is no capacity to buy; it ships a compatible API gateway and an egress filter",
+    "stated": "no hosted tier: the project is open-source software that requires x86_64 Linux with KVM, deployed by provisioning a server and installing Cube Sandbox; it ships an E2B-compatible REST API gateway (CubeAPI) and an egress filter (CubeEgress)",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://github.com/TencentCloud/CubeSandbox",
@@ -72,10 +72,24 @@
       "url": "https://github.com/TencentCloud/CubeSandbox",
       "date": "2026-10-22",
       "proved": "'Cube Sandbox requires an x86_64 Linux environment with KVM support' and 'Cold start benchmarked on bare-metal. 60ms at single concurrency; under 50 concurrent creations, avg 67ms, P95 90ms, P99 137ms' with 'CubeEgress  -  OpenResty-based egress security gateway: L7 domain filtering, credential injection, and access auditing', quoted"
+    },
+    {
+      "url": "https://github.com/TencentCloud/CubeSandbox",
+      "date": "2026-11-25",
+      "proved": "the README states the x86_64 Linux with KVM requirement, the self-deployment steps, the open-source release and the E2B-compatible API gateway",
+      "capture": "sha256:4f72498f71d6c71cf90ca59f8133851f789c3a30b799d0f6e149a15c521fbb8c",
+      "quote": "Cube Sandbox requires an **x86_64 Linux** environment with **KVM** support. ... provisioning a server, installing Cube Sandbox, creating a sandbox template, and running your first agent code. ... Cube Sandbox is now open source! ... CubeAPI ... E2B"
+    },
+    {
+      "url": "https://github.com/TencentCloud/CubeSandbox",
+      "date": "2026-11-25",
+      "proved": "the README still states the self-hosted software's host requirement, deployment steps, open-source release and E2B-compatible API gateway",
+      "capture": "sha256:4f72498f71d6c71cf90ca59f8133851f789c3a30b799d0f6e149a15c521fbb8c",
+      "quote": "Cube Sandbox requires an **x86_64 Linux** environment with **KVM** support. ... provisioning a server, installing Cube Sandbox, creating a sandbox template, and running your first agent code. ... Cube Sandbox is now open source! ... CubeAPI ... E2B"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:48:09.894Z",
+  "verified_at": "2026-11-25T11:17:42.692Z",
   "price_per_tb_month": null,
   "notes": " Reclassified: no free tier on the catalogue card is a paid-only product, not a closed one. `dead` is reserved for a product that is withdrawn or unreachable.",
   "extras": {

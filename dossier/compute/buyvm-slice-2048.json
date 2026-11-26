@@ -6,7 +6,7 @@
   "category": "VPS",
   "tier": "SLICE 2048",
   "free_tier": {
-    "stated": "no free tier; the ladder starts at 'SLICE 512 ... $24.00 per year'",
+    "stated": "no free tier; the ladder starts at 'SLICE 512 ... 512 MB Memory ... 10 GB SSD Storage ... Unmetered Bandwidth ... $24.00 per year', and this record's rung is 'SLICE 2048 ... 1 Core @ 3.50+ GHz ... 2048 MB Memory ... 40 GB SSD Storage ... Unmetered Bandwidth ... $7.00 per month'",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://buyvm.net/kvm-dedicated-server-slices/",
@@ -63,10 +63,17 @@
       "url": "https://buyvm.net/kvm-dedicated-server-slices/",
       "date": "2026-10-24",
       "proved": "quoted for the rungs below: 'SLICE 1024 ... 1024 MB Memory ... 20 GB SSD ... $3.50 per month' and 'SLICE 512 ... 512 MB Memory ... 10 GB SSD ... $24.00 per year'"
+    },
+    {
+      "url": "https://buyvm.net/kvm-dedicated-server-slices/",
+      "date": "2026-11-25",
+      "proved": "the SLICE 512 card lists 512 MB memory, 10 GB SSD storage, unmetered bandwidth and a USD 24.00 annual price",
+      "capture": "sha256:f27f93a2f4e2d8834f47e23442c95373c215ad10d3aa3b20bf230806b37cfcc5",
+      "quote": "- **1 Core** @ 3.50+ GHz - **Fair Share** CPU Usage - **512 MB** Memory - **10 GB** SSD Storage - **Unmetered** Bandwidth - **1** IPv4 Address - **$24.00** per year"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-24T01:56:00.000Z",
+  "verified_at": "2026-11-25T11:17:45.491Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "USD 7.00 for 2 GiB is well over the line, and the row is documented because BuyVM's unmetered traffic is the cheapest genuinely unmetered bandwidth in evaluated offerings. The slice that fits the budget is SLICE 1024 at USD 3.50 for 1 GiB, which is too small to rank. USD 24.00 a year for SLICE 512 is the cheapest annual figure seen anywhere on 2026-10-24.",

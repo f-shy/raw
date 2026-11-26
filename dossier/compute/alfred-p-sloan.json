@@ -5,7 +5,7 @@
   "url": "https://sloan.org/grants/apply",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "'The Foundation does not make grants to individuals except through its Books program' and 'The Alfred P. Sloan Foundation does not accept or review unsolicited grant proposals.' The only individual lane named is book writing, where 'Book grants can be made to individuals or to affiliated nonprofit organizations' and are 'typically $60,000 or less'.",
+    "stated": "Book grants can be made to individuals or to affiliated nonprofit organizations, such as a university.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://sloan.org/grants/apply",
@@ -64,10 +64,24 @@
       "url": "https://sloan.org/programs/public-understanding/books",
       "date": "2026-10-22",
       "proved": "quoted 'Book grants can be made to individuals or to affiliated nonprofit organizations, such as a university. Book grants are typically $60,000 or less.'"
+    },
+    {
+      "url": "https://sloan.org/programs/public-understanding/books",
+      "date": "2026-11-25",
+      "proved": "the Books programme states that book grants can be made to individuals or to affiliated nonprofit organizations",
+      "capture": "sha256:98b5b4a43be7c77de67d736f1b6343ea9901e7c743e27c5bb07c9af4271d1383",
+      "quote": "Book grants can be made to individuals or to affiliated nonprofit organizations, such as a university."
+    },
+    {
+      "url": "https://sloan.org/programs/public-understanding/books",
+      "date": "2026-11-25",
+      "proved": "the Books programme still allows grants to individuals or affiliated nonprofit organizations",
+      "capture": "sha256:98b5b4a43be7c77de67d736f1b6343ea9901e7c743e27c5bb07c9af4271d1383",
+      "quote": "Book grants can be made to individuals or to affiliated nonprofit organizations, such as a university."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:33.097Z",
   "notes": "Sloan appears on most lists of open-source and science funders and is the wrong shape: institution-only, no unsolicited proposals, and a book programme as the sole individual route. The USD 60,000 book ceiling is the one number a person could reach, and it buys writing time rather than compute.",
   "extras": {
     "wave2": {

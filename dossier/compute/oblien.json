@@ -1,173 +1,230 @@
 {
-  "topic": "compute",
-  "slug": "oblien",
-  "provider": "Oblien",
-  "url": "https://oblien.com/pricing",
-  "category": "microVM fleet",
-  "tier": "Pay as you go / prepaid monthly pool",
-  "free_tier": {
-    "stated": "Sign up free, get 500 credits; the earlier published page said 'Pay-as-you-go from $0.005/min. No idle charges on ephemeral workspaces. Free tier included.' The credit grant is a stated signup bonus, not a recurring monthly allowance.",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://web.archive.org/web/20260824050402id_/https://oblien.com/",
-    "read_on": "2026-11-24",
-    "notes": "The 500-credit grant amount is reported by a third party and by search snippets of oblien.com; the captured first-party archived page states only that a free tier is included and does not state the credit count, so the number is unverified against a first-party page."
+ "topic": "compute",
+ "slug": "oblien",
+ "provider": "Oblien",
+ "url": "https://oblien.com/pricing",
+ "category": "sandbox",
+ "tier": "Pay as you go / monthly pool",
+ "free_tier": {
+  "stated": "Creating an account is free, but new accounts do not receive automatic trial credits; usage requires purchased credits, a paid plan or an administrator-granted allowance.",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://oblien.com/terms",
+  "read_on": "2026-11-25"
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a microVM with a writable disk from 64 MiB to 1 TiB, not a stored object"
+ },
+ "retention": {
+  "stated": "Retained disks remain billable after coverage ends; retained disks persist 30 days after expiry and are not automatically deleted.",
+  "days": 30,
+  "source_url": "https://api.oblien.com/v2/billing/capacity/catalog"
+ },
+ "egress": {
+  "terms": "Managed internet transfer is $0.10 per GiB billed separately; monthly pools include a shared transfer allowance, and public routes and a user's own proxy do not incur the managed-proxy charge.",
+  "metered": true,
+  "free_allowance": "100 GiB included with the 2 vCPU / 4 GiB / 40 GiB monthly pool",
+  "price_per_tb": "USD 102.40 per TB at $0.10 per GiB",
+  "source_url": "https://oblien.com/pricing"
+ },
+ "interface": [
+  "rest",
+  "ssh",
+  "cli"
+ ],
+ "interface_detail": "An SDK and REST API control full Linux microVMs, with SSH password or key auth, interactive shells over WebSocket, public port URLs and MCP access.",
+ "endpoint": "https://api.oblien.com/v2",
+ "tooling": "TypeScript SDK, REST API, command-line tool, SSH, MCP and a dashboard; images include Ubuntu, Node.js, Python, Go, Rust, Redis and Postgres.",
+ "chaining": "$0.03 per active vCPU-hour plus $0.008 per reserved GiB-hour makes a two-vCPU, 4 GiB VM about $0.092 an hour at full CPU, and a monthly $18 pool includes 100 GiB of transfer with a 2 vCPU / 4 GiB / 40 GiB fleet.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "$0.03 per active vCPU-hour, $0.008 per reserved GiB-hour of RAM and $0.05 per retained GiB-month of storage, capped at 125 percent of the monthly pool price",
+   "source": "https://oblien.com/pricing"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the billable unit is a VM pool of CPU, RAM and retained disk, not a single object",
-    "bytes": null,
-    "notes": "A pool starts at 256 MiB RAM and 1 GiB storage, with storage rounded up to whole GiB; per-VM vCPU ceiling is 12."
-  },
-  "retention": {
-    "stated": "A normal stop keeps the writable disk; retained storage remains billable. The initial tariff retains disks for at least 30 days after compute expiry with no automatic deletion, and storage is billed per GiB until the disk is deleted.",
-    "days": 30,
-    "source_url": "https://oblien.com/docs/concepts/compute-billing",
-    "notes": "Days are a minimum retention after expiry, not a deletion deadline; administrators can publish a different retainedAfterExpiryDays."
-  },
-  "egress": {
-    "terms": "Managed internet transfer is $0.10/GiB, billed separately from the compute cap; PAYG has an automatic transfer budget of $5 per billing period and monthly paid overage defaults to $0. Monthly pools include transfer allowance; public routes and a customer-supplied proxy incur no managed-proxy charge. Exhausted transfer pauses managed internet access after funding and grace are spent, but does not stop a covered monthly CPU/RAM/disk pool.",
-    "metered": true,
-    "free_allowance": "the 2-vCPU example pool includes 100 GiB of managed transfer a month; the documented benefit is 50 GiB per vCPU per paid month, minimum 25 GiB and maximum 1,000 GiB per pool",
-    "price_per_tb": null,
-    "source_url": "https://oblien.com/pricing"
-  },
-  "interface": [
-    "rest",
-    "ssh",
-    "cli"
-  ],
-  "interface_detail": "A Runtime API for commands and files, an SSH endpoint, browser desktops, and an official TypeScript SDK and CLI (oblien@3); private VM-to-VM links, HTTPS preview URLs and custom domains are also documented.",
-  "endpoint": "https://api.oblien.com",
-  "tooling": "npm install oblien@3; the SDK creates VMs and runs commands and file operations through the Runtime API. The CLI manages workspaces, namespaces, files and tunnels. REST clients can call the deployed routes directly. The user installs and runs the SDK or CLI against the hosted fleet.",
-  "chaining": "A hosted microVM pool can run agents, services and preview URLs, and its private networking and managed transfer let it connect to other hosted records; retained disks outlive a stopped VM and stay billable.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "the PAYG example pool has a $22.50 monthly resource ceiling, at 125% of the equivalent $18 monthly pool price",
-      "source": "https://oblien.com/pricing"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "12 vCPU per VM ceiling; a pool starts at 256 MiB RAM and 1 GiB storage",
-      "source": "https://oblien.com/docs/concepts/compute-billing"
-    },
-    {
-      "kind": "request-rate",
-      "value": "PAYG requires a funded account balance; exhausted wallet funds do not grant free usage even while a spending cap remains",
-      "source": "https://oblien.com/docs/concepts/compute-billing"
-    }
-  ],
-  "limits_note": "The PAYG cap covers only CPU, RAM and retained disk; managed proxy transfer, backups and taxes are outside it. Account plans, image requirements and available host capacity apply. Retained disks stay billable after compute coverage ends.",
-  "binding": "volume-quota",
-  "binding_note": "The $22.50 monthly resource ceiling stops CPU, RAM and disk charges first at this pool size; transfer is separately budgeted and a cap with an empty wallet does not make PAYG usage free.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "Account creation requires a valid email address, a secure password and accurate registration information, or registration through GitHub, GitLab or Google. The free signup needs no credit card per the published search snippet; the pricing page states PAYG requires a funded account balance, so paid usage needs a wallet deposit or card. The signup form itself was not opened, so no further gate is established.",
-    "country": null
-  },
-  "reliability_note": "A spending cap with unpaid debt does not grant free access; exhausted managed transfer pauses outbound access after funding and grace are spent; a rejected capacity purchase must not leave spendable funding or a half-applied entitlement.",
-  "confidence": "documented",
-  "confidence_note": "The rates, transfer terms and ceilings are quoted from oblien.com/pricing and its billing documentation read 2026-11-24; the free-tier statement comes from an archived first-party capture. The 500-credit grant amount is not in that capture and is reported only by third parties, so it is unverified. The signup gate is quoted from the vendor's terms page.",
-  "evidence": [
-    {
-      "url": "https://oblien.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the PAYG resource rates are $0.03 per active vCPU-hour, $0.008 per reserved GiB-hour of RAM and $0.05 per retained GiB-month of storage",
-      "capture": "sha256:ab84cc7368ae4fb222dfd401c4503dbc5ded736d77fd0b907d6a8c960a0debf3",
-      "quote": "$0.03 per active vCPU-hour, $0.008 per reserved GiB-hour of RAM, and $0.05 per retained GiB-month of storage."
-    },
-    {
-      "url": "https://oblien.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the 2-vCPU example fleet shows $0.044 per compute hour, a $22.50 monthly resource ceiling and an $18 monthly pool",
-      "capture": "sha256:ab84cc7368ae4fb222dfd401c4503dbc5ded736d77fd0b907d6a8c960a0debf3",
-      "quote": "$0.044/ compute hour"
-    },
-    {
-      "url": "https://oblien.com/pricing",
-      "date": "2026-11-24",
-      "proved": "managed internet transfer has a separate $0.10 per GiB price",
-      "capture": "sha256:ab84cc7368ae4fb222dfd401c4503dbc5ded736d77fd0b907d6a8c960a0debf3",
-      "quote": "Managed internet transfer: $0.10/GiB, billed separately."
-    },
-    {
-      "url": "https://oblien.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the example monthly pool includes 100 GiB of managed internet transfer",
-      "capture": "sha256:ab84cc7368ae4fb222dfd401c4503dbc5ded736d77fd0b907d6a8c960a0debf3",
-      "quote": "100 GiB included"
-    },
-    {
-      "url": "https://web.archive.org/web/20260824050402id_/https://oblien.com/",
-      "date": "2026-11-24",
-      "proved": "the first-party page states a free tier is included with pay-as-you-go pricing",
-      "capture": "sha256:acc2ee7faeb00fb0f37d129c34e5cdef4e3d26815ed08c369ccea5f67d688c91",
-      "quote": "Pay-as-you-go from $0.005/min. No idle charges on ephemeral workspaces. Free tier included."
-    },
-    {
-      "url": "https://oblien.com/terms",
-      "date": "2026-11-24",
-      "proved": "account creation needs a valid email address, a secure password and registration information, or a third-party auth provider",
-      "capture": "sha256:e2d0cf22e152811117ab638c9aa0d0ef695b03e99a5dc5d44db7cd8a4638d5d8",
-      "quote": "To access certain features of the Services, you must create an account by providing:\n\n- A valid email address\n- A secure password\n- Accurate and complete registration information"
-    },
-    {
-      "url": "https://oblien.com/docs/concepts/compute-billing",
-      "date": "2026-11-24",
-      "proved": "PAYG requires a funded wallet and a spending cap does not grant free access with unpaid debt",
-      "capture": "sha256:201cd8d6d532f3a4b789b2e3f2c22583c8a9cbc5b4f2bcfc4dc93278141f5236",
-      "quote": "Selecting a PAYG pool has no upfront pool fee. VM usage still requires funding: the cap limits recorded CPU, RAM and retained-disk charges during the billing period, but does not make an empty wallet spendable."
-    },
-    {
-      "url": "https://oblien.com/docs/concepts/compute-billing",
-      "date": "2026-11-24",
-      "proved": "the initial tariff retains disks at least 30 days after compute expiry with no automatic deletion",
-      "capture": "sha256:201cd8d6d532f3a4b789b2e3f2c22583c8a9cbc5b4f2bcfc4dc93278141f5236",
-      "quote": "The initial tariff retains disks for at least **30 days**, with **no automatic deletion**."
-    },
-    {
-      "url": "https://oblien.com/docs/concepts/compute-billing",
-      "date": "2026-11-24",
-      "proved": "managed transfer is 50 GiB per vCPU per paid month with a 25 GiB minimum and 1,000 GiB maximum",
-      "capture": "sha256:201cd8d6d532f3a4b789b2e3f2c22583c8a9cbc5b4f2bcfc4dc93278141f5236",
-      "quote": "The initial benefit is **50 GiB per vCPU per paid month**, with a minimum of 25 GiB and a maximum of 1,000 GiB per pool."
-    },
-    {
-      "url": "https://oblien.com/docs/vm/quickstart",
-      "date": "2026-11-24",
-      "proved": "the user installs the oblien SDK and drives VMs through REST and the Runtime API",
-      "capture": "sha256:fa0de720e0510e9367d5c4dd443aaecdddc1e00d812b497e8372a16df24ff72f",
-      "quote": "npm install oblien@3"
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.969Z",
-  "price_per_tb_month": null,
-  "notes": "A hosted microVM fleet with a stated free tier and a separate managed-transfer meter. The signup bonus is advertised without a card, but paid PAYG usage needs a funded wallet, and the 500-credit amount is only reported by third parties.",
-  "extras": {
-    "shape": {
-      "vcpu": "0.1 to 12 per VM",
-      "ram_gib": "0.125 to 64 per VM",
-      "disk_gib": "up to 1024 per VM",
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "a shared pool of CPU, RAM and retained disk split across VMs; the example pool is 2 vCPU, 4 GiB RAM and 40 GiB disk for four VMs"
-    },
-    "billing_model": "per-second PAYG metered CPU/RAM/storage with a monthly cap, or prepaid monthly pool",
-    "free_tier_kind": "signup-credit",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "private links and explicitly opened service ports; inbound starts closed",
-      "static_ip": null,
-      "ipv6": "public IPv6 is documented as an option",
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "temporary VMs can be given an expiry; sleep and wake is available on compatible Linux images"
-    }
+  {
+   "kind": "volume-quota",
+   "value": "managed internet transfer $0.10 per GiB; the 2 vCPU / 4 GiB / 40 GiB monthly pool includes 100 GiB",
+   "source": "https://oblien.com/pricing"
   }
+ ],
+ "limits_note": "VMs can start at 0.1 vCPU, 128 MiB RAM and 64 MiB writable disk; a pool starts at 256 MiB RAM and 1 GiB storage.",
+ "binding": "volume-quota",
+ "binding_note": "No trial credit is granted, so the prepaid wallet and the 125 percent pay-as-you-go ceiling bind first; at full CPU a two-vCPU, 4 GiB VM is about $0.092 an hour.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "Account creation needs a valid email address, a secure password and accurate registration information, or a GitHub, GitLab or Google third-party sign-in; creating an account is free, and usage needs purchased credits, a paid plan or an administrator-granted allowance.",
+  "country": null
+ },
+ "reliability_note": "Capacity admission can reject a pool when host inventory is unavailable; an empty wallet leaves a storage balance due rather than free compute, and accounts with overdue balances over 60 days may be terminated.",
+ "confidence": "documented",
+ "confidence_note": "Rates, the absence of trial credits, the account fields and egress price are quoted from the vendor's own pricing page, terms, billing guide and published rate catalog read on 2026-11-25.",
+ "evidence": [
+  {
+   "url": "https://oblien.com/pricing",
+   "date": "2026-11-25",
+   "proved": "pay-as-you-go charges $0.03 per active vCPU-hour, $0.008 per reserved GiB-hour and $0.05 per retained GiB-month",
+   "capture": "sha256:ab84cc7368ae4fb222dfd401c4503dbc5ded736d77fd0b907d6a8c960a0debf3",
+   "quote": "$0.03 per active vCPU-hour, $0.008 per reserved GiB-hour of RAM, and $0.05 per retained GiB-month of storage."
+  },
+  {
+   "url": "https://oblien.com/pricing",
+   "date": "2026-11-25",
+   "proved": "managed internet transfer costs $0.10 per GiB separately",
+   "capture": "sha256:ab84cc7368ae4fb222dfd401c4503dbc5ded736d77fd0b907d6a8c960a0debf3",
+   "quote": "Managed internet transfer: $0.10/GiB, billed separately."
+  },
+  {
+   "url": "https://oblien.com/pricing",
+   "date": "2026-11-25",
+   "proved": "small Linux VMs start at 0.1 vCPU, 128 MiB RAM and 64 MiB disk, and a pool starts at 256 MiB RAM and 1 GiB storage",
+   "capture": "sha256:ab84cc7368ae4fb222dfd401c4503dbc5ded736d77fd0b907d6a8c960a0debf3",
+   "quote": "Small Linux VMs can start at 0.1 vCPU, 128 MiB RAM, and 64 MiB writable disk. Images can need more."
+  },
+  {
+   "url": "https://oblien.com/pricing",
+   "date": "2026-11-25",
+   "proved": "the 2 vCPU / 4 GiB / 40 GiB monthly pool is $18 a month with 100 GiB of transfer",
+   "capture": "sha256:ab84cc7368ae4fb222dfd401c4503dbc5ded736d77fd0b907d6a8c960a0debf3",
+   "quote": "$18/ month"
+  },
+  {
+   "url": "https://oblien.com/pricing",
+   "date": "2026-11-25",
+   "proved": "the published rate catalog was checked on 2026-11-12",
+   "capture": "sha256:ab84cc7368ae4fb222dfd401c4503dbc5ded736d77fd0b907d6a8c960a0debf3",
+   "quote": "Rates checked 2026-11-12"
+  },
+  {
+   "url": "https://oblien.com/terms",
+   "date": "2026-11-25",
+   "proved": "account creation is free but no automatic trial credits are granted and usage needs purchased credits or a paid plan",
+   "capture": "sha256:c1ee2df9a51a4b54a22caaaed7cb2f3e6bb1b3c7b3167a015815abf4af778835",
+   "quote": "Account access: Creating an account is free. Usage requires purchased credits, a paid plan, or an administrator-granted allowance. New accounts do not receive automatic trial credits."
+  },
+  {
+   "url": "https://oblien.com/terms",
+   "date": "2026-11-25",
+   "proved": "registration needs a valid email address, a secure password and accurate details, with third-party sign-in available",
+   "capture": "sha256:c1ee2df9a51a4b54a22caaaed7cb2f3e6bb1b3c7b3167a015815abf4af778835",
+   "quote": "To access certain features of the Services, you must create an account by providing:"
+  },
+  {
+   "url": "https://oblien.com/docs/vm.md",
+   "date": "2026-11-25",
+   "proved": "the VMs are hardware-isolated microVMs reachable from an SDK or REST API, with SSH access",
+   "capture": "sha256:ea1ccce6ec3670b6d6631ea6e2b4f6017ee6d04a0058721dac58f3fe12ddcc78",
+   "quote": "- **SSH access** - connect from any terminal with password or key auth"
+  },
+  {
+   "url": "https://api.oblien.com/v2/billing/capacity/catalog",
+   "date": "2026-11-25",
+   "proved": "the published catalog sets retained-disk expiry at 30 days with no automatic deletion",
+   "capture": "sha256:f7457020edae00c848595f602de842d1ac1b9d87476a5d869b937f4a9724f45c",
+   "quote": "\"retainedAfterExpiryDays\":30"
+  },
+  {
+   "url": "https://oblien.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the PAYG resource rates are $0.03 per active vCPU-hour, $0.008 per reserved GiB-hour of RAM and $0.05 per retained GiB-month of storage",
+   "capture": "sha256:ab84cc7368ae4fb222dfd401c4503dbc5ded736d77fd0b907d6a8c960a0debf3",
+   "quote": "$0.03 per active vCPU-hour, $0.008 per reserved GiB-hour of RAM, and $0.05 per retained GiB-month of storage."
+  },
+  {
+   "url": "https://oblien.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the 2-vCPU example fleet shows $0.044 per compute hour, a $22.50 monthly resource ceiling and an $18 monthly pool",
+   "capture": "sha256:ab84cc7368ae4fb222dfd401c4503dbc5ded736d77fd0b907d6a8c960a0debf3",
+   "quote": "$0.044/ compute hour"
+  },
+  {
+   "url": "https://oblien.com/pricing",
+   "date": "2026-11-24",
+   "proved": "managed internet transfer has a separate $0.10 per GiB price",
+   "capture": "sha256:ab84cc7368ae4fb222dfd401c4503dbc5ded736d77fd0b907d6a8c960a0debf3",
+   "quote": "Managed internet transfer: $0.10/GiB, billed separately."
+  },
+  {
+   "url": "https://oblien.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the example monthly pool includes 100 GiB of managed internet transfer",
+   "capture": "sha256:ab84cc7368ae4fb222dfd401c4503dbc5ded736d77fd0b907d6a8c960a0debf3",
+   "quote": "100 GiB included"
+  },
+  {
+   "url": "https://web.archive.org/web/20260824050402id_/https://oblien.com/",
+   "date": "2026-11-24",
+   "proved": "the first-party page states a free tier is included with pay-as-you-go pricing",
+   "capture": "sha256:acc2ee7faeb00fb0f37d129c34e5cdef4e3d26815ed08c369ccea5f67d688c91",
+   "quote": "Pay-as-you-go from $0.005/min. No idle charges on ephemeral workspaces. Free tier included."
+  },
+  {
+   "url": "https://oblien.com/terms",
+   "date": "2026-11-24",
+   "proved": "account creation needs a valid email address, a secure password and registration information, or a third-party auth provider",
+   "capture": "sha256:e2d0cf22e152811117ab638c9aa0d0ef695b03e99a5dc5d44db7cd8a4638d5d8",
+   "quote": "To access certain features of the Services, you must create an account by providing:\n\n- A valid email address\n- A secure password\n- Accurate and complete registration information"
+  },
+  {
+   "url": "https://oblien.com/docs/concepts/compute-billing",
+   "date": "2026-11-24",
+   "proved": "PAYG requires a funded wallet and a spending cap does not grant free access with unpaid debt",
+   "capture": "sha256:201cd8d6d532f3a4b789b2e3f2c22583c8a9cbc5b4f2bcfc4dc93278141f5236",
+   "quote": "Selecting a PAYG pool has no upfront pool fee. VM usage still requires funding: the cap limits recorded CPU, RAM and retained-disk charges during the billing period, but does not make an empty wallet spendable."
+  },
+  {
+   "url": "https://oblien.com/docs/concepts/compute-billing",
+   "date": "2026-11-24",
+   "proved": "the initial tariff retains disks at least 30 days after compute expiry with no automatic deletion",
+   "capture": "sha256:201cd8d6d532f3a4b789b2e3f2c22583c8a9cbc5b4f2bcfc4dc93278141f5236",
+   "quote": "The initial tariff retains disks for at least **30 days**, with **no automatic deletion**."
+  },
+  {
+   "url": "https://oblien.com/docs/concepts/compute-billing",
+   "date": "2026-11-24",
+   "proved": "managed transfer is 50 GiB per vCPU per paid month with a 25 GiB minimum and 1,000 GiB maximum",
+   "capture": "sha256:201cd8d6d532f3a4b789b2e3f2c22583c8a9cbc5b4f2bcfc4dc93278141f5236",
+   "quote": "The initial benefit is **50 GiB per vCPU per paid month**, with a minimum of 25 GiB and a maximum of 1,000 GiB per pool."
+  },
+  {
+   "url": "https://oblien.com/docs/vm/quickstart",
+   "date": "2026-11-24",
+   "proved": "the user installs the oblien SDK and drives VMs through REST and the Runtime API",
+   "capture": "sha256:fa0de720e0510e9367d5c4dd443aaecdddc1e00d812b497e8372a16df24ff72f",
+   "quote": "npm install oblien@3"
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T11:55:06.337Z",
+ "price_per_tb_month": null,
+ "notes": "At full CPU a two-vCPU, 4 GiB VM is $0.092 an hour by the published rates, matching the operator list. There is no automatic trial credit: the account is free to create but every VM needs wallet funds or a pool. MCP access and the hosted service are the offered path; an open-source self-hosted deployment platform from the same vendor is separate and ranks after this hosted offer.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 4,
+   "disk_gb": 40,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "a medium pool is 2 vCPU, 4 GiB RAM and 40 GiB disk shared across up to 12 VMs"
+  },
+  "billing_model": "pay as you go from a funded wallet, capped at 125 percent of the monthly pool, or a prepaid monthly pool",
+  "free_tier_kind": "none",
+  "term": "pay as you go or a 30-day prepaid pool",
+  "price_arithmetic": "$0.03 per active vCPU-hour x 2 plus $0.008 per reserved GiB-hour x 4 is $0.092 an hour at full CPU",
+  "derived": "$0.03 x 2 + $0.008 x 4 = $0.092 per hour at full CPU; $0.10 per GiB x 1024 GiB = $102.40 per TB for managed transfer",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "public port URLs and custom domains are documented; managed proxy transfer is $0.10 per GiB",
+   "static_ip": null,
+   "ipv6": "public IPv6 can be enabled on a VM",
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "sleep-on-idle with wake on request is available for HTTP apps; a confirmed stop releases running CPU and RAM while retained disks stay billable"
+  }
+ }
 }

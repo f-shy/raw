@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u354-q02",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "compute/flipperhost: no path value is supported well enough by a capture. The best candidate is $.egress.terms (source https://www.flipperhost.com/), but the homepage capture carries no egress term while the egress row itself cites the lowendbox third-party post. Which capture first-party-states the egress terms for the 2 GB KVM plan?",
+ "why": "PROPOSALS.jsonl marks compute/flipperhost as review: 'no path value is supported well enough by a capture'; best path $.egress.terms at https://www.flipperhost.com/. The homepage capture (sha256:5a51791...) has no egress allowance term; the egress value rests only on the lowendbox capture (sha256:72a50e5...). Record left alone.",
+ "scope": {
+  "rids": [
+   "compute/flipperhost"
+  ]
+ },
+ "origin": "20261125-0107-research-compute-5c82/u354",
+ "created": "2026-11-25T15:40:38Z"
+}

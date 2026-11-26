@@ -1,193 +1,223 @@
 {
-  "topic": "compute",
-  "slug": "phonebox",
-  "provider": "Phonebox",
-  "url": "https://phonebox.dev/docs/billing/pricing",
-  "category": "cloud Android phone",
-  "tier": "Free week trial (USD 5 of phone time), then Starter USD 20 a month",
-  "free_tier": {
-    "stated": "New accounts get a free 7-day trial with USD 5 of phone time, then USD 20/month. Card required, cancel anytime.",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://phonebox.dev/docs",
-    "read_on": "2026-11-24",
-    "notes": "The free week is one per person, requires a card and charges nothing for 7 days; Starter begins on day 7 unless cancelled. Parked phones cost nothing. The USD 5 trial credit is removed if the account cancels or the week ends unpaid."
+ "topic": "compute",
+ "slug": "phonebox",
+ "provider": "Phonebox",
+ "url": "https://phonebox.dev/docs/billing/pricing",
+ "category": "cloud Android phone",
+ "tier": "Starter, with 7-day free trial",
+ "free_tier": {
+  "stated": "New accounts get a free 7-day trial with $5 of phone time, then $20/month; a card is required and nothing is charged for 7 days.",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://phonebox.dev/docs/billing/plans",
+  "read_on": "2026-11-25",
+  "notes": "The $5 trial credit buys phone time at $0.06 per phone-minute. Starter is $20/month with $20 of phone time; Pro is $99/month with $99."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a cloud Android phone, not an object; an APK upload is capped at 524,288,000 bytes (500 MiB).",
+  "source_url": "https://phonebox.dev/docs/billing/limits"
+ },
+ "retention": {
+  "stated": "A parked phone keeps its apps, files and signed-in accounts; a saved phone unused for 30 days is deleted after a warning email a week before. Activity records are kept for 30 days.",
+  "days": 30,
+  "source_url": "https://phonebox.dev/docs/billing/limits"
+ },
+ "egress": {
+  "terms": "not published: the pricing and limits pages read state no separate egress allowance or price for device traffic",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://phonebox.dev/docs/billing/pricing"
+ },
+ "interface": [
+  "rest",
+  "cli",
+  "chat",
+  "browser"
+ ],
+ "interface_detail": "REST API at https://phonebox.dev/v1 with an API key as a bearer token; CLI and TypeScript SDK in the same npm package; hosted MCP server at https://phonebox.dev/mcp.",
+ "endpoint": "https://phonebox.dev/v1",
+ "tooling": "An agent uses the REST API, the `phonebox` CLI, the TypeScript SDK or the hosted MCP server; no local emulator is needed.",
+ "chaining": "A coding agent can install an APK it just built on a cloud phone and walk the screens it changed, with a browser live view for a human handoff.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "$5 of trial phone time over 7 days, then $20 of phone time a month on Starter",
+   "source": "https://phonebox.dev/docs/billing/plans"
   },
-  "per_object_cap": {
-    "stated": "An APK upload is at most 524,288,000 bytes (500 MiB), sent within 2 minutes; file uploads and downloads are at most 4 MB (4,000,000 bytes).",
-    "bytes": 524288000,
-    "source_url": "https://phonebox.dev/docs/billing/limits"
-  },
-  "retention": {
-    "stated": "A parked phone keeps its apps, files and signed-in accounts; a saved phone unused for 30 days is deleted after a warning email a week before. Activity records are kept for 30 days.",
-    "days": 30,
-    "source_url": "https://phonebox.dev/docs/billing/plans",
-    "notes": "The 30-day timer applies to a saved phone with no plan or after cancellation; recordings are kept 30 days on Starter and 90 days on Pro."
-  },
-  "egress": {
-    "terms": "A phone is billed per second while it runs at USD 0.06 per phone-minute; parked phones cost nothing. No separate per-GB egress charge or allowance is published on the pages read. Traffic out of the Android device is part of phone time; unverified: per-GB egress terms",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://phonebox.dev/docs/billing/pricing"
-  },
-  "interface": [
-    "rest",
-    "cli",
-    "chat"
-  ],
-  "interface_detail": "REST API at https://phonebox.dev/v1 with a bearer API key, a CLI and TypeScript SDK in the same npm package, a hosted MCP server at https://phonebox.dev/mcp, and an agent skill file. The agent reads the screen as a numbered element list, taps by label and installs APKs.",
-  "endpoint": "https://phonebox.dev/v1",
-  "tooling": "the phonebox CLI installed by a shell script, the phonebox npm package for TypeScript, the hosted MCP server, and a skill file for coding agents; no emulator or ADB is needed.",
-  "chaining": "A coding agent installs its own APK on the phone, walks the screens it changed and parks the phone; a live view link can hand control to a person for a sign-in or a code.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "USD 5 of phone time over 7 days on the free week; USD 20 of phone time per month on Starter; 600 API requests per minute per key and 60 lifecycle requests per minute per project",
-      "source": "https://phonebox.dev/docs/billing/pricing"
-    },
-    {
-      "kind": "request-rate",
-      "value": "600 requests a minute for each API key; 60 lifecycle requests a minute for each project",
-      "source": "https://phonebox.dev/docs/billing/limits"
-    },
-    {
-      "kind": "per-ip-shaping",
-      "value": "5 phones running at once on Starter and the free week, 20 on Pro, with 10 phones in a project; monthly spending limit USD 100 by default",
-      "source": "https://phonebox.dev/docs/billing/limits"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "524,288,000 bytes (500 MiB) per APK upload; 4 MB (4,000,000 bytes) for other uploads and downloads; 500 MiB of uploads held per project",
-      "source": "https://phonebox.dev/docs/billing/limits"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "a session is at most 15 minutes by default, up to 3 hours; idle timeout 60 to 3600 seconds, 300 by default; a saved phone unused for 30 days is deleted",
-      "source": "https://phonebox.dev/docs/billing/limits"
-    }
-  ],
-  "limits_note": "A session bills from create or start to park, with a 60-second minimum per session; the default 300-second idle timeout keeps billing after work finishes unless the agent parks the phone. Credit is reserved for the whole maximum session length at USD 0.001 a second, USD 0.90 for the default 15 minutes. A monthly spending limit of USD 100 stops new sessions. Phonebox has no phone number, SMS or calling.",
-  "binding": "volume-quota",
-  "binding_note": "The free week gives only USD 5 of phone time at USD 0.06 a minute, about 83 phone-minutes, and the card is required to start it; that credit runs out before the 15-minute session cap or the 600-request rate does.",
-  "identity_cost": {
-    "kind": "card",
-    "detail": "The sign-up page says Sign up with Google or your email. Start with a free week. The pricing page says New accounts start with a free 7-day trial and USD 5 of phone time, card required. The plans page says the free week is new accounts only, one per person, and a card is required with nothing charged for 7 days.",
-    "country": null
-  },
-  "reliability_note": "A phone left alone after work bills until its idle timeout parks it, 5 minutes by default; a session reserves credit for its whole maximum length and a monthly spending limit of USD 100 stops new sessions. A saved phone unused for 30 days is deleted with a warning a week before. When no device is free, a create or start answers 503 capacity_unavailable.",
-  "confidence": "documented",
-  "confidence_note": "The price, trial, card gate, plan credit, per-minute billing, retirement of saved phones and the per-project request and file limits are quoted from first-party pages read 2026-11-24. No per-GB egress price is published, so egress terms stay unverified; a sign-up would be needed to confirm the account flow.",
-  "evidence": [
-    {
-      "url": "https://phonebox.dev/docs/billing/pricing",
-      "date": "2026-11-24",
-      "proved": "the single price is USD 0.06 per phone-minute, which is USD 0.001 a second or USD 3.60 an hour",
-      "capture": "sha256:3e380249d9ddf3bc039ad697091dd2689e735117b3aa320f9593e9b3e22bf34f",
-      "quote": "Phonebox has one price for every phone: **$0.06 per phone-minute**, which is $0.001 a second or $3.60 an hour."
-    },
-    {
-      "url": "https://phonebox.dev/docs/billing/pricing",
-      "date": "2026-11-24",
-      "proved": "a parked phone costs nothing and keeps apps and signed-in accounts",
-      "capture": "sha256:3e380249d9ddf3bc039ad697091dd2689e735117b3aa320f9593e9b3e22bf34f",
-      "quote": "A parked phone costs nothing, and it keeps its apps, files and signed-in accounts."
-    },
-    {
-      "url": "https://phonebox.dev/docs/billing/pricing",
-      "date": "2026-11-24",
-      "proved": "the free week gives USD 5 of phone time for 7 days and requires a card",
-      "capture": "sha256:3e380249d9ddf3bc039ad697091dd2689e735117b3aa320f9593e9b3e22bf34f",
-      "quote": "New accounts start with a free 7-day trial and $5 of phone time, card required; see [Plans](https://phonebox.dev/docs/billing/plans)."
-    },
-    {
-      "url": "https://phonebox.dev/docs/billing/limits",
-      "date": "2026-11-24",
-      "proved": "600 requests a minute per API key with a 429 and Retry-After",
-      "capture": "sha256:9a2e98450e50bd1771795921a06b5d154dbae3b53faf5ff2550152ed7f66bef9",
-      "quote": "| Requests | 600 a minute for each API key | `429 rate_limited` with `Retry-After` |"
-    },
-    {
-      "url": "https://phonebox.dev/docs/billing/limits",
-      "date": "2026-11-24",
-      "proved": "the APK upload cap is 524,288,000 bytes and other uploads and downloads are capped at 4 MB",
-      "capture": "sha256:9a2e98450e50bd1771795921a06b5d154dbae3b53faf5ff2550152ed7f66bef9",
-      "quote": "| File uploads and downloads | 4 MB, which is 4,000,000 bytes | `413 payload_too_large` |"
-    },
-    {
-      "url": "https://phonebox.dev/docs/billing/limits",
-      "date": "2026-11-24",
-      "proved": "the APK size cap is 524,288,000 bytes (500 MiB) within 2 minutes",
-      "capture": "sha256:9a2e98450e50bd1771795921a06b5d154dbae3b53faf5ff2550152ed7f66bef9",
-      "quote": "| An APK [upload](https://phonebox.dev/docs/api-reference/uploads) | 524,288,000 bytes (500 MiB), sent within 2 minutes | The upload ends as `too_large` |"
-    },
-    {
-      "url": "https://phonebox.dev/docs/billing/limits",
-      "date": "2026-11-24",
-      "proved": "the default monthly spending limit is USD 100 and can be set to USD 0 to stop new spending",
-      "capture": "sha256:9a2e98450e50bd1771795921a06b5d154dbae3b53faf5ff2550152ed7f66bef9",
-      "quote": "| Monthly spending | $100, which you change in Settings. $0 pauses new spending. | `402 spend_limit_reached` |"
-    },
-    {
-      "url": "https://phonebox.dev/docs/billing/plans",
-      "date": "2026-11-24",
-      "proved": "the free week is one per person, requires a card and charges nothing for 7 days",
-      "capture": "sha256:95d32769bcd1005cd830c4af315e1fa230a8805b0cb49489fd99cc3e66819adc",
-      "quote": "- New accounts only, one per person. Start it in the console or from the link `phonebox setup` gives your agent. A card is required, and nothing is charged for 7 days."
-    },
-    {
-      "url": "https://phonebox.dev/docs/billing/plans",
-      "date": "2026-11-24",
-      "proved": "a saved phone unused for 30 days is deleted with a warning a week before",
-      "capture": "sha256:95d32769bcd1005cd830c4af315e1fa230a8805b0cb49489fd99cc3e66819adc",
-      "quote": "- A saved phone unused for 30 days is deleted, after a warning email a week before. The [terms](https://phonebox.dev/docs/terms) have the details."
-    },
-    {
-      "url": "https://phonebox.dev/sign-up",
-      "date": "2026-11-24",
-      "proved": "sign-up offers Google or email and starts a free week",
-      "capture": "sha256:0635ec58af610fbbf6ea3b5c449ba9c951fb0e9f63920dc2018b55eeb4d31a83",
-      "quote": "Sign up with Google or your email. Start with a free week."
-    },
-    {
-      "url": "https://phonebox.dev/docs",
-      "date": "2026-11-24",
-      "proved": "the service gives an agent a cloud Android device with screen, apps, touch and keyboard and not a phone number",
-      "capture": "sha256:426885a0dd915a0e34bb94d6980d6d80d37f2285ba4865626e21d608875ba0e7",
-      "quote": "Phonebox gives an agent the device itself, with its screen, apps, touch and keyboard, and not a phone number."
-    }
-  ],
-  "verdict": "trial-only",
-  "verified_at": "2026-11-24T10:11:14.986Z",
-  "price_per_tb_month": null,
-  "notes": "Phonebox rents cloud Android phones to agents over a REST API, CLI, SDK and hosted MCP server. A phone costs USD 0.06 a minute billed per second with a 60-second minimum; a parked phone costs nothing. The free week gives USD 5 of phone time to a new account but requires a card, so the identity gate and the USD 5 allowance bind first at about 83 phone-minutes. A session is at most 15 minutes by default and the default idle timeout parks after 5 minutes. No per-GB egress price is published. Phonebox is a device, not a phone number, with no SMS or calling.",
-  "extras": {
-    "shape": {
-      "vcpu": null,
-      "ram_gib": null,
-      "disk_gib": null,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "a cloud Android device; vCPU, RAM and disk are not published on the pages read"
-    },
-    "billing_model": "per-second while running, 60-second minimum, prepaid plan credit and top-ups",
-    "free_tier_kind": "expiring trial credit",
-    "term": "7-day trial, then a monthly Starter or Pro plan",
-    "price_arithmetic": "USD 0.06 per phone-minute = USD 0.001 per second = USD 3.60 an hour; USD 5 of trial credit is about 83 phone-minutes; USD 20 Starter credit buys about 5.5 phone-hours",
-    "status": "trial with card, then paid",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "a live view link lets a person watch and control the phone; no phone number or SMS",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": 15,
-      "idle_reap_s": 300,
-      "restart_required": false,
-      "note": "session maximum 15 minutes by default, up to 3 hours; idle timeout 300 seconds by default, range 60 to 3600 seconds"
-    }
+  {
+   "kind": "request-rate",
+   "value": "600 requests a minute for each API key; 60 lifecycle requests a minute for each project",
+   "source": "https://phonebox.dev/docs/billing/limits"
   }
+ ],
+ "limits_note": "Sessions default to 15 minutes and run at most 3 hours; the phone auto-parks after about 5 idle minutes; 5 phones run at once on Starter; monthly spending limit $100 by default.",
+ "binding": "volume-quota",
+ "binding_note": "Phone time is prepaid credit: the $5 trial week, then $20 a month, runs out before the per-minute request limit on a single agent's workload.",
+ "identity_cost": {
+  "kind": "card",
+  "detail": "Sign up with Google or an email address; the free week is new accounts only, one per person, and a card is required though nothing is charged for 7 days.",
+  "country": null
+ },
+ "reliability_note": "A phone left idle keeps billing until it auto-parks at about 5 minutes; a refused create made no phone; when fleet capacity is exhausted a create or start fails with 503 capacity_unavailable.",
+ "confidence": "documented",
+ "confidence_note": "Price, credit, session limits and card gate are quoted from first-party pricing, plans, limits and signup pages read on 2026-11-25.",
+ "evidence": [
+  {
+   "url": "https://phonebox.dev/docs/billing/pricing",
+   "date": "2026-11-25",
+   "proved": "the price is $0.06 per phone-minute, $3.60 an hour, billed per second",
+   "capture": "sha256:3e380249d9ddf3bc039ad697091dd2689e735117b3aa320f9593e9b3e22bf34f",
+   "quote": "Phonebox has one price for every phone: **$0.06 per phone-minute**, which is $0.001 a second or $3.60 an hour. Credit comes with a [plan](https://phonebox.dev/docs/billing/plans). There is no seat fee."
+  },
+  {
+   "url": "https://phonebox.dev/docs/billing/pricing",
+   "date": "2026-11-25",
+   "proved": "a phone is billed per second with a 60-second minimum per session",
+   "capture": "sha256:3e380249d9ddf3bc039ad697091dd2689e735117b3aa320f9593e9b3e22bf34f",
+   "quote": "A phone is billed while it is `creating`, `starting` or `ready`, per second, with a minimum of 60 seconds for each session."
+  },
+  {
+   "url": "https://phonebox.dev/docs/billing/plans",
+   "date": "2026-11-25",
+   "proved": "the free week is 7 days with $5 of trial credit and requires a card",
+   "capture": "sha256:95d32769bcd1005cd830c4af315e1fa230a8805b0cb49489fd99cc3e66819adc",
+   "quote": "New accounts only, one per person. Start it in the console or from the link `phonebox setup` gives your agent. A card is required, and nothing is charged for 7 days."
+  },
+  {
+   "url": "https://phonebox.dev/docs/billing/plans",
+   "date": "2026-11-25",
+   "proved": "the trial credit is $5 and the Starter plan is $20 a month",
+   "capture": "sha256:95d32769bcd1005cd830c4af315e1fa230a8805b0cb49489fd99cc3e66819adc",
+   "quote": "- It comes with $5 of trial credit and Starter's limits. Running out never charges you; start Starter early to keep going, or choose Pro. Either ends the week and charges that plan at once, and any trial credit left carries over."
+  },
+  {
+   "url": "https://phonebox.dev/sign-up",
+   "date": "2026-11-25",
+   "proved": "signup needs a Google account or an email address",
+   "capture": "sha256:0635ec58af610fbbf6ea3b5c449ba9c951fb0e9f63920dc2018b55eeb4d31a83",
+   "quote": "Sign up with Google or your email. Start with a free week."
+  },
+  {
+   "url": "https://phonebox.dev/docs",
+   "date": "2026-11-25",
+   "proved": "the API is REST at https://phonebox.dev/v1 with an API key bearer token",
+   "capture": "sha256:90e68388d9269d668b5077728e069fb05a2b52503f5e9bfe54d96800308bda7c",
+   "quote": "The API lives at `https://phonebox.dev/v1` and takes an API key as a bearer token."
+  },
+  {
+   "url": "https://phonebox.dev/docs/billing/limits",
+   "date": "2026-11-25",
+   "proved": "session maximum duration is 3 hours with a 15-minute default",
+   "capture": "sha256:9a2e98450e50bd1771795921a06b5d154dbae3b53faf5ff2550152ed7f66bef9",
+   "quote": "`max_duration` | 60 to 10800 seconds, 900 by default"
+  },
+  {
+   "url": "https://phonebox.dev/",
+   "date": "2026-11-25",
+   "proved": "the offer is a cloud Android device, not a phone number or SMS inbox",
+   "capture": "sha256:2f45d260446b2e12a3504e204cd84d02802b2d7717607346c11fde52679f587e",
+   "quote": "Phonebox doesn't give your agent a phone number, an SMS inbox or calling. It gives it the device itself: the screen, the installed apps, touch input and the keyboard."
+  },
+  {
+   "url": "https://phonebox.dev/docs/billing/pricing",
+   "date": "2026-11-24",
+   "proved": "the single price is USD 0.06 per phone-minute, which is USD 0.001 a second or USD 3.60 an hour",
+   "capture": "sha256:3e380249d9ddf3bc039ad697091dd2689e735117b3aa320f9593e9b3e22bf34f",
+   "quote": "Phonebox has one price for every phone: **$0.06 per phone-minute**, which is $0.001 a second or $3.60 an hour."
+  },
+  {
+   "url": "https://phonebox.dev/docs/billing/pricing",
+   "date": "2026-11-24",
+   "proved": "a parked phone costs nothing and keeps apps and signed-in accounts",
+   "capture": "sha256:3e380249d9ddf3bc039ad697091dd2689e735117b3aa320f9593e9b3e22bf34f",
+   "quote": "A parked phone costs nothing, and it keeps its apps, files and signed-in accounts."
+  },
+  {
+   "url": "https://phonebox.dev/docs/billing/pricing",
+   "date": "2026-11-24",
+   "proved": "the free week gives USD 5 of phone time for 7 days and requires a card",
+   "capture": "sha256:3e380249d9ddf3bc039ad697091dd2689e735117b3aa320f9593e9b3e22bf34f",
+   "quote": "New accounts start with a free 7-day trial and $5 of phone time, card required; see [Plans](https://phonebox.dev/docs/billing/plans)."
+  },
+  {
+   "url": "https://phonebox.dev/docs/billing/limits",
+   "date": "2026-11-24",
+   "proved": "600 requests a minute per API key with a 429 and Retry-After",
+   "capture": "sha256:9a2e98450e50bd1771795921a06b5d154dbae3b53faf5ff2550152ed7f66bef9",
+   "quote": "| Requests | 600 a minute for each API key | `429 rate_limited` with `Retry-After` |"
+  },
+  {
+   "url": "https://phonebox.dev/docs/billing/limits",
+   "date": "2026-11-24",
+   "proved": "the APK upload cap is 524,288,000 bytes and other uploads and downloads are capped at 4 MB",
+   "capture": "sha256:9a2e98450e50bd1771795921a06b5d154dbae3b53faf5ff2550152ed7f66bef9",
+   "quote": "| File uploads and downloads | 4 MB, which is 4,000,000 bytes | `413 payload_too_large` |"
+  },
+  {
+   "url": "https://phonebox.dev/docs/billing/limits",
+   "date": "2026-11-24",
+   "proved": "the APK size cap is 524,288,000 bytes (500 MiB) within 2 minutes",
+   "capture": "sha256:9a2e98450e50bd1771795921a06b5d154dbae3b53faf5ff2550152ed7f66bef9",
+   "quote": "| An APK [upload](https://phonebox.dev/docs/api-reference/uploads) | 524,288,000 bytes (500 MiB), sent within 2 minutes | The upload ends as `too_large` |"
+  },
+  {
+   "url": "https://phonebox.dev/docs/billing/limits",
+   "date": "2026-11-24",
+   "proved": "the default monthly spending limit is USD 100 and can be set to USD 0 to stop new spending",
+   "capture": "sha256:9a2e98450e50bd1771795921a06b5d154dbae3b53faf5ff2550152ed7f66bef9",
+   "quote": "| Monthly spending | $100, which you change in Settings. $0 pauses new spending. | `402 spend_limit_reached` |"
+  },
+  {
+   "url": "https://phonebox.dev/docs/billing/plans",
+   "date": "2026-11-24",
+   "proved": "the free week is one per person, requires a card and charges nothing for 7 days",
+   "capture": "sha256:95d32769bcd1005cd830c4af315e1fa230a8805b0cb49489fd99cc3e66819adc",
+   "quote": "- New accounts only, one per person. Start it in the console or from the link `phonebox setup` gives your agent. A card is required, and nothing is charged for 7 days."
+  },
+  {
+   "url": "https://phonebox.dev/docs/billing/plans",
+   "date": "2026-11-24",
+   "proved": "a saved phone unused for 30 days is deleted with a warning a week before",
+   "capture": "sha256:95d32769bcd1005cd830c4af315e1fa230a8805b0cb49489fd99cc3e66819adc",
+   "quote": "- A saved phone unused for 30 days is deleted, after a warning email a week before. The [terms](https://phonebox.dev/docs/terms) have the details."
+  },
+  {
+   "url": "https://phonebox.dev/sign-up",
+   "date": "2026-11-24",
+   "proved": "sign-up offers Google or email and starts a free week",
+   "capture": "sha256:0635ec58af610fbbf6ea3b5c449ba9c951fb0e9f63920dc2018b55eeb4d31a83",
+   "quote": "Sign up with Google or your email. Start with a free week."
+  },
+  {
+   "url": "https://phonebox.dev/docs",
+   "date": "2026-11-24",
+   "proved": "the service gives an agent a cloud Android device with screen, apps, touch and keyboard and not a phone number",
+   "capture": "sha256:426885a0dd915a0e34bb94d6980d6d80d37f2285ba4865626e21d608875ba0e7",
+   "quote": "Phonebox gives an agent the device itself, with its screen, apps, touch and keyboard, and not a phone number."
+  }
+ ],
+ "verdict": "trial-only",
+ "verified_at": "2026-11-25T02:12:34.925Z",
+ "price_per_tb_month": null,
+ "notes": "The $5 trial week is time-boxed and needs a card; the recurring Starter plan is $20/month for $20 of phone time at $0.06 a phone-minute. No phone number, SMS or calling is included.",
+ "extras": {
+  "billing_model": "per-second prepaid phone minutes on a monthly plan",
+  "free_tier_kind": "one-time trial",
+  "term": "7-day trial, then monthly",
+  "price_arithmetic": "$0.06 per phone-minute is $3.60 an hour",
+  "session_cap": {
+   "wall_clock_min": 180,
+   "idle_reap_s": 300,
+   "default_max_duration_s": 900
+  },
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": null,
+   "ports": "not stated",
+   "static_ip": "dedicated IPs only on Enterprise",
+   "per_session_bytes": null
+  },
+  "requests_per_minute": 600
+ }
 }

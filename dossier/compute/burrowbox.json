@@ -1,180 +1,216 @@
 {
-  "topic": "compute",
-  "slug": "burrowbox",
-  "provider": "Burrowbox",
-  "url": "https://burrowbox.dev/docs/billing",
-  "category": "hosted persistent Linux microVM for agents",
-  "tier": "tiny, prepaid credit",
-  "free_tier": {
-    "stated": "A one-time USD 1 welcome credit is added once the email is confirmed and a card is saved. There is no recurring free tier: machines are prepaid credit charged by the minute, from USD 0.07 per hour while running and USD 0.001 per hour while stopped.",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://burrowbox.dev/docs/billing",
-    "read_on": "2026-11-24",
-    "notes": "Sign-up is invite-only and free, but running a machine requires a card on file with auto-refill."
+ "topic": "compute",
+ "slug": "burrowbox",
+ "provider": "Burrowbox",
+ "url": "https://burrowbox.dev/",
+ "category": "persistent desktop machine sandbox",
+ "free_tier": {
+  "stated": "Welcome credit: USD 1, added once your email is confirmed and your card is saved; machines cannot be started without a card on file with auto-refill.",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://burrowbox.dev/docs/billing",
+  "read_on": "2026-11-25",
+  "notes": "The USD 1 is a one-time welcome credit, not a recurring allowance, and it is gated on both email confirmation and a saved card. A card on file with auto-refill is required to start any machine; without a card, creating or starting a machine returns 402."
+ },
+ "per_object_cap": {
+  "stated": "Not applicable: the unit is a machine, not an object. Machine sizes are tiny (0.5 vCPU, 4 GB RAM, 8 GB disk), small (1 vCPU, 6 GB, 12 GB), medium (2 vCPU, 8 GB, 16 GB) and large (4 vCPU, 12 GB, 20 GB).",
+  "bytes": null,
+  "source_url": "https://burrowbox.dev/docs/machines"
+ },
+ "retention": {
+  "stated": "A stopped machine keeps its entire filesystem snapshot, installed apps, browser profiles with cookies, and open windows and tabs until the user destroys it; stopped (snapshot) machines cost USD 0.001 per hour.",
+  "days": null,
+  "source_url": "https://burrowbox.dev/docs/machines"
+ },
+ "egress": {
+  "terms": "A VPN add-on is priced separately: Proxy at +USD 0.03/h and USD 10/GB, Unlock at +USD 0.06/h and USD 15/GB and USD 3 per 1k connections; no base egress allowance is stated on the billing page.",
+  "metered": true,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://burrowbox.dev/docs/billing"
+ },
+ "interface": [
+  "rest",
+  "cli"
+ ],
+ "interface_detail": "An MCP endpoint per machine plus a REST API (POST /api/machines, GET /api/machines/{id}/screenshot.jpg) and a dashboard; bearer tokens are API keys (tmk_), machine tokens (tmm_) or OAuth tokens (tmo_).",
+ "tooling": "Any MCP client, including Claude Code and Cursor, connects over HTTP to a machine's MCP URL; a REST API and a web dashboard also drive machines.",
+ "chaining": "A machine's persistent browser logins and credential vault survive stop/start, so a long agent task can resume signed in; a per-machine token can be handed to a customer's agent while the platform key stays on the operator's server.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "USD 1 one-time welcome credit, only after email confirmation and a saved card",
+   "source": "https://burrowbox.dev/docs/billing"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a persistent machine, not a stored object; the tiny machine has an 8 GB disk",
-    "bytes": null,
-    "source_url": "https://burrowbox.dev/docs/machines"
-  },
-  "retention": {
-    "stated": "A stopped machine is snapshotted with its filesystem, installed apps, vault and browser cookies; files are kept until the machine is destroyed. A save point is taken every 30 minutes while running.",
-    "days": null,
-    "source_url": "https://burrowbox.dev/docs/machines"
-  },
-  "egress": {
-    "terms": "An optional VPN add-on metered at USD 0.03 per hour plus USD 10.00 per GB for proxy, or USD 0.06 per hour plus USD 15.00 per GB and USD 3.00 per 1000 connections for unlock; without a VPN no separate egress price is stated.",
-    "metered": true,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://burrowbox.dev/docs/vpn"
-  },
-  "interface": [
-    "rest",
-    "cli"
-  ],
-  "interface_detail": "A REST API under /api using bearer tokens (API key tmk_, machine token tmm_, OAuth token tmo_) and a platform MCP endpoint at /mcp with one MCP endpoint per machine at /api/machines/{id}/mcp; the dashboard streams the desktop over WebSocket.",
-  "endpoint": "https://burrowbox.dev/api",
-  "tooling": "curl or any HTTP client for the REST API, an MCP client such as Claude Code connected to the machine's Streamable HTTP MCP endpoint, and the browser dashboard for live view.",
-  "chaining": "An agent connects to a machine's MCP endpoint to drive a persistent browser and desktop, with an encrypted credential vault and per-customer machine tokens for platforms.",
-  "limits": [
-    {
-      "kind": "write-gated",
-      "value": "sign-ups are invite-only; a card with auto-refill is required to create or start a machine, and without a card the call returns 402",
-      "source": "https://burrowbox.dev/app/register"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "prepaid credit billed by the minute; running machines stop when the balance reaches zero",
-      "source": "https://burrowbox.dev/docs/billing"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "a machine can be given a ttlMinutes deadline after which it stops or is destroyed",
-      "source": "https://burrowbox.dev/docs/machines"
-    }
-  ],
-  "limits_note": "Sign-in and sign-up are rate-limited per IP address and per email; API calls are not metered by count, only by machine time.",
-  "binding": "write-gated",
-  "binding_note": "An invitation and a card with auto-refill are required before any machine can start; without them the create or start request returns 402 and no compute is obtainable.",
-  "identity_cost": {
-    "kind": "card",
-    "detail": "Registration asks for email, password and an optional name, and sign-ups are invite-only. A card saved with auto-refill is required to start machines; the USD 1 welcome credit is added once the email is confirmed and the card is saved.",
-    "country": null
-  },
-  "reliability_note": "A failed auto-refill charge pauses top-ups; running machines stop when the balance reaches zero and resume when the card is replaced. Unlock VPN rotates the exit IP on every request and can sign users out of IP-bound sessions.",
-  "confidence": "documented",
-  "confidence_note": "Rates, identity terms and egress terms come from first-party billing, registration, authentication and VPN pages read on 2026-11-24; the exact register-form field labels are from the API documentation's register endpoint.",
-  "evidence": [
-    {
-      "url": "https://burrowbox.dev/docs/billing",
-      "date": "2026-11-24",
-      "proved": "billing is prepaid credit charged by the minute",
-      "capture": "sha256:96a21fde998b025b86c9b73464304763edd057b406a5ba655bea79436257a80a",
-      "quote": "Burrowbox uses prepaid credit, charged by the minute."
-    },
-    {
-      "url": "https://burrowbox.dev/docs/billing",
-      "date": "2026-11-24",
-      "proved": "the tiny machine costs USD 0.07 per hour running, USD 50.40 per 30 days always on",
-      "capture": "sha256:96a21fde998b025b86c9b73464304763edd057b406a5ba655bea79436257a80a",
-      "quote": "| tiny | $0.07 / h | $50.40 |"
-    },
-    {
-      "url": "https://burrowbox.dev/docs/billing",
-      "date": "2026-11-24",
-      "proved": "a one-time USD 1 welcome credit is added after email confirmation and saving a card",
-      "capture": "sha256:96a21fde998b025b86c9b73464304763edd057b406a5ba655bea79436257a80a",
-      "quote": "Welcome credit: $1, added once your email is confirmed and your card is saved."
-    },
-    {
-      "url": "https://burrowbox.dev/docs/billing",
-      "date": "2026-11-24",
-      "proved": "without a card, machine creation or start returns 402",
-      "capture": "sha256:96a21fde998b025b86c9b73464304763edd057b406a5ba655bea79436257a80a",
-      "quote": "creating or starting a machine returns `402`"
-    },
-    {
-      "url": "https://burrowbox.dev/docs/billing",
-      "date": "2026-11-24",
-      "proved": "a failed auto-refill charge pauses top-ups and running machines stop when the balance reaches zero",
-      "capture": "sha256:96a21fde998b025b86c9b73464304763edd057b406a5ba655bea79436257a80a",
-      "quote": "If a charge fails (declined, or the bank asks for authentication): auto-refill pauses and you get an email."
-    },
-    {
-      "url": "https://burrowbox.dev/app/register",
-      "date": "2026-11-24",
-      "proved": "sign-ups are invite-only and require an invited email",
-      "capture": "sha256:8f00e18a9afe367d4c67a93e2fa5bfc46947c813294604710587fcb3c727a188",
-      "quote": "Sign-ups are invite-only right now."
-    },
-    {
-      "url": "https://burrowbox.dev/app/register",
-      "date": "2026-11-24",
-      "proved": "sign-up is free and a card is needed to run machines, with USD 1 of credit",
-      "capture": "sha256:8f00e18a9afe367d4c67a93e2fa5bfc46947c813294604710587fcb3c727a188",
-      "quote": "Free to sign up. Add a card to run machines and get $1 of credit."
-    },
-    {
-      "url": "https://burrowbox.dev/app/register",
-      "date": "2026-11-24",
-      "proved": "the published rate is from 7 cents per hour running and 0.1 cents per hour stopped",
-      "capture": "sha256:8f00e18a9afe367d4c67a93e2fa5bfc46947c813294604710587fcb3c727a188",
-      "quote": "From 7¢/h while running, 0.1¢/h while stopped."
-    },
-    {
-      "url": "https://burrowbox.dev/docs/authentication",
-      "date": "2026-11-24",
-      "proved": "registration uses email, password and name, and sign-in and sign-up are rate-limited per IP and email",
-      "capture": "sha256:ad05247d173cd0771f0e258879a023a94d6432343d4f321489e2a1ad682dd39f",
-      "quote": "\"POST\" | \"/api/auth/register\" | `email`, `password`, `name`"
-    },
-    {
-      "url": "https://burrowbox.dev/docs/vpn",
-      "date": "2026-11-24",
-      "proved": "egress VPN add-on is charged USD 10.00 per GB for proxy and USD 15.00 per GB for unlock",
-      "capture": "sha256:edd6e9d595626847046f6711d88dd9d2b61954f450a198a35e4232489f856bc2",
-      "quote": "| Traffic | $10.00 / GB | $15.00 / GB |"
-    },
-    {
-      "url": "https://burrowbox.dev/docs/machines",
-      "date": "2026-11-24",
-      "proved": "a machine has a ttlMinutes deadline and onExpire stop or destroy behaviour",
-      "capture": "sha256:e034f065c9d02350e6050d91a994a4b225b09651c1c8a109d2029d6fbea82a7a",
-      "quote": "| `ttlMinutes` | number | none | Keep on for this long, then apply `onExpire` |"
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T10:11:14.655Z",
-  "price_per_tb_month": null,
-  "notes": "Invite-only sign-up and a card with auto-refill are the binding gate: the USD 1 welcome credit is a one-time evaluation amount, not a recurring free tier. The tiny machine is USD 0.07 per hour running; egress through the optional VPN is USD 10.00 per GB for proxy or USD 15.00 per GB for unlock.",
-  "extras": {
-    "shape": {
-      "vcpu": null,
-      "ram_gib": 4,
-      "disk_gib": 8,
-      "gpu_class": "no GPU; full-browser mode renders in software",
-      "gpu_count": null,
-      "note": "tiny: half vCPU, 4 GB RAM, 8 GB disk; small, medium and large sizes are larger"
-    },
-    "billing_model": "prepaid credit charged by the minute with card auto-refill",
-    "free_tier_kind": "one-time-credit",
-    "term": "pay as you go, no commitment",
-    "price_arithmetic": "USD 0.07 per hour running for tiny, USD 0.001 per hour stopped; USD 50.40 per 30 days always on",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "not stated",
-      "static_ip": true,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "optional ttlMinutes; a save point is taken every 30 minutes while running"
-    }
+  {
+   "kind": "write-gated",
+   "value": "Without a card, creating or starting a machine returns 402; auto-refill charges the card when the balance falls below a chosen threshold (default USD 5) by a set amount (default USD 20)",
+   "source": "https://burrowbox.dev/docs/billing"
   }
+ ],
+ "limits_note": "Running machines are stopped when the balance reaches zero and their state is kept; admin accounts do not need a card.",
+ "binding": "write-gated",
+ "binding_note": "The card on file with auto-refill is the first gate: no card means no machine can start at all, even with welcome credit, and the credit itself is conditioned on the card being saved.",
+ "identity_cost": {
+  "kind": "card",
+  "detail": "Registration posts email, password and name (POST /api/auth/register) and sends a confirmation email; the billing page states the welcome credit is added once the email is confirmed and a card is saved, and that starting machines requires a card on file with auto-refill. No phone or ID document is stated.",
+  "country": null
+ },
+ "reliability_note": "A running machine with an empty balance is stopped and keeps its state; the whole disk is snapshotted on stop and a save point is taken every 30 minutes while running, so at most 30 minutes of change can be lost on a crash.",
+ "confidence": "documented",
+ "confidence_note": "Prices, credit, card gate and machine sizes are quoted from the vendor's billing, machines and authentication docs read on 2026-11-25; identity fields are from the registration API description on the same site.",
+ "evidence": [
+  {
+   "url": "https://burrowbox.dev/docs/billing",
+   "date": "2026-11-25",
+   "capture": "sha256:96a21fde998b025b86c9b73464304763edd057b406a5ba655bea79436257a80a",
+   "quote": "Welcome credit: $1, added once your email is confirmed and your card is saved.",
+   "proved": "a one-time USD 1 welcome credit is given after email confirmation and saving a card"
+  },
+  {
+   "url": "https://burrowbox.dev/docs/billing",
+   "date": "2026-11-25",
+   "capture": "sha256:96a21fde998b025b86c9b73464304763edd057b406a5ba655bea79436257a80a",
+   "quote": "To start machines you need a card on file with auto-refill: when your balance falls below a threshold you choose (default $5), the card is charged a set amount (default $20) and the credit is added right away.",
+   "proved": "a saved card with auto-refill is required to start machines"
+  },
+  {
+   "url": "https://burrowbox.dev/docs/billing",
+   "date": "2026-11-25",
+   "capture": "sha256:96a21fde998b025b86c9b73464304763edd057b406a5ba655bea79436257a80a",
+   "quote": "medium | $0.16 / h | $115.20 |",
+   "proved": "the medium machine is priced at USD 0.16 per running hour"
+  },
+  {
+   "url": "https://burrowbox.dev/docs/billing",
+   "date": "2026-11-25",
+   "capture": "sha256:96a21fde998b025b86c9b73464304763edd057b406a5ba655bea79436257a80a",
+   "quote": "Stopped (snapshot) | $0.001 / h | $0.72 |",
+   "proved": "a stopped machine is billed USD 0.001 per hour"
+  },
+  {
+   "url": "https://burrowbox.dev/docs/machines",
+   "date": "2026-11-25",
+   "capture": "sha256:e034f065c9d02350e6050d91a994a4b225b09651c1c8a109d2029d6fbea82a7a",
+   "quote": "size | `tiny` (½ vCPU, 4 GB RAM, 8 GB disk), `small` (1 vCPU, 6 GB, 12 GB), `medium` (2 vCPU, 8 GB, 16 GB), `large` (4 vCPU, 12 GB, 20 GB)",
+   "proved": "the machine sizes and their CPU, RAM and disk allocations"
+  },
+  {
+   "url": "https://burrowbox.dev/docs/authentication",
+   "date": "2026-11-25",
+   "capture": "sha256:ad05247d173cd0771f0e258879a023a94d6432343d4f321489e2a1ad682dd39f",
+   "quote": "POST | `/api/auth/register` | `email`, `password`, `name` | Creates the account and signs in. A confirmation email is sent.",
+   "proved": "registration asks for email, password and name and sends a confirmation email"
+  },
+  {
+   "url": "https://burrowbox.dev/docs/billing",
+   "date": "2026-11-24",
+   "proved": "billing is prepaid credit charged by the minute",
+   "capture": "sha256:96a21fde998b025b86c9b73464304763edd057b406a5ba655bea79436257a80a",
+   "quote": "Burrowbox uses prepaid credit, charged by the minute."
+  },
+  {
+   "url": "https://burrowbox.dev/docs/billing",
+   "date": "2026-11-24",
+   "proved": "the tiny machine costs USD 0.07 per hour running, USD 50.40 per 30 days always on",
+   "capture": "sha256:96a21fde998b025b86c9b73464304763edd057b406a5ba655bea79436257a80a",
+   "quote": "| tiny | $0.07 / h | $50.40 |"
+  },
+  {
+   "url": "https://burrowbox.dev/docs/billing",
+   "date": "2026-11-24",
+   "proved": "a one-time USD 1 welcome credit is added after email confirmation and saving a card",
+   "capture": "sha256:96a21fde998b025b86c9b73464304763edd057b406a5ba655bea79436257a80a",
+   "quote": "Welcome credit: $1, added once your email is confirmed and your card is saved."
+  },
+  {
+   "url": "https://burrowbox.dev/docs/billing",
+   "date": "2026-11-24",
+   "proved": "without a card, machine creation or start returns 402",
+   "capture": "sha256:96a21fde998b025b86c9b73464304763edd057b406a5ba655bea79436257a80a",
+   "quote": "creating or starting a machine returns `402`"
+  },
+  {
+   "url": "https://burrowbox.dev/docs/billing",
+   "date": "2026-11-24",
+   "proved": "a failed auto-refill charge pauses top-ups and running machines stop when the balance reaches zero",
+   "capture": "sha256:96a21fde998b025b86c9b73464304763edd057b406a5ba655bea79436257a80a",
+   "quote": "If a charge fails (declined, or the bank asks for authentication): auto-refill pauses and you get an email."
+  },
+  {
+   "url": "https://burrowbox.dev/app/register",
+   "date": "2026-11-24",
+   "proved": "sign-ups are invite-only and require an invited email",
+   "capture": "sha256:8f00e18a9afe367d4c67a93e2fa5bfc46947c813294604710587fcb3c727a188",
+   "quote": "Sign-ups are invite-only right now."
+  },
+  {
+   "url": "https://burrowbox.dev/app/register",
+   "date": "2026-11-24",
+   "proved": "sign-up is free and a card is needed to run machines, with USD 1 of credit",
+   "capture": "sha256:8f00e18a9afe367d4c67a93e2fa5bfc46947c813294604710587fcb3c727a188",
+   "quote": "Free to sign up. Add a card to run machines and get $1 of credit."
+  },
+  {
+   "url": "https://burrowbox.dev/app/register",
+   "date": "2026-11-24",
+   "proved": "the published rate is from 7 cents per hour running and 0.1 cents per hour stopped",
+   "capture": "sha256:8f00e18a9afe367d4c67a93e2fa5bfc46947c813294604710587fcb3c727a188",
+   "quote": "From 7¢/h while running, 0.1¢/h while stopped."
+  },
+  {
+   "url": "https://burrowbox.dev/docs/authentication",
+   "date": "2026-11-24",
+   "proved": "registration uses email, password and name, and sign-in and sign-up are rate-limited per IP and email",
+   "capture": "sha256:ad05247d173cd0771f0e258879a023a94d6432343d4f321489e2a1ad682dd39f",
+   "quote": "\"POST\" | \"/api/auth/register\" | `email`, `password`, `name`"
+  },
+  {
+   "url": "https://burrowbox.dev/docs/vpn",
+   "date": "2026-11-24",
+   "proved": "egress VPN add-on is charged USD 10.00 per GB for proxy and USD 15.00 per GB for unlock",
+   "capture": "sha256:edd6e9d595626847046f6711d88dd9d2b61954f450a198a35e4232489f856bc2",
+   "quote": "| Traffic | $10.00 / GB | $15.00 / GB |"
+  },
+  {
+   "url": "https://burrowbox.dev/docs/machines",
+   "date": "2026-11-24",
+   "proved": "a machine has a ttlMinutes deadline and onExpire stop or destroy behaviour",
+   "capture": "sha256:e034f065c9d02350e6050d91a994a4b225b09651c1c8a109d2029d6fbea82a7a",
+   "quote": "| `ttlMinutes` | number | none | Keep on for this long, then apply `onExpire` |"
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T02:12:34.732Z",
+ "price_per_tb_month": null,
+ "notes": "A persistent Linux desktop machine with a signed-in browser and credential vault, not a short-lived ephemeral sandbox. Price at the 2 vCPU/8 GB medium size is USD 0.16 per running hour, billed by the minute; a stopped snapshot is USD 0.001 per hour. The USD 1 welcome credit is a one-time credit gated on email confirmation and a saved card, and a card with auto-refill is required before any machine can start. The list price at 2 vCPU/4 GB would be USD 0.11/h on the small size, but the small has 1 vCPU/6 GB, so no 2 vCPU/4 GB shape is sold here.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 8,
+   "disk_gib": 16,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "the medium size; no GPU is offered"
+  },
+  "billing_model": "prepaid credit charged by the minute with card auto-refill",
+  "free_tier_kind": "one-time-credit",
+  "status": "hosted, available",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": null,
+   "ports": "not stated",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "a machine can be always on, set to a TTL, or stopped with its disk snapshotted"
+  }
+ },
+ "tier": "tiny, prepaid credit",
+ "endpoint": "https://burrowbox.dev/api"
 }

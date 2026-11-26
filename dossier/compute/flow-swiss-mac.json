@@ -1,213 +1,206 @@
 {
-  "topic": "compute",
-  "slug": "flow-swiss-mac",
-  "provider": "Flow Swiss Mac Bare Metal",
-  "url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
-  "category": "macOS host",
-  "free_tier": {
-    "stated": "no free tier: Mac hardware from CHF 0.27 an hour or CHF 199 a month, with a 24-hour minimum allocation and billing while the device is stopped",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
-    "read_on": "2026-10-22"
+ "topic": "compute",
+ "slug": "flow-swiss-mac",
+ "provider": "Flow Swiss Mac Bare Metal",
+ "url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
+ "category": "macOS host",
+ "free_tier": {
+  "stated": "no free tier: Mac hardware from CHF 0.27 an hour or CHF 199 a month, with a 24-hour minimum allocation and billing while the device is stopped",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
+  "read_on": "2026-10-22"
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "not stated",
+  "days": null,
+  "source_url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "20 TB of outbound traffic per month is included per organization-account; inbound and internal traffic is always free. Each device has a free elastic public IPv4 address.",
+  "metered": true,
+  "free_allowance": "20 TB of outbound traffic per month",
+  "price_per_tb": null,
+  "source_url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal"
+ },
+ "interface": [
+  "ssh"
+ ],
+ "interface_detail": "SSH on port 22 and VNC on port 5900 from the outside, with the ports configurable in security groups; the device is created in the Control Panel at my.flow.swiss.",
+ "tooling": "not stated",
+ "chaining": "not established",
+ "limits": [
+  {
+   "kind": "retention-clamped",
+   "value": "a 24-hour minimum allocation, and billing continues while the device is stopped: Apple's licence forbids the shorter clock",
+   "source": "https://doc.flow.swiss/platform/pricing/mac-bare-metal"
   },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+  {
+   "kind": "request-rate",
+   "value": "CHF 0.27 an hour or CHF 199 a month",
+   "source": "https://doc.flow.swiss/platform/pricing/mac-bare-metal"
   },
-  "retention": {
-    "stated": "not stated",
-    "days": null,
-    "source_url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
-    "notes": "Disk durability across instance stops and deletions is not documented."
+  {
+   "kind": "per-ip-shaping",
+   "value": "20 TB of outbound traffic a month is included; inbound and internal traffic is free",
+   "source": "https://doc.flow.swiss/platform/pricing/mac-bare-metal"
+  }
+ ],
+ "limits_note": "Session cap, idle-reap and network policy are not documented.",
+ "identity_cost": {
+  "kind": "any-phone",
+  "detail": "The registration page asks for 'First Name', 'Last Name' and 'Email'. The signup docs state 'we block all disposable email domains, including free providers like google, yahoo, etc.' and 'we also perform an SMS verification. For this a working mobile number is required.'",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "documented",
+ "confidence_note": "the Mac bare-metal pricing page was read on 2026-10-22 and states the hourly rate, the 24-hour minimum, that a stopped device still bills, and the 20 TB egress allowance. The record's USD 24 credit is not on the page",
+ "evidence": [
+  {
+   "url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
   },
-  "egress": {
-    "terms": "20 TB of outbound traffic per month is included per organization-account; inbound and internal traffic is always free. Each device has a free elastic public IPv4 address.",
-    "metered": true,
-    "free_allowance": "20 TB of outbound traffic per month",
-    "price_per_tb": null,
-    "source_url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal"
+  {
+   "url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
+   "date": "2026-10-22",
+   "proved": "'Billing is per hour with a 24-hour minimum allocation period to comply with the Apple macOS License Agreement. Billing also takes place when the device is' stopped, 'Starting at CHF 0.27/hr or CHF 199/mo', 'Each Mac device comes with a free elastic public IPv4 address' and '20 TB of outbound traffic per month is included', quoted"
   },
-  "interface": [
-    "ssh"
-  ],
-  "interface_detail": "SSH on port 22 and VNC on port 5900 from the outside, with the ports configurable in security groups; the device is created in the Control Panel at my.flow.swiss.",
-  "tooling": "not stated",
-  "chaining": "not established",
-  "limits": [
-    {
-      "kind": "retention-clamped",
-      "value": "a 24-hour minimum allocation, and billing continues while the device is stopped: Apple's licence forbids the shorter clock",
-      "source": "https://doc.flow.swiss/platform/pricing/mac-bare-metal"
-    },
-    {
-      "kind": "request-rate",
-      "value": "CHF 0.27 an hour or CHF 199 a month",
-      "source": "https://doc.flow.swiss/platform/pricing/mac-bare-metal"
-    },
-    {
-      "kind": "per-ip-shaping",
-      "value": "20 TB of outbound traffic a month is included; inbound and internal traffic is free",
-      "source": "https://doc.flow.swiss/platform/pricing/mac-bare-metal"
-    }
-  ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented.",
-  "identity_cost": {
-    "kind": "any-phone",
-    "detail": "The registration page asks for 'First Name', 'Last Name' and 'Email'. The signup docs state 'we block all disposable email domains, including free providers like google, yahoo, etc.' and 'we also perform an SMS verification. For this a working mobile number is required.'",
-    "country": null
+  {
+   "url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
+   "date": "2026-11-25",
+   "proved": "the page states the hourly and monthly starting prices, the 24-hour minimum allocation and billing while the device is switched off, with no free tier",
+   "capture": "sha256:e6fb43d28343c9279047a08bb10c84b48943dbdaea316e75eaf3f15c1e247cd0",
+   "quote": "Mac mini and Mac Studio devices are available on-demand with instant activation. Billing is per hour with a 24-hour minimum allocation period to comply with the Apple macOS License Agreement. Billing also takes place when the device is switched off. ... Starting at CHF 0.27/hr or CHF 199/mo"
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "documented",
-  "confidence_note": "the Mac bare-metal pricing page was read on 2026-10-22 and states the hourly rate, the 24-hour minimum, that a stopped device still bills, and the 20 TB egress allowance. The record's USD 24 credit is not on the page",
-  "evidence": [
-    {
-      "url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
-      "date": "2026-10-22",
-      "proved": "'Billing is per hour with a 24-hour minimum allocation period to comply with the Apple macOS License Agreement. Billing also takes place when the device is' stopped, 'Starting at CHF 0.27/hr or CHF 199/mo', 'Each Mac device comes with a free elastic public IPv4 address' and '20 TB of outbound traffic per month is included', quoted"
-    },
-    {
-      "url": "https://doc.flow.swiss/platform/account/sign-up",
-      "date": "2026-11-24",
-      "proved": "registration requires a mobile number in addition to an email",
-      "capture": "sha256:2bc0bf8ff4a852f2f1a650a35b22a880c92f5afdf0a16daf647a2554cdcf86bb",
-      "quote": "As an additional safeguard of the registration process, we also perform an SMS verification. For this a working mobile number is required."
-    },
-    {
-      "url": "https://doc.flow.swiss/platform/account/sign-up",
-      "date": "2026-11-24",
-      "proved": "a working mobile number is required, so identity is gated on any phone",
-      "capture": "sha256:2bc0bf8ff4a852f2f1a650a35b22a880c92f5afdf0a16daf647a2554cdcf86bb",
-      "quote": "As an additional safeguard of the registration process, we also perform an SMS verification. For this a working mobile number is required."
-    },
-    {
-      "url": "https://doc.flow.swiss/mac-bare-metal/start",
-      "date": "2026-11-24",
-      "proved": "the exposed ports are configurable in the Control Panel",
-      "capture": "sha256:bae54b9c545357f5dede9170a85806a91fbde4832a492635ed82aeb383e9b929",
-      "quote": "The port settings can be restricted or extended in the Control Panel via Mac Bare Metal > Networking > Security Groups > Default."
-    },
-    {
-      "url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
-      "date": "2026-11-24",
-      "proved": "an outbound allowance of 20 TB a month is published",
-      "capture": "sha256:bdaf4dbcc8092406be6fb9860a7a2be6b6f8efb21f6a0c1dceaa1278586f55ea",
-      "quote": "**20 TB Outbound Traffic.** Per organization-account 20 TB of outbound traffic per month is included. Inbound and internal traffic is always free."
-    },
-    {
-      "url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
-      "date": "2026-11-24",
-      "proved": "the free egress allowance is 20 TB a month",
-      "capture": "sha256:bdaf4dbcc8092406be6fb9860a7a2be6b6f8efb21f6a0c1dceaa1278586f55ea",
-      "quote": "Per organization-account 20 TB of outbound traffic per month is included."
-    },
-    {
-      "url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
-      "date": "2026-11-24",
-      "proved": "egress is metered against a monthly allowance",
-      "capture": "sha256:bdaf4dbcc8092406be6fb9860a7a2be6b6f8efb21f6a0c1dceaa1278586f55ea",
-      "quote": "Per organization-account 20 TB of outbound traffic per month is included."
-    },
-    {
-      "url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
-      "date": "2026-11-24",
-      "proved": "the hourly rate, 24-hour minimum and billed-while-stopped rule are unchanged",
-      "capture": "sha256:bdaf4dbcc8092406be6fb9860a7a2be6b6f8efb21f6a0c1dceaa1278586f55ea",
-      "quote": "Billing is per hour with a 24-hour minimum allocation period to comply with the Apple macOS License Agreement. Billing also takes place when the device is switched off."
-    },
-    {
-      "url": "https://doc.flow.swiss/products/mac-bare-metal/devices",
-      "date": "2026-11-24",
-      "proved": "the device exposes SSH on port 22 and VNC on port 5900 to the internet",
-      "capture": "sha256:bae54b9c545357f5dede9170a85806a91fbde4832a492635ed82aeb383e9b929",
-      "quote": "For security reasons, only two TCP ports are open from the outside. These are ports 5900 (VNC) and 22 (SSH)."
-    },
-    {
-      "url": "https://doc.flow.swiss/products/mac-bare-metal/how-to/connect-via-ssh",
-      "date": "2026-11-24",
-      "proved": "SSH is enabled by default and an ordinary SSH client reaches the device",
-      "capture": "sha256:1fa5d146144e29d249b6dad8f036764bf2115e210999f083a6996eaf21ddebfc",
-      "quote": "To connect via SSH (Secure Shell), you can use any SSH client. Please note that SSH is enabled by default on all newly created Mac devices."
-    },
-    {
-      "url": "https://doc.flow.swiss/products/mac-bare-metal/how-to/connect-via-remote-desktop",
-      "date": "2026-11-24",
-      "proved": "the product documents a web console in the Control Panel for the Mac desktop",
-      "capture": "sha256:fc759a14b9c2e0aae6184bcc7891222e930d25cd8a130b8dd858d0cac9258d45",
-      "quote": "Use the web console in the Control Panel to log in to your cloud-hosted Mac device. Please note that the default keyboard input source is set to U.S. English."
-    },
-    {
-      "url": "https://doc.flow.swiss/products/mac-bare-metal/devices",
-      "date": "2026-11-24",
-      "proved": "the exposed ports are configurable in the Control Panel",
-      "capture": "sha256:bae54b9c545357f5dede9170a85806a91fbde4832a492635ed82aeb383e9b929",
-      "quote": "The port settings can be restricted or extended in the Control Panel via Mac Bare Metal > Networking > Security Groups > Default."
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T17:19:47.532Z",
-  "price_per_tb_month": null,
-  "notes": "",
-  "extras": {
-    "seed_status": "ranked",
-    "talaria_m10h_usd": 97.89,
-    "talaria_m24h_usd": 234.93,
-    "nemo_m10h_usd": null,
-    "keep_rate": 1.0,
-    "keep_rate_basis": "billed for uptime (no suspension feature published)",
-    "billing_model": "unclassified",
-    "shape": {
-      "vcpu": null,
-      "ram": null,
-      "disk": null,
-      "gpu_class": "Apple Silicon",
-      "gpu_count": 1,
-      "note": "Mac mini and Mac Studio on demand, with instant activation"
-    },
-    "session_cap": {
-      "wall_clock_min": 1440,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "a 24-hour minimum allocation forced by Apple's licence, and a stopped device still bills, so stopping is not a pause"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "granularity": {
-      "min_billed_s": 86400,
-      "rounding_s": null
-    },
-    "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "ps": {
-      "gib": null,
-      "price": "SSD priced as a separate line",
-      "durability": "SSD on the device",
-      "on_stop": true,
-      "on_destroy": false,
-      "retention": "the allocation"
-    },
-    "net": {
-      "out": true,
-      "in": true,
-      "ports": "a free elastic public IPv4 per device",
-      "static_ip": true,
-      "ipv6": null,
-      "allowance": "20 TB a month outbound per organisation account"
-    }
+  {
+   "url": "https://doc.flow.swiss/platform/account/sign-up",
+   "date": "2026-11-24",
+   "proved": "registration requires a mobile number in addition to an email",
+   "capture": "sha256:2bc0bf8ff4a852f2f1a650a35b22a880c92f5afdf0a16daf647a2554cdcf86bb",
+   "quote": "As an additional safeguard of the registration process, we also perform an SMS verification. For this a working mobile number is required."
   },
-  "stale": true,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding": "retention-clamped",
-  "history": [
-    "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
-  ]
+  {
+   "url": "https://doc.flow.swiss/mac-bare-metal/start",
+   "date": "2026-11-24",
+   "proved": "the exposed ports are configurable in the Control Panel",
+   "capture": "sha256:bae54b9c545357f5dede9170a85806a91fbde4832a492635ed82aeb383e9b929",
+   "quote": "The port settings can be restricted or extended in the Control Panel via Mac Bare Metal > Networking > Security Groups > Default."
+  },
+  {
+   "url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
+   "date": "2026-11-24",
+   "proved": "an outbound allowance of 20 TB a month is published",
+   "capture": "sha256:bdaf4dbcc8092406be6fb9860a7a2be6b6f8efb21f6a0c1dceaa1278586f55ea",
+   "quote": "**20 TB Outbound Traffic.** Per organization-account 20 TB of outbound traffic per month is included. Inbound and internal traffic is always free."
+  },
+  {
+   "url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
+   "date": "2026-11-24",
+   "proved": "the free egress allowance is 20 TB a month",
+   "capture": "sha256:bdaf4dbcc8092406be6fb9860a7a2be6b6f8efb21f6a0c1dceaa1278586f55ea",
+   "quote": "Per organization-account 20 TB of outbound traffic per month is included."
+  },
+  {
+   "url": "https://doc.flow.swiss/platform/pricing/mac-bare-metal",
+   "date": "2026-11-24",
+   "proved": "the hourly rate, 24-hour minimum and billed-while-stopped rule are unchanged",
+   "capture": "sha256:bdaf4dbcc8092406be6fb9860a7a2be6b6f8efb21f6a0c1dceaa1278586f55ea",
+   "quote": "Billing is per hour with a 24-hour minimum allocation period to comply with the Apple macOS License Agreement. Billing also takes place when the device is switched off."
+  },
+  {
+   "url": "https://doc.flow.swiss/products/mac-bare-metal/devices",
+   "date": "2026-11-24",
+   "proved": "the device exposes SSH on port 22 and VNC on port 5900 to the internet",
+   "capture": "sha256:bae54b9c545357f5dede9170a85806a91fbde4832a492635ed82aeb383e9b929",
+   "quote": "For security reasons, only two TCP ports are open from the outside. These are ports 5900 (VNC) and 22 (SSH)."
+  },
+  {
+   "url": "https://doc.flow.swiss/products/mac-bare-metal/how-to/connect-via-ssh",
+   "date": "2026-11-24",
+   "proved": "SSH is enabled by default and an ordinary SSH client reaches the device",
+   "capture": "sha256:1fa5d146144e29d249b6dad8f036764bf2115e210999f083a6996eaf21ddebfc",
+   "quote": "To connect via SSH (Secure Shell), you can use any SSH client. Please note that SSH is enabled by default on all newly created Mac devices."
+  },
+  {
+   "url": "https://doc.flow.swiss/products/mac-bare-metal/how-to/connect-via-remote-desktop",
+   "date": "2026-11-24",
+   "proved": "the product documents a web console in the Control Panel for the Mac desktop",
+   "capture": "sha256:fc759a14b9c2e0aae6184bcc7891222e930d25cd8a130b8dd858d0cac9258d45",
+   "quote": "Use the web console in the Control Panel to log in to your cloud-hosted Mac device. Please note that the default keyboard input source is set to U.S. English."
+  },
+  {
+   "url": "https://doc.flow.swiss/products/mac-bare-metal/devices",
+   "date": "2026-11-24",
+   "proved": "the exposed ports are configurable in the Control Panel",
+   "capture": "sha256:bae54b9c545357f5dede9170a85806a91fbde4832a492635ed82aeb383e9b929",
+   "quote": "The port settings can be restricted or extended in the Control Panel via Mac Bare Metal > Networking > Security Groups > Default."
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T15:03:49.561Z",
+ "price_per_tb_month": null,
+ "notes": "",
+ "extras": {
+  "seed_status": "ranked",
+  "talaria_m10h_usd": 97.89,
+  "talaria_m24h_usd": 234.93,
+  "nemo_m10h_usd": null,
+  "keep_rate": 1.0,
+  "keep_rate_basis": "billed for uptime (no suspension feature published)",
+  "billing_model": "unclassified",
+  "shape": {
+   "vcpu": null,
+   "ram": null,
+   "disk": null,
+   "gpu_class": "Apple Silicon",
+   "gpu_count": 1,
+   "note": "Mac mini and Mac Studio on demand, with instant activation"
+  },
+  "session_cap": {
+   "wall_clock_min": 1440,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "a 24-hour minimum allocation forced by Apple's licence, and a stopped device still bills, so stopping is not a pause"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "granularity": {
+   "min_billed_s": 86400,
+   "rounding_s": null
+  },
+  "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "ps": {
+   "gib": null,
+   "price": "SSD priced as a separate line",
+   "durability": "SSD on the device",
+   "on_stop": true,
+   "on_destroy": false,
+   "retention": "the allocation"
+  },
+  "net": {
+   "out": true,
+   "in": true,
+   "ports": "a free elastic public IPv4 per device",
+   "static_ip": true,
+   "ipv6": null,
+   "allowance": "20 TB a month outbound per organisation account"
+  }
+ },
+ "stale": true,
+ "stale_checked_at": "2026-10-22T00:00:00.000Z",
+ "binding": "retention-clamped",
+ "history": [
+  "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
+ ]
 }

@@ -15,7 +15,7 @@
   "limits_note": "a 12-month contract is the constraint that matters: the monthly price is only available on that term",
   "reliability_note": "no reliability event observed",
   "confidence": "documented",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:13.620Z",
   "price_per_tb_month": null,
   "history": [],
   "slug": "netcup",
@@ -23,7 +23,7 @@
   "url": "https://www.netcup.com/en/server/vps",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "no free tier; VPS 500 G12.5 is EUR 8.26 a month on a 12-month term, EUR 9.50 including 19% VAT",
+    "stated": "The cheapest published paid plan is VPS pico G11.5s at EUR 2.21 (incl. 19% VAT) on a 12-month contract period, from monthly; 1 vCore (x86), 1 GB RAM, 30 GB SSD, traffic included, with snapshots and remote console.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://www.netcup.com/en/server/vps",
@@ -83,6 +83,20 @@
       "url": "https://www.netcup.com/en/server/vps-lite",
       "date": "2026-10-22",
       "proved": "'Our vServer Lite plans are permanently price-optimized', quoted, so the ladder is a list price and not a first-term promotion"
+    },
+    {
+      "url": "https://www.netcup.com/en/server/vps-lite",
+      "date": "2026-11-25",
+      "proved": "the cheapest published paid plan is VPS pico G11.5s at EUR 2.21 incl. 19% VAT on a 12-month term with 1 vCore, 1 GB RAM and 30 GB SSD",
+      "capture": "sha256:3b05f336bb686c3454ed0594fc48a5a71d0d03f9d7dc0ac0cad48f1a1e93aa5a",
+      "quote": "### VPS pico G11.5s\n\n- 1\n\n  vCore (x86)\n- 1 GB\n\n  RAM\n- 30 GB\n\n  SSD\n- Traffic included\n- Snapshots, remote console & more\n\n12 months contract period, from monthly\n\n€2.21\n\n(incl. 19% VAT)"
+    },
+    {
+      "url": "https://www.netcup.com/en/server/vps-lite",
+      "date": "2026-11-25",
+      "proved": "the cheapest paid plan remains VPS pico G11.5s at EUR 2.21 incl. 19% VAT on a 12-month term",
+      "capture": "sha256:3b05f336bb686c3454ed0594fc48a5a71d0d03f9d7dc0ac0cad48f1a1e93aa5a",
+      "quote": "### VPS pico G11.5s\n\n- 1\n\n  vCore (x86)\n- 1 GB\n\n  RAM\n- 30 GB\n\n  SSD\n- Traffic included\n- Snapshots, remote console & more\n\n12 months contract period, from monthly\n\n€2.21\n\n(incl. 19% VAT)"
     }
   ],
   "verdict": "paid-only",

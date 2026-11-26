@@ -93,10 +93,17 @@
       "url": "https://nexusbytes.org/",
       "date": "2026-10-24",
       "proved": "the earlier failure is a broker refusal, not the origin: the broker returned exit 4 on https://nexusbytes.org/ at 02:12Z and answered the same URL at 02:13Z, and https://nexusbytes.org/pricing is a genuine origin 404"
+    },
+    {
+      "url": "https://nexusbytes.org/ryzen-vps-hosting.html",
+      "date": "2026-11-25",
+      "proved": "the entry VPS is advertised from $3.20/month",
+      "capture": "sha256:6cd3449953610437fadf173f1c417ecfa53e0fd08032c8a5d1c06b6b5cd913ed",
+      "quote": "| VPS-1G | 1 vCPU3.5 GHz+Fair share Ryzen vCores | 1 GB | 15 GB20 Free upgraded with annual commitment | 1000GB@1 Gbps Shared port speed | 1 + /64 | From $3.20/month20% savings with annual commitment | [Configure & Order](https://nexusbytes.org/) |"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-24T02:16:00.000Z",
+  "verified_at": "2026-11-25T11:17:47.281Z",
   "notes": "This settles the lead. The earlier record called the provider unverified because the pricing page answered exit 4; that was the broker refusing, and the same URL answered on a later retry. The provider is live and sells VPS. Two facts are established: the VPS prices (entry 'From $3.20/month', with 20% off on annual commitment) and the RAM ladder (VPS-1G through VPS-12G, 1 to 12 GB). What is NOT established is which price buys which RAM, because the table's Price column is a configurator link. A price with no shape cannot be ranked, so this row neither enters nor leaves the Q1 shortlist. The path shape is why earlier routes failed: the site uses .html paths (ryzen-vps-hosting.html), so /pricing, /vps and /store are all genuine 404s, not walls. Not established: the payment rails, any card hold, and the RAM of the USD 3.20 card (the configurator behind 'Configure & Order' would settle it, and it is browser-driven).",
   "extras": {
     "wave2": {

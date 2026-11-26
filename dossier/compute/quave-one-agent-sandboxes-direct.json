@@ -1,0 +1,172 @@
+{
+  "topic": "compute",
+  "slug": "quave-one-agent-sandboxes-direct",
+  "provider": "Quave ONE",
+  "url": "https://quave.one/agent-sandboxes",
+  "category": "sandbox (gVisor, hosted Quave regions)",
+  "tier": "Direct, pay per use at 3x the regional zCloud rate",
+  "free_tier": {
+    "stated": "Direct: pay per use at 3× the regional zCloud rate. No platform fee.",
+    "unit": "none",
+    "metered_on": "wall-clock",
+    "source_url": "https://quave.one/agent-sandboxes",
+    "read_on": "2026-11-25",
+    "notes": "Sandboxes are enabled per account: after signup the user must ask Quave to turn them on. Hobby accounts need no card and US-1 Hobby has no charge, but no first-party page states that sandboxes can run in the Hobby region, so no free sandbox route is established. The Connect license on the user own cloud account starts at USD 399 a month and is a separate offer."
+  },
+  "per_object_cap": {
+    "stated": "not applicable: the unit is a sandbox, not a stored object"
+  },
+  "retention": {
+    "stated": "an idle timeout or a maximum lifetime terminates a sandbox; the workspace can be snapshotted at pause or kept on a shared volume, which outlives the sandbox and can be attached to the next one",
+    "days": null,
+    "source_url": "https://docs.quave.one/agent-sandboxes"
+  },
+  "egress": {
+    "terms": "no extra fee for network traffic in supported regions; some regions cap the included outgoing traffic at 10 GB per month per zCloud, others list it as unlimited. Sandboxes can restrict outbound traffic to IP/CIDR ranges and domains, and internal infrastructure ranges are always blocked.",
+    "metered": false,
+    "free_allowance": "10 GB per month per zCloud in some regions, unlimited in US-3, EU-1 and EU-2",
+    "price_per_tb": null,
+    "source_url": "https://docs.quave.one/billing/pricing-details"
+  },
+  "interface": [
+    "rest",
+    "cli"
+  ],
+  "interface_detail": "a Public API with /sandbox/create and /sandbox/execute, an MCP server, and a Sandboxes dashboard page",
+  "tooling": "REST API, MCP server and dashboard; sandboxes run any OCI image pinned by digest, and a stock E2B-style workflow can be driven through the API",
+  "chaining": "a hosted gVisor sandbox whose workspace can be snapshotted or written to a shared object-storage volume and reused in a later sandbox, so a long agent run resumes from retained state; 200 active sandboxes per account is the default safety ceiling",
+  "limits": [
+    {
+      "kind": "volume-quota",
+      "value": "200 active sandboxes per account by default, raisable on request",
+      "source": "https://docs.quave.one/agent-sandboxes"
+    },
+    {
+      "kind": "write-gated",
+      "value": "sandboxes are enabled per account; after signing up the user must ask Quave to turn them on",
+      "source": "https://quave.one/agent-sandboxes"
+    }
+  ],
+  "binding": "write-gated",
+  "binding_note": "the sandbox capability is not on by default: an account must ask Quave to enable it before the first sandbox can be created, which stops a new user before the 200-sandbox ceiling or the usage meter matters",
+  "identity_cost": {
+    "kind": "email",
+    "detail": "unverified: no rendered sign-up text was captured; the public app access page has only a /continue-with-email route name in a script and loads passwordless and Google and GitHub OAuth packages, so the exact registration identity is unverified",
+    "country": null
+  },
+  "reliability_note": "an idle timeout or maximum lifetime terminates a sandbox rather than pausing it, a terminated sandbox's snapshot remains on the shared volume or object storage, and internal infrastructure ranges are always blocked from sandbox egress",
+  "confidence": "documented",
+  "confidence_note": "the price, gVisor isolation and lifecycle facts are quoted from first-party product and docs pages read on 2026-11-25; the exact rate is a derived product of the published zCloud price and 3x multiplier; no sandbox was created and no first-party page states the signup identity or a free sandbox route",
+  "evidence": [
+    {
+      "url": "https://quave.one/agent-sandboxes",
+      "date": "2026-11-25",
+      "proved": "Direct sandboxes are billed by the second at 3x the zCloud rate with no fixed fee, and pause is free of compute",
+      "capture": "sha256:41adaa5cef6fa00b70fcf96dd17cd5d0c684f50e9e289ac9f62bdf68585bfb69",
+      "quote": "Direct: pay per use at 3× the regional zCloud rate. No platform fee."
+    },
+    {
+      "url": "https://quave.one/solutions/direct",
+      "date": "2026-11-25",
+      "proved": "sandboxes are isolated gVisor environments billed at 3x the zCloud rate by the second with no fixed fee",
+      "capture": "sha256:648d48a0e5e725df4e4158bf1847281070b10daf979dec68e93d67d95c58a2ec",
+      "quote": "Agent Sandboxes on Direct Give your AI agents isolated gVisor sandboxes. Pay 3× the regional zCloud rate on allocated zClouds, by the second, with no fixed fee. Paused sandboxes do not accrue compute."
+    },
+    {
+      "url": "https://docs.quave.one/billing/pricing",
+      "date": "2026-11-25",
+      "proved": "the standard zCloud rate is USD 9.50 per zCloud-month and one zCloud is 0.5 vCPU and 0.5 GB RAM",
+      "capture": "sha256:5e9cae828c81d754958e865dc7132325ab70007dd6f053c42804040cf789c7d2",
+      "quote": "A **zCloud** is 0.5 vCPU and 0.5 GB RAM."
+    },
+    {
+      "url": "https://quave.one/solutions/direct",
+      "date": "2026-11-25",
+      "proved": "a Hobby account requires no credit card",
+      "capture": "sha256:648d48a0e5e725df4e4158bf1847281070b10daf979dec68e93d67d95c58a2ec",
+      "quote": "Yes. Create an account and use our Hobby regions to test everything. You can deploy your apps, try the MCP, and explore the platform with no credit card required."
+    },
+    {
+      "url": "https://docs.quave.one/verification",
+      "date": "2026-11-25",
+      "proved": "Hobby usage is not billed and needs no card, while the free Professional upgrade review asks for personal and business information",
+      "capture": "sha256:fd0cc0331cad52d40973f5a38fbffe60d0251a32478cd708d82acf7781ed7909",
+      "quote": "Your personal LinkedIn profile link"
+    },
+    {
+      "url": "https://docs.quave.one/agent-sandboxes",
+      "date": "2026-11-25",
+      "proved": "sandboxes are gVisor-isolated and run on Quave infrastructure",
+      "capture": "sha256:143ceeed65a1b5580e1738d61f028a14fbf52fc4cacb60420fda1530c029f6bc",
+      "quote": "Each sandbox runs your own container image under [gVisor](https://gvisor.dev/), with its own kernel boundary, on Quave ONE infrastructure or on your own nodes."
+    },
+    {
+      "url": "https://docs.quave.one/agent-sandboxes",
+      "date": "2026-11-25",
+      "proved": "the account-wide ceiling is 200 active sandboxes by default",
+      "capture": "sha256:143ceeed65a1b5580e1738d61f028a14fbf52fc4cacb60420fda1530c029f6bc",
+      "quote": "There is no per-app limit; only an account-wide safety ceiling (200 active sandboxes by default, raisable on request) stops a runaway loop."
+    },
+    {
+      "url": "https://docs.quave.one/agent-sandboxes",
+      "date": "2026-11-25",
+      "proved": "pausing releases compute with no charge and resumes the same sandbox",
+      "capture": "sha256:143ceeed65a1b5580e1738d61f028a14fbf52fc4cacb60420fda1530c029f6bc",
+      "quote": "Pause a sandbox to release its compute (no charge while paused) and resume it later with the same id."
+    },
+    {
+      "url": "https://quave.one/agent-sandboxes",
+      "date": "2026-11-25",
+      "proved": "sandboxes must be enabled on the account after signup",
+      "capture": "sha256:41adaa5cef6fa00b70fcf96dd17cd5d0c684f50e9e289ac9f62bdf68585bfb69",
+      "quote": "Sandboxes are enabled per account. After you sign up, ask us to turn them on."
+    },
+    {
+      "url": "https://docs.quave.one/billing/pricing-details",
+      "date": "2026-11-25",
+      "proved": "no extra fee for network traffic in supported regions",
+      "capture": "sha256:d0de543a9590d379358ff2ec2bb4062ad30a607136092e9dc626580762d58b32",
+      "quote": "We do not charge extra fees for network traffic in our supported regions."
+    },
+    {
+      "url": "https://quave.one/agent-sandboxes",
+      "date": "2026-11-25",
+      "proved": "the page states a per-use rate for sandboxes and no credit or allowance, so the free-unit vocabulary is none",
+      "capture": "sha256:41adaa5cef6fa00b70fcf96dd17cd5d0c684f50e9e289ac9f62bdf68585bfb69",
+      "quote": "Direct: pay per use at 3× the regional zCloud rate. No platform fee."
+    }
+  ],
+  "verdict": "paid-only",
+  "verified_at": "2026-11-25T02:12:34.793Z",
+  "price_per_tb_month": null,
+  "notes": "A hosted gVisor sandbox on Quave Direct regions at 3× the regional zCloud rate, billed by the second with no fixed fee and no compute charge while paused. A zCloud is 0.5 vCPU and 0.5 GB RAM at USD 9.50 per zCloud-month in standard regions. Sandboxes are opt-in per account. No page states the signup identity or a free sandbox route, so the verdict is paid-only and the identity kind is unverified. Connect runs the same platform on the user own cloud account for a license starting at USD 399 a month and is a separate offer.",
+  "extras": {
+    "shape": {
+      "vcpu": null,
+      "ram_gib": null,
+      "disk_gib": null,
+      "gpu_class": null,
+      "gpu_count": null,
+      "note": "resources are per zCloud at 0.5 vCPU and 0.5 GB RAM; the sandbox size is set in the immutable template revision"
+    },
+    "billing_model": "pay per use by the second at 3x zCloud rate",
+    "free_tier_kind": "none",
+    "term": "on demand, idempotent creation, idle and lifetime timeouts",
+    "price_arithmetic": "zCloud USD 9.50 per month times 3 = USD 28.50 per zCloud-month equivalent (USD 0.039 per zCloud-hour at 730 hours)",
+    "derived": "USD 9.50 per zCloud-month x 3 = USD 28.50 per zCloud-month equivalent; 28.50 / 730 = USD 0.039 per zCloud-hour",
+    "network_out": {
+      "allow_outbound": true,
+      "allow_inbound_listen": null,
+      "ports": null,
+      "static_ip": null,
+      "ipv6": null,
+      "per_session_bytes": null
+    },
+    "session_cap": {
+      "wall_clock_min": null,
+      "idle_reap_s": null,
+      "restart_required": false,
+      "note": "idle timeout and maximum lifetime terminate rather than pause the sandbox"
+    }
+  }
+}

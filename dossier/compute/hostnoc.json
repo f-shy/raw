@@ -5,7 +5,7 @@
   "url": "https://lowendtalk.com/discussion/221867/additional-10-off-first-month-promo-code-let10-dedicated-servers-from-24-95-mo",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "Six dedicated machines under USD 100, each on a 1 Gbps unmetered port with full root, a dedicated IP and DDoS protection: an Intel Xeon E3-1230 v2 at 4 cores / 8 threads with 16 GB DDR3 and a 1 TB HDD in Los Angeles at USD 24.95 a month recurring; an Intel Xeon L3426 at 4 cores / 8 threads with 16 GB and 2 x 2 TB in Paris at USD 25.72; an i7-4790K at 4 cores / 8 threads with 32 GB and 2 x 1 TB in Dusseldorf at USD 39.95; an E3-1245 v2 with 32 GB DDR4 and 2 x 480 GB SSD in Montreal at USD 54.99; and a Xeon D-1521 with 16 GB, a 512 GB NVMe and 4 x 4 TB in Montreal. The vendor states the recurring price does not jump after the first month.",
+    "stated": "Six dedicated machines under USD 100, five of them on an unmetered 1 Gbps port, with full root access, a dedicated IP and DDoS protection: an Intel Xeon E3-1230 v2 at 4 cores / 8 threads with 16 GB DDR3 and a 1 TB HDD in Los Angeles at USD 24.95 a month recurring; an Intel Xeon L3426 at 4 cores / 8 threads with 16 GB DDR3 and 2 x 2 TB HDD in Paris at USD 25.72; an Intel Core i7-4790K at 4 cores / 8 threads with 32 GB DDR3 and 2 x 1 TB HDD in Dusseldorf at USD 39.95; an Intel Xeon E3-1245 v2 at 4 cores / 8 threads with 32 GB DDR4 and 2 x 480 GB SSD in Montreal at USD 54.99; an Intel Xeon D-1521 at 4 cores / 8 threads with 16 GB DDR4, a 512 GB NVMe and 4 x 4 TB HDD in Montreal at USD 79.99; and an Intel Xeon E5-1650 v3 at 6 cores / 12 threads with 64 GB DDR4 and a 1 TB HDD in Montreal at USD 80.00, on 100 TB at 1 Gbps. The vendor states the recurring price does not jump after the first month.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://lowendtalk.com/discussion/221867/additional-10-off-first-month-promo-code-let10-dedicated-servers-from-24-95-mo",
@@ -69,10 +69,17 @@
       "url": "https://lowendtalk.com/discussion/221867/additional-10-off-first-month-promo-code-let10-dedicated-servers-from-24-95-mo",
       "date": "2026-10-22",
       "proved": "'The recurring price listed under each server is what you keep paying when it renews. It doesn't jump after the first month' and 'Full root access, dedicated IP, DDoS protection included' [re-read 2026-10-22]"
+    },
+    {
+      "url": "https://lowendtalk.com/discussion/221867/additional-10-off-first-month-promo-code-let10-dedicated-servers-from-24-95-mo",
+      "date": "2026-11-25",
+      "proved": "the entry dedicated machine is a 4c/8t Xeon E3-1230 v2 with 16 GB DDR3 and 1 TB HDD in Los Angeles on an unmetered 1 Gbps port at a USD 24.95 recurring monthly price",
+      "capture": "sha256:aa5a97866c85f106c408dac6bdd89c8887d501f10ae33dc2d1d20399bfbbd5f2",
+      "quote": "- HN-CD-1: Intel Xeon E3-1230 v2 3.3GHz 4c/8t / 16GB DDR3 / 1x1TB HDD SATA / Los Angeles, US / Unmetered @ 1Gbps First Month Additional 10% Off with **Promocode: LET10** - First Month Price: $22.46 Recurring Price: $24.95/mo"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:27.648Z",
   "notes": "New record: no hostnoc file exists in dossier/compute. This is the lowest European entry price found in the wave and it is European rather than American, which matters for latency to sources in the EU. The rung is `reported`: the numbers come from the operator's own offer post on a third-party forum, dated 2026-10-08, and the storefront was not read. The CPU of the entry machine is a 2012 Ivy Bridge part, so per-thread throughput is about a third of a current Ryzen, which is the comparison the lane brief asks for and the reason the OVH SYS-1 at EUR 29.99 is a better compute buy at a similar price.",
   "extras": {
     "wave2": {

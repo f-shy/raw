@@ -5,7 +5,7 @@
   "url": "https://cloud.baidu.com/campaign/free/index.html",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "Free trials of 7 to 30 days depending on vendor: Alibaba 7 days (14 on some products), Tencent 15 days, Huawei 30 days, Baidu 7 days with a 180-day campaign variant, JD 15 days. Baidu's rules page requires a real-name verified account: \"users who register and complete real-name verification\".",
+    "stated": "| 腾讯云 | 15天 | 1核2G/2核4G | 需完成企业认证或个人信用分≥600 | 可叠加代金券优惠 |",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://cloud.baidu.com/campaign/free/index.html",
@@ -74,10 +74,24 @@
       "url": "https://github.com/vtukh186/jd-cloud-server-trial",
       "date": "2026-10-22",
       "proved": "JD Cloud trial is now 15 days rather than the 6 months older posts claim, and requires new-user status plus real-name verification"
+    },
+    {
+      "url": "https://www.henghost.com/news/article/503871/",
+      "date": "2026-11-25",
+      "proved": "the comparison table states a 15-day Tencent Cloud trial gated on corporate verification or a personal credit score of at least 600",
+      "capture": "sha256:eadffdd7088490f5749323854431c7a9c36bfdf2b6991993485b4cd1fb6174f7",
+      "quote": "| 腾讯云 | 15天 | 1核2G/2核4G | 需完成企业认证或个人信用分≥600 | 可叠加代金券优惠 |"
+    },
+    {
+      "url": "https://www.henghost.com/news/article/503871/",
+      "date": "2026-11-25",
+      "proved": "the 15-day Tencent Cloud trial row is unchanged",
+      "capture": "sha256:eadffdd7088490f5749323854431c7a9c36bfdf2b6991993485b4cd1fb6174f7",
+      "quote": "| 腾讯云 | 15天 | 1核2G/2核4G | 需完成企业认证或个人信用分≥600 | 可叠加代金券优惠 |"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:33.097Z",
   "notes": "This is one consolidated finding rather than five because the decision is the same and the door is the same: national identity. Two corrections worth carrying: JD's free period shrank from 6 months to 15 days, and Tencent's corporate requirement blocks an individual without a company. The 180-day Baidu figure is the largest in the group and still fails on identity. An account with a Chinese national ID would find a real 2 vCPU class trial here.",
   "extras": {
     "wave2": {

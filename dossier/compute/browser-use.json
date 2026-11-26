@@ -15,7 +15,7 @@
   "limits_note": "a model-driven agent adds 20% on the model rate plus browser time and traffic",
   "reliability_note": "no reliability event observed",
   "confidence": "documented",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:32.751Z",
   "price_per_tb_month": null,
   "history": [],
   "slug": "browser-use",
@@ -23,7 +23,7 @@
   "url": "https://browser-use.com/pricing",
   "category": "browser host",
   "free_tier": {
-    "stated": "USD 15 of one-time credit; browsers cost USD 0.02 an hour; a USD 100 one-time top-up runs 50 in parallel",
+    "stated": "Start with $1 free.",
     "unit": "mixed",
     "metered_on": "wall-clock",
     "source_url": "https://browser-use.com/pricing",
@@ -68,6 +68,20 @@
       "url": "https://browser-use.com/pricing",
       "date": "2026-10-22",
       "proved": "consumer-connection proxy is USD 5 per GB, separate from browser time"
+    },
+    {
+      "url": "https://browser-use.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page states a one-dollar free starting credit",
+      "capture": "sha256:616ad028422d0c8e3d82aed965bf88063bc5191fbf677dcc747b45d5d2bec76c",
+      "quote": "Start with $1 free."
+    },
+    {
+      "url": "https://browser-use.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing page still states a one-dollar free starting credit",
+      "capture": "sha256:616ad028422d0c8e3d82aed965bf88063bc5191fbf677dcc747b45d5d2bec76c",
+      "quote": "Start with $1 free."
     }
   ],
   "verdict": "trial-only",

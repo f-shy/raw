@@ -31,7 +31,7 @@
   "limits_note": "a weekly API call or database query is enough to keep the project awake",
   "reliability_note": "no reliability event observed",
   "confidence": "reported",
-  "verified_at": "2026-10-22T04:24:38.000Z",
+  "verified_at": "2026-11-25T11:17:39.261Z",
   "price_per_tb_month": null,
   "notes": "Supabase provides PostgreSQL databases with Edge Functions supporting serverless compute execution under free monthly invocation limits.",
   "slug": "supabase",
@@ -73,6 +73,13 @@
       "url": "https://supabase.com/pricing",
       "date": "2026-10-22",
       "proved": "read live: free projects pause after a week idle; 2 active project limit"
+    },
+    {
+      "url": "https://supabase.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the Free plan states $0/month, unlimited API requests, 50,000 MAUs, 500 MB database and RAM, 5 GB egress, 5 GB cached egress, 1 GB file storage and the one-week inactivity pause",
+      "capture": "sha256:48b882e337bb6bf93b4412d61a1b882c5e67150bc035fc2972921452b0159f18",
+      "quote": "### Free - from $0/month - Unlimited API requests - 50,000 monthly active users - 500 MB database size (Shared CPU • 500 MB RAM) - 5 GB egress - 5 GB cached egress - 1 GB file storage - Community support - Note: Free projects are paused after 1 week of inactivity."
     }
   ],
   "verdict": "qualifies-with-caveat",

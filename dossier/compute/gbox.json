@@ -1,132 +1,207 @@
 {
-  "topic": "compute",
-  "slug": "gbox",
-  "provider": "GBOX",
-  "url": "https://docs.gbox.ai/pricing",
-  "category": "hosted agent-environment boxes",
-  "tier": "Usage-based (Linux / Android boxes)",
-  "free_tier": {
-    "stated": "USD 100 in credits on signup; the Linux box includes 10 GiB of storage free to use; no recurring no-cost allowance is published, and all vCPU, memory, emulator and device time is billed per second after credits",
-    "unit": "credits",
-    "metered_on": "stored-bytes",
-    "source_url": "https://docs.gbox.ai/pricing",
-    "read_on": "2026-11-24",
-    "notes": "The signup credit is a one-time grant, not a recurring monthly allowance. The 10 GiB free storage applies to the Linux box only. Rates: Linux vCPU USD 0.054 per hour, memory USD 0.0144 per GiB-hour, both billed per second but shown hourly; Android emulator medium 4-core/8GB at USD 0.009 flat under 30 s then USD 0.0003 per second, large 8-core/16GB at USD 0.015 flat under 30 s then USD 0.0005 per second; physical device 8-core/8GB/128GB at USD 0.024 flat under 30 s then USD 0.0008 per second, with a 10-minute minimum charge."
+ "topic": "compute",
+ "slug": "gbox",
+ "provider": "GBOX",
+ "url": "https://docs.gbox.ai/pricing",
+ "category": "desktop and Android environment sandbox",
+ "free_tier": {
+  "stated": "Sign up and get USD 100 in credits instantly, spent at the published per-second rates; no recurring free allowance is stated.",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://docs.gbox.ai/pricing",
+  "read_on": "2026-11-25",
+  "notes": "The signup credit is one-time. Registration uses a GitHub account, according to the vendor's privacy policy; no card is stated as required to create an account."
+ },
+ "per_object_cap": {
+  "stated": "The unit is a box, not an object. Linux boxes include 10 GiB of storage free; the Android emulator is offered in Medium (4 cores, 8 GB RAM) and Large (8 cores, 16 GB RAM), and a physical device is 8 cores, 8 GB RAM and 128 GB storage.",
+  "bytes": null,
+  "source_url": "https://docs.gbox.ai/pricing"
+ },
+ "retention": {
+  "stated": "Not stated on the pricing page; the SDK exposes create and destroy of boxes and the terms page states a hosted environment is provided with no published retention period.",
+  "days": null,
+  "source_url": "https://gbox.ai/home/terms"
+ },
+ "egress": {
+  "terms": "No egress allowance or per-GB price is stated on the pricing page; the Android physical device rate includes its network in the per-second charge, and no base traffic price is published.",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://docs.gbox.ai/pricing"
+ },
+ "interface": [
+  "rest",
+  "cli"
+ ],
+ "interface_detail": "A GBOX API key from the dashboard is passed as a Bearer token to the REST API; an SDK and a CLI/MCP connector create and drive Android, browser and Linux boxes.",
+ "tooling": "The GBOX SDK (npx/npm), a CLI and an MCP server drive boxes; an API key from the GBOX dashboard is required.",
+ "chaining": "Android, browser and Linux boxes share one GBOX account and its USD 100 signup credits, so an agent can move between mobile, browser and desktop tasks on one balance.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "USD 100 in signup credits, one-time; Linux box vCPU USD 0.054/hour and memory USD 0.0144/GiB/hour, billed per second",
+   "source": "https://docs.gbox.ai/pricing"
   },
-  "per_object_cap": {
-    "stated": "10 GiB of storage is free to use on a Linux box; no per-file or per-object cap is published on the pricing page",
-    "bytes": null,
-    "source_url": "https://docs.gbox.ai/pricing"
+  {
+   "kind": "volume-quota",
+   "value": "Android emulator has a 30-second minimum charge; a physical device has a 10-minute minimum charge",
+   "source": "https://docs.gbox.ai/pricing"
+  }
+ ],
+ "limits_note": "A credit balance is consumed at the per-second rates; no concurrent box count or session length is published on the pricing page.",
+ "binding": "volume-quota",
+ "binding_note": "The USD 100 signup credit runs out before any published rate or concurrency cap, since no concurrency or session count limit is stated.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "The privacy policy states 'When you register for an account, we will ask you to sign up using github account' and that GitHub supplies the name and email address; the API key page says to go to GBOX AI, log in to an account and create the key in the dashboard. No phone, ID document or card is stated as required for signup.",
+  "country": null
+ },
+ "reliability_note": "The terms state Babel may suspend or terminate an account for prohibited actions and that hard and soft usage limits exist but are not published as numbers; physical devices are beta and may have limited availability.",
+ "confidence": "documented",
+ "confidence_note": "Prices and the signup credit are quoted from the vendor's pricing page read on 2026-11-25; the GitHub signup gate is quoted from the vendor's privacy policy and the API key flow from the docs on the same date.",
+ "evidence": [
+  {
+   "url": "https://docs.gbox.ai/pricing",
+   "date": "2026-11-25",
+   "capture": "sha256:44ddaae54101dbe393a2de9afb4bce474d0221e72533dc00e1e6c7363b401639",
+   "quote": "| vCPU | $0.054 | Billed per second, shown hourly |",
+   "proved": "the Linux box vCPU price and per-second billing"
   },
-  "retention": {
-    "stated": "not stated: the pricing page publishes rates and a free storage allowance but says nothing about how long a box or its files survive",
-    "days": null,
-    "source_url": "https://docs.gbox.ai/pricing"
+  {
+   "url": "https://docs.gbox.ai/pricing",
+   "date": "2026-11-25",
+   "capture": "sha256:44ddaae54101dbe393a2de9afb4bce474d0221e72533dc00e1e6c7363b401639",
+   "quote": "| Memory | $0.0144 / GiB | Billed per second, shown hourly |",
+   "proved": "the Linux box memory price"
   },
-  "egress": {
-    "terms": "not published: the pricing page lists no egress allowance and no per-GB or per-TB price for traffic out of a box",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://docs.gbox.ai/pricing"
+  {
+   "url": "https://docs.gbox.ai/pricing",
+   "date": "2026-11-25",
+   "capture": "sha256:44ddaae54101dbe393a2de9afb4bce474d0221e72533dc00e1e6c7363b401639",
+   "quote": "| Storage | 10 GiB | Free to use |",
+   "proved": "10 GiB of Linux box storage is included free"
   },
-  "interface": [
-    "rest",
-    "cli"
-  ],
-  "interface_detail": "A single SDK and API drive four environment types — Android mobile, Linux-Chrome browser, Linux-XFCE desktop and Linux-Ubuntu sandbox; the CLI and MCP integrations drive the same environments, and natural-language actions are a documented SDK feature.",
-  "tooling": "gbox-sdk for TypeScript and Python, the REST API with a per-account API key, and the GBOX Android MCP / CLI integrations.",
-  "chaining": "One account and key create mobile, browser, desktop and sandbox boxes, so an agent can move from a cheap sandbox to a real physical Android device under the same meter; the USD 100 signup credits buy a finite amount of billed seconds before per-second rates apply.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "USD 100 in signup credits, one-time; thereafter Linux vCPU USD 0.054 per hour and memory USD 0.0144 per GiB-hour, billed per second",
-      "source": "https://docs.gbox.ai/pricing"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "10 GiB of Linux box storage free to use",
-      "source": "https://docs.gbox.ai/pricing"
-    }
-  ],
-  "limits_note": "Android emulator has a 30-second minimum charge and physical devices a 10-minute minimum charge; physical-device availability is limited and the feature is beta. No request-rate ceiling is published on the pricing page.",
-  "binding": "volume-quota",
-  "binding_note": "The one-time USD 100 credit is the first thing to run out: all four environment types draw from it at per-second rates with no recurring no-cost allowance published, while the 10 GiB storage allowance applies only to the Linux box.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The API-key guide says to go to gbox.ai, log in to an account, then create and copy a key in the API Keys section; the privacy policy says registration asks the user to sign up using a GitHub account and receives the user's name, email address and profile photo from GitHub. A card is mentioned only as a payment method the user may add, so it is not established that a card is required for the signup credit. No phone or ID document is stated.",
-    "country": null
+  {
+   "url": "https://docs.gbox.ai/pricing",
+   "date": "2026-11-25",
+   "capture": "sha256:44ddaae54101dbe393a2de9afb4bce474d0221e72533dc00e1e6c7363b401639",
+   "quote": "[Sign up](https://gbox.ai/) today and get **100$ in credits instantly**.",
+   "proved": "a USD 100 signup credit is granted instantly"
   },
-  "reliability_note": "Physical-device boxes are a beta feature with limited availability and possible instability; emulator time carries a 30-second minimum charge and physical-device time a 10-minute minimum charge.",
-  "confidence": "documented",
-  "confidence_note": "The rate card, the free 10 GiB storage and the USD 100 signup credit are quoted from GBOX's own pricing page read 2026-11-24; the GitHub signup gate is quoted from GBOX's own privacy page; the API-key gate and the four environment types are quoted from GBOX's own docs.",
-  "evidence": [
-    {
-      "url": "https://docs.gbox.ai/pricing",
-      "date": "2026-11-24",
-      "proved": "Linux box vCPU costs USD 0.054 per hour and is billed per second",
-      "capture": "sha256:44ddaae54101dbe393a2de9afb4bce474d0221e72533dc00e1e6c7363b401639",
-      "quote": "| vCPU | $0.054 | Billed per second, shown hourly |"
-    },
-    {
-      "url": "https://docs.gbox.ai/pricing",
-      "date": "2026-11-24",
-      "proved": "Linux box memory costs USD 0.0144 per GiB-hour and is billed per second",
-      "capture": "sha256:44ddaae54101dbe393a2de9afb4bce474d0221e72533dc00e1e6c7363b401639",
-      "quote": "| Memory | $0.0144 / GiB | Billed per second, shown hourly |"
-    },
-    {
-      "url": "https://docs.gbox.ai/pricing",
-      "date": "2026-11-24",
-      "proved": "the Linux box includes 10 GiB of storage free to use",
-      "capture": "sha256:44ddaae54101dbe393a2de9afb4bce474d0221e72533dc00e1e6c7363b401639",
-      "quote": "| Storage | 10 GiB | Free to use |"
-    },
-    {
-      "url": "https://docs.gbox.ai/pricing",
-      "date": "2026-11-24",
-      "proved": "signup grants USD 100 in credits, a one-time rather than recurring allowance",
-      "capture": "sha256:44ddaae54101dbe393a2de9afb4bce474d0221e72533dc00e1e6c7363b401639",
-      "quote": "today and get **100$ in credits instantly**."
-    },
-    {
-      "url": "https://docs.gbox.ai/pricing",
-      "date": "2026-11-24",
-      "proved": "Android emulator and physical device rates carry minimum charges",
-      "capture": "sha256:44ddaae54101dbe393a2de9afb4bce474d0221e72533dc00e1e6c7363b401639",
-      "quote": "| Android Emulator Minimum 30-second charge | 4 Core, 8GB RAM • Under 30s: **$0.009** flat • Over 30s: **$0.0003/sec** | 8 Core, 16GB RAM • Under 30s: **$0.015** flat • Over 30s: **$0.0005/sec** |"
-    },
-    {
-      "url": "https://docs.gbox.ai/pricing",
-      "date": "2026-11-24",
-      "proved": "physical-device time has a 10-minute minimum charge and is not available on the medium size",
-      "capture": "sha256:44ddaae54101dbe393a2de9afb4bce474d0221e72533dc00e1e6c7363b401639",
-      "quote": "| Physical Device Minimum 10-minute charge | Not Available | 8 Core, 8GB RAM, 128GB Storage • Under 30s: **$0.024** flat • Over 30s: **$0.0008/sec** |"
-    },
-    {
-      "url": "https://gbox.ai/home/privacy",
-      "date": "2026-11-24",
-      "proved": "registration is through a GitHub account and receives the name, email address and profile photo; a card is only described as an optional payment method",
-      "capture": "sha256:b6b688527329fcdd0e8e573205cd95a399e2132d22802c24a50b4f38eefb4b4d",
-      "quote": "**Registration and Profile Information.** When you register for an account, we will ask you to sign up using github account. We will also receive information from github such as your name, email address, and profile photo. **Payment Information.** When you add a credit card or payment method to your account a third-party service provider that handles payments on our behalf will receive and process your payment card information."
-    },
-    {
-      "url": "https://docs.gbox.ai/api-key",
-      "date": "2026-11-24",
-      "proved": "an account login and an API key are needed before any box can be created",
-      "capture": "sha256:e23f40d134855c15bdd1b4838386a8c6af4d30915e0687dbd0ee2086877ad2a4",
-      "quote": "1. Go to [GBOX AI](https://gbox.ai)\n2. Login to your account\n3. Click on \"API Keys\"\n4. Create / Copy the API key"
-    },
-    {
-      "url": "https://docs.gbox.ai/",
-      "date": "2026-11-24",
-      "proved": "the SDK and API cover mobile, browser, desktop and sandbox environments over one interface",
-      "capture": "sha256:423371ac15cd4af1fb28d00951e8a8a6dd2e5298193f2538071ecf6d5c798bf1",
-      "quote": "GBOX supports four types of environments: Mobile, Browser, Desktop and Sandbox."
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.747Z",
-  "price_per_tb_month": null,
-  "notes": "The free allowance is a one-time USD 100 credit rather than a recurring quota; the priced shape is per-second billing on vCPU, memory and device time. Whether a card is required at signup is not established: the privacy page describes a card only as a payment method a user may add. No recurring free tier, egress price or retention period is published."
+  {
+   "url": "https://gbox.ai/home/privacy",
+   "date": "2026-11-25",
+   "capture": "sha256:be16893a307db3cdd4c5f7adb3856e26ed851070ef24f7a98dbfff68de57c94d",
+   "quote": "When you register for an account, we will ask you to sign up using github account.",
+   "proved": "registration uses a GitHub account"
+  },
+  {
+   "url": "https://docs.gbox.ai/api-key",
+   "date": "2026-11-25",
+   "capture": "sha256:e23f40d134855c15bdd1b4838386a8c6af4d30915e0687dbd0ee2086877ad2a4",
+   "quote": "Login to your account",
+   "proved": "an account login precedes API key creation"
+  },
+  {
+   "url": "https://docs.gbox.ai/pricing",
+   "date": "2026-11-25",
+   "capture": "sha256:44ddaae54101dbe393a2de9afb4bce474d0221e72533dc00e1e6c7363b401639",
+   "quote": "Android Emulator Minimum 30-second charge | 4 Core, 8GB RAM • Under 30s: **$0.009** flat • Over 30s: **$0.0003/sec**",
+   "proved": "the Android emulator Medium price, shape and 30-second minimum"
+  },
+  {
+   "url": "https://docs.gbox.ai/pricing",
+   "date": "2026-11-24",
+   "proved": "Linux box vCPU costs USD 0.054 per hour and is billed per second",
+   "capture": "sha256:44ddaae54101dbe393a2de9afb4bce474d0221e72533dc00e1e6c7363b401639",
+   "quote": "| vCPU | $0.054 | Billed per second, shown hourly |"
+  },
+  {
+   "url": "https://docs.gbox.ai/pricing",
+   "date": "2026-11-24",
+   "proved": "Linux box memory costs USD 0.0144 per GiB-hour and is billed per second",
+   "capture": "sha256:44ddaae54101dbe393a2de9afb4bce474d0221e72533dc00e1e6c7363b401639",
+   "quote": "| Memory | $0.0144 / GiB | Billed per second, shown hourly |"
+  },
+  {
+   "url": "https://docs.gbox.ai/pricing",
+   "date": "2026-11-24",
+   "proved": "the Linux box includes 10 GiB of storage free to use",
+   "capture": "sha256:44ddaae54101dbe393a2de9afb4bce474d0221e72533dc00e1e6c7363b401639",
+   "quote": "| Storage | 10 GiB | Free to use |"
+  },
+  {
+   "url": "https://docs.gbox.ai/pricing",
+   "date": "2026-11-24",
+   "proved": "signup grants USD 100 in credits, a one-time rather than recurring allowance",
+   "capture": "sha256:44ddaae54101dbe393a2de9afb4bce474d0221e72533dc00e1e6c7363b401639",
+   "quote": "today and get **100$ in credits instantly**."
+  },
+  {
+   "url": "https://docs.gbox.ai/pricing",
+   "date": "2026-11-24",
+   "proved": "Android emulator and physical device rates carry minimum charges",
+   "capture": "sha256:44ddaae54101dbe393a2de9afb4bce474d0221e72533dc00e1e6c7363b401639",
+   "quote": "| Android Emulator Minimum 30-second charge | 4 Core, 8GB RAM • Under 30s: **$0.009** flat • Over 30s: **$0.0003/sec** | 8 Core, 16GB RAM • Under 30s: **$0.015** flat • Over 30s: **$0.0005/sec** |"
+  },
+  {
+   "url": "https://docs.gbox.ai/pricing",
+   "date": "2026-11-24",
+   "proved": "physical-device time has a 10-minute minimum charge and is not available on the medium size",
+   "capture": "sha256:44ddaae54101dbe393a2de9afb4bce474d0221e72533dc00e1e6c7363b401639",
+   "quote": "| Physical Device Minimum 10-minute charge | Not Available | 8 Core, 8GB RAM, 128GB Storage • Under 30s: **$0.024** flat • Over 30s: **$0.0008/sec** |"
+  },
+  {
+   "url": "https://gbox.ai/home/privacy",
+   "date": "2026-11-24",
+   "proved": "registration is through a GitHub account and receives the name, email address and profile photo; a card is only described as an optional payment method",
+   "capture": "sha256:b6b688527329fcdd0e8e573205cd95a399e2132d22802c24a50b4f38eefb4b4d",
+   "quote": "**Registration and Profile Information.** When you register for an account, we will ask you to sign up using github account. We will also receive information from github such as your name, email address, and profile photo. **Payment Information.** When you add a credit card or payment method to your account a third-party service provider that handles payments on our behalf will receive and process your payment card information."
+  },
+  {
+   "url": "https://docs.gbox.ai/api-key",
+   "date": "2026-11-24",
+   "proved": "an account login and an API key are needed before any box can be created",
+   "capture": "sha256:e23f40d134855c15bdd1b4838386a8c6af4d30915e0687dbd0ee2086877ad2a4",
+   "quote": "1. Go to [GBOX AI](https://gbox.ai)\n2. Login to your account\n3. Click on \"API Keys\"\n4. Create / Copy the API key"
+  },
+  {
+   "url": "https://docs.gbox.ai/",
+   "date": "2026-11-24",
+   "proved": "the SDK and API cover mobile, browser, desktop and sandbox environments over one interface",
+   "capture": "sha256:423371ac15cd4af1fb28d00951e8a8a6dd2e5298193f2538071ecf6d5c798bf1",
+   "quote": "GBOX supports four types of environments: Mobile, Browser, Desktop and Sandbox."
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T02:12:34.732Z",
+ "price_per_tb_month": null,
+ "notes": "GBOX sells hosted Linux, browser and Android environments for agents, with a USD 100 signup credit. The Linux box is priced at USD 0.054 per vCPU-hour plus USD 0.0144 per GiB-hour with 10 GiB storage free; a 2 vCPU/4 GiB box is USD 0.1656 per hour at list rates. The Android Medium emulator is USD 0.0003/second with a 30-second minimum. Registration uses a GitHub account, which supplies the email address; no card is stated for signup. The on-premise deployment mentioned on the benchmark site is a separate option; this record prices the hosted GBOX service.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 4,
+   "disk_gib": 10,
+   "gpu_class": null,
+   "gpu_count": null
+  },
+  "billing_model": "per-second usage against a signup credit",
+  "free_tier_kind": "one-time-credit",
+  "status": "hosted, available",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": null,
+   "ports": "not stated",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "30-second minimum for an Android emulator and 10-minute minimum for a physical device; no Linux session minimum published"
+  }
+ },
+ "tier": "Usage-based (Linux / Android boxes)"
 }

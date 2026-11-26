@@ -5,7 +5,7 @@
   "url": "https://docs.nvidia.com/dgx-cloud/lepton/get-started/workspace/index.html",
   "category": "GPU cloud",
   "free_tier": {
-    "stated": "No self-serve free tier. The product's own documentation states 'As DGX Cloud Lepton is still in early access, the workspace needs to be activated after it is created... Contact your TAM to activate your Workspace. TAM will review your request and contact you.' A default Workspace is created only when you create an Organization. NVIDIA separately offers 'up to $100,000 in GPU capacity credits' through DGX Cloud Lepton, restricted to portfolio companies of Accel, Elaia, Partech and Sofinnova Partners.",
+    "stated": "As DGX Cloud Lepton is still in early access, the workspace needs to be activated after it is created.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://docs.nvidia.com/dgx-cloud/lepton/get-started/workspace/index.html",
@@ -69,10 +69,24 @@
       "url": "https://aicredits.dev/submissions/45-lepton-ai-nvidia-dgx-cloud-lepton-free-plan",
       "date": "2026-10-22",
       "proved": "a credit aggregator claims a free Basic plan with 'up to 48 CPUs + 2 GPUs concurrently' and 'Instant Signup and get credits instantly - no credit card, no approval'; the claim is not supported by NVIDIA's documentation, which requires TAM activation"
+    },
+    {
+      "url": "https://docs.nvidia.com/dgx-cloud/lepton/get-started/workspace/index.html",
+      "date": "2026-11-25",
+      "proved": "the product documentation states that a DGX Cloud Lepton workspace requires activation because the product is in early access",
+      "capture": "sha256:898670c34df53cb42dcbee7336c4886eb8d631258ca61c3f2341da23ab7de06a",
+      "quote": "As DGX Cloud Lepton is still in early access, the workspace needs to be activated after it is created."
+    },
+    {
+      "url": "https://docs.nvidia.com/dgx-cloud/lepton/get-started/workspace/index.html",
+      "date": "2026-11-25",
+      "proved": "the product documentation restates the early-access workspace activation requirement",
+      "capture": "sha256:898670c34df53cb42dcbee7336c4886eb8d631258ca61c3f2341da23ab7de06a",
+      "quote": "As DGX Cloud Lepton is still in early access, the workspace needs to be activated after it is created."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:44.120Z",
   "notes": "NVIDIA DGX Cloud requires sales-led Technical Account Manager (TAM) review; self-serve instant access tiers from earlier Lepton AI offerings have been superseded by managed enterprise onboarding.",
   "extras": {
     "wave2": {

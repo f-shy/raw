@@ -1,142 +1,189 @@
 {
-  "topic": "compute",
-  "slug": "macrun",
-  "provider": "MacRun",
-  "url": "https://macrun.dev/",
-  "category": "dedicated cloud Mac",
-  "tier": "Day pass (CI runner, M6)",
-  "free_tier": {
-    "stated": "none: no free allowance, trial or credit is published; the day pass is USD 15 for 24 hours and one-time, and the site states no free trial is offered",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://macrun.dev/rent-a-mac-mini",
-    "read_on": "2026-11-24",
-    "notes": "The site states: 'You want a free trial. We do not offer one.'"
-  },
-  "per_object_cap": {
-    "stated": "not applicable: the rented unit is a whole Mac mini, not an object store",
-    "source_url": "https://macrun.dev/"
-  },
-  "retention": {
-    "stated": "When your lease ends, whether by cancellation, non-payment, or termination, the unit is wiped automatically and permanently.",
-    "days": null,
-    "source_url": "https://macrun.dev/legal/terms",
-    "notes": "A day pass ends after the time bought and the machine is wiped; failed payments keep data for seven days before wipe."
-  },
-  "egress": {
-    "terms": "Unlimited macOS build minutes with no meter; aggregate network egress is monitored at the hub for abuse signatures, and no per-GB egress price or allowance is published",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://macrun.dev/legal/aup"
-  },
-  "interface": [
-    "ssh",
-    "browser"
-  ],
-  "interface_detail": "SSH and screen sharing over a private Tailscale network with no public SSH port; a desktop in a browser tab is included on every plan.",
-  "tooling": "an SSH client, a VNC client, and Tailscale on the user's computer for the terminal and desktop.",
-  "chaining": "An always-on dedicated Mac can host a self-hosted GitHub Actions runner or an AI coding agent that needs Xcode and the iOS Simulator.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "24 hours per day pass, paid once with no renewal; 1 day USD 15, 1 week USD 59",
-      "source": "https://macrun.dev/cloud-mac"
-    }
-  ],
-  "limits_note": "No public SSH port; the machine is reachable only over a private Tailscale network or through the browser desktop.",
-  "binding": "volume-quota",
-  "binding_note": "The priced unit is a fixed 24-hour rental on one dedicated machine, so the term of the pass is what runs out first.",
-  "identity_cost": {
-    "kind": "card",
-    "detail": "The day-pass signup form asks for Name, Email and an optional GitHub org or repo URL, and states 'Secure checkout via Stripe. One payment.'",
-    "country": null
-  },
-  "reliability_note": "The unit is wiped when the paid period ends; a suspended unit is billed at the day pass rate for the days it was held.",
-  "confidence": "documented",
-  "confidence_note": "Prices, interfaces, signup fields and egress monitoring are quoted from the vendor's own pricing, signup, terms and acceptable use pages.",
-  "evidence": [
-    {
-      "url": "https://macrun.dev/cloud-mac",
-      "date": "2026-11-24",
-      "proved": "a day pass is USD 15 for 24 hours and a week is USD 59, paid once",
-      "capture": "sha256:632e58921c8dd68fa41bdb64e3eaab5a6cb5c894001deebb0fff3a5a70049644",
-      "quote": "A MacRun pass is $15 for 24 hours or $59 for a week, paid once."
-    },
-    {
-      "url": "https://macrun.dev/signup?term=day&n=1",
-      "date": "2026-11-24",
-      "proved": "the signup asks for a name, an email and an optional GitHub org or repo URL",
-      "capture": "sha256:cceac82cb01792440ccb2d12020f8951f5acafade49efc43b63b679c08a4ec28",
-      "quote": "Name\n\nEmail\n\nGitHub org or repo URL · optional"
-    },
-    {
-      "url": "https://macrun.dev/signup?term=day&n=1",
-      "date": "2026-11-24",
-      "proved": "checkout is a one-time Stripe payment with no subscription",
-      "capture": "sha256:cceac82cb01792440ccb2d12020f8951f5acafade49efc43b63b679c08a4ec28",
-      "quote": "Secure checkout via Stripe. One payment. No subscription, and nothing renews."
-    },
-    {
-      "url": "https://macrun.dev/rent-a-mac-mini",
-      "date": "2026-11-24",
-      "proved": "no free trial is offered",
-      "capture": "sha256:44c7d3f775b8fb189bb004c73e190ee2c2bd474651030b1cb0dd3449922c3bc2",
-      "quote": "You want a free trial. We do not offer one."
-    },
-    {
-      "url": "https://macrun.dev/cloud-mac",
-      "date": "2026-11-24",
-      "proved": "SSH is available only over a private Tailscale network with no public port",
-      "capture": "sha256:632e58921c8dd68fa41bdb64e3eaab5a6cb5c894001deebb0fff3a5a70049644",
-      "quote": "At MacRun, every Mac sits on a private Tailscale network. There is no public SSH port."
-    },
-    {
-      "url": "https://macrun.dev/rent-a-mac-for-a-day",
-      "date": "2026-11-24",
-      "proved": "SSH and screen sharing are the connection methods",
-      "capture": "sha256:82e283abe88537566796e021bbaf4593cc36a8dbe2aabc40b8442a079670f591",
-      "quote": "SSH and screen sharing over a private Tailscale network."
-    },
-    {
-      "url": "https://macrun.dev/",
-      "date": "2026-11-24",
-      "proved": "build minutes on the CI runner plan are unlimited with no meter",
-      "capture": "sha256:75f1ab387146930b558fb531e177ff2899ed77b1ac8de329668d230dbc0f9533",
-      "quote": "Unlimited macOS build minutes, no meter"
-    },
-    {
-      "url": "https://macrun.dev/legal/aup",
-      "date": "2026-11-24",
-      "proved": "egress is monitored in aggregate at the hub for abuse signatures",
-      "capture": "sha256:48f0c88895f4894fb40ea8bf937661e3195386f589812b8b003e8988190e9f87",
-      "quote": "We monitor aggregate network egress at the hub for abuse signatures such as bulk SMTP, mass-messaging patterns, anonymizing traffic, and scanning. Every unit reaches the internet through the same address."
-    },
-    {
-      "url": "https://macrun.dev/legal/terms",
-      "date": "2026-11-24",
-      "proved": "data is wiped at the end of the lease",
-      "capture": "sha256:daaf7b124c5107f1c098a822c8c0cf073a2fc7f83d5f88f40bed4db5de2344b7",
-      "quote": "When your lease ends, whether by cancellation, non-payment, or termination, the unit is wiped automatically and permanently."
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T10:11:14.897Z",
-  "notes": "A dedicated M6 Mac mini by the day, week or month at flat rates. SSH and screen sharing run over a private Tailscale network; no free trial is offered.",
-  "extras": {
-    "shape": {
-      "vcpu": null,
-      "ram_gib": 16,
-      "disk_gib": null,
-      "gpu_class": "Apple M6 integrated GPU",
-      "gpu_count": null
-    },
-    "billing_model": "one-time day or week pass",
-    "free_tier_kind": "none",
-    "network_out": {
-      "allow_outbound": true,
-      "static_ip": false,
-      "per_session_bytes": null
-    }
+ "topic": "compute",
+ "slug": "macrun",
+ "provider": "MacRun",
+ "url": "https://macrun.dev/pricing",
+ "category": "rented Mac (bare metal)",
+ "tier": "M6 GitHub Actions runner, monthly",
+ "free_tier": {
+  "stated": "No free tier: the dedicated M6 GitHub Actions runner is $139/mo with unlimited macOS build minutes and no meter, cancel anytime; a by-the-day rental of the same M6 is $15 for up to 6 days.",
+  "unit": "none",
+  "metered_on": "wall-clock",
+  "source_url": "https://macrun.dev/pricing",
+  "read_on": "2026-11-25",
+  "notes": "The provider list's $0.19 an hour is $139 a month divided by 730 hours. The agent plan on the same M6 is $169 a month. Annual billing is 10 months for 12."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a dedicated Mac mini with 16 GB memory and 256 GB storage, not an object; no per-artifact cap is published",
+  "source_url": "https://macrun.dev/pricing"
+ },
+ "retention": {
+  "stated": "the Mac is wiped when the time is up and the user can cancel anytime from the portal; no separate retention period for files left on the machine is stated",
+  "days": null,
+  "source_url": "https://macrun.dev/pricing"
+ },
+ "egress": {
+  "terms": "unverified: no egress allowance, data cap or price is stated on the pages read; the machine is in the vendor's own facility in New Jersey, United States",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://macrun.dev/pricing"
+ },
+ "interface": [
+  "ssh",
+  "git",
+  "browser"
+ ],
+ "interface_detail": "GitHub Actions ready via a registered self-hosted runner; GitLab, Bitbucket, Buildkite and Jenkins also work; a desktop session opens from a browser tab and SSH is enabled by accepting a Tailscale invite emailed to the user",
+ "tooling": "a GitHub Actions runner registered on the dedicated Mac with a config.sh command, Xcode selection and cache paths; the user installs and runs the runner agent on the rented Mac, which is the hosted offer",
+ "chaining": "the always-on M6 runs unlimited macOS builds as a self-hosted GitHub Actions runner with pinned Xcode and warm local SSD caches, and the same machine can be leased as an agent Mac; state that must outlive the lease belongs in a separate storage record.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "$139 a month for the M6 runner plan with unlimited macOS build minutes; no per-minute meter",
+   "source": "https://macrun.dev/pricing"
   }
+ ],
+ "limits_note": "the M4 runner is $119 a month and the M5 Pro runner $269 a month before a $199 build fee; the day rental is $15 for up to 6 days and the week rental is $59 for up to 4 weeks; prices are grandfathered.",
+ "binding": "volume-quota",
+ "binding_note": "the flat monthly price with an unlimited build-minute allowance is the only published ceiling; there is no per-minute or byte quota to bind first.",
+ "identity_cost": {
+  "kind": "card",
+  "detail": "the signup form asks for Name, Email and an optional GitHub org or repo URL, and states 'Secure checkout via Stripe. After payment we provision your machine and email you when it's ready.' The pricing page says pay by card and a full refund in the first 3 days on email request.",
+  "country": null
+ },
+ "reliability_note": "the machine is wiped when the lease ends; the vendor offers a full refund within the first 3 days by email and states a 3-day pre-order window, with live uptime on its status page",
+ "confidence": "documented",
+ "confidence_note": "prices, unlimited build minutes, hardware, signup fields and payment rail are quoted from first-party pages read on 2026-11-25; the signup fields were read but no rental was made.",
+ "evidence": [
+  {
+   "url": "https://macrun.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "the dedicated M6 GitHub Actions runner is USD 139 a month with unlimited macOS build minutes",
+   "capture": "sha256:da74f0b09d5e81ff883497d4f8aa15409c0566111c59965007efaa38d4c4f2d8",
+   "quote": "$139/mo"
+  },
+  {
+   "url": "https://macrun.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "the runner plan has unlimited macOS build minutes and no meter",
+   "capture": "sha256:da74f0b09d5e81ff883497d4f8aa15409c0566111c59965007efaa38d4c4f2d8",
+   "quote": "Unlimited macOS build minutes, no meter"
+  },
+  {
+   "url": "https://macrun.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "the same M6 can be rented for USD 15 a day or USD 59 a week without a subscription",
+   "capture": "sha256:da74f0b09d5e81ff883497d4f8aa15409c0566111c59965007efaa38d4c4f2d8",
+   "quote": "Rent the M6 by the day for $15, up to 6 days, or by the week for $59, up to 4 weeks."
+  },
+  {
+   "url": "https://macrun.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "the M6 runner has 16 GB memory and 256 GB storage",
+   "capture": "sha256:da74f0b09d5e81ff883497d4f8aa15409c0566111c59965007efaa38d4c4f2d8",
+   "quote": "| M6 | 16 GB · 256 GB | CI builds and cloud-model agents | Available now | $139/mo | $169/mo | none |"
+  },
+  {
+   "url": "https://macrun.dev/signup",
+   "date": "2026-11-25",
+   "proved": "signup asks for a name and email, with an optional GitHub org or repo URL, and payment is by Stripe",
+   "capture": "sha256:1e9cd02a414e4d7fbdcd87d26e5947268d9b9741588f07f29b28cb67203a8f24",
+   "quote": "Secure checkout via Stripe. After payment we provision your machine and email you when it's ready."
+  },
+  {
+   "url": "https://macrun.dev/cloud-mac",
+   "date": "2026-11-24",
+   "proved": "a day pass is USD 15 for 24 hours and a week is USD 59, paid once",
+   "capture": "sha256:632e58921c8dd68fa41bdb64e3eaab5a6cb5c894001deebb0fff3a5a70049644",
+   "quote": "A MacRun pass is $15 for 24 hours or $59 for a week, paid once."
+  },
+  {
+   "url": "https://macrun.dev/signup?term=day&n=1",
+   "date": "2026-11-24",
+   "proved": "the signup asks for a name, an email and an optional GitHub org or repo URL",
+   "capture": "sha256:cceac82cb01792440ccb2d12020f8951f5acafade49efc43b63b679c08a4ec28",
+   "quote": "Name\n\nEmail\n\nGitHub org or repo URL · optional"
+  },
+  {
+   "url": "https://macrun.dev/signup?term=day&n=1",
+   "date": "2026-11-24",
+   "proved": "checkout is a one-time Stripe payment with no subscription",
+   "capture": "sha256:cceac82cb01792440ccb2d12020f8951f5acafade49efc43b63b679c08a4ec28",
+   "quote": "Secure checkout via Stripe. One payment. No subscription, and nothing renews."
+  },
+  {
+   "url": "https://macrun.dev/rent-a-mac-mini",
+   "date": "2026-11-24",
+   "proved": "no free trial is offered",
+   "capture": "sha256:44c7d3f775b8fb189bb004c73e190ee2c2bd474651030b1cb0dd3449922c3bc2",
+   "quote": "You want a free trial. We do not offer one."
+  },
+  {
+   "url": "https://macrun.dev/cloud-mac",
+   "date": "2026-11-24",
+   "proved": "SSH is available only over a private Tailscale network with no public port",
+   "capture": "sha256:632e58921c8dd68fa41bdb64e3eaab5a6cb5c894001deebb0fff3a5a70049644",
+   "quote": "At MacRun, every Mac sits on a private Tailscale network. There is no public SSH port."
+  },
+  {
+   "url": "https://macrun.dev/rent-a-mac-for-a-day",
+   "date": "2026-11-24",
+   "proved": "SSH and screen sharing are the connection methods",
+   "capture": "sha256:82e283abe88537566796e021bbaf4593cc36a8dbe2aabc40b8442a079670f591",
+   "quote": "SSH and screen sharing over a private Tailscale network."
+  },
+  {
+   "url": "https://macrun.dev/",
+   "date": "2026-11-24",
+   "proved": "build minutes on the CI runner plan are unlimited with no meter",
+   "capture": "sha256:75f1ab387146930b558fb531e177ff2899ed77b1ac8de329668d230dbc0f9533",
+   "quote": "Unlimited macOS build minutes, no meter"
+  },
+  {
+   "url": "https://macrun.dev/legal/aup",
+   "date": "2026-11-24",
+   "proved": "egress is monitored in aggregate at the hub for abuse signatures",
+   "capture": "sha256:48f0c88895f4894fb40ea8bf937661e3195386f589812b8b003e8988190e9f87",
+   "quote": "We monitor aggregate network egress at the hub for abuse signatures such as bulk SMTP, mass-messaging patterns, anonymizing traffic, and scanning. Every unit reaches the internet through the same address."
+  },
+  {
+   "url": "https://macrun.dev/legal/terms",
+   "date": "2026-11-24",
+   "proved": "data is wiped at the end of the lease",
+   "capture": "sha256:daaf7b124c5107f1c098a822c8c0cf073a2fc7f83d5f88f40bed4db5de2344b7",
+   "quote": "When your lease ends, whether by cancellation, non-payment, or termination, the unit is wiped automatically and permanently."
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T02:12:34.858Z",
+ "price_per_tb_month": null,
+ "notes": "No free tier: the M6 GitHub Actions runner is USD 139 a month with unlimited build minutes, and a day rental is USD 15. The provider list's USD 0.19 an hour is USD 139 divided by 730 hours.",
+ "extras": {
+  "shape": {
+   "vcpu": null,
+   "ram_gib": 16,
+   "disk_gib": 256,
+   "gpu_class": "Apple M6",
+   "gpu_count": null,
+   "note": "dedicated M6 Mac mini in the vendor's facility in New Jersey, United States"
+  },
+  "billing_model": "flat monthly with unlimited build minutes; day and week rentals",
+  "free_tier_kind": "none",
+  "price_arithmetic": "USD 139 / 730 hours = USD 0.19 an hour",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "SSH via a Tailscale invite emailed to the user",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "cancel anytime; the box is wiped when the lease ends"
+  }
+ }
 }

@@ -74,10 +74,17 @@
       "url": "https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm",
       "date": "2026-10-23",
       "proved": "quoted: 'the first 1,500 OCPU hours and 9,000 GB hours per month ... equivalent to 2 OCPUs and 12 GB of memory'"
+    },
+    {
+      "url": "https://www.oracle.com/cloud/free/",
+      "date": "2026-11-25",
+      "proved": "Oracle Cloud Free Tier provides Always Free services and a Free Trial with US$300 of credit for up to 30 days",
+      "capture": "sha256:1fd6cec8ec20056d8ed3b3b48a040d303e3e21c7cff5495b79fa103578c87928",
+      "quote": "Oracle Cloud Free Tier allows you to sign up for an Oracle Cloud account which provides a number of Always Free services and a Free Trial with US$300 of free credit to use on all eligible Oracle Cloud Infrastructure services for up to 30 days."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-10-23T10:57:29.000Z",
+  "verified_at": "2026-11-25T11:17:43.852Z",
   "price_per_tb_month": null,
   "notes": "A1 bills at USD 0.01 per OCPU-hour plus USD 0.0015 per GB-hour; E4 at USD 0.025 and E5 at USD 0.03 per OCPU-hour. The trial service limit of 16 OCPU and 96 GB applies per availability domain, so the largest single A1 machine is 16/96 unless the limit is raised or a second AD is used. The trial page states the credit ends at 30 days or when consumed.",
   "extras": {

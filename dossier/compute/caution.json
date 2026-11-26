@@ -5,7 +5,7 @@
   "url": "https://caution.co/pricing.html",
   "category": "platform host",
   "free_tier": {
-    "stated": "no free tier published",
+    "stated": "**2 vCPU · 14 GiB**`m5.xlarge`$210/mo",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://caution.co/pricing.html",
@@ -63,10 +63,17 @@
       "url": "https://caution.co/pricing.html",
       "date": "2026-10-22",
       "proved": "'Caution supports reproducible enclave deployments on AWS Nitro, including verified deployments and a CLI-first workflow for Linux and macOS' and 'Book 20 minutes with one of our engineers'; the page publishes no self-serve plan and no price"
+    },
+    {
+      "url": "https://caution.co/pricing.html",
+      "date": "2026-11-25",
+      "proved": "the fully managed price list offers the 2 vCPU, 14 GiB m5.xlarge enclave at USD 210 per month, its cheapest paid plan",
+      "capture": "sha256:86d486dfa6f53aa336341a83341c810282afa4968f79ed04af28f55b8d359537",
+      "quote": "**2 vCPU · 14 GiB**`m5.xlarge`$210/mo"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:46:28.284Z",
+  "verified_at": "2026-11-25T05:18:26.644Z",
   "price_per_tb_month": null,
   "notes": " Reclassified: no free tier on the catalogue card is a paid-only product, not a closed one. `dead` is reserved for a product that is withdrawn or unreachable.",
   "extras": {

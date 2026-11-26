@@ -1,185 +1,217 @@
 {
-  "topic": "compute",
-  "slug": "offstage",
-  "provider": "offstage",
-  "url": "https://offstage.cloud/",
-  "category": "macOS sandbox",
-  "tier": "Sandbox on a Mac Studio M5 Max",
-  "free_tier": {
-    "stated": "$5.00 of free credit, no card needed; a new personal account gets $5 once per person, and organization teams get no additional signup credit. At $1.10 an hour the grant is about 4.5 hours of sandbox time.",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://offstage.cloud/docs/pricing.md",
-    "read_on": "2026-11-24",
-    "notes": "The credit is a one-time personal signup grant, not a recurring monthly allowance. It must cover the sandbox's reservation, which is its timeout at $1.10 an hour."
+ "topic": "compute",
+ "slug": "offstage",
+ "provider": "offstage",
+ "url": "https://offstage.cloud/",
+ "category": "sandbox",
+ "tier": "macOS sandbox on Mac Studio M5 Max ($5 one-time credit)",
+ "free_tier": {
+  "stated": "$5 in free credit, no credit card needed; the account starts with $5 in free credit and the user adds credit by card in the console when it runs out",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://offstage.cloud/",
+  "read_on": "2026-11-25",
+  "notes": "A one-time sign-up credit, at $1.10/hour about 4.5 hours of macOS sandbox time. No recurring free tier is published on the pricing or sign-up pages read."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a macOS sandbox on a Mac Studio M5 Max, not an object store",
+  "notes": "No per-file or disk cap is published on the pages read."
+ },
+ "retention": {
+  "stated": "unverified: no workspace-file retention period is stated on the pages read; sandboxes close after a job and the page shows per-team concurrency limits",
+  "days": null,
+  "source_url": "https://offstage.cloud/"
+ },
+ "egress": {
+  "terms": "not published as a per-GB price: usage is billed at $1.10 an hour by the second with no minimum; no outbound byte allowance or price per GB is stated on the pages read",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://offstage.cloud/"
+ },
+ "interface": [
+  "rest",
+  "cli"
+ ],
+ "interface_detail": "An API key created in the console, pasted into an agent such as Claude Code, Codex or Cursor; the page links a computer-use guide and a quickstart for direct API use. macOS sandboxes run Swift tests, Xcode and the iOS Simulator, and give an agent desktop control.",
+ "endpoint": "https://console.offstage.cloud/keys",
+ "tooling": "Console API keys, a documented API quickstart and agent integrations for Claude Code, Codex and Cursor; no rclone backend is relevant to a Mac desktop sandbox.",
+ "chaining": "The one-time $5 credit buys roughly 4.5 hours of a real Mac for computer-use, Xcode builds and iOS simulator tests; an agent pays for the sandbox from the account credit and queues for an available Mac when all are busy.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "4 open sandboxes and 4 running CI jobs per team; additional CI jobs queue",
+   "source": "https://offstage.cloud/"
   },
-  "per_object_cap": {
-    "stated": "a sandbox file write or read may be up to 2 GiB; task artifacts at most 32 names of 100 MiB each, with 256 MiB per task and 512 MiB per team stored",
-    "bytes": 2147483648,
-    "source_url": "https://offstage.cloud/docs/api/limits.md",
-    "notes": "2 GiB is the per-file cap, not a sandbox disk quota; sandbox disk is not stated as a separate number."
-  },
-  "retention": {
-    "stated": "A sandbox's files are wiped when it closes; task artifacts are kept 7 days after the task ends, recordings 7 days after the last picture or entry, ended task records 30 days, and snapshots expire after 30 days without a successful restore.",
-    "days": 7,
-    "source_url": "https://api.offstage.cloud/llms.txt",
-    "notes": "Days are the artifact and recording retention window. Sandbox home files do not survive closure; snapshots are the durable option."
-  },
-  "egress": {
-    "terms": "unverified: the pricing page, the public API guide and the docs index name no egress price or traffic quota; the sandbox API allows outbound internet use through the Mac, and a locally listening TCP server can be reachable outside the sandbox, but no included transfer volume or per-GB rate is published",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://api.offstage.cloud/llms.txt"
-  },
-  "interface": [
-    "rest",
-    "cli"
-  ],
-  "interface_detail": "Every call is JSON under https://api.offstage.cloud/v1 with a Bearer sk_offstage_ team API key; a JavaScript SDK installs from a versioned tarball, and GitHub Actions jobs use runs-on: offstage-macos. GUI sandboxes add screenshots, clicks, typing and computer-use goals.",
-  "endpoint": "https://api.offstage.cloud/v1",
-  "tooling": "npm install https://api.offstage.cloud/sdk/offstage-cloud-0.3.4.tgz; the JS SDK exposes Sandbox and Task. REST clients can call /v1 directly with a team key. The user installs and runs the SDK or CLI against the hosted Mac fleet.",
-  "chaining": "Hosted macOS sandboxes run Xcode builds, tests and computer-use agents and hand artifacts back over the API; a fleet slot is wiped between customers, so durable output must be downloaded or snapshotted.",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "120 requests a minute per team and 600 a minute per client address; sign-ups 5 an hour, sign-ins and verifications 20 a minute",
-      "source": "https://offstage.cloud/docs/api/limits.md"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "at most 4 tasks or CI jobs claimed or running per team, with 16 more queued; no fixed team limit on open sandboxes",
-      "source": "https://offstage.cloud/docs/pricing.md"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "a sandbox lives 15 minutes by default, never more than 24 hours from creation, and closes after 10 idle minutes by default",
-      "source": "https://offstage.cloud/docs/api/limits.md"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "a sandbox file write or read may be up to 2 GiB; 24 MiB of file writes held at once per team",
-      "source": "https://offstage.cloud/docs/api/limits.md"
-    }
-  ],
-  "limits_note": "Creating work reserves its worst case, its timeoutMs at $1.10 an hour, until it ends; a 24-hour sandbox reserves $26.40, more than the $5 signup credit, so work must fit in remaining credit or be refused with 402.",
-  "binding": "request-rate",
-  "binding_note": "The 120-requests-a-minute team ceiling is the first hard count reached by an agent driving a sandbox with many small calls; the credit reservation is a payment gate rather than a quota, and the 4-task concurrency cap only binds for CI workloads.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "Signup takes {email, password, name?} with a password of at least 10 characters, and emails a verification link; until the owner opens it the team cannot create sandboxes, tasks or API keys. The console also offers GitHub and Google sign-in through Clerk. No card is needed for the $5 signup credit; a card is added only later to buy more credit.",
-    "country": null
-  },
-  "reliability_note": "Macs queue sandboxes when no slot is ready and a pending sandbox closes as no-capacity after 15 minutes; a GUI pause or busy slot can refuse work, and a Mac that stops answering closes the sandbox as box-lost and bills only to the Mac's last answer. Files and processes are wiped when a slot closes.",
-  "confidence": "documented",
-  "confidence_note": "The rate, signup credit, limits, sign-up gate and retention windows are quoted from offstage.cloud's own pricing and docs pages and the api.offstage.cloud API guide read 2026-11-24. Egress terms are not published, so that field is unverified.",
-  "evidence": [
-    {
-      "url": "https://offstage.cloud/",
-      "date": "2026-11-24",
-      "proved": "the sandbox runs on a Mac Studio M5 Max at $1.10 an hour billed by the second with no minimum",
-      "capture": "sha256:2508a87cf7ddf25f94712fc05bbfbcd4dbe1e42cdf550e186b9550a22d84e8af",
-      "quote": "$1.10 an hour."
-    },
-    {
-      "url": "https://offstage.cloud/",
-      "date": "2026-11-24",
-      "proved": "billing is per second with no minimum and at most 4 CI jobs run per team with the rest queued",
-      "capture": "sha256:2508a87cf7ddf25f94712fc05bbfbcd4dbe1e42cdf550e186b9550a22d84e8af",
-      "quote": "Billed by the second. No minimum.\n\nSandboxes queue for available Macs. Up to 4 CI jobs run per team; additional jobs queue."
-    },
-    {
-      "url": "https://console.offstage.cloud/sign-up",
-      "date": "2026-11-24",
-      "proved": "the sign-up page shows $5 free credit with no card needed and social or email sign-in",
-      "capture": "sha256:44faa992750b7eddac34b226ea169b8da726b1d6baf3da53442476833db5ce29",
-      "quote": "Sign up with a social provider or your email.\n\nor\n\nAlready have an account? Sign in.\n\nBy signing up, you agree to the Terms and the Privacy policy. We'll send occasional product updates; unsubscribe anytime.\n\n$0.0183 a minute ($1.10 an hour), billed per second$5.00 of free credit, no card needed"
-    },
-    {
-      "url": "https://offstage.cloud/docs/pricing.md",
-      "date": "2026-11-24",
-      "proved": "a new personal account gets $5 in free credit with no credit card needed, and the team task and queue limits",
-      "capture": "sha256:9d4b3a54c04f0cd8f93832581d0c6ac5b5b2cb1b7306dedfa89a375cca576e7c",
-      "quote": "New personal accounts get \\$5 in free credit. No credit card is needed to use it. When it runs out, add credit by card in the console under **Billing**, or turn on auto-reload."
-    },
-    {
-      "url": "https://offstage.cloud/docs/pricing.md",
-      "date": "2026-11-24",
-      "proved": "there is no fixed team limit on open sandboxes and up to 4 tasks or CI jobs run per team with 16 queued",
-      "capture": "sha256:9d4b3a54c04f0cd8f93832581d0c6ac5b5b2cb1b7306dedfa89a375cca576e7c",
-      "quote": "There is no fixed team limit on open sandboxes. Sandboxes queue for available Macs and reserve credit for their requested lifetime. Up to 4 tasks or CI jobs run per team; 16 more can queue."
-    },
-    {
-      "url": "https://offstage.cloud/docs/api/limits.md",
-      "date": "2026-11-24",
-      "proved": "request rate, sandbox lifetime, idle timeout, file caps and concurrency limits",
-      "capture": "sha256:c151c96afc7ec4543673d48ef77cf72ec4f48402236060776ce093eb86ef39c1",
-      "quote": "| Requests per team | 120 a minute, whatever key or session |"
-    },
-    {
-      "url": "https://offstage.cloud/docs/api/limits.md",
-      "date": "2026-11-24",
-      "proved": "a sandbox lives 15 minutes by default, never more than 24 hours from creation, and closes after 10 idle minutes by default",
-      "capture": "sha256:c151c96afc7ec4543673d48ef77cf72ec4f48402236060776ce093eb86ef39c1",
-      "quote": "| Sandbox lifetime (`timeoutMs`) | 15 min by default. Never more than 24 h from creation, even with [Set the timeout](https://offstage.cloud/docs/api/sandboxes.md#set-the-timeout) |"
-    },
-    {
-      "url": "https://api.offstage.cloud/llms.txt",
-      "date": "2026-11-24",
-      "proved": "signup takes email and a password of at least 10 characters and emails a verification link before the team can create sandboxes or keys",
-      "capture": "sha256:94deeda65178f79022a8f74996ff3138f0f3420eae0f4380551c1db28c0393e7",
-      "quote": "`POST /v1/auth/signup` `{email, password, name?}` | `201 {user, team}`, and sets the session cookie. The password needs at least 10 characters. It emails a link that verifies the address: until the owner opens it, `team.verified` is false and creating a sandbox, task or key answers 403 `email-unverified`"
-    },
-    {
-      "url": "https://api.offstage.cloud/llms.txt",
-      "date": "2026-11-24",
-      "proved": "artifacts and recordings are kept 7 days and a 24-hour sandbox reserves $26.40, beyond the $5 signup credit",
-      "capture": "sha256:94deeda65178f79022a8f74996ff3138f0f3420eae0f4380551c1db28c0393e7",
-      "quote": "| A 24-hour sandbox | $26.40, more than the free credit |"
-    },
-    {
-      "url": "https://offstage.cloud/docs/api/pricing.md",
-      "date": "2026-11-24",
-      "proved": "the public price sheet gives per-hour, per-minute and per-second rates and a $5 free credit",
-      "capture": "sha256:ff43f237fff4e880171d7f68e1d63d535b9f13c2e94921ea7a83b6efab8f9af9",
-      "quote": "\"usdPerHour\": 1.1,"
-    },
-    {
-      "url": "https://offstage.cloud/docs/sandboxes.md",
-      "date": "2026-11-24",
-      "proved": "the user installs the hosted SDK and drives sandboxes over the API",
-      "capture": "sha256:a3de3ef77cad113fe37030507231dd9a7851547b2a16dad4580bdc14d7a059be",
-      "quote": "`Sandbox.create({ session?, timeoutMs?, idleTimeoutMs? })` | Makes a sandbox. `session` is `\"headless\"` (the default) or `\"gui\"`. It lives 15 minutes by default and never more than 24 hours; it closes after 10 idle minutes by default"
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.969Z",
-  "price_per_tb_month": null,
-  "notes": "A hosted macOS sandbox at $1.10 an hour with $5 of signup credit and no card. Work must fit in remaining credit because the timeout is reserved up front; egress terms are not published.",
-  "extras": {
-    "shape": {
-      "vcpu": null,
-      "ram_gib": null,
-      "disk_gib": null,
-      "gpu_class": "Apple silicon Mac Studio M5 Max",
-      "gpu_count": null,
-      "note": "one macOS user account on a fleet Mac per sandbox; the hardware and OS are documented on the vendor's pages, but vCPU, RAM and disk numbers are not stated"
-    },
-    "billing_model": "per-second prepaid credit with worst-case reservation",
-    "free_tier_kind": "signup-credit",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "a TCP server listening on localhost can be reachable outside the sandbox; the vendor advises a Unix socket or a token instead",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": 1440,
-      "idle_reap_s": 600,
-      "restart_required": false,
-      "note": "15 minutes by default, at most 24 hours from creation; 10 idle minutes by default"
-    }
+  {
+   "kind": "request-rate",
+   "value": "$1.10 an hour billed by the second with no minimum; $5 one-time free credit at sign-up",
+   "source": "https://offstage.cloud/"
   }
+ ],
+ "limits_note": "macOS 27, Xcode 27.2 and Apple silicon on a Mac Studio M5 Max; sandboxes queue for available Macs.",
+ "binding": "volume-quota",
+ "binding_note": "The one-time $5 credit runs out after about 4.5 billed hours, before the per-team four-sandbox concurrency cap is reached in ordinary use.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "The sign-up page reads 'Sign up with a social provider or your email'; no credit card is needed for the $5 free credit. No phone, ID document or institution is asked for on that page. ",
+  "country": null
+ },
+ "reliability_note": "Sandboxes queue for an available Mac and a team can run at most 4 open sandboxes and 4 CI jobs; additional CI jobs queue. The vendor states no matched build-speed benchmark against other Mac clouds.",
+ "confidence": "documented",
+ "confidence_note": "The $1.10/hour rate, per-second billing with no minimum, $5 no-card credit, per-team limits and the email-or-social sign-up gate are quoted from first-page and sign-up pages read on 2026-11-25.",
+ "evidence": [
+  {
+   "url": "https://offstage.cloud/",
+   "date": "2026-11-25",
+   "proved": "the macOS sandbox is $1.10 an hour billed by the second with no minimum",
+   "capture": "sha256:2508a87cf7ddf25f94712fc05bbfbcd4dbe1e42cdf550e186b9550a22d84e8af",
+   "quote": "$1.10 an hour."
+  },
+  {
+   "url": "https://offstage.cloud/",
+   "date": "2026-11-25",
+   "proved": "billing is per second with no minimum, and sandboxes queue for Macs with 4 CI jobs per team",
+   "capture": "sha256:2508a87cf7ddf25f94712fc05bbfbcd4dbe1e42cdf550e186b9550a22d84e8af",
+   "quote": "Billed by the second. No minimum."
+  },
+  {
+   "url": "https://offstage.cloud/",
+   "date": "2026-11-25",
+   "proved": "the account starts with $5 in free credit and needs no credit card",
+   "capture": "sha256:2508a87cf7ddf25f94712fc05bbfbcd4dbe1e42cdf550e186b9550a22d84e8af",
+   "quote": "$5 in free credit. No credit card needed."
+  },
+  {
+   "url": "https://offstage.cloud/",
+   "date": "2026-11-25",
+   "proved": "the sandbox runs on a Mac Studio M5 Max with macOS 27, Xcode 27.2 and Apple silicon",
+   "capture": "sha256:2508a87cf7ddf25f94712fc05bbfbcd4dbe1e42cdf550e186b9550a22d84e8af",
+   "quote": "Running on **Mac Studio M5 Max**"
+  },
+  {
+   "url": "https://offstage.cloud/",
+   "date": "2026-11-25",
+   "proved": "access uses an API key pasted into an agent such as Claude Code, Codex or Cursor",
+   "capture": "sha256:2508a87cf7ddf25f94712fc05bbfbcd4dbe1e42cdf550e186b9550a22d84e8af",
+   "quote": "Works with Claude Code, Codex and Cursor. Your agent will ask for the key."
+  },
+  {
+   "url": "https://console.offstage.cloud/sign-up",
+   "date": "2026-11-25",
+   "proved": "sign-up asks for a social provider or an email, and repeats the $5 no-card credit",
+   "capture": "sha256:44faa992750b7eddac34b226ea169b8da726b1d6baf3da53442476833db5ce29",
+   "quote": "Sign up with a social provider or your email."
+  },
+  {
+   "url": "https://offstage.cloud/",
+   "date": "2026-11-24",
+   "proved": "the sandbox runs on a Mac Studio M5 Max at $1.10 an hour billed by the second with no minimum",
+   "capture": "sha256:2508a87cf7ddf25f94712fc05bbfbcd4dbe1e42cdf550e186b9550a22d84e8af",
+   "quote": "$1.10 an hour."
+  },
+  {
+   "url": "https://offstage.cloud/",
+   "date": "2026-11-24",
+   "proved": "billing is per second with no minimum and at most 4 CI jobs run per team with the rest queued",
+   "capture": "sha256:2508a87cf7ddf25f94712fc05bbfbcd4dbe1e42cdf550e186b9550a22d84e8af",
+   "quote": "Billed by the second. No minimum.\n\nSandboxes queue for available Macs. Up to 4 CI jobs run per team; additional jobs queue."
+  },
+  {
+   "url": "https://console.offstage.cloud/sign-up",
+   "date": "2026-11-24",
+   "proved": "the sign-up page shows $5 free credit with no card needed and social or email sign-in",
+   "capture": "sha256:44faa992750b7eddac34b226ea169b8da726b1d6baf3da53442476833db5ce29",
+   "quote": "Sign up with a social provider or your email.\n\nor\n\nAlready have an account? Sign in.\n\nBy signing up, you agree to the Terms and the Privacy policy. We'll send occasional product updates; unsubscribe anytime.\n\n$0.0183 a minute ($1.10 an hour), billed per second$5.00 of free credit, no card needed"
+  },
+  {
+   "url": "https://offstage.cloud/docs/pricing.md",
+   "date": "2026-11-24",
+   "proved": "a new personal account gets $5 in free credit with no credit card needed, and the team task and queue limits",
+   "capture": "sha256:9d4b3a54c04f0cd8f93832581d0c6ac5b5b2cb1b7306dedfa89a375cca576e7c",
+   "quote": "New personal accounts get \\$5 in free credit. No credit card is needed to use it. When it runs out, add credit by card in the console under **Billing**, or turn on auto-reload."
+  },
+  {
+   "url": "https://offstage.cloud/docs/pricing.md",
+   "date": "2026-11-24",
+   "proved": "there is no fixed team limit on open sandboxes and up to 4 tasks or CI jobs run per team with 16 queued",
+   "capture": "sha256:9d4b3a54c04f0cd8f93832581d0c6ac5b5b2cb1b7306dedfa89a375cca576e7c",
+   "quote": "There is no fixed team limit on open sandboxes. Sandboxes queue for available Macs and reserve credit for their requested lifetime. Up to 4 tasks or CI jobs run per team; 16 more can queue."
+  },
+  {
+   "url": "https://offstage.cloud/docs/api/limits.md",
+   "date": "2026-11-24",
+   "proved": "request rate, sandbox lifetime, idle timeout, file caps and concurrency limits",
+   "capture": "sha256:c151c96afc7ec4543673d48ef77cf72ec4f48402236060776ce093eb86ef39c1",
+   "quote": "| Requests per team | 120 a minute, whatever key or session |"
+  },
+  {
+   "url": "https://offstage.cloud/docs/api/limits.md",
+   "date": "2026-11-24",
+   "proved": "a sandbox lives 15 minutes by default, never more than 24 hours from creation, and closes after 10 idle minutes by default",
+   "capture": "sha256:c151c96afc7ec4543673d48ef77cf72ec4f48402236060776ce093eb86ef39c1",
+   "quote": "| Sandbox lifetime (`timeoutMs`) | 15 min by default. Never more than 24 h from creation, even with [Set the timeout](https://offstage.cloud/docs/api/sandboxes.md#set-the-timeout) |"
+  },
+  {
+   "url": "https://api.offstage.cloud/llms.txt",
+   "date": "2026-11-24",
+   "proved": "signup takes email and a password of at least 10 characters and emails a verification link before the team can create sandboxes or keys",
+   "capture": "sha256:94deeda65178f79022a8f74996ff3138f0f3420eae0f4380551c1db28c0393e7",
+   "quote": "`POST /v1/auth/signup` `{email, password, name?}` | `201 {user, team}`, and sets the session cookie. The password needs at least 10 characters. It emails a link that verifies the address: until the owner opens it, `team.verified` is false and creating a sandbox, task or key answers 403 `email-unverified`"
+  },
+  {
+   "url": "https://api.offstage.cloud/llms.txt",
+   "date": "2026-11-24",
+   "proved": "artifacts and recordings are kept 7 days and a 24-hour sandbox reserves $26.40, beyond the $5 signup credit",
+   "capture": "sha256:94deeda65178f79022a8f74996ff3138f0f3420eae0f4380551c1db28c0393e7",
+   "quote": "| A 24-hour sandbox | $26.40, more than the free credit |"
+  },
+  {
+   "url": "https://offstage.cloud/docs/api/pricing.md",
+   "date": "2026-11-24",
+   "proved": "the public price sheet gives per-hour, per-minute and per-second rates and a $5 free credit",
+   "capture": "sha256:ff43f237fff4e880171d7f68e1d63d535b9f13c2e94921ea7a83b6efab8f9af9",
+   "quote": "\"usdPerHour\": 1.1,"
+  },
+  {
+   "url": "https://offstage.cloud/docs/sandboxes.md",
+   "date": "2026-11-24",
+   "proved": "the user installs the hosted SDK and drives sandboxes over the API",
+   "capture": "sha256:a3de3ef77cad113fe37030507231dd9a7851547b2a16dad4580bdc14d7a059be",
+   "quote": "`Sandbox.create({ session?, timeoutMs?, idleTimeoutMs? })` | Makes a sandbox. `session` is `\"headless\"` (the default) or `\"gui\"`. It lives 15 minutes by default and never more than 24 hours; it closes after 10 idle minutes by default"
+  }
+ ],
+ "verdict": "trial-only",
+ "verified_at": "2026-11-25T02:12:34.813Z",
+ "price_per_tb_month": null,
+ "notes": "Hosted macOS sandboxes on a Mac Studio M5 Max for computer-use agents and CI: $1.10/hour billed by the second, no minimum, $5 one-time credit with no card. About 4.5 hours of Mac time on the free credit. A comparison table on the page lists GitHub Actions, Scaleway, AWS EC2 Mac and Daytona with 24-hour minimums on the last three.",
+ "extras": {
+  "shape": {
+   "vcpu": null,
+   "ram_gib": null,
+   "disk_gib": null,
+   "gpu_class": "Apple silicon (Mac Studio M5 Max)",
+   "gpu_count": null,
+   "note": "a real Mac desktop with macOS 27 and Xcode 27.2; vCPU, RAM and disk are not published"
+  },
+  "billing_model": "per-second usage against prepaid credit with a one-minute-free minimum",
+  "free_tier_kind": "one-time credit",
+  "term": "no minimum rental period",
+  "price_arithmetic": "$5 / $1.10 per hour = about 4.5 hours of sandbox time",
+  "status": "hosted and priced",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": null,
+   "ports": "not stated",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "sandboxes queue for available Macs; 4 open sandboxes and 4 CI jobs per team"
+  }
+ }
 }

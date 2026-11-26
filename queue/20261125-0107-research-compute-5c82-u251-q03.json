@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u251-q03",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "For compute/anona-compute, does the rendered email field on the public sign-in page establish that a new account can be created with an email, given the page states 'No account yet? Access is by invitation. Join the waitlist.'?",
+ "why": "the audit judged 'email' unsupported by the docs; a fresh fetch reached the public sign-in page with an email field and email sign-in link, but invitation-only access means no public signup form was observed",
+ "scope": {
+  "rids": [
+   "compute/anona-compute"
+  ]
+ },
+ "origin": "20261125-0107-research-compute-5c82/u251",
+ "created": "2026-11-25T15:03:37Z"
+}

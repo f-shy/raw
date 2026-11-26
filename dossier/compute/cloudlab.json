@@ -5,7 +5,7 @@
   "url": "https://docs.cloudlab.us/users.html",
   "category": "GPU cloud",
   "free_tier": {
-    "stated": "CloudLab gives free bare-metal nodes with no allocation accounting at all: \"Registering doesn't cost anything, it's simply for accountability. We just ask that if you're going to use CloudLab for anything other than light use, you tell us a bit more about who you are.\" The Utah cluster alone is 9,336 cores across 1,000-plus nodes, including 28 nodes of 32-core AMD EPYC 7452 with 100Gb Ethernet and 36 nodes of 24-core EPYC 7402P with 25/100Gb links.",
+    "stated": "Registering doesn’t cost anything, it’s simply for accountability.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://docs.cloudlab.us/users.html",
@@ -79,10 +79,24 @@
       "url": "https://docs.cloudlab.us/hardware.html",
       "date": "2026-10-22",
       "proved": "the four GPU-capable d750 nodes are \"not available for general use. CloudLab staff will grant access to your project on request\", quoted"
+    },
+    {
+      "url": "https://docs.cloudlab.us/users.html",
+      "date": "2026-11-25",
+      "proved": "the page states that registering a CloudLab account costs nothing and is for accountability",
+      "capture": "sha256:4b75dc46da8f15bff785bd88790fcf67311b0d61c7cd055d90e2754117ce49d0",
+      "quote": "Registering doesn’t cost anything, it’s simply for accountability."
+    },
+    {
+      "url": "https://docs.cloudlab.us/users.html",
+      "date": "2026-11-25",
+      "proved": "the page states registration is free for accountability and that heavier use must be explained to staff",
+      "capture": "sha256:4b75dc46da8f15bff785bd88790fcf67311b0d61c7cd055d90e2754117ce49d0",
+      "quote": "Registering doesn’t cost anything, it’s simply for accountability. We just ask that if you’re going to use CloudLab for anything other than light use, you tell us a bit more about who you are and what you want to use CloudLab for."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:39.492Z",
   "notes": "Disk and RAM per node are not published on documentation pages and remain null.",
   "extras": {
     "wave2": {

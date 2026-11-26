@@ -1,189 +1,240 @@
 {
-  "topic": "compute",
-  "slug": "sandscale",
-  "provider": "Sandscale",
-  "url": "https://sandscale.dev/docs/reference/plans",
-  "category": "microVM sandbox",
-  "tier": "Free",
-  "free_tier": {
-    "stated": "Free is $0 with 100 awake vCPU-hours a month, 5 GB of storage, 3 boxes at once of up to 2 vCPU, sessions of up to 4 hours, an egress allowlist you control and one workspace that sleeps after 30 minutes idle. One Free account per person.",
-    "unit": "core-hours",
-    "metered_on": "wall-clock",
-    "source_url": "https://sandscale.dev/docs/reference/plans",
-    "read_on": "2026-11-24",
-    "notes": "The unit as published is an awake vCPU-hour: one vCPU running for one hour while the box is awake; paused and idle time between tool calls is free. No card is needed on Free, and included hours reset monthly. Each vCPU carries 4 GiB of memory at no extra charge."
+ "topic": "compute",
+ "slug": "sandscale",
+ "provider": "Sandscale",
+ "url": "https://sandscale.dev/pricing",
+ "category": "container and vm sandbox",
+ "tier": "Free",
+ "free_tier": {
+  "stated": "100 awake vCPU-hours a month on the Free plan, with up to 2 vCPU per box, 3 boxes running at once, 4 GiB of memory per vCPU, 5 GB of storage and one workspace that sleeps after 30 minutes idle; paused and idle time between tool calls is not billed, hours reset monthly and do not roll over, and Free is one per person. Sessions run up to 4 h. On Free, new boxes wait until next month when the hours run out.",
+  "unit": "core-hours",
+  "metered_on": "wall-clock",
+  "source_url": "https://sandscale.dev/pricing",
+  "read_on": "2026-11-25",
+  "notes": "The unit is awake vCPU-hours: a 2 vCPU box open 10 hours but awake 10% of the time uses 2 awake vCPU-hours. The headline $0.10/h in the operator list is the marginal rate beyond the included hours on paid plans ($0.05 per awake vCPU-hour, or $10 per 500-hour pack), not the Free price."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the metered unit is an awake vCPU-hour on a microVM, not a stored object; the Free plan includes 5 GB of storage for disks, snapshots, templates and objects together",
+  "source_url": "https://sandscale.dev/pricing"
+ },
+ "retention": {
+  "stated": "A persistent workspace is included and sleeps when idle; the vendor does not state a day count for retention of a stopped sandbox. Unverified: retention period not stated on the pricing page.",
+  "days": null,
+  "source_url": "https://sandscale.dev/pricing"
+ },
+ "egress": {
+  "terms": "Network access follows the plan and the organization's policy, with an egress allowlist the user controls; the pricing page states no egress volume allowance or per-GB price.",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://sandscale.dev/pricing"
+ },
+ "interface": [
+  "rest",
+  "cli",
+  "ssh",
+  "browser",
+  "chat"
+ ],
+ "interface_detail": "A REST API at api.sandscale.dev, a TypeScript SDK, a CLI, MCP tools for agents, SSH into workspaces, and a dashboard; sandboxes are Firecracker microVMs.",
+ "endpoint": "https://api.sandscale.dev",
+ "tooling": "The user installs and runs the Sandscale CLI or calls the REST API from an agent; TypeScript SDK and MCP tools are provided.",
+ "chaining": "100 free awake vCPU-hours a month of Firecracker microVMs can run agent code that calls other records' inference or data APIs, with a separate object-storage record for artifacts that must outlive a sandbox.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "100 awake vCPU-hours a month on Free; on paid plans usage beyond included hours is $0.05 per awake vCPU-hour or $10 per 500 awake vCPU-hours",
+   "source": "https://sandscale.dev/pricing"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a microVM with a total storage allowance, and no single-object size cap is published",
-    "bytes": null,
-    "source_url": "https://sandscale.dev/docs/reference/plans",
-    "notes": "The Free allowance is 5 GB total storage across disks, snapshots, templates and objects; storage above the allowance is not available on Free."
-  },
-  "retention": {
-    "stated": "A sandbox keeps its files until stopped; pausing keeps memory and files and resuming restores them. A Free workspace sleeps after 30 minutes idle. The plans reference states 5 GB of included storage on Free; no separate day count for automatic deletion is published.",
-    "days": null,
-    "source_url": "https://sandscale.dev/docs/concepts/sandboxes",
-    "notes": "Sandbox files survive stops and pauses; snapshots use the storage allowance. Unverified: any automatic retention window for snapshots or stopped boxes."
-  },
-  "egress": {
-    "terms": "On Free, network access is by an egress allowlist the customer controls: 'A sandbox can reach only what your organization's egress allowlist allows.' Pro and up can choose open access or an allowlist. Ports are reached through an authenticated tunnel only; there are no public URLs. No per-GB egress price is published.",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://sandscale.dev/docs/concepts/sandboxes"
-  },
-  "interface": [
-    "rest",
-    "cli",
-    "chat",
-    "s3"
-  ],
-  "interface_detail": "A REST API at api.sandscale.dev with a personal API key, a sandscale CLI, TypeScript and Python SDKs, a remote MCP server at https://mcp.sandscale.dev/mcp, and SSH into a box with a short-lived certificate. Object storage is S3-compatible with an S3 endpoint and access keys.",
-  "endpoint": "https://api.sandscale.dev",
-  "tooling": "npm i @sandscale/sdk or pip install sandscale for the SDKs; the sandscale CLI, the hosted MCP server at https://mcp.sandscale.dev/mcp, SSH with a short-lived certificate, and standard S3 tools for object storage.",
-  "chaining": "Firecracker microVMs for agent code with paused/idle time free, Vault for secrets and S3-compatible storage, so short agent runs bill only for awake vCPU-hours and can keep artifacts after the box stops.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "100 awake vCPU-hours a month on Free; paid overage not available on Free, so new boxes wait until next month",
-      "source": "https://sandscale.dev/docs/reference/plans"
-    },
-    {
-      "kind": "request-rate",
-      "value": "API endpoints are rate limited with HTTP 429 and Retry-After on rate_limited; MCP allows 120 calls a minute per app and 60 a minute per person",
-      "source": "https://sandscale.dev/llms-full.txt"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "Free sessions last up to 4 hours; one workspace sleeps after 30 minutes idle; 3 boxes at once, up to 2 vCPU each",
-      "source": "https://sandscale.dev/llms-full.txt"
-    },
-    {
-      "kind": "write-gated",
-      "value": "the Free egress allowlist is customer-controlled, and changing a policy or widening a network reach may require confirmation with a passkey, authenticator app or emailed code",
-      "source": "https://sandscale.dev/llms-full.txt"
-    }
-  ],
-  "limits_note": "Plans set boxes at once, vCPU per box, build-host lease hours, storage and monthly vCPU-hours; a request that would exceed a quota is refused before anything starts with quota_exceeded (402 or 429). Memory above 4 GiB per vCPU counts as extra vCPU-hours: every 4 GiB-hours of extra memory is 1 vCPU-hour.",
-  "binding": "volume-quota",
-  "binding_note": "The 100 awake vCPU-hours a month is the first constraint on Free: it is metered only while a box is awake, and when it is used up, new boxes wait until the next month because overage is not available on Free. The 3-box concurrency and 4-hour session cap are smaller but secondary.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The signup form at cloud.sandscale.dev asks for Full name, Work email and Password, and requires acceptance of the terms. The page states: 'Verify your email address before you start sandboxes and workspaces. Unverified accounts are removed after 7 days.' One Free account per person; accounts linked by the same card, device or GitHub account share one Free allowance. No card is needed for Free; Pro and up need a payment method. Passkeys and multi-factor sign-in are available on every plan; no phone number or ID document is named.",
-    "country": null
-  },
-  "reliability_note": "Quota overruns are refused before a box starts with quota_exceeded; MCP tool calls are capped at 120 a minute per app and 60 a minute per person. A 402 payment_required stops new spend on paid plans while reads keep working. Unverified accounts are removed after 7 days.",
-  "confidence": "documented",
-  "confidence_note": "The vendor's own plans reference, FAQ, concepts, API limits, security and quickstart pages and the console signup form were read on 2026-11-24. The live signup and verification steps are known only from the published form text.",
-  "evidence": [
-    {
-      "url": "https://sandscale.dev/docs/reference/plans",
-      "date": "2026-11-24",
-      "proved": "the Free plan includes 100 awake vCPU-hours a month, 3 boxes at once, up to 2 vCPU and 5 GB of storage",
-      "capture": "sha256:5fafe7b7c9b8c58e8aa83fd5e332cc8548b75967c61568523ef6b771e31941fb",
-      "quote": "| **Included awake vCPU-hours a month** | 100 | 1,500 | 2,000 per member | Custom |"
-    },
-    {
-      "url": "https://sandscale.dev/docs/reference/plans",
-      "date": "2026-11-24",
-      "proved": "the Free tier price is $0 and boxes at once, vCPU per box and included storage are 3, up to 2, and 5 GB",
-      "capture": "sha256:5fafe7b7c9b8c58e8aa83fd5e332cc8548b75967c61568523ef6b771e31941fb",
-      "quote": "| **Price** | $0 | $20 a month billed annually, $25 monthly | $40 a month billed annually, $48 monthly, per member | Custom |"
-    },
-    {
-      "url": "https://sandscale.dev/llms-full.txt",
-      "date": "2026-11-24",
-      "proved": "the full free-tier statement including 4-hour sessions, egress allowlist and one workspace",
-      "capture": "sha256:121dd672bd471ef19e234f26580f6bdf4b179938fc3a0a2def9ec2e1c1901ae5",
-      "quote": "Yes. Free is $0 with 100 awake vCPU-hours a month, 5 GB of storage, 3 boxes at once of up to 2 vCPU, sessions of up to 4 hours, an egress allowlist you control and one workspace that sleeps after 30 minutes idle. One Free account per person."
-    },
-    {
-      "url": "https://sandscale.dev/llms-full.txt",
-      "date": "2026-11-24",
-      "proved": "an awake vCPU-hour counts only awake time; paused and idle time are free",
-      "capture": "sha256:121dd672bd471ef19e234f26580f6bdf4b179938fc3a0a2def9ec2e1c1901ae5",
-      "quote": "One vCPU running for one hour while the box is awake. Paused and idle time between tool calls is free: a 2 vCPU agent box open for 10 hours and awake 10% of the time uses 2 awake vCPU-hours."
-    },
-    {
-      "url": "https://sandscale.dev/llms-full.txt",
-      "date": "2026-11-24",
-      "proved": "Free has no overage and new boxes wait until next month when hours run out",
-      "capture": "sha256:121dd672bd471ef19e234f26580f6bdf4b179938fc3a0a2def9ec2e1c1901ae5",
-      "quote": "On Free, new boxes wait until next month. On paid plans you choose: turn usage beyond your included hours on at $0.05 per awake vCPU-hour, buy an hour pack of 500 hours for $10, or keep it off and new boxes wait for next month. A running box is never stopped because the hours ran out."
-    },
-    {
-      "url": "https://sandscale.dev/llms-full.txt",
-      "date": "2026-11-24",
-      "proved": "on Free, egress is restricted to a customer-controlled allowlist and ports use authenticated tunnels only",
-      "capture": "sha256:121dd672bd471ef19e234f26580f6bdf4b179938fc3a0a2def9ec2e1c1901ae5",
-      "quote": "Only what you allow. Network access follows your plan and your organization's policy, and you choose what it may reach with an egress allowlist you control."
-    },
-    {
-      "url": "https://sandscale.dev/docs/concepts/sandboxes",
-      "date": "2026-11-24",
-      "proved": "a sandbox is a Firecracker microVM with its own kernel and network set by the allowlist",
-      "capture": "sha256:079b24e313f41e63d367b9235b462584187904bcb52181fde32fb343cd9179e4",
-      "quote": "A sandbox can reach only what your organization's egress allowlist allows."
-    },
-    {
-      "url": "https://sandscale.dev/llms-full.txt",
-      "date": "2026-11-24",
-      "proved": "MCP tool calls are capped at 120 a minute per app and 60 a minute per person",
-      "capture": "sha256:121dd672bd471ef19e234f26580f6bdf4b179938fc3a0a2def9ec2e1c1901ae5",
-      "quote": "- Run without limits. Each app can make up to 120 calls a minute, and each person up to 60."
-    },
-    {
-      "url": "https://sandscale.dev/llms-full.txt",
-      "date": "2026-11-24",
-      "proved": "sensitive changes require confirmation with a passkey, authenticator app or emailed code",
-      "capture": "sha256:121dd672bd471ef19e234f26580f6bdf4b179938fc3a0a2def9ec2e1c1901ae5",
-      "quote": "Some changes, such as rotating a key, widening a policy or changing who may use an agent account, ask you to confirm it is you with a passkey, an authenticator app or an emailed code."
-    },
-    {
-      "url": "https://cloud.sandscale.dev/auth/signup",
-      "date": "2026-11-24",
-      "proved": "the signup form asks for full name, work email and password and requires email verification",
-      "capture": "sha256:08a69c6f7dfb2a242933e316747425d782f3fe82054d4dc1e19a53c80a4c1fb5",
-      "quote": "Your Sandscale account starts on the Free plan. Verify your email address before you start sandboxes and workspaces. Unverified accounts are removed after 7 days."
-    },
-    {
-      "url": "https://sandscale.dev/llms-full.txt",
-      "date": "2026-11-24",
-      "proved": "signup offers a Free plan without a payment method; Pro requires one",
-      "capture": "sha256:121dd672bd471ef19e234f26580f6bdf4b179938fc3a0a2def9ec2e1c1901ae5",
-      "quote": "[Sign up at cloud.sandscale.dev](https://cloud.sandscale.dev/auth/signup). Your Sandscale account is its own login, with passkeys and organizations, and you start on the Free plan: 100 awake vCPU-hours a month, 3 boxes at once, up to 2 vCPU per box. Pro and up need a payment method and allow larger sizes."
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:15.057Z",
-  "price_per_tb_month": null,
-  "notes": "Hosted Firecracker microVMs with a real free tier: 100 awake vCPU-hours a month, 3 boxes at once up to 2 vCPU, 5 GB storage, 4-hour sessions and a customer-controlled egress allowlist. Idle and paused time are free; on Free, hours cannot be bought and new boxes wait until next month. Self-hosted and bring-your-own-cloud deployments exist only on Enterprise and are not the offer priced here.",
-  "extras": {
-    "shape": {
-      "vcpu": 2,
-      "ram_gib": 8,
-      "disk_gib": null,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "Free allows up to 2 vCPU per box with 4 GiB of memory per vCPU included; total storage allowance is 5 GB across disks, snapshots, templates and objects"
-    },
-    "billing_model": "monthly allowance of awake vCPU-hours; idle and paused time free; paid plans offer overage at USD 0.05 per awake vCPU-hour or 500-hour packs for USD 10",
-    "free_tier_kind": "recurring-allowance",
-    "term": "monthly, hours reset every month",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": false,
-      "ports": "ports reached through an authenticated tunnel only; no public URLs; Free requires an egress allowlist",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": 240,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "Free sessions up to 4 hours; one workspace sleeps after 30 minutes idle; 3 boxes at once"
-    },
-    "identity_gate_unverified": "no account was created; the live email-verification and passkey steps are unverified beyond the signup form text"
+  {
+   "kind": "request-rate",
+   "value": "Up to 3 boxes running at once on Free; up to 2 vCPU per box, 4 GiB per vCPU included; session length up to 4 h",
+   "source": "https://sandscale.dev/pricing"
   }
+ ],
+ "limits_note": "Free adds one workspace, 5 GB of storage and first 10 GB of snapshots and templates free; enterprise self-hosted or bring-your-own-cloud deployments are listed but are not the hosted offer priced here.",
+ "binding": "volume-quota",
+ "binding_note": "The 100 included awake vCPU-hours run out before the 3-box or 4-hour session cap for a sustained user; on Free, new boxes then wait until next month.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "The sign-up form asks for Full name, Work email and Password with acceptance of the terms; the page says 'Verify your email address before you start sandboxes and workspaces. Unverified accounts are removed after 7 days.' A card is asked only for paid plans, which are billed 'by card through Stripe'.",
+  "country": null
+ },
+ "reliability_note": "Paid usage beyond included hours is off by default; on Free, new boxes wait until next month rather than stopping a running box. No written SLA is published for Free, and hours do not carry over.",
+ "confidence": "documented",
+ "confidence_note": "The quota, hours-reset, concurrency, overage price and account fields are quoted from the first-party pricing page read on 2026-11-25, and the sign-up fields from the first-party sign-up page read the same day. Egress volume and retention periods are not stated, so those fields stay unverified rather than guessed.",
+ "evidence": [
+  {
+   "url": "https://sandscale.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "Free is $0 a month with 100 awake vCPU-hours, 3 boxes at once, 5 GB of storage and one workspace",
+   "capture": "sha256:090a6f0398360daa3cf80e8c815c053fe8818902a4bf36e5b495e03a7ba38e05",
+   "quote": "Free\n\nfor trying it out\n\n$0/month\n\n100 awake vCPU-hours · 3 at once · 5 GB storage · One workspace"
+  },
+  {
+   "url": "https://sandscale.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "usage beyond included hours costs $0.05 per awake vCPU-hour on paid plans",
+   "capture": "sha256:090a6f0398360daa3cf80e8c815c053fe8818902a4bf36e5b495e03a7ba38e05",
+   "quote": "Usage beyond your hours | No | $0.05 per awake vCPU-hour, on or off | $0.05 per awake vCPU-hour, on or off | Per agreement"
+  },
+  {
+   "url": "https://sandscale.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "awake vCPU-hours count only awake vCPU time, not wall-clock the box is open",
+   "capture": "sha256:090a6f0398360daa3cf80e8c815c053fe8818902a4bf36e5b495e03a7ba38e05",
+   "quote": "A 2 vCPU agent box open for 10 hours and awake 10% of the time uses 2 awake vCPU-hours."
+  },
+  {
+   "url": "https://sandscale.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "included hours reset monthly and do not roll over",
+   "capture": "sha256:090a6f0398360daa3cf80e8c815c053fe8818902a4bf36e5b495e03a7ba38e05",
+   "quote": "No. Included hours reset every month."
+  },
+  {
+   "url": "https://sandscale.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "Free is one per person and linked accounts share the one allowance",
+   "capture": "sha256:090a6f0398360daa3cf80e8c815c053fe8818902a4bf36e5b495e03a7ba38e05",
+   "quote": "No. Free is one per person: accounts linked by the same card, device or GitHub account share one Free allowance."
+  },
+  {
+   "url": "https://sandscale.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "paid plans are subscribed by card",
+   "capture": "sha256:090a6f0398360daa3cf80e8c815c053fe8818902a4bf36e5b495e03a7ba38e05",
+   "quote": "A monthly or yearly subscription in US dollars, by card through Stripe, with invoices and tax. There are no prepaid credits and no pay as you go."
+  },
+  {
+   "url": "https://cloud.sandscale.dev/auth/signup",
+   "date": "2026-11-25",
+   "proved": "the sign-up form asks for full name, work email and a password",
+   "capture": "sha256:c94a8445c88b7df70b04a54b0cf44245e2769abc65aa4ba6624d7f2f2beda1b7",
+   "quote": "Full name\n\nWork email\n\nPassword"
+  },
+  {
+   "url": "https://cloud.sandscale.dev/auth/signup",
+   "date": "2026-11-25",
+   "proved": "email verification is required before starting sandboxes, and unverified accounts are removed after 7 days",
+   "capture": "sha256:c94a8445c88b7df70b04a54b0cf44245e2769abc65aa4ba6624d7f2f2beda1b7",
+   "quote": "Verify your email address before you start sandboxes and workspaces. Unverified accounts are removed after 7 days."
+  },
+  {
+   "url": "https://sandscale.dev/docs/reference/plans",
+   "date": "2026-11-24",
+   "proved": "the Free plan includes 100 awake vCPU-hours a month, 3 boxes at once, up to 2 vCPU and 5 GB of storage",
+   "capture": "sha256:5fafe7b7c9b8c58e8aa83fd5e332cc8548b75967c61568523ef6b771e31941fb",
+   "quote": "| **Included awake vCPU-hours a month** | 100 | 1,500 | 2,000 per member | Custom |"
+  },
+  {
+   "url": "https://sandscale.dev/docs/reference/plans",
+   "date": "2026-11-24",
+   "proved": "the Free tier price is $0 and boxes at once, vCPU per box and included storage are 3, up to 2, and 5 GB",
+   "capture": "sha256:5fafe7b7c9b8c58e8aa83fd5e332cc8548b75967c61568523ef6b771e31941fb",
+   "quote": "| **Price** | $0 | $20 a month billed annually, $25 monthly | $40 a month billed annually, $48 monthly, per member | Custom |"
+  },
+  {
+   "url": "https://sandscale.dev/llms-full.txt",
+   "date": "2026-11-24",
+   "proved": "the full free-tier statement including 4-hour sessions, egress allowlist and one workspace",
+   "capture": "sha256:121dd672bd471ef19e234f26580f6bdf4b179938fc3a0a2def9ec2e1c1901ae5",
+   "quote": "Yes. Free is $0 with 100 awake vCPU-hours a month, 5 GB of storage, 3 boxes at once of up to 2 vCPU, sessions of up to 4 hours, an egress allowlist you control and one workspace that sleeps after 30 minutes idle. One Free account per person."
+  },
+  {
+   "url": "https://sandscale.dev/llms-full.txt",
+   "date": "2026-11-24",
+   "proved": "an awake vCPU-hour counts only awake time; paused and idle time are free",
+   "capture": "sha256:121dd672bd471ef19e234f26580f6bdf4b179938fc3a0a2def9ec2e1c1901ae5",
+   "quote": "One vCPU running for one hour while the box is awake. Paused and idle time between tool calls is free: a 2 vCPU agent box open for 10 hours and awake 10% of the time uses 2 awake vCPU-hours."
+  },
+  {
+   "url": "https://sandscale.dev/llms-full.txt",
+   "date": "2026-11-24",
+   "proved": "Free has no overage and new boxes wait until next month when hours run out",
+   "capture": "sha256:121dd672bd471ef19e234f26580f6bdf4b179938fc3a0a2def9ec2e1c1901ae5",
+   "quote": "On Free, new boxes wait until next month. On paid plans you choose: turn usage beyond your included hours on at $0.05 per awake vCPU-hour, buy an hour pack of 500 hours for $10, or keep it off and new boxes wait for next month. A running box is never stopped because the hours ran out."
+  },
+  {
+   "url": "https://sandscale.dev/llms-full.txt",
+   "date": "2026-11-24",
+   "proved": "on Free, egress is restricted to a customer-controlled allowlist and ports use authenticated tunnels only",
+   "capture": "sha256:121dd672bd471ef19e234f26580f6bdf4b179938fc3a0a2def9ec2e1c1901ae5",
+   "quote": "Only what you allow. Network access follows your plan and your organization's policy, and you choose what it may reach with an egress allowlist you control."
+  },
+  {
+   "url": "https://sandscale.dev/docs/concepts/sandboxes",
+   "date": "2026-11-24",
+   "proved": "a sandbox is a Firecracker microVM with its own kernel and network set by the allowlist",
+   "capture": "sha256:079b24e313f41e63d367b9235b462584187904bcb52181fde32fb343cd9179e4",
+   "quote": "A sandbox can reach only what your organization's egress allowlist allows."
+  },
+  {
+   "url": "https://sandscale.dev/llms-full.txt",
+   "date": "2026-11-24",
+   "proved": "MCP tool calls are capped at 120 a minute per app and 60 a minute per person",
+   "capture": "sha256:121dd672bd471ef19e234f26580f6bdf4b179938fc3a0a2def9ec2e1c1901ae5",
+   "quote": "- Run without limits. Each app can make up to 120 calls a minute, and each person up to 60."
+  },
+  {
+   "url": "https://sandscale.dev/llms-full.txt",
+   "date": "2026-11-24",
+   "proved": "sensitive changes require confirmation with a passkey, authenticator app or emailed code",
+   "capture": "sha256:121dd672bd471ef19e234f26580f6bdf4b179938fc3a0a2def9ec2e1c1901ae5",
+   "quote": "Some changes, such as rotating a key, widening a policy or changing who may use an agent account, ask you to confirm it is you with a passkey, an authenticator app or an emailed code."
+  },
+  {
+   "url": "https://cloud.sandscale.dev/auth/signup",
+   "date": "2026-11-24",
+   "proved": "the signup form asks for full name, work email and password and requires email verification",
+   "capture": "sha256:08a69c6f7dfb2a242933e316747425d782f3fe82054d4dc1e19a53c80a4c1fb5",
+   "quote": "Your Sandscale account starts on the Free plan. Verify your email address before you start sandboxes and workspaces. Unverified accounts are removed after 7 days."
+  },
+  {
+   "url": "https://sandscale.dev/llms-full.txt",
+   "date": "2026-11-24",
+   "proved": "signup offers a Free plan without a payment method; Pro requires one",
+   "capture": "sha256:121dd672bd471ef19e234f26580f6bdf4b179938fc3a0a2def9ec2e1c1901ae5",
+   "quote": "[Sign up at cloud.sandscale.dev](https://cloud.sandscale.dev/auth/signup). Your Sandscale account is its own login, with passkeys and organizations, and you start on the Free plan: 100 awake vCPU-hours a month, 3 boxes at once, up to 2 vCPU per box. Pro and up need a payment method and allow larger sizes."
+  },
+  {
+   "url": "https://sandscale.dev/llms-full.txt",
+   "date": "2026-11-24",
+   "proved": "the page establishes the offer and its constraints but no public read path was probed, so the verdict keeps its caveat",
+   "capture": "sha256:121dd672bd471ef19e234f26580f6bdf4b179938fc3a0a2def9ec2e1c1901ae5",
+   "quote": "[Sign up at cloud.sandscale.dev](https://cloud.sandscale.dev/auth/signup). Your Sandscale account is its own l"
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T11:55:06.371Z",
+ "price_per_tb_month": null,
+ "notes": "Hosted Firecracker microVMs with a real free tier: 100 awake vCPU-hours a month, 3 boxes at once up to 2 vCPU, 5 GB storage, 4-hour sessions and a customer-controlled egress allowlist. Idle and paused time are free; on Free, hours cannot be bought and new boxes wait until next month. Self-hosted and bring-your-own-cloud deployments exist only on Enterprise and are not the offer priced here.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 8,
+   "disk_gib": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "Free allows up to 2 vCPU per box with 4 GiB of memory per vCPU included; total storage allowance is 5 GB across disks, snapshots, templates and objects"
+  },
+  "billing_model": "monthly allowance of awake vCPU-hours; idle and paused time free; paid plans offer overage at USD 0.05 per awake vCPU-hour or 500-hour packs for USD 10",
+  "free_tier_kind": "recurring-allowance",
+  "term": "monthly, hours reset every month",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": false,
+   "ports": "ports reached through an authenticated tunnel only; no public URLs; Free requires an egress allowlist",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": 240,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "Free sessions up to 4 hours; one workspace sleeps after 30 minutes idle; 3 boxes at once"
+  },
+  "identity_gate_unverified": "no account was created; the live email-verification and passkey steps are unverified beyond the signup form text"
+ }
 }

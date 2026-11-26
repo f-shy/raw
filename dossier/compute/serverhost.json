@@ -5,7 +5,7 @@
   "url": "https://serverhost.com/sale/2026/serverhost-fb-ad-june.html",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "Starter 2GB VPS at USD 16.99/year (USD 1.42/month): 1 Intel Xeon core at 2.0 GHz or faster, 2 GB guaranteed memory, 30 GB NVMe, unmetered bandwidth on a 1 Gbps shared port, Linux SSH and root. The 8 GB plan is USD 59.99/year with 2 cores and 60 GB NVMe; the 16 GB plan is USD 111.11/year with 4 cores and 240 GB NVMe. All plans carry a promo code and annual billing.",
+    "stated": "Starter 2GB VPS at USD 16.99/year: 1 Intel Xeon Core @ 2.0GHz+, 2 GB guaranteed memory, 30 GB NVMe, unmetered bandwidth on a 1Gbps shared network port, and Linux SSH/root access. The 8 GB plan is USD 59.99/year with 4 Intel Xeon cores @ 2.0GHz+, 8 GB guaranteed memory and 120 GB NVMe; the 16 GB plan is USD 111.11/year with 4 Intel Xeon cores @ 2.0GHz+, 16 GB guaranteed memory and 240 GB NVMe. The page states that these are annual VPS promo prices.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://serverhost.com/sale/2026/serverhost-fb-ad-june.html",
@@ -79,10 +79,24 @@
       "url": "https://www.serverhost.com/",
       "date": "2026-10-22",
       "proved": "the meta description states 'High-performance unmetered VPS hosting from $3/mo. Ryzen/i9 and Xeon plans on pure NVMe with full root, 1 Gbps unmetered bandwidth and a 99.99% SLA across 7 global locations.'"
+    },
+    {
+      "url": "https://serverhost.com/sale/2026/serverhost-fb-ad-june.html",
+      "date": "2026-11-25",
+      "proved": "the starter annual promo price and specs, the 8 GB and 16 GB annual promo prices and specs, and the annual billing statement are stated on the sale page",
+      "capture": "sha256:e4391d52831a122f9601eb2bef00061b0e92e2fafdc319888d6386c505037e35",
+      "quote": "2 GB KVM VPS $16.99 /year * 1 Intel Xeon Core @ 2.0GHz+ * 2 GB Guaranteed Memory * 30 GB NVMe * Unmetered Bandwidth * 1Gbps Shared Network Port * Linux SSH / Root Access ... ⭐ Best Value 8 GB KVM VPS $59.99 /year * 4 Intel Xeon Cores @ 2.0GHz+ * 8 GB Guaranteed Memory * 120 GB NVMe ... Power Plan 16 GB KVM VPS $111.11 /year * 4 Intel Xeon Cores @ 2.0GHz+ * 16 GB Guaranteed Memory * 240 GB NVMe ... Yes. These are annual VPS promo prices for the June sale."
+    },
+    {
+      "url": "https://serverhost.com/sale/2026/serverhost-fb-ad-june.html",
+      "date": "2026-11-25",
+      "proved": "the captured sale page still states the starter, 8 GB and 16 GB annual promo prices and their specs",
+      "capture": "sha256:e4391d52831a122f9601eb2bef00061b0e92e2fafdc319888d6386c505037e35",
+      "quote": "2 GB KVM VPS $16.99 /year * 1 Intel Xeon Core @ 2.0GHz+ * 2 GB Guaranteed Memory * 30 GB NVMe * Unmetered Bandwidth * 1Gbps Shared Network Port * Linux SSH / Root Access ... ⭐ Best Value 8 GB KVM VPS $59.99 /year * 4 Intel Xeon Cores @ 2.0GHz+ * 8 GB Guaranteed Memory * 120 GB NVMe ... Power Plan 16 GB KVM VPS $111.11 /year * 4 Intel Xeon Cores @ 2.0GHz+ * 16 GB Guaranteed Memory * 240 GB NVMe ... Yes. These are annual VPS promo prices for the June sale."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:25.129Z",
   "notes": "The order links point at vpshostingservice.co rather than serverhost.com, and the promo code is part of the URL, so the price is a campaign rate rather than a list rate. The renewal rate is not stated anywhere on the page and is left null. LowEndBox carries the same offer independently, which is why the shape is recorded rather than only the headline.",
   "extras": {
     "wave2": {

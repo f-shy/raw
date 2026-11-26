@@ -6,7 +6,7 @@
  "category": "IPv6-only VPS",
  "tier": "V6-1",
  "free_tier": {
-  "stated": "No free tier. V6-1 is USD 0.49 a month: 1 CPU core, 2 GB RAM, 20 GB NVMe, one IPv6 address plus a /64, no IPv4 and no NATed IPv4, KVM. Billed yearly, so the shop prints USD 5.88 annually. The V6-2 rung doubles RAM and disk for USD 0.99 a month, USD 11.88 a year.",
+  "stated": "No free tier. IPv6-only plans are small, low-cost KVM servers for projects that only need native IPv6 connectivity. These servers do not include IPv4 connectivity or NATed IPv4 access, so they are best for IPv6-ready applications, labs, and services. Yearly billing.",
   "unit": "none",
   "metered_on": "none",
   "source_url": "https://vds6.net/v6",
@@ -100,10 +100,17 @@
    "url": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?inquiryType=EntityName&searchTerm=BREEZLE",
    "date": "2026-10-24",
    "proved": "a Florida entity-name search for BREEZLE returns no BREEZLE LLC row, and the RIPE record names Delaware as the state of registration, so Florida is the wrong register for this entity and the search proves nothing either way"
+  },
+  {
+   "url": "https://vds6.net/v6",
+   "date": "2026-11-25",
+   "proved": "the v6 page states that the IPv6-only plans are paid KVM servers with no IPv4 and yearly billing",
+   "capture": "sha256:5cd13509fe2e17e2f1a7ba7a0b121205ea769df723cd615ab9b3ebc6a5e8c66b",
+   "quote": "IPv6-only plans are small, low-cost KVM servers for projects that only need native IPv6 connectivity."
   }
  ],
  "verdict": "qualifies-with-caveat",
- "verified_at": "2026-10-24T04:26:37.000Z",
+ "verified_at": "2026-11-25T05:17:52.950Z",
  "price_per_tb_month": null,
  "history": [],
  "notes": "The best shape per dollar in the band by a wide margin and the least usable of the cheap rows. 2 GB and 20 GB for USD 0.49 a month is four times the RAM of the next cheapest NAT row and 0.23 of the per-GiB price of the C-Servers row (USD 0.245 a GiB against USD 1.06), and because there is no NAT layer, every port on the /64 is reachable, so the port-mapping problem that governs the other NAT sellers does not exist here. The price is IPv6: no IPv4 address, no NATed IPv4, and the vendor offers no add-on, so a WireGuard peer on an IPv4-only access network cannot reach it. For the two stated uses that splits the row: as a health monitor that reports outward it is excellent, and as a WireGuard node it works only where IPv6 is already in place. Two things pull the confidence down. The stock count on the order page read '0 Available' for both rungs at the Poland datacenter, so the row is priced and documented but not demonstrably in stock today. And the entity needed correcting: the vendor names BREEZLE LLC of Brandon, Florida, but a Florida entity search returns no such company, while the RIPE organisation record for the AS the vendor claims gives 'reg-nr = 4921432 (Delaware)' - so the entity is a Delaware LLC mailing from a Florida address, the Florida register is the wrong place to look, and the Delaware number was not checked against the Delaware register in verification. That is a real entity with a real AS and a domain-age story, not the dissolved-company pattern this category was warned about, but it is also not a completed registry check. Not established: the registration form's fields, the payment gateway list at checkout, the renewal price after year one, and whether stock exists at any location.",

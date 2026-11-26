@@ -14,15 +14,15 @@ recorded dead for having no free tier is re-investigated for the wrong reason.
 <!-- generated:start topic=compute kind=breakdown field=verdict sort=value -->
 | verdict | Records |
 | --- | --- |
-| `dead` | 84 |
+| `dead` | 85 |
 | `fails-egress` | 1 |
-| `fails-identity` | 154 |
-| `fails-quota` | 23 |
-| `paid-only` | 556 |
-| `qualifies` | 52 |
-| `qualifies-with-caveat` | 493 |
-| `trial-only` | 147 |
-| **all** | 1510 |
+| `fails-identity` | 153 |
+| `fails-quota` | 24 |
+| `paid-only` | 560 |
+| `qualifies` | 51 |
+| `qualifies-with-caveat` | 491 |
+| `trial-only` | 159 |
+| **all** | 1524 |
 <!-- generated:end -->
 
 ## Withdrawn, with the sentence

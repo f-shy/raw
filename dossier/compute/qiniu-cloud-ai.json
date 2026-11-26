@@ -5,7 +5,7 @@
   "url": "https://developer.qiniu.com/las/13281/sandbox-overview",
   "category": "container and VM sandbox",
   "free_tier": {
-    "stated": "Per-second billing with no free compute allowance: CNY 0.00003 per vCPU per second, which the page restates as CNY 0.108 per vCPU per hour, range 1 to 8 cores; CNY 0.000015 per GiB per second, or CNY 0.054 per GiB per hour, 512 MiB to 8192 MiB in 512 MiB steps. Each sandbox gets 20 GiB of local disk free of charge. Persistent storage carries 10 GiB per account per month free, then CNY 0.000145 per GiB per hour. Network traffic is not billed separately today. A 2 vCPU / 2 GiB sandbox is CNY 2.61 for an 8-hour day by the page's own worked example.",
+    "stated": "| vCPU | ~~0.00003 元/核/秒~~ | **0.00002 元/核/秒** | 按实际分配的 vCPU 核数线性计费，范围 1 ~ 8 核 |",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://developer.qiniu.com/las/13281/sandbox-overview",
@@ -79,10 +79,24 @@
       "url": "https://developer.qiniu.com/las/13281/sandbox-overview",
       "date": "2026-10-22",
       "proved": "probe run this session: status 200, 54413 bytes, sha256 dd7751d5116a7fa5793ba2c09c599d5ef6c6ea846df2e2af6b0687a7ae3a4ca3, record at .tmp/wave4/agent-sandboxes/probe/20261022T160948-developer.qiniu.com-dd7751d5116a.json"
+    },
+    {
+      "url": "https://developer.qiniu.com/las/13281/sandbox-overview",
+      "date": "2026-11-25",
+      "proved": "the domestic vCPU rate is now 0.00002 CNY per core-second, linearly billed over 1 to 8 cores",
+      "capture": "sha256:9b3a0d33c12b8b175adc4e68a88d07921697c7d39c75b567b5ae238dd58c82f4",
+      "quote": "| vCPU | ~~0.00003 元/核/秒~~ | **0.00002 元/核/秒** | 按实际分配的 vCPU 核数线性计费，范围 1 ~ 8 核 |"
+    },
+    {
+      "url": "https://developer.qiniu.com/las/13281/sandbox-overview",
+      "date": "2026-11-25",
+      "proved": "the current domestic vCPU price row is unchanged in the capture",
+      "capture": "sha256:9b3a0d33c12b8b175adc4e68a88d07921697c7d39c75b567b5ae238dd58c82f4",
+      "quote": "| vCPU | ~~0.00003 元/核/秒~~ | **0.00002 元/核/秒** | 按实际分配的 vCPU 核数线性计费，范围 1 ~ 8 核 |"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:45.875Z",
   "notes": "This is the cheapest per-vCPU sandbox rate documented, at CNY 0.108 per vCPU-hour, and it is the only provider here that publishes a US region alongside a mainland one. It is recorded as fails-identity because the free allowance is gated on real-name verification and topping up needs a Chinese payment method; the sandbox compute itself has no free allowance at all, so even a verified account starts at CNY 0.432 per hour for 2 vCPU and 4 GiB. No USD figure is computed because no exchange rate was read verification. Isolation is described as system-level per-instance virtualization; the page does not name the technology. Qiniu also sells (LAS) as an ordinary VPS from CNY 14.2 per month domestic and offers a 2-core / 2 GB instance at CNY 66 per year for new customers in Singapore, Tokyo, Hong Kong and Changshan.",
   "extras": {
     "wave2": {

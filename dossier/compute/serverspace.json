@@ -5,7 +5,7 @@
   "url": "https://serverspace.by/support/help/kak-protestirovat-virtualnyj-server/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "A free trial of a virtual server of up to 8 CPU, 16 GB RAM and 200 GB of disk, lasting up to three days for an individual and up to five for a legal entity, with the exact period depending on the configuration. The trial is obtained in three steps: register and create the server within those ceilings, fill in the legal entity details if there is one, then open a support ticket stating the purpose of the test, with the final decision on the period or on refusal taken by support staff. The help page was updated on 22 October 2026. The paid catalogue starts at RUB 430 a month for one core at 3.1 GHz, 1 GB RAM and 25 GB SSD, with locations in Russia, Belarus, Kazakhstan, the Netherlands, Turkey, Canada, the United States, Brazil and Uzbekistan, payment by Mir card, SBP, bank transfer or bitcoin, and the Belarus page advertising unlimited free traffic and testing without card binding.",
+    "stated": "A free trial of a virtual server of up to 8 CPU, 16 GB RAM and 200 GB of disk, lasting up to three days for an individual and up to five for a legal entity, with the exact period depending on the configuration. The trial is obtained in three steps: register and create the server within those ceilings, fill in the legal entity details if there is one, then open a support ticket stating the purpose of the test, with the final decision on the period or on refusal taken by support staff. The help page was updated on 22 October 2026.",
     "unit": "minutes",
     "metered_on": "wall-clock",
     "source_url": "https://serverspace.by/support/help/kak-protestirovat-virtualnyj-server/",
@@ -74,10 +74,24 @@
       "url": "https://hostingrate.ru/",
       "date": "2026-10-22",
       "proved": "a catalogue lists Serverspace with a one-day test at RUB 390 for 1 GB and 1 core, which is shorter and cheaper than the provider's own help page describes"
+    },
+    {
+      "url": "https://serverspace.by/support/help/kak-protestirovat-virtualnyj-server/",
+      "date": "2026-11-25",
+      "proved": "the help page states the trial lengths, the 8 CPU, 16 GB RAM and 200 GB ceilings, the three steps with a support ticket and a support decision, and the 22 October 2026 update date",
+      "capture": "sha256:1ebcd47d3ab112d945ae6fcd9cb0e866b31d1e41d8b63deedb7033218dc9d7d9",
+      "quote": "Тестовый период для юридических лиц составляет до 5 дней, для физических лиц - до 3 дней (в зависимости от выбранной конфигурации сервера). ... Обновлено октября 22, 2026 ... 8 CPU, 16 Gb RAM и 200 Gb дискового пространства ... Финальное решение о сроке тестового периода или об отказе в предоставлении теста принимают сотрудники службы технической поддержки."
+    },
+    {
+      "url": "https://serverspace.by/support/help/kak-protestirovat-virtualnyj-server/",
+      "date": "2026-11-25",
+      "proved": "the captured help page still states the trial lengths, ceilings, ticket step, support decision and update date",
+      "capture": "sha256:1ebcd47d3ab112d945ae6fcd9cb0e866b31d1e41d8b63deedb7033218dc9d7d9",
+      "quote": "Тестовый период для юридических лиц составляет до 5 дней, для физических лиц - до 3 дней (в зависимости от выбранной конфигурации сервера). ... Обновлено октября 22, 2026 ... 8 CPU, 16 Gb RAM и 200 Gb дискового пространства ... Финальное решение о сроке тестового периода или об отказе в предоставлении теста принимают сотрудники службы технической поддержки."
     }
   ],
   "verdict": "trial-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:25.130Z",
   "notes": "New provider for the corpus. Three sources disagree on the length of the trial, from one day in a catalogue to five for a legal entity on the provider's own page, and the provider's page is preferred because it is dated today. The RUB 25,000 grant for sole proprietors and companies on a corporate mailbox is the largest Russian credit in this lane that is not tied to a grant programme, and it is recorded here as reported because the provider page for it was not read. Arithmetic: at the provider's own RUB 430 a month, RUB 25,000 is 58 months of the smallest machine. Not established: whether the ticket is granted in practice for an individual outside the region, and whether the 200 GB disk ceiling is included in the free trial or billed.",
   "extras": {
     "wave2": {

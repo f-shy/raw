@@ -1,158 +1,151 @@
 {
-  "topic": "compute",
-  "slug": "agentcomputer",
-  "provider": "AgentComputer",
-  "url": "https://agentcomputer.ai/pricing",
-  "category": "container and VM sandbox",
-  "free_tier": {
-    "stated": "no free tier: pay-as-you-go at $0.07 a CPU-hour, $0.04375 a GB-hour of memory, and storage at $0.000683 a GB-hour running or $0.000027 stopped",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://agentcomputer.ai/pricing",
-    "read_on": "2026-10-22"
+ "topic": "compute",
+ "slug": "agentcomputer",
+ "provider": "AgentComputer",
+ "url": "https://agentcomputer.ai/pricing",
+ "category": "container and VM sandbox",
+ "free_tier": {
+  "stated": "no free tier: pay-as-you-go at $0.07 a CPU-hour, $0.04375 a GB-hour of memory, and storage at $0.000683 a GB-hour running or $0.000027 stopped",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://agentcomputer.ai/pricing",
+  "read_on": "2026-10-22"
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://agentcomputer.ai/pricing",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "not stated",
+  "days": null,
+  "source_url": "https://agentcomputer.ai/pricing",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "not published",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://agentcomputer.ai/pricing"
+ },
+ "interface": [
+  "ssh",
+  "cli",
+  "browser"
+ ],
+ "interface_detail": "The computer-guest image ships with browser access and SSH; the user installs the `computer` CLI and signs in through a browser flow that stores a local API key.",
+ "tooling": "the user installs the `computer` CLI with the staging installer (`curl -fsSL https://agentcomputer.ai/install.sh | bash`), signs in with `computer login`, connects with `computer ssh` and `computer open --vnc`, and publishes ports with `computer ports publish`",
+ "chaining": "not established",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "$0.07 a CPU-hour and $0.04375 a GB-hour of memory while the machine runs",
+   "source": "https://agentcomputer.ai/pricing"
   },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://agentcomputer.ai/pricing",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+  {
+   "kind": "retention-clamped",
+   "value": "storage is billed at $0.000683 a GB-hour running and $0.000027 stopped, so a stopped machine still costs 4% of its running storage rate",
+   "source": "https://agentcomputer.ai/pricing"
+  }
+ ],
+ "limits_note": "Session cap, idle-reap and network policy are not documented.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "unverified: not stated in the source card. `email` is the assumed value because every priced host in the set requires an account, and no signup was performed, so the kind is not established for this provider",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "documented",
+ "confidence_note": "the pricing page was read on 2026-10-22 and publishes a full usage ladder with no free tier. The record claimed a free tier from the card, which the page contradicts, so the verdict moves to paid-only",
+ "evidence": [
+  {
+   "url": "https://agentcomputer.ai/pricing",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
   },
-  "retention": {
-    "stated": "not stated",
-    "days": null,
-    "source_url": "https://agentcomputer.ai/pricing",
-    "notes": "Disk durability across instance stops and deletions is not documented."
+  {
+   "url": "https://agentcomputer.ai/pricing",
+   "date": "2026-10-22",
+   "proved": "'CPU Time $0.07 per CPU-hour · Memory $0.04375 per GB-hour · Hot Storage $0.000683 per GB-hour (running) · Cold Storage $0.000027 per GB-hour (stopped)', quoted; the page publishes no free tier"
   },
-  "egress": {
-    "terms": "not published",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://agentcomputer.ai/pricing"
+  {
+   "url": "https://agentcomputer.ai/pricing",
+   "date": "2026-11-25",
+   "proved": "the pricing table gives only pay-as-you-go rates and no free tier",
+   "capture": "sha256:f2386cb76a1ff3f84db8fa6f63566281cc675a38062d7f81decebc23160b06f4",
+   "quote": "| CPU Time | $0.07 per CPU-hour | | --- | --- | | Memory | $0.04375 per GB-hour | | Hot Storage | $0.000683 per GB-hour (running) | | Cold Storage | $0.000027 per GB-hour (stopped) |"
   },
-  "interface": [
-    "ssh",
-    "cli",
-    "browser"
-  ],
-  "interface_detail": "The computer-guest image ships with browser access and SSH; the user installs the `computer` CLI and signs in through a browser flow that stores a local API key.",
-  "tooling": "the user installs the `computer` CLI with the staging installer (`curl -fsSL https://agentcomputer.ai/install.sh | bash`), signs in with `computer login`, connects with `computer ssh` and `computer open --vnc`, and publishes ports with `computer ports publish`",
-  "chaining": "not established",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "$0.07 a CPU-hour and $0.04375 a GB-hour of memory while the machine runs",
-      "source": "https://agentcomputer.ai/pricing"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "storage is billed at $0.000683 a GB-hour running and $0.000027 stopped, so a stopped machine still costs 4% of its running storage rate",
-      "source": "https://agentcomputer.ai/pricing"
-    }
-  ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "unverified: not stated in the source card. `email` is the assumed value because every priced host in the set requires an account, and no signup was performed, so the kind is not established for this provider",
-    "country": null
+  {
+   "url": "https://agentcomputer.ai/pricing",
+   "date": "2026-11-24",
+   "proved": "the pricing page lists pay-as-you-go meters with no free plan",
+   "capture": "sha256:f2386cb76a1ff3f84db8fa6f63566281cc675a38062d7f81decebc23160b06f4",
+   "quote": "Pay-as-you-go pricing based on actual resource usage"
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "documented",
-  "confidence_note": "the pricing page was read on 2026-10-22 and publishes a full usage ladder with no free tier. The record claimed a free tier from the card, which the page contradicts, so the verdict moves to paid-only",
-  "evidence": [
-    {
-      "url": "https://agentcomputer.ai/pricing",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://agentcomputer.ai/pricing",
-      "date": "2026-10-22",
-      "proved": "'CPU Time $0.07 per CPU-hour · Memory $0.04375 per GB-hour · Hot Storage $0.000683 per GB-hour (running) · Cold Storage $0.000027 per GB-hour (stopped)', quoted; the page publishes no free tier"
-    },
-    {
-      "url": "https://agentcomputer.ai/pricing",
-      "date": "2026-11-24",
-      "proved": "the pricing page lists pay-as-you-go meters with no free plan",
-      "capture": "sha256:f2386cb76a1ff3f84db8fa6f63566281cc675a38062d7f81decebc23160b06f4",
-      "quote": "Pay-as-you-go pricing based on actual resource usage"
-    },
-    {
-      "url": "https://agentcomputer.ai/docs",
-      "date": "2026-11-24",
-      "proved": "every computer is preconfigured with browser access and SSH, so the interface is not unknown",
-      "capture": "sha256:3b4f4ccdbb55d156832b1e6199ee0c2678439bda2946a9509b40c346af00dac8",
-      "quote": "Every computer boots from the [computer-guest](https://github.com/AgentComputerAI/computer-guest) image as root fs, which comes pre-configured with browser access, SSH, and everything agents need."
-    },
-    {
-      "url": "https://agentcomputer.ai/docs",
-      "date": "2026-11-24",
-      "proved": "the documented access surfaces are a browser and SSH",
-      "capture": "sha256:3b4f4ccdbb55d156832b1e6199ee0c2678439bda2946a9509b40c346af00dac8",
-      "quote": "Use the browser for the primary surface, or SSH when you want a terminal-first workflow."
-    },
-    {
-      "url": "https://agentcomputer.ai/docs",
-      "date": "2026-11-24",
-      "proved": "a `computer` CLI is installed and used, with a browser sign-in that stores a local API key",
-      "capture": "sha256:3b4f4ccdbb55d156832b1e6199ee0c2678439bda2946a9509b40c346af00dac8",
-      "quote": "Run `computer login` to open the browser sign-in flow and store a local API key for later CLI requests."
-    },
-    {
-      "url": "https://agentcomputer.ai/docs",
-      "date": "2026-11-24",
-      "proved": "the interface and tooling documented on the docs page are unchanged",
-      "capture": "sha256:3b4f4ccdbb55d156832b1e6199ee0c2678439bda2946a9509b40c346af00dac8",
-      "quote": "Every computer boots from the [computer-guest](https://github.com/AgentComputerAI/computer-guest) image as root fs, which comes pre-configured with browser access, SSH, and everything agents need."
-    },
-    {
-      "url": "https://agentcomputer.ai/pricing",
-      "date": "2026-11-24",
-      "proved": "the pricing page still lists pay-as-you-go meters with no free plan",
-      "capture": "sha256:f2386cb76a1ff3f84db8fa6f63566281cc675a38062d7f81decebc23160b06f4",
-      "quote": "Pay-as-you-go pricing based on actual resource usage"
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T17:19:47.021Z",
-  "price_per_tb_month": null,
-  "notes": "",
-  "extras": {
-    "seed_status": "ranked",
-    "talaria_m10h_usd": 94.5,
-    "talaria_m24h_usd": 226.8,
-    "nemo_m10h_usd": 77.6,
-    "keep_rate": 1.0,
-    "keep_rate_basis": "billed for uptime (no suspension feature published)",
-    "billing_model": "unclassified",
-    "shape": null,
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "the page prices a stopped state separately, so stopping is supported and is not a reap"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "burst_x": 1.0,
-    "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "ps": {
-      "gib": null,
-      "price": "$0.000683 a GiB-hour running, $0.000027 stopped",
-      "durability": "billed storage in both states",
-      "on_stop": true,
-      "on_destroy": false,
-      "retention": "while the storage is billed"
-    },
-    "net": null
+  {
+   "url": "https://agentcomputer.ai/docs",
+   "date": "2026-11-24",
+   "proved": "every computer is preconfigured with browser access and SSH, so the interface is not unknown",
+   "capture": "sha256:3b4f4ccdbb55d156832b1e6199ee0c2678439bda2946a9509b40c346af00dac8",
+   "quote": "Every computer boots from the [computer-guest](https://github.com/AgentComputerAI/computer-guest) image as root fs, which comes pre-configured with browser access, SSH, and everything agents need."
   },
-  "stale": true,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding": "request-rate",
-  "history": [
-    "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
-  ]
+  {
+   "url": "https://agentcomputer.ai/docs",
+   "date": "2026-11-24",
+   "proved": "the documented access surfaces are a browser and SSH",
+   "capture": "sha256:3b4f4ccdbb55d156832b1e6199ee0c2678439bda2946a9509b40c346af00dac8",
+   "quote": "Use the browser for the primary surface, or SSH when you want a terminal-first workflow."
+  },
+  {
+   "url": "https://agentcomputer.ai/docs",
+   "date": "2026-11-24",
+   "proved": "a `computer` CLI is installed and used, with a browser sign-in that stores a local API key",
+   "capture": "sha256:3b4f4ccdbb55d156832b1e6199ee0c2678439bda2946a9509b40c346af00dac8",
+   "quote": "Run `computer login` to open the browser sign-in flow and store a local API key for later CLI requests."
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T11:17:39.261Z",
+ "price_per_tb_month": null,
+ "notes": "",
+ "extras": {
+  "seed_status": "ranked",
+  "talaria_m10h_usd": 94.5,
+  "talaria_m24h_usd": 226.8,
+  "nemo_m10h_usd": 77.6,
+  "keep_rate": 1.0,
+  "keep_rate_basis": "billed for uptime (no suspension feature published)",
+  "billing_model": "unclassified",
+  "shape": null,
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "the page prices a stopped state separately, so stopping is supported and is not a reap"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "burst_x": 1.0,
+  "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "ps": {
+   "gib": null,
+   "price": "$0.000683 a GiB-hour running, $0.000027 stopped",
+   "durability": "billed storage in both states",
+   "on_stop": true,
+   "on_destroy": false,
+   "retention": "while the storage is billed"
+  },
+  "net": null
+ },
+ "stale": true,
+ "stale_checked_at": "2026-10-22T00:00:00.000Z",
+ "binding": "request-rate",
+ "history": [
+  "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
+ ]
 }

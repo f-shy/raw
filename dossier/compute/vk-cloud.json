@@ -5,7 +5,7 @@
   "url": "https://cloud.vk.ru/bonus/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "RUB 5,000 of welcome bonuses for an individual account and RUB 12,000 for a legal entity, valid 60 days once credited. Of the RUB 5,000 for an individual, RUB 2,000 is usable on virtual machines and their backups and RUB 3,000 on other services; licensed products, the marketplace and CDN are excluded.",
+    "stated": "5000 бонусных рублей для физических лиц и 12 000 — для юридических лиц, зарегистрированных посредством почты на корпоративном домене и приложивших документы.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://cloud.vk.ru/bonus/",
@@ -74,10 +74,17 @@
       "url": "https://cloud.vk.ru/startup/",
       "date": "2026-10-22",
       "proved": "' VK Cloud 2026 ' (the account must be registered to a legal entity or sole trader in 2026) for the startup grant of up to RUB 2,000,000 over six months, quoted"
+    },
+    {
+      "url": "https://cloud.vk.ru/bonus/",
+      "date": "2026-11-25",
+      "proved": "the welcome bonus is RUB 5,000 for individuals and RUB 12,000 for legal entities",
+      "capture": "sha256:bf8acb8af73f7c99aa5b17dfe00dd2406be029fb7565d9265be047824a7bf7ff",
+      "quote": "5000 бонусных рублей для физических лиц и 12 000 — для юридических лиц, зарегистрированных посредством почты на корпоративном домене и приложивших документы."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:48.362Z",
   "notes": "The useful number here is not the RUB 5,000 but the split: 40 per cent of the individual bonus reaches virtual machines. The startup grant is the large figure (up to RUB 2,000,000, with RUB 500,000 for months one and two and up to RUB 1,500,000 for months three to six) and it is entity-gated, so it is fails-identity with the number beside the reason. The IP-in-Russia condition is the constraint no identity document satisfies, which is unusual: most Russian providers gate on the phone, this one gates on the network.",
   "extras": {
     "wave2": {

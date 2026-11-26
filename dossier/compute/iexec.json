@@ -5,7 +5,7 @@
   "url": "https://docs.iex.ec/get-started/tooling-and-explorers/faucet",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "TEE compute on workerpools paid per execution in RLC, split between the app provider, the data provider, the workerpool and gas. The free lane is testnet only: 'Get 5 RLC tokens per claim on Arbitrum Sepolia testnet', with GitHub authentication, a 24-hour cooldown and 'Balance verification (max 1 RLC)'.",
+    "stated": "Testnet only: 'Get 5 RLC tokens per claim on Arbitrum Sepolia testnet for testing your iExec applications and services.' Eligibility: 'GitHub login required for verification', 'Maximum 1 RLC in your wallet to claim', 'One claim per 24 hours per authenticated account' and 'Arbitrum Sepolia testnet only'. '5 RLC per claim GitHub authentication 24-hour cooldown period Balance verification (max 1 RLC) Arbitrum Sepolia testnet only'.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://docs.iex.ec/get-started/tooling-and-explorers/faucet",
@@ -66,13 +66,29 @@
       "proved": "four cost components per execution: app fee, data fee, workerpool fee and gas, all in nRLC; default max prices are 0, which accepts only free resources"
     },
     {
-      "url": "https://api.coingecko.com/api/v3/simple/price?ids=iexec-rlc&vs_currencies=usd",
-      "date": "2026-10-22",
-      "proved": "RLC USD 0.657628, so a 5 RLC claim is about USD 3.29 of testnet token with no market value"
+      "url": "https://docs.iex.ec/get-started/tooling-and-explorers/faucet",
+      "date": "2026-11-25",
+      "proved": "the faucet pays 5 RLC per claim on Arbitrum Sepolia testnet only",
+      "capture": "sha256:491078f5285bd319793a9a56dba1666e7310765c31ef79e54c75d64091254e82",
+      "quote": "Get 5 RLC tokens per claim on Arbitrum Sepolia testnet for testing your iExec applications and services."
+    },
+    {
+      "url": "https://docs.iex.ec/get-started/tooling-and-explorers/faucet",
+      "date": "2026-11-25",
+      "proved": "the faucet requires GitHub login, caps the wallet balance at 1 RLC and allows one claim per 24 hours",
+      "capture": "sha256:491078f5285bd319793a9a56dba1666e7310765c31ef79e54c75d64091254e82",
+      "quote": "- **GitHub login** required for verification\n- **Maximum 1 RLC** in your wallet to claim (prevents abuse and ensures fair distribution)\n- **One claim per 24 hours** per authenticated account"
+    },
+    {
+      "url": "https://docs.iex.ec/get-started/tooling-and-explorers/faucet",
+      "date": "2026-11-25",
+      "proved": "the faucet summary states the 5 RLC per claim, GitHub authentication, 24-hour cooldown, 1 RLC balance cap and testnet-only scope",
+      "capture": "sha256:491078f5285bd319793a9a56dba1666e7310765c31ef79e54c75d64091254e82",
+      "quote": "5 RLC per claim GitHub authentication 24-hour cooldown period Balance verification (max 1 RLC) Arbitrum Sepolia testnet only"
     }
   ],
   "verdict": "fails-quota",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:28.101Z",
   "notes": "iExec is the cheapest TEE execution lane found here only if a provider publishes a 0-price order; none was found. Mainnet capacity needs RLC bought on an exchange. Whether the Sepolia workerpool has live workers was not tested; that needs a funded testnet wallet and an order match.",
   "extras": {
     "wave2": {

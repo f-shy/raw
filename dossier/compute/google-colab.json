@@ -13,7 +13,7 @@
   "limits_note": "a documented absence: 'Colab does not publish these limits' is a discretionary throttle, not a quota",
   "reliability_note": "Colab states outright that it prioritises interactive users and that runtimes time out when idle, so a long job is cut for reasons that are not visible",
   "confidence": "documented",
-  "verified_at": "2026-10-24T01:52:00.000Z",
+  "verified_at": "2026-11-25T11:17:44.305Z",
   "price_per_tb_month": null,
   "history": [],
   "slug": "google-colab",
@@ -21,7 +21,7 @@
   "url": "https://research.google.com/colaboratory/faq.html",
   "category": "notebook runtime",
   "free_tier": {
-    "stated": "free of charge access to computing resources including GPUs and TPUs; a notebook runs for at most 12 hours; usage limits, idle timeout, maximum VM lifetime and GPU types are not published and vary over time",
+    "stated": "Colab provides free of charge access to computing resources, including GPUs and TPUs; in the version of Colab that is free of charge notebooks can run for at most 12 hours, depending on availability and your usage patterns; overall usage limits, idle timeout periods, maximum VM lifetime and GPU types vary over time and Colab does not publish these limits.",
     "unit": "hours",
     "metered_on": "unstated",
     "source_url": "https://research.google.com/colaboratory/faq.html",
@@ -106,6 +106,20 @@
       "url": "https://research.google.com/colaboratory/faq.html",
       "date": "2026-10-24",
       "proved": "quoted: 'on higher plans, additional capabilities such as background execution' — background execution is a paid-plan feature, so the free tier cannot run unattended"
+    },
+    {
+      "url": "https://research.google.com/colaboratory/faq.html",
+      "date": "2026-11-25",
+      "proved": "Colab does not publish its usage limits, idle timeout, VM lifetime or GPU types, which vary over time",
+      "capture": "sha256:dcc219d900c98785be57a1764e2b9c4dad83fd02f6210bdd9de873239d853097",
+      "quote": "Colab is able to provide resources free of charge in part by having dynamic usage limits that sometimes fluctuate, and by not providing guaranteed or unlimited resources. This means that overall usage limits as well as idle timeout periods, maximum VM lifetime, GPU types available, and other factors vary over time. Colab does not publish these limits, in part because they can vary over time."
+    },
+    {
+      "url": "https://research.google.com/colaboratory/faq.html",
+      "date": "2026-11-25",
+      "proved": "the free tier's usage limits, idle timeout, VM lifetime and GPU types are unpublished and vary over time",
+      "capture": "sha256:dcc219d900c98785be57a1764e2b9c4dad83fd02f6210bdd9de873239d853097",
+      "quote": "Colab is able to provide resources free of charge in part by having dynamic usage limits that sometimes fluctuate, and by not providing guaranteed or unlimited resources. This means that overall usage limits as well as idle timeout periods, maximum VM lifetime, GPU types available, and other factors vary over time. Colab does not publish these limits, in part because they can vary over time."
     }
   ],
   "verdict": "qualifies-with-caveat",

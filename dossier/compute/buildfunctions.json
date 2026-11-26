@@ -1,188 +1,252 @@
 {
-  "topic": "compute",
-  "slug": "buildfunctions",
-  "provider": "Buildfunctions",
-  "url": "https://www.buildfunctions.com/pricing",
-  "category": "serverless function and sandbox platform",
-  "tier": "Free",
-  "free_tier": {
-    "stated": "USD 0 per month plus USD 5.00 per month of included CPU usage; CPU Functions and Sandboxes are billed at USD 0.00001667 per GB-s and USD 0.20 per 1M requests. The Free plan lists 3 cron jobs and no included model storage.",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://www.buildfunctions.com/pricing",
-    "read_on": "2026-11-24",
-    "notes": "The headline is a USD 5 per month included-usage allowance metered at per-GB-second CPU and per-million-request rates, not a fixed quota of compute seconds."
+ "topic": "compute",
+ "slug": "buildfunctions",
+ "provider": "Buildfunctions",
+ "url": "https://www.buildfunctions.com/pricing",
+ "category": "serverless CPU and GPU sandbox",
+ "tier": "Free plan, usage over $5 monthly CPU credit",
+ "free_tier": {
+  "stated": "The Free plan is $0 and includes $5.00 a month of CPU Functions and CPU Sandboxes usage, with GPU Functions and GPU Sandboxes, custom domains and 3 cron jobs; detailed compute and storage rates are in the estimator.",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://www.buildfunctions.com/pricing",
+  "read_on": "2026-11-25",
+  "notes": "The $5 monthly CPU credit is the recurring free allowance. CPU Functions and CPU Sandboxes are $0.00001667 per GB-second plus $0.20 per million requests and $0.09 per GB of bandwidth out. GPU Sandboxes are $0.0000126 per vCPU-second, $0.00000137 per GB-second and $0.00013067 per GPU-second. The Pro plan is $20 a month with $20 of usage and 20 GB of model storage; the operator's price list puts Buildfunctions at $0.24 an hour."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a machine, not an object. GPU Sandboxes can be raised to 75 GB memory and 50 vCPUs on the Free and Pro plans; model storage beyond the included amount is $0.39 per GB-month.",
+  "bytes": null,
+  "source_url": "https://www.buildfunctions.com/pricing"
+ },
+ "retention": {
+  "stated": "A sandbox can run for up to 24 hours; retention of files after a run ends is not stated on the pricing or introduction pages and is unverified: behind a sign-up.",
+  "days": null,
+  "source_url": "https://www.buildfunctions.com/docs/introduction"
+ },
+ "egress": {
+  "terms": "CPU Functions and CPU Sandboxes bill bandwidth out at $0.09 per GB, and GPU Functions and GPU Sandboxes bill bandwidth out at $0.09 per GB; inbound traffic is not priced on the page. The estimator exposes bandwidth out as a billable input for both sandbox classes.",
+  "metered": true,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://www.buildfunctions.com/pricing"
+ },
+ "interface": [
+  "rest",
+  "cli",
+  "browser"
+ ],
+ "interface_detail": "Sandboxes are created through an SDK and deployed from the dashboard; the docs describe CPUSandbox and GPUSandbox primitives and an SDK for sandboxing agent actions. No SSH endpoint is published on the read pages.",
+ "endpoint": "unverified: behind a sign-up",
+ "tooling": "the Buildfunctions SDK with CPUFunction, GPUFunction, CPUSandbox and GPUSandbox primitives, plus the dashboard and CLI; no rclone backend is documented.",
+ "chaining": "A top-level CPU or GPU Function spawns nested CPU or GPU Sandboxes for untrusted agent actions, with runtime controls for retries, budgets and loop breakers around the call.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "$5.00 a month of CPU Functions and CPU Sandboxes usage on Free, then $0.00001667 per GB-second and $0.20 per million requests",
+   "source": "https://www.buildfunctions.com/pricing"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a function or sandbox execution, not a stored object; model storage is billed at USD 0.39 per GB-month over any included amount",
-    "bytes": null,
-    "source_url": "https://www.buildfunctions.com/pricing"
+  {
+   "kind": "volume-quota",
+   "value": "3 cron jobs on Free, and 3 on Pro; GPU Sandboxes bill $0.0000126 per vCPU-second, $0.00000137 per GB-second and $0.00013067 per GPU-second",
+   "source": "https://www.buildfunctions.com/pricing"
   },
-  "retention": {
-    "stated": "Sandboxes are destroyed automatically after the configured timeout; the default timeout is 1 minute, and a sandbox can run for up to 24 hours.",
-    "days": null,
-    "source_url": "https://www.buildfunctions.com/docs/sandboxes",
-    "notes": "Function and sandbox state is short-lived; no long-term object retention is published."
-  },
-  "egress": {
-    "terms": "Bandwidth out is metered at USD 0.09 per GB for CPU Functions and Sandboxes and for GPU Functions and Sandboxes.",
-    "metered": true,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://www.buildfunctions.com/pricing"
-  },
-  "interface": [
-    "rest",
-    "cli"
-  ],
-  "interface_detail": "Deploy and manage CPU and GPU Functions and Sandboxes from the dashboard or the JavaScript and Python SDK; a deployed function exposes an HTTP endpoint that returns a statusCode, headers and body.",
-  "endpoint": "a per-function HTTP endpoint returned by the SDK on deployment",
-  "tooling": "The Buildfunctions JavaScript and Python SDK (CPUFunction, GPUFunction, CPUSandbox, GPUSandbox), a web dashboard, and Python, Node.js, Deno, Go and Shell runtimes.",
-  "chaining": "A top-level CPU or GPU Function can spawn hardware-isolated child sandboxes for untrusted agent actions, and models are mounted automatically for GPU sandboxes.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "USD 5.00 per month of included CPU usage; CPU billed at USD 0.00001667 per GB-s and requests at USD 0.20 per 1M",
-      "source": "https://www.buildfunctions.com/pricing"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "sandboxes run up to 24 hours; unconfigured sandbox timeout defaults to 1 minute",
-      "source": "https://www.buildfunctions.com/docs/introduction"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "3 cron jobs on the Free plan",
-      "source": "https://www.buildfunctions.com/pricing"
-    }
-  ],
-  "limits_note": "Model storage on the Free plan is not included; overage is billed separately at USD 0.39 per GB-month.",
-  "binding": "volume-quota",
-  "binding_note": "The USD 5 monthly included-usage allowance is exhausted first by CPU-second and request charges; the Pro plan raises it to USD 20 of monthly usage plus 20 GB of model storage.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The sign-up page asks for Email, Username and Password and offers social sign-up; no card, phone number or ID document is requested at sign-up.",
-    "country": null
-  },
-  "reliability_note": "Sandboxes are reclaimed at their configured timeout; the service is labelled beta (Buildfunctions v0.1.8 Beta) on its sign-up page.",
-  "confidence": "documented",
-  "confidence_note": "All rates and plan allowances come from the first-party pricing page, and the timeout from the first-party sandbox docs, read on 2026-11-24.",
-  "evidence": [
-    {
-      "url": "https://www.buildfunctions.com/pricing",
-      "date": "2026-11-24",
-      "proved": "CPU Functions and Sandboxes are billed at USD 0.00001667 per GB-s",
-      "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
-      "quote": "Memory | $0.00001667 /GB-s"
-    },
-    {
-      "url": "https://www.buildfunctions.com/pricing",
-      "date": "2026-11-24",
-      "proved": "requests are billed at USD 0.20 per million",
-      "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
-      "quote": "Requests | $0.20 /1M req"
-    },
-    {
-      "url": "https://www.buildfunctions.com/pricing",
-      "date": "2026-11-24",
-      "proved": "GPU Functions and Sandboxes are billed at USD 0.00013067 per GPU-s",
-      "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
-      "quote": "GPU | $0.00013067 /GPU-s"
-    },
-    {
-      "url": "https://www.buildfunctions.com/pricing",
-      "date": "2026-11-24",
-      "proved": "egress is metered at USD 0.09 per GB",
-      "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
-      "quote": "Bandwidth Out | $0.09 /GB"
-    },
-    {
-      "url": "https://www.buildfunctions.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the included amount of free monthly CPU usage is USD 5.00 per month",
-      "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
-      "quote": "Included amount | $5.00 /month"
-    },
-    {
-      "url": "https://www.buildfunctions.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the Pro plan is USD 20 per month with 20 GB of model storage included and USD 0.39 per GB-month overage",
-      "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
-      "quote": "Pro includes 20 GB, then $0.39 per GB-month."
-    },
-    {
-      "url": "https://www.buildfunctions.com/pricing",
-      "date": "2026-11-24",
-      "proved": "the Free plan includes 3 cron jobs",
-      "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
-      "quote": "3 cron jobs."
-    },
-    {
-      "url": "https://www.buildfunctions.com/pricing",
-      "date": "2026-11-24",
-      "proved": "additional usage and model storage overage are billed separately from the subscription",
-      "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
-      "quote": "Additional usage and model storage overage are billed separately and appear as separate invoices."
-    },
-    {
-      "url": "https://www.buildfunctions.com/signup",
-      "date": "2026-11-24",
-      "proved": "the sign-up form asks for Email, Username and Password",
-      "capture": "sha256:af8b05c9618aa1a4600e70853127bf31fff435becd3f8a2250ffed9408535ed0",
-      "quote": "PasswordShow password"
-    },
-    {
-      "url": "https://www.buildfunctions.com/signup",
-      "date": "2026-11-24",
-      "proved": "the sign-up page labels the service beta",
-      "capture": "sha256:af8b05c9618aa1a4600e70853127bf31fff435becd3f8a2250ffed9408535ed0",
-      "quote": "Buildfunctions · v0.1.8 · Beta"
-    },
-    {
-      "url": "https://www.buildfunctions.com/docs/sandboxes",
-      "date": "2026-11-24",
-      "proved": "an unconfigured sandbox is destroyed after a default timeout of 1 minute",
-      "capture": "sha256:f8b14ba165cc57fa41d933d151f808a2ed449a4696616ae6dbac9338c023e5c7",
-      "quote": "Default Timeout**: If you don't set a `timeout` argument, the default is **1 minute**."
-    },
-    {
-      "url": "https://www.buildfunctions.com/docs/introduction",
-      "date": "2026-11-24",
-      "proved": "sandboxes can run for up to 24 hours",
-      "capture": "sha256:3c137e5ff583661ea2c2520bb3f956d48a95179ead731a03578fb13606f4e883",
-      "quote": "They start quickly for isolated tasks and can run for up to 24 hours."
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.655Z",
-  "price_per_tb_month": null,
-  "notes": "The USD 5 monthly included CPU usage at USD 0.00001667 per GB-s and USD 0.20 per million requests is the recurring free capacity. Egress at USD 0.09 per GB and model storage at USD 0.39 per GB-month are metered separately; the sign-up gate is email, username and password.",
-  "extras": {
-    "shape": {
-      "vcpu": null,
-      "ram_gib": null,
-      "disk_gib": null,
-      "gpu_class": "T4G on GPU Functions and Sandboxes",
-      "gpu_count": null,
-      "note": "configurable memory up to 75 GB and vCPU count up to 50 on GPU functions and sandboxes"
-    },
-    "billing_model": "monthly included usage allowance with per-second and per-request metering",
-    "free_tier_kind": "recurring-allowance",
-    "term": "monthly, no commitment",
-    "price_arithmetic": "USD 5.00 per month included CPU usage; USD 0.00001667 per GB-s, USD 0.20 per million requests, USD 0.09 per GB out",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "function HTTP endpoints",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": 1440,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "sandboxes up to 24 hours, default timeout 1 minute"
-    }
+  {
+   "kind": "per-ip-shaping",
+   "value": "bandwidth out is $0.09 per GB for both CPU and GPU Functions and Sandboxes",
+   "source": "https://www.buildfunctions.com/pricing"
   }
+ ],
+ "limits_note": "Sandboxes run for up to 24 hours. Pro adds dedicated resources and 20 GB of model storage; storage above that is $0.39 per GB-month. The signup page reads 'Buildfunctions · v0.1.8 · Beta'.",
+ "binding": "volume-quota",
+ "binding_note": "The $5 monthly CPU usage credit binds first on Free: GPU Sandboxes have no stated free allowance, so any GPU run is paid from the start.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "The signup form at www.buildfunctions.com/signup shows a 'Create account' link with Email, Password and 'Show password', plus 'Or continue with' for other providers. No phone or document field appears; the page does not show a card field, and the card gate inside the dashboard is unverified: behind a sign-up.",
+  "country": null
+ },
+ "reliability_note": "The service labels itself beta (v0.1.8) on the signup page; bandwidth out is metered at $0.09 per GB and model storage beyond the included amount at $0.39 per GB-month. Post-run sandbox file retention is unpublished.",
+ "confidence": "documented",
+ "confidence_note": "All rates, the $5 free monthly CPU usage, the 24-hour sandbox limit and the signup fields are quoted from first-party pages read on 2026-11-25. Sandbox retention, endpoint and in-dashboard card terms are unverified: behind a sign-up.",
+ "evidence": [
+  {
+   "url": "https://paste.ajam.dev/raw/WCLUsa",
+   "date": "2026-11-25",
+   "proved": "the operator's price list gives Buildfunctions at USD 0.24 per hour, billed per second",
+   "capture": "sha256:4d220f8008ed2a6126e4b7f8bc4639bd9e625605ec428846fde2bdf593cc5c95",
+   "quote": "Buildfunctions → $0.24/h · billed per second (new)"
+  },
+  {
+   "url": "https://www.buildfunctions.com/pricing",
+   "date": "2026-11-25",
+   "proved": "the Free plan is $0 and includes $5 of monthly CPU usage with CPU and GPU Sandboxes and 3 cron jobs",
+   "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
+   "quote": "- Build, deploy, and scale CPU Functions, GPU Functions, CPU Sandboxes, and GPU Sandboxes.\n- Choose from multiple languages and runtimes.\n- Increase GPU Functions and GPU Sandboxes memory (CPU) to 75 GB.\n- Increase GPU Functions and GPU Sandboxes vCPU count to 50.\n- Assign custom domains to Functions.\n- 3 cron jobs."
+  },
+  {
+   "url": "https://www.buildfunctions.com/pricing",
+   "date": "2026-11-25",
+   "proved": "CPU Sandboxes bill $0.00001667 per GB-second, $0.20 per million requests and $0.09 per GB bandwidth out, with $5 of monthly CPU usage included on Free",
+   "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
+   "quote": "Included amount | $5.00 /month"
+  },
+  {
+   "url": "https://www.buildfunctions.com/pricing",
+   "date": "2026-11-25",
+   "proved": "GPU Sandboxes bill $0.0000126 per vCPU-second, $0.00000137 per GB-second, $0.00013067 per GPU-second and $0.09 per GB bandwidth out",
+   "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
+   "quote": "| GPU | $0.00013067 /GPU-s |\n| Bandwidth Out | $0.09 /GB |"
+  },
+  {
+   "url": "https://www.buildfunctions.com/pricing",
+   "date": "2026-11-25",
+   "proved": "model storage costs $0.39 per GB-month with 20 GB included on Pro; Pro is $20 a month and $192 a year",
+   "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
+   "quote": "| Storage | $0.39 /GB-month |\n| Pro Included | 20 GB |"
+  },
+  {
+   "url": "https://www.buildfunctions.com/docs/introduction",
+   "date": "2026-11-25",
+   "proved": "CPUSandbox and GPUSandbox execute untrusted dynamic agent actions and can run for up to 24 hours",
+   "capture": "sha256:3c137e5ff583661ea2c2520bb3f956d48a95179ead731a03578fb13606f4e883",
+   "quote": "**Sandboxes** (`CPUSandbox`, `GPUSandbox`): Execute untrusted and dynamic agent actions with full GPU access, automatic model mounting, built-in AI frameworks, runtime dependency installs, and more. They start quickly for isolated tasks and can run for up to 24 hours."
+  },
+  {
+   "url": "https://www.buildfunctions.com/signup",
+   "date": "2026-11-25",
+   "proved": "the signup form asks for Email and Password and offers 'Or continue with' for other providers",
+   "capture": "sha256:af8b05c9618aa1a4600e70853127bf31fff435becd3f8a2250ffed9408535ed0",
+   "quote": "Password"
+  },
+  {
+   "url": "https://www.buildfunctions.com/signup",
+   "date": "2026-11-25",
+   "proved": "the signup page labels the service beta at version 0.1.8",
+   "capture": "sha256:af8b05c9618aa1a4600e70853127bf31fff435becd3f8a2250ffed9408535ed0",
+   "quote": "Buildfunctions · v0.1.8 · Beta"
+  },
+  {
+   "url": "https://www.buildfunctions.com/login",
+   "date": "2026-11-25",
+   "proved": "the login page shows 'Create account' with Email and Password fields",
+   "capture": "sha256:216e8c4effc474823a77d71172291bdacdf03786ba0c24709ee84bcc0e18cbd5",
+   "quote": "Create account"
+  },
+  {
+   "url": "https://www.buildfunctions.com/pricing",
+   "date": "2026-11-24",
+   "proved": "CPU Functions and Sandboxes are billed at USD 0.00001667 per GB-s",
+   "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
+   "quote": "Memory | $0.00001667 /GB-s"
+  },
+  {
+   "url": "https://www.buildfunctions.com/pricing",
+   "date": "2026-11-24",
+   "proved": "requests are billed at USD 0.20 per million",
+   "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
+   "quote": "Requests | $0.20 /1M req"
+  },
+  {
+   "url": "https://www.buildfunctions.com/pricing",
+   "date": "2026-11-24",
+   "proved": "GPU Functions and Sandboxes are billed at USD 0.00013067 per GPU-s",
+   "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
+   "quote": "GPU | $0.00013067 /GPU-s"
+  },
+  {
+   "url": "https://www.buildfunctions.com/pricing",
+   "date": "2026-11-24",
+   "proved": "egress is metered at USD 0.09 per GB",
+   "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
+   "quote": "Bandwidth Out | $0.09 /GB"
+  },
+  {
+   "url": "https://www.buildfunctions.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the included amount of free monthly CPU usage is USD 5.00 per month",
+   "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
+   "quote": "Included amount | $5.00 /month"
+  },
+  {
+   "url": "https://www.buildfunctions.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the Pro plan is USD 20 per month with 20 GB of model storage included and USD 0.39 per GB-month overage",
+   "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
+   "quote": "Pro includes 20 GB, then $0.39 per GB-month."
+  },
+  {
+   "url": "https://www.buildfunctions.com/pricing",
+   "date": "2026-11-24",
+   "proved": "the Free plan includes 3 cron jobs",
+   "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
+   "quote": "3 cron jobs."
+  },
+  {
+   "url": "https://www.buildfunctions.com/pricing",
+   "date": "2026-11-24",
+   "proved": "additional usage and model storage overage are billed separately from the subscription",
+   "capture": "sha256:08150b913a1842eeb234dcc28f5303ab50757eaeb0c8e58d300dafcbd918b247",
+   "quote": "Additional usage and model storage overage are billed separately and appear as separate invoices."
+  },
+  {
+   "url": "https://www.buildfunctions.com/signup",
+   "date": "2026-11-24",
+   "proved": "the sign-up form asks for Email, Username and Password",
+   "capture": "sha256:af8b05c9618aa1a4600e70853127bf31fff435becd3f8a2250ffed9408535ed0",
+   "quote": "PasswordShow password"
+  },
+  {
+   "url": "https://www.buildfunctions.com/signup",
+   "date": "2026-11-24",
+   "proved": "the sign-up page labels the service beta",
+   "capture": "sha256:af8b05c9618aa1a4600e70853127bf31fff435becd3f8a2250ffed9408535ed0",
+   "quote": "Buildfunctions · v0.1.8 · Beta"
+  },
+  {
+   "url": "https://www.buildfunctions.com/docs/sandboxes",
+   "date": "2026-11-24",
+   "proved": "an unconfigured sandbox is destroyed after a default timeout of 1 minute",
+   "capture": "sha256:f8b14ba165cc57fa41d933d151f808a2ed449a4696616ae6dbac9338c023e5c7",
+   "quote": "Default Timeout**: If you don't set a `timeout` argument, the default is **1 minute**."
+  },
+  {
+   "url": "https://www.buildfunctions.com/docs/introduction",
+   "date": "2026-11-24",
+   "proved": "sandboxes can run for up to 24 hours",
+   "capture": "sha256:3c137e5ff583661ea2c2520bb3f956d48a95179ead731a03578fb13606f4e883",
+   "quote": "They start quickly for isolated tasks and can run for up to 24 hours."
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T11:55:06.399Z",
+ "price_per_tb_month": null,
+ "notes": "Hosted serverless CPU and GPU sandboxes at $0.00001667 per GB-second for CPU and $0.0000126 per vCPU-second plus $0.00000137 per GB-second plus $0.00013067 per GPU-second for GPU, with $5 of monthly CPU usage free on the Free plan. Bandwidth out is metered at $0.09 per GB. Self-hosting of the SDK runtime is not presented as an offer on these pages, and is not recommended while the hosted Free plan exists.",
+ "extras": {
+  "shape": {
+   "vcpu": null,
+   "ram_gib": null,
+   "disk_gib": null,
+   "gpu_class": "unnamed GPU, model not published",
+   "gpu_count": 1,
+   "note": "the operator's GPU list gives Buildfunctions $0.47 an hour for an unnamed GPU; GPU Sandboxes can be raised to 50 vCPU and 75 GB"
+  },
+  "billing_model": "per-second usage against a $5 monthly CPU credit on Free, $20 monthly Pro subscription with $20 of usage",
+  "free_tier_kind": "recurring usage credit",
+  "term": "month-to-month, beta",
+  "price_arithmetic": "$0.00001667 per GB-second x 3600 seconds x 4 GiB = $0.24 an hour for a 4 GiB CPU sandbox, matching the operator's $0.24 an hour list price",
+  "status": "beta v0.1.8",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "custom domains can be assigned to Functions and Sandboxes",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": 1440,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "sandboxes can run up to 24 hours; post-run file retention is unpublished"
+  }
+ }
 }

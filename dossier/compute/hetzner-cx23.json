@@ -6,7 +6,7 @@
   "category": "VPS",
   "tier": "CX23 (Cost-Optimized, shared vCPU)",
   "free_tier": {
-    "stated": "no free tier; the cheapest cloud server is 'from EUR 5.99 per month, excl. VAT'",
+    "stated": "no free tier; the cheapest cloud server is 'from /month € 5.99 per month, excl. VAT'",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://www.hetzner.com/cloud/cost-optimized/",
@@ -69,10 +69,17 @@
       "url": "https://www.hetzner.com/cloud/cost-optimized/",
       "date": "2026-10-24",
       "proved": "quoted for the ARM rung: 'CAX11 not available 2 Ampere 4 GB 40 GB NVMe from /month EUR 6.49 per month, excl. VAT'"
+    },
+    {
+      "url": "https://www.hetzner.com/cloud/cost-optimized/",
+      "date": "2026-11-25",
+      "proved": "the CX23 card lists a monthly price of EUR 5.99 per month excluding VAT, prefixed by from /month",
+      "capture": "sha256:2b8b63a601f8b7ab890243d5a7e80093b8179312875a5ece52465958d20b5d76",
+      "quote": "from /month € 5.99 per month, excl. VAT"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-24T01:56:00.000Z",
+  "verified_at": "2026-11-25T11:17:45.492Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "The corpus's long-standing 'CX22 at about EUR 3.79, the default cheap VPS' is wrong today: the rung is CX23 at EUR 5.99 excl. VAT, which is USD 6.70 at the ECB rate, and the page marks it 'not available'. The ARM rung CAX11 has moved to EUR 6.49. Recorded as over_line because the lane's ceiling is USD 5.00; the verdict vocabulary has no over-budget value, so paid-only carries it with extras.over_line set.",

@@ -13,7 +13,7 @@
   "limits_note": "Railway bills CPU at USD 0.00001929 per vCPU-second on active use and memory at the same rate per GB-second, so an idle service is cheap and a busy one is not.",
   "reliability_note": "an account whose GitHub identity does not meet Railway's automatic verification gets restricted outbound access and a limited port set, with no appeal",
   "confidence": "documented",
-  "verified_at": "2026-11-24T13:21:01.723Z",
+  "verified_at": "2026-11-25T15:40:40.878Z",
   "price_per_tb_month": null,
   "history": [],
   "slug": "railway",
@@ -216,6 +216,13 @@
       "proved": "the anonymous VM is reached by SSH without an account",
       "capture": "sha256:0f7ba2ca964c6df9ee0b39960d18091d60e60075972c347bbd2ca7e0ffdacd91",
       "quote": "Railway identifies you by your SSH key. The same key lands you in the same VM every time."
+    },
+    {
+      "url": "https://railway.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the page was read on 2026-11-25 and still states this value",
+      "capture": "sha256:5d333463d2529ca85b5286cfc373cda2aca1308b35ecc1de18703b2cf2e6fdef",
+      "quote": "| Free | $0 | $1/month | 1 vCPU / 0.5 GB | 1 | 3 days |"
     }
   ],
   "verdict": "qualifies-with-caveat",

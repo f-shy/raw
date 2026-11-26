@@ -1,0 +1,17 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u24-rerun",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "Re-check these compute records against their own sources. Keep every clause the captured page supports, correct or remove only a clause it does not, then confirm each record with a quote from the page.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/gabia-cloud-gen1 $.free_tier.stated: Micro(HDD) 5,000원/7원 (was 7.5원) confirmed in the table. But the cheapest block-storage line is not HDD 5,000원/10원: that row is HDD 50GB; the add-on row '| 10GB 추가 당 | 1,000원 | 2.1원 | **1,000****원** | **2****원** |' is cheaper (1,000원/month, 2원/hour). The claim omits the 50GB capacity and misnames the\n- compute/gabia-cloud-gen1 $.free_tier.stated: Micro(HDD) 5,000원/7원 (was 7.5원) confirmed in the table. But the cheapest block-storage line is not HDD 5,000원/10원: that row is HDD 50GB; the add-on row '| 10GB 추가 당 | 1,000원 | 2.1원 | **1,000****원** | **2****원** |' is cheaper (1,000원/month, 2원/hour). The claim omits the 50GB capacity and misnames the",
+ "scope": {
+  "rids": [
+   "compute/fugaku-trial-access",
+   "compute/furiosaai-furiosa-access",
+   "compute/gabia-cloud-gen1",
+   "compute/geant-testbeds-service",
+   "compute/gensyn"
+  ]
+ },
+ "origin": "audit u164 of 20261125-0107-research-compute-5c82/u24 failed: 2 of 10 unsupported",
+ "created": "2026-11-25T11:52:08Z"
+}

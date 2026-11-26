@@ -67,7 +67,7 @@ waiting to happen, and `render.py --check` refuses one.
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [`ci-cd-runners`](docs/ci-cd-runners/README.md) | 49 | 30 | 11 | 1 | 7 | 49 | 7 |
 | [`coding-subs`](docs/coding-subs/README.md) | 74 | 27 | 43 | 2 | 2 | 74 | 8 |
-| [`compute`](docs/compute/README.md) | 1510 | 545 | 703 | 178 | 84 | 1314 | 63 |
+| [`compute`](docs/compute/README.md) | 1524 | 542 | 719 | 178 | 85 | 1329 | 63 |
 | [`crawler-scraper`](docs/crawler-scraper/README.md) | 61 | 40 | 10 | 3 | 8 | 61 | 15 |
 | [`data-apis`](docs/data-apis/README.md) | 155 | 127 | 8 | 12 | 8 | 153 | 1 |
 | [`databases-kv`](docs/databases-kv/README.md) | 42 | 27 | 11 | 1 | 3 | 42 | 10 |
@@ -80,7 +80,7 @@ waiting to happen, and `render.py --check` refuses one.
 | [`ip-proxy`](docs/ip-proxy/README.md) | 87 | 23 | 49 | 9 | 6 | 80 | 10 |
 | [`netdisk-pan`](docs/netdisk-pan/README.md) | 104 | 51 | 3 | 34 | 16 | 59 | 22 |
 | [`storage`](docs/storage/README.md) | 1720 | 381 | 135 | 1062 | 142 | 211 | 29 |
-| **all** | 5339 | 1874 | 1513 | 1579 | 373 | 3435 | 227 |
+| **all** | 5353 | 1871 | 1529 | 1579 | 374 | 3450 | 227 |
 <!-- generated:end -->
 
 ---

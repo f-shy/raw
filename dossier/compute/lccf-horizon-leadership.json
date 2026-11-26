@@ -5,7 +5,7 @@
   "url": "https://lccf.tacc.utexas.edu/allocations/",
   "category": "national HPC allocation",
   "free_tier": {
-    "stated": "Large allocations from 125,000 to 500,000 SUs on Horizon and up to 50,000 SUs on Vista for six months, with submissions opening 15 April 2026 and rolling review from 15 May 2026, on a system carrying 4,750 Vera CPU nodes and 2,000 Grace-Blackwell GPU nodes.",
+    "stated": "Large allocations from 125,000 to 500,000 SUs (Horizon) and up to 50,000 (Vista) for six months duration. The first Horizon opportunity will open for demonstrating large scale science, with submissions opening April 15th 2026, and rolling reviews beginning May 15th. Horizon provides a mix of CPU and GPU computing resources, including 4,750 Dell/NVIDIA Vera CPU nodes, and 2,000 Dell/NVIDIA Grace-Blackwell nodes.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://lccf.tacc.utexas.edu/allocations/",
@@ -69,10 +69,24 @@
       "url": "https://lccf.tacc.utexas.edu/allocations/",
       "date": "2026-10-22",
       "proved": "system composition '4,750 Dell/NVIDIA Vera CPU nodes, and 2,000 Dell/NVIDIA Grace-Blackwell nodes'; submissions 15 April 2026 to 15 June 2026"
+    },
+    {
+      "url": "https://lccf.tacc.utexas.edu/allocations/",
+      "date": "2026-11-25",
+      "proved": "the allocations page states the SU range, the submission and rolling-review dates and the two node counts",
+      "capture": "sha256:49d58465bfa0c7a79d637aaca578a15c6704b18985870ee02d39df634a249ff3",
+      "quote": "Large allocations from 125,000 to 500,000 SUs (Horizon) and up to 50,000 (Vista) for six months duration ... The first Horizon opportunity will open for demonstrating large scale science, with submissions opening April 15th 2026, and rolling reviews beginning May 15th ... Horizon provides a mix of CPU and GPU computing resources, including 4,750 Dell/NVIDIA Vera CPU nodes, and 2,000 Dell/NVIDIA Grace-Blackwell nodes."
+    },
+    {
+      "url": "https://lccf.tacc.utexas.edu/allocations/",
+      "date": "2026-11-25",
+      "proved": "the allocations page still states the SU range, the submission and rolling-review dates and the two node counts",
+      "capture": "sha256:49d58465bfa0c7a79d637aaca578a15c6704b18985870ee02d39df634a249ff3",
+      "quote": "Large allocations from 125,000 to 500,000 SUs (Horizon) and up to 50,000 (Vista) for six months duration ... The first Horizon opportunity will open for demonstrating large scale science, with submissions opening April 15th 2026, and rolling reviews beginning May 15th ... Horizon provides a mix of CPU and GPU computing resources, including 4,750 Dell/NVIDIA Vera CPU nodes, and 2,000 Dell/NVIDIA Grace-Blackwell nodes."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:29.492Z",
   "notes": "The largest US number found after INCITE: 500,000 SUs on the newest NSF leadership system. SUs are a site-defined service unit, not GPU-hours or core-hours, so converting them would be invention. Classified as a refutation of the idea that the newest NSF hardware is open to anyone: it requires a US base and existing peer-reviewed funding.",
   "extras": {
     "wave2": {

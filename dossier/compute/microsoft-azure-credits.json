@@ -5,7 +5,7 @@
   "url": "https://opensource.microsoft.com/azure-credits/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "'Many Microsoft product teams grant Azure credits to open source communities to support their work', but 'Microsoft is not accepting new applications from projects directly and is instead relying on strategic, organic relationships between Microsoft businesses and the open source that they depend on', and 'The application form is not currently open'.",
+    "stated": "Microsoft is not accepting new applications from projects directly and is instead relying on strategic, organic relationships between Microsoft businesses and the open source that they depend on. The application form is not currently open.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://opensource.microsoft.com/azure-credits/",
@@ -69,10 +69,24 @@
       "url": "https://opensource.microsoft.com/blog/2024/11/12/whats-new-with-microsoft-in-open-source-and-kubernetes-at-kubecon-north-america-2024/",
       "date": "2026-10-22",
       "proved": "reported that Azure credits now flow to CNCF and its hosted projects rather than to individual applicants [date precision: day, 2024-11-12]"
+    },
+    {
+      "url": "https://opensource.microsoft.com/azure-credits/",
+      "date": "2026-11-25",
+      "proved": "direct applications are not accepted; awards come from relationships between Microsoft businesses and the open source they depend on",
+      "capture": "sha256:e6d9de98e3c42e81d9e7ff53e1c5eb4cae01d79a1d5621d6b532334c8d0951ac",
+      "quote": "Microsoft is not accepting new applications from projects directly and is instead relying on strategic, organic relationships between Microsoft businesses and the open source that they depend on."
+    },
+    {
+      "url": "https://opensource.microsoft.com/azure-credits/",
+      "date": "2026-11-25",
+      "proved": "the page still states that direct applications are not accepted and that awards come from existing relationships",
+      "capture": "sha256:e6d9de98e3c42e81d9e7ff53e1c5eb4cae01d79a1d5621d6b532334c8d0951ac",
+      "quote": "Microsoft is not accepting new applications from projects directly and is instead relying on strategic, organic relationships between Microsoft businesses and the open source that they depend on."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:30.538Z",
   "notes": "Classified as fails-identity rather than dead because grants are still being issued: the programme changed from an open form to relationship-based allocation, and a reader who finds only the 2021 blog post will believe the form is open. That divergence between a 2021 announcement and the 2026 landing page is the finding. Microsoft's FOSS Fund, named on the same page, is an internal employee-directed fund and has no external application.",
   "extras": {
     "wave2": {

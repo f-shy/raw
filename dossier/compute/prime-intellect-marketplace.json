@@ -5,7 +5,7 @@
   "url": "https://gpurentalprices.com/providers/primeintellect",
   "category": "GPU cloud",
   "free_tier": {
-    "stated": "Marketplace lane of Prime Intellect, priced per GPU-hour: H200 141GB at USD 3.14, B200 180GB at USD 3.49, B300 288GB at USD 4.99, and spot or interruptible H100 at USD 0.94, which is the cheapest H100 hour recorded anywhere among documented hosts. Prices checked 2026-10-22.",
+    "stated": "No current public prices are available for Prime Intellect in this snapshot.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://gpurentalprices.com/providers/primeintellect",
@@ -64,10 +64,24 @@
       "url": "https://gpurentalprices.com/",
       "date": "2026-10-22",
       "proved": "quoted: 'Spot from $0.94 (Prime Intellect)' and 'Cheapest on-demand H100 today: $1.80/hr at HyperAI' with the H100 median at USD 3.29"
+    },
+    {
+      "url": "https://gpurentalprices.com/providers/primeintellect",
+      "date": "2026-11-25",
+      "proved": "the tracker states that no current public prices are available for Prime Intellect",
+      "capture": "sha256:f0cdc7aa76901f51b0e5580eac850f99fa2fe969e177537f5a8b85673e7d20ab",
+      "quote": "No current public prices are available for Prime Intellect in this snapshot."
+    },
+    {
+      "url": "https://gpurentalprices.com/providers/primeintellect",
+      "date": "2026-11-25",
+      "proved": "the tracker states there are no current public prices for Prime Intellect",
+      "capture": "sha256:f0cdc7aa76901f51b0e5580eac850f99fa2fe969e177537f5a8b85673e7d20ab",
+      "quote": "No current public prices are available for Prime Intellect in this snapshot."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:45.874Z",
   "notes": "Extends the existing prime-intellect.json record, which covers the sandbox pricing only, and prime-intellect-2.json, which records the grant programme as dead. The marketplace rates are third-party reported and the vendor pricing page answered 404 on 2026-10-22, so the rung is reported. A spot rate is not a supply guarantee: the tracker labels it spot, and the existing record's note that Pods stop when credits run out is the practical limit.",
   "extras": {
     "wave2": {

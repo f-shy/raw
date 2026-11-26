@@ -5,7 +5,7 @@
   "url": "https://www.psc.edu/resources/neocortex/allocations/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "Free wafer-scale accelerator time on Cerebras CS-3 systems, allocated through the NSF ACCESS programme: 'There is no cost to use Neocortex for non-proprietary research.' Eligibility is explicit and institutional: 'Projects must be non-proprietary. Applicants must be a researcher or educator at a US academic or non-profit research institution. A principal investigator (PI) is required. PIs may not be a high school, undergraduate or graduate student; a qualified advisor must serve in this capacity.'",
+    "stated": "Allocation requests for Neocortex are accepted by the NSF ACCESS program on a rolling basis; eligibility criteria to use this resource free of charge are as follows: projects must be non-proprietary; applicants must be a researcher or educator at a US academic or non-profit research institution; a principal investigator (PI) is required, PIs may not be a high school, undergraduate or graduate student, a qualified advisor must serve in this capacity, and postdocs are eligible to serve as PI.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://www.psc.edu/resources/neocortex/allocations/",
@@ -69,10 +69,24 @@
       "url": "https://www.alcf.anl.gov/alcf-ai-testbed",
       "date": "2026-10-22",
       "proved": "the same accelerator appears at Argonne as a Cerebras CS-3 with 24 nodes, 'Available through an allocation request'"
+    },
+    {
+      "url": "https://www.psc.edu/resources/neocortex/allocations/",
+      "date": "2026-11-25",
+      "proved": "the allocations page states the resource is used free of charge under eligibility criteria and accepts requests on a rolling basis",
+      "capture": "sha256:cd8386e95ea938e7f30a24f0be3cd181487ed9487620ae03f85f4b8025e460e6",
+      "quote": "Eligibility criteria to use this resource free of charge are as follows."
+    },
+    {
+      "url": "https://www.psc.edu/resources/neocortex/allocations/",
+      "date": "2026-11-25",
+      "proved": "the allocations page still states use of the resource is free of charge",
+      "capture": "sha256:cd8386e95ea938e7f30a24f0be3cd181487ed9487620ae03f85f4b8025e460e6",
+      "quote": "Eligibility criteria to use this resource free of charge are as follows."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:45.875Z",
   "notes": "Neocortex at Pittsburgh Supercomputing Center provides access to Cerebras CS-3 systems via ACCESS allocation requests. Allocations require academic peer-review approval.",
   "extras": {
     "wave2": {

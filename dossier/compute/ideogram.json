@@ -5,7 +5,7 @@
   "url": "https://ideogram.ai/pricing/",
   "category": "inference API",
   "free_tier": {
-    "stated": "No free plan is listed. The published plans on 2026-10-22 begin at Plus ('USD 15 per month, USD 180 billed annually, 2,400 priority credits a month'), then Pro at USD 60 for 7,500 priority credits, Team at USD 30 a user, and enterprise tiers per credit. 'Unlimited slow credits' appears only as a Pro feature line. A capture of the same page on 2026-09-21 recorded the free weekly allowance as de-published, and a January 2025 capture recorded the free tier tightened from 10 slow images a day to '10 credits per week'.",
+    "stated": "The published plans begin at Plus: '$15 per month, $180 billed annually', '2,400 priority credits/mo.'; Pro is '$60' per month with '7,500 priority credits/mo.'; Team is '$30' 'per user per month' with '3,600 priority credits/user/mo.'; pay as you go is '1¢ per credit'. 'Unlimited slow credits' is listed only under Pro.",
     "unit": "unlimited",
     "metered_on": "wall-clock",
     "source_url": "https://ideogram.ai/pricing/",
@@ -79,10 +79,45 @@
       "url": "https://mendoi-apps.com/ko/articles/ideogram-free-30-weekly-google-login-email-excluded-new-2400-credits/",
       "date": "2026-10-22",
       "proved": "a Korean-language report dated 2026-10-18 claims free accounts get 30 credits a week when signing in with Google, Apple or Microsoft, and that email signups are excluded, reported and not confirmed"
+    },
+    {
+      "url": "https://ideogram.ai/pricing/",
+      "date": "2026-11-25",
+      "proved": "the Plus plan is published at $15 per month, $180 billed annually, with 2,400 priority credits per month",
+      "capture": "sha256:230fbf5ac4748b0e5242067bc737c1288ab8ac0d25ec8cee9794f7f68e31ab73",
+      "quote": "$15 $15\n\nper month, $180 billed annually\n\n2,400 priority credits/mo."
+    },
+    {
+      "url": "https://ideogram.ai/pricing/",
+      "date": "2026-11-25",
+      "proved": "the Pro plan is published at $60 per month with 7,500 priority credits per month",
+      "capture": "sha256:230fbf5ac4748b0e5242067bc737c1288ab8ac0d25ec8cee9794f7f68e31ab73",
+      "quote": "$60\n\n$42 $42\n\nper month, $504 billed annually\n\n7,500 priority credits/mo."
+    },
+    {
+      "url": "https://ideogram.ai/pricing/",
+      "date": "2026-11-25",
+      "proved": "the Team plan is published at $30 per user per month with 3,600 priority credits per user per month",
+      "capture": "sha256:230fbf5ac4748b0e5242067bc737c1288ab8ac0d25ec8cee9794f7f68e31ab73",
+      "quote": "$30\n\n$20 $20\n\nper user per month, $240 per user billed annually\n\n3,600 priority credits/user/mo."
+    },
+    {
+      "url": "https://ideogram.ai/pricing/",
+      "date": "2026-11-25",
+      "proved": "pay-as-you-go credits are priced at one cent per credit",
+      "capture": "sha256:230fbf5ac4748b0e5242067bc737c1288ab8ac0d25ec8cee9794f7f68e31ab73",
+      "quote": "1¢\n\nper credit\n\nCredits on demand"
+    },
+    {
+      "url": "https://ideogram.ai/pricing/",
+      "date": "2026-11-25",
+      "proved": "the unlimited slow-credits line is a Pro feature",
+      "capture": "sha256:230fbf5ac4748b0e5242067bc737c1288ab8ac0d25ec8cee9794f7f68e31ab73",
+      "quote": "- Unlimited slow credits"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:28.101Z",
   "notes": "These are inference credits, not general compute. Recorded as paid-only and not dead: Ideogram sells and ships. The inference is that the free lane closed, because the vendor's price list no longer carries a free row and because a September 2026 capture recorded the allowance as de-published while an October 2026 third-party report claims a 30-credit weekly allowance for social logins only. What would settle it: creating one account by email and one by Google login and reading the credit balance. Not done in this session.",
   "extras": {
     "wave2": {

@@ -1,161 +1,236 @@
 {
-  "topic": "compute",
-  "slug": "kosem",
-  "provider": "kosem",
-  "url": "https://kosem.ai/pricing",
-  "category": "coding-agent platform",
-  "tier": "Hobby",
-  "free_tier": {
-    "stated": "$0 per month plus usage, with $10 of starter credits for 60 days covering about 43 hours of Standard environments; 1 engineer, 3 projects, 4 concurrent vCPUs (2 Standard environments).",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://kosem.ai/pricing",
-    "read_on": "2026-11-24",
-    "notes": "The $10 starter credit is granted to each person's first organization and expires in 60 days. A card can be added anytime to pay as you go with no subscription. Usage beyond the credit is $0.0504 per vCPU-hour, $0.0162 per GiB-hour of memory and $0.10 per GiB-month of disk; a 2-vCPU 8-GiB Standard environment is listed at $0.230 per hour. Direct LLM Gateway calls include 50,000 a month on Hobby, then $0.10 per 1,000; agent web searches include 100 a month, then $0.012 each. Agent model calls are $0 because models run on the user's own provider accounts with zero markup."
+ "topic": "compute",
+ "slug": "kosem",
+ "provider": "kosem",
+ "url": "https://kosem.ai/pricing",
+ "category": "coding-agent sandbox platform",
+ "tier": "Hobby, $0 platform plus usage",
+ "free_tier": {
+  "stated": "Hobby is $0 per month plus usage, with $10 of starter credits for 60 days (about 43 hours of Standard environments), 1 engineer, 3 projects, 4 concurrent vCPUs and 1 self-hosted runner; add a card anytime to pay as you go with no subscription.",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://kosem.ai/pricing",
+  "read_on": "2026-11-25",
+  "notes": "The $10 credit is one-time and lasts 60 days, not renewing, so it is a trial rather than a recurring free allowance. Standard is 2 vCPUs and 8 GiB at $0.230 per hour on the pricing page; the limits reference lists $0.0504 per vCPU-hour and $0.0162 per GiB-hour past the allowance, which at 2 vCPU/8 GiB is $0.2376 an hour. The page is in public beta."
+ },
+ "per_object_cap": {
+  "stated": "The largest single environment on Hobby is 2 vCPUs, 8 GiB and 50 GiB disk; agent files are capped at 50 MiB per file and 1 GiB per agent, bounded by the organization's 1 GiB file storage quota.",
+  "bytes": null,
+  "source_url": "https://docs.kosem.ai/reference/limits"
+ },
+ "retention": {
+  "stated": "An agent's environment stops 5 minutes after its turn and is deleted after 2 days stopped unless extended up to 7 days on Hobby; inactive agents, transcripts and attached files are retained 90 days.",
+  "days": 7,
+  "source_url": "https://docs.kosem.ai/reference/limits"
+ },
+ "egress": {
+  "terms": "No sandbox egress price or allowance is stated on the pricing or limits pages; the pages price running vCPUs, memory and disk only. Static sites published by agents are included on every plan. Sandbox-level outbound traffic terms are unverified: behind a sign-up.",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://kosem.ai/pricing"
+ },
+ "interface": [
+  "browser",
+  "cli",
+  "rest"
+ ],
+ "interface_detail": "Agents are driven from the kosem app and CLI; the platform exposes LLM Gateway API endpoints and a documented REST API for quotas, while the microVM is reached through the agent environment rather than a published SSH endpoint.",
+ "endpoint": "https://api.kosem.ai/v1",
+ "tooling": "the kosem app, the kosem CLI and the documented API; access connections for GitHub, AWS and Google Cloud; no SSH endpoint or rclone backend is published for the environment.",
+ "chaining": "Each agent gets its own identity and short-lived, revocable credentials for GitHub, AWS and Google Cloud, and connects its own model accounts without a token markup, so a sandbox run can open a pull request or read cloud logs within granted scope.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "$10 of starter credits for 60 days, about 43 hours of Standard environments on Hobby",
+   "source": "https://kosem.ai/pricing"
   },
-  "per_object_cap": {
-    "stated": "up to 50 MiB per file and up to 1 GiB per agent, bounded by the organization's 1 GiB file storage quota on Hobby; sites are up to 2,000 files, 25 MiB per file and 100 MiB total per site version",
-    "bytes": 52428800,
-    "source_url": "https://docs.kosem.ai/reference/limits",
-    "notes": "The 50 MiB figure is the per-file cap; the 1 GiB figure is the per-agent and organization total cap on Hobby."
+  {
+   "kind": "volume-quota",
+   "value": "4 concurrent vCPUs and 16 GiB memory on Hobby, 20 environments, 100 GiB total environment disk and 1 GiB agent file storage",
+   "source": "https://docs.kosem.ai/reference/limits"
   },
-  "retention": {
-    "stated": "inactive agents, transcripts and attached files are retained 90 days on Hobby; stopped environments and disks up to 7 days; sites 30 days; LLM Gateway request log 7 days",
-    "days": 90,
-    "source_url": "https://docs.kosem.ai/reference/limits"
+  {
+   "kind": "request-rate",
+   "value": "10 concurrent agents and 10 agent web page reads per minute per project on Hobby; LLM Gateway requests are limited to 1,000 per minute per project",
+   "source": "https://docs.kosem.ai/reference/limits"
   },
-  "egress": {
-    "terms": "not published as a byte allowance or price: the pricing and limits pages give no outbound traffic quota or per-TB rate; an agent's web search and web fetch are tools counted per call (100 web searches a month on Hobby, then $0.012 each) and Direct LLM Gateway calls past allowance are $0.10 per 1,000",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://kosem.ai/pricing"
-  },
-  "interface": [
-    "rest",
-    "cli",
-    "browser"
-  ],
-  "interface_detail": "Kosem exposes a REST API with an API key for agents, projects and environments, an interactive shell in the browser, and Anthropic Messages and OpenAI Chat Completions compatible gateway endpoints at https://api.kosem.ai/v1/projects/{project}/llm/anthropic and https://api.kosem.ai/v1/projects/{project}/llm/openai/v1. Environments are isolated Linux machines on kosem-managed machines or on the user's own hosts.",
-  "endpoint": "https://api.kosem.ai/v1/",
-  "tooling": "REST API with service-account API keys, standard provider SDKs pointed at the LLM Gateway endpoints, an in-browser shell, and self-hosted runner pools. There is no rclone backend or object-storage interface; the resource is a Linux environment, not a bucket.",
-  "chaining": "A coding agent runs in a microVM built from an OCI image on the user's own model-provider accounts, so it chains into a CI or development workflow by granting scoped short-lived GitHub, AWS or GCP credentials per task.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "$10 of starter credits for 60 days, about 43 hours of Standard environments",
-      "source": "https://kosem.ai/pricing"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "4 concurrent vCPUs (2 Standard environments) and 100 GiB total environment disk on Hobby",
-      "source": "https://kosem.ai/pricing"
-    },
-    {
-      "kind": "request-rate",
-      "value": "50,000 Direct LLM Gateway API calls a month, then $0.10 per 1,000; 1,000 gateway requests a minute per project; 100 agent web searches a month, then $0.012 each",
-      "source": "https://kosem.ai/pricing"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "50 MiB per file, 1 GiB per agent and 1 GiB organization file storage on Hobby",
-      "source": "https://docs.kosem.ai/reference/limits"
-    }
-  ],
-  "limits_note": "Hobby allows 1 organization, 3 projects, 10 concurrent agents, 5 model providers, 2 access connections, 20 environments and 25 secrets. Agent model calls default to at most 1,000 per turn before pausing. Stopped environments are deleted after 2 days by default and unpaid stopped environments after a 14-day grace period. Monthly usage limits and credit auto-reload caps can stop paid usage.",
-  "binding": "volume-quota",
-  "binding_note": "The $10 starter credit expiring in 60 days is the first constraint for a new account: it covers about 43 hours of Standard environments, which runs out before the 4 concurrent vCPU or 100 GiB disk ceilings, and paid usage stops when credits and the monthly allowance are exhausted.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The quickstart says 'An email address. kosem signs you in with a code it emails you' and describes entering an email address, clicking Continue with email and entering an 8-digit code from the email. First sign-in creates the account; a passkey is an alternative sign-in. No phone number, ID document, institution or card is required to start; a card is optional to pay as you go. Using the platform needs an API key from a model provider such as Anthropic or OpenAI, whose own signup is separate.",
-    "country": null
-  },
-  "reliability_note": "A provider's own 429 rate limits pass through the LLM Gateway to agents; when credits run out, billed requests stop with CREDITS_EXHAUSTED and running environments stop while retaining their disks until deleted. Environments stop 5 minutes after an agent's turn by default and are deleted after 2 days stopped.",
-  "confidence": "documented",
-  "confidence_note": "The $0 Hobby plan, $10 starter credits, 60-day validity, 43-hour estimate, per-hour and per-GB usage rates and request allowances are quoted from kosem's own pricing page read on 2026-11-24; the email-code sign-in is quoted from its quickstart; the per-file, per-agent, retention and quota figures are quoted from its limits reference.",
-  "evidence": [
-    {
-      "url": "https://kosem.ai/pricing",
-      "date": "2026-11-24",
-      "proved": "Hobby is $0 a month plus usage and includes $10 of starter credits",
-      "capture": "sha256:fa83397966e0af9252fe22f7c1a8905d720db1d0d66e106380b53c60d2e70469",
-      "quote": "$10 of credits to start"
-    },
-    {
-      "url": "https://kosem.ai/pricing",
-      "date": "2026-11-24",
-      "proved": "the starter credits last 60 days and cover about 43 hours of Standard environments",
-      "capture": "sha256:fa83397966e0af9252fe22f7c1a8905d720db1d0d66e106380b53c60d2e70469",
-      "quote": "$10 of starter credits for 60 days (~43 hours of Standard environments)"
-    },
-    {
-      "url": "https://kosem.ai/pricing",
-      "date": "2026-11-24",
-      "proved": "Hobby allows 1 engineer, 3 projects and 4 concurrent vCPUs",
-      "capture": "sha256:fa83397966e0af9252fe22f7c1a8905d720db1d0d66e106380b53c60d2e70469",
-      "quote": "1 engineer · 3 projects · 4 concurrent vCPUs (2 Standard environments)"
-    },
-    {
-      "url": "https://kosem.ai/pricing",
-      "date": "2026-11-24",
-      "proved": "the Hobby direct gateway allowance is 50,000 calls a month then $0.10 per 1,000",
-      "capture": "sha256:fa83397966e0af9252fe22f7c1a8905d720db1d0d66e106380b53c60d2e70469",
-      "quote": "50,000 / monththen $0.10 per 1,000"
-    },
-    {
-      "url": "https://kosem.ai/pricing",
-      "date": "2026-11-24",
-      "proved": "Hobby agent file storage is 1 GiB and payment is by card",
-      "capture": "sha256:fa83397966e0af9252fe22f7c1a8905d720db1d0d66e106380b53c60d2e70469",
-      "quote": "Agent file storageTotal files attached to agents across the organization | 1 GiB"
-    },
-    {
-      "url": "https://docs.kosem.ai/get-started/quickstart",
-      "date": "2026-11-24",
-      "proved": "sign-in needs only an email address and an 8-digit code emailed to it",
-      "capture": "sha256:4b09666214682277027b1db8e1448310dad65dd4e724ac6e4d2801e0d40b5e0e",
-      "quote": "An email address. kosem signs you in with a code it emails you."
-    },
-    {
-      "url": "https://docs.kosem.ai/reference/limits",
-      "date": "2026-11-24",
-      "proved": "the file upload and download cap is 64 MiB through the API",
-      "capture": "sha256:d7516b87921e13232a0991b49a7c89811f0ee76f66cd6ec435b115822947cdd1",
-      "quote": "Agent file storage (organization total) | 1 GiB | 25 GiB | 250 GiB (raisable)"
-    },
-    {
-      "url": "https://docs.kosem.ai/reference/limits",
-      "date": "2026-11-24",
-      "proved": "agent web page reads are rate-limited per project at 10, 30 or 60 a minute",
-      "capture": "sha256:d7516b87921e13232a0991b49a7c89811f0ee76f66cd6ec435b115822947cdd1",
-      "quote": "Agent web page reads per minute (per project) | 10 | 30 | 60 (raisable)"
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.863Z",
-  "price_per_tb_month": null,
-  "notes": "Hosted coding-agent platform with an isolated Linux microVM per agent. Hobby is free at $0 a month on an email-only sign-in, bounded by $10 of 60-day starter credits, 4 concurrent vCPUs and 1 GiB of file storage. The user must bring model-provider API keys; kosem adds no token markup. Egress is not published as a byte quota or per-TB price, only as per-call web-search and gateway charges.",
-  "extras": {
-    "shape": {
-      "vcpu": 2,
-      "ram_gib": 8,
-      "disk_gib": 10,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "default agent environment is 2 vCPUs, 8 GiB memory and 10 GiB disk; Hobby largest environment is 2 vCPUs, 8 GiB and 50 GiB disk"
-    },
-    "billing_model": "free Hobby plan with expiring starter credits, then pay-as-you-go usage",
-    "free_tier_kind": "expiring-credit",
-    "term": "starter credits valid 60 days; no monthly subscription on Hobby",
-    "price_arithmetic": "$10 credits cover about 43 hours of Standard environments at $0.230 an hour",
-    "status": "public beta, hosted",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": null,
-      "ports": null,
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    }
+  {
+   "kind": "retention-clamped",
+   "value": "stopped environments and disks are deleted after 2 days, extendable to 7 days on Hobby; an agent environment stops 5 minutes after its turn",
+   "source": "https://docs.kosem.ai/reference/limits"
   }
+ ],
+ "limits_note": "The Hobby plan allows 1 engineer, 3 projects, 2 model providers and 2 access connections. Starter credits run out after 60 days or when spent, and a card is needed to keep running.",
+ "binding": "volume-quota",
+ "binding_note": "The $10 starter credit covering about 43 hours in 60 days binds before the 4 concurrent vCPU ceiling, because paid usage stops when the credit runs out and no card is held at signup.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "The sign-in page at app.kosem.ai/sign-in says 'Sign in or create an account.' and renders 'Continue with Google', a GitHub button, 'Sign in with a passkey' and an email field posting to /v1/auth/email/start; the page offers up to 20 passkeys. No phone or document field is visible, and no card is asked for before the $10 starter credit is used. Card details inside Billing are unverified: behind a sign-up.",
+  "country": null
+ },
+ "reliability_note": "Provider rate limits pass through to agents and their 429 responses are not smoothed by kosem. Stopped environments are deleted after 2 days unless extended to the plan cap, and environments whose billing account reaches $0 are deleted after a 14-day grace period.",
+ "confidence": "documented",
+ "confidence_note": "Prices, starter credits, environment shapes and quotas are quoted from the vendor's pricing and limits pages read on 2026-11-25; the sign-in fields are quoted from the application's own sign-in script fetched the same day. Sandbox egress terms and in-account card flows are unverified: behind a sign-up.",
+ "evidence": [
+  {
+   "url": "https://paste.ajam.dev/raw/WCLUsa",
+   "date": "2026-11-25",
+   "proved": "the operator's price list gives kosem at USD 0.230 per hour, billed per second",
+   "capture": "sha256:4d220f8008ed2a6126e4b7f8bc4639bd9e625605ec428846fde2bdf593cc5c95",
+   "quote": "kosem → $0.23/h · billed per second (new)"
+  },
+  {
+   "url": "https://kosem.ai/pricing",
+   "date": "2026-11-25",
+   "proved": "Hobby costs $0 a month plus usage and gives $10 of starter credits for 60 days, about 43 hours of Standard environments",
+   "capture": "sha256:a3b734a15ce9870c204d4abe60f0456b16d851012b40af2d85a143509df5e8bf",
+   "quote": "$10 of starter credits for 60 days (~43 hours of Standard environments)"
+  },
+  {
+   "url": "https://kosem.ai/pricing",
+   "date": "2026-11-25",
+   "proved": "the Standard environment is 2 vCPUs and 8 GiB at $0.230 per hour",
+   "capture": "sha256:a3b734a15ce9870c204d4abe60f0456b16d851012b40af2d85a143509df5e8bf",
+   "quote": "Standard **2 vCPUs · 8 GiB** *$0.230 per hour*"
+  },
+  {
+   "url": "https://kosem.ai/pricing",
+   "date": "2026-11-25",
+   "proved": "Hobby allows 1 engineer, 3 projects and 4 concurrent vCPUs, and a card can be added later with no subscription",
+   "capture": "sha256:a3b734a15ce9870c204d4abe60f0456b16d851012b40af2d85a143509df5e8bf",
+   "quote": "- Add a card anytime to pay as you go, with no subscription\n- 1 engineer · 3 projects · 4 concurrent vCPUs · 1 self-hosted runner"
+  },
+  {
+   "url": "https://docs.kosem.ai/reference/limits",
+   "date": "2026-11-25",
+   "proved": "past the allowance, environment vCPU, memory and disk cost $0.0504 per vCPU-hour, $0.0162 per GiB-hour and $0.10 per GiB-month",
+   "capture": "sha256:d7516b87921e13232a0991b49a7c89811f0ee76f66cd6ec435b115822947cdd1",
+   "quote": "| Environment vCPUs (running) | — | — | — | $0.0504 per vCPU-hour |\n| Environment memory (running) | — | — | — | $0.0162 per GiB-hour |\n| Environment disk (running or stopped) | — | — | — | $0.10 per GiB-month |"
+  },
+  {
+   "url": "https://docs.kosem.ai/reference/limits",
+   "date": "2026-11-25",
+   "proved": "Hobby limits are 4 concurrent vCPUs, 16 GiB memory, 2 vCPU/8 GiB/50 GiB largest environment, 1 GiB file storage and stopped-environment retention of up to 7 days",
+   "capture": "sha256:d7516b87921e13232a0991b49a7c89811f0ee76f66cd6ec435b115822947cdd1",
+   "quote": "| Concurrent vCPUs | 4 | 16 | 50 (raisable) |\n| Concurrent memory | 16 GiB | 64 GiB | 200 GiB (raisable) |\n| Largest single environment | 2 vCPUs · 8 GiB · 50 GiB disk | 8 vCPUs · 52 GiB · 500 GiB disk | 8 vCPUs · 52 GiB · 500 GiB disk |"
+  },
+  {
+   "url": "https://docs.kosem.ai/reference/limits",
+   "date": "2026-11-25",
+   "proved": "an agent's environment stops 5 minutes after its turn and is deleted after 2 days stopped unless extended to 7 days on Hobby",
+   "capture": "sha256:d7516b87921e13232a0991b49a7c89811f0ee76f66cd6ec435b115822947cdd1",
+   "quote": "An agent's default environment is **2 vCPUs, 8 GiB memory and 10 GiB disk** (standalone environments default to **2 vCPUs, 8 GiB memory and 20 GiB disk**). An agent's environment stops 5 minutes after its turn and is deleted after 2 days stopped unless extended up to your plan's stopped retention cap (7 days on Hobby, 30 days on Pro, unlimited on Team and Enterprise)."
+  },
+  {
+   "url": "https://app.kosem.ai/assets/sign-in.index-afXAPglD.js",
+   "date": "2026-11-25",
+   "proved": "the sign-in component says 'Sign in or create an account.' and offers Google, GitHub, passkey and email sign-in",
+   "capture": "sha256:1224fcd6a7ef961d5a4f4e31bdae10881544087f1f46a6769ab523a9b6dd24f7",
+   "quote": "Sign in or create an account"
+  },
+  {
+   "url": "https://app.kosem.ai/assets/sign-in.index-afXAPglD.js",
+   "date": "2026-11-25",
+   "proved": "the sign-in buttons include Continue with Google and Sign in with a passkey",
+   "capture": "sha256:1224fcd6a7ef961d5a4f4e31bdae10881544087f1f46a6769ab523a9b6dd24f7",
+   "quote": "Continue with Google"
+  },
+  {
+   "url": "https://app.kosem.ai/sign-in",
+   "date": "2026-11-25",
+   "proved": "the sign-in page is a JavaScript application with no form fields rendered in the HTML itself",
+   "capture": "sha256:e68208bab189be7a2e0f8d537202468e430bfb812bf008ba94e3539ede32db70",
+   "quote": "<title>kosem</title>"
+  },
+  {
+   "url": "https://kosem.ai/pricing",
+   "date": "2026-11-24",
+   "proved": "Hobby is $0 a month plus usage and includes $10 of starter credits",
+   "capture": "sha256:fa83397966e0af9252fe22f7c1a8905d720db1d0d66e106380b53c60d2e70469",
+   "quote": "$10 of credits to start"
+  },
+  {
+   "url": "https://kosem.ai/pricing",
+   "date": "2026-11-24",
+   "proved": "the starter credits last 60 days and cover about 43 hours of Standard environments",
+   "capture": "sha256:fa83397966e0af9252fe22f7c1a8905d720db1d0d66e106380b53c60d2e70469",
+   "quote": "$10 of starter credits for 60 days (~43 hours of Standard environments)"
+  },
+  {
+   "url": "https://kosem.ai/pricing",
+   "date": "2026-11-24",
+   "proved": "Hobby allows 1 engineer, 3 projects and 4 concurrent vCPUs",
+   "capture": "sha256:fa83397966e0af9252fe22f7c1a8905d720db1d0d66e106380b53c60d2e70469",
+   "quote": "1 engineer · 3 projects · 4 concurrent vCPUs (2 Standard environments)"
+  },
+  {
+   "url": "https://kosem.ai/pricing",
+   "date": "2026-11-24",
+   "proved": "the Hobby direct gateway allowance is 50,000 calls a month then $0.10 per 1,000",
+   "capture": "sha256:fa83397966e0af9252fe22f7c1a8905d720db1d0d66e106380b53c60d2e70469",
+   "quote": "50,000 / monththen $0.10 per 1,000"
+  },
+  {
+   "url": "https://kosem.ai/pricing",
+   "date": "2026-11-24",
+   "proved": "Hobby agent file storage is 1 GiB and payment is by card",
+   "capture": "sha256:fa83397966e0af9252fe22f7c1a8905d720db1d0d66e106380b53c60d2e70469",
+   "quote": "Agent file storageTotal files attached to agents across the organization | 1 GiB"
+  },
+  {
+   "url": "https://docs.kosem.ai/get-started/quickstart",
+   "date": "2026-11-24",
+   "proved": "sign-in needs only an email address and an 8-digit code emailed to it",
+   "capture": "sha256:4b09666214682277027b1db8e1448310dad65dd4e724ac6e4d2801e0d40b5e0e",
+   "quote": "An email address. kosem signs you in with a code it emails you."
+  },
+  {
+   "url": "https://docs.kosem.ai/reference/limits",
+   "date": "2026-11-24",
+   "proved": "the file upload and download cap is 64 MiB through the API",
+   "capture": "sha256:d7516b87921e13232a0991b49a7c89811f0ee76f66cd6ec435b115822947cdd1",
+   "quote": "Agent file storage (organization total) | 1 GiB | 25 GiB | 250 GiB (raisable)"
+  },
+  {
+   "url": "https://docs.kosem.ai/reference/limits",
+   "date": "2026-11-24",
+   "proved": "agent web page reads are rate-limited per project at 10, 30 or 60 a minute",
+   "capture": "sha256:d7516b87921e13232a0991b49a7c89811f0ee76f66cd6ec435b115822947cdd1",
+   "quote": "Agent web page reads per minute (per project) | 10 | 30 | 60 (raisable)"
+  }
+ ],
+ "verdict": "trial-only",
+ "verified_at": "2026-11-25T11:55:06.399Z",
+ "price_per_tb_month": null,
+ "notes": "Hosted coding-agent microVMs with $10 of starter credits for 60 days, Standard at $0.230 per hour and $0 per month on Hobby. The starter credit is one-off, not renewing, so the free allowance is a trial. The 4-concurrent-vCPU cap binds after the credit. Self-hosted runners run environments on the user's own hosts at $0 kosem compute, listed last; the hosted Hobby offer is the primary one here.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 8,
+   "disk_gib": 10,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "Standard is 2 vCPU and 8 GiB at $0.230 an hour; the operator's price list uses a 2 vCPU / 4 GB shape"
+  },
+  "billing_model": "$0 platform fee plus per-second environment usage paid from starter credits, then a card",
+  "free_tier_kind": "time-limited starter credit",
+  "term": "public beta, monthly platform plus usage",
+  "price_arithmetic": "$10 starter credits cover about 43 hours of Standard environments at $0.230 an hour",
+  "status": "public beta",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": null,
+   "ports": "static sites published by agents can be private or public; sandbox ports not published",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": 300,
+   "restart_required": false,
+   "note": "an agent environment stops 5 minutes after its turn; stopped environments are deleted after 2 days unless extended to the plan cap"
+  }
+ }
 }

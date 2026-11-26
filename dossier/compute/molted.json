@@ -1,131 +1,197 @@
 {
-  "topic": "compute",
-  "slug": "molted",
-  "provider": "Molted",
-  "url": "https://www.molted.net/pricing",
-  "category": "agent-hosting sandbox",
-  "tier": "Small / Large / XLarge always-on agent instance",
-  "free_tier": {
-    "stated": "No free tier. A time-boxed trial credits the first 5 days of hosting to the wallet when Mue is chosen on a Small or Large instance, once per account; otherwise Small is USD 2.88 a month, Large USD 5.25, XLarge USD 7.90, prorated.",
-    "unit": "none",
-    "metered_on": "wall-clock",
-    "source_url": "https://www.molted.net/pricing",
-    "read_on": "2026-11-24",
-    "notes": "The 5-day Mue credit is a trial, not a free tier: it is once per account, excludes XLarge, and does not apply to OpenClaw or Hermes. The paid instance price is per agent, always on, prorated to the time the agent exists."
+ "topic": "compute",
+ "slug": "molted",
+ "provider": "Molted",
+ "url": "https://www.molted.net/pricing",
+ "category": "hosted agent sandbox",
+ "tier": "Small (always-on agent)",
+ "free_tier": {
+  "stated": "No free tier: the Service is prepaid, credit is bought by card and there is no free trial. The first Small or Large instance running Mue receives a one-time promotional credit worth 5 days of its running price. Mue on Small or Large credits the first 5 days of hosting to the wallet.",
+  "unit": "none",
+  "metered_on": "wall-clock",
+  "source_url": "https://www.molted.net/legal/terms",
+  "read_on": "2026-11-25",
+  "notes": "The 5-day credit is a one-time new-account promotion, not a recurring allowance, and requires buying credit by card. Mue must be chosen on Small or Large."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a machine, not an object; the Small size has 5 GB of NVMe storage and a versioned workspace with a file explorer",
+  "source_url": "https://www.molted.net/pricing"
+ },
+ "retention": {
+  "stated": "An agent whose balance stays at zero or below for 3 days is stopped, not deleted, and restarts after adding credit; instances keep being charged while they exist. Deleting the agent ends the charge.",
+  "days": null,
+  "source_url": "https://www.molted.net/legal/terms"
+ },
+ "egress": {
+  "terms": "$0 network fees, in or out; a public HTTPS address is included with every agent",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://www.molted.net/pricing"
+ },
+ "interface": [
+  "ssh",
+  "rest",
+  "browser",
+  "cli"
+ ],
+ "interface_detail": "A terminal in the browser, SSH access, the API and a public HTTPS address for every agent.",
+ "tooling": "Console, SSH, API and a public HTTPS address; the instance runs the vendor's agent runtime with automatic repair and a versioned workspace.",
+ "chaining": "An always-on hosted agent with its own public HTTPS URL; a job that must survive instance deletion needs its output copied to a separate object-storage record.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "Small $2.88 per month, billed by the day and prorated to the time the agent exists; stopped workspace about 10x cheaper; $0 once the agent is deleted",
+   "source": "https://www.molted.net/pricing"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is an always-on instance, not an object; the largest disk is 20 GB NVMe on the XLarge size"
-  },
-  "retention": {
-    "stated": "A versioned workspace keeps the history of every file and config change; a stopped agent costs 10x less with the workspace kept, and a deleted agent costs nothing.",
-    "days": null,
-    "source_url": "https://www.molted.net/pricing"
-  },
-  "egress": {
-    "terms": "Network fees are zero in and out: '$0 network fees, in or out'.",
-    "metered": false,
-    "free_allowance": "unlimited: $0 network fees in or out",
-    "price_per_tb": "0",
-    "source_url": "https://www.molted.net/pricing"
-  },
-  "interface": [
-    "ssh",
-    "rest",
-    "browser",
-    "cli"
-  ],
-  "interface_detail": "Console in the browser, SSH access, the API and a public HTTPS address for every agent, per the pricing page.",
-  "tooling": "the Molted dashboard and API; SSH into the instance; a terminal in the browser; an agent with an API key or subscription supplies the model",
-  "chaining": "An always-on agent host with a persistent workspace, browser and integrations; it pairs with object storage for artifacts that must outlive a deleted agent, and its model usage is billed by the provider on the user's own key or subscription.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "5 days of hosting credited to the wallet once per account when Mue is chosen on Small or Large; XLarge, OpenClaw and Hermes excluded",
-      "source": "https://www.molted.net/pricing"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "20 GB NVMe storage on the XLarge size; 5 GB Small, 10 GB Large",
-      "source": "https://www.molted.net/pricing"
-    }
-  ],
-  "limits_note": "Amounts are prorated: three days of Large cost about $0.53; a stopped agent costs 10x less with the workspace kept; a deleted agent costs nothing. Paid tools are debited from a prepaid wallet under a spending cap, with automatic top-up from $15.",
-  "binding": "volume-quota",
-  "binding_note": "The 5-day Mue credit is the only free amount and is one-time, so the paid monthly instance price applies to any sustained use.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The signup page reads 'Create your account' and asks Region, Organization, 'Your name', 'Work email', Website, and agreement to the Terms of Service and Acceptable Use Policy. No phone, ID document, institution or card field appears on the signup page. The prepaid wallet's top-up method (card?) is unverified: behind a sign-up and is not stated on any page read.",
-    "country": null
-  },
-  "reliability_note": "Instances are always on with monitoring and four recovery tiers for automatic repair; Molted states the '2x faster per core' figure is an internal measurement, median of three runs, not an independent benchmark.",
-  "confidence": "documented",
-  "confidence_note": "The rate card, the 5-day Mue credit and its exclusions, the zero network fees and the signup fields are quoted from Molted's own pricing and signup pages read on 2026-11-24.",
-  "evidence": [
-    {
-      "url": "https://www.molted.net/pricing",
-      "date": "2026-11-24",
-      "proved": "the 5-day free hosting credit is a Mue-only trial on Small or Large, once per account, excluding XLarge and other runtimes",
-      "capture": "sha256:2e964b9ecdd5c83ff97b8b50248a84f6599195b1dcba961285afedf9b801f39c",
-      "quote": "Pick Mue as your runtime on a Small or Large instance and your first 5 days of hosting are credited to your wallet, once per account. The offer is for Mue only and does not apply to XLarge. OpenClaw and Hermes are billed from the first day, prorated."
-    },
-    {
-      "url": "https://www.molted.net/pricing",
-      "date": "2026-11-24",
-      "proved": "network traffic is not billed in or out",
-      "capture": "sha256:2e964b9ecdd5c83ff97b8b50248a84f6599195b1dcba961285afedf9b801f39c",
-      "quote": "**$0** network fees, in or out"
-    },
-    {
-      "url": "https://www.molted.net/pricing",
-      "date": "2026-11-24",
-      "proved": "the paid always-on Large instance costs USD 5.25 a month",
-      "capture": "sha256:2e964b9ecdd5c83ff97b8b50248a84f6599195b1dcba961285afedf9b801f39c",
-      "quote": "**$5.25** per month"
-    },
-    {
-      "url": "https://www.molted.net/signup",
-      "date": "2026-11-24",
-      "proved": "account creation asks for a work email and names, with no card, phone or ID field on the signup page",
-      "capture": "sha256:1b275b54e57fc5f51499e0bdc5feb1ab5219d423940fbfb54cf08e6208aad74c",
-      "quote": "Create your account"
-    },
-    {
-      "url": "https://www.molted.net/signup",
-      "date": "2026-11-24",
-      "proved": "the signup form asks for a work email",
-      "capture": "sha256:1b275b54e57fc5f51499e0bdc5feb1ab5219d423940fbfb54cf08e6208aad74c",
-      "quote": "Work email"
-    }
-  ],
-  "verdict": "trial-only",
-  "verified_at": "2026-11-24T09:37:16.657Z",
-  "price_per_tb_month": null,
-  "notes": "No free tier: the only free amount is a one-time 5-day hosting credit for Mue on Small or Large. The paid always-on instance prices are per agent, prorated, with a wallet for usage-billed tools. The sandbox-rate comparison on the page is the vendor's marketing table (Molted Large $5.25/month against E2B Pro and Daytona at $145.85/month for 3 vCPU and 3 GiB) and is not a neutral measurement.",
-  "extras": {
-    "shape": {
-      "vcpu": 3,
-      "ram_gib": 3,
-      "disk_gib": 10,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "Large, 3 vCPU and 3 GB RAM and 10 GB NVMe; Small is 1.5/1.5/5 and XLarge is 3/6/20"
-    },
-    "billing_model": "per-agent monthly, prorated; prepaid wallet for usage",
-    "free_tier_kind": "time-boxed-trial",
-    "term": "monthly, no commitment",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "a public HTTPS address per agent; SSH and a browser console",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "always on; a stopped agent keeps its workspace at 10x lower cost"
-    }
+  {
+   "kind": "per-object-cap",
+   "value": "Small: up to 1.5 vCPU, up to 1.5 GB RAM, 5 GB NVMe storage",
+   "source": "https://www.molted.net/pricing"
   }
+ ],
+ "limits_note": "Billing is prepaid by card; when the balance reaches zero, tools stop, and after 3 days at zero or below instances are stopped but keep being charged until deleted.",
+ "binding": "volume-quota",
+ "binding_note": "The prepaid balance and the $2.88 a month running price are what run out first; the 5 GB disk and 1.5 GB RAM of the Small tier cap a job before any count-based limit does.",
+ "identity_cost": {
+  "kind": "card",
+  "detail": "The signup form asks for region, organization, your name, a work email and a website, plus agreement to the Terms and Acceptable Use Policy. The Terms require email confirmation and state that credit is bought by card through Stripe with no free trial.",
+  "country": null
+ },
+ "reliability_note": "No service level applies unless a separate signed agreement says so; tools stop when prepaid credit reaches zero, and instances are stopped after 3 days at zero or below.",
+ "confidence": "documented",
+ "confidence_note": "The price, included resources, no-fee egress and signup fields come from the vendor's pricing and signup pages read 2026-11-25; the prepaid card requirement, the one-time 5-day credit and the stop behaviour come from the vendor's terms page read the same day.",
+ "evidence": [
+  {
+   "url": "https://www.molted.net/pricing",
+   "date": "2026-11-25",
+   "proved": "the Small tier is $2.88 per month",
+   "capture": "sha256:b48ecb795ec182caa608f0c6f4830dcadf3f32c26ff8476b34d59fde2ebac158",
+   "quote": "Small\n\n**$2.88**per month"
+  },
+  {
+   "url": "https://www.molted.net/pricing",
+   "date": "2026-11-25",
+   "proved": "the Small tier has 5 GB of NVMe storage",
+   "capture": "sha256:b48ecb795ec182caa608f0c6f4830dcadf3f32c26ff8476b34d59fde2ebac158",
+   "quote": "5 GB of NVMe storage"
+  },
+  {
+   "url": "https://www.molted.net/pricing",
+   "date": "2026-11-25",
+   "proved": "no network fees are charged in or out",
+   "capture": "sha256:b48ecb795ec182caa608f0c6f4830dcadf3f32c26ff8476b34d59fde2ebac158",
+   "quote": "$0 network fees, in or out"
+  },
+  {
+   "url": "https://www.molted.net/pricing",
+   "date": "2026-11-25",
+   "proved": "each agent has a browser console, SSH, the API and a public HTTPS address",
+   "capture": "sha256:b48ecb795ec182caa608f0c6f4830dcadf3f32c26ff8476b34d59fde2ebac158",
+   "quote": "Console, SSH, API and URL"
+  },
+  {
+   "url": "https://www.molted.net/pricing",
+   "date": "2026-11-25",
+   "proved": "Mue on Small or Large credits the first five days of hosting to the wallet",
+   "capture": "sha256:b48ecb795ec182caa608f0c6f4830dcadf3f32c26ff8476b34d59fde2ebac158",
+   "quote": "Choose Mue on Small or Large and your first 5 days are credited to your wallet"
+  },
+  {
+   "url": "https://www.molted.net/legal/terms",
+   "date": "2026-11-25",
+   "proved": "the service is prepaid by card through Stripe and has no free trial",
+   "capture": "sha256:8c2d9a8514888f49957a244b305d6260cf4ae53bf53a5fcde253ae28df173350",
+   "quote": "The Service is prepaid. You buy credit by card, and a balance is kept on your account. There is no free trial. Card payments are processed by Stripe."
+  },
+  {
+   "url": "https://www.molted.net/legal/terms",
+   "date": "2026-11-25",
+   "proved": "registration requires confirming an email address and keeping sign-in methods secure",
+   "capture": "sha256:8c2d9a8514888f49957a244b305d6260cf4ae53bf53a5fcde253ae28df173350",
+   "quote": "You must give accurate information, confirm your email address and keep your sign-in methods (passkeys and email) secure."
+  },
+  {
+   "url": "https://www.molted.net/signup",
+   "date": "2026-11-25",
+   "proved": "the signup form asks for a work email, organization, name, website and region",
+   "capture": "sha256:1b275b54e57fc5f51499e0bdc5feb1ab5219d423940fbfb54cf08e6208aad74c",
+   "quote": "Work email"
+  },
+  {
+   "url": "probe:https://molted.dev/",
+   "date": "2026-11-25",
+   "proved": "the seed domain molted.dev did not resolve; the live site is molted.net",
+   "capture": "sha256:8b98e91d8dd1c81fcd036cc4b295109d42acde0a4df9140db90ed86963179e55",
+   "quote": "\"status\": null"
+  },
+  {
+   "url": "https://www.molted.net/pricing",
+   "date": "2026-11-24",
+   "proved": "the 5-day free hosting credit is a Mue-only trial on Small or Large, once per account, excluding XLarge and other runtimes",
+   "capture": "sha256:2e964b9ecdd5c83ff97b8b50248a84f6599195b1dcba961285afedf9b801f39c",
+   "quote": "Pick Mue as your runtime on a Small or Large instance and your first 5 days of hosting are credited to your wallet, once per account. The offer is for Mue only and does not apply to XLarge. OpenClaw and Hermes are billed from the first day, prorated."
+  },
+  {
+   "url": "https://www.molted.net/pricing",
+   "date": "2026-11-24",
+   "proved": "network traffic is not billed in or out",
+   "capture": "sha256:2e964b9ecdd5c83ff97b8b50248a84f6599195b1dcba961285afedf9b801f39c",
+   "quote": "**$0** network fees, in or out"
+  },
+  {
+   "url": "https://www.molted.net/pricing",
+   "date": "2026-11-24",
+   "proved": "the paid always-on Large instance costs USD 5.25 a month",
+   "capture": "sha256:2e964b9ecdd5c83ff97b8b50248a84f6599195b1dcba961285afedf9b801f39c",
+   "quote": "**$5.25** per month"
+  },
+  {
+   "url": "https://www.molted.net/signup",
+   "date": "2026-11-24",
+   "proved": "account creation asks for a work email and names, with no card, phone or ID field on the signup page",
+   "capture": "sha256:1b275b54e57fc5f51499e0bdc5feb1ab5219d423940fbfb54cf08e6208aad74c",
+   "quote": "Create your account"
+  },
+  {
+   "url": "https://www.molted.net/signup",
+   "date": "2026-11-24",
+   "proved": "the signup form asks for a work email",
+   "capture": "sha256:1b275b54e57fc5f51499e0bdc5feb1ab5219d423940fbfb54cf08e6208aad74c",
+   "quote": "Work email"
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T01:20:00.639Z",
+ "notes": "Paid-only: a card buys prepaid credit and there is no recurring free allowance. Hosted, always-on agent runtime, not software the user installs.",
+ "extras": {
+  "shape": {
+   "vcpu": 1.5,
+   "ram_gib": 1.5,
+   "disk_gib": 5,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "up to 1.5 vCPU and 1.5 GB RAM with 5 GB NVMe on the Small tier"
+  },
+  "billing_model": "prepaid credit, by the day, prorated to agent lifetime",
+  "free_tier_kind": "one-time promotional credit",
+  "term": "monthly, no commitment",
+  "price_arithmetic": "Small $2.88 per month; no network fees in or out; $0 once the agent is deleted",
+  "status": "live",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "a public HTTPS address for every agent",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "always on until the balance runs out; after 3 days at zero or below the instance is stopped but keeps being charged until deleted"
+  }
+ },
+ "price_per_tb_month": null
 }

@@ -5,7 +5,7 @@
   "url": "https://us.ovhcloud.com/vps/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "VPS 2027 line. VPS-1 starting at USD 4.54/month: 2 vCores, 4 GB RAM, 40 GB NVMe SSD, daily backup of the previous 24 hours, unlimited traffic, 500 Mbps public bandwidth. VPS-2 at USD 8.50/month: 4 vCores, 8 GB RAM, 75 GB NVMe, 1 Gbps. VPS-3 at USD 12.32/month: 6 vCores, 12 GB, 100 GB NVMe, 2 Gbps.",
+    "stated": "VPS 2027 line. VPS-1 starting at USD 4.54/month: 2 vCores, 4 GB RAM, 40 GB SSD NVMe, daily backup of the previous 24 hours, unlimited traffic, 500 Mbps public bandwidth. VPS-2 starting at USD 8.50/month: 4 vCores, 8 GB RAM, 75 GB SSD NVMe, daily backup of the previous 24 hours, unlimited traffic, 1 Gbps public bandwidth. VPS-3 starting at USD 12.32/month: 6 vCores, 12 GB RAM, 100 GB SSD NVMe, daily backup of the previous 24 hours, unlimited traffic, 2 Gbps public bandwidth.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://us.ovhcloud.com/vps/",
@@ -69,10 +69,24 @@
       "url": "https://us.ovhcloud.com/vps/",
       "date": "2026-10-22",
       "proved": "the page states 'There is a new VPS-1 entry-level model, and the configurations for the other models have shifted', so older VPS-1 figures in circulation describe a different machine"
+    },
+    {
+      "url": "https://us.ovhcloud.com/vps/",
+      "date": "2026-11-25",
+      "proved": "the VPS 2027 rate card states the VPS-1 price and machine shape",
+      "capture": "sha256:e0484d1a25bff781f844cbfe28bb5ca41958067965733761b04b307b46a5df1c",
+      "quote": "2027 VPS-1 Starting at $4.54 /month 2 vCores 4 GB RAM 40 GB SSD NVMe Daily backup of the previous 24 hours Unlimited traffic 500 Mbps public bandwidth"
+    },
+    {
+      "url": "https://us.ovhcloud.com/vps/",
+      "date": "2026-11-25",
+      "proved": "the VPS 2027 rate card still states VPS-1 at USD 4.54 per month with 2 vCores, 4 GB RAM, 40 GB NVMe, daily backup, unlimited traffic and 500 Mbps",
+      "capture": "sha256:e0484d1a25bff781f844cbfe28bb5ca41958067965733761b04b307b46a5df1c",
+      "quote": "2027 VPS-1 Starting at $4.54 /month 2 vCores 4 GB RAM 40 GB SSD NVMe Daily backup of the previous 24 hours Unlimited traffic 500 Mbps public bandwidth"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:21.036Z",
   "notes": "ADDS a product line to an existing provider: dossier/compute/ovhcloud.json covers OVH Public Cloud (b2-7 at USD 31.19) and records no VPS row at all, so the whole VPS 2027 ladder is new. 'Starting at' is not a monthly rate and the configurator was not read, so the term behind 4.54 is unknown. Unverified: the configurator's monthly price for VPS-1, and whether the daily backup survives a machine rebuild.",
   "extras": {
     "wave2": {

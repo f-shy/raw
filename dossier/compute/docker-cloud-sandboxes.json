@@ -1,209 +1,230 @@
 {
-  "topic": "compute",
-  "slug": "docker-cloud-sandboxes",
-  "provider": "Docker Cloud Sandboxes",
-  "url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
-  "category": "container and VM sandbox",
-  "free_tier": {
-    "stated": "a one-time $250 Cloud Sandboxes compute credit for new accounts signing up by 31 January 2027, expiring six months after redemption; thereafter compute bills per second from $0.07 an hour for 1 vCPU and 2 GiB",
-    "unit": "credits",
-    "metered_on": "none",
-    "source_url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
-    "read_on": "2026-10-22"
+ "topic": "compute",
+ "slug": "docker-cloud-sandboxes",
+ "provider": "Docker Cloud Sandboxes",
+ "url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
+ "category": "container and VM sandbox",
+ "free_tier": {
+  "stated": "new accounts get $250 in free Cloud Sandboxes credit for a limited time; after that compute bills per second from $0.07 an hour for Micro at 1 vCPU and 2 GiB, a paused sandbox costs nothing, and volumes, egress, and hosting public images and Kits are free",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
+  "read_on": "2026-10-22"
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "not stated",
+  "days": null,
+  "source_url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "egress and volumes are free; compute by the second is the only meter and a paused sandbox costs nothing",
+  "metered": false,
+  "free_allowance": "egress is free",
+  "price_per_tb": null,
+  "source_url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/"
+ },
+ "interface": [
+  "cli",
+  "rest",
+  "browser"
+ ],
+ "interface_detail": "the sbx CLI with the --cloud flag, the Cloud Sandboxes API and the web console at agentic-platform.docker.com",
+ "tooling": "not stated",
+ "chaining": "not established",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "$0.07 an hour for Micro at 1 vCPU and 2 GiB, up to $1.12 for XL at 16 vCPU and 32 GiB",
+   "source": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/"
   },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+  {
+   "kind": "retention-clamped",
+   "value": "a sandbox expires after one hour by default; expiration cannot be extended beyond 24 hours from creation; a paused sandbox costs nothing",
+   "source": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/"
   },
-  "retention": {
-    "stated": "not stated",
-    "days": null,
-    "source_url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
-    "notes": "Disk durability across instance stops and deletions is not documented."
+  {
+   "kind": "per-object-cap",
+   "value": "the page states no disk cap per sandbox; it says hosting public images and Kits is free",
+   "source": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/"
+  }
+ ],
+ "limits_note": "Session cap, idle-reap and network policy are not documented.",
+ "identity_cost": {
+  "kind": "card",
+  "detail": "email and card: a Docker account signs in to the Agentic Platform console and checkout asks for billing and payment details; the promotion states a valid credit card is required, with no phone or ID document named",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "documented",
+ "confidence_note": "the announcement page was read on 2026-10-22 and states the per-second metering, the paused-sandbox behaviour and the size ladder. The USD 25 credit the record carried is not on it, so the verdict moves to paid-only on what the page does say",
+ "evidence": [
+  {
+   "url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
   },
-  "egress": {
-    "terms": "egress and volumes are free; compute by the second is the only meter and a paused sandbox costs nothing",
-    "metered": false,
-    "free_allowance": "egress is free",
-    "price_per_tb": null,
-    "source_url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/"
+  {
+   "url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
+   "date": "2026-10-22",
+   "proved": "'Cloud Sandboxes are pay-as-you-go. We meter compute by the second, and nothing else. A paused sandbox costs nothing. Volumes, egress, and hosting public images and Kits are free.' with sizes from Micro at $0.07 an hour (1 vCPU, 2 GiB) to XL at $1.12 (16 vCPU, 32 GiB), quoted"
   },
-  "interface": [
-    "cli",
-    "rest",
-    "browser"
-  ],
-  "interface_detail": "the sbx CLI with the --cloud flag, the Cloud Sandboxes API and the web console at agentic-platform.docker.com",
-  "tooling": "not stated",
-  "chaining": "not established",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "$0.07 an hour for Micro at 1 vCPU and 2 GiB, up to $1.12 for XL at 16 vCPU and 32 GiB",
-      "source": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "a sandbox expires after one hour by default; expiration cannot be extended beyond 24 hours from creation; a paused sandbox costs nothing",
-      "source": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "the page states no disk cap per sandbox; it says hosting public images and Kits is free",
-      "source": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/"
-    }
-  ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented.",
-  "identity_cost": {
-    "kind": "card",
-    "detail": "email and card: a Docker account signs in to the Agentic Platform console and checkout asks for billing and payment details; the promotion states a valid credit card is required, with no phone or ID document named",
-    "country": null
+  {
+   "url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
+   "date": "2026-11-25",
+   "proved": "new accounts get $250 in free Cloud Sandboxes credit for a limited time",
+   "capture": "sha256:d635812629000baf4c0643fbb3f7adf6ecf0128e26e5d5741dd8b3ae337b1a33",
+   "quote": "For a limited time, new accounts **get $250 in free Cloud Sandboxes credit. [Claim it here](https://www.docker.com/c/sbx-promo/).**"
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "documented",
-  "confidence_note": "the announcement page was read on 2026-10-22 and states the per-second metering, the paused-sandbox behaviour and the size ladder. The USD 25 credit the record carried is not on it, so the verdict moves to paid-only on what the page does say",
-  "evidence": [
-    {
-      "url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
-      "date": "2026-10-22",
-      "proved": "'Cloud Sandboxes are pay-as-you-go. We meter compute by the second, and nothing else. A paused sandbox costs nothing. Volumes, egress, and hosting public images and Kits are free.' with sizes from Micro at $0.07 an hour (1 vCPU, 2 GiB) to XL at $1.12 (16 vCPU, 32 GiB), quoted"
-    },
-    {
-      "url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
-      "date": "2026-11-24",
-      "proved": "compute is the only meter; paused sandboxes, volumes, egress and public image hosting are free",
-      "capture": "sha256:d635812629000baf4c0643fbb3f7adf6ecf0128e26e5d5741dd8b3ae337b1a33",
-      "quote": "**Cloud Sandboxes are pay-as-you-go.** We meter compute by the second, and nothing else. A paused sandbox costs nothing. Volumes, egress, and hosting public images and Kits are free."
-    },
-    {
-      "url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
-      "date": "2026-11-24",
-      "proved": "egress, volumes and paused sandboxes are free",
-      "capture": "sha256:d635812629000baf4c0643fbb3f7adf6ecf0128e26e5d5741dd8b3ae337b1a33",
-      "quote": "**Cloud Sandboxes are pay-as-you-go.** We meter compute by the second, and nothing else. A paused sandbox costs nothing. Volumes, egress, and hosting public images and Kits are free."
-    },
-    {
-      "url": "https://www.docker.com/c/sbx-promo/",
-      "date": "2026-11-24",
-      "proved": "new accounts get a $250 promotional credit and a card is required",
-      "capture": "sha256:bf79700da75aa6f3867c8e785eb885563dc4eb4d8f3b43518c0a282fc7f04c76",
-      "quote": "Get $250 in compute credit when you sign up for Docker Agentic Platform till 1/31/2027. Credit card required at signup. Terms Apply."
-    },
-    {
-      "url": "https://www.docker.com/c/sbx-promo/",
-      "date": "2026-11-24",
-      "proved": "the $250 credit is a one-time sign-up credit",
-      "capture": "sha256:bf79700da75aa6f3867c8e785eb885563dc4eb4d8f3b43518c0a282fc7f04c76",
-      "quote": "New Docker Agentic Platform signups receive a one-time $250 compute credit in lieu of the standard $25 credit. Limit one per user and account."
-    },
-    {
-      "url": "https://docs.docker.com/agentic-platform/signup/",
-      "date": "2026-11-24",
-      "proved": "cloud access requires a pay-as-you-go checkout with billing and payment details",
-      "capture": "sha256:d0f6173e390fc0f2b30292aa41c4621bd189c882492200c5afc12061c5f742de",
-      "quote": "If your account doesn't have access, follow the redirect to Docker Billing. Review the Docker Agentic Platform pay-as-you-go plan, provide the requested billing and payment details, and complete checkout."
-    },
-    {
-      "url": "https://www.docker.com/c/sbx-promo/",
-      "date": "2026-11-24",
-      "proved": "a valid credit card is required at signup",
-      "capture": "sha256:bf79700da75aa6f3867c8e785eb885563dc4eb4d8f3b43518c0a282fc7f04c76",
-      "quote": "Valid credit card required at signup; the card will be charged only for usage beyond the credit."
-    },
-    {
-      "url": "https://docs.docker.com/ai/sandboxes/cloud/",
-      "date": "2026-11-24",
-      "proved": "the interface is the sbx CLI and the Cloud Sandboxes API",
-      "capture": "sha256:b0c8b446b8ca7215ef0e44a82696f8932966faa6998832854cc6355f68747309",
-      "quote": "Cloud sandboxes use the same `sbx` CLI as local sandboxes. Add the global\n`--cloud` flag to send a supported command to the Cloud Sandboxes API:"
-    },
-    {
-      "url": "https://docs.docker.com/ai/sandboxes/cloud/usage/",
-      "date": "2026-11-24",
-      "proved": "the default sandbox lifetime is one hour",
-      "capture": "sha256:4f5dab2febe1e386054b886aca443bbfb5d27f1f9e89b4b71b9369d3833663e1",
-      "quote": "A cloud sandbox expires after one hour by default. On expiration, the service\nstops sandboxes that can be resumed and deletes the rest. See"
-    },
-    {
-      "url": "https://docs.docker.com/ai/sandboxes/cloud/usage/",
-      "date": "2026-11-24",
-      "proved": "expiration can never extend past 24 hours",
-      "capture": "sha256:4f5dab2febe1e386054b886aca443bbfb5d27f1f9e89b4b71b9369d3833663e1",
-      "quote": "Extensions cannot move expiration beyond\n24 hours from creation:"
-    },
-    {
-      "url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
-      "date": "2026-11-24",
-      "proved": "the XL shape is $1.12 an hour",
-      "capture": "sha256:d635812629000baf4c0643fbb3f7adf6ecf0128e26e5d5741dd8b3ae337b1a33",
-      "quote": "| XL | 16 | 32 GiB | $1.12 |"
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T11:38:12.989Z",
-  "price_per_tb_month": null,
-  "notes": "",
-  "extras": {
-    "seed_status": "ranked",
-    "talaria_m10h_usd": 42.0,
-    "talaria_m24h_usd": 100.8,
-    "nemo_m10h_usd": 42.0,
-    "keep_rate": 1.0,
-    "keep_rate_basis": "billed for uptime (no suspension feature published)",
-    "billing_model": "unclassified",
-    "shape": {
-      "vcpu": 2,
-      "ram": 4,
-      "disk": null,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "Small is the default at 2 vCPU and 4 GiB for $0.14 an hour"
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "a paused sandbox costs nothing, so stopping is a pause rather than a loss; the page describes running an agent for hours with the laptop closed"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "granularity": {
-      "min_billed_s": 0,
-      "rounding_s": null
-    },
-    "burst_x": 1.0,
-    "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "ps": {
-      "gib": null,
-      "price": "volumes are free",
-      "durability": "volume",
-      "on_stop": true,
-      "on_destroy": false,
-      "retention": "until deleted"
-    },
-    "net": {
-      "out": true,
-      "in": true,
-      "ports": "published ports",
-      "static_ip": null,
-      "ipv6": null,
-      "allowance": "egress is free"
-    }
+  {
+   "url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
+   "date": "2026-11-25",
+   "proved": "compute bills by the second, a paused sandbox costs nothing, and volumes, egress and public images and Kits are free",
+   "capture": "sha256:d635812629000baf4c0643fbb3f7adf6ecf0128e26e5d5741dd8b3ae337b1a33",
+   "quote": "**Cloud Sandboxes are pay-as-you-go.** We meter compute by the second, and nothing else. A paused sandbox costs nothing. Volumes, egress, and hosting public images and Kits are free."
   },
-  "stale": true,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding": "request-rate",
-  "history": [
-    "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
-  ]
+  {
+   "url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
+   "date": "2026-11-25",
+   "proved": "Micro is 1 vCPU and 2 GiB at $0.07 per hour",
+   "capture": "sha256:d635812629000baf4c0643fbb3f7adf6ecf0128e26e5d5741dd8b3ae337b1a33",
+   "quote": "| Size | vCPUs | Memory | Per hour | | --- | --- | --- | --- | | Micro | 1 | 2 GiB | $0.07 |"
+  },
+  {
+   "url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
+   "date": "2026-11-25",
+   "proved": "the page states the $250 new-account credit, the by-the-second metering, the free paused sandbox and volumes, egress and public images, and the $0.07 Micro rate at 1 vCPU and 2 GiB",
+   "capture": "sha256:d635812629000baf4c0643fbb3f7adf6ecf0128e26e5d5741dd8b3ae337b1a33",
+   "quote": "For a limited time, new accounts **get $250 in free Cloud Sandboxes credit. [Claim it here](https://www.docker.com/c/sbx-promo/).** ... **Cloud Sandboxes are pay-as-you-go.** We meter compute by the second, and nothing else. A paused sandbox costs nothing. Volumes, egress, and hosting public images and Kits are free. ... | Size | vCPUs | Memory | Per hour | | --- | --- | --- | --- | | Micro | 1 | 2 GiB | $0.07 |"
+  },
+  {
+   "url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
+   "date": "2026-11-24",
+   "proved": "compute is the only meter; paused sandboxes, volumes, egress and public image hosting are free",
+   "capture": "sha256:d635812629000baf4c0643fbb3f7adf6ecf0128e26e5d5741dd8b3ae337b1a33",
+   "quote": "**Cloud Sandboxes are pay-as-you-go.** We meter compute by the second, and nothing else. A paused sandbox costs nothing. Volumes, egress, and hosting public images and Kits are free."
+  },
+  {
+   "url": "https://www.docker.com/c/sbx-promo/",
+   "date": "2026-11-24",
+   "proved": "new accounts get a $250 promotional credit and a card is required",
+   "capture": "sha256:bf79700da75aa6f3867c8e785eb885563dc4eb4d8f3b43518c0a282fc7f04c76",
+   "quote": "Get $250 in compute credit when you sign up for Docker Agentic Platform till 1/31/2027. Credit card required at signup. Terms Apply."
+  },
+  {
+   "url": "https://www.docker.com/c/sbx-promo/",
+   "date": "2026-11-24",
+   "proved": "the $250 credit is a one-time sign-up credit",
+   "capture": "sha256:bf79700da75aa6f3867c8e785eb885563dc4eb4d8f3b43518c0a282fc7f04c76",
+   "quote": "New Docker Agentic Platform signups receive a one-time $250 compute credit in lieu of the standard $25 credit. Limit one per user and account."
+  },
+  {
+   "url": "https://docs.docker.com/agentic-platform/signup/",
+   "date": "2026-11-24",
+   "proved": "cloud access requires a pay-as-you-go checkout with billing and payment details",
+   "capture": "sha256:d0f6173e390fc0f2b30292aa41c4621bd189c882492200c5afc12061c5f742de",
+   "quote": "If your account doesn't have access, follow the redirect to Docker Billing. Review the Docker Agentic Platform pay-as-you-go plan, provide the requested billing and payment details, and complete checkout."
+  },
+  {
+   "url": "https://www.docker.com/c/sbx-promo/",
+   "date": "2026-11-24",
+   "proved": "a valid credit card is required at signup",
+   "capture": "sha256:bf79700da75aa6f3867c8e785eb885563dc4eb4d8f3b43518c0a282fc7f04c76",
+   "quote": "Valid credit card required at signup; the card will be charged only for usage beyond the credit."
+  },
+  {
+   "url": "https://docs.docker.com/ai/sandboxes/cloud/",
+   "date": "2026-11-24",
+   "proved": "the interface is the sbx CLI and the Cloud Sandboxes API",
+   "capture": "sha256:b0c8b446b8ca7215ef0e44a82696f8932966faa6998832854cc6355f68747309",
+   "quote": "Cloud sandboxes use the same `sbx` CLI as local sandboxes. Add the global\n`--cloud` flag to send a supported command to the Cloud Sandboxes API:"
+  },
+  {
+   "url": "https://docs.docker.com/ai/sandboxes/cloud/usage/",
+   "date": "2026-11-24",
+   "proved": "the default sandbox lifetime is one hour",
+   "capture": "sha256:4f5dab2febe1e386054b886aca443bbfb5d27f1f9e89b4b71b9369d3833663e1",
+   "quote": "A cloud sandbox expires after one hour by default. On expiration, the service\nstops sandboxes that can be resumed and deletes the rest. See"
+  },
+  {
+   "url": "https://docs.docker.com/ai/sandboxes/cloud/usage/",
+   "date": "2026-11-24",
+   "proved": "expiration can never extend past 24 hours",
+   "capture": "sha256:4f5dab2febe1e386054b886aca443bbfb5d27f1f9e89b4b71b9369d3833663e1",
+   "quote": "Extensions cannot move expiration beyond\n24 hours from creation:"
+  },
+  {
+   "url": "https://www.docker.com/blog/introducing-cloud-sandboxes-start-on-your-laptop-finish-in-the-cloud/",
+   "date": "2026-11-24",
+   "proved": "the XL shape is $1.12 an hour",
+   "capture": "sha256:d635812629000baf4c0643fbb3f7adf6ecf0128e26e5d5741dd8b3ae337b1a33",
+   "quote": "| XL | 16 | 32 GiB | $1.12 |"
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T11:17:39.908Z",
+ "price_per_tb_month": null,
+ "notes": "",
+ "extras": {
+  "seed_status": "ranked",
+  "talaria_m10h_usd": 42.0,
+  "talaria_m24h_usd": 100.8,
+  "nemo_m10h_usd": 42.0,
+  "keep_rate": 1.0,
+  "keep_rate_basis": "billed for uptime (no suspension feature published)",
+  "billing_model": "unclassified",
+  "shape": {
+   "vcpu": 2,
+   "ram": 4,
+   "disk": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "Small is the default at 2 vCPU and 4 GiB for $0.14 an hour"
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "a paused sandbox costs nothing, so stopping is a pause rather than a loss; the page describes running an agent for hours with the laptop closed"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "granularity": {
+   "min_billed_s": 0,
+   "rounding_s": null
+  },
+  "burst_x": 1.0,
+  "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "ps": {
+   "gib": null,
+   "price": "volumes are free",
+   "durability": "volume",
+   "on_stop": true,
+   "on_destroy": false,
+   "retention": "until deleted"
+  },
+  "net": {
+   "out": true,
+   "in": true,
+   "ports": "published ports",
+   "static_ip": null,
+   "ipv6": null,
+   "allowance": "egress is free"
+  }
+ },
+ "stale": true,
+ "stale_checked_at": "2026-10-22T00:00:00.000Z",
+ "binding": "request-rate",
+ "history": [
+  "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
+ ]
 }

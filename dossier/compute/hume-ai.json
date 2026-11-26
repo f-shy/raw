@@ -5,7 +5,7 @@
   "url": "https://dev.hume.ai",
   "category": "inference API",
   "free_tier": {
-    "stated": "The API is no longer self-serve: 'The API is currently in limited release; contact our team to request access', on the Expression Measurement overview. The pricing URL no longer exists as a page: https://www.hume.ai/pricing and https://platform.hume.ai/pricing both land on the marketing home page, which now sells a voice-AI evaluation platform rather than an API. Third-party readings of the pricing page from September 2026 recorded a Free plan at '10,000 characters per month, 5 EVI minutes, 15 requests per minute, 1 concurrent connection' plus USD 20 of new-account credits.",
+    "stated": "The API is not self-serve: on the Expression Measurement API launch the vendor states 'The Expression Measurement API is now available in limited release' and 'Contact our team to request access, then start with the overview'.",
     "unit": "minutes",
     "metered_on": "wall-clock",
     "source_url": "https://dev.hume.ai",
@@ -79,10 +79,31 @@
       "url": "https://costbench.com/software/voice-apis/hume-ai/",
       "date": "2026-10-22",
       "proved": "'Free - 10,000 characters of TTS/month (Octave 1 & Octave 2) - 5 minutes of EVI included - 15 requests per minute - 1 concurrent connection', reported, corroborating the September reading"
+    },
+    {
+      "url": "https://dev.hume.ai/expression-measurement/changelog/2026/10/6",
+      "date": "2026-11-25",
+      "proved": "the Expression Measurement API is in limited release and access requires contacting the vendor team",
+      "capture": "sha256:06098a51021b1135671363c98509667caa993ae7a989f52b614e50b176f9f4cb",
+      "quote": "The Expression Measurement API is now available in limited release. It measures emotional expression in speech and in faces, from uploaded audio and images or live audio and video streams. Contact our team to request access, then start with the overview"
+    },
+    {
+      "url": "https://dev.hume.ai/expression-measurement/changelog/2026/10/6",
+      "date": "2026-11-25",
+      "proved": "the access gate is unchanged: the API is in limited release and access is by contacting the team",
+      "capture": "sha256:06098a51021b1135671363c98509667caa993ae7a989f52b614e50b176f9f4cb",
+      "quote": "The Expression Measurement API is now available in limited release. It measures emotional expression in speech and in faces, from uploaded audio and images or live audio and video streams. Contact our team to request access, then start with the overview"
+    },
+    {
+      "url": "https://www.hume.ai/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing URL now serves a marketing page for an evaluation platform with no prices or free tier",
+      "capture": "sha256:8f4301ed048be6b4796530bea239e346189ce6e7e6ba212cf02d9abc2eb6ce69",
+      "quote": "One evaluation platform for models and agents"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T16:38:11.106Z",
   "notes": "These are inference credits, not general compute. The finding is the withdrawal of a self-serve free tier behind an access request, which is why the verdict is fails-identity rather than dead: Hume sells and its evaluation product is live, but the API needs an approved conversation. Data point worth carrying: the site's own benchmark page labels one model view 'Illustrative, not real data', so the leaderboard numbers on the new home page are not measurements.",
   "extras": {
     "wave2": {

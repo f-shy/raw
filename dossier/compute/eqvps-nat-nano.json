@@ -1,187 +1,165 @@
 {
-  "topic": "compute",
-  "slug": "eqvps-nat-nano",
-  "provider": "EQVPS",
-  "url": "https://eqvps.com/en/nat",
-  "category": "NAT VPS, outbound only",
-  "tier": "Nano",
-  "free_tier": {
-    "stated": "no free tier; Nano is USD 3.00 a month",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://eqvps.com/en/nat",
-    "read_on": "2026-10-24"
+ "topic": "compute",
+ "slug": "eqvps-nat-nano",
+ "provider": "EQVPS",
+ "url": "https://eqvps.com/en/nat",
+ "category": "NAT VPS, outbound only",
+ "tier": "Nano",
+ "free_tier": {
+  "stated": "no free tier; the cheapest plan is Nano at $ 3.00 /mo - ▸2 vCPU - ▸1 GB RAM - ▸15 GB NVMe - ▸NAT · SSH via a personal port",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://eqvps.com/en/nat",
+  "read_on": "2026-10-24"
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a machine, not an object"
+ },
+ "retention": {
+  "stated": "the server persists while paid; the page states no deletion clock",
+  "days": null,
+  "source_url": "https://eqvps.com/en/nat"
+ },
+ "egress": {
+  "terms": "'Outbound is unrestricted; inbound isn't yours'. No byte cap is stated on the page",
+  "metered": false,
+  "free_allowance": "unstated",
+  "price_per_tb": null,
+  "source_url": "https://eqvps.com/en/nat"
+ },
+ "interface": [
+  "ssh",
+  "rest",
+  "cli"
+ ],
+ "interface_detail": "SSH on a forwarded high port, 20000 plus the VM number, shown in the panel; no port 22",
+ "tooling": "any SSH client; the vendor also advertises a REST API and MCP for ordering and management",
+ "chaining": "the reference example of a cheap machine that is outbound-only: right for a health monitor, wrong for a tunnel endpoint",
+ "limits": [
+  {
+   "kind": "per-ip-shaping",
+   "value": "no arbitrary inbound ports; inbound is not yours",
+   "source": "https://eqvps.com/en/nat"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a machine, not an object"
+  {
+   "kind": "per-object-cap",
+   "value": "15 GB of NVMe on Nano",
+   "source": "https://eqvps.com/en/nat"
   },
-  "retention": {
-    "stated": "the server persists while paid; the page states no deletion clock",
-    "days": null,
-    "source_url": "https://eqvps.com/en/nat"
-  },
-  "egress": {
-    "terms": "'Outbound is unrestricted; inbound isn't yours'. No byte cap is stated on the page",
-    "metered": false,
-    "free_allowance": "unstated",
-    "price_per_tb": null,
-    "source_url": "https://eqvps.com/en/nat"
-  },
-  "interface": [
-    "ssh",
-    "rest",
-    "cli"
-  ],
-  "interface_detail": "SSH on a forwarded high port, 20000 plus the VM number, shown in the panel; no port 22",
-  "tooling": "any SSH client; the vendor also advertises a REST API and MCP for ordering and management",
-  "chaining": "the reference example of a cheap machine that is outbound-only: right for a health monitor, wrong for a tunnel endpoint",
-  "limits": [
-    {
-      "kind": "per-ip-shaping",
-      "value": "no arbitrary inbound ports; inbound is not yours",
-      "source": "https://eqvps.com/en/nat"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "15 GB of NVMe on Nano",
-      "source": "https://eqvps.com/en/nat"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "no byte quota stated; outbound is described as unrestricted",
-      "source": "https://eqvps.com/en/nat"
-    }
-  ],
-  "binding": "per-ip-shaping",
-  "binding_note": "inbound is the constraint and it is not a quota: the vendor states there are no arbitrary inbound ports, so nothing on the internet can open a UDP session to this machine.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "'Pay in crypto, no card, no KYC.' Payment is in USDT, USDC, PYUSD, cbBTC, BTC, ETH, BNB, POL, SOL, GRAM, TRX, LTC, DOGE, DASH, BCH, XRP, XLM and XMR across named chains. The Nano product page states 'email-only signup' and 'No KYC — only an email is required to sign up and deploy.' A card works through an on-ramp that buys USDC.",
-    "country": null
-  },
-  "reliability_note": "no reliability event observed",
-  "confidence": "documented",
-  "confidence_note": "price, shape, the no-inbound rule and the payment terms are all quoted from the vendor page read today",
-  "evidence": [
-    {
-      "url": "https://eqvps.com/en/nat",
-      "date": "2026-10-24",
-      "proved": "quoted plan: 'Nano $3.00/mo - 2 vCPU, 1 GB RAM, 15 GB NVMe, NAT, SSH via a personal port'"
-    },
-    {
-      "url": "https://eqvps.com/en/nat",
-      "date": "2026-10-24",
-      "proved": "quoted: 'No arbitrary inbound ports - you can't host a public server'"
-    },
-    {
-      "url": "https://eqvps.com/en/nat",
-      "date": "2026-10-24",
-      "proved": "quoted: 'Pay in USDC, USDT, BTC, XMR on Base, Ethereum, Solana, Bitcoin, Tron, BNB Chain, Polygon or Monero - no card, no ID.'"
-    },
-    {
-      "url": "https://eqvps.com/en/nat",
-      "date": "2026-10-24",
-      "proved": "quoted: 'On a NAT plan your server sits behind network address translation, and the outgoing IPv4 isn't your own. Outbound is unrestricted; inbound isn't yours.'"
-    },
-    {
-      "url": "https://eqvps.com/",
-      "date": "2026-10-24",
-      "proved": "quoted: the NAT line states inbound on 'your personal port' alongside 'No arbitrary inbound ports'"
-    },
-    {
-      "url": "https://eqvps.com/en/nat",
-      "date": "2026-11-24",
-      "proved": "outbound is unrestricted and inbound is not available as a general capability",
-      "capture": "sha256:ad63d2caf7c568842d9b689eb3aafdcb53bb1bfc7841e7ec1dff6364bc92320e",
-      "quote": "On a NAT plan your server sits behind network address translation, and the outgoing IPv4 isn't your own. Outbound is unrestricted; inbound isn't yours."
-    },
-    {
-      "url": "https://eqvps.com/en/products/nano",
-      "date": "2026-11-24",
-      "proved": "registration requires an email only, with no ID document and no card",
-      "capture": "sha256:c6128fe7c30c93ac618e5a924b254ee75776929bba41bf94089a42b16ff94ac5",
-      "quote": "No KYC — only an email is required to sign up and deploy."
-    },
-    {
-      "url": "https://eqvps.com/en/products/nano",
-      "date": "2026-11-24",
-      "proved": "the product exposes a REST API and MCP in addition to SSH",
-      "capture": "sha256:c6128fe7c30c93ac618e5a924b254ee75776929bba41bf94089a42b16ff94ac5",
-      "quote": "Nano crypto VPS: 2 vCPU, 1 GB RAM, 15 GB NVMe. Pay with USDC/USDT, no KYC, full root, REST API + MCP."
-    },
-    {
-      "url": "https://eqvps.com/en/nat",
-      "date": "2026-11-24",
-      "proved": "Nano remains a paid plan at USD 3.00 a month with no free tier",
-      "capture": "sha256:ad63d2caf7c568842d9b689eb3aafdcb53bb1bfc7841e7ec1dff6364bc92320e",
-      "quote": "$ 3.00 /mo"
-    },
-    {
-      "url": "https://eqvps.com/en/nat",
-      "date": "2026-11-24",
-      "proved": "SSH is on a forwarded personal high port, not port 22",
-      "capture": "sha256:ad63d2caf7c568842d9b689eb3aafdcb53bb1bfc7841e7ec1dff6364bc92320e",
-      "quote": "NAT plans have no dedicated public IPv4, so SSH is forwarded on a personal high port (20000 + your VM number)."
-    },
-    {
-      "url": "https://eqvps.com/en/products/nano",
-      "date": "2026-11-24",
-      "proved": "the Nano product exposes a REST API in addition to SSH and CLI access",
-      "capture": "sha256:c6128fe7c30c93ac618e5a924b254ee75776929bba41bf94089a42b16ff94ac5",
-      "quote": "Nano crypto VPS: 2 vCPU, 1 GB RAM, 15 GB NVMe. Pay with USDC/USDT, no KYC, full root, REST API + MCP."
-    },
-    {
-      "url": "https://eqvps.com/en/products/nano",
-      "date": "2026-11-24",
-      "proved": "the product exposes programmatic REST access alongside SSH",
-      "capture": "sha256:c6128fe7c30c93ac618e5a924b254ee75776929bba41bf94089a42b16ff94ac5",
-      "quote": "Nano crypto VPS: 2 vCPU, 1 GB RAM, 15 GB NVMe. Pay with USDC/USDT, no KYC, full root, REST API + MCP."
-    },
-    {
-      "url": "https://eqvps.com/en/products/nano",
-      "date": "2026-11-24",
-      "proved": "registration requires an email address and asks for no card and no identity document",
-      "capture": "sha256:c6128fe7c30c93ac618e5a924b254ee75776929bba41bf94089a42b16ff94ac5",
-      "quote": "No card and no KYC — email-only signup."
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T18:27:25.621Z",
-  "price_per_tb_month": null,
-  "history": [],
-  "notes": "The page says 'No arbitrary inbound ports - you can't host a public server', and the NAT line separately states inbound on 'your personal port'. That is one forwarded port, not none, so a WireGuard endpoint is not impossible here: it is one port, which is exactly what WireGuard needs. The earlier reading of 'cannot accept a connection at all' was too strong. The vendor names no company and the domain was created 2026-05-27.",
-  "extras": {
-    "shape": {
-      "vcpu": 2,
-      "ram_gib": 1,
-      "disk_gib": 15,
-      "gpu_class": null,
-      "gpu_count": null
-    },
-    "billing_model": "monthly",
-    "term": "monthly",
-    "m10h_usd": 3.0,
-    "m24h_usd": 3.0,
-    "price_arithmetic": "USD 3.00 a month billed monthly; a VPS bills whether it runs",
-    "free_tier_kind": "none",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": false,
-      "ports": "one personal inbound port on the NAT line; no arbitrary inbound ports",
-      "static_ip": false,
-      "ipv6": false,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "none; it is a container or VM"
-    },
-    "ipv6_prefix": "none stated",
-    "renewal_usd": "USD 3.00 a month",
-    "renewal_note": "the vendor states prices are live from its API and marks no first-term promo",
-    "payment_rails": "not read",
-    "operator": "no entity, no country, no address; the domain was created 2026-05-27"
+  {
+   "kind": "volume-quota",
+   "value": "no byte quota stated; outbound is described as unrestricted",
+   "source": "https://eqvps.com/en/nat"
   }
+ ],
+ "binding": "per-ip-shaping",
+ "binding_note": "inbound is the constraint and it is not a quota: the vendor states there are no arbitrary inbound ports, so nothing on the internet can open a UDP session to this machine.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "'Pay in crypto, no card, no KYC.' Payment is in USDT, USDC, PYUSD, cbBTC, BTC, ETH, BNB, POL, SOL, GRAM, TRX, LTC, DOGE, DASH, BCH, XRP, XLM and XMR across named chains. The Nano product page states 'email-only signup' and 'No KYC — only an email is required to sign up and deploy.' A card works through an on-ramp that buys USDC.",
+  "country": null
+ },
+ "reliability_note": "no reliability event observed",
+ "confidence": "documented",
+ "confidence_note": "price, shape, the no-inbound rule and the payment terms are all quoted from the vendor page read today",
+ "evidence": [
+  {
+   "url": "https://eqvps.com/en/nat",
+   "date": "2026-10-24",
+   "proved": "quoted plan: 'Nano $3.00/mo - 2 vCPU, 1 GB RAM, 15 GB NVMe, NAT, SSH via a personal port'"
+  },
+  {
+   "url": "https://eqvps.com/",
+   "date": "2026-10-24",
+   "proved": "quoted: the NAT line states inbound on 'your personal port' alongside 'No arbitrary inbound ports'"
+  },
+  {
+   "url": "https://eqvps.com/en/nat",
+   "date": "2026-11-25",
+   "proved": "the NAT pricing page lists Nano as the entry plan at USD 3.00 per month with 2 vCPU, 1 GB RAM, 15 GB NVMe and NAT SSH on a personal port",
+   "capture": "sha256:ad63d2caf7c568842d9b689eb3aafdcb53bb1bfc7841e7ec1dff6364bc92320e",
+   "quote": "Nano $ 3.00 /mo - ▸2 vCPU - ▸1 GB RAM - ▸15 GB NVMe - ▸NAT · SSH via a personal port"
+  },
+  {
+   "url": "https://eqvps.com/en/nat",
+   "date": "2026-11-24",
+   "proved": "outbound is unrestricted and inbound is not available as a general capability",
+   "capture": "sha256:ad63d2caf7c568842d9b689eb3aafdcb53bb1bfc7841e7ec1dff6364bc92320e",
+   "quote": "On a NAT plan your server sits behind network address translation, and the outgoing IPv4 isn't your own. Outbound is unrestricted; inbound isn't yours."
+  },
+  {
+   "url": "https://eqvps.com/en/products/nano",
+   "date": "2026-11-24",
+   "proved": "registration requires an email only, with no ID document and no card",
+   "capture": "sha256:c6128fe7c30c93ac618e5a924b254ee75776929bba41bf94089a42b16ff94ac5",
+   "quote": "No KYC — only an email is required to sign up and deploy."
+  },
+  {
+   "url": "https://eqvps.com/en/products/nano",
+   "date": "2026-11-24",
+   "proved": "the product exposes a REST API and MCP in addition to SSH",
+   "capture": "sha256:c6128fe7c30c93ac618e5a924b254ee75776929bba41bf94089a42b16ff94ac5",
+   "quote": "Nano crypto VPS: 2 vCPU, 1 GB RAM, 15 GB NVMe. Pay with USDC/USDT, no KYC, full root, REST API + MCP."
+  },
+  {
+   "url": "https://eqvps.com/en/nat",
+   "date": "2026-11-24",
+   "proved": "Nano remains a paid plan at USD 3.00 a month with no free tier",
+   "capture": "sha256:ad63d2caf7c568842d9b689eb3aafdcb53bb1bfc7841e7ec1dff6364bc92320e",
+   "quote": "$ 3.00 /mo"
+  },
+  {
+   "url": "https://eqvps.com/en/nat",
+   "date": "2026-11-24",
+   "proved": "SSH is on a forwarded personal high port, not port 22",
+   "capture": "sha256:ad63d2caf7c568842d9b689eb3aafdcb53bb1bfc7841e7ec1dff6364bc92320e",
+   "quote": "NAT plans have no dedicated public IPv4, so SSH is forwarded on a personal high port (20000 + your VM number)."
+  },
+  {
+   "url": "https://eqvps.com/en/products/nano",
+   "date": "2026-11-24",
+   "proved": "registration requires an email address and asks for no card and no identity document",
+   "capture": "sha256:c6128fe7c30c93ac618e5a924b254ee75776929bba41bf94089a42b16ff94ac5",
+   "quote": "No card and no KYC — email-only signup."
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T05:18:29.250Z",
+ "price_per_tb_month": null,
+ "history": [],
+ "notes": "The page says 'No arbitrary inbound ports - you can't host a public server', and the NAT line separately states inbound on 'your personal port'. That is one forwarded port, not none, so a WireGuard endpoint is not impossible here: it is one port, which is exactly what WireGuard needs. The earlier reading of 'cannot accept a connection at all' was too strong. The vendor names no company and the domain was created 2026-05-27.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 1,
+   "disk_gib": 15,
+   "gpu_class": null,
+   "gpu_count": null
+  },
+  "billing_model": "monthly",
+  "term": "monthly",
+  "m10h_usd": 3.0,
+  "m24h_usd": 3.0,
+  "price_arithmetic": "USD 3.00 a month billed monthly; a VPS bills whether it runs",
+  "free_tier_kind": "none",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": false,
+   "ports": "one personal inbound port on the NAT line; no arbitrary inbound ports",
+   "static_ip": false,
+   "ipv6": false,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "none; it is a container or VM"
+  },
+  "ipv6_prefix": "none stated",
+  "renewal_usd": "USD 3.00 a month",
+  "renewal_note": "the vendor states prices are live from its API and marks no first-term promo",
+  "payment_rails": "not read",
+  "operator": "no entity, no country, no address; the domain was created 2026-05-27"
+ }
 }

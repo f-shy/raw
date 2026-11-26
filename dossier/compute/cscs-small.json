@@ -5,7 +5,7 @@
   "url": "https://www.cscs.ch/user-lab/allocation-schemes/small-projects",
   "category": "national HPC allocation",
   "free_tier": {
-    "stated": "\"Small projects may request up to 8'000 node hours on Alps. Such projects may not exceed the granted allocation and are limited to a one-year duration.\" A Preparatory Project is the entry step and \"is allocated a total of 250 node hours over 3 months on the HPC vCluster on Alps\". Small proposals are assessed by technical evaluation only, with acceptance \"within two months from submission\", and no fixed deadline.",
+    "stated": "Small projects may request up to **8'000 node hours** on Alps.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://www.cscs.ch/user-lab/allocation-schemes/small-projects",
@@ -79,10 +79,24 @@
       "url": "https://www.cscs.ch/user-lab/allocation-schemes/production-projects",
       "date": "2026-10-22",
       "proved": "\"International applications (and collaborations) will be accepted only if proposers and their teams are affiliated with academic institutions\", quoted"
+    },
+    {
+      "url": "https://www.cscs.ch/user-lab/allocation-schemes/small-projects",
+      "date": "2026-11-25",
+      "proved": "the small-projects allocation page states the 8,000 Alps node-hour ceiling",
+      "capture": "sha256:140debb064541ee523a43d8dd47297d379cc73167ed176d1ae1d103d845aaa23",
+      "quote": "Small projects may request up to **8'000 node hours** on Alps."
+    },
+    {
+      "url": "https://www.cscs.ch/user-lab/allocation-schemes/small-projects",
+      "date": "2026-11-25",
+      "proved": "the small-projects allocation page still states the 8,000 Alps node-hour ceiling",
+      "capture": "sha256:140debb064541ee523a43d8dd47297d379cc73167ed176d1ae1d103d845aaa23",
+      "quote": "Small projects may request up to **8'000 node hours** on Alps."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:39.834Z",
   "notes": "A node on Alps is a GH200 Grace Hopper node (one node-hour corresponds to one GH200 hour rather than one core-hour).",
   "extras": {
     "wave2": {

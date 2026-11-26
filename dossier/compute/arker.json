@@ -5,7 +5,7 @@
   "url": "https://arker.ai/docs/pricing",
   "category": "container and VM sandbox",
   "free_tier": {
-    "stated": "no free tier: the product is priced as a multiple of the underlying on-demand cost, 14x to 20x the public rate for a 1 vCPU and 2 GiB VM",
+    "stated": "Cost to run one VM (1 vCPU, 2GiB RAM) for an hour, on public on-demand list prices as of 6/11/2026 Using c7gd.metal on AWS and AX162-S on Hetzner.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://arker.ai/docs/pricing",
@@ -67,10 +67,17 @@
       "url": "https://arker.ai/docs/pricing",
       "date": "2026-10-22",
       "proved": "'$0.0828/hr 14x' and '$0.1193/hr 20x', with 'Cost to run one VM (1 vCPU, 2GiB RAM) for an hour, on public on-demand list prices as of 6/11/2026 Using c7gd.metal on AWS and AX162-S on Hetzner', quoted"
+    },
+    {
+      "url": "https://arker.ai/docs/pricing",
+      "date": "2026-11-25",
+      "proved": "the vendor's pricing page states the 1 vCPU and 2GiB reference VM and the on-demand list-price basis as of 2026-06-11",
+      "capture": "sha256:f58688de24a41d60486b71371155c20b80835f4e99d523c97a5612b3aa131381",
+      "quote": "Cost to run one VM (1 vCPU, 2GiB RAM) for an hour, on public on-demand list prices as of 6/11/2026 Using c7gd.metal on AWS and AX162-S on Hetzner."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:46:12.741Z",
+  "verified_at": "2026-11-25T05:18:26.643Z",
   "price_per_tb_month": null,
   "notes": "",
   "extras": {

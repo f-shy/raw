@@ -5,7 +5,7 @@
   "url": "https://www.exoscale.com/pricing/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "no free instance: resources bill by the second across all zones, with outbound traffic carrying a free tier of 1.42 GiB an hour and inbound traffic free",
+    "stated": "no free instance: resources bill by the second with a flat rate across all zones and no up-front costs or long-term commitments; outbound traffic carries a free tier of 1.42 GiB an hour, with unused allowance reported on other running instances of the same organization",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://www.exoscale.com/pricing/",
@@ -67,10 +67,24 @@
       "url": "https://www.exoscale.com/pricing/",
       "date": "2026-10-22",
       "proved": "'Resources are billed by the second, with a no-surprise flat rate across all zones. No up-front costs, and no long-term commitments.' with 'Traffic OUTBOUND: free tier of 1.42 GiB / hr', 'Traffic INBOUND: FREE' and 'Traffic INTRA: between all instances FREE', quoted"
+    },
+    {
+      "url": "https://www.exoscale.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "outbound traffic has a 1.42 GiB free tier per instance",
+      "capture": "sha256:b11080224cd26f2811a3f0c077b7459af6aca4378b71a0c40abfbfb322218ec7",
+      "quote": "Traffic is billed hourly and takes into account the number of virtual machines running during the last one-hour period. Effectively, there are 1.42 GiB of free output traffic per instance."
+    },
+    {
+      "url": "https://www.exoscale.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the page states the 1.42 GiB free output tier per instance, its pooling across an organization and that excess traffic is billed",
+      "capture": "sha256:b11080224cd26f2811a3f0c077b7459af6aca4378b71a0c40abfbfb322218ec7",
+      "quote": "Traffic is billed hourly and takes into account the number of virtual machines running during the last one-hour period. Effectively, there are 1.42 GiB of free output traffic per instance. If an instance doesn’t use its free tier, it is reported on other running instances of the same organization. So, with 5 instances running during the last hour, there are 7.1 GiB of free output traffic. The exceeding traffic is billed."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:46:50.454Z",
+  "verified_at": "2026-11-25T11:17:39.909Z",
   "price_per_tb_month": null,
   "notes": "",
   "extras": {

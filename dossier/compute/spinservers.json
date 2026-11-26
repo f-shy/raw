@@ -5,7 +5,7 @@
   "url": "https://www.serverhunter.com/offer/spinservers-dual-xeon-e5-2670-32gb-ram-1tb-hdd/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "USD 79.00/month for a dual-socket machine in Carrollton, Texas: 2x Intel Xeon E5-2670 at 2.6 GHz, 32 GB DDR3, 1 TB HDD, 1,000 Mbit uplink, 20 TB traffic, no setup fee, listed in stock. The row's product type is 'Hybrid' with virtualization 'None'.",
+    "stated": "Monthly price $ 79.00 USD ... Setup fee $ 0.00 USD ... Product type Hybrid ... Virtualization type None ... Stock In stock ... Processor speed 2.6 GHz ... Processor 2x Intel Xeon E5-2670 ... Memory amount 32 GB ... Memory type DDR3 ... Total HDD Capacity 1 TB ... Uplink 1,000 Mbit ... Traffic 20 TB ... Location Carrollton, Texas, United States of America",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://www.serverhunter.com/offer/spinservers-dual-xeon-e5-2670-32gb-ram-1tb-hdd/",
@@ -69,10 +69,24 @@
       "url": "https://www.serverhunter.com/company/spinservers/",
       "date": "2026-10-22",
       "proved": "the provider page lists twelve dedicated and hybrid configurations from Dual Intel Xeon E5-2670 32GB RAM 1TB HDD to Dual Intel Xeon E5-2696 v3 512GB DDR4 Pre-order"
+    },
+    {
+      "url": "https://www.serverhunter.com/offer/spinservers-dual-xeon-e5-2670-32gb-ram-1tb-hdd/",
+      "date": "2026-11-25",
+      "proved": "the tracker row states the USD 79.00 monthly price, no setup fee, the dual Xeon E5-2670 machine with 32 GB and 1 TB, a 1,000 Mbit uplink, 20 TB traffic and its Carrollton location",
+      "capture": "sha256:82f392bac22e7c33f3a9b9c092cc60319deac971209cbd5485896336529918a8",
+      "quote": "Monthly price $ 79.00 USD ... Setup fee $ 0.00 USD ... Product type Hybrid ... Virtualization type None ... Stock In stock ... Processor speed 2.6 GHz ... Processor 2x Intel Xeon E5-2670 ... Memory amount 32 GB ... Memory type DDR3 ... Total HDD Capacity 1 TB ... Uplink 1,000 Mbit ... Traffic 20 TB ... Location Carrollton, Texas, United States of America"
+    },
+    {
+      "url": "https://www.serverhunter.com/offer/spinservers-dual-xeon-e5-2670-32gb-ram-1tb-hdd/",
+      "date": "2026-11-25",
+      "proved": "the tracker row still states the USD 79.00 monthly price and the machine, uplink, traffic and location fields",
+      "capture": "sha256:82f392bac22e7c33f3a9b9c092cc60319deac971209cbd5485896336529918a8",
+      "quote": "Monthly price $ 79.00 USD ... Setup fee $ 0.00 USD ... Product type Hybrid ... Virtualization type None ... Stock In stock ... Processor speed 2.6 GHz ... Processor 2x Intel Xeon E5-2670 ... Memory amount 32 GB ... Memory type DDR3 ... Total HDD Capacity 1 TB ... Uplink 1,000 Mbit ... Traffic 20 TB ... Location Carrollton, Texas, United States of America"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:47.493Z",
   "notes": "Found via serverhunter. The core count on the row reads '4 cores' for '2x Intel Xeon E5-2670', which is one core per socket on a dual-socket server part; that is treated as an aggregator artifact and the thread count is unverified, so shape.vcpu carries the row's number rather than a corrected one. Unverified: the vendor's order page for the same configuration, which would also give the disk count and the RAID level.",
   "extras": {
     "wave2": {

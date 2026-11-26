@@ -1,229 +1,219 @@
 {
-  "topic": "compute",
-  "slug": "exe-dev",
-  "provider": "exe.dev",
-  "url": "https://exe.dev/pricing",
-  "category": "dev environment",
-  "free_tier": {
-    "stated": "No free tier; a 7-day trial with a paid ChatGPT subscription. Minimum monthly spend USD 15.",
+ "topic": "compute",
+ "slug": "exe-dev",
+ "provider": "exe.dev",
+ "url": "https://exe.dev/pricing",
+ "category": "dev environment",
+ "free_tier": {
+  "stated": "$15 / monthTry free for 7 days",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://exe.dev/pricing",
+  "read_on": "2026-10-24"
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a machine, not an object"
+ },
+ "retention": {
+  "stated": "Persistent disks are included; 100 GiB of filesystem usage per 2 vCPUs, and additional disk at USD 0.08/GiB/month.",
+  "source_url": "https://exe.dev/pricing"
+ },
+ "egress": {
+  "terms": "200 GB of outbound bandwidth included on Personal; additional bandwidth is billed at the rates on the pricing page, USD 0.05/GiB on that page.",
+  "metered": true,
+  "free_allowance": "200 GB of outbound bandwidth",
+  "source_url": "https://exe.dev/pricing"
+ },
+ "interface": [
+  "ssh",
+  "cli"
+ ],
+ "interface_detail": "SSH into the VM as root, with apt and systemd; sign-in is through a Google account in the browser",
+ "tooling": "ssh, apt, systemd, and a web agent named Shelley for coding; a pool of vCPUs is reserved and shared by the VMs",
+ "chaining": "the pool model is the unusual part: 50 VMs share one 2 vCPU / 4 GiB reservation, so a fleet of idle sandboxes costs the same as one. It composes with a scheduler that starts many short-lived workers",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "200 GiB of network bandwidth a month on Personal; USD 0.05/GiB beyond",
+   "source": "https://exe.dev/pricing"
+  }
+ ],
+ "limits_note": "The pool model means the bill is a floor plus hourly overage, not a machine price.",
+ "binding": "volume-quota",
+ "binding_note": "The binding constraint is the USD 15 minimum monthly spend, which no shape reduces; bandwidth is the metered wall behind it.",
+ "identity_cost": {
+  "kind": "institution",
+  "detail": "New accounts can link a paid ChatGPT subscription during signup for a free 7-day trial, with no card. Otherwise an active subscription is needed to create and manage VMs, paid through Stripe checkout. The site states sign-in works with a Google account.",
+  "country": null
+ },
+ "reliability_note": "no reliability event observed; the trial is time-boxed at 7 days.",
+ "confidence": "documented",
+ "evidence": [
+  {
+   "url": "https://exe.dev/pricing",
+   "date": "2026-10-22",
+   "proved": "'7-day trial with a paid ChatGPT subscription', quoted; Personal plan USD 15 a month for 2 vCPUs / 4 GiB, 50 VMs, 100 GiB of filesystem and 200 GiB of bandwidth"
+  },
+  {
+   "url": "https://exe.dev/",
+   "date": "2026-10-22",
+   "proved": "'You reserve a pool of vCPUs and memory, and your VMs share it', 'SSH in, you are root, you have apt and systemd', quoted"
+  },
+  {
+   "url": "https://boat.dev/compare",
+   "date": "2026-10-22",
+   "proved": "a competitor's comparison table lists exe.dev at USD 0.280 per hour for a 4 vCPU / 8 GB / 50 GB machine, with list prices dated 2026-09-26; this is a reported rate about a third party and not a reading of the vendor's own page"
+  },
+  {
+   "url": "https://exe.dev/pricing",
+   "date": "2026-10-24",
+   "proved": "quoted: '$15/month', '7-day trial with a paid ChatGPT subscription', 'Minimum Monthly Spend | $15', 'Cost | $0.105 per 2 vCPUs / 4 GiB per hour', 'Additional bandwidth | $0.05 / GiB'."
+  },
+  {
+   "url": "https://exe.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "the pricing page states the Personal plan at USD 15 a month and a 7-day free trial",
+   "capture": "sha256:1f614d9f3769e837637c1c444c2c5089d6f33778041f8ba054c3efff82db060b",
+   "quote": "$15 / monthTry free for 7 days"
+  },
+  {
+   "url": "https://exe.dev/docs/billing/overview",
+   "date": "2026-11-24",
+   "proved": "the trial needs a paid ChatGPT subscription and no card; the paid path uses Stripe checkout",
+   "capture": "sha256:be871216380e2295fb6bea2b193fb0b0b91333e5bcf0a596e36965e0252202ee",
+   "quote": "An active subscription is needed to create and manage VMs. New accounts can link a paid ChatGPT subscription during signup for a free 7-day trial, with no card. The trial starts when you create your first VM. Otherwise, subscribe with Stripe checkout."
+  },
+  {
+   "url": "https://exe.dev/docs/billing/personal",
+   "date": "2026-11-24",
+   "proved": "the allowance is 200 GB of outbound bandwidth shared by all VMs",
+   "capture": "sha256:c67a515ccabb66a2410486355a6f1a580868dd485b316ca0307de6ede836b751",
+   "quote": "Every capacity includes 200 GB of outbound bandwidth and up to 50 VMs."
+  },
+  {
+   "url": "https://exe.dev/docs/billing/overview",
+   "date": "2026-11-24",
+   "proved": "the no-card trial is gated on an existing paid subscription rather than a card at signup",
+   "capture": "sha256:be871216380e2295fb6bea2b193fb0b0b91333e5bcf0a596e36965e0252202ee",
+   "quote": "New accounts can link a paid ChatGPT subscription during signup for a free 7-day trial, with no card."
+  },
+  {
+   "url": "https://exe.dev/pricing",
+   "date": "2026-11-24",
+   "proved": "the Personal plan still lists 200 GiB of network bandwidth",
+   "capture": "sha256:1f614d9f3769e837637c1c444c2c5089d6f33778041f8ba054c3efff82db060b",
+   "quote": "* 200 GiB of network bandwidth"
+  },
+  {
+   "url": "https://exe.dev",
+   "date": "2026-11-24",
+   "proved": "the VM is reachable by SSH with root",
+   "capture": "sha256:a2d725da65df3614954b249b4113680bd8e37a8927bf3b71ebdb20c571288dc0",
+   "quote": "SSH in, and you’ve got root."
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T15:03:54.715Z",
+ "notes": "USD 15 a month is the floor and it buys 2 vCPU / 4 GiB spread over up to 50 VMs, so the per-VM cost is near zero but the bill is three times the budget. Standalone VMs are priced at USD 0.105/hour per 2 vCPU / 4 GiB for accounts above the minimum, which is USD 76.65 at 730 h. Egress arithmetic: USD 0.05/GiB x 1000 GB = USD 50 per TB beyond the 200 GiB allowance. Not established: the payment method and hold.",
+ "extras": {
+  "wave2": {
+   "class": "vendor-trial",
+   "category_as_written": "cloud-ide",
+   "agents": [
+    "manual-2026-10-22"
+   ],
+   "promoted_from": "live read"
+  },
+  "crosscheck": {
+   "boat_compare_2026-09-26": "USD 0.280/h at 4 vCPU / 8 GB"
+  },
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 4,
+   "disk_gib": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "a pool of 2 vCPU / 4 GiB shared across up to 50 VMs, 100 GiB of filesystem included"
+  },
+  "billing_model": "monthly",
+  "term": "monthly",
+  "m10h_usd": 15.0,
+  "m24h_usd": 15.0,
+  "price_arithmetic": "USD 15.00 a month minimum, billed monthly, so 24/7 = USD 15.00 and 10 h/day = USD 15.00. The metered alternative is USD 0.105/hour per 2 vCPU / 4 GiB = USD 76.65 at 730 h.",
+  "credit_usd": 0,
+  "credit_months_at_shape": null,
+  "credit_hours_at_shape": 0,
+  "free_tier_kind": "trial",
+  "credit_expiry": "not applicable",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "managed HTTPS and TLS with custom domains included; raw-port ingress terms not stated on the pricing page",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "none stated; VMs persist with their disks"
+  },
+  "superseded": {
+   "free_tier": {
+    "stated": "No credit. The only free path is '7-day trial with a paid ChatGPT subscription', and the plan itself is '$15/month' with a 'Minimum Monthly Spend | $15'.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://exe.dev/pricing",
-    "read_on": "2026-10-24"
-  },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a machine, not an object"
-  },
-  "retention": {
-    "stated": "Persistent disks are included; 100 GiB of filesystem usage per 2 vCPUs, and additional disk at USD 0.08/GiB/month.",
+    "read_on": "2026-10-24",
+    "notes": "The trial is gated on an existing paid ChatGPT subscription, which is an identity cost of its own rather than a card."
+   },
+   "per_object_cap": {
+    "stated": "Personal gives a 2 vCPU pool; the metered rate is '$0.105 per 2 vCPUs / 4 GiB per hour' and '+$0.105 / hour / pool' applies beyond it.",
+    "bytes": null,
+    "source_url": "https://exe.dev/pricing",
+    "notes": "Work is $75 a month and includes 2 vCPUs and 4 GiB."
+   },
+   "retention": {
+    "stated": "VMs and their disks persist while the pool is paid; additional disk is USD 0.08 per GiB a month. No automatic deletion is stated.",
+    "days": null,
     "source_url": "https://exe.dev/pricing"
-  },
-  "egress": {
-    "terms": "200 GB of outbound bandwidth included on Personal; additional bandwidth is billed at the rates on the pricing page, USD 0.05/GiB on that page.",
+   },
+   "egress": {
+    "terms": "'Additional bandwidth | $0.05 / GiB'. No included allowance is stated.",
     "metered": true,
-    "free_allowance": "200 GB of outbound bandwidth",
+    "free_allowance": null,
+    "price_per_tb": "USD 50 per TB",
     "source_url": "https://exe.dev/pricing"
-  },
-  "interface": [
-    "ssh",
-    "cli"
-  ],
-  "interface_detail": "SSH into the VM as root, with apt and systemd; sign-in is through a Google account in the browser",
-  "tooling": "ssh, apt, systemd, and a web agent named Shelley for coding; a pool of vCPUs is reserved and shared by the VMs",
-  "chaining": "the pool model is the unusual part: 50 VMs share one 2 vCPU / 4 GiB reservation, so a fleet of idle sandboxes costs the same as one. It composes with a scheduler that starts many short-lived workers",
-  "limits": [
+   },
+   "limits": [
     {
-      "kind": "volume-quota",
-      "value": "200 GiB of network bandwidth a month on Personal; USD 0.05/GiB beyond",
-      "source": "https://exe.dev/pricing"
+     "kind": "volume-quota",
+     "value": "minimum monthly spend USD 15 for a 2 vCPU pool",
+     "source": "https://exe.dev/pricing"
+    },
+    {
+     "kind": "volume-quota",
+     "value": "USD 0.105 per 2 vCPUs / 4 GiB per hour of extra pool",
+     "source": "https://exe.dev/pricing"
     }
-  ],
-  "limits_note": "The pool model means the bill is a floor plus hourly overage, not a machine price.",
-  "binding": "volume-quota",
-  "binding_note": "The binding constraint is the USD 15 minimum monthly spend, which no shape reduces; bandwidth is the metered wall behind it.",
-  "identity_cost": {
+   ],
+   "limits_note": "the trial's gate is a paid ChatGPT subscription, and the trial ends after 7 days; the paid plan's constraint is the shared pool, not a per-VM quota",
+   "binding": "retention-clamped",
+   "binding_note": "There is no credit to run out of; the binding constraint is that the trial requires a paid ChatGPT subscription and the plan requires a card.",
+   "identity_cost": {
     "kind": "institution",
-    "detail": "New accounts can link a paid ChatGPT subscription during signup for a free 7-day trial, with no card. Otherwise an active subscription is needed to create and manage VMs, paid through Stripe checkout. The site states sign-in works with a Google account.",
+    "detail": "The trial requires 'a paid ChatGPT subscription', and the plan requires a card for a USD 15 minimum monthly spend. No hold amount is stated.",
     "country": null
-  },
-  "reliability_note": "no reliability event observed; the trial is time-boxed at 7 days.",
-  "confidence": "documented",
-  "evidence": [
-    {
-      "url": "https://exe.dev/pricing",
-      "date": "2026-10-22",
-      "proved": "'7-day trial with a paid ChatGPT subscription', quoted; Personal plan USD 15 a month for 2 vCPUs / 4 GiB, 50 VMs, 100 GiB of filesystem and 200 GiB of bandwidth"
-    },
-    {
-      "url": "https://exe.dev/",
-      "date": "2026-10-22",
-      "proved": "'You reserve a pool of vCPUs and memory, and your VMs share it', 'SSH in, you are root, you have apt and systemd', quoted"
-    },
-    {
-      "url": "https://boat.dev/compare",
-      "date": "2026-10-22",
-      "proved": "a competitor's comparison table lists exe.dev at USD 0.280 per hour for a 4 vCPU / 8 GB / 50 GB machine, with list prices dated 2026-09-26; this is a reported rate about a third party and not a reading of the vendor's own page"
-    },
-    {
-      "url": "https://exe.dev/pricing",
-      "date": "2026-10-24",
-      "proved": "quoted: '$15/month', '7-day trial with a paid ChatGPT subscription', 'Minimum Monthly Spend | $15', 'Cost | $0.105 per 2 vCPUs / 4 GiB per hour', 'Additional bandwidth | $0.05 / GiB'."
-    },
-    {
-      "url": "https://exe.dev/pricing",
-      "date": "2026-10-24",
-      "proved": "quoted: 'Personal ... $15 / month ... Pool size 2 vCPUs / 4 GiB memory ... 50 VMs ... 100 GiB of filesystem usage included ... 200 GiB of network bandwidth'"
-    },
-    {
-      "url": "https://exe.dev/pricing",
-      "date": "2026-10-24",
-      "proved": "quoted: 'Minimum Monthly Spend | $15'; 'Additional disk | $0.08 / GiB / month'; 'Additional bandwidth | $0.05 / GiB'; 'KVM-isolated VMs | Included'; 'Persistent disks | Included'"
-    },
-    {
-      "url": "https://exe.dev/docs/billing/overview",
-      "date": "2026-11-24",
-      "proved": "the trial needs a paid ChatGPT subscription and no card; the paid path uses Stripe checkout",
-      "capture": "sha256:be871216380e2295fb6bea2b193fb0b0b91333e5bcf0a596e36965e0252202ee",
-      "quote": "An active subscription is needed to create and manage VMs. New accounts can link a paid ChatGPT subscription during signup for a free 7-day trial, with no card. The trial starts when you create your first VM. Otherwise, subscribe with Stripe checkout."
-    },
-    {
-      "url": "https://exe.dev/docs/billing/personal",
-      "date": "2026-11-24",
-      "proved": "the allowance is 200 GB of outbound bandwidth shared by all VMs",
-      "capture": "sha256:c67a515ccabb66a2410486355a6f1a580868dd485b316ca0307de6ede836b751",
-      "quote": "Every capacity includes 200 GB of outbound bandwidth and up to 50 VMs."
-    },
-    {
-      "url": "https://exe.dev/docs/billing/personal",
-      "date": "2026-11-24",
-      "proved": "the allowance is 200 GB of outbound bandwidth",
-      "capture": "sha256:c67a515ccabb66a2410486355a6f1a580868dd485b316ca0307de6ede836b751",
-      "quote": "Every capacity includes 200 GB of outbound bandwidth and up to 50 VMs."
-    },
-    {
-      "url": "https://exe.dev/docs/billing/overview",
-      "date": "2026-11-24",
-      "proved": "the no-card trial is gated on an existing paid subscription rather than a card at signup",
-      "capture": "sha256:be871216380e2295fb6bea2b193fb0b0b91333e5bcf0a596e36965e0252202ee",
-      "quote": "New accounts can link a paid ChatGPT subscription during signup for a free 7-day trial, with no card."
-    },
-    {
-      "url": "https://exe.dev/pricing",
-      "date": "2026-11-24",
-      "proved": "the Personal plan still lists 200 GiB of network bandwidth",
-      "capture": "sha256:1f614d9f3769e837637c1c444c2c5089d6f33778041f8ba054c3efff82db060b",
-      "quote": "* 200 GiB of network bandwidth"
-    },
-    {
-      "url": "https://exe.dev",
-      "date": "2026-11-24",
-      "proved": "the VM is reachable by SSH with root",
-      "capture": "sha256:a2d725da65df3614954b249b4113680bd8e37a8927bf3b71ebdb20c571288dc0",
-      "quote": "SSH in, and you’ve got root."
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T11:38:13.593Z",
-  "notes": "USD 15 a month is the floor and it buys 2 vCPU / 4 GiB spread over up to 50 VMs, so the per-VM cost is near zero but the bill is three times the budget. Standalone VMs are priced at USD 0.105/hour per 2 vCPU / 4 GiB for accounts above the minimum, which is USD 76.65 at 730 h. Egress arithmetic: USD 0.05/GiB x 1000 GB = USD 50 per TB beyond the 200 GiB allowance. Not established: the payment method and hold.",
-  "extras": {
-    "wave2": {
-      "class": "vendor-trial",
-      "category_as_written": "cloud-ide",
-      "agents": [
-        "manual-2026-10-22"
-      ],
-      "promoted_from": "live read"
-    },
-    "crosscheck": {
-      "boat_compare_2026-09-26": "USD 0.280/h at 4 vCPU / 8 GB"
-    },
-    "shape": {
-      "vcpu": 2,
-      "ram_gib": 4,
-      "disk_gib": null,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "a pool of 2 vCPU / 4 GiB shared across up to 50 VMs, 100 GiB of filesystem included"
-    },
-    "billing_model": "monthly",
-    "term": "monthly",
-    "m10h_usd": 15.0,
-    "m24h_usd": 15.0,
-    "price_arithmetic": "USD 15.00 a month minimum, billed monthly, so 24/7 = USD 15.00 and 10 h/day = USD 15.00. The metered alternative is USD 0.105/hour per 2 vCPU / 4 GiB = USD 76.65 at 730 h.",
-    "credit_usd": 0,
-    "credit_months_at_shape": null,
-    "credit_hours_at_shape": 0,
-    "free_tier_kind": "trial",
-    "credit_expiry": "not applicable",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "managed HTTPS and TLS with custom domains included; raw-port ingress terms not stated on the pricing page",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "none stated; VMs persist with their disks"
-    },
-    "superseded": {
-      "free_tier": {
-        "stated": "No credit. The only free path is '7-day trial with a paid ChatGPT subscription', and the plan itself is '$15/month' with a 'Minimum Monthly Spend | $15'.",
-        "unit": "none",
-        "metered_on": "none",
-        "source_url": "https://exe.dev/pricing",
-        "read_on": "2026-10-24",
-        "notes": "The trial is gated on an existing paid ChatGPT subscription, which is an identity cost of its own rather than a card."
-      },
-      "per_object_cap": {
-        "stated": "Personal gives a 2 vCPU pool; the metered rate is '$0.105 per 2 vCPUs / 4 GiB per hour' and '+$0.105 / hour / pool' applies beyond it.",
-        "bytes": null,
-        "source_url": "https://exe.dev/pricing",
-        "notes": "Work is $75 a month and includes 2 vCPUs and 4 GiB."
-      },
-      "retention": {
-        "stated": "VMs and their disks persist while the pool is paid; additional disk is USD 0.08 per GiB a month. No automatic deletion is stated.",
-        "days": null,
-        "source_url": "https://exe.dev/pricing"
-      },
-      "egress": {
-        "terms": "'Additional bandwidth | $0.05 / GiB'. No included allowance is stated.",
-        "metered": true,
-        "free_allowance": null,
-        "price_per_tb": "USD 50 per TB",
-        "source_url": "https://exe.dev/pricing"
-      },
-      "limits": [
-        {
-          "kind": "volume-quota",
-          "value": "minimum monthly spend USD 15 for a 2 vCPU pool",
-          "source": "https://exe.dev/pricing"
-        },
-        {
-          "kind": "volume-quota",
-          "value": "USD 0.105 per 2 vCPUs / 4 GiB per hour of extra pool",
-          "source": "https://exe.dev/pricing"
-        }
-      ],
-      "limits_note": "the trial's gate is a paid ChatGPT subscription, and the trial ends after 7 days; the paid plan's constraint is the shared pool, not a per-VM quota",
-      "binding": "retention-clamped",
-      "binding_note": "There is no credit to run out of; the binding constraint is that the trial requires a paid ChatGPT subscription and the plan requires a card.",
-      "identity_cost": {
-        "kind": "institution",
-        "detail": "The trial requires 'a paid ChatGPT subscription', and the plan requires a card for a USD 15 minimum monthly spend. No hold amount is stated.",
-        "country": null
-      },
-      "reliability_note": "No reliability event observed in this session.",
-      "verdict": "trial-only",
-      "notes": "Not a credit row at all: USD 15 a month for a 2 vCPU pool, no grant, and the trial needs a paid ChatGPT subscription. It is recorded because the operator named it. At USD 0.105 an hour for 2 vCPU / 4 GiB the 24/7 cost would be USD 76.65 a month, so the USD 15 buys a fraction of a dedicated box and the pool is shared.",
-      "verified_at": "2026-10-24T01:52:56.000Z",
-      "tier": "Personal",
-      "confidence_note": "Prices, the trial condition and the metadata rates are on the pricing page read today."
-    }
-  },
-  "tier": "Personal: USD 15/month pool of 2 vCPU / 4 GiB, up to 50 VMs",
-  "confidence_note": "Plan price, pool size, VM count, disk and bandwidth allowances and the additional-disk and bandwidth rates are quoted from the pricing page read today. Payment method and SSH details beyond the table are not on that page."
+   },
+   "reliability_note": "No reliability event observed in this session.",
+   "verdict": "trial-only",
+   "notes": "Not a credit row at all: USD 15 a month for a 2 vCPU pool, no grant, and the trial needs a paid ChatGPT subscription. It is recorded because the operator named it. At USD 0.105 an hour for 2 vCPU / 4 GiB the 24/7 cost would be USD 76.65 a month, so the USD 15 buys a fraction of a dedicated box and the pool is shared.",
+   "verified_at": "2026-10-24T01:52:56.000Z",
+   "tier": "Personal",
+   "confidence_note": "Prices, the trial condition and the metadata rates are on the pricing page read today."
+  }
+ },
+ "tier": "Personal: USD 15/month pool of 2 vCPU / 4 GiB, up to 50 VMs",
+ "confidence_note": "Plan price, pool size, VM count, disk and bandwidth allowances and the additional-disk and bandwidth rates are quoted from the pricing page read today. Payment method and SSH details beyond the table are not on that page."
 }

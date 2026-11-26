@@ -1,188 +1,195 @@
 {
-  "topic": "compute",
-  "slug": "windows-365-agents",
-  "provider": "Windows 365 for Agents",
-  "url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
-  "category": "Windows host",
-  "free_tier": {
-    "stated": "no free tier: 'For US Geography, the Windows 365 for Agents Cloud PCs are billed at $0.40 per hour for consumption', rounded up to the next full hour, plus '$5 per Cloud PC per month' for an always-available Cloud PC in addition to usage",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
-    "read_on": "2026-10-22"
+ "topic": "compute",
+ "slug": "windows-365-agents",
+ "provider": "Windows 365 for Agents",
+ "url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
+ "category": "Windows host",
+ "free_tier": {
+  "stated": "no free tier: for US geography, pay-as-you-go Cloud PCs are billed at $0.40 per hour for consumption, with an additional fixed $5 per Cloud PC per month for an always-available Cloud PC",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
+  "read_on": "2026-10-22"
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "not stated",
+  "days": null,
+  "source_url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "not published: the pricing page names a USD 0.40 hourly consumption charge and a USD 5 monthly availability add-on but states no egress allowance, price or network policy",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available"
+ },
+ "interface": [
+  "rest",
+  "chat"
+ ],
+ "interface_detail": "Microsoft Graph APIs for pool administration, a Windows 365 for Agents session API to check out and release a Cloud PC (POST /api/pools/{poolId}/sessions?api-version=2.0), and per-session MCP tools for in-session operation.",
+ "tooling": "not stated",
+ "chaining": "not established",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "$0.40 an hour per Cloud PC on consumption",
+   "source": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available"
   },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+  {
+   "kind": "retention-clamped",
+   "value": "$5 a month per Cloud PC buys instant availability; without it a Cloud PC is provisioned on demand",
+   "source": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available"
   },
-  "retention": {
-    "stated": "not stated",
-    "days": null,
-    "source_url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
-    "notes": "Disk durability across instance stops and deletions is not documented."
+  {
+   "kind": "per-object-cap",
+   "value": "usage is the total time spent running, billed per Cloud PC",
+   "source": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available"
+  }
+ ],
+ "limits_note": "Session cap, idle-reap and network policy are not documented. Exceeds capacity threshold.",
+ "identity_cost": {
+  "kind": "institution",
+  "detail": "Each agent uses a dedicated Microsoft Entra agent user identity; a spending policy in the Microsoft 365 admin center must target that agent user before a checkout succeeds. The self-service signup form was not read, so no public email, phone or card gate is established.",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "documented",
+ "confidence_note": "the pricing page was read on 2026-10-22 and states both the consumption rate and the always-available add-on. There is no free tier, so the verdict moves to paid-only, and the add-on is the state answer: $5 a month buys availability rather than compute",
+ "evidence": [
+  {
+   "url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
   },
-  "egress": {
-    "terms": "not published: the pricing page names a USD 0.40 hourly consumption charge and a USD 5 monthly availability add-on but states no egress allowance, price or network policy",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available"
+  {
+   "url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
+   "date": "2026-10-22",
+   "proved": "'Windows 365 for Agents offers a pay-as-you-go pricing model with an optional monthly add-on for instant Cloud PC availability' with 'always-available Cloud PCs are billed at a fixed amount of $5 per Cloud PC per month' and '$0.40 per hour for consumption', quoted"
   },
-  "interface": [
-    "rest",
-    "chat"
-  ],
-  "interface_detail": "Microsoft Graph APIs for pool administration, a Windows 365 for Agents session API to check out and release a Cloud PC (POST /api/pools/{poolId}/sessions?api-version=2.0), and per-session MCP tools for in-session operation.",
-  "tooling": "not stated",
-  "chaining": "not established",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "$0.40 an hour per Cloud PC on consumption",
-      "source": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "$5 a month per Cloud PC buys instant availability; without it a Cloud PC is provisioned on demand",
-      "source": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "usage is the total time spent running, billed per Cloud PC",
-      "source": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available"
-    }
-  ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented. Exceeds capacity threshold.",
-  "identity_cost": {
-    "kind": "institution",
-    "detail": "Each agent uses a dedicated Microsoft Entra agent user identity; a spending policy in the Microsoft 365 admin center must target that agent user before a checkout succeeds. The self-service signup form was not read, so no public email, phone or card gate is established.",
-    "country": null
+  {
+   "url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
+   "date": "2026-11-25",
+   "proved": "the pricing page states the $0.40 hourly consumption rate for US geography",
+   "capture": "sha256:fcc744b96428bfab7d444a2173ddcd3109893c6868054d5c0210e1c43dc8faa9",
+   "quote": "For US Geography, the Windows 365 for Agents Cloud PCs are billed at $0.40 per hour for consumption."
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "documented",
-  "confidence_note": "the pricing page was read on 2026-10-22 and states both the consumption rate and the always-available add-on. There is no free tier, so the verdict moves to paid-only, and the add-on is the state answer: $5 a month buys availability rather than compute",
-  "evidence": [
-    {
-      "url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
-      "date": "2026-10-22",
-      "proved": "'Windows 365 for Agents offers a pay-as-you-go pricing model with an optional monthly add-on for instant Cloud PC availability' with 'always-available Cloud PCs are billed at a fixed amount of $5 per Cloud PC per month' and '$0.40 per hour for consumption', quoted"
-    },
-    {
-      "url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
-      "date": "2026-11-24",
-      "proved": "the consumption rate is USD 0.40 per hour with hourly rounding up",
-      "capture": "sha256:fcc744b96428bfab7d444a2173ddcd3109893c6868054d5c0210e1c43dc8faa9",
-      "quote": "For US Geography, the Windows 365 for Agents Cloud PCs are billed at $0.40 per hour for consumption. Usage is calculated as the total time spent running agent tasks on provisioned Cloud PCs within each hourly window, rounded up to the next full hour."
-    },
-    {
-      "url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
-      "date": "2026-11-24",
-      "proved": "the always-available add-on is USD 5 per Cloud PC per month on top of usage",
-      "capture": "sha256:fcc744b96428bfab7d444a2173ddcd3109893c6868054d5c0210e1c43dc8faa9",
-      "quote": "For US Geography, the Windows 365 for Agents always-available Cloud PCs are billed at a fixed amount of $5 per Cloud PC per month, which provides access to an instantly available Cloud PC for an optimal experience. This charge is in addition to any Pay-as-you-go based usage."
-    },
-    {
-      "url": "https://learn.microsoft.com/en-us/windows-365/agents/identity-security",
-      "date": "2026-11-24",
-      "proved": "agents authenticate with a managed Microsoft Entra agent user identity",
-      "capture": "sha256:3c26a8b90055f69e894e11aef6491c2457551053447c7835af7925095c70f28b",
-      "quote": "Each agent uses a dedicated [Microsoft Entra agent user identity](/en-us/entra/agent-id/agent-users), separate from human users, and seamlessly authenticates with token-based flows into Windows 365 for Agents virtual machines."
-    },
-    {
-      "url": "https://learn.microsoft.com/en-us/windows-365/agents/billing-w365a",
-      "date": "2026-11-24",
-      "proved": "a Microsoft 365 administrator must cover the Entra agent user with a spending policy before checkout",
-      "capture": "sha256:52726fe99ea81deae73a28ffdc7cfdfb25db0b57c5d0fa48a3cb8e867367f2e4",
-      "quote": "Each time an agent user attempts to check out a Cloud PC, it is checked against the existing spending policies. If it is covered, the agent's usage is charged in Copilot Credits to that agent user's spending policy. If no spending policy targets that agent, the checkout fails."
-    },
-    {
-      "url": "https://learn.microsoft.com/en-us/windows-365/agents/identity-security",
-      "date": "2026-11-24",
-      "proved": "Cloud PCs are joined to Microsoft Entra and enrolled in Intune",
-      "capture": "sha256:3c26a8b90055f69e894e11aef6491c2457551053447c7835af7925095c70f28b",
-      "quote": "Each Cloud PC is Microsoft Entra-joined and Microsoft Intune-enrolled, which gives agents a managed identity and device posture from day one."
-    },
-    {
-      "url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
-      "date": "2026-11-24",
-      "proved": "the page closes with geography-based price variation and names no egress term",
-      "capture": "sha256:20a9f8fc423e5faf2031e0f4dd3f1dc46aebafb2461e76f11a9f9446b672c6fd",
-      "quote": "Pricing varies based on the geography where Cloud PCs are provisioned."
-    },
-    {
-      "url": "https://learn.microsoft.com/en-us/windows-365/agents/mcp-tool-overview",
-      "date": "2026-11-24",
-      "proved": "in-session operation uses a per-session MCP endpoint reached by AI agents",
-      "capture": "sha256:8d6e7539f64eb09809036645f15083a234454a89d60b41e1e34be44c1cfe6f75",
-      "quote": "- **Model Context Protocol (MCP) tools** for in-session operation. AI agents invoke these tools through the per-session MCP endpoint. For screen sharing, a partner application invokes screenshare actions on a human's behalf."
-    },
-    {
-      "url": "https://learn.microsoft.com/en-us/windows-365/agents/mcp-tool-overview",
-      "date": "2026-11-24",
-      "proved": "the session API checks out a Cloud PC over an HTTP endpoint",
-      "capture": "sha256:8d6e7539f64eb09809036645f15083a234454a89d60b41e1e34be44c1cfe6f75",
-      "quote": "POST /api/pools/{poolId}/sessions?api-version=2.0"
-    },
-    {
-      "url": "https://learn.microsoft.com/en-us/windows-365/agents/mcp-tool-overview",
-      "date": "2026-11-24",
-      "proved": "pool administration is exposed through Microsoft Graph APIs",
-      "capture": "sha256:8d6e7539f64eb09809036645f15083a234454a89d60b41e1e34be44c1cfe6f75",
-      "quote": "- **Microsoft Graph APIs** for administration. IT admins and agent makers use these APIs to provision and govern pool capacity."
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T14:51:51.609Z",
-  "price_per_tb_month": null,
-  "notes": "",
-  "extras": {
-    "seed_status": "too-big",
-    "talaria_m10h_usd": null,
-    "talaria_m24h_usd": null,
-    "nemo_m10h_usd": null,
-    "keep_rate": null,
-    "keep_rate_basis": "no field in the source",
-    "billing_model": "unclassified",
-    "shape": null,
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "the $5 a month add-on is exactly the cost of not being reaped: it keeps a Cloud PC instantly available"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "ps": {
-      "gib": null,
-      "price": "the Cloud PC's own disk, part of the configuration",
-      "durability": "persistent Cloud PC",
-      "on_stop": true,
-      "on_destroy": false,
-      "retention": "the subscription term"
-    },
-    "net": {
-      "out": true,
-      "in": true,
-      "ports": "a managed desktop",
-      "static_ip": false,
-      "ipv6": null,
-      "allowance": null
-    }
+  {
+   "url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
+   "date": "2026-11-24",
+   "proved": "the consumption rate is USD 0.40 per hour with hourly rounding up",
+   "capture": "sha256:fcc744b96428bfab7d444a2173ddcd3109893c6868054d5c0210e1c43dc8faa9",
+   "quote": "For US Geography, the Windows 365 for Agents Cloud PCs are billed at $0.40 per hour for consumption. Usage is calculated as the total time spent running agent tasks on provisioned Cloud PCs within each hourly window, rounded up to the next full hour."
   },
-  "stale": true,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding": "request-rate",
-  "history": [
-    "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
-  ]
+  {
+   "url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
+   "date": "2026-11-24",
+   "proved": "the always-available add-on is USD 5 per Cloud PC per month on top of usage",
+   "capture": "sha256:fcc744b96428bfab7d444a2173ddcd3109893c6868054d5c0210e1c43dc8faa9",
+   "quote": "For US Geography, the Windows 365 for Agents always-available Cloud PCs are billed at a fixed amount of $5 per Cloud PC per month, which provides access to an instantly available Cloud PC for an optimal experience. This charge is in addition to any Pay-as-you-go based usage."
+  },
+  {
+   "url": "https://learn.microsoft.com/en-us/windows-365/agents/identity-security",
+   "date": "2026-11-24",
+   "proved": "agents authenticate with a managed Microsoft Entra agent user identity",
+   "capture": "sha256:3c26a8b90055f69e894e11aef6491c2457551053447c7835af7925095c70f28b",
+   "quote": "Each agent uses a dedicated [Microsoft Entra agent user identity](/en-us/entra/agent-id/agent-users), separate from human users, and seamlessly authenticates with token-based flows into Windows 365 for Agents virtual machines."
+  },
+  {
+   "url": "https://learn.microsoft.com/en-us/windows-365/agents/billing-w365a",
+   "date": "2026-11-24",
+   "proved": "a Microsoft 365 administrator must cover the Entra agent user with a spending policy before checkout",
+   "capture": "sha256:52726fe99ea81deae73a28ffdc7cfdfb25db0b57c5d0fa48a3cb8e867367f2e4",
+   "quote": "Each time an agent user attempts to check out a Cloud PC, it is checked against the existing spending policies. If it is covered, the agent's usage is charged in Copilot Credits to that agent user's spending policy. If no spending policy targets that agent, the checkout fails."
+  },
+  {
+   "url": "https://learn.microsoft.com/en-us/windows-365/agents/identity-security",
+   "date": "2026-11-24",
+   "proved": "Cloud PCs are joined to Microsoft Entra and enrolled in Intune",
+   "capture": "sha256:3c26a8b90055f69e894e11aef6491c2457551053447c7835af7925095c70f28b",
+   "quote": "Each Cloud PC is Microsoft Entra-joined and Microsoft Intune-enrolled, which gives agents a managed identity and device posture from day one."
+  },
+  {
+   "url": "https://learn.microsoft.com/en-us/windows-365/agents/pricing-paygo-always-available",
+   "date": "2026-11-24",
+   "proved": "the page closes with geography-based price variation and names no egress term",
+   "capture": "sha256:20a9f8fc423e5faf2031e0f4dd3f1dc46aebafb2461e76f11a9f9446b672c6fd",
+   "quote": "Pricing varies based on the geography where Cloud PCs are provisioned."
+  },
+  {
+   "url": "https://learn.microsoft.com/en-us/windows-365/agents/mcp-tool-overview",
+   "date": "2026-11-24",
+   "proved": "in-session operation uses a per-session MCP endpoint reached by AI agents",
+   "capture": "sha256:8d6e7539f64eb09809036645f15083a234454a89d60b41e1e34be44c1cfe6f75",
+   "quote": "- **Model Context Protocol (MCP) tools** for in-session operation. AI agents invoke these tools through the per-session MCP endpoint. For screen sharing, a partner application invokes screenshare actions on a human's behalf."
+  },
+  {
+   "url": "https://learn.microsoft.com/en-us/windows-365/agents/mcp-tool-overview",
+   "date": "2026-11-24",
+   "proved": "the session API checks out a Cloud PC over an HTTP endpoint",
+   "capture": "sha256:8d6e7539f64eb09809036645f15083a234454a89d60b41e1e34be44c1cfe6f75",
+   "quote": "POST /api/pools/{poolId}/sessions?api-version=2.0"
+  },
+  {
+   "url": "https://learn.microsoft.com/en-us/windows-365/agents/mcp-tool-overview",
+   "date": "2026-11-24",
+   "proved": "pool administration is exposed through Microsoft Graph APIs",
+   "capture": "sha256:8d6e7539f64eb09809036645f15083a234454a89d60b41e1e34be44c1cfe6f75",
+   "quote": "- **Microsoft Graph APIs** for administration. IT admins and agent makers use these APIs to provision and govern pool capacity."
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T11:17:43.458Z",
+ "price_per_tb_month": null,
+ "notes": "",
+ "extras": {
+  "seed_status": "too-big",
+  "talaria_m10h_usd": null,
+  "talaria_m24h_usd": null,
+  "nemo_m10h_usd": null,
+  "keep_rate": null,
+  "keep_rate_basis": "no field in the source",
+  "billing_model": "unclassified",
+  "shape": null,
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "the $5 a month add-on is exactly the cost of not being reaped: it keeps a Cloud PC instantly available"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "ps": {
+   "gib": null,
+   "price": "the Cloud PC's own disk, part of the configuration",
+   "durability": "persistent Cloud PC",
+   "on_stop": true,
+   "on_destroy": false,
+   "retention": "the subscription term"
+  },
+  "net": {
+   "out": true,
+   "in": true,
+   "ports": "a managed desktop",
+   "static_ip": false,
+   "ipv6": null,
+   "allowance": null
+  }
+ },
+ "stale": true,
+ "stale_checked_at": "2026-10-22T00:00:00.000Z",
+ "binding": "request-rate",
+ "history": [
+  "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
+ ]
 }

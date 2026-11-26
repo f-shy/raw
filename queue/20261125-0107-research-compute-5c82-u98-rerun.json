@@ -1,0 +1,17 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u98-rerun",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "Re-check these compute records against their own sources. Keep every clause the captured page supports, correct or remove only a clause it does not, then confirm each record with a quote from the page.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/beam $.free_tier.stated: Page (original and fresh read) confirms Developer $20/month with $20 in credits each month, but the claim's quoted sentence 'Unused monthly credits expire at renewal. Extra credits don't expire.' is not on the page; only 'Purchased credits don’t expire.' appears. No statement on monthly expiry or on\n- compute/linode $.free_tier.stated: The same capture carries an English heading advertising US$100 in credits, contradicting 'No English signup credit is published'. The 60-day FAQ example is also present. Fresh read of the page returned HTTP 403 (walled), so no independent re-read; judged on the stored capture. The 404 / Japanese-loc",
+ "scope": {
+  "rids": [
+   "compute/koyeb",
+   "compute/linode",
+   "compute/beam",
+   "compute/cloudflare-containers",
+   "compute/dockerhosting-prodv"
+  ]
+ },
+ "origin": "audit u238 of 20261125-0107-research-compute-5c82/u98 failed: 2 of 4 unsupported",
+ "created": "2026-11-25T11:52:16Z"
+}

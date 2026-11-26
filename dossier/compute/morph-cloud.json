@@ -1,246 +1,246 @@
 {
-  "topic": "compute",
-  "slug": "morph-cloud",
-  "provider": "Morph Cloud",
-  "url": "https://cloud.morph.so/web/subscribe",
-  "category": "container and VM sandbox",
-  "free_tier": {
-    "stated": "'Starting credit allocation | 0 MCUs' on the Free Developer tier, with 'Pricing | $0 / month Purchase MCUs to use compute'. The Popular Team tier is '$40 / month' with '1000 MCUs'.",
+ "topic": "compute",
+ "slug": "morph-cloud",
+ "provider": "Morph Cloud",
+ "url": "https://cloud.morph.so/web/subscribe",
+ "category": "container and VM sandbox",
+ "free_tier": {
+  "stated": "The $0 tier starts with '| Starting credit allocation | 0 MCUs | 1000 MCUs | 7500 MCUs |'; the same table prices it '| Pricing | $0 / monthPurchase MCUs to use compute | $40 / month20% Discount ($50 value) | $250 / month33% Discount ($375 value) |'.",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://cloud.morph.so/web/subscribe",
+  "read_on": "2026-10-24",
+  "notes": "A zero-credit tier: compute cannot start until MCUs are bought, so there is no free machine at all."
+ },
+ "per_object_cap": {
+  "stated": "Instances 'Up to 64 vCPU', RAM 'Up to 256 GB', storage 'Up to 1024 GB' on Free Developer; GitHub Actions runner sizes are 'Small 3 MCU/hr 2 vCPU / 4 GB RAM / 40 GB disk', 'Medium 5 MCU/hr 4 vCPU / 8 GB RAM / 80 GB disk', 'Large 10 MCU/hr 8 vCPU / 16 GB RAM / 160 GB disk'.",
+  "bytes": null,
+  "source_url": "https://cloud.morph.so/web/subscribe",
+  "notes": "The shape limits are generous; the balance is zero."
+ },
+ "retention": {
+  "stated": "No retention term is stated on the subscribe page; storage is sold per GB up to the tier cap.",
+  "days": null,
+  "source_url": "https://cloud.morph.so/web/subscribe"
+ },
+ "egress": {
+  "terms": "No egress charge or allowance is stated on the subscribe page.",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://cloud.morph.so/web/subscribe"
+ },
+ "interface": [
+  "cli",
+  "ssh",
+  "rest"
+ ],
+ "interface_detail": "Python and TypeScript SDKs and the morphcloud CLI; devbox access over SSH and HTTP services exposed to the public internet",
+ "tooling": "not stated",
+ "chaining": "not established",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "0 MCUs of starting credit on the free tier",
+   "source": "https://cloud.morph.so/web/subscribe"
+  },
+  {
+   "kind": "volume-quota",
+   "value": "1000 MCUs for USD 40 a month on Team",
+   "source": "https://cloud.morph.so/web/subscribe"
+  }
+ ],
+ "limits_note": "The MCU price per unit is not stated on the subscribe page, so a per-hour cost cannot be derived without a further page.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "Free signup with no card mentioned; a card is needed for the first MCU purchase. No hold amount is stated.",
+  "country": null
+ },
+ "reliability_note": "no reliability event observed",
+ "confidence": "documented",
+ "confidence_note": "The zero starting allocation and the tier prices are on the subscribe page read today. The per-MCU dollar rate is not on that page, so no hourly price is claimed.",
+ "evidence": [
+  {
+   "url": "https://cloud.morph.so/web/subscribe",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
+  },
+  {
+   "url": "https://cloud.morph.so/web/subscribe",
+   "date": "2026-10-22",
+   "proved": "'| Starting credit allocation | 0 MCUs | 1000 MCUs | 7500 MCUs |' with 'Pricing $0/month. Purchase MCUs to use compute', 'Concurrency 8', and the runner sizes '2 vCPU / 4 GB / 40 GB disk' upward, quoted"
+  },
+  {
+   "url": "https://cloud.morph.so/web/subscribe",
+   "date": "2026-10-24",
+   "proved": "quoted: 'Starting credit allocation | 0 MCUs'; '$0 / month Purchase MCUs to use compute'; 'PopularTeam ... $40 / month 20% Discount ($50 value)' with '1000 MCUs'; 'Medium 5 MCU/hr 4 vCPU / 8 GB RAM / 80 GB disk'."
+  },
+  {
+   "url": "https://cloud.morph.so/web/subscribe",
+   "date": "2026-11-25",
+   "proved": "the subscribe table still shows 0 MCUs of starting credit on the USD 0 tier and 1000 MCUs on the USD 40 tier",
+   "capture": "sha256:26665673e6b91e2a9299b2bf3cb95108300edff972f6619faa701d2975ac4ba2",
+   "quote": "| Starting credit allocation | 0 MCUs | 1000 MCUs | 7500 MCUs |"
+  },
+  {
+   "url": "https://cloud.morph.so/web/subscribe",
+   "date": "2026-11-24",
+   "proved": "the subscribe page lists 0 MCUs of starting credit on the $0 Developer tier and 1000/7500 MCUs on the paid tiers",
+   "capture": "sha256:26665673e6b91e2a9299b2bf3cb95108300edff972f6619faa701d2975ac4ba2",
+   "quote": "| Starting credit allocation | 0 MCUs | 1000 MCUs | 7500 MCUs |"
+  },
+  {
+   "url": "https://cloud.morph.so/web/subscribe",
+   "date": "2026-11-24",
+   "proved": "the $0 tier requires buying MCUs while the $40 and $250 tiers bundle 1000 and 7500 MCUs",
+   "capture": "sha256:26665673e6b91e2a9299b2bf3cb95108300edff972f6619faa701d2975ac4ba2",
+   "quote": "| Pricing | $0 / monthPurchase MCUs to use compute | $40 / month20% Discount ($50 value) | $250 / month33% Discount ($375 value) |"
+  },
+  {
+   "url": "https://cloud.morph.so/docs/developers",
+   "date": "2026-11-24",
+   "proved": "Morph documents a CLI that starts devboxes and runs commands over SSH",
+   "capture": "sha256:87170a9eff405511f4d734196e1eecc62217e74568caad333e059a1d7aaf3e73",
+   "quote": "morphcloud devbox ssh \"$DEVBOX_ID\" echo \"Hello from a Morph Devbox!\""
+  },
+  {
+   "url": "https://cloud.morph.so/docs/faq",
+   "date": "2026-11-24",
+   "proved": "Morph documents SSH access and SDK/CLI clients",
+   "capture": "sha256:d4cda99c9254fba1e3fb95d9c82f98238b21b6bfef3f5ccd6a527643d090291b",
+   "quote": "MorphCloud provides SSH access to your instances. You'll need to configure SSH keys and connect using the provided connection details."
+  },
+  {
+   "url": "https://cloud.morph.so/docs/documentation/setup/signing-up",
+   "date": "2026-11-24",
+   "proved": "the sign-up doc claims 300 free compute hours a month on the $0 Developer Plan once the user has an invite",
+   "capture": "sha256:4950c8be6f5d8d1e90409247145c69b269e363713cc8c9a5865867340b97b88b",
+   "quote": "Once you have your invite, our $0/month Developer Plan provides 300 free compute hours per month"
+  },
+  {
+   "url": "https://cloud.morph.so/docs/faq",
+   "date": "2026-11-24",
+   "proved": "the FAQ repeats the 300 free compute hours per month claim for the Developer Plan",
+   "capture": "sha256:d4cda99c9254fba1e3fb95d9c82f98238b21b6bfef3f5ccd6a527643d090291b",
+   "quote": "Yes! The Developer Plan provides 300 free compute hours per month with pay-as-you-go pricing after that."
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T15:03:52.933Z",
+ "price_per_tb_month": null,
+ "notes": "This corrects any reading of Morph as a credit provider: the free tier starts at zero MCUs, so the USD 40 Team tier is a purchase of 1000 MCUs, not a grant. The MCU-to-dollar rate is on a different page and was not read, so this record claims no hourly price; 1000 MCUs at USD 40 would make a Medium runner 5 MCU an hour, i.e. USD 0.20, which is arithmetic on an unverified unit price and is not used in the ranking.",
+ "extras": {
+  "seed_status": "ranked",
+  "talaria_m10h_usd": 70.0,
+  "talaria_m24h_usd": 112.0,
+  "nemo_m10h_usd": 30.0,
+  "keep_rate": 1.0,
+  "keep_rate_basis": "billed for uptime (no suspension feature published)",
+  "billing_model": "prepaid MCUs",
+  "shape": {
+   "vcpu": 4,
+   "ram_gib": 8,
+   "disk_gib": 80,
+   "gpu_class": null,
+   "gpu_count": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "instances persist while paid; devboxes are ephemeral"
+  },
+  "persistent_storage": null,
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "all",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "burst_x": 1.0,
+  "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "ps": {
+   "gib": 40,
+   "price": "included in the runner size",
+   "durability": "runner disk",
+   "on_stop": true,
+   "on_destroy": false,
+   "retention": "while the runner exists"
+  },
+  "net": null,
+  "term": "monthly or prepaid",
+  "m10h_usd": null,
+  "m24h_usd": null,
+  "price_arithmetic": "not computable from the page read: MCU unit price unstated",
+  "credit_usd": 0,
+  "credit_months_at_shape": null,
+  "credit_hours_at_shape": 0,
+  "credit_expiry": "not applicable",
+  "superseded": {
+   "free_tier": {
+    "stated": "no free compute: the $0 tier starts with 0 MCUs and requires a top-up before compute runs, with 8 concurrency",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://cloud.morph.so/web/subscribe",
-    "read_on": "2026-10-24",
-    "notes": "A zero-credit tier: compute cannot start until MCUs are bought, so there is no free machine at all."
-  },
-  "per_object_cap": {
-    "stated": "Instances 'Up to 64 vCPU', RAM 'Up to 256 GB', storage 'Up to 1024 GB' on Free Developer; GitHub Actions runner sizes are 'Small 3 MCU/hr 2 vCPU / 4 GB RAM / 40 GB disk', 'Medium 5 MCU/hr 4 vCPU / 8 GB RAM / 80 GB disk', 'Large 10 MCU/hr 8 vCPU / 16 GB RAM / 160 GB disk'.",
+    "read_on": "2026-10-22"
+   },
+   "per_object_cap": {
+    "stated": "not stated in the source card",
     "bytes": null,
     "source_url": "https://cloud.morph.so/web/subscribe",
-    "notes": "The shape limits are generous; the balance is zero."
-  },
-  "retention": {
-    "stated": "No retention term is stated on the subscribe page; storage is sold per GB up to the tier cap.",
+    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+   },
+   "retention": {
+    "stated": "not stated in the source card",
     "days": null,
-    "source_url": "https://cloud.morph.so/web/subscribe"
-  },
-  "egress": {
-    "terms": "No egress charge or allowance is stated on the subscribe page.",
+    "source_url": "https://cloud.morph.so/web/subscribe",
+    "notes": "durability of the sandbox disk on stop and on delete is not a field in either seed pass"
+   },
+   "egress": {
+    "terms": "not published on the source card",
     "metered": false,
     "free_allowance": null,
     "price_per_tb": null,
     "source_url": "https://cloud.morph.so/web/subscribe"
-  },
-  "interface": [
-    "cli",
-    "ssh",
-    "rest"
-  ],
-  "interface_detail": "Python and TypeScript SDKs and the morphcloud CLI; devbox access over SSH and HTTP services exposed to the public internet",
-  "tooling": "not stated",
-  "chaining": "not established",
-  "limits": [
+   },
+   "limits": [
     {
-      "kind": "volume-quota",
-      "value": "0 MCUs of starting credit on the free tier",
-      "source": "https://cloud.morph.so/web/subscribe"
+     "kind": "request-rate",
+     "value": "the $0 tier allocates 0 MCUs; compute requires a purchase",
+     "source": "https://cloud.morph.so/web/subscribe"
     },
     {
-      "kind": "volume-quota",
-      "value": "1000 MCUs for USD 40 a month on Team",
-      "source": "https://cloud.morph.so/web/subscribe"
+     "kind": "request-rate",
+     "value": "8 concurrency on the free tier, 32 and 128 on the paid ones",
+     "source": "https://cloud.morph.so/web/subscribe"
+    },
+    {
+     "kind": "per-object-cap",
+     "value": "up to 64 vCPU, 256 GB of RAM and 1,024 GB of storage per instance on the free tier",
+     "source": "https://cloud.morph.so/web/subscribe"
     }
-  ],
-  "limits_note": "The MCU price per unit is not stated on the subscribe page, so a per-hour cost cannot be derived without a further page.",
-  "identity_cost": {
+   ],
+   "limits_note": "the source card carries no session cap, idle-reap or network-policy field",
+   "binding": "request-rate",
+   "identity_cost": {
     "kind": "email",
-    "detail": "Free signup with no card mentioned; a card is needed for the first MCU purchase. No hold amount is stated.",
+    "detail": "unverified: not stated in the source card. `email` is the assumed value because every priced host in the set requires an account, and no signup was performed, so the kind is not established for this provider",
     "country": null
-  },
-  "reliability_note": "no reliability event observed",
-  "confidence": "documented",
-  "confidence_note": "The zero starting allocation and the tier prices are on the subscribe page read today. The per-MCU dollar rate is not on that page, so no hourly price is claimed.",
-  "evidence": [
-    {
-      "url": "https://cloud.morph.so/web/subscribe",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://cloud.morph.so/web/subscribe",
-      "date": "2026-10-22",
-      "proved": "'| Starting credit allocation | 0 MCUs | 1000 MCUs | 7500 MCUs |' with 'Pricing $0/month. Purchase MCUs to use compute', 'Concurrency 8', and the runner sizes '2 vCPU / 4 GB / 40 GB disk' upward, quoted"
-    },
-    {
-      "url": "https://cloud.morph.so/web/subscribe",
-      "date": "2026-10-24",
-      "proved": "quoted: 'Starting credit allocation | 0 MCUs'; '$0 / month Purchase MCUs to use compute'; 'PopularTeam ... $40 / month 20% Discount ($50 value)' with '1000 MCUs'; 'Medium 5 MCU/hr 4 vCPU / 8 GB RAM / 80 GB disk'."
-    },
-    {
-      "url": "https://cloud.morph.so/web/subscribe",
-      "date": "2026-11-24",
-      "proved": "the subscribe page lists 0 MCUs of starting credit on the $0 Developer tier and 1000/7500 MCUs on the paid tiers",
-      "capture": "sha256:26665673e6b91e2a9299b2bf3cb95108300edff972f6619faa701d2975ac4ba2",
-      "quote": "| Starting credit allocation | 0 MCUs | 1000 MCUs | 7500 MCUs |"
-    },
-    {
-      "url": "https://cloud.morph.so/web/subscribe",
-      "date": "2026-11-24",
-      "proved": "the $0 tier requires buying MCUs while the $40 and $250 tiers bundle 1000 and 7500 MCUs",
-      "capture": "sha256:26665673e6b91e2a9299b2bf3cb95108300edff972f6619faa701d2975ac4ba2",
-      "quote": "| Pricing | $0 / monthPurchase MCUs to use compute | $40 / month20% Discount ($50 value) | $250 / month33% Discount ($375 value) |"
-    },
-    {
-      "url": "https://cloud.morph.so/docs/developers",
-      "date": "2026-11-24",
-      "proved": "Morph documents a CLI that starts devboxes and runs commands over SSH",
-      "capture": "sha256:87170a9eff405511f4d734196e1eecc62217e74568caad333e059a1d7aaf3e73",
-      "quote": "morphcloud devbox ssh \"$DEVBOX_ID\" echo \"Hello from a Morph Devbox!\""
-    },
-    {
-      "url": "https://cloud.morph.so/docs/faq",
-      "date": "2026-11-24",
-      "proved": "Morph documents SSH access and SDK/CLI clients",
-      "capture": "sha256:d4cda99c9254fba1e3fb95d9c82f98238b21b6bfef3f5ccd6a527643d090291b",
-      "quote": "MorphCloud provides SSH access to your instances. You'll need to configure SSH keys and connect using the provided connection details."
-    },
-    {
-      "url": "https://cloud.morph.so/docs/documentation/setup/signing-up",
-      "date": "2026-11-24",
-      "proved": "the sign-up doc claims 300 free compute hours a month on the $0 Developer Plan once the user has an invite",
-      "capture": "sha256:4950c8be6f5d8d1e90409247145c69b269e363713cc8c9a5865867340b97b88b",
-      "quote": "Once you have your invite, our $0/month Developer Plan provides 300 free compute hours per month"
-    },
-    {
-      "url": "https://cloud.morph.so/docs/faq",
-      "date": "2026-11-24",
-      "proved": "the FAQ repeats the 300 free compute hours per month claim for the Developer Plan",
-      "capture": "sha256:d4cda99c9254fba1e3fb95d9c82f98238b21b6bfef3f5ccd6a527643d090291b",
-      "quote": "Yes! The Developer Plan provides 300 free compute hours per month with pay-as-you-go pricing after that."
-    },
-    {
-      "url": "https://cloud.morph.so/docs/documentation/setup/signing-up",
-      "date": "2026-11-24",
-      "proved": "the sign-up doc states a 300-hour monthly free allowance gated on having an invite",
-      "capture": "sha256:4950c8be6f5d8d1e90409247145c69b269e363713cc8c9a5865867340b97b88b",
-      "quote": "Once you have your invite, our $0/month Developer Plan provides 300 free compute hours per month"
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T13:20:58.554Z",
-  "price_per_tb_month": null,
-  "notes": "This corrects any reading of Morph as a credit provider: the free tier starts at zero MCUs, so the USD 40 Team tier is a purchase of 1000 MCUs, not a grant. The MCU-to-dollar rate is on a different page and was not read, so this record claims no hourly price; 1000 MCUs at USD 40 would make a Medium runner 5 MCU an hour, i.e. USD 0.20, which is arithmetic on an unverified unit price and is not used in the ranking.",
-  "extras": {
-    "seed_status": "ranked",
-    "talaria_m10h_usd": 70.0,
-    "talaria_m24h_usd": 112.0,
-    "nemo_m10h_usd": 30.0,
-    "keep_rate": 1.0,
-    "keep_rate_basis": "billed for uptime (no suspension feature published)",
-    "billing_model": "prepaid MCUs",
-    "shape": {
-      "vcpu": 4,
-      "ram_gib": 8,
-      "disk_gib": 80,
-      "gpu_class": null,
-      "gpu_count": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "instances persist while paid; devboxes are ephemeral"
-    },
-    "persistent_storage": null,
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "all",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "burst_x": 1.0,
-    "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "ps": {
-      "gib": 40,
-      "price": "included in the runner size",
-      "durability": "runner disk",
-      "on_stop": true,
-      "on_destroy": false,
-      "retention": "while the runner exists"
-    },
-    "net": null,
-    "term": "monthly or prepaid",
-    "m10h_usd": null,
-    "m24h_usd": null,
-    "price_arithmetic": "not computable from the page read: MCU unit price unstated",
-    "credit_usd": 0,
-    "credit_months_at_shape": null,
-    "credit_hours_at_shape": 0,
-    "credit_expiry": "not applicable",
-    "superseded": {
-      "free_tier": {
-        "stated": "no free compute: the $0 tier starts with 0 MCUs and requires a top-up before compute runs, with 8 concurrency",
-        "unit": "none",
-        "metered_on": "none",
-        "source_url": "https://cloud.morph.so/web/subscribe",
-        "read_on": "2026-10-22"
-      },
-      "per_object_cap": {
-        "stated": "not stated in the source card",
-        "bytes": null,
-        "source_url": "https://cloud.morph.so/web/subscribe",
-        "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
-      },
-      "retention": {
-        "stated": "not stated in the source card",
-        "days": null,
-        "source_url": "https://cloud.morph.so/web/subscribe",
-        "notes": "durability of the sandbox disk on stop and on delete is not a field in either seed pass"
-      },
-      "egress": {
-        "terms": "not published on the source card",
-        "metered": false,
-        "free_allowance": null,
-        "price_per_tb": null,
-        "source_url": "https://cloud.morph.so/web/subscribe"
-      },
-      "limits": [
-        {
-          "kind": "request-rate",
-          "value": "the $0 tier allocates 0 MCUs; compute requires a purchase",
-          "source": "https://cloud.morph.so/web/subscribe"
-        },
-        {
-          "kind": "request-rate",
-          "value": "8 concurrency on the free tier, 32 and 128 on the paid ones",
-          "source": "https://cloud.morph.so/web/subscribe"
-        },
-        {
-          "kind": "per-object-cap",
-          "value": "up to 64 vCPU, 256 GB of RAM and 1,024 GB of storage per instance on the free tier",
-          "source": "https://cloud.morph.so/web/subscribe"
-        }
-      ],
-      "limits_note": "the source card carries no session cap, idle-reap or network-policy field",
-      "binding": "request-rate",
-      "identity_cost": {
-        "kind": "email",
-        "detail": "unverified: not stated in the source card. `email` is the assumed value because every priced host in the set requires an account, and no signup was performed, so the kind is not established for this provider",
-        "country": null
-      },
-      "reliability_note": "no reliability event recorded in the source passes",
-      "confidence_note": "the pricing page was read on 2026-10-22 and its free tier's starting credit allocation is literally '0 MCUs'. That is the clearest possible statement that no compute is granted, and the verdict moves to paid-only",
-      "verified_at": "2026-10-22T04:47:28.334Z"
-    }
-  },
-  "binding": "volume-quota",
-  "history": [
-    "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
-  ],
-  "tier": "Free Developer",
-  "binding_note": "Zero credit is the constraint: no machine exists on the free tier, whatever the shape limits say."
+   },
+   "reliability_note": "no reliability event recorded in the source passes",
+   "confidence_note": "the pricing page was read on 2026-10-22 and its free tier's starting credit allocation is literally '0 MCUs'. That is the clearest possible statement that no compute is granted, and the verdict moves to paid-only",
+   "verified_at": "2026-10-22T04:47:28.334Z"
+  }
+ },
+ "binding": "volume-quota",
+ "history": [
+  "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
+ ],
+ "tier": "Free Developer",
+ "binding_note": "Zero credit is the constraint: no machine exists on the free tier, whatever the shape limits say."
 }

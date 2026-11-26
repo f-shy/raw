@@ -5,7 +5,7 @@
   "url": "https://docs.vultr.com/support/platform/billing/is-a-windows-license-included-in-the-monthly-price",
   "category": "Windows host",
   "free_tier": {
-    "stated": "none for compute; the live pricing page carries no free tier and no credit. See the `vultr` record for the read",
+    "stated": "no free tier stated on this page: a Windows licence is not included in Vultr's base monthly price, and a Windows server adds a licensing fee based on the selected Compute plan",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://docs.vultr.com/support/platform/billing/is-a-windows-license-included-in-the-monthly-price",
@@ -68,10 +68,24 @@
       "url": "https://docs.vultr.com/support/platform/billing/is-a-windows-license-included-in-the-monthly-price",
       "date": "2026-10-22",
       "proved": "'Windows licenses are not included in Vultr's base monthly price and require an additional fee based on your selected Compute plan.' quoted, with the page dated 'Updated 15 April 2026'"
+    },
+    {
+      "url": "https://docs.vultr.com/support/platform/billing/is-a-windows-license-included-in-the-monthly-price",
+      "date": "2026-11-25",
+      "proved": "the support page states the Windows licence is a separate fee on top of the Compute plan and states no free tier",
+      "capture": "sha256:a1b3e75b0f6780ac5ae88a34cb136aec3404278378b626343fcc2d3d597e24a1",
+      "quote": "No, the base monthly price does not include the cost of a Windows license. When you deploy a server with a Windows operating system on Vultr, an additional licensing fee is applied based on the selected Compute plan."
+    },
+    {
+      "url": "https://docs.vultr.com/support/platform/billing/is-a-windows-license-included-in-the-monthly-price",
+      "date": "2026-11-25",
+      "proved": "the captured support page still states that the Windows licence is excluded from the base monthly price",
+      "capture": "sha256:a1b3e75b0f6780ac5ae88a34cb136aec3404278378b626343fcc2d3d597e24a1",
+      "quote": "No, the base monthly price does not include the cost of a Windows license."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:48:20.451Z",
+  "verified_at": "2026-11-25T11:17:43.458Z",
   "price_per_tb_month": null,
   "notes": "the vultr record was re-read on 2026-10-22 and the pricing page carries no free compute tier; this slug inherited a card value that the page does not support, so it takes the same verdict",
   "extras": {

@@ -5,7 +5,7 @@
   "url": "https://kakaocloud.com/business/support/new",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "KRW 300,000 of credit for new customers who register a payment method and apply within three months of signup, usable against most services. Outbound data is free up to 30 GiB a month.",
+    "stated": "'30만원 상당의 크레딧 제공' — credit worth 30만원, usable against payment for various services, for a new customer who applies within 3 months of signup, after registering a payment method.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://kakaocloud.com/business/support/new",
@@ -74,10 +74,24 @@
       "url": "https://ssanvps.com/en/korea/",
       "date": "2026-10-22",
       "proved": "the cheapest Korean plan in the index is KakaoCloud t1i.nano at 2 vCPU and 0.5 GB for USD 2.98 a month with outbound 30 GiB free; a third-party price comparison, reported not documented"
+    },
+    {
+      "url": "https://kakaocloud.com/business/support/new",
+      "date": "2026-11-25",
+      "proved": "new-signup credit worth KRW 300,000 applies to various services when applied for within 3 months of signup",
+      "capture": "sha256:e7917fba05b0a89103312ebfb80c7075eace9362074b62be70827ad3f167e2db",
+      "quote": "신규 가입 후 3개월 이내 신청 시, 다양한 서비스 결제에 적용할 수 있는 30만원 상당의 크레딧 제공"
+    },
+    {
+      "url": "https://kakaocloud.com/business/support/new",
+      "date": "2026-11-25",
+      "proved": "the new-signup programme still offers credit worth KRW 300,000 within 3 months of signup",
+      "capture": "sha256:e7917fba05b0a89103312ebfb80c7075eace9362074b62be70827ad3f167e2db",
+      "quote": "신규 가입 후 3개월 이내 신청 시, 다양한 서비스 결제에 적용할 수 있는 30만원 상당의 크레딧 제공"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:12.887Z",
   "notes": "This refutes the common English roundup line that KakaoCloud is a cheap Korean cloud anyone can open: the gate is a business licence, not a phone. The startup track (KRW 5,000,000 for a year) is larger and needs a legal entity but no revenue. Classified as fails-identity with both figures visible so the subsequent evaluation does not re-chase the personal credit.",
   "extras": {
     "wave2": {

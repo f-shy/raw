@@ -5,12 +5,12 @@
   "url": "https://www.sakura.ad.jp/corporate/information/newsreleases/2025/11/25/1968222073/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "A one-month free Sakura Cloud learning environment, about 50 applicants a month, with no card: 'クレジットカードの登録は不要で、さくらインターネットの会員IDをお持ちであれば、どなたでも申し込みが可能です' (no credit card registration is required, and anyone with a Sakura Internet member ID can apply), '毎月約50名を対象に、「さくらのクラウド」の学習用環境を1か月間無償で提供します' (about 50 people a month get the learning environment free for one month). Conditions: '個人のお客さま' (individual customers), a member ID, and '最新のシラバスに基づく「さくらのクラウド検定」の合格を目指して学習している方' (someone studying to pass the Sakura Cloud certification).",
+    "stated": "毎月約50名を対象に、「さくらのクラウド」の学習用環境を1か月間無償で提供します。",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://www.sakura.ad.jp/corporate/information/newsreleases/2025/11/25/1968222073/",
     "read_on": "2026-10-22",
-    "notes": "recurring-trial"
+    "notes": "recurring-trial. The release also says no credit card is required and that anyone with a Sakura Internet member ID can apply. Eligibility: individual customers, a member ID, and studying for the latest Sakura Cloud certification."
   },
   "per_object_cap": {
     "stated": "not applicable: the unit is a machine, not an object",
@@ -94,10 +94,24 @@
       "url": "https://manual.sakura.ad.jp/cloud/payment/coupon.html",
       "date": "2026-10-22",
       "proved": "' 0 ' (billing on the registered credit card starts when the coupon balance reaches zero), so a coupon requires a card on file, quoted"
+    },
+    {
+      "url": "https://www.sakura.ad.jp/corporate/information/newsreleases/2025/11/25/1968222073/",
+      "date": "2026-11-25",
+      "proved": "the release states about 50 people a month get the Sakura Cloud learning environment free for one month",
+      "capture": "sha256:6d7e521334d263e5b2a7e63f6d8fe42a5b6818a62d8feac6f91f667a4ad75166",
+      "quote": "毎月約50名を対象に、「さくらのクラウド」の学習用環境を1か月間無償で提供します。"
+    },
+    {
+      "url": "https://www.sakura.ad.jp/corporate/information/newsreleases/2025/11/25/1968222073/",
+      "date": "2026-11-25",
+      "proved": "the release adds that no card is required and any member-ID holder can apply",
+      "capture": "sha256:6d7e521334d263e5b2a7e63f6d8fe42a5b6818a62d8feac6f91f667a4ad75166",
+      "quote": "毎月約50名を対象に、「さくらのクラウド」の学習用環境を1か月間無償で提供します。クレジットカードの登録は不要で、さくらインターネットの会員IDをお持ちであれば、どなたでも申し込みが可能です。"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:47.060Z",
   "notes": "The most interesting near-miss in the Japanese lane: the vendor removed the card requirement and opened it to anyone including minors, then left a Japanese address and voice verification in place, which is the pattern this category exists to find. Contrast with the neighbouring record: the same company's student ambassador program pays JPY 100,000 a month but needs school enrollment. Sakura Cloud's general paid tier is a separate record already in dossier/compute/sakura-cloud.json, and verification corrects that record on identity: it says email, while the registration manual quoted here shows a Japanese address plus phone verification.",
   "extras": {
     "wave2": {

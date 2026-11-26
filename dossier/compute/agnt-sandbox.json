@@ -1,168 +1,249 @@
 {
-  "topic": "compute",
-  "slug": "agnt-sandbox",
-  "provider": "AGNT Sandbox",
-  "url": "https://agnt.gg/services",
-  "category": "agent sandbox",
-  "tier": "AGNT Pro (Sandbox service)",
-  "free_tier": {
-    "stated": "No hosted sandbox minutes are free: Community Core is $0 and runs locally with 'Sandbox — Not included', while the hosted Sandbox service is bundled only into paid plans (AGNT Pro 100 compute-minutes, Pro + Always-On 300, Team 600).",
-    "unit": "none",
-    "metered_on": "wall-clock",
-    "source_url": "https://agnt.gg/services",
-    "read_on": "2026-11-24",
-    "notes": "Hosted sandbox allowance is denominated in compute-minutes: 'A compute-minute is one minute of Small. Medium counts 2×, Large 4×, rounded up per run.' The free Community Core app has unlimited local runs but no Sandbox service. A referral gives 30 days free of the paid plan's limits on the user's own computer; cloud starts with the first paid month."
+ "topic": "compute",
+ "slug": "agnt-sandbox",
+ "provider": "AGNT Sandbox",
+ "url": "https://sandbox.agnt.gg/",
+ "category": "isolated VM sandbox for short jobs",
+ "tier": "Pay-as-you-go prepaid execution",
+ "free_tier": {
+  "stated": "no recurring free allowance is published; pay-as-you-go is 6 US cents per compute-minute after a USD 10 minimum prepaid credit, where a compute-minute is one started minute of a Small sandbox (1 vCPU, 1 GB RAM)",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://sandbox.agnt.gg/",
+  "read_on": "2026-11-25",
+  "notes": "Prepaid credit persists; optional monthly plans bundle 100, 400 or 1200 compute-minutes that reset on day 1 UTC and do not roll over. Queue and provisioning time are not billed. A job under one minute costs one compute-minute."
+ },
+ "per_object_cap": {
+  "stated": "not an object-storage offer; job inputs are up to 8 root filenames combined 8 MB and each artifact export is at most 8 MB",
+  "bytes": null,
+  "source_url": "https://sandbox.agnt.gg/llms.txt",
+  "notes": "The 8 MB figures are per transfer, not a sandbox disk cap."
+ },
+ "retention": {
+  "stated": "exported artifacts remain after the VM is destroyed for 1 day on pay-as-you-go or Starter, 7 days on Pro and 30 days on Business; the VM itself is destroyed at job teardown",
+  "days": 1,
+  "source_url": "https://sandbox.agnt.gg/llms.txt"
+ },
+ "egress": {
+  "terms": "networking is offline only inside the VM, and monthly artifact downloads are 1 GB on PAYG or Starter, 5 GB on Pro and 15 GB on Business",
+  "metered": true,
+  "free_allowance": "1 GB of artifact downloads a month on PAYG and Starter",
+  "price_per_tb": null,
+  "source_url": "https://sandbox.agnt.gg/llms.txt"
+ },
+ "interface": [
+  "rest"
+ ],
+ "interface_detail": "an HTTP API at https://sandbox.agnt.gg/sandbox/v1 with /jobs, /jobs/quote, /artifacts and /agents endpoints, an OpenAPI document, and JavaScript and Python job helpers; agents can sign up and fund themselves over HTTP",
+ "tooling": "an HTTP client and a Bearer sandbox_ key; headless agent signup returns a secret, and funding is by a human claim link or x402 with USDC on Base",
+ "chaining": "a bounded Python, Node or shell job runs in an isolated Kata-backed VM and exports selected files through the API, with a spend cap on each run; the offline guest has no inherited credentials, so outside data must be passed in as inputs.",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "one started minute minimum per run, then started-minute rounding; default job 120 seconds, maximum 900 seconds",
+   "source": "https://sandbox.agnt.gg/llms.txt"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a sandboxed virtual machine per task, not a stored object",
-    "notes": "Sandbox runs each job in an isolated VM of Small, Medium or Large size; no disk-size figure is published on the service page."
+  {
+   "kind": "per-object-cap",
+   "value": "job inputs up to 8 root filenames combined 8 MB; each artifact transfer at most 8 MB",
+   "source": "https://sandbox.agnt.gg/llms.txt"
   },
-  "retention": {
-    "stated": "Sandboxes live at most 15 minutes and are destroyed when the job ends. Pro's resting instance keeps queued email, webhooks and missions for 7 days.",
-    "days": null,
-    "source_url": "https://agnt.gg/services"
+  {
+   "kind": "retention-clamped",
+   "value": "artifacts retained 1 day on PAYG and Starter, 7 days on Pro, 30 days on Business; monthly downloads 1 GB, 5 GB, 15 GB respectively",
+   "source": "https://sandbox.agnt.gg/llms.txt"
   },
-  "egress": {
-    "terms": "No standalone egress price or allowance is published. The hosted instance includes Search, Scrape, Mail and Webhooks services with per-plan allowances (Pro: 150 searches, 2,250 pages, 1 inbox with 1,000 units; Team: 1,400 searches, 18,000 pages, 15 inboxes with 20,000 units). The plan price covers these allowances; nothing runs past an allowance unless authorized.",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://agnt.gg/services"
-  },
-  "interface": [
-    "cli",
-    "browser",
-    "chat",
-    "rest"
-  ],
-  "interface_detail": "AGNT runs as native desktop apps on Windows, macOS and Linux, a headless Docker image, or the AGNT Cloud hosted instance reachable from the web and the AGNT Chat mobile app paired by QR code. The hosted plan includes API access for the user's own code, with per-hour API request caps.",
-  "endpoint": "https://agnt.gg",
-  "tooling": "the AGNT desktop app or `docker run -d -p 3333:3333 ghcr.io/agnt-gg/agnt` for the local runtime; the hosted plan adds an API, CLI/SDK delegation to Codex, Claude Code, Hermes, Grok CLI and OpenCode, and MCP and REST integrations.",
-  "chaining": "A task-scoped hosted VM with Search, Scrape, Mail and Webhooks bundled into one flat monthly price can chain into storage records for durable artifacts, since the sandbox is destroyed at job end and only the receipt persists.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "Sandbox 100 compute-minutes per month on AGNT Pro ($29/mo), 300 on Pro + Always-On ($49/mo), 600 on AGNT Team ($99/mo); a compute-minute is one minute of Small, Medium counts 2×, Large 4×, rounded up per run",
-      "source": "https://agnt.gg/services"
-    },
-    {
-      "kind": "request-rate",
-      "value": "hosted instance active time is 8 hours/day on Pro; API requests 10,000/hour and 100,000/day on Pro, 100,000/hour and 1,000,000/day on Team; emails 500/day on Pro, 10,000/day on Team",
-      "source": "https://agnt.gg/pricing"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "sandboxes live at most 15 minutes and are destroyed when the job ends",
-      "source": "https://agnt.gg/services"
-    }
-  ],
-  "limits_note": "Pro sleeps after 15 quiet minutes and wakes in about 8 seconds; queued items are held 7 days for the resting Pro instance. Team includes Always-On and three seats, +$25/mo each to 100 seats. Enterprise is custom.",
-  "binding": "volume-quota",
-  "binding_note": "The monthly compute-minute allowance is the first meter to exhaust the hosted Sandbox service; after it, running past an allowance requires authorization, and the 15-minute per-sandbox lifetime caps a single job.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "AGNT itself runs locally and needs no account; a sign-in is only for license sync, marketplace publishing and referral credit. The login page reads 'Check your email — We sent a 6-digit code. It expires in 10 minutes.' No card is stated for Community Core; paid plans start at $29/mo and hosted cloud begins with the first paid month. The card requirement for a paid hosted plan is unverified: behind a checkout.",
-    "country": null
-  },
-  "reliability_note": "Sandboxes are destroyed when the job ends; a resting Pro instance holds queued email, webhooks and missions for 7 days, and wakes in about 8 seconds. No uptime guarantee is published below Enterprise.",
-  "confidence": "documented",
-  "confidence_note": "The hosted sandbox allowance, compute-minute definition and 15-minute lifetime are quoted from the vendor's own services page captured 2026-11-24; plan prices, API and email limits from the pricing page; the email-code sign-in from the login page. No first-party page states an egress price.",
-  "evidence": [
-    {
-      "url": "https://agnt.gg/services",
-      "date": "2026-11-24",
-      "proved": "the hosted Sandbox service runs code in a machine of its own and is bundled into paid plans",
-      "capture": "sha256:fbcde912c2b79c05ef53c9b3abc1ca3cba3c23d5bb0a685d4b97baf3d8039337",
-      "quote": "Sandbox runs the code in a machine of its own."
-    },
-    {
-      "url": "https://agnt.gg/services",
-      "date": "2026-11-24",
-      "proved": "AGNT Pro includes 100 compute-minutes of Sandbox per month, Team 600",
-      "capture": "sha256:fbcde912c2b79c05ef53c9b3abc1ca3cba3c23d5bb0a685d4b97baf3d8039337",
-      "quote": "| Sandbox minutes | — | 100 | 300 | 600 |"
-    },
-    {
-      "url": "https://agnt.gg/services",
-      "date": "2026-11-24",
-      "proved": "a compute-minute is one minute of Small, with size multipliers and rounding",
-      "capture": "sha256:fbcde912c2b79c05ef53c9b3abc1ca3cba3c23d5bb0a685d4b97baf3d8039337",
-      "quote": "A compute-minute is one minute of Small."
-    },
-    {
-      "url": "https://agnt.gg/services",
-      "date": "2026-11-24",
-      "proved": "sandboxes are capped at 15 minutes and destroyed when the job ends",
-      "capture": "sha256:fbcde912c2b79c05ef53c9b3abc1ca3cba3c23d5bb0a685d4b97baf3d8039337",
-      "quote": "Medium counts 2×, Large 4×, rounded up per run. Sandboxes live at most 15 minutes and are destroyed when the job ends."
-    },
-    {
-      "url": "https://agnt.gg/",
-      "date": "2026-11-24",
-      "proved": "the free Community Core tier runs locally and excludes the hosted Sandbox service; paid plans start at $29/mo",
-      "capture": "sha256:1f4dde98e4581336b76088cc690197a9317a94971456844ede875bc0a2914ee8",
-      "quote": "| Price | Community Core: free for personal use and small businesses, unlimited local runs. AGNT Pro $29/mo, Pro + Always-On $49/mo and AGNT Team $99/mo with 3 seats, each including a hosted instance plus Models, Search, Scrape, Sandbox, Mail and Webhooks. Enterprise: custom. [See pricing](https://agnt.gg/pricing) |"
-    },
-    {
-      "url": "https://agnt.gg/",
-      "date": "2026-11-24",
-      "proved": "the runtime is a local desktop app or Docker with a cloud instance option",
-      "capture": "sha256:1f4dde98e4581336b76088cc690197a9317a94971456844ede875bc0a2914ee8",
-      "quote": "Runs on | Windows, macOS and Linux desktop apps and Docker. Reachable from the web and the AGNT Chat mobile app, paired by QR code, locally or through a remote server."
-    },
-    {
-      "url": "https://agnt.gg/pricing",
-      "date": "2026-11-24",
-      "proved": "API request and daily email caps of the hosted Pro and Team plans",
-      "capture": "sha256:9251d1f183405569e47ba033237b5a8e48661ae060218d841359a236915e9ad1",
-      "quote": "| API requests per hour | — | 10,000 | 100,000 | Unlimited |"
-    },
-    {
-      "url": "https://agnt.gg/pricing",
-      "date": "2026-11-24",
-      "proved": "the hosted Pro instance is active 8 hours a day",
-      "capture": "sha256:9251d1f183405569e47ba033237b5a8e48661ae060218d841359a236915e9ad1",
-      "quote": "| Active time per dayTime your instance spends awake and working — not time you spend at the screen. | — | 8 hours | Unlimited | Unlimited |"
-    },
-    {
-      "url": "https://agnt.gg/login",
-      "date": "2026-11-24",
-      "proved": "sign-in is by a 6-digit email code and the local app needs no account",
-      "capture": "sha256:d44fb1af2e447af4470a8bf9ca2d795d31a6d3fe052d1d605da98bcef6e7ad96",
-      "quote": "AGNT itself runs locally and needs no account. You only sign in to sync your license, marketplace publishing, and referral credit."
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T10:11:14.573Z",
-  "notes": "AGNT's hosted Sandbox is a task-scoped VM bundled into the Pro, Always-On and Team plans at $29, $49 and $99 a month. Community Core is free but runs locally and includes no hosted sandbox. Sandboxes live at most 15 minutes and are destroyed when the job ends; no egress price is published.",
-  "self_hosted": false,
-  "extras": {
-    "shape": {
-      "vcpu": null,
-      "ram_gib": null,
-      "disk_gib": null,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "Small, Medium and Large sandbox sizes; no per-size vCPU or memory figures published on the services page"
-    },
-    "billing_model": "flat monthly plan with included compute-minutes",
-    "free_tier_kind": "none for hosted sandbox",
-    "term": "monthly, no commitment; cancel anytime and keep Core",
-    "price_arithmetic": "AGNT Pro $29/mo includes 100 compute-minutes; Pro + Always-On $49/mo includes 300; Team $99/mo includes 600",
-    "status": "live plans read 2026-11-24",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": null,
-      "ports": "not stated for the hosted sandbox",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": 15,
-      "idle_reap_s": 900,
-      "restart_required": false,
-      "note": "sandboxes live at most 15 minutes; Pro instance naps after 15 quiet minutes"
-    }
+  {
+   "kind": "write-gated",
+   "value": "a USD 10 minimum prepaid top-up is required before a PAYG job can run, and every paid job needs a maxChargeMicroUSD spending cap",
+   "source": "https://sandbox.agnt.gg/llms.txt"
   }
+ ],
+ "limits_note": "A compute-minute is one started minute of a Small (1 vCPU, 1 GB) sandbox; Medium and Large consume 2 and 4 compute-minutes a minute. Guests have offline networking, no arbitrary images, no snapshots, no public ports and no inherited secrets. Current capacity is serial and queued, not reserved concurrency.",
+ "binding": "write-gated",
+ "binding_note": "A new account cannot run a job at all until prepaid credit is added; the USD 10 minimum top-up is the first gate a user meets, ahead of the per-minute charge.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "the docs say to create the Sandbox account with an email address, and no existing AGNT account or app subscription is required; an agent can sign up headlessly with no email or browser, receiving a secret shown once, and fund the account through a human claim link or x402 in USDC on Base. Prepaid execution needs no card; the docs say there are no automatic card charges.",
+  "country": null
+ },
+ "reliability_note": "Guests run offline with no network access and no inherited credentials. Capacity is serial and queued rather than reserved concurrency; a busy or absent worker rejects new admission. Customer-code failures and timeouts consume runtime; confirmed lost-worker failures on managed jobs are refunded.",
+ "confidence": "documented",
+ "confidence_note": "the pricing page, llms.txt and docs page were read on 2026-11-25; the quoted lines establish the prepaid model, the per-minute rates, the signup gate and the artifact and network limits. No account, wallet funding or job was created, so the rung is documented rather than measured.",
+ "evidence": [
+  {
+   "url": "https://sandbox.agnt.gg/",
+   "date": "2026-11-25",
+   "proved": "the service sells prepaid short jobs in isolated Linux VMs with a USD 10 minimum credit and a 6-cent per compute-minute rate",
+   "capture": "sha256:fc9c14115ed457edd765e3cb5c5fa74801533dc02a894f778dc67425e51ac7b0",
+   "quote": "Start with $10 prepaid credit. No subscription required: **6¢ per compute-minute**."
+  },
+  {
+   "url": "https://sandbox.agnt.gg/",
+   "date": "2026-11-25",
+   "proved": "a compute-minute is one minute of a Small 1 vCPU/1 GB sandbox and the PAYG rates for the three sizes",
+   "capture": "sha256:fc9c14115ed457edd765e3cb5c5fa74801533dc02a894f778dc67425e51ac7b0",
+   "quote": "A compute-minute is one minute of a Small sandbox (1 vCPU, 1 GB RAM). Pay as you go: Small 6¢/min, Medium 12¢/min, Large 24¢/min. Every run rounds up to a whole minute, and a default job runs 2 minutes."
+  },
+  {
+   "url": "https://sandbox.agnt.gg/",
+   "date": "2026-11-25",
+   "proved": "the monthly plans bundle 100, 400 or 1200 compute-minutes and cap artifacts at 250 MB for 1 day, 1 GB for 7 days or 3 GB for 30 days",
+   "capture": "sha256:fc9c14115ed457edd765e3cb5c5fa74801533dc02a894f778dc67425e51ac7b0",
+   "quote": "| Starter | $5 | 100 | 50 default jobs | 4¢/min | 15 minutes | 250 MB · 1 day |"
+  },
+  {
+   "url": "https://sandbox.agnt.gg/docs",
+   "date": "2026-11-25",
+   "proved": "the Sandbox account is created with an email address and is separate from an AGNT subscription",
+   "capture": "sha256:a10e9901fa7e080a33700fc1a8c894318ae6dc3e80451dc2d7241f97ceaa3676",
+   "quote": "Create your Sandbox account with your email address, or sign in if you already have one. No existing AGNT account or app subscription is required. Headless agents can register and fund themselves over HTTP."
+  },
+  {
+   "url": "https://sandbox.agnt.gg/docs",
+   "date": "2026-11-25",
+   "proved": "an agent can sign up with no email or browser using a secret shown once",
+   "capture": "sha256:a10e9901fa7e080a33700fc1a8c894318ae6dc3e80451dc2d7241f97ceaa3676",
+   "quote": "No email, no browser. The secret is your identity. Store it securely; it is shown only once."
+  },
+  {
+   "url": "https://sandbox.agnt.gg/docs",
+   "date": "2026-11-25",
+   "proved": "prepaid balances fund execution and there are no automatic card charges",
+   "capture": "sha256:a10e9901fa7e080a33700fc1a8c894318ae6dc3e80451dc2d7241f97ceaa3676",
+   "quote": "Prepaid balances fund pay-as-you-go execution without a subscription. Optional monthly plans include compute-minutes and a lower rate beyond them. There are no automatic card charges."
+  },
+  {
+   "url": "https://sandbox.agnt.gg/llms.txt",
+   "date": "2026-11-25",
+   "proved": "the artifact retention windows and monthly download allowances for each plan",
+   "capture": "sha256:a83582912ba35e9389b1392890da1f211c8dcbd2ce872b44a1e4cd7296dd4583",
+   "quote": "PAYG/Starter artifacts250MB/1day; Pro1GB/7days; Business3GB/30days. Monthly downloads1/5/15GB respectively. Retained output survives VM destruction until expiry."
+  },
+  {
+   "url": "https://sandbox.agnt.gg/llms.txt",
+   "date": "2026-11-25",
+   "proved": "the VM is offline only and has no arbitrary images, snapshots, public ports or inherited secrets",
+   "capture": "sha256:a83582912ba35e9389b1392890da1f211c8dcbd2ce872b44a1e4cd7296dd4583",
+   "quote": "Python3, Node and shell installed. Offline networking only. No secrets inherited, no arbitrary images, no snapshots, no public ports."
+  },
+  {
+   "url": "https://sandbox.agnt.gg/llms.txt",
+   "date": "2026-11-25",
+   "proved": "the default job is 120 seconds with a 900-second maximum for new jobs",
+   "capture": "sha256:a83582912ba35e9389b1392890da1f211c8dcbd2ce872b44a1e4cd7296dd4583",
+   "quote": "Default 120 seconds. New jobs/sessions maximum 900 seconds. Explicit sessions remain for advanced use; DELETE /sandboxes/{id} is required for early cleanup."
+  },
+  {
+   "url": "https://sandbox.agnt.gg/llms.txt",
+   "date": "2026-11-25",
+   "proved": "the job input and output transfer ceilings are 8 MB per transfer with at most 8 files",
+   "capture": "sha256:a83582912ba35e9389b1392890da1f211c8dcbd2ce872b44a1e4cd7296dd4583",
+   "quote": "Job inputs up to 8 root filenames, combined 8MB, base64 encoded. Job outputs up to 8 relative paths. Each transfer <=8MB."
+  },
+  {
+   "url": "https://sandbox.agnt.gg/llms.txt",
+   "date": "2026-11-25",
+   "proved": "capacity is serial and queued rather than reserved concurrency",
+   "capture": "sha256:a83582912ba35e9389b1392890da1f211c8dcbd2ce872b44a1e4cd7296dd4583",
+   "quote": "Current capacity is serial and queued, not guaranteed parallel execution. Inspect /capabilities."
+  },
+  {
+   "url": "https://agnt.gg/services",
+   "date": "2026-11-24",
+   "proved": "the hosted Sandbox service runs code in a machine of its own and is bundled into paid plans",
+   "capture": "sha256:fbcde912c2b79c05ef53c9b3abc1ca3cba3c23d5bb0a685d4b97baf3d8039337",
+   "quote": "Sandbox runs the code in a machine of its own."
+  },
+  {
+   "url": "https://agnt.gg/services",
+   "date": "2026-11-24",
+   "proved": "AGNT Pro includes 100 compute-minutes of Sandbox per month, Team 600",
+   "capture": "sha256:fbcde912c2b79c05ef53c9b3abc1ca3cba3c23d5bb0a685d4b97baf3d8039337",
+   "quote": "| Sandbox minutes | — | 100 | 300 | 600 |"
+  },
+  {
+   "url": "https://agnt.gg/services",
+   "date": "2026-11-24",
+   "proved": "a compute-minute is one minute of Small, with size multipliers and rounding",
+   "capture": "sha256:fbcde912c2b79c05ef53c9b3abc1ca3cba3c23d5bb0a685d4b97baf3d8039337",
+   "quote": "A compute-minute is one minute of Small."
+  },
+  {
+   "url": "https://agnt.gg/services",
+   "date": "2026-11-24",
+   "proved": "sandboxes are capped at 15 minutes and destroyed when the job ends",
+   "capture": "sha256:fbcde912c2b79c05ef53c9b3abc1ca3cba3c23d5bb0a685d4b97baf3d8039337",
+   "quote": "Medium counts 2×, Large 4×, rounded up per run. Sandboxes live at most 15 minutes and are destroyed when the job ends."
+  },
+  {
+   "url": "https://agnt.gg/",
+   "date": "2026-11-24",
+   "proved": "the free Community Core tier runs locally and excludes the hosted Sandbox service; paid plans start at $29/mo",
+   "capture": "sha256:1f4dde98e4581336b76088cc690197a9317a94971456844ede875bc0a2914ee8",
+   "quote": "| Price | Community Core: free for personal use and small businesses, unlimited local runs. AGNT Pro $29/mo, Pro + Always-On $49/mo and AGNT Team $99/mo with 3 seats, each including a hosted instance plus Models, Search, Scrape, Sandbox, Mail and Webhooks. Enterprise: custom. [See pricing](https://agnt.gg/pricing) |"
+  },
+  {
+   "url": "https://agnt.gg/",
+   "date": "2026-11-24",
+   "proved": "the runtime is a local desktop app or Docker with a cloud instance option",
+   "capture": "sha256:1f4dde98e4581336b76088cc690197a9317a94971456844ede875bc0a2914ee8",
+   "quote": "Runs on | Windows, macOS and Linux desktop apps and Docker. Reachable from the web and the AGNT Chat mobile app, paired by QR code, locally or through a remote server."
+  },
+  {
+   "url": "https://agnt.gg/pricing",
+   "date": "2026-11-24",
+   "proved": "API request and daily email caps of the hosted Pro and Team plans",
+   "capture": "sha256:9251d1f183405569e47ba033237b5a8e48661ae060218d841359a236915e9ad1",
+   "quote": "| API requests per hour | — | 10,000 | 100,000 | Unlimited |"
+  },
+  {
+   "url": "https://agnt.gg/pricing",
+   "date": "2026-11-24",
+   "proved": "the hosted Pro instance is active 8 hours a day",
+   "capture": "sha256:9251d1f183405569e47ba033237b5a8e48661ae060218d841359a236915e9ad1",
+   "quote": "| Active time per dayTime your instance spends awake and working — not time you spend at the screen. | — | 8 hours | Unlimited | Unlimited |"
+  },
+  {
+   "url": "https://agnt.gg/login",
+   "date": "2026-11-24",
+   "proved": "sign-in is by a 6-digit email code and the local app needs no account",
+   "capture": "sha256:d44fb1af2e447af4470a8bf9ca2d795d31a6d3fe052d1d605da98bcef6e7ad96",
+   "quote": "AGNT itself runs locally and needs no account. You only sign in to sync your license, marketplace publishing, and referral credit."
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T02:12:34.836Z",
+ "price_per_tb_month": null,
+ "notes": "The operator's provider list prices AGNT Sandbox at USD 6.00/h billed per minute; the vendor's published sizes are Small at 6 US cents a minute (USD 3.60/h), Medium 2 vCPU/2 GB at 12 cents a minute (USD 7.20/h) and Large 4 vCPU/4 GB at 24 cents a minute (USD 14.40/h). No free tier is published: the monthly Starter plan costs USD 5 and bundles 100 compute-minutes. The 2 vCPU/4 GB size in the list is not a published size.",
+ "extras": {
+  "shape": {
+   "vcpu": 1,
+   "ram_gib": 1,
+   "disk_gib": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "Small is the pay-as-you-go unit; Medium and Large consume 2 and 4 compute-minutes a minute"
+  },
+  "billing_model": "prepaid pay-as-you-go by started compute-minute, with optional monthly minute bundles",
+  "free_tier_kind": "none",
+  "price_arithmetic": "6 US cents per compute-minute for Small = USD 3.60 per hour (derived: 0.06 x 60); Medium 0.12 x 60 = USD 7.20 per hour; Large 0.24 x 60 = USD 14.40 per hour",
+  "billing_note": "the vendor publishes per-minute rates, not an hourly rate; the hourly figures here are arithmetic on the quoted rates",
+  "session_cap": {
+   "wall_clock_min": 15,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "default job 120 seconds, maximum 900 seconds; the VM is destroyed after job teardown"
+  },
+  "network_out": {
+   "allow_outbound": false,
+   "allow_inbound_listen": false,
+   "ports": "no public ports; artifacts are fetched through the authenticated API",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  }
+ },
+ "endpoint": "https://agnt.gg",
+ "self_hosted": false
 }

@@ -1,152 +1,159 @@
 {
-  "topic": "compute",
-  "slug": "macincloud",
-  "provider": "MacinCloud",
-  "url": "https://www.macincloud.com/pages/dedicated.html",
-  "category": "macOS host",
-  "free_tier": {
-    "stated": "No free tier and no trial on dedicated plans: Mac hosting from USD 59 per month for a 4-core Intel with 8 GB and 120 GB, up to USD 165 for an M4 with 16 GB and 250 GB.",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://www.macincloud.com/pages/dedicated.html",
-    "read_on": "2026-10-22"
+ "topic": "compute",
+ "slug": "macincloud",
+ "provider": "MacinCloud",
+ "url": "https://www.macincloud.com/pages/dedicated.html",
+ "category": "macOS host",
+ "free_tier": {
+  "stated": "no free tier and no trial on dedicated plans: Mac hosting from $59 a month for the Intel package (macOS Sonoma, Intel 4-Core CPU, 8GB RAM, 120GB SSD storage), up to $165 a month for the M4 package (8/16GB RAM, 250GB SSD storage)",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://www.macincloud.com/pages/dedicated.html",
+  "read_on": "2026-10-22"
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://www.macincloud.com/pages/dedicated.html",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "not stated",
+  "days": null,
+  "source_url": "https://www.macincloud.com/pages/dedicated.html",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "not published",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://www.macincloud.com/pages/dedicated.html"
+ },
+ "interface": [
+  "unknown"
+ ],
+ "interface_detail": "RDP on the M4, M2 and M1 dedicated packages; a static IP address is included.",
+ "tooling": "not stated",
+ "chaining": "not established",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "USD 59 to USD 165 per month depending on CPU, RAM and disk",
+   "source": "https://www.macincloud.com/pages/dedicated.html"
   },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://www.macincloud.com/pages/dedicated.html",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+  {
+   "kind": "write-gated",
+   "value": "Dedicated Server Plans do not include a trial; the sign-up fields are not published on the dedicated page.",
+   "source": "https://www.macincloud.com/pages/dedicated.html"
+  }
+ ],
+ "limits_note": "Session cap, idle-reap and network policy are not documented.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "unverified: not stated in the source card. `email` is the assumed value because every priced host in the set requires an account, and no signup was performed, so the kind is not established for this provider",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "documented",
+ "confidence_note": "the dedicated server page was read on 2026-10-22 and prices four configurations. It states in as many words that dedicated plans carry no trial, which is the strongest form of the record's claim",
+ "evidence": [
+  {
+   "url": "https://www.macincloud.com/pages/dedicated.html",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
   },
-  "retention": {
-    "stated": "not stated",
-    "days": null,
-    "source_url": "https://www.macincloud.com/pages/dedicated.html",
-    "notes": "Disk durability across instance stops and deletions is not documented."
+  {
+   "url": "https://www.macincloud.com/pages/dedicated.html",
+   "date": "2026-10-22",
+   "proved": "'$164/month' for macOS Sequoia or Tahoe on an M4 with 16 GB and 250 GB, down to '$59/month' for macOS Sonoma on a 4-core Intel with 8 GB and 120 GB, and 'Trial: Dedicated Server Plans do not include a trial', quoted"
   },
-  "egress": {
-    "terms": "not published",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://www.macincloud.com/pages/dedicated.html"
+  {
+   "url": "https://www.macincloud.com/pages/dedicated.html",
+   "date": "2026-11-25",
+   "proved": "the dedicated page lists an Intel 4-Core with 8GB RAM and 120GB SSD storage at $59/month",
+   "capture": "sha256:0e89260d206a545fd07dbbe1f454ee77bbccdd35c7cc58ee49bbafdf43ef2e53",
+   "quote": "**Intel** macOS Sonoma, Intel 4-Core CPU, 8GB RAM, 120GB SSD Storage **$59/month**"
   },
-  "interface": [
-    "unknown"
-  ],
-  "interface_detail": "RDP on the M4, M2 and M1 dedicated packages; a static IP address is included.",
-  "tooling": "not stated",
-  "chaining": "not established",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "USD 59 to USD 165 per month depending on CPU, RAM and disk",
-      "source": "https://www.macincloud.com/pages/dedicated.html"
-    },
-    {
-      "kind": "write-gated",
-      "value": "Dedicated Server Plans do not include a trial; the sign-up fields are not published on the dedicated page.",
-      "source": "https://www.macincloud.com/pages/dedicated.html"
-    }
-  ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "unverified: not stated in the source card. `email` is the assumed value because every priced host in the set requires an account, and no signup was performed, so the kind is not established for this provider",
-    "country": null
+  {
+   "url": "https://www.macincloud.com/pages/dedicated.html",
+   "date": "2026-11-24",
+   "proved": "the current M4 dedicated plan price",
+   "capture": "sha256:0e89260d206a545fd07dbbe1f454ee77bbccdd35c7cc58ee49bbafdf43ef2e53",
+   "quote": "$165/month"
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "documented",
-  "confidence_note": "the dedicated server page was read on 2026-10-22 and prices four configurations. It states in as many words that dedicated plans carry no trial, which is the strongest form of the record's claim",
-  "evidence": [
-    {
-      "url": "https://www.macincloud.com/pages/dedicated.html",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://www.macincloud.com/pages/dedicated.html",
-      "date": "2026-10-22",
-      "proved": "'$164/month' for macOS Sequoia or Tahoe on an M4 with 16 GB and 250 GB, down to '$59/month' for macOS Sonoma on a 4-core Intel with 8 GB and 120 GB, and 'Trial: Dedicated Server Plans do not include a trial', quoted"
-    },
-    {
-      "url": "https://www.macincloud.com/pages/dedicated.html",
-      "date": "2026-11-24",
-      "proved": "the current M4 dedicated plan price",
-      "capture": "sha256:0e89260d206a545fd07dbbe1f454ee77bbccdd35c7cc58ee49bbafdf43ef2e53",
-      "quote": "$165/month"
-    },
-    {
-      "url": "https://www.macincloud.com/pages/dedicated.html",
-      "date": "2026-11-24",
-      "proved": "the dedicated plans carry no trial",
-      "capture": "sha256:0e89260d206a545fd07dbbe1f454ee77bbccdd35c7cc58ee49bbafdf43ef2e53",
-      "quote": "**Trial:** Dedicated Server Plans do not include a trial"
-    },
-    {
-      "url": "https://www.macincloud.com/pages/dedicated.html",
-      "date": "2026-11-24",
-      "proved": "the M4 package includes RDP access",
-      "capture": "sha256:0e89260d206a545fd07dbbe1f454ee77bbccdd35c7cc58ee49bbafdf43ef2e53",
-      "quote": "macOS Golden Gate/Tahoe, Silicon M4, 8/16GB RAM, 250GB SSD Storage, RDP"
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T13:20:55.906Z",
-  "price_per_tb_month": null,
-  "notes": "",
-  "extras": {
-    "seed_status": "ranked",
-    "talaria_m10h_usd": 24.25,
-    "talaria_m24h_usd": 58.19,
-    "nemo_m10h_usd": null,
-    "keep_rate": 1.0,
-    "keep_rate_basis": "always-on by contract",
-    "billing_model": "unclassified",
-    "shape": {
-      "vcpu": 4,
-      "ram": 8,
-      "disk": 120,
-      "gpu_class": "Intel or Apple Silicon",
-      "gpu_count": 1,
-      "note": "the entry configuration is a 4-core Intel with 8 GB and 120 GB; the top is an M4 with 16 GB and 250 GB"
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "a monthly dedicated Mac; no session clock"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "granularity": {
-      "min_billed_s": 0,
-      "rounding_s": null
-    },
-    "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "ps": {
-      "gib": 120,
-      "price": "included, customisable size",
-      "durability": "SSD",
-      "on_stop": true,
-      "on_destroy": false,
-      "retention": "the rental term"
-    },
-    "net": {
-      "out": true,
-      "in": true,
-      "ports": "RDP on some configurations",
-      "static_ip": true,
-      "ipv6": null,
-      "allowance": null
-    }
+  {
+   "url": "https://www.macincloud.com/pages/dedicated.html",
+   "date": "2026-11-24",
+   "proved": "the dedicated plans carry no trial",
+   "capture": "sha256:0e89260d206a545fd07dbbe1f454ee77bbccdd35c7cc58ee49bbafdf43ef2e53",
+   "quote": "**Trial:** Dedicated Server Plans do not include a trial"
   },
-  "stale": true,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding": "write-gated",
-  "history": [
-    "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
-  ]
+  {
+   "url": "https://www.macincloud.com/pages/dedicated.html",
+   "date": "2026-11-24",
+   "proved": "the M4 package includes RDP access",
+   "capture": "sha256:0e89260d206a545fd07dbbe1f454ee77bbccdd35c7cc58ee49bbafdf43ef2e53",
+   "quote": "macOS Golden Gate/Tahoe, Silicon M4, 8/16GB RAM, 250GB SSD Storage, RDP"
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T11:17:40.889Z",
+ "price_per_tb_month": null,
+ "notes": "",
+ "extras": {
+  "seed_status": "ranked",
+  "talaria_m10h_usd": 24.25,
+  "talaria_m24h_usd": 58.19,
+  "nemo_m10h_usd": null,
+  "keep_rate": 1.0,
+  "keep_rate_basis": "always-on by contract",
+  "billing_model": "unclassified",
+  "shape": {
+   "vcpu": 4,
+   "ram": 8,
+   "disk": 120,
+   "gpu_class": "Intel or Apple Silicon",
+   "gpu_count": 1,
+   "note": "the entry configuration is a 4-core Intel with 8 GB and 120 GB; the top is an M4 with 16 GB and 250 GB"
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "a monthly dedicated Mac; no session clock"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "granularity": {
+   "min_billed_s": 0,
+   "rounding_s": null
+  },
+  "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "ps": {
+   "gib": 120,
+   "price": "included, customisable size",
+   "durability": "SSD",
+   "on_stop": true,
+   "on_destroy": false,
+   "retention": "the rental term"
+  },
+  "net": {
+   "out": true,
+   "in": true,
+   "ports": "RDP on some configurations",
+   "static_ip": true,
+   "ipv6": null,
+   "allowance": null
+  }
+ },
+ "stale": true,
+ "stale_checked_at": "2026-10-22T00:00:00.000Z",
+ "binding": "write-gated",
+ "history": [
+  "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
+ ]
 }

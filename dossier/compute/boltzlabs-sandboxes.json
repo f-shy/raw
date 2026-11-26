@@ -1,0 +1,156 @@
+{
+  "topic": "compute",
+  "slug": "boltzlabs-sandboxes",
+  "provider": "BoltzLabs",
+  "url": "https://boltzlabs.cloud/docs/limits",
+  "category": "container and VM sandbox",
+  "tier": "Free account",
+  "free_tier": {
+    "stated": "A free account includes $1 of trial usage for Small sandboxes and code execution, from the website, the CLI and the desktop app, and can run one Small sandbox at a time. A Small sandbox is 1 vCPU and 4 GB at $0.0219 an hour, so the credit is about 46 hours of a Small sandbox.",
+    "unit": "credits",
+    "metered_on": "wall-clock",
+    "source_url": "https://boltzlabs.cloud/docs/limits",
+    "read_on": "2026-11-25",
+    "notes": "The machine rates are billed by the second out of the same monthly allowance as execution requests, RL machines, eval model use and billed storage; unused allowance does not roll over. The GitHub org profile at https://github.com/boltzlabs names boltzlabs.cloud as the site."
+  },
+  "per_object_cap": {
+    "stated": "not stated: the unit is a machine, not a stored object",
+    "bytes": null,
+    "source_url": "https://boltzlabs.cloud/docs/pricing/sandboxes"
+  },
+  "retention": {
+    "stated": "Pausing releases compute while retaining files; storage is free for 3 days after pausing, then $0.05 per GB per month. Deleting a sandbox ends the meter and removes its files.",
+    "days": 3,
+    "source_url": "https://boltzlabs.cloud/docs/pricing/sandboxes"
+  },
+  "egress": {
+    "terms": "unverified: no egress price or allowance is published for sandboxes; a public preview URL is available for a port when the sandbox is created with internet access",
+    "metered": false,
+    "free_allowance": null,
+    "price_per_tb": null,
+    "source_url": "https://boltzlabs.cloud/docs/pricing/sandboxes"
+  },
+  "interface": [
+    "cli",
+    "rest"
+  ],
+  "interface_detail": "A boltz CLI, a Python SDK and a JavaScript/TypeScript SDK create, pause, resume, fork and delete sandboxes and expose a public URL for a port; a Judge0-style execution API runs code without a sandbox to manage.",
+  "endpoint": "the boltz CLI and the Python/TypeScript SDK APIs",
+  "tooling": "curl -fsSL https://boltzlabs.cloud/cli/install.sh | sh installs the boltz binary; boltz auth login, boltz create, boltz exec and boltz connect, or the boltzlabs Python package with BOLTZLABS_API_KEY.",
+  "chaining": "A Small sandbox at $0.0219 an hour runs Python commands and a public preview port for an agent; pausing keeps its workspace for $0.05 per GB a month after three days, and the execution API handles one-off code without provisioning a machine.",
+  "limits": [
+    {
+      "kind": "volume-quota",
+      "value": "$1 of trial usage, about 46 hours of the Small size at $0.0219 an hour, out of a monthly allowance that does not roll over",
+      "source": "https://boltzlabs.cloud/docs/limits"
+    },
+    {
+      "kind": "write-gated",
+      "value": "free accounts run one Small sandbox at a time; Medium and Large need an active monthly subscription, with up to 25 concurrent sandboxes",
+      "source": "https://boltzlabs.cloud/docs/limits"
+    },
+    {
+      "kind": "retention-clamped",
+      "value": "paused sandbox storage is free for 3 days, then $0.05 per GB per month",
+      "source": "https://boltzlabs.cloud/docs/pricing/sandboxes"
+    }
+  ],
+  "limits_note": "Evals and recordings need an active monthly subscription. Available capacity can limit how many sandboxes a free account starts. The $10 starting price is a monthly subscription, not the price of one sandbox.",
+  "binding": "volume-quota",
+  "binding_note": "The $1 trial credit is consumed after about 46 hours of the Small sandbox, before the one-at-a-time concurrency gate or the three-day paused-storage clock becomes the main obstacle.",
+  "identity_cost": {
+    "kind": "email",
+    "detail": "The sign-up form at https://boltzlabs.cloud/login?mode=signup asks for 'name email password at least 8 characters confirm password' and offers 'continue with github'. No card, phone or identity document appears on the form. The sign-in page reads 'Sign in to create sandboxes'.",
+    "country": null
+  },
+  "reliability_note": "Available capacity can limit how many sandboxes start, and spot-like capacity is not described on the pages read. An active monthly subscription is required for evals and recordings; when paused sandboxes pass three days, storage bills from the allowance.",
+  "confidence": "documented",
+  "confidence_note": "The free-account allowance, concurrency, machine rates, paused-storage price, API and sign-up form are read from the vendor's limits, sandbox-pricing and login pages on 2026-11-25 and quoted below. Egress is not published and is left unverified.",
+  "evidence": [
+    {
+      "url": "https://paste.ajam.dev/raw/WCLUsa",
+      "date": "2026-11-25",
+      "proved": "the operator's list places BoltzLabs at $0.028 an hour with a 36-hour one-time free tier; a lead, not the basis for the record's values",
+      "capture": "sha256:4d220f8008ed2a6126e4b7f8bc4639bd9e625605ec428846fde2bdf593cc5c95",
+      "quote": "21. BoltzLabs → $0.028/h · billed per second"
+    },
+    {
+      "url": "https://boltzlabs.cloud/docs/limits",
+      "date": "2026-11-25",
+      "proved": "a free account gets $1 of trial usage for Small sandboxes and code execution and can run one Small sandbox at a time",
+      "capture": "sha256:c9dc0cb3c22390f8adb2f8ed5b8393116b96936a9137dd7ba575db048d33a7ff",
+      "quote": "Free accounts include $1 in trial usage for Small sandboxes and code execution, from the website, the CLI and the desktop app."
+    },
+    {
+      "url": "https://boltzlabs.cloud/docs/limits",
+      "date": "2026-11-25",
+      "proved": "a paid subscription unlocks Medium and Large with up to 25 concurrent sandboxes, and capacity can limit starts",
+      "capture": "sha256:c9dc0cb3c22390f8adb2f8ed5b8393116b96936a9137dd7ba575db048d33a7ff",
+      "quote": "Active monthly subscriptions unlock Small, Medium and Large sandboxes, with up to 25 concurrent sandboxes."
+    },
+    {
+      "url": "https://boltzlabs.cloud/docs/pricing/sandboxes",
+      "date": "2026-11-25",
+      "proved": "the Small size is 1 vCPU, 4 GB and 20 GB at $0.0219 an hour, billed by the second out of the monthly allowance",
+      "capture": "sha256:cea216da0e09408e5b510012d2821d7e5b1e877f7522c1fd1ba036a5d94c52b2",
+      "quote": "| Small Shells, scripts, and lightweight services | 1 | 4 GB | 20 GB | $0.0219 | $0.0000061 |"
+    },
+    {
+      "url": "https://boltzlabs.cloud/docs/pricing/sandboxes",
+      "date": "2026-11-25",
+      "proved": "paused storage is free for 3 days, then $0.05 per GB per month",
+      "capture": "sha256:cea216da0e09408e5b510012d2821d7e5b1e877f7522c1fd1ba036a5d94c52b2",
+      "quote": "Pausing releases compute while retaining files. Storage is free for 3 days, then costs $0.05 per GB per month."
+    },
+    {
+      "url": "https://boltzlabs.cloud/login?mode=signup",
+      "date": "2026-11-25",
+      "proved": "the sign-up form asks for name, email and password and offers GitHub, with no card field",
+      "capture": "sha256:b6edcf93e69eaa8407f2ef227e653fc11132c9da3c488295d33b9bbbe0567b71",
+      "quote": "name  email  password  at least 8 characters confirm password  create account ▸"
+    },
+    {
+      "url": "https://boltzlabs.cloud/docs/sandboxes",
+      "date": "2026-11-25",
+      "proved": "the hosted sandbox supports pause, resume, fork, public port URLs and Python and CLI access",
+      "capture": "sha256:a92d138585430183170fdd396d7bd5a56c827d0f4006223a094f8cb78f38840b",
+      "quote": "sandbox.pause()                                 # release CPU/RAM, keep files"
+    },
+    {
+      "url": "https://boltzlabs.cloud/",
+      "date": "2026-11-25",
+      "proved": "the product is a hosted sandbox service with per-second active compute and a CLI installer",
+      "capture": "sha256:736e0bdb42da35215a1dc0ca313f103d0bb33d0b840f1992dd6f140c6284d03d",
+      "quote": "Sandboxes for a single tool-call, workspaces that pause and resume across long agent sessions, environments built for RL rollouts, GPU sandboxes on the way"
+    }
+  ],
+  "verdict": "qualifies-with-caveat",
+  "verified_at": "2026-11-25T02:12:34.610Z",
+  "price_per_tb_month": null,
+  "notes": "The $1 trial allowance is smaller than the operator list's 36 hours: at the published $0.0219 an hour for the Small size, $1 buys about 46 hours, and only one Small sandbox may run at a time. Sign-up asks for an email and password rather than a card. GPU sandboxes are announced as 'on the way' and have no published price.",
+  "extras": {
+    "shape": {
+      "vcpu": 1,
+      "ram_gib": 4,
+      "disk_gib": 20,
+      "gpu_class": "GPU sandboxes announced, on the way with no published price",
+      "gpu_count": null
+    },
+    "billing_model": "per-second active compute against a monthly allowance",
+    "free_tier_kind": "trial-credit",
+    "session_cap": {
+      "wall_clock_min": null,
+      "idle_reap_s": null,
+      "restart_required": false,
+      "note": "no session clock published; pausing releases compute and keeps files for 3 days free"
+    },
+    "network_out": {
+      "allow_outbound": true,
+      "allow_inbound_listen": true,
+      "ports": "public preview URL for a port when internet is enabled",
+      "static_ip": null,
+      "ipv6": null,
+      "per_session_bytes": null
+    }
+  }
+}

@@ -6,7 +6,7 @@
   "category": "VPS",
   "tier": "Promo VPS Saver NY BF31",
   "free_tier": {
-    "stated": "No free tier. The NY BF31 promo is USD 8.88 a year: 2 GB RAM, 1 vCore, 30 GB SSD, 2 TB bandwidth, 1 Gbps port, one dedicated IPv4. Reported from a LowEndTalk comment, not read on the vendor's own page, which answers a Cloudflare challenge.",
+    "stated": "No free tier. The Promo VPS Saver NY BF31 deal gives 2 GB RAM, 1x vCore CPU, 30 GB SSD, 2 TB Bandwidth, a 1 Gbps Network Port, and 1 dedicated IPv4 for USD 8.88 annually.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://lowendtalk.com/discussion/219434/need-cheap-vps-under-1",
@@ -75,10 +75,17 @@
       "url": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?inquiryType=EntityName&searchTerm=DEDIROCK",
       "date": "2026-10-24",
       "proved": "a Florida entity-name search for DEDIROCK returns no row for 'Dedi Rock LLC'; the nearest entries are D & E DISPATCH SERVICES, LLC and DEDIS PROPERTIES LLC, all INACT, so the vendor's named Florida LLC was not found in the state register"
+    },
+    {
+      "url": "https://lowendtalk.com/discussion/219434/need-cheap-vps-under-1",
+      "date": "2026-11-25",
+      "proved": "the forum comment states the NY BF31 plan's price and full hardware shape",
+      "capture": "sha256:c4f3eedfe03669e407b368774d4b753fa0bbaf42b2f0c03076c64d8bc95c11b8",
+      "quote": "check out the **DediRock** Promo VPS Saver NY BF31 deal. It gives you 2 GB RAM, 1x vCore CPU, 30 GB SSD, 2 TB Bandwidth, a 1 Gbps Network Port, and 1 dedicated IPv4 for just $8.88 USD annually (under $0.75/month)"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-24T04:26:37.000Z",
+  "verified_at": "2026-11-25T05:17:52.949Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "The row that would win on the lane's own ranking if it could be verified, and it could not. A dedicated IPv4 with 2 GB and 30 GB for USD 0.74 a month beats every NAT row on the second and fourth criteria at once, and because there is no forwarding layer there is no port budget and no UDP question. Three things stop it being the pick. The figures are a forum comment, not a vendor page: the billing panel answered a Cloudflare challenge to the text extractor and stayed on 'Just a moment...' in a headless browser, and the vendor's own Black Friday page lists only the Los Angeles siblings at USD 9.88 a year for 1 GB. The entity does not check out: the vendor names Dedi Rock LLC of Clearwater, Florida, and a Florida entity-name search returns no such company. And the SKU is annual-only, so the cost of finding out whether the seller is real is a year up front. What would settle it: a first-party read of billing.dedirock.com/index.php/store/promo-vps-new-york, which needs a route the Cloudflare challenge does not block, and a Delaware or Florida registry hit for the named LLC.",

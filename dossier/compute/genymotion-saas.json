@@ -1,191 +1,270 @@
 {
-  "topic": "compute",
-  "slug": "genymotion-saas",
-  "provider": "Genymotion",
-  "url": "https://www.genymotion.com/pricing/",
-  "category": "hosted Android virtual devices",
-  "tier": "Pay-As-You-Go",
-  "free_tier": {
-    "stated": "A free 60-minute trial is available on request: as an individual, 60 free minutes and 2 simultaneous devices; as a company employee, 1000 free minutes and up to 10 simultaneous devices. The standard plan has no recurring free allowance.",
-    "unit": "minutes",
-    "metered_on": "wall-clock",
-    "source_url": "https://support.genymotion.com/hc/en-us/articles/17982644496157",
-    "read_on": "2026-11-24",
-    "notes": "Minutes count while a virtual device is running; the trial is a one-time request, not a monthly allowance. Individual requests take 5 business days and company requests 2 business days."
+ "topic": "compute",
+ "slug": "genymotion-saas",
+ "provider": "Genymotion SaaS",
+ "url": "https://docs.genymotion.com/usage/saas/pricing/",
+ "category": "hosted Android virtual device farm",
+ "tier": "Pay as you Go (SaaS cloud virtual devices)",
+ "free_tier": {
+  "stated": "A free 60-minute trial is available on request: an individual applicant gets 60 free minutes and 2 simultaneous devices, and a company employee gets 1000 free minutes and up to 10 simultaneous devices.",
+  "unit": "minutes",
+  "metered_on": "wall-clock",
+  "source_url": "https://support.genymotion.com/hc/en-us/articles/17982644496157-How-do-I-get-the-free-trial-for-Genymotion-Cloud-SaaS",
+  "read_on": "2026-11-25",
+  "notes": "The trial is not self-service: a request is reviewed within 5 business days for individuals and 2 business days for companies. The paid Pay-as-you-Go rate is USD 0.06 a minute per active virtual device; the company 1000-minute figure is a trial allowance, not a recurring tier."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the metered unit is a running virtual device-minute, not an object"
+ },
+ "retention": {
+  "stated": "not published on the pricing, quickstart or product pages read: no device-state or result retention period is stated for Genymotion SaaS",
+  "days": null,
+  "source_url": "https://docs.genymotion.com/usage/saas/pricing/"
+ },
+ "egress": {
+  "terms": "not published as a SaaS allowance: the pricing documentation bills running device-minutes and states no separate egress price or quota",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://docs.genymotion.com/usage/saas/pricing/"
+ },
+ "interface": [
+  "rest",
+  "cli",
+  "browser"
+ ],
+ "interface_detail": "A Platform HTTP API with an API token, the gmsaas command-line tool for creating and controlling devices and ADB connections, and a web dashboard for virtual devices.",
+ "tooling": "gmsaas CLI, the SaaS HTTP API with an API token, ADB tunnelling, and CI integrations for GitHub Actions, CircleCI, Bitrise, Jenkins and Detox.",
+ "chaining": "A CI job starts hosted Android virtual devices through gmsaas or the HTTP API and runs instrumented tests in parallel; the paid continuation is USD 0.06 a minute per active device, with Pay-as-you-Go capped at 2 concurrent instances by default.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "60 free minutes for an individual trial; 1000 free minutes for a company trial; Pay-as-you-Go charges USD 0.06 a minute per active virtual device",
+   "source": "https://docs.genymotion.com/usage/saas/pricing/"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a running Android virtual device, not a stored object"
+  {
+   "kind": "per-object-cap",
+   "value": "2 simultaneous devices on an individual trial and 10 on a company trial; Pay-as-you-Go defaults to 2 concurrent instances",
+   "source": "https://support.genymotion.com/hc/en-us/articles/17982644496157-How-do-I-get-the-free-trial-for-Genymotion-Cloud-SaaS"
   },
-  "retention": {
-    "stated": "Device data is destroyed when a test ends; a browser logout does not stop a device, which keeps running until the configured frontend inactivity timeout or maximum run duration. Recipe saves preserve device configuration.",
-    "days": null,
-    "source_url": "https://docs.genymotion.com/usage/saas/first_steps/",
-    "notes": "The maximum run duration is configured by the organization and starts when the device goes online; no default number is published."
+  {
+   "kind": "write-gated",
+   "value": "trial requires an account, a trial request and manual review within 5 business days for individuals or 2 business days for companies",
+   "source": "https://support.genymotion.com/hc/en-us/articles/17982644496157-How-do-I-get-the-free-trial-for-Genymotion-Cloud-SaaS"
+  }
+ ],
+ "limits_note": "Every started minute is billed as soon as the device is running; payments are processed weekly by default or when usage exceeds a default USD 150 threshold. Prepaid and virtual credit cards are not accepted.",
+ "binding": "write-gated",
+ "binding_note": "The trial must be requested and manually approved before any device can start, which binds ahead of the 60-minute allowance; a valid non-disposable email is mandatory.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "Sign-up is by email address with a verification email, or through Google or GitHub single sign-on; disposable email providers are not allowed for registration. The trial request asks whether the applicant is an individual or a company, requires a valid personal email for an individual or a valid professional email and company details for a company, and is manually reviewed. The default subscription payment method is a credit card: Visa, Mastercard or American Express; prepaid cards are not accepted.",
+  "country": null
+ },
+ "reliability_note": "Trials are manually reviewed and expire after the granted minutes; Pay-as-you-Go is limited to 2 concurrent instances by default and charges every started minute. Prepaid and virtual credit cards are not accepted for subscriptions.",
+ "confidence": "documented",
+ "confidence_note": "The USD 0.06 per minute rate, concurrency cap, card terms, API and CLI access, and the trial allowances and gates are quoted from first-party Genymotion documentation read on 2026-11-25. The Unlimited plan's fixed price is not published on the pages read and is left unverified.",
+ "evidence": [
+  {
+   "url": "https://docs.genymotion.com/usage/saas/pricing/",
+   "date": "2026-11-25",
+   "proved": "Pay-as-you-Go is USD 0.06 a minute per active virtual device",
+   "capture": "sha256:a0ceef4910641d6418d957427e6db6f47147799fcc90c8cdb0084e8b7e74b31f",
+   "quote": "After subscribing, your organization can start virtual devices at a $0.06/minute rate per active virtual device."
   },
-  "egress": {
-    "terms": "not published: no outbound data allowance or price is stated on the pricing, documentation or signup pages read; the service requires outbound TCP 443 to cloud.geny.io and api.geny.io, TCP/UDP 443 to turn.genymotion.com and ws.geny.io, and websockets.",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://docs.genymotion.com/saas/"
+  {
+   "url": "https://docs.genymotion.com/usage/saas/pricing/",
+   "date": "2026-11-25",
+   "proved": "Pay-as-you-Go is capped at 2 concurrent instances by default",
+   "capture": "sha256:a0ceef4910641d6418d957427e6db6f47147799fcc90c8cdb0084e8b7e74b31f",
+   "quote": "With the Pay-As-You-Go plan, you are limited to a maximum of 2 concurrent instances."
   },
-  "interface": [
-    "browser",
-    "cli",
-    "rest"
-  ],
-  "interface_detail": "Web dashboard at cloud.geny.io, the gmsaas command-line tool driving devices over ADB, an HTTP API at developer.genymotion.com/saas, and a JavaScript SDK; an API token is created in the account's API section.",
-  "endpoint": "https://api.geny.io",
-  "tooling": "gmsaas CLI (installed by the user) with adbconnect, the HTTP API, the JavaScript SDK, and CI integrations for Jenkins, Bitrise, CircleCI and GitHub Actions; no ADB connection by device IP is supported.",
-  "chaining": "An Android virtual device reached over ADB fits a CI test pipeline; because test data on the device is destroyed, artifacts must be written to a separate storage record.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "USD 0.06 per minute per running virtual device; trial: 60 minutes and 2 simultaneous devices for an individual, or 1000 minutes and 10 simultaneous devices for a company employee",
-      "source": "https://www.genymotion.com/pricing/"
-    },
-    {
-      "kind": "request-rate",
-      "value": "maximum 2 concurrent instances on Pay-As-You-Go unless sales raises the limit",
-      "source": "https://docs.genymotion.com/saas/03_1_Pricing/"
-    }
-  ],
-  "limits_note": "A maximum run duration configured by the organization shuts a device down when reached, whether or not it is active; a frontend inactivity timeout stops browser-started devices but not gmsaas-started ones. At most 25 API tokens per account.",
-  "binding": "request-rate",
-  "binding_note": "For short paid runs the two concurrent virtual devices on Pay-As-You-Go stop a workload first; the minute meter and the organization's maximum run duration bind longer runs.",
-  "identity_cost": {
-    "kind": "card",
-    "detail": "Signup asks for an email address and password, with Google or GitHub SSO as an alternative; disposable email providers are not allowed and email verification is required. The default plan payment method is a Visa, Mastercard or American Express credit card; prepaid cards are not supported. A free trial needs an individual personal email or a professional email with company details, and is approved by the vendor.",
-    "country": null
+  {
+   "url": "https://docs.genymotion.com/usage/saas/pricing/",
+   "date": "2026-11-25",
+   "proved": "the default subscription payment method is a credit card and prepaid cards are rejected",
+   "capture": "sha256:a0ceef4910641d6418d957427e6db6f47147799fcc90c8cdb0084e8b7e74b31f",
+   "quote": "Prepaid cards are not supported."
   },
-  "reliability_note": "Browser logout does not stop a device, which keeps running until a timeout; gmsaas devices keep running without a frontend timeout unless explicitly stopped; a maximum run duration can shut down an active device.",
-  "confidence": "documented",
-  "confidence_note": "Rates, concurrency, card gate, signup gate, trial allowance, interface and shutdown terms are quoted from Genymotion's own pricing, documentation and support pages read on 2026-11-24.",
-  "evidence": [
-    {
-      "url": "https://www.genymotion.com/pricing/",
-      "date": "2026-11-24",
-      "proved": "the Pay-As-You-Go cloud plan is USD 0.06 per minute per running virtual device",
-      "capture": "sha256:455aff116bee8fd4f1279e55240b6f90513c5d15e14346732520159ed70dfff5",
-      "quote": "$ 0.06\n\n/ minute\n\nper running virtual device"
-    },
-    {
-      "url": "https://www.genymotion.com/pricing/",
-      "date": "2026-11-24",
-      "proved": "the Unlimited cloud plan is USD 219 per month per virtual device on monthly billing",
-      "capture": "sha256:455aff116bee8fd4f1279e55240b6f90513c5d15e14346732520159ed70dfff5",
-      "quote": "$ 219\n\n/ month\n\nper virtual device"
-    },
-    {
-      "url": "https://docs.genymotion.com/saas/03_1_Pricing/",
-      "date": "2026-11-24",
-      "proved": "Pay-As-You-Go is limited to a maximum of 2 concurrent instances",
-      "capture": "sha256:7b4a3411261299616bce2f5844ad43284301413e32a49118f261bbe624e183fc",
-      "quote": "With the Pay-As-You-Go plan, you are limited to a maximum of 2 concurrent instances."
-    },
-    {
-      "url": "https://docs.genymotion.com/saas/03_1_Pricing/",
-      "date": "2026-11-24",
-      "proved": "plans require a Visa, Mastercard or American Express credit card and reject prepaid cards",
-      "capture": "sha256:7b4a3411261299616bce2f5844ad43284301413e32a49118f261bbe624e183fc",
-      "quote": "The default payment method is credit card: Visa, Mastercard, American Express.\n\nPrepaid cards are not supported."
-    },
-    {
-      "url": "https://support.genymotion.com/hc/en-us/articles/17982644496157",
-      "date": "2026-11-24",
-      "proved": "an individual free trial grants 60 minutes and 2 simultaneous devices",
-      "capture": "sha256:f5a5629eadae49ffab515095215963d762fd82dfc7c2741b716da2d9bb3f4044",
-      "quote": "Note that, as an individual, you will get 60 free minutes and a limit of 2 simultaneous devices."
-    },
-    {
-      "url": "https://support.genymotion.com/hc/en-us/articles/17982644496157",
-      "date": "2026-11-24",
-      "proved": "a company free trial grants 1000 minutes and up to 10 simultaneous devices",
-      "capture": "sha256:f5a5629eadae49ffab515095215963d762fd82dfc7c2741b716da2d9bb3f4044",
-      "quote": "Please note that, as a company employee, you will benefit from 1000 free minutes and up to 10 simultaneous devices."
-    },
-    {
-      "url": "https://docs.genymotion.com/saas/",
-      "date": "2026-11-24",
-      "proved": "signup rejects disposable email addresses and accepts Google or GitHub SSO",
-      "capture": "sha256:cc56473fbc07e00656cd572ea2610bb9a6a3b8421dcb07f1ab15d0ed25c3c4d1",
-      "quote": "Temporary email (also known as disposable) providers are not allowed for registration."
-    },
-    {
-      "url": "https://account.geny.io/signup",
-      "date": "2026-11-24",
-      "proved": "the signup form offers Google and GitHub SSO or an email and password pair",
-      "capture": "sha256:5f1e3ce46d1ccc90732a1abeb34d8640a8142c5870b12dc622a1b271738a3fea",
-      "quote": "Continue with GoogleContinue with GitHub"
-    },
-    {
-      "url": "https://docs.genymotion.com/usage/saas/basic_steps/",
-      "date": "2026-11-24",
-      "proved": "the account offers gmsaas, an HTTP API and a JavaScript SDK, with at most 25 API tokens",
-      "capture": "sha256:13018bfd06a4c5f34e96f6d6ad26fd46d59c500bc5661380958526eadc43589c",
-      "quote": "You can only have up to 25 tokens"
-    },
-    {
-      "url": "https://docs.genymotion.com/usage/saas/automation/",
-      "date": "2026-11-24",
-      "proved": "gmsaas manages device lifecycle and connects to ADB with an API token",
-      "capture": "sha256:2cacc7d67fc9f594818b974d47ff5a008169e28e1ce0b6b3931416b97b44d07f",
-      "quote": "With gmsaas CLI tool, you can use Genymotion SaaS to run automated tests in your continuous integration pipeline, regardless of your framework or continuous integration server."
-    },
-    {
-      "url": "https://docs.genymotion.com/usage/saas/first_steps/",
-      "date": "2026-11-24",
-      "proved": "a browser logout does not stop a device, which runs until a frontend inactivity timeout or maximum run duration",
-      "capture": "sha256:7fae5802487ffb2a7b1966be219bd8573de2268e67ce73446e969d18b08ceff0",
-      "quote": "Closing your web browser or logging out will not stop your running virtual devices. They have to be stopped manually or they will keep running until the Frontend inactivity timeout or the maximum run duration are reached."
-    },
-    {
-      "url": "https://docs.genymotion.com/usage/saas/admin_interface/",
-      "date": "2026-11-24",
-      "proved": "the organization can set a maximum run duration that shuts down an active device",
-      "capture": "sha256:3d1bcf887b78b92ce59d4c23cace58dd39b30916191958d2a461bff29b5b7e2d",
-      "quote": "The *Maximum run duration* setting allows you to configure the maximum duration time of your virtual devices. They will automatically shutdown after the specified duration is reached, **whether or not they are active**."
-    },
-    {
-      "url": "https://docs.genymotion.com/saas/",
-      "date": "2026-11-24",
-      "proved": "the service requires outbound 443 to its cloud, API, TURN and websocket hosts",
-      "capture": "sha256:cc56473fbc07e00656cd572ea2610bb9a6a3b8421dcb07f1ab15d0ed25c3c4d1",
-      "quote": "- Outgoing TCP port 443 on cloud.geny.io\n- Outgoing TCP port 443 on api.geny.io\n- Outgoing TCP/UDP port 443 on turn.genymotion.com"
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T10:11:14.768Z",
-  "price_per_tb_month": null,
-  "notes": "Cloud-hosted Android virtual devices billed by the minute or by a flat monthly rate per device. The free offer is a one-time trial request, not a standing tier: 60 minutes with 2 devices for an individual, or 1000 minutes with 10 devices for a company employee. Genymotion also sells Desktop software the user installs locally and self-hosted server software; this record prices the hosted SaaS offer only.",
-  "extras": {
-    "shape": {
-      "vcpu": null,
-      "ram_gib": null,
-      "disk_gib": null,
-      "gpu_class": "hardware-accelerated Android virtual devices",
-      "gpu_count": null,
-      "note": "hardware profiles define vCPU, RAM and disk; no single figure is published for the pay-as-you-go plan"
-    },
-    "billing_model": "per-minute usage or fixed monthly per simultaneous virtual device",
-    "free_tier_kind": "one-time trial on request",
-    "term": "monthly billing or annual billing at 18 percent off",
-    "price_arithmetic": "USD 0.06 per minute per running virtual device; USD 219 per month per device, or USD 179 per month billed annually",
-    "status": "active",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": null,
-      "ports": "outbound TCP 443 to cloud.geny.io and api.geny.io; TCP/UDP 443 to turn.genymotion.com and ws.geny.io; websockets",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "an organization-configurable maximum run duration and frontend inactivity timeout; no default number published"
-    }
+  {
+   "url": "https://docs.genymotion.com/usage/saas/pricing/",
+   "date": "2026-11-25",
+   "proved": "the accepted card brands are Visa, Mastercard and American Express",
+   "capture": "sha256:a0ceef4910641d6418d957427e6db6f47147799fcc90c8cdb0084e8b7e74b31f",
+   "quote": "The default payment method is credit card: Visa, Mastercard, American Express."
   },
-  "self_hosted": false
+  {
+   "url": "https://support.genymotion.com/hc/en-us/articles/17982644496157-How-do-I-get-the-free-trial-for-Genymotion-Cloud-SaaS",
+   "date": "2026-11-25",
+   "proved": "an individual trial gives 60 free minutes and 2 simultaneous devices",
+   "capture": "sha256:f5a5629eadae49ffab515095215963d762fd82dfc7c2741b716da2d9bb3f4044",
+   "quote": "Note that, as an individual, you will get 60 free minutes and a limit of 2 simultaneous devices."
+  },
+  {
+   "url": "https://support.genymotion.com/hc/en-us/articles/17982644496157-How-do-I-get-the-free-trial-for-Genymotion-Cloud-SaaS",
+   "date": "2026-11-25",
+   "proved": "a company trial gives 1000 free minutes and up to 10 simultaneous devices",
+   "capture": "sha256:f5a5629eadae49ffab515095215963d762fd82dfc7c2741b716da2d9bb3f4044",
+   "quote": "Please note that, as a company employee, you will benefit from 1000 free minutes and up to 10 simultaneous devices."
+  },
+  {
+   "url": "https://support.genymotion.com/hc/en-us/articles/17982644496157-How-do-I-get-the-free-trial-for-Genymotion-Cloud-SaaS",
+   "date": "2026-11-25",
+   "proved": "a personal email is mandatory for an individual trial request",
+   "capture": "sha256:f5a5629eadae49ffab515095215963d762fd82dfc7c2741b716da2d9bb3f4044",
+   "quote": "A valid personal email address is mandatory."
+  },
+  {
+   "url": "https://docs.genymotion.com/quickstart/saas_quickstart/",
+   "date": "2026-11-25",
+   "proved": "a free 60-minute trial is available only on request",
+   "capture": "sha256:cc56473fbc07e00656cd572ea2610bb9a6a3b8421dcb07f1ab15d0ed25c3c4d1",
+   "quote": "A free 60 minutes trial is available on request."
+  },
+  {
+   "url": "https://docs.genymotion.com/quickstart/saas_quickstart/",
+   "date": "2026-11-25",
+   "proved": "registration uses an email address with verification or Google/GitHub SSO, and disposable addresses are rejected",
+   "capture": "sha256:cc56473fbc07e00656cd572ea2610bb9a6a3b8421dcb07f1ab15d0ed25c3c4d1",
+   "quote": "Temporary email (also known as disposable) providers are not allowed for registration."
+  },
+  {
+   "url": "https://account.geny.io/signin",
+   "date": "2026-11-25",
+   "proved": "the sign-in page offers Google and GitHub accounts alongside email and password",
+   "capture": "sha256:04b3be8071f9e7fcd7d549e3eb841d91f095d01104d4065aeb476851f60b283e",
+   "quote": "Continue with GoogleContinue with GitHub"
+  },
+  {
+   "url": "https://www.genymotion.com/product-cloud/",
+   "date": "2026-11-25",
+   "proved": "the SaaS includes a CLI for creating, controlling and connecting devices to ADB",
+   "capture": "sha256:cd19fd05e38dc9366eeb9273bd65cf4d2ed5b6f676d06e33d04bfed3cc88d70d",
+   "quote": "Integrated CLI"
+  },
+  {
+   "url": "https://www.genymotion.com/pricing/",
+   "date": "2026-11-24",
+   "proved": "the Pay-As-You-Go cloud plan is USD 0.06 per minute per running virtual device",
+   "capture": "sha256:455aff116bee8fd4f1279e55240b6f90513c5d15e14346732520159ed70dfff5",
+   "quote": "$ 0.06\n\n/ minute\n\nper running virtual device"
+  },
+  {
+   "url": "https://www.genymotion.com/pricing/",
+   "date": "2026-11-24",
+   "proved": "the Unlimited cloud plan is USD 219 per month per virtual device on monthly billing",
+   "capture": "sha256:455aff116bee8fd4f1279e55240b6f90513c5d15e14346732520159ed70dfff5",
+   "quote": "$ 219\n\n/ month\n\nper virtual device"
+  },
+  {
+   "url": "https://docs.genymotion.com/saas/03_1_Pricing/",
+   "date": "2026-11-24",
+   "proved": "Pay-As-You-Go is limited to a maximum of 2 concurrent instances",
+   "capture": "sha256:7b4a3411261299616bce2f5844ad43284301413e32a49118f261bbe624e183fc",
+   "quote": "With the Pay-As-You-Go plan, you are limited to a maximum of 2 concurrent instances."
+  },
+  {
+   "url": "https://docs.genymotion.com/saas/03_1_Pricing/",
+   "date": "2026-11-24",
+   "proved": "plans require a Visa, Mastercard or American Express credit card and reject prepaid cards",
+   "capture": "sha256:7b4a3411261299616bce2f5844ad43284301413e32a49118f261bbe624e183fc",
+   "quote": "The default payment method is credit card: Visa, Mastercard, American Express.\n\nPrepaid cards are not supported."
+  },
+  {
+   "url": "https://support.genymotion.com/hc/en-us/articles/17982644496157",
+   "date": "2026-11-24",
+   "proved": "an individual free trial grants 60 minutes and 2 simultaneous devices",
+   "capture": "sha256:f5a5629eadae49ffab515095215963d762fd82dfc7c2741b716da2d9bb3f4044",
+   "quote": "Note that, as an individual, you will get 60 free minutes and a limit of 2 simultaneous devices."
+  },
+  {
+   "url": "https://support.genymotion.com/hc/en-us/articles/17982644496157",
+   "date": "2026-11-24",
+   "proved": "a company free trial grants 1000 minutes and up to 10 simultaneous devices",
+   "capture": "sha256:f5a5629eadae49ffab515095215963d762fd82dfc7c2741b716da2d9bb3f4044",
+   "quote": "Please note that, as a company employee, you will benefit from 1000 free minutes and up to 10 simultaneous devices."
+  },
+  {
+   "url": "https://docs.genymotion.com/saas/",
+   "date": "2026-11-24",
+   "proved": "signup rejects disposable email addresses and accepts Google or GitHub SSO",
+   "capture": "sha256:cc56473fbc07e00656cd572ea2610bb9a6a3b8421dcb07f1ab15d0ed25c3c4d1",
+   "quote": "Temporary email (also known as disposable) providers are not allowed for registration."
+  },
+  {
+   "url": "https://account.geny.io/signup",
+   "date": "2026-11-24",
+   "proved": "the signup form offers Google and GitHub SSO or an email and password pair",
+   "capture": "sha256:5f1e3ce46d1ccc90732a1abeb34d8640a8142c5870b12dc622a1b271738a3fea",
+   "quote": "Continue with GoogleContinue with GitHub"
+  },
+  {
+   "url": "https://docs.genymotion.com/usage/saas/basic_steps/",
+   "date": "2026-11-24",
+   "proved": "the account offers gmsaas, an HTTP API and a JavaScript SDK, with at most 25 API tokens",
+   "capture": "sha256:13018bfd06a4c5f34e96f6d6ad26fd46d59c500bc5661380958526eadc43589c",
+   "quote": "You can only have up to 25 tokens"
+  },
+  {
+   "url": "https://docs.genymotion.com/usage/saas/automation/",
+   "date": "2026-11-24",
+   "proved": "gmsaas manages device lifecycle and connects to ADB with an API token",
+   "capture": "sha256:2cacc7d67fc9f594818b974d47ff5a008169e28e1ce0b6b3931416b97b44d07f",
+   "quote": "With gmsaas CLI tool, you can use Genymotion SaaS to run automated tests in your continuous integration pipeline, regardless of your framework or continuous integration server."
+  },
+  {
+   "url": "https://docs.genymotion.com/usage/saas/first_steps/",
+   "date": "2026-11-24",
+   "proved": "a browser logout does not stop a device, which runs until a frontend inactivity timeout or maximum run duration",
+   "capture": "sha256:7fae5802487ffb2a7b1966be219bd8573de2268e67ce73446e969d18b08ceff0",
+   "quote": "Closing your web browser or logging out will not stop your running virtual devices. They have to be stopped manually or they will keep running until the Frontend inactivity timeout or the maximum run duration are reached."
+  },
+  {
+   "url": "https://docs.genymotion.com/usage/saas/admin_interface/",
+   "date": "2026-11-24",
+   "proved": "the organization can set a maximum run duration that shuts down an active device",
+   "capture": "sha256:3d1bcf887b78b92ce59d4c23cace58dd39b30916191958d2a461bff29b5b7e2d",
+   "quote": "The *Maximum run duration* setting allows you to configure the maximum duration time of your virtual devices. They will automatically shutdown after the specified duration is reached, **whether or not they are active**."
+  },
+  {
+   "url": "https://docs.genymotion.com/saas/",
+   "date": "2026-11-24",
+   "proved": "the service requires outbound 443 to its cloud, API, TURN and websocket hosts",
+   "capture": "sha256:cc56473fbc07e00656cd572ea2610bb9a6a3b8421dcb07f1ab15d0ed25c3c4d1",
+   "quote": "- Outgoing TCP port 443 on cloud.geny.io\n- Outgoing TCP port 443 on api.geny.io\n- Outgoing TCP/UDP port 443 on turn.genymotion.com"
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T02:12:34.899Z",
+ "price_per_tb_month": null,
+ "notes": "Hosted Android virtual devices on the vendor's servers: Pay-as-you-Go is USD 0.06 a minute per active device with a 2-instance default cap, and a request-only 60-minute individual trial (1000 minutes for a company applicant). The Unlimited fixed monthly price is not published on the pages read; Genymotion Desktop, PaaS device images and self-hosted are separate offers and are not priced here.",
+ "extras": {
+  "shape": {
+   "vcpu": null,
+   "ram_gib": null,
+   "disk_gib": null,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "hosted Android virtual devices billed per running device-minute"
+  },
+  "billing_model": "per-minute usage with weekly billing; fixed-rate Unlimited plan and custom Premium plan",
+  "free_tier_kind": "request-only-trial",
+  "term": "no commitment on Pay-as-you-Go; trial granted per request",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": null,
+   "ports": "outgoing TCP 443 to cloud.geny.io and api.geny.io, TCP/UDP 443 to turn.genymotion.com and ws.geny.io",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "every started minute is billed as soon as the device is running; no session length cap is stated on the pricing page"
+  }
+ },
+ "endpoint": "https://api.geny.io",
+ "self_hosted": false
 }

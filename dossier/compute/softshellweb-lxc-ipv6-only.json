@@ -75,10 +75,17 @@
       "url": "https://softshellweb.com/specials",
       "date": "2026-10-24",
       "proved": "quoted: 'These are Linux containers (LXC), not full virtual machines. A container runs directly on the host's Linux kernel'"
+    },
+    {
+      "url": "https://softshellweb.com/specials",
+      "date": "2026-11-25",
+      "proved": "the specials page states the cheapest LXC IPv6 Only plan at USD 9.95 a year, working out to USD 0.83 a month",
+      "capture": "sha256:1b752f3dcafe562edb9281c19b7a35e73bf1058de90a54fa26521a8e80b8395c",
+      "quote": "Cheapest  Los Angeles\n\n### LXC IPv6 Only\n\n1 GB · 1 core · 15 GB NVMe\n\n$9.95/year\n\nWorks out to **$0.83 / month**"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-24T01:56:37.000Z",
+  "verified_at": "2026-11-25T05:18:28.798Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "The vendor advertises the IPv6-only line as suitable for 'tunnel endpoints' and 'monitoring probes', which is the category's use. A WireGuard listener on a public port therefore has a stated route over IPv6; an IPv4 peer needs the USD 24/yr address. Not measured: whether the host kernel exposes the wireguard module to the container.",

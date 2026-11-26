@@ -6,7 +6,7 @@
   "category": "VPS",
   "tier": "promo-S",
   "free_tier": {
-    "stated": "no free tier; promo-S is RUB 239 a month, and a test period of up to 3 days is offered, which needs a confirmed e-mail and an identified account: 'Необходимо идентифицировать аккаунт. Для этого достаточно привязать Yandex.ID или оплатить 1руб.'",
+    "stated": "no free tier; the VDS page now starts at 'от 269р в месяц' for the listed locations, and the home page offers a free test period of up to three days: 'Tестовый период - до 3-х дней - бесплатно'",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://www.62yun.com/servers/order/index/481",
@@ -149,10 +149,31 @@
       "url": "https://www.cbr.ru/scripts/XML_daily.asp",
       "date": "2026-10-24",
       "proved": "quoted rate table dated 24.10.2026: 'CharCode USD, Nominal 1, Value 80,5381'. This is the rate used to convert RUB 239 to USD 2.97 in price_arithmetic"
+    },
+    {
+      "url": "https://www.62yun.com/",
+      "date": "2026-11-25",
+      "proved": "the VDS price line on the home page now starts at RUB 269 per month with unlimited traffic",
+      "capture": "sha256:ad94ba50e78d0e4b69794511e637efbbfd42bbc9ee7fb73cde6625580c9547dd",
+      "quote": "от 269р в месяц, без ограничения трафика, локации: **США, Испания, Нидерланды, Финляндия, Германия, Канада**"
+    },
+    {
+      "url": "https://www.62yun.com/",
+      "date": "2026-11-25",
+      "proved": "the lowest VDS price stated on the page is RUB 269 per month",
+      "capture": "sha256:ad94ba50e78d0e4b69794511e637efbbfd42bbc9ee7fb73cde6625580c9547dd",
+      "quote": "от 269р в месяц, без ограничения трафика, локации: **США, Испания, Нидерланды, Финляндия, Германия, Канада**"
+    },
+    {
+      "url": "https://www.62yun.com/",
+      "date": "2026-11-25",
+      "proved": "a free test period of up to three days is advertised on the home page",
+      "capture": "sha256:ad94ba50e78d0e4b69794511e637efbbfd42bbc9ee7fb73cde6625580c9547dd",
+      "quote": "Tестовый период - до 3-х дней - бесплатно"
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-24T03:16:51.000Z",
+  "verified_at": "2026-11-25T05:18:29.253Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "This settles the buyability question. promo-S at RUB 239 a month is buyable: the card's own order button redirects to the order form for plan 481, and that form's price table prices plan 481 at 239 with 104 free IPv4 addresses and pre-selects it. So a document that lists this vendor under 'advertised and not buyable' is wrong on that point, and wrong twice over because 239 RUB is USD 2.97, which is not a sub-dollar row in the first place. There is a real finding underneath: the order form's price table carries cheaper plans that the form will not sell. It holds 'low-S' and 'START_archive' at 118 RUB, 'ultra-S-discount' at 159 RUB and two promo-S rows at 159 RUB, none of which appear in the selector, and the four legacy plan ids tried as order URLs (33, 124, 331, 107) each render the same generic form with promo-S at 239 pre-selected. The cheapest thing the form will actually take is therefore 239 RUB, and the deepest term discount, 24 months at -25%, is 179.25 RUB a month, USD 2.23, still above the USD 1 line. Even the cheapest number anywhere in the vendor's own table, the unsold 118 RUB, is USD 1.47, so no 62yun price is under USD 1 at any term. The site prices only in RUB: no CNY figure appears on the home page, the VDS section, the order form or the FAQ, so a CNY figure could not be recorded and none was invented. On cards: MIR is a Russian domestic scheme and the FAQ lists it without qualification, while VISA and Mastercard are accepted from any country except the 36 named, which includes Canada and the United States, so a non-Russian card works unless it is issued in a blocked country. The tariff is named Promo and its category heading is Промо, but no strike-through price, no 'first month' wording and no post-promo rate appears anywhere; the only discount the order form offers is by prepay length. Not established: whether promo-S is capacity-limited, and whether an account can be opened without a Russian phone number, because the registration step was not taken.",

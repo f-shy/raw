@@ -5,7 +5,7 @@
   "url": "https://numfocus.org/programs/small-development-grants",
   "category": "GPU cloud",
   "free_tier": {
-    "stated": "'Up to $10,000 can be awarded for each proposal'. Eligibility: 'Any NumFOCUS Fiscally Sponsored or Affiliated project is eligible to submit 1 proposal per grant cycle. Each project may receive a maximum of 2 grants per calendar year', and 'Proposals may be submitted by residents of any country'.",
+    "stated": "Up to $10,000 can be awarded for each proposal.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://numfocus.org/programs/small-development-grants",
@@ -64,10 +64,24 @@
       "url": "https://numfocus.org/projects-overview",
       "date": "2026-10-22",
       "proved": "quoted 'Eligibility is limited to our fiscally sponsored and affiliated projects, and calls for proposals are run 3 times per year'"
+    },
+    {
+      "url": "https://numfocus.org/programs/small-development-grants",
+      "date": "2026-11-25",
+      "proved": "the grant page states the USD 10,000 ceiling per proposal",
+      "capture": "sha256:e483055cbcbfd11c492078924a60aa20241c48e4a3ade0c10d513ff359e77edf",
+      "quote": "Up to $10,000 can be awarded for each proposal."
+    },
+    {
+      "url": "https://numfocus.org/programs/small-development-grants",
+      "date": "2026-11-25",
+      "proved": "the grant page restates the USD 10,000 per-proposal ceiling",
+      "capture": "sha256:e483055cbcbfd11c492078924a60aa20241c48e4a3ade0c10d513ff359e77edf",
+      "quote": "Up to $10,000 can be awarded for each proposal."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:44.119Z",
   "notes": "Recorded as fails-identity because the ceiling is real and famous but the door is project affiliation, not an email. The honest alternative is the same money via NLnet, MOSS or the Google patch tiers, none of which need an affiliation. The October 17 2026 deadline has passed two cycles into the year, so even an affiliated applicant is looking at 2027.",
   "extras": {
     "wave2": {

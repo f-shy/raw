@@ -1,0 +1,20 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u293-rerun",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "Re-check these compute records against their own sources. Keep every clause the captured page supports, correct or remove only a clause it does not, then confirm each record with a quote from the page.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/contabo $.free_tier.stated: Price and specs match and Cloud VPS 4 is the cheapest row. But the page never says there is no free tier (no 'free' or 'trial' text at all); that part is an inference from absence.\n- compute/contabo $.free_tier.stated: Price and specs match and Cloud VPS 4 is the cheapest row. But the page never says there is no free tier (no 'free' or 'trial' text at all); that part is an inference from absence.\n- compute/digitalocean $.free_tier.stated: Quoted example is accurate, but the page heading names a '$5 free credit' and the FAQ says DigitalOcean 'often provides promotional credits for new users', so 'no current signup credit amount is published' is not what the page says.\n- compute/digitalocean $.free_tier.stated: Quoted example is accurate, but the page heading names a '$5 free credit' and the FAQ says DigitalOcean 'often provides promotional credits for new users', so 'no current signup credit amount is published' is not what the page says.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/contabo $.free_tier.stated: Quote is on the page, but it is a paid price row (EUR 4.40/month Cloud VPS 4). The page shows no free tier, so it does not support a free_tier.stated value.\n- compute/contabo $.free_tier.stated: Quote is on the page, but it is a paid price row (EUR 4.40/month Cloud VPS 4). The page shows no free tier, so it does not support a free_tier.stated value.\n- compute/digitalocean $.free_tier.stated: The 90 days appears only as a hypothetical ('For example, if you received a $5 credit for 90 days'); the FAQ gives no fixed offer terms, so the sentence does not state the free-tier offer.\n- compute/digitalocean $.free_tier.stated: The 90 days appears only as a hypothetical ('For example, if you received a $5 credit for 90 days'); the FAQ gives no fixed offer terms, so the sentence does not state the free-tier offer.",
+ "scope": {
+  "rids": [
+   "compute/amazon-web-services-free-tier",
+   "compute/contabo",
+   "compute/digitalocean",
+   "compute/fly-io",
+   "compute/ibm-cloud"
+  ]
+ },
+ "origin": "audit u348 of 20261125-0107-research-compute-5c82/u293 failed: 4 of 10 unsupported",
+ "created": "2026-11-25T15:16:11Z",
+ "queue_files": [
+  "queue/20261125-0107-research-compute-5c82-u97-rerun.json"
+ ]
+}

@@ -1,0 +1,148 @@
+{
+  "topic": "compute",
+  "slug": "gmi-cloud-on-demand-gpu",
+  "provider": "GMI Cloud",
+  "url": "https://www.gmicloud.ai/en/pricing",
+  "category": "GPU cloud",
+  "tier": "On-demand NVIDIA H100",
+  "free_tier": {
+    "stated": "no free tier published on the GPU pricing page: NVIDIA H100 GPUs are from USD 2.60/GPU-hour, H200 from USD 3.20, B200 from USD 5.00 and GB200 from USD 8.00; the terms say prepaid Account Credits are topped up by the customer and that Free Credits are granted only at the company's discretion, with no amount published",
+    "unit": "none",
+    "metered_on": "none",
+    "source_url": "https://www.gmicloud.ai/en/pricing",
+    "read_on": "2026-11-25",
+    "notes": "none-published; a separate cohort programme is recorded in compute/gmi-cloud-scale"
+  },
+  "per_object_cap": {
+    "stated": "not applicable: the unit is a dedicated GPU machine, not an object",
+    "bytes": null,
+    "source_url": "https://www.gmicloud.ai/en/pricing"
+  },
+  "retention": {
+    "stated": "not published on the pricing page read: no retention period for GPU machine state is stated",
+    "days": null,
+    "source_url": "https://www.gmicloud.ai/en/pricing"
+  },
+  "egress": {
+    "terms": "not published on the page read: no egress allowance or price is stated; the billing docs say storage and networking rates are shown on the relevant resource page in the console at allocation time",
+    "metered": false,
+    "free_allowance": null,
+    "price_per_tb": null,
+    "source_url": "https://docs.gmicloud.ai/inference-engine/billing/price"
+  },
+  "interface": [
+    "rest",
+    "cli"
+  ],
+  "interface_detail": "a console and a documented REST API; sandboxes are created through POST /v1/containers and Agentbox compute is billed per second while a sandbox runs",
+  "tooling": "the GMI Cloud console and API; Agentbox runs containerized agents with a REST endpoint per instance, and the docs document an OpenAI-compatible API for models",
+  "chaining": "dedicated H100, H200, B200 and GB200 capacity for training, fine-tuning and production inference; Agentbox adds hosted container sandboxes whose compute bills per second, with the live hourly rate shown in the console's Live Cost Estimate. This is a hosted offer, not self-hosted software. Free Credits are discretionary and unpublished, so the published entry is paid GPU time.",
+  "limits": [
+    {
+      "kind": "volume-quota",
+      "value": "no published free GPU-hour allowance: usage deducts from Account Credits that the customer must prepay, and the docs say access may be suspended when credits are insufficient",
+      "source": "https://console.gmicloud.ai/terms-of-service"
+    }
+  ],
+  "limits_note": "GB300 is pre-order and Vera Rubin NVL72 is contact-sales-only; B200 has limited availability. H100, H200 and GB200 are available on demand. The Agentbox sandbox rate is shown in the console at launch rather than on a public price page.",
+  "binding": "volume-quota",
+  "binding_note": "the absence of a published free allowance and the prepaid credit requirement bind first: the first GPU hour must be paid from Account Credits, and no free amount is stated.",
+  "identity_cost": {
+    "kind": "email",
+    "detail": "unverified: the console signup page at https://console.gmicloud.ai/?auth=signup answered with a reCAPTCHA challenge on 2026-11-25 through the default read and four pinned read providers (jina, firecrawl, cfbr and browserless), so the registration fields could not be read; an account and prepaid Account Credits are required, and the terms confirm discretionary Free Credits but name no signup fields. The kind email is the nearest vocabulary term; the exact fields are unverified: behind a sign-up challenge",
+    "country": null
+  },
+  "reliability_note": "the terms allow the company to suspend or terminate access with or without cause and give no GPU uptime guarantee; a GPU pricing page claims predictable costs with no hidden fees, throttling or unexpected constraints.",
+  "confidence": "documented",
+  "confidence_note": "GPU rates and availability are quoted from the vendor's own pricing page read on 2026-11-25; the prepaid credit model is quoted from the console terms of service; the Agentbox per-second metering is quoted from the vendor documentation and its own blog.",
+  "evidence": [
+    {
+      "url": "https://www.gmicloud.ai/en/pricing",
+      "date": "2026-11-25",
+      "proved": "the on-demand H100 rate is from USD 2.60 per GPU-hour",
+      "capture": "sha256:c5e06c9eed0a6b2286426cefdbbc1b5c92e96ad8c2dfd7f826b16f0fbfde460a",
+      "quote": "### NVIDIA H100 GPU\n\nfrom $2.60/GPU-hour"
+    },
+    {
+      "url": "https://www.gmicloud.ai/en/pricing",
+      "date": "2026-11-25",
+      "proved": "H200 is USD 3.20, B200 is USD 5.00 and GB200 is USD 8.00 per GPU-hour",
+      "capture": "sha256:c5e06c9eed0a6b2286426cefdbbc1b5c92e96ad8c2dfd7f826b16f0fbfde460a",
+      "quote": "### NVIDIA H200\n\nfrom $3.20/GPU-hour"
+    },
+    {
+      "url": "https://docs.gmicloud.ai/agentbox-marketplace/overview",
+      "date": "2026-11-25",
+      "proved": "Agentbox compute bills per second while a sandbox runs and the hourly rate is shown only in the console at launch",
+      "capture": "sha256:e0d4fa3e468d2a1f7fa9a5919467bbf766f7939b6f2d017d168b5eabbbdcd217",
+      "quote": "| Compute | Per second while a sandbox is running, once you launch one. The hourly rate is shown in the **Live Cost Estimate** when you launch. |"
+    },
+    {
+      "url": "https://www.gmicloud.ai/en/blog/agentbox-is-live-the-whole-stack-for-production-ai-agents-in-one-place",
+      "date": "2026-11-25",
+      "proved": "Agentbox pricing is usage-based per second of compute, with listing free to start",
+      "capture": "sha256:230c5a3206805c3d3fde9aafa81d5f4801ae48b4d2b5c803d7939e8b72926f50",
+      "quote": "Pricing is usage-based: you pay per second of compute your agent uses, and listing is free to start."
+    },
+    {
+      "url": "https://www.gmicloud.ai/en/blog/document-processing-agents-gemini-3-8-flash-isolated-runtime",
+      "date": "2026-11-25",
+      "proved": "GMI's own worked comparison prices 10 agents at 2 vCPU and 4 GiB running 730 hours at USD 432 a month, about USD 0.06 per container-hour",
+      "capture": "sha256:cc7b6bd44c5635f6deb592cf72fee8a6412bbbdf204e2aaf2fc96a4af35ea864",
+      "quote": "The Agentbox page prices compute through a worked comparison: $432 a month for 10 agents at 2 vCPU and 4 GiB running 730 hours, or about $0.06 per container-hour."
+    },
+    {
+      "url": "https://console.gmicloud.ai/terms-of-service",
+      "date": "2026-11-25",
+      "proved": "usage deducts from prepaid Account Credits that the customer tops up",
+      "capture": "sha256:08186acb5391a4d68c83936c42c6dfdd57fec5a68a868b7f212f70bff7ae1746",
+      "quote": "Client shall prepay fees by adding funds to its account balance (“Account Credits”) via the Site."
+    },
+    {
+      "url": "https://console.gmicloud.ai/terms-of-service",
+      "date": "2026-11-25",
+      "proved": "Free Credits are discretionary and have no published amount",
+      "capture": "sha256:08186acb5391a4d68c83936c42c6dfdd57fec5a68a868b7f212f70bff7ae1746",
+      "quote": "From time to time, Company may, in its sole discretion, grant Client promotional, bonus, or complimentary credits at no charge (“Free Credits”)."
+    },
+    {
+      "url": "https://console.gmicloud.ai/?auth=signup",
+      "date": "2026-11-25",
+      "proved": "the console signup page shows a reCAPTCHA challenge instead of its registration fields",
+      "capture": "sha256:5839e80afa0245552520ca4d7326d0168236ca32f4fea812874ef6cbb230d237",
+      "quote": "Recaptcha requires verification."
+    }
+  ],
+  "verdict": "paid-only",
+  "verified_at": "2026-11-25T02:12:34.878Z",
+  "notes": "This record prices the on-demand H100 GPU capacity at USD 2.60/GPU-hour; compute/gmi-cloud-scale already exists for the separate equity-free cohort programme, which has different terms. The provider list's USD 0.17/hour Agentbox figure could not be verified: the Agentbox docs quote the rate only in the console at launch, and GMI's own worked example prices a 2 vCPU/4 GiB container at about USD 0.06/hour from a USD 432/month planning figure. The signup identity fields are behind a reCAPTCHA challenge that all tried routes could not pass.",
+  "extras": {
+    "shape": {
+      "vcpu": null,
+      "ram_gib": null,
+      "disk_gib": null,
+      "gpu_class": "NVIDIA H100 (also H200, B200, GB200)",
+      "gpu_count": null,
+      "note": "dedicated NVIDIA GPUs in GMI-operated data centers; Agentbox containers are 2 vCPU, 4 GB RAM, 10 GiB ephemeral and 30 GiB data storage"
+    },
+    "billing_model": "on-demand GPU-hour, prepaid Account Credits; Agentbox sandbox compute per second",
+    "free_tier_kind": "none-published",
+    "term": "on-demand or reserved capacity",
+    "price_arithmetic": "USD 432/month ÷ (10 agents × 730 hours) = USD 0.0592 per container-hour, the planning rate GMI quotes as about USD 0.06",
+    "status": "H100, H200 and GB200 available; B200 limited availability; GB300 pre-order; Vera Rubin NVL72 contact sales",
+    "network_out": {
+      "allow_outbound": true,
+      "allow_inbound_listen": null,
+      "ports": "not published",
+      "static_ip": null,
+      "ipv6": null,
+      "per_session_bytes": null
+    },
+    "session_cap": {
+      "wall_clock_min": null,
+      "idle_reap_s": null,
+      "restart_required": false,
+      "note": "no session cap published for dedicated GPUs; Agentbox containers bill for their full lifetime until the client calls DELETE"
+    }
+  }
+}

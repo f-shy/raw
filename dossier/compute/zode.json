@@ -1,339 +1,398 @@
 {
-  "topic": "compute",
-  "slug": "zode",
-  "provider": "Zode",
-  "url": "https://docs.zode.dev/pricing.md",
-  "category": "sandbox",
-  "tier": "Free",
-  "free_tier": {
-    "stated": "USD 10 of one-time credit with no card to start, about 440 hours of a small sandbox (2 vCPU, 4 GB RAM, 50 GB disk) at USD 0.0175 an hour.",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://docs.zode.dev/pricing.md",
-    "read_on": "2026-11-24",
-    "notes": "A Personal workspace holds the credit from signup. A team workspace starts at USD 0 and receives its USD 10 when its first card is saved. A one-time 7-day Pro trial is available in Billing without a card."
+ "topic": "compute",
+ "slug": "zode",
+ "provider": "Zode",
+ "url": "https://docs.zode.dev/pricing",
+ "category": "VM sandbox",
+ "tier": "Free plan / pay-as-you-go",
+ "free_tier": {
+  "stated": "USD 10 one-time credit with no card to start, with 2 sandboxes running at once; a 7-day Pro trial needs no card. Stopped sandboxes cost nothing for compute and storage is free for the first 48 hours of every sandbox.",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://docs.zode.dev/pricing",
+  "read_on": "2026-11-25",
+  "notes": "A personal workspace gets the USD 10 from sign-up; a team workspace starts with USD 0 and gets its credit when its first card is saved. Storage after 48 hours is USD 0.10 per GB-month of disk size."
+ },
+ "per_object_cap": {
+  "stated": "The small sandbox has 50 GB of disk, medium 50 GB, large 110 GB and xlarge 250 GB; no larger published disk size exists.",
+  "bytes": null,
+  "source_url": "https://docs.zode.dev/pricing"
+ },
+ "retention": {
+  "stated": "Storage is free for the first 48 hours of every sandbox, then USD 0.10 per GB-month until the sandbox is deleted; stopping a sandbox ends its compute charge but not its storage charge. A sandbox with no card and zero credit has its running sandboxes stopped within about 15 minutes.",
+  "days": 2,
+  "source_url": "https://docs.zode.dev/pricing"
+ },
+ "egress": {
+  "terms": "The docs describe outbound network use and a private mesh with security groups, but publish no egress allowance or per-GB price. The homepage states 'Egress and AI keys: $0'.",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://zode.dev/"
+ },
+ "interface": [
+  "cli",
+  "rest",
+  "chat"
+ ],
+ "interface_detail": "A zode CLI and SDK plus a REST API with a GET /v1/usage endpoint; MCP sandbox_create is documented, and an AI chat agent runs in the sandbox. A Linux desktop is available on paid plans and fails with plan_required on Free.",
+ "tooling": "zode CLI with new, cost and sandbox commands; SDKs; REST API; MCP server.",
+ "chaining": "Sandboxes run on the same machines as Zode CI and can be forked and snapshotted; a workspace can cap daily spend, and AI provider keys stay on the user's own accounts with no markup.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "USD 10 one-time free credit on sign-up, plus 2 sandboxes running at once on Free",
+   "source": "https://docs.zode.dev/pricing"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a sandbox, not a stored object",
-    "source_url": "https://docs.zode.dev/pricing.md"
+  {
+   "kind": "volume-quota",
+   "value": "USD 0.00875 per vCPU-hour; USD 0.0175 an hour for 2 vCPU / 4 GB",
+   "source": "https://docs.zode.dev/pricing"
   },
-  "retention": {
-    "stated": "A stopped sandbox keeps its disk and memory; storage is free for the first 48 hours, then USD 0.10 per GB-month until the sandbox is deleted. Deleting removes the sandbox, its disk and its snapshots.",
-    "days": 2,
-    "source_url": "https://docs.zode.dev/pricing.md",
-    "notes": "The 48-hour figure is a storage-charge threshold, not automatic deletion."
-  },
-  "egress": {
-    "terms": "Egress and AI keys are stated at USD 0. Outbound traffic runs through the public internet or a private mesh (Tailscale, Headscale or NetBird) with security groups; metadata and SMTP are never reachable. No per-GB egress price or allowance is published.",
-    "metered": false,
-    "free_allowance": "unmetered outbound traffic at USD 0",
-    "price_per_tb": null,
-    "source_url": "https://zode.dev/"
-  },
-  "interface": [
-    "cli",
-    "rest",
-    "ssh",
-    "browser"
-  ],
-  "interface_detail": "The zode CLI, a TypeScript SDK, the HTTP API at https://api.zode.dev and an MCP server; Chrome over CDP and a Linux desktop on Pro and above.",
-  "endpoint": "https://api.zode.dev/v1/sandboxes",
-  "tooling": "curl -fsSL https://zode.dev/install | sh installs the zode CLI; npm i @zodedev/sdk for Node 22 and later; REST API and MCP server.",
-  "chaining": "A coding agent gets its own microVM through the CLI or MCP, forks it for parallel attempts and runs CI on the same machines.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "2 sandboxes running at once on Free",
-      "source": "https://docs.zode.dev/pricing.md"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "USD 10 one-time credit, after which a workspace with no card cannot create, fork or start sandboxes",
-      "source": "https://docs.zode.dev/pricing.md"
-    },
-    {
-      "kind": "request-rate",
-      "value": "buffered commands: 30 seconds by default, 55 seconds at most, 16 KB of command",
-      "source": "https://docs.zode.dev/concepts/sandboxes.md"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "storage free for the first 48 hours, then USD 0.10 per GB-month until delete",
-      "source": "https://docs.zode.dev/pricing.md"
-    }
-  ],
-  "limits_note": "Compute is billed per second at USD 0.00875 per vCPU-hour. A workspace can set a per-day spend cap; the Free plan's automatic sizing ceiling is medium.",
-  "binding": "volume-quota",
-  "binding_note": "The USD 10 one-time credit and the two-sandbox concurrency cap bind first: without a card, credit exhaustion blocks new sandboxes and stops running ones about 15 minutes later.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "An account is needed and the console offers Google, GitHub, a one-time email link and a password of at least ten characters; signup requires a permanent email address and rejects throwaway inboxes. The Free credit needs no card; a card or credit purchase is required once it runs out.",
-    "country": null
-  },
-  "reliability_note": "Sandboxes run in one region (Belgium); a stopped sandbox restarts on the same host and start fails with HTTP 409 node_full if that host has no free memory. Without a card, credit exhaustion stops running sandboxes within about 15 minutes.",
-  "confidence": "documented",
-  "confidence_note": "Rates, caps, egress terms and the signup routes are quoted from first-party pages read on 2026-11-24; the identity fields come from the console's own JavaScript.",
-  "evidence": [
-    {
-      "url": "https://zode.dev/",
-      "date": "2026-11-24",
-      "capture": "sha256:7f830f5c9fc55ee73484934fd048566ef72afb47f308738d9d9fa7785280826b",
-      "quote": "$10 free. No card.",
-      "proved": "the landing page offers USD 10 free with no card"
-    },
-    {
-      "url": "https://zode.dev/",
-      "date": "2026-11-24",
-      "capture": "sha256:7f830f5c9fc55ee73484934fd048566ef72afb47f308738d9d9fa7785280826b",
-      "quote": "From $0.0175 an hour. Billed per second.",
-      "proved": "the smallest VM starts at USD 0.0175 an hour billed per second"
-    },
-    {
-      "url": "https://zode.dev/",
-      "date": "2026-11-24",
-      "capture": "sha256:7f830f5c9fc55ee73484934fd048566ef72afb47f308738d9d9fa7785280826b",
-      "quote": "Egress and AI keys: $0",
-      "proved": "egress and AI keys carry no charge"
-    },
-    {
-      "url": "https://zode.dev/",
-      "date": "2026-11-24",
-      "capture": "sha256:7f830f5c9fc55ee73484934fd048566ef72afb47f308738d9d9fa7785280826b",
-      "quote": "Disk is free for 48 hours, then $0.10 per GB a month.",
-      "proved": "disk storage is free for 48 hours then USD 0.10 per GB-month"
-    },
-    {
-      "url": "https://zode.dev/",
-      "date": "2026-11-24",
-      "capture": "sha256:7f830f5c9fc55ee73484934fd048566ef72afb47f308738d9d9fa7785280826b",
-      "quote": "A private network, on your mesh. Shut by default.",
-      "proved": "private networking is available and shut by default"
-    },
-    {
-      "url": "https://zode.dev/",
-      "date": "2026-11-24",
-      "capture": "sha256:7f830f5c9fc55ee73484934fd048566ef72afb47f308738d9d9fa7785280826b",
-      "quote": "Metadata and SMTP never reachable",
-      "proved": "metadata and SMTP are unreachable from a sandbox"
-    },
-    {
-      "url": "https://zode.dev/",
-      "date": "2026-11-24",
-      "capture": "sha256:7f830f5c9fc55ee73484934fd048566ef72afb47f308738d9d9fa7785280826b",
-      "quote": "CLI, SDK, REST and MCP",
-      "proved": "the platform is driven from a CLI, SDK, REST and MCP"
-    },
-    {
-      "url": "https://docs.zode.dev/pricing.md",
-      "date": "2026-11-24",
-      "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
-      "quote": "Compute costs **\\$0.00875 per vCPU-hour**, billed per second while a sandbox is running.",
-      "proved": "compute is USD 0.00875 per vCPU-hour billed per second while running"
-    },
-    {
-      "url": "https://docs.zode.dev/pricing.md",
-      "date": "2026-11-24",
-      "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
-      "quote": "$10 one-time credit, no card to start",
-      "proved": "the Free plan gives a one-time USD 10 credit with no card"
-    },
-    {
-      "url": "https://docs.zode.dev/pricing.md",
-      "date": "2026-11-24",
-      "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
-      "quote": "Sandboxes running at once | 2 | 15",
-      "proved": "Free runs at most two sandboxes at once and Pro fifteen"
-    },
-    {
-      "url": "https://docs.zode.dev/pricing.md",
-      "date": "2026-11-24",
-      "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
-      "quote": "| small | 2 | 4 GB | 50 GB | \\$0.0175 | \\$0.14 |",
-      "proved": "the small size is 2 vCPU, 4 GB RAM and 50 GB disk at USD 0.0175 an hour"
-    },
-    {
-      "url": "https://docs.zode.dev/pricing.md",
-      "date": "2026-11-24",
-      "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
-      "quote": "Storage is free for the first 48 hours of every sandbox, forks included. After that it costs **\\$0.10 per GB-month**",
-      "proved": "storage is free for 48 hours then USD 0.10 per GB-month"
-    },
-    {
-      "url": "https://docs.zode.dev/pricing.md",
-      "date": "2026-11-24",
-      "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
-      "quote": "Your Personal workspace has it from sign-up, with no card.",
-      "proved": "the Free credit is held by the Personal workspace from signup without a card"
-    },
-    {
-      "url": "https://docs.zode.dev/pricing.md",
-      "date": "2026-11-24",
-      "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
-      "quote": "cannot create, fork or start sandboxes. Those calls fail with HTTP 402 credit_exhausted",
-      "proved": "a workspace without a card and with no credit cannot create or start sandboxes"
-    },
-    {
-      "url": "https://docs.zode.dev/pricing.md",
-      "date": "2026-11-24",
-      "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
-      "quote": "a daily cap in **Billing**",
-      "proved": "a per-workspace daily spend cap can be set"
-    },
-    {
-      "url": "https://docs.zode.dev/quickstart.md",
-      "date": "2026-11-24",
-      "capture": "sha256:a52eb9239b30acd255c39a9c34143d030642e56848bf47f12f0140ccb6f3faef",
-      "quote": "You need a Zode account and a Linux or macOS machine (amd64 or arm64).",
-      "proved": "using Zode needs an account and a Linux or macOS machine"
-    },
-    {
-      "url": "https://docs.zode.dev/quickstart.md",
-      "date": "2026-11-24",
-      "capture": "sha256:a52eb9239b30acd255c39a9c34143d030642e56848bf47f12f0140ccb6f3faef",
-      "quote": "Your Personal workspace starts with $10 of free credit, no card needed: about 440 hours of a `small` sandbox.",
-      "proved": "the personal workspace's USD 10 credit buys about 440 hours of a small sandbox and needs no card"
-    },
-    {
-      "url": "https://docs.zode.dev/quickstart.md",
-      "date": "2026-11-24",
-      "capture": "sha256:a52eb9239b30acd255c39a9c34143d030642e56848bf47f12f0140ccb6f3faef",
-      "quote": "Install the zode CLI, make a sandbox, run a command in it, fork it, then do the same from TypeScript or curl.",
-      "proved": "the CLI, TypeScript SDK and HTTP API drive sandboxes"
-    },
-    {
-      "url": "https://docs.zode.dev/quickstart.md",
-      "date": "2026-11-24",
-      "capture": "sha256:a52eb9239b30acd255c39a9c34143d030642e56848bf47f12f0140ccb6f3faef",
-      "quote": "The Free plan runs at most 2 sandboxes at once.",
-      "proved": "the Free plan's concurrency cap is two sandboxes"
-    },
-    {
-      "url": "https://console.zode.dev/assets/index-8YHvxzjY.js",
-      "date": "2026-11-24",
-      "capture": "sha256:0c40aa062015eaab452c4c00512f8760f8dfca605d25e6534786bd1a594b936d",
-      "quote": "Create your Zode account",
-      "proved": "the console has an account creation form"
-    },
-    {
-      "url": "https://console.zode.dev/assets/index-8YHvxzjY.js",
-      "date": "2026-11-24",
-      "capture": "sha256:0c40aa062015eaab452c4c00512f8760f8dfca605d25e6534786bd1a594b936d",
-      "quote": "Sign up with Google",
-      "proved": "Google signup is offered"
-    },
-    {
-      "url": "https://console.zode.dev/assets/index-8YHvxzjY.js",
-      "date": "2026-11-24",
-      "capture": "sha256:0c40aa062015eaab452c4c00512f8760f8dfca605d25e6534786bd1a594b936d",
-      "quote": "Sign up with GitHub",
-      "proved": "GitHub signup is offered"
-    },
-    {
-      "url": "https://console.zode.dev/assets/index-8YHvxzjY.js",
-      "date": "2026-11-24",
-      "capture": "sha256:0c40aa062015eaab452c4c00512f8760f8dfca605d25e6534786bd1a594b936d",
-      "quote": "Email me a link instead",
-      "proved": "a one-time email link is offered as a sign-in route"
-    },
-    {
-      "url": "https://console.zode.dev/assets/index-8YHvxzjY.js",
-      "date": "2026-11-24",
-      "capture": "sha256:0c40aa062015eaab452c4c00512f8760f8dfca605d25e6534786bd1a594b936d",
-      "quote": "Password, 10 characters or more",
-      "proved": "a password route requires at least ten characters"
-    },
-    {
-      "url": "https://console.zode.dev/assets/index-8YHvxzjY.js",
-      "date": "2026-11-24",
-      "capture": "sha256:0c40aa062015eaab452c4c00512f8760f8dfca605d25e6534786bd1a594b936d",
-      "quote": "Use a permanent email address. Throwaway inboxes cannot sign up.",
-      "proved": "signup requires a permanent email address"
-    },
-    {
-      "url": "https://docs.zode.dev/concepts/sandboxes.md",
-      "date": "2026-11-24",
-      "capture": "sha256:3ee36a11ebceeec43c912b84c37b8f17c05d90cdab4b21f066a2262652edeb84",
-      "quote": "A sandbox is one microVM with its own kernel, disk and memory.",
-      "proved": "each sandbox is an isolated microVM"
-    },
-    {
-      "url": "https://docs.zode.dev/concepts/sandboxes.md",
-      "date": "2026-11-24",
-      "capture": "sha256:3ee36a11ebceeec43c912b84c37b8f17c05d90cdab4b21f066a2262652edeb84",
-      "quote": "It runs Ubuntu 24.04 with Docker",
-      "proved": "the sandbox image is Ubuntu with Docker"
-    },
-    {
-      "url": "https://docs.zode.dev/concepts/sandboxes.md",
-      "date": "2026-11-24",
-      "capture": "sha256:3ee36a11ebceeec43c912b84c37b8f17c05d90cdab4b21f066a2262652edeb84",
-      "quote": "30 seconds by default and 55 seconds at most (`timeout_ms`), 16 KB of command",
-      "proved": "buffered commands are capped at 55 seconds and 16 KB"
-    },
-    {
-      "url": "https://docs.zode.dev/concepts/sandboxes.md",
-      "date": "2026-11-24",
-      "capture": "sha256:3ee36a11ebceeec43c912b84c37b8f17c05d90cdab4b21f066a2262652edeb84",
-      "quote": "A stopped sandbox starts again on the same host.",
-      "proved": "a stopped sandbox restarts on the same host"
-    },
-    {
-      "url": "https://docs.zode.dev/concepts/spend-and-caps.md",
-      "date": "2026-11-24",
-      "capture": "sha256:3bf8f75ec86f57dd14397ce6145d4e86c69287c8c82f68247b2a196dd23ec589",
-      "quote": "Compute accrues per vCPU-hour, only while the sandbox is running",
-      "proved": "compute accrues only while the sandbox runs"
-    },
-    {
-      "url": "https://docs.zode.dev/concepts/spend-and-caps.md",
-      "date": "2026-11-24",
-      "capture": "sha256:3bf8f75ec86f57dd14397ce6145d4e86c69287c8c82f68247b2a196dd23ec589",
-      "quote": "Storage is free for the first 48 hours of every sandbox, forks included.",
-      "proved": "storage is free for the first 48 hours"
-    },
-    {
-      "url": "https://docs.zode.dev/concepts/spend-and-caps.md",
-      "date": "2026-11-24",
-      "capture": "sha256:3bf8f75ec86f57dd14397ce6145d4e86c69287c8c82f68247b2a196dd23ec589",
-      "quote": "With a card, nothing stops.",
-      "proved": "a card keeps sandboxes running when credit runs out"
-    },
-    {
-      "url": "https://docs.zode.dev/llms.txt",
-      "date": "2026-11-24",
-      "capture": "sha256:a7a628f1b5a2f1904b2cac3a8e666a9004c41a6a08e165310fcaac9df381568e",
-      "quote": "Linux VMs for coding agents. Start a sandbox",
-      "proved": "Zode offers Linux VMs for coding agents"
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:15.148Z",
-  "price_per_tb_month": null,
-  "notes": "The Free plan is one-time USD 10 credit with no card; Pro is USD 20 a month with USD 20 of included usage and fifteen concurrent sandboxes. Egress is stated at USD 0; the storage charge after 48 hours is the metered cost.",
-  "extras": {
-    "shape": {
-      "vcpu": 2,
-      "ram_gib": 4,
-      "disk_gib": 50,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "Ubuntu 24.04 microVM with Docker; four sizes from 2 vCPU to 16 vCPU"
-    },
-    "billing_model": "per-second vCPU-hour billing against one-time credit or monthly included usage",
-    "free_tier_kind": "one-time credit",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "port previews served at an https URL on zode.run; private, password-protected or public",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "no wall-clock session cap; a stopped sandbox keeps disk and memory"
-    }
+  {
+   "kind": "volume-quota",
+   "value": "USD 0.10 per GB-month of disk size from 48 hours after create",
+   "source": "https://docs.zode.dev/pricing"
   }
+ ],
+ "limits_note": "Free plan ceiling is medium for automatic sizing and 3 custom images kept; the desktop needs Pro. A workspace daily cap can refuse creates, forks and starts with daily_cap_reached, and no-card workspaces with zero credit cannot create after credit runs out.",
+ "binding": "volume-quota",
+ "binding_note": "The one-time USD 10 credit is what runs out first: at USD 0.0175 an hour it is 571 hours of a small sandbox, before the 2-at-once concurrency limit or the storage charge after 48 hours.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "unverified: no captured or fresh first-party page names the sign-up or sign-in method; the CLI quickstart says only 'zode login opens your browser and prints a code' and the console renders only its page metadata, so the exact registration fields are unverified: behind a sign-up. A personal workspace starts with USD 10 and no card; adding a card is needed to continue past zero credit. The terms set an 18-year minimum age but name no phone or ID document.",
+  "country": null
+ },
+ "reliability_note": "A workspace with no card and zero credit has running sandboxes stopped within about 15 minutes; after the 48-hour storage grace period a deleted or stopped sandbox still incurs storage charges until deletion. The service is in early access and features, limits and prices may change. No page read states the registration identity.",
+ "confidence": "documented",
+ "confidence_note": "The rate card, free credit, storage rule, plan limits and account behaviour were read from the first-party docs pricing page today. No page read states the sign-in method, so identity_cost.kind is a defaulted placeholder with an unverified detail; the signup form was not readable.",
+ "evidence": [
+  {
+   "url": "https://docs.zode.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "compute is USD 0.00875 per vCPU-hour billed per second",
+   "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
+   "quote": "Compute costs **\\$0.00875 per vCPU-hour**, billed per second while a sandbox is running."
+  },
+  {
+   "url": "https://docs.zode.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "storage is free for 48 hours then USD 0.10 per GB-month",
+   "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
+   "quote": "Storage is free for the first 48 hours of every sandbox, forks included."
+  },
+  {
+   "url": "https://docs.zode.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "the free plan grants USD 10 one-time credit with no card",
+   "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
+   "quote": "\\$10 one-time credit, no card to start"
+  },
+  {
+   "url": "https://docs.zode.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "a no-card workspace needs credit or a card to keep creating sandboxes, and running sandboxes stop within about 15 minutes when credit runs out",
+   "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
+   "quote": "has its running sandboxes stopped within about 15 minutes"
+  },
+  {
+   "url": "https://docs.zode.dev/pricing",
+   "date": "2026-11-25",
+   "proved": "the Free plan runs at most 2 sandboxes at once",
+   "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
+   "quote": "Your free plan runs at most 2 sandboxes at once"
+  },
+  {
+   "url": "https://zode.dev/",
+   "date": "2026-11-25",
+   "proved": "the homepage states egress and AI keys cost zero and the small sandbox is USD 0.0175 an hour billed per second",
+   "capture": "sha256:7f830f5c9fc55ee73484934fd048566ef72afb47f308738d9d9fa7785280826b",
+   "quote": "Egress and AI keys: $0. Disk is free for 48 hours, then $0.10 per GB a month."
+  },
+  {
+   "url": "https://zode.dev/",
+   "date": "2026-11-25",
+   "proved": "a personal workspace starts with USD 10 free and no card",
+   "capture": "sha256:7f830f5c9fc55ee73484934fd048566ef72afb47f308738d9d9fa7785280826b",
+   "quote": "$10 free. No card."
+  },
+  {
+   "url": "https://zode.dev/terms",
+   "date": "2026-11-25",
+   "proved": "the account terms require users to be 18 or old enough to agree where they live",
+   "capture": "sha256:c8c81fbd486ec21db6129c4c38c642cc1ec1f00c6b6f959f9682e37928a1b215",
+   "quote": "You must be at least 18, or old enough to agree to these terms where you live."
+  },
+  {
+   "url": "https://docs.zode.dev/quickstart",
+   "date": "2026-11-25",
+   "proved": "the documented login is a browser device-code flow and names no email, phone or card sign-in method",
+   "capture": "sha256:a52eb9239b30acd255c39a9c34143d030642e56848bf47f12f0140ccb6f3faef",
+   "quote": "`zode login` opens your browser and prints a code. Confirm the code in the browser, and the CLI saves an API key for that workspace."
+  },
+  {
+   "url": "https://zode.dev/",
+   "date": "2026-11-24",
+   "capture": "sha256:7f830f5c9fc55ee73484934fd048566ef72afb47f308738d9d9fa7785280826b",
+   "quote": "$10 free. No card.",
+   "proved": "the landing page offers USD 10 free with no card"
+  },
+  {
+   "url": "https://zode.dev/",
+   "date": "2026-11-24",
+   "capture": "sha256:7f830f5c9fc55ee73484934fd048566ef72afb47f308738d9d9fa7785280826b",
+   "quote": "From $0.0175 an hour. Billed per second.",
+   "proved": "the smallest VM starts at USD 0.0175 an hour billed per second"
+  },
+  {
+   "url": "https://zode.dev/",
+   "date": "2026-11-24",
+   "capture": "sha256:7f830f5c9fc55ee73484934fd048566ef72afb47f308738d9d9fa7785280826b",
+   "quote": "Egress and AI keys: $0",
+   "proved": "egress and AI keys carry no charge"
+  },
+  {
+   "url": "https://zode.dev/",
+   "date": "2026-11-24",
+   "capture": "sha256:7f830f5c9fc55ee73484934fd048566ef72afb47f308738d9d9fa7785280826b",
+   "quote": "Disk is free for 48 hours, then $0.10 per GB a month.",
+   "proved": "disk storage is free for 48 hours then USD 0.10 per GB-month"
+  },
+  {
+   "url": "https://zode.dev/",
+   "date": "2026-11-24",
+   "capture": "sha256:7f830f5c9fc55ee73484934fd048566ef72afb47f308738d9d9fa7785280826b",
+   "quote": "A private network, on your mesh. Shut by default.",
+   "proved": "private networking is available and shut by default"
+  },
+  {
+   "url": "https://zode.dev/",
+   "date": "2026-11-24",
+   "capture": "sha256:7f830f5c9fc55ee73484934fd048566ef72afb47f308738d9d9fa7785280826b",
+   "quote": "Metadata and SMTP never reachable",
+   "proved": "metadata and SMTP are unreachable from a sandbox"
+  },
+  {
+   "url": "https://zode.dev/",
+   "date": "2026-11-24",
+   "capture": "sha256:7f830f5c9fc55ee73484934fd048566ef72afb47f308738d9d9fa7785280826b",
+   "quote": "CLI, SDK, REST and MCP",
+   "proved": "the platform is driven from a CLI, SDK, REST and MCP"
+  },
+  {
+   "url": "https://docs.zode.dev/pricing.md",
+   "date": "2026-11-24",
+   "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
+   "quote": "Compute costs **\\$0.00875 per vCPU-hour**, billed per second while a sandbox is running.",
+   "proved": "compute is USD 0.00875 per vCPU-hour billed per second while running"
+  },
+  {
+   "url": "https://docs.zode.dev/pricing.md",
+   "date": "2026-11-24",
+   "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
+   "quote": "$10 one-time credit, no card to start",
+   "proved": "the Free plan gives a one-time USD 10 credit with no card"
+  },
+  {
+   "url": "https://docs.zode.dev/pricing.md",
+   "date": "2026-11-24",
+   "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
+   "quote": "Sandboxes running at once | 2 | 15",
+   "proved": "Free runs at most two sandboxes at once and Pro fifteen"
+  },
+  {
+   "url": "https://docs.zode.dev/pricing.md",
+   "date": "2026-11-24",
+   "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
+   "quote": "| small | 2 | 4 GB | 50 GB | \\$0.0175 | \\$0.14 |",
+   "proved": "the small size is 2 vCPU, 4 GB RAM and 50 GB disk at USD 0.0175 an hour"
+  },
+  {
+   "url": "https://docs.zode.dev/pricing.md",
+   "date": "2026-11-24",
+   "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
+   "quote": "Storage is free for the first 48 hours of every sandbox, forks included. After that it costs **\\$0.10 per GB-month**",
+   "proved": "storage is free for 48 hours then USD 0.10 per GB-month"
+  },
+  {
+   "url": "https://docs.zode.dev/pricing.md",
+   "date": "2026-11-24",
+   "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
+   "quote": "Your Personal workspace has it from sign-up, with no card.",
+   "proved": "the Free credit is held by the Personal workspace from signup without a card"
+  },
+  {
+   "url": "https://docs.zode.dev/pricing.md",
+   "date": "2026-11-24",
+   "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
+   "quote": "cannot create, fork or start sandboxes. Those calls fail with HTTP 402 credit_exhausted",
+   "proved": "a workspace without a card and with no credit cannot create or start sandboxes"
+  },
+  {
+   "url": "https://docs.zode.dev/pricing.md",
+   "date": "2026-11-24",
+   "capture": "sha256:6df29c54422c35f495c54c385d41aa20ac3a7e8690bf08e700cfe06a4464283b",
+   "quote": "a daily cap in **Billing**",
+   "proved": "a per-workspace daily spend cap can be set"
+  },
+  {
+   "url": "https://docs.zode.dev/quickstart.md",
+   "date": "2026-11-24",
+   "capture": "sha256:a52eb9239b30acd255c39a9c34143d030642e56848bf47f12f0140ccb6f3faef",
+   "quote": "You need a Zode account and a Linux or macOS machine (amd64 or arm64).",
+   "proved": "using Zode needs an account and a Linux or macOS machine"
+  },
+  {
+   "url": "https://docs.zode.dev/quickstart.md",
+   "date": "2026-11-24",
+   "capture": "sha256:a52eb9239b30acd255c39a9c34143d030642e56848bf47f12f0140ccb6f3faef",
+   "quote": "Your Personal workspace starts with $10 of free credit, no card needed: about 440 hours of a `small` sandbox.",
+   "proved": "the personal workspace's USD 10 credit buys about 440 hours of a small sandbox and needs no card"
+  },
+  {
+   "url": "https://docs.zode.dev/quickstart.md",
+   "date": "2026-11-24",
+   "capture": "sha256:a52eb9239b30acd255c39a9c34143d030642e56848bf47f12f0140ccb6f3faef",
+   "quote": "Install the zode CLI, make a sandbox, run a command in it, fork it, then do the same from TypeScript or curl.",
+   "proved": "the CLI, TypeScript SDK and HTTP API drive sandboxes"
+  },
+  {
+   "url": "https://docs.zode.dev/quickstart.md",
+   "date": "2026-11-24",
+   "capture": "sha256:a52eb9239b30acd255c39a9c34143d030642e56848bf47f12f0140ccb6f3faef",
+   "quote": "The Free plan runs at most 2 sandboxes at once.",
+   "proved": "the Free plan's concurrency cap is two sandboxes"
+  },
+  {
+   "url": "https://console.zode.dev/assets/index-8YHvxzjY.js",
+   "date": "2026-11-24",
+   "capture": "sha256:0c40aa062015eaab452c4c00512f8760f8dfca605d25e6534786bd1a594b936d",
+   "quote": "Create your Zode account",
+   "proved": "the console has an account creation form"
+  },
+  {
+   "url": "https://console.zode.dev/assets/index-8YHvxzjY.js",
+   "date": "2026-11-24",
+   "capture": "sha256:0c40aa062015eaab452c4c00512f8760f8dfca605d25e6534786bd1a594b936d",
+   "quote": "Sign up with Google",
+   "proved": "Google signup is offered"
+  },
+  {
+   "url": "https://console.zode.dev/assets/index-8YHvxzjY.js",
+   "date": "2026-11-24",
+   "capture": "sha256:0c40aa062015eaab452c4c00512f8760f8dfca605d25e6534786bd1a594b936d",
+   "quote": "Sign up with GitHub",
+   "proved": "GitHub signup is offered"
+  },
+  {
+   "url": "https://console.zode.dev/assets/index-8YHvxzjY.js",
+   "date": "2026-11-24",
+   "capture": "sha256:0c40aa062015eaab452c4c00512f8760f8dfca605d25e6534786bd1a594b936d",
+   "quote": "Email me a link instead",
+   "proved": "a one-time email link is offered as a sign-in route"
+  },
+  {
+   "url": "https://console.zode.dev/assets/index-8YHvxzjY.js",
+   "date": "2026-11-24",
+   "capture": "sha256:0c40aa062015eaab452c4c00512f8760f8dfca605d25e6534786bd1a594b936d",
+   "quote": "Password, 10 characters or more",
+   "proved": "a password route requires at least ten characters"
+  },
+  {
+   "url": "https://console.zode.dev/assets/index-8YHvxzjY.js",
+   "date": "2026-11-24",
+   "capture": "sha256:0c40aa062015eaab452c4c00512f8760f8dfca605d25e6534786bd1a594b936d",
+   "quote": "Use a permanent email address. Throwaway inboxes cannot sign up.",
+   "proved": "signup requires a permanent email address"
+  },
+  {
+   "url": "https://docs.zode.dev/concepts/sandboxes.md",
+   "date": "2026-11-24",
+   "capture": "sha256:3ee36a11ebceeec43c912b84c37b8f17c05d90cdab4b21f066a2262652edeb84",
+   "quote": "A sandbox is one microVM with its own kernel, disk and memory.",
+   "proved": "each sandbox is an isolated microVM"
+  },
+  {
+   "url": "https://docs.zode.dev/concepts/sandboxes.md",
+   "date": "2026-11-24",
+   "capture": "sha256:3ee36a11ebceeec43c912b84c37b8f17c05d90cdab4b21f066a2262652edeb84",
+   "quote": "It runs Ubuntu 24.04 with Docker",
+   "proved": "the sandbox image is Ubuntu with Docker"
+  },
+  {
+   "url": "https://docs.zode.dev/concepts/sandboxes.md",
+   "date": "2026-11-24",
+   "capture": "sha256:3ee36a11ebceeec43c912b84c37b8f17c05d90cdab4b21f066a2262652edeb84",
+   "quote": "30 seconds by default and 55 seconds at most (`timeout_ms`), 16 KB of command",
+   "proved": "buffered commands are capped at 55 seconds and 16 KB"
+  },
+  {
+   "url": "https://docs.zode.dev/concepts/sandboxes.md",
+   "date": "2026-11-24",
+   "capture": "sha256:3ee36a11ebceeec43c912b84c37b8f17c05d90cdab4b21f066a2262652edeb84",
+   "quote": "A stopped sandbox starts again on the same host.",
+   "proved": "a stopped sandbox restarts on the same host"
+  },
+  {
+   "url": "https://docs.zode.dev/concepts/spend-and-caps.md",
+   "date": "2026-11-24",
+   "capture": "sha256:3bf8f75ec86f57dd14397ce6145d4e86c69287c8c82f68247b2a196dd23ec589",
+   "quote": "Compute accrues per vCPU-hour, only while the sandbox is running",
+   "proved": "compute accrues only while the sandbox runs"
+  },
+  {
+   "url": "https://docs.zode.dev/concepts/spend-and-caps.md",
+   "date": "2026-11-24",
+   "capture": "sha256:3bf8f75ec86f57dd14397ce6145d4e86c69287c8c82f68247b2a196dd23ec589",
+   "quote": "Storage is free for the first 48 hours of every sandbox, forks included.",
+   "proved": "storage is free for the first 48 hours"
+  },
+  {
+   "url": "https://docs.zode.dev/concepts/spend-and-caps.md",
+   "date": "2026-11-24",
+   "capture": "sha256:3bf8f75ec86f57dd14397ce6145d4e86c69287c8c82f68247b2a196dd23ec589",
+   "quote": "With a card, nothing stops.",
+   "proved": "a card keeps sandboxes running when credit runs out"
+  },
+  {
+   "url": "https://docs.zode.dev/llms.txt",
+   "date": "2026-11-24",
+   "capture": "sha256:a7a628f1b5a2f1904b2cac3a8e666a9004c41a6a08e165310fcaac9df381568e",
+   "quote": "Linux VMs for coding agents. Start a sandbox",
+   "proved": "Zode offers Linux VMs for coding agents"
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T11:55:06.271Z",
+ "price_per_tb_month": null,
+ "notes": "The rate card is USD 0.00875 per vCPU-hour, so the 2 vCPU / 4 GB small sandbox is USD 0.0175 an hour and the USD 10 credit is 571 hours of that sandbox. Storage is free for 48 hours then USD 0.10 per GB-month of declared disk size, and the homepage states egress and AI keys cost zero. The hosted VM is the offer; the install script in the homepage installs a CLI client, not a self-hosted service.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 4,
+   "disk_gib": 50,
+   "gpu_class": null,
+   "gpu_count": null
+  },
+  "billing_model": "per-second, prepaid credit or invoiced monthly",
+  "free_tier_kind": "one-time-credit",
+  "term": "no monthly fee on Free; Pro is USD 20 a month",
+  "price_arithmetic": "2 x USD 0.00875 = USD 0.0175/hour; USD 10 / USD 0.0175 = 571.4 hours",
+  "status": "live hosted service, early access",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": null,
+   "ports": "not stated; a private mesh and security groups are documented",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "stopping ends compute charges; storage continues after 48 hours until the sandbox is deleted"
+  }
+ },
+ "endpoint": "https://api.zode.dev/v1/sandboxes"
 }

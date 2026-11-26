@@ -5,7 +5,7 @@
   "url": "https://www.savannaa.com/pricing/free-tier",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "750 hours a month of a t2.micro (1 vCPU, 1 GiB RAM, 10 GB SSD) or t3.micro (2 vCPU, 1 GiB RAM, 10 GB SSD) free for the first 12 months in Lagos and Abuja, hours pooled across both types and regions, plus NGN 10,000 of trial credit with no expiry and no payment method needed to start. Egress is not charged until 2026-12-31; from 2027-01-01 the account gets 5 TB a month included, then NGN 15.00 per GB.",
+    "stated": "New accounts get ₦25,000.00 of credit, spent on any resource before your wallet balance. It doesn't expire; when it's used up, usage is charged to your wallet balance (pay-as-you-go). 750 hours a month of t2.micro (1 vCPU · 1 GiB RAM · 10 GB SSD) or t3.micro (2 vCPU · 1 GiB RAM · 10 GB SSD) free for your first 12 months, in Lagos and Abuja — enough to run one micro instance all month. Hours are pooled across both types and regions. Hours beyond 750 in a month, and volumes, public IPs and egress, bill at the rate card. Always free: Not offered yet.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://www.savannaa.com/pricing/free-tier",
@@ -94,10 +94,17 @@
       "url": "https://www.savannaa.com/docs?section=api-reference",
       "date": "2026-10-22",
       "proved": "free-tier API limits: 60 requests a minute with a burst of 10 a second, at NGN 0 a month"
+    },
+    {
+      "url": "https://www.savannaa.com/pricing/free-tier",
+      "date": "2026-11-25",
+      "proved": "the free tier page states the 25,000 naira non-expiring credit, the pooled 750-hour micro allowance for 12 months in Lagos and Abuja, the rate-card exclusions and that an always-free tier is not offered yet",
+      "capture": "sha256:629dd4c5ee34eb41f9eb041f714db4ca8f9fed2d489a5db2c9c39632050375cd",
+      "quote": "New accounts get ₦25,000.00 of credit, spent on any resource before your wallet balance. It doesn't expire; when it's used up, usage is charged to your wallet balance (pay-as-you-go). ... **750 hours a month** of t2.micro (1 vCPU · 1 GiB RAM · 10 GB SSD) or t3.micro (2 vCPU · 1 GiB RAM · 10 GB SSD) free for your first **12 months**, in Lagos and Abuja — enough to run one micro instance all month. ... Hours are pooled across both types and regions. Hours beyond 750 in a month, and volumes, public IPs and egress, bill at the rate card. ... Not offered yet."
     }
   ],
   "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:35.328Z",
   "notes": "This is the closest thing found to an unlisted regional equivalent of the AWS micro free tier, and it is absent from every English roundup checked. The identity gate is unusually light for a regional provider: an email plus a phone number from one of four African countries for recovery, with no card and no national ID stated on the signup page. Two caveats: the hour pool is 12 months only, and the free tier page says 'Always free: Not offered yet', so the operator is explicit that this is introductory. The NGN 10,000 credit converts to roughly USD 7.5 at the published rate of NGN 1,327.24 per USD, which the vendor itself states is an estimate and not a price. The rate card lets the allowance be priced exactly: t2.micro is listed at NGN 32,438.35 a month, so the 750 free hours are about NGN 389,000 of compute across the twelve months, before the pooled egress allowance. That is a small number in absolute terms and a complete one: an always-on micro instance in Lagos for a year at zero cost, from a provider that appears in no English roundup checked. The exclusion that decides the verdict is the public IP: the free hours are compute hours, and a reachable server also needs an address billed at NGN 4,360 a month. That is a small sum, and it is the difference between a free tier and a free tier that works. Conflicting verdicts across agents: trial-only via b09-inverse-search. The one recorded is the better-evidenced.",
   "extras": {
     "wave2": {

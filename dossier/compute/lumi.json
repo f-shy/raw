@@ -5,7 +5,7 @@
   "url": "https://docs.lumi-supercomputer.eu/firststeps/accessLUMI/",
   "category": "national HPC allocation",
   "free_tier": {
-    "stated": "Access to LUMI requires membership of a project that has already been granted resources; a Resource Allocator in one of the 13 consortium countries creates the project and invites the PI and members, and the institutional email address is mandatory under the terms of use.",
+    "stated": "In general, a Resource Allocator (RA) must create a project and invite the Principal Investigator (PI), i.e. the lead researcher and members to the project.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://docs.lumi-supercomputer.eu/firststeps/accessLUMI/",
@@ -69,10 +69,24 @@
       "url": "https://research.csc.fi/eosc-services/lumi/",
       "date": "2026-10-22",
       "proved": "'You can apply for the national LUMI resources either as an academic user affiliated with a Finnish higher-education or research institute or as an industry user from an organization established or located in Finland'; 'Developer project access starts from 1 million core hours', quoted"
+    },
+    {
+      "url": "https://docs.lumi-supercomputer.eu/firststeps/accessLUMI/",
+      "date": "2026-11-25",
+      "proved": "access to LUMI runs through a project created by a Resource Allocator that invites the PI and members",
+      "capture": "sha256:1c51880144c13ea5a7289bbe97e083a30192d8ea353c934b6f3e41238bfdc87a",
+      "quote": "In general, a Resource Allocator (RA) must create a project and invite the Principal Investigator (PI), i.e. the lead researcher and members to the project."
+    },
+    {
+      "url": "https://docs.lumi-supercomputer.eu/firststeps/accessLUMI/",
+      "date": "2026-11-25",
+      "proved": "access is by invitation into a Resource Allocator's project",
+      "capture": "sha256:1c51880144c13ea5a7289bbe97e083a30192d8ea353c934b6f3e41238bfdc87a",
+      "quote": "In general, a Resource Allocator (RA) must create a project and invite the Principal Investigator (PI), i.e. the lead researcher and members to the project."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:43.688Z",
   "notes": "The assignment asked specifically for LUMI, and the finding is structural: LUMI has no single allocation call of its own. There are 12 national allocators plus the EuroHPC JU, and they are the only entries. The Finnish national route states a useful floor of 1 million core hours for a developer project, which is the clearest published size found for a LUMI national allocation. GPU-hour figures for LUMI-G are set per national allocator and are not published centrally, so the field is null rather than borrowed from the EuroHPC tables.",
   "extras": {
     "wave2": {

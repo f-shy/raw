@@ -5,7 +5,7 @@
   "url": "https://cloud.samsungsds.com/serviceportal/pricing.html",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "no free tier: services bill by the used hour, with a lower rate for a one- or three-year hourly commitment",
+    "stated": "With Cost Savings, you can use the service at a lower rate by committing to a 1- or 3-year hourly usage contract.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://cloud.samsungsds.com/serviceportal/pricing.html",
@@ -67,10 +67,24 @@
       "url": "https://cloud.samsungsds.com/serviceportal/pricing.html",
       "date": "2026-10-22",
       "proved": "'Charge by used hour' with 'With Cost Savings, you can use the service at a lower rate by committing to a 1- or 3-year hourly usage contract', and a service catalogue listing Virtual Server, Virtual Server DR, Accelerated Server, Auto-Scaling, Bare Metal, Multi-node GPU Cluster and Cloud Functions. No free tier appears"
+    },
+    {
+      "url": "https://cloud.samsungsds.com/serviceportal/pricing.html",
+      "date": "2026-11-25",
+      "proved": "Samsung SDS bills by used hour and offers a lower rate for a 1- or 3-year hourly usage commitment; the page names no free tier and prints no price",
+      "capture": "sha256:0d2f74bd792b4916c71ef31602c233461a3b5cffb372e503412c41fc158e6a9d",
+      "quote": "Charge by used hour ... Costs are charged based on actual usage time, enabling TCO(Total Cost of Ownership) optimization. ... With Cost Savings, you can use the service at a lower rate by committing to a 1- or 3-year hourly usage contract."
+    },
+    {
+      "url": "https://cloud.samsungsds.com/serviceportal/pricing.html",
+      "date": "2026-11-25",
+      "proved": "the pricing page still states charge by used hour and the 1- or 3-year hourly commitment discount",
+      "capture": "sha256:0d2f74bd792b4916c71ef31602c233461a3b5cffb372e503412c41fc158e6a9d",
+      "quote": "Charge by used hour ... Costs are charged based on actual usage time, enabling TCO(Total Cost of Ownership) optimization. ... With Cost Savings, you can use the service at a lower rate by committing to a 1- or 3-year hourly usage contract."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:47:51.922Z",
+  "verified_at": "2026-11-25T15:03:51.744Z",
   "price_per_tb_month": null,
   "notes": "",
   "extras": {

@@ -1,223 +1,240 @@
 {
-  "topic": "compute",
-  "slug": "platinum",
-  "provider": "Platinum",
-  "url": "https://www.platinum.dev/docs/billing",
-  "category": "agent microVM sandbox",
-  "tier": "free tier shape (new org, 2 vCPU / 2 GiB / 10 GB per sandbox); prepaid credit",
-  "free_tier": {
-    "stated": "unverified: the billing page says a new org starts at USD 0 and must add credits before creating a sandbox; a promo code adds credit, and a new org's free tier cap is 2 vCPU, 2 GiB RAM, 10 GB disk per sandbox and 4 vCPU, 8 GiB, 40 GB running at once. The home page advertises USD 10 free credit; the sign-up gate was not opened.",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://www.platinum.dev/docs/billing",
-    "read_on": "2026-11-24",
-    "notes": "A promo code adds credit but the amount and availability are not published on the pages read. An OAuth public client can register anonymously, but that registration never creates a user or a session, so it grants no sandbox capacity. A sandbox account is created in the dashboard at https://www.platinum.dev/dashboard#signup."
+ "topic": "compute",
+ "slug": "platinum",
+ "provider": "Platinum",
+ "url": "https://www.platinum.dev/docs/billing",
+ "category": "container and vm sandbox",
+ "tier": "Pay as you go",
+ "free_tier": {
+  "stated": "A new org starts at $0. Add credits before you create a sandbox. A promo code adds credit too.",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://www.platinum.dev/docs/billing",
+  "read_on": "2026-11-25",
+  "notes": "No standing free tier is published: credit must be added before a sandbox can be created. Promo credit lasts as long as its campaign says and is spent first; a search snippet of the vendor homepage advertises USD 10 free for new accounts, but that phrase is absent from the homepage reads of 2026-11-25 and from the billing docs, so the amount is unverified. The operator list's $0.108/h is the 2 vCPU / 4 GiB rate: $0.0324/vCPU-hour plus $0.0108/GiB-hour. Self-hosted control plane is documented separately and is not the hosted offer priced here."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the metered unit is a running microVM, not a stored object; the free tier caps a sandbox at 2 vCPU, 2 GiB RAM and 10 GB disk",
+  "source_url": "https://www.platinum.dev/docs/billing"
+ },
+ "retention": {
+  "stated": "Data is not deleted when a balance runs out: a stopped sandbox keeps its disk and is archived after 7 days by default at a lower disk rate, and snapshots and volumes keep billing.",
+  "days": 7,
+  "source_url": "https://www.platinum.dev/docs/billing"
+ },
+ "egress": {
+  "terms": "Egress is the data a sandbox sends to public internet addresses and is priced at $0.04 per GiB; inbound data, preview URL traffic, sandbox-to-sandbox traffic and volume traffic do not count.",
+  "metered": true,
+  "free_allowance": null,
+  "price_per_tb": "USD 0.04 per GiB (USD 40.96 per TiB, derived: 1024 GiB x USD 0.04)",
+  "source_url": "https://www.platinum.dev/docs/billing"
+ },
+ "interface": [
+  "rest",
+  "cli",
+  "ssh",
+  "browser"
+ ],
+ "interface_detail": "REST API at api.platinum.dev/v1, TypeScript and Python SDKs, an MCP server, a pt CLI, a dashboard, and terminal/SSH into a sandbox. Each sandbox is a Cloud Hypervisor microVM on KVM.",
+ "endpoint": "https://api.platinum.dev/v1",
+ "tooling": "The user installs the pt CLI or an SDK and passes a scoped API key; a self-hosted control plane is documented separately and is not the hosted offer priced here.",
+ "chaining": "Prepaid metered microVMs can run agent code for a short task and stop to a disk-only bill between calls, which pairs with a separate object-storage record for longer-lived artifacts.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "A new org starts at USD 0 balance; credit packs are USD 10, 50 or 200, or USD 5 to 1,000 custom; running sandboxes get a 60-minute grace period at a zero balance and are then auto-stopped, never deleted",
+   "source": "https://www.platinum.dev/docs/billing"
   },
-  "per_object_cap": {
-    "stated": "not applicable: the unit is a microVM, not a stored object; the free tier shape allows up to 10 GB disk per sandbox and 40 GB running at once for a new org",
-    "source_url": "https://www.platinum.dev/docs/billing"
-  },
-  "retention": {
-    "stated": "Sandboxes are persistent by default; auto_stop_minutes defaults to 0 (never), auto_archive_days to 7 and auto_delete_days to 0 (never). A stopped sandbox after 7 days is archived at the lower disk rate.",
-    "days": 7,
-    "source_url": "https://www.platinum.dev/docs/sandboxes",
-    "notes": "The 7-day default is the stopped-to-archive timer, not a deletion timer; auto_delete_days defaults to 0, so no automatic deletion is set."
-  },
-  "egress": {
-    "terms": "Egress to public internet addresses is USD 0.04 per GiB; data a sandbox receives, preview URL traffic, sandbox-to-sandbox traffic and volume traffic do not count. Outbound traffic can be filtered per sandbox with allowOut and denyOut; a residential proxy is USD 8 per GiB in both directions and needs paid credit.",
-    "metered": true,
-    "free_allowance": null,
-    "price_per_tb": "USD 40 per TB (USD 0.04 per GiB)",
-    "source_url": "https://www.platinum.dev/docs/billing"
-  },
-  "interface": [
-    "rest",
-    "ssh",
-    "cli",
-    "chat"
-  ],
-  "interface_detail": "Cloud Hypervisor microVMs with a full Linux kernel, driven by TypeScript and Python SDKs, the pt CLI, a REST API at https://api.platinum.dev/v1, a hosted MCP server and an OpenAPI 3.1 specification. The Daytona SDK runs against Platinum unchanged and an E2B migration guide maps every SDK call.",
-  "endpoint": "https://api.platinum.dev/v1",
-  "tooling": "npm install -g @platinum-dev/cli and the pt command, the @platinum-dev/sdk TypeScript and Python packages, the hosted MCP server, the Daytona SDK pointed at Platinum, and an SSH key injected into a sandbox.",
-  "chaining": "A sandbox can hold a coding agent with its API key kept outside the VM and injected by the egress proxy for exact hosts, pause with memory and processes intact, fork into parallel rollouts, and expose a port under a signed preview URL.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "prepaid credit; new org starts at USD 0, credit packs USD 10, USD 50 or USD 200 and custom USD 5 to USD 1,000",
-      "source": "https://www.platinum.dev/docs/billing"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "free tier: 2 vCPU, 2 GiB RAM, 10 GB disk per sandbox; 4 vCPU, 8 GiB, 40 GB running at once; 10 templates. t2 after a verified email, a saved card and USD 25 paid: 8 vCPU, 16 GiB, 50 GB per sandbox; 128 vCPU, 256 GiB, 2,000 GB running at once",
-      "source": "https://www.platinum.dev/docs/billing"
-    },
-    {
-      "kind": "retention-clamped",
-      "value": "auto_stop_minutes 0 by default, auto_archive_days 7, auto_delete_days 0; a zero balance auto-stops running sandboxes after a 60-minute grace period",
-      "source": "https://www.platinum.dev/docs/billing"
-    },
-    {
-      "kind": "write-gated",
-      "value": "at balance zero, new compute create, start, resume, restore, clone and fork answer 402 insufficient_credits",
-      "source": "https://www.platinum.dev/docs/billing"
-    }
-  ],
-  "limits_note": "Compute is USD 0.0324 per vCPU-hour and USD 0.0108 per GiB-hour of RAM, billed per second while running; disk is USD 0.0526 per GB-month and USD 0.0263 archived. A month is 730 hours. Exposed ports are capped at 8 per sandbox and 32 per org per region, with 256 open connections per port and 64 from one address. Resource access tokens expire after 15 minutes.",
-  "binding": "volume-quota",
-  "binding_note": "A new org starts at a USD 0 balance and a create needs prepaid credit, and its free shape is capped at 2 vCPU and 2 GiB per sandbox with 4 vCPU running at once; that gate and cap bind before the per-second rate or the 7-day archive timer.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "An account is created in the dashboard at https://www.platinum.dev/dashboard#signup; \"1. Open https://www.platinum.dev/dashboard#signup and create a Platinum account.\" \"Anonymous registration ... never creates a user, session, access token, or client secret.\" unverified: the signup form's exact fields could not be read on 2026-11-24.",
-    "country": null
-  },
-  "reliability_note": "Only running sandboxes bill compute; stopped sandboxes bill disk and are archived after 7 days by default. At a zero balance, running sandboxes get a 60-minute grace period and are then stopped, never deleted, and disks keep billing so the balance can stay negative. A stop can save only the disk, in which case the next start cold-boots and processes are gone; each stop reports memory_saved and each start reports restore.",
-  "confidence": "documented",
-  "confidence_note": "Rates, egress, sandbox limits, timers, credit requirements and sign-up route are quoted from the first-party billing, sandboxes, quickstart, auth and docs pages read 2026-11-24. The advertised USD 10 free credit and the sign-up form fields are unverified because the dashboard is a login wall and the account step needs a sign-up.",
-  "evidence": [
-    {
-      "url": "https://www.platinum.dev/docs/billing",
-      "date": "2026-11-24",
-      "proved": "compute is USD 0.0324 per vCPU-hour, billed per second while running",
-      "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
-      "quote": "| vCPU | $0.0324 per vCPU-hour | The vCPUs of a `running` sandbox, per second |"
-    },
-    {
-      "url": "https://www.platinum.dev/docs/billing",
-      "date": "2026-11-24",
-      "proved": "egress to the internet is USD 0.04 per GiB",
-      "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
-      "quote": "| Egress | $0.04 per GiB | The data that a sandbox sends to the internet |"
-    },
-    {
-      "url": "https://www.platinum.dev/docs/billing",
-      "date": "2026-11-24",
-      "proved": "inbound data and preview URL traffic are not counted as egress",
-      "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
-      "quote": "Egress is the data that a sandbox sends to public internet addresses. Data that a sandbox receives does not count."
-    },
-    {
-      "url": "https://www.platinum.dev/docs/billing",
-      "date": "2026-11-24",
-      "proved": "a new org starts at a USD 0 balance and must add credits before creating a sandbox",
-      "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
-      "quote": "A new org starts at $0. Add credits before you create a sandbox. A promo code adds credit too."
-    },
-    {
-      "url": "https://www.platinum.dev/docs/billing",
-      "date": "2026-11-24",
-      "proved": "the free tier shape is 2 vCPU, 2 GiB, 10 GB per sandbox and 4 vCPU, 8 GiB, 40 GB running at once",
-      "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
-      "quote": "| free | a new org | 2 vCPU, 2 GiB RAM, 10 GB disk | 4 vCPU, 8 GiB, 40 GB | 10 |"
-    },
-    {
-      "url": "https://www.platinum.dev/docs/billing",
-      "date": "2026-11-24",
-      "proved": "t2 is reached by a verified email, a saved card and USD 25 paid",
-      "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
-      "quote": "| t2 | a verified email, a saved card and $25 paid | 8 vCPU, 16 GiB, 50 GB | 128 vCPU, 256 GiB, 2,000 GB | 50 |"
-    },
-    {
-      "url": "https://www.platinum.dev/docs/billing",
-      "date": "2026-11-24",
-      "proved": "only owners and admins can buy credits",
-      "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
-      "quote": "Only owners and admins can buy credits. The API lets any member read the balance, ledger, limits, and usage; the dashboard shows members their own cap and spend rather than the organization-wide billing panels."
-    },
-    {
-      "url": "https://www.platinum.dev/llms.txt",
-      "date": "2026-11-24",
-      "proved": "the price is USD 0.0324 per vCPU-hour plus USD 0.0108 per GiB-hour, with 2 vCPU and 4 GiB at USD 0.108 an hour",
-      "capture": "sha256:d744a154a15507c89f5c1953232e75e8b2bb6c0f6a2003285e038ce585e989bf",
-      "quote": "> Price: $0.0324 per vCPU-hour plus $0.0108 per GiB-hour of RAM, billed per second while running; 2 vCPU / 4 GiB is $0.108 an hour."
-    },
-    {
-      "url": "https://www.platinum.dev/llms.txt",
-      "date": "2026-11-24",
-      "proved": "regions are EU by default and US on request",
-      "capture": "sha256:d744a154a15507c89f5c1953232e75e8b2bb6c0f6a2003285e038ce585e989bf",
-      "quote": "> Regions: EU by default, US on request."
-    },
-    {
-      "url": "https://www.platinum.dev/docs/sandboxes",
-      "date": "2026-11-24",
-      "proved": "the auto-stop, auto-archive and auto-delete timers default to 0, 7 and 0 days",
-      "capture": "sha256:ee17dfa4fb21c8f3e9f3262b163a2a3228b607c4477db865a0c0dac335961e9a",
-      "quote": "| `auto_stop_minutes` · `auto_archive_days` · `auto_delete_days` | `0` · `7` · `0` | Lifecycle timers. `0` disables one. See Retention. |"
-    },
-    {
-      "url": "https://www.platinum.dev/docs/sandboxes",
-      "date": "2026-11-24",
-      "proved": "a sandbox is one isolated microVM used to run untrusted code and agents",
-      "capture": "sha256:ee17dfa4fb21c8f3e9f3262b163a2a3228b607c4477db865a0c0dac335961e9a",
-      "quote": "A sandbox is one isolated microVM, created from a [template](https://www.platinum.dev/docs/templates). Use sandboxes to run untrusted code, agents, or full dev workloads."
-    },
-    {
-      "url": "https://www.platinum.dev/auth.md",
-      "date": "2026-11-24",
-      "proved": "an account is created in the dashboard signup panel",
-      "capture": "sha256:c227eb9e0282718019ce747660983c821eeaacaa3fb682a9b320c3baba1dbfdc",
-      "quote": "1. Open https://www.platinum.dev/dashboard#signup and create a Platinum account."
-    },
-    {
-      "url": "https://www.platinum.dev/auth.md",
-      "date": "2026-11-24",
-      "proved": "anonymous OAuth client registration never creates a user, session, access token or client secret",
-      "capture": "sha256:c227eb9e0282718019ce747660983c821eeaacaa3fb682a9b320c3baba1dbfdc",
-      "quote": "The response contains `client_id`. Anonymous registration is rate limited and never creates a user, session, access token, or client secret."
-    },
-    {
-      "url": "https://www.platinum.dev/auth.md",
-      "date": "2026-11-24",
-      "proved": "a Platinum account is created in the dashboard signup panel; anonymous OAuth registration alone is not an account",
-      "capture": "sha256:c227eb9e0282718019ce747660983c821eeaacaa3fb682a9b320c3baba1dbfdc",
-      "quote": "1. Open https://www.platinum.dev/dashboard#signup and create a Platinum account."
-    },
-    {
-      "url": "https://www.platinum.dev/auth.md",
-      "date": "2026-11-24",
-      "proved": "anonymous OAuth registration is not a user account and grants no capacity",
-      "capture": "sha256:c227eb9e0282718019ce747660983c821eeaacaa3fb682a9b320c3baba1dbfdc",
-      "quote": "The response contains `client_id`. Anonymous registration is rate limited and never creates a user, session, access token, or client secret."
-    },
-    {
-      "url": "https://www.platinum.dev/auth.md",
-      "date": "2026-11-24",
-      "proved": "account creation happens at the dashboard signup panel",
-      "capture": "sha256:c227eb9e0282718019ce747660983c821eeaacaa3fb682a9b320c3baba1dbfdc",
-      "quote": "1. Open https://www.platinum.dev/dashboard#signup and create a Platinum account."
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T18:47:21.391Z",
-  "price_per_tb_month": null,
-  "notes": "Platinum sells hardware-isolated Cloud Hypervisor microVM sandboxes for AI agents, billed per second while running. The unbundled rate is USD 0.0324 per vCPU-hour plus USD 0.0108 per GiB-hour of RAM, USD 0.108 an hour for 2 vCPU and 4 GiB; egress is USD 0.04 per GiB, paid from prepaid credit. A new org starts at a USD 0 balance and must add credit before it can create a sandbox, and its free shape is capped at 2 vCPU, 2 GiB and 10 GB per sandbox with 4 vCPU running at once, so credit and the free cap bind first. The home page advertises USD 10 free credit, but the sign-up form is behind a login wall and was not read; the exact credit and identity gate are unverified. An anonymous OAuth client registration grants no sandbox capacity. A self-hosted deployment of the control plane is documented separately and comes last behind this hosted offer.",
-  "extras": {
-    "shape": {
-      "vcpu": 2,
-      "ram_gib": 2,
-      "disk_gib": 10,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "the new-org free shape; GPU attachments are free when enabled, no GPU class is published"
-    },
-    "billing_model": "prepaid credit, per-second metering while running; stopped sandboxes bill only disk",
-    "free_tier_kind": "credit offer unverified; free shape cap documented",
-    "term": "prepaid, no subscription",
-    "price_arithmetic": "USD 0.0324 per vCPU-hour plus USD 0.0108 per GiB-hour; 2 vCPU and 4 GiB = 2 x 0.0324 + 4 x 0.0108 = USD 0.108 an hour; egress USD 0.04 per GiB = USD 40 per TB",
-    "status": "paid prepaid service with an advertised USD 10 credit offer unverified from the sign-up form",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "up to 8 exposed ports per sandbox as signed HTTPS preview URLs or raw TCP; 32 per org per region",
-      "static_ip": null,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "no default wall-clock cap; auto_stop_minutes defaults to 0 and auto_archive_days to 7; a zero balance auto-stops after a 60-minute grace period"
-    }
+  {
+   "kind": "request-rate",
+   "value": "Free tier: 2 vCPU, 2 GiB RAM, 10 GB disk per sandbox and 4 vCPU, 8 GiB, 40 GB org total running at once; tiers rise with a verified email and $5 paid, a saved card and $25 paid, and so on",
+   "source": "https://www.platinum.dev/docs/billing"
   }
+ ],
+ "limits_note": "Rates per second while running: $0.0324 per vCPU-hour, $0.0108 per GiB RAM-hour, $0.000072 per GB disk-hour ($0.0526 per GB-month); a stopped sandbox bills only disk and snapshots. GPU attachments are free.",
+ "binding": "volume-quota",
+ "binding_note": "Prepaid balance is what stops new sandboxes first: at a zero balance every new create answers 402 insufficient_credits, before the free org's 4-vCPU concurrency cap is reached.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "An account is created at https://www.platinum.dev/dashboard#signup and an API key minted there. The billing page says credits are bought through a Stripe-hosted checkout; a card is stated only for auto top-up ('your saved card') and for tier t2 ('a verified email, a saved card and $25 paid'). Nothing on the pages read says a card is required to open an org or to buy the first credits, so no card requirement is asserted for entry. The sign-up page itself is behind the dashboard and was not read.",
+  "country": null
+ },
+ "reliability_note": "At a zero balance new compute answers 402 and running sandboxes stop after a 60-minute grace period; data is never deleted for lack of credit, though a user-configured auto_delete_days timer still applies.",
+ "confidence": "documented",
+ "confidence_note": "Rates, tier limits, zero-balance behaviour, account creation and egress pricing are quoted from the first-party billing docs and documentation index read on 2026-11-25; the 2 vCPU / 4 GiB = $0.108/h arithmetic is quoted from the documentation index itself. The audit's trial-credit and card-entry claims are removed because the captured billing page does not state them.",
+ "evidence": [
+  {
+   "url": "https://www.platinum.dev/docs/billing",
+   "date": "2026-11-25",
+   "proved": "vCPU price is $0.0324 per vCPU-hour, billed per second",
+   "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
+   "quote": "| vCPU | $0.0324 per vCPU-hour | The vCPUs of a `running` sandbox, per second |"
+  },
+  {
+   "url": "https://www.platinum.dev/docs/billing",
+   "date": "2026-11-25",
+   "proved": "egress is metered at $0.04 per GiB of data a sandbox sends to the internet",
+   "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
+   "quote": "| Egress | $0.04 per GiB | The data that a sandbox sends to the internet |"
+  },
+  {
+   "url": "https://www.platinum.dev/docs/billing",
+   "date": "2026-11-25",
+   "proved": "a new org begins at zero balance and must add credit; a promo code can add credit",
+   "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
+   "quote": "A new org starts at $0. Add credits before you create a sandbox. A promo code adds credit too."
+  },
+  {
+   "url": "https://www.platinum.dev/docs/billing",
+   "date": "2026-11-25",
+   "proved": "the free org's sandbox and concurrency limits",
+   "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
+   "quote": "| free | a new org | 2 vCPU, 2 GiB RAM, 10 GB disk | 4 vCPU, 8 GiB, 40 GB | 10 |"
+  },
+  {
+   "url": "https://www.platinum.dev/docs/billing",
+   "date": "2026-11-25",
+   "proved": "credit packs are bought through a Stripe-hosted checkout",
+   "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
+   "quote": "3. Complete the Stripe-hosted checkout."
+  },
+  {
+   "url": "https://www.platinum.dev/llms.txt",
+   "date": "2026-11-25",
+   "proved": "the 2 vCPU / 4 GiB configuration is $0.108 per hour, matching the operator list",
+   "capture": "sha256:2f54f17df0a98e221d1515e822b8a6757cea837deb444bc646328dba3f69e36e",
+   "quote": "> Price: $0.0324 per vCPU-hour plus $0.0108 per GiB-hour of RAM, billed per second while running; 2 vCPU / 4 GiB is $0.108 an hour."
+  },
+  {
+   "url": "https://www.platinum.dev/auth.md",
+   "date": "2026-11-25",
+   "proved": "an account is created in the dashboard before minting an API key",
+   "capture": "sha256:c227eb9e0282718019ce747660983c821eeaacaa3fb682a9b320c3baba1dbfdc",
+   "quote": "1. Open https://www.platinum.dev/dashboard#signup and create a Platinum account."
+  },
+  {
+   "url": "https://www.platinum.dev/docs/billing",
+   "date": "2026-11-24",
+   "proved": "compute is USD 0.0324 per vCPU-hour, billed per second while running",
+   "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
+   "quote": "| vCPU | $0.0324 per vCPU-hour | The vCPUs of a `running` sandbox, per second |"
+  },
+  {
+   "url": "https://www.platinum.dev/docs/billing",
+   "date": "2026-11-24",
+   "proved": "egress to the internet is USD 0.04 per GiB",
+   "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
+   "quote": "| Egress | $0.04 per GiB | The data that a sandbox sends to the internet |"
+  },
+  {
+   "url": "https://www.platinum.dev/docs/billing",
+   "date": "2026-11-24",
+   "proved": "inbound data and preview URL traffic are not counted as egress",
+   "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
+   "quote": "Egress is the data that a sandbox sends to public internet addresses. Data that a sandbox receives does not count."
+  },
+  {
+   "url": "https://www.platinum.dev/docs/billing",
+   "date": "2026-11-24",
+   "proved": "a new org starts at a USD 0 balance and must add credits before creating a sandbox",
+   "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
+   "quote": "A new org starts at $0. Add credits before you create a sandbox. A promo code adds credit too."
+  },
+  {
+   "url": "https://www.platinum.dev/docs/billing",
+   "date": "2026-11-24",
+   "proved": "the free tier shape is 2 vCPU, 2 GiB, 10 GB per sandbox and 4 vCPU, 8 GiB, 40 GB running at once",
+   "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
+   "quote": "| free | a new org | 2 vCPU, 2 GiB RAM, 10 GB disk | 4 vCPU, 8 GiB, 40 GB | 10 |"
+  },
+  {
+   "url": "https://www.platinum.dev/docs/billing",
+   "date": "2026-11-24",
+   "proved": "t2 is reached by a verified email, a saved card and USD 25 paid",
+   "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
+   "quote": "| t2 | a verified email, a saved card and $25 paid | 8 vCPU, 16 GiB, 50 GB | 128 vCPU, 256 GiB, 2,000 GB | 50 |"
+  },
+  {
+   "url": "https://www.platinum.dev/docs/billing",
+   "date": "2026-11-24",
+   "proved": "only owners and admins can buy credits",
+   "capture": "sha256:a4cbdec39bae1169e3f639637107bc7953274da60bed1fb4389efe9f405c48a4",
+   "quote": "Only owners and admins can buy credits. The API lets any member read the balance, ledger, limits, and usage; the dashboard shows members their own cap and spend rather than the organization-wide billing panels."
+  },
+  {
+   "url": "https://www.platinum.dev/llms.txt",
+   "date": "2026-11-24",
+   "proved": "the price is USD 0.0324 per vCPU-hour plus USD 0.0108 per GiB-hour, with 2 vCPU and 4 GiB at USD 0.108 an hour",
+   "capture": "sha256:d744a154a15507c89f5c1953232e75e8b2bb6c0f6a2003285e038ce585e989bf",
+   "quote": "> Price: $0.0324 per vCPU-hour plus $0.0108 per GiB-hour of RAM, billed per second while running; 2 vCPU / 4 GiB is $0.108 an hour."
+  },
+  {
+   "url": "https://www.platinum.dev/llms.txt",
+   "date": "2026-11-24",
+   "proved": "regions are EU by default and US on request",
+   "capture": "sha256:d744a154a15507c89f5c1953232e75e8b2bb6c0f6a2003285e038ce585e989bf",
+   "quote": "> Regions: EU by default, US on request."
+  },
+  {
+   "url": "https://www.platinum.dev/docs/sandboxes",
+   "date": "2026-11-24",
+   "proved": "the auto-stop, auto-archive and auto-delete timers default to 0, 7 and 0 days",
+   "capture": "sha256:ee17dfa4fb21c8f3e9f3262b163a2a3228b607c4477db865a0c0dac335961e9a",
+   "quote": "| `auto_stop_minutes` · `auto_archive_days` · `auto_delete_days` | `0` · `7` · `0` | Lifecycle timers. `0` disables one. See Retention. |"
+  },
+  {
+   "url": "https://www.platinum.dev/docs/sandboxes",
+   "date": "2026-11-24",
+   "proved": "a sandbox is one isolated microVM used to run untrusted code and agents",
+   "capture": "sha256:ee17dfa4fb21c8f3e9f3262b163a2a3228b607c4477db865a0c0dac335961e9a",
+   "quote": "A sandbox is one isolated microVM, created from a [template](https://www.platinum.dev/docs/templates). Use sandboxes to run untrusted code, agents, or full dev workloads."
+  },
+  {
+   "url": "https://www.platinum.dev/auth.md",
+   "date": "2026-11-24",
+   "proved": "an account is created in the dashboard signup panel",
+   "capture": "sha256:c227eb9e0282718019ce747660983c821eeaacaa3fb682a9b320c3baba1dbfdc",
+   "quote": "1. Open https://www.platinum.dev/dashboard#signup and create a Platinum account."
+  },
+  {
+   "url": "https://www.platinum.dev/auth.md",
+   "date": "2026-11-24",
+   "proved": "anonymous OAuth client registration never creates a user, session, access token or client secret",
+   "capture": "sha256:c227eb9e0282718019ce747660983c821eeaacaa3fb682a9b320c3baba1dbfdc",
+   "quote": "The response contains `client_id`. Anonymous registration is rate limited and never creates a user, session, access token, or client secret."
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T11:55:06.371Z",
+ "price_per_tb_month": null,
+ "notes": "Platinum sells hardware-isolated Cloud Hypervisor microVM sandboxes for AI agents, billed per second while running. The unbundled rate is USD 0.0324 per vCPU-hour plus USD 0.0108 per GiB-hour of RAM, USD 0.108 an hour for 2 vCPU and 4 GiB; egress is USD 0.04 per GiB, paid from prepaid credit. A new org starts at a USD 0 balance and must add credit before it can create a sandbox, and its free shape is capped at 2 vCPU, 2 GiB and 10 GB per sandbox with 4 vCPU running at once, so credit and the free cap bind first. The home page advertises USD 10 free credit, but the sign-up form is behind a login wall and was not read; the exact credit and identity gate are unverified. An anonymous OAuth client registration grants no sandbox capacity. A self-hosted deployment of the control plane is documented separately and comes last behind this hosted offer.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 2,
+   "disk_gib": 10,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "the new-org free shape; GPU attachments are free when enabled, no GPU class is published"
+  },
+  "billing_model": "prepaid credit, per-second metering while running; stopped sandboxes bill only disk",
+  "free_tier_kind": "credit offer unverified; free shape cap documented",
+  "term": "prepaid, no subscription",
+  "price_arithmetic": "USD 0.0324 per vCPU-hour plus USD 0.0108 per GiB-hour; 2 vCPU and 4 GiB = 2 x 0.0324 + 4 x 0.0108 = USD 0.108 an hour; egress USD 0.04 per GiB = USD 40 per TB",
+  "status": "paid prepaid service with an advertised USD 10 credit offer unverified from the sign-up form",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "up to 8 exposed ports per sandbox as signed HTTPS preview URLs or raw TCP; 32 per org per region",
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "no default wall-clock cap; auto_stop_minutes defaults to 0 and auto_archive_days to 7; a zero balance auto-stops after a 60-minute grace period"
+  }
+ }
 }

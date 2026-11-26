@@ -1,0 +1,184 @@
+{
+  "topic": "compute",
+  "slug": "munito-sandboxes",
+  "provider": "Munito AI Sandboxes",
+  "url": "https://munito.ai/pricing",
+  "category": "container and VM sandbox",
+  "tier": "Trial ($0 for 7 days)",
+  "free_tier": {
+    "stated": "A trial of $0 for 7 days with 2 sandboxes at once, giving $0.90 of sandbox time, 25 hours of 4 vCPUs and 8 GiB, that needs a card to start; after the trial every sandbox needs a paid plan.",
+    "unit": "hours",
+    "metered_on": "wall-clock",
+    "source_url": "https://docs.munito.ai/sandboxes/pricing",
+    "read_on": "2026-11-25",
+    "notes": "The $0.90 credit at the default 2 vCPU and 4 GiB rate of $0.018 an hour is 50 hours; the docs quote 25 hours of the larger 4 vCPU and 8 GiB size. The free tier for model inference on spare capacity with a verified phone is a separate offer and is recorded under inference/munito."
+  },
+  "per_object_cap": {
+    "stated": "100 MiB per file written through the sandbox file API",
+    "bytes": 104857600,
+    "source_url": "https://docs.munito.ai/sandboxes/pricing",
+    "notes": "The unit is a machine, not a stored object; the file limit is the closest published per-item ceiling."
+  },
+  "retention": {
+    "stated": "A sandbox lives 10 to 86,400 seconds and defaults to 3,600 seconds; at most 7,200 seconds during the trial. A paused persistent sandbox keeps files and processes while its saved state bills at $0.0002 per GiB-hour.",
+    "days": null,
+    "source_url": "https://docs.munito.ai/sandboxes/pricing"
+  },
+  "egress": {
+    "terms": "unverified: no egress price or allowance is published for sandboxes; a new sandbox has no outbound internet access until internet is set to true, and inbound reaches it only through ports and SSH",
+    "metered": false,
+    "free_allowance": null,
+    "price_per_tb": null,
+    "source_url": "https://docs.munito.ai/sandboxes/pricing"
+  },
+  "interface": [
+    "cli",
+    "ssh",
+    "rest"
+  ],
+  "interface_detail": "A TypeScript client and an npm CLI create sandboxes, run commands and write files through a REST API; shells, SSH, open ports and a desktop are available inside a sandbox.",
+  "endpoint": "https://console.munito.ai",
+  "tooling": "npm install -g @munitoai/cli, then munito login, munito create, munito exec and munito rm; the TypeScript client is @munitoai/cli.",
+  "chaining": "A 2 vCPU and 4 GiB sandbox at $0.018 an hour supplies an isolated Linux machine for agents; a paused persistent sandbox keeps a warmed toolchain for forks, and files must be copied to a separate object-storage record for long-term retention.",
+  "limits": [
+    {
+      "kind": "volume-quota",
+      "value": "$0.90 of sandbox time for 7 days, or 25 hours of 4 vCPUs and 8 GiB, then a paid plan",
+      "source": "https://docs.munito.ai/sandboxes/pricing"
+    },
+    {
+      "kind": "request-rate",
+      "value": "API requests from one IP address are limited to 8,000 a minute",
+      "source": "https://docs.munito.ai/sandboxes/pricing"
+    },
+    {
+      "kind": "per-object-cap",
+      "value": "100 MiB per file; command output 1 MiB for each stream when waiting for the result",
+      "source": "https://docs.munito.ai/sandboxes/pricing"
+    },
+    {
+      "kind": "retention-clamped",
+      "value": "a sandbox runs 10 to 86,400 seconds, at most 7,200 seconds during the trial, default 3,600",
+      "source": "https://docs.munito.ai/sandboxes/pricing"
+    }
+  ],
+  "limits_note": "During the trial an organization runs 2 sandboxes at once, each at most 4 vCPUs and 8 GiB; command runs last 1 to 1,800 seconds. A new sandbox starts with no outbound internet access.",
+  "binding": "volume-quota",
+  "binding_note": "The $0.90 credit for 7 days runs out before the 8,000-per-minute IP rate or the per-file cap does.",
+  "identity_cost": {
+    "kind": "card",
+    "detail": "Sign-up offers GitHub, Google or email (https://console.munito.ai/registration). The sandbox trial needs a card saved on the Billing page: 'Add a card to start' and 'To start, add a card on the Billing page of the console. The card is not charged then.' No phone or identity document is asked for to start a sandbox; a verified phone appears only on the separate model-inference free tier.",
+    "country": null
+  },
+  "reliability_note": "A create, resume, fork or new timeout is refused with 402 if there is no card, no plan or no credit; when the trial credit runs out, running sandboxes stop with end_reason credits. Sandboxes on one host share its vCPUs, so a busy host slows commands.",
+  "confidence": "documented",
+  "confidence_note": "The plan table, trial credit, rates, limits and card gate are read from the vendor's pricing and sandbox-pricing pages on 2026-11-25 and quoted below. The egress price was not published and is left unverified.",
+  "evidence": [
+    {
+      "url": "https://paste.ajam.dev/raw/WCLUsa",
+      "date": "2026-11-25",
+      "proved": "the operator's list places Munito at $0.018 an hour with a 50-hour one-time free tier; a lead, not the basis for the record's values",
+      "capture": "sha256:4d220f8008ed2a6126e4b7f8bc4639bd9e625605ec428846fde2bdf593cc5c95",
+      "quote": "15. Munito → $0.018/h · billed per second"
+    },
+    {
+      "url": "https://munito.ai/pricing",
+      "date": "2026-11-25",
+      "proved": "the sandbox rate is $0.018 an hour for 2 vCPUs and 4 GiB, billed each second",
+      "capture": "sha256:1304e1c10b1f9e7bf68c3fbc25c09c0e3062f72fbcda6882e236c914fce63b98",
+      "quote": "Every plan pays the same rates, $0.018 an hour for 2 vCPUs and 4 GiB, for each second that a sandbox runs."
+    },
+    {
+      "url": "https://munito.ai/pricing",
+      "date": "2026-11-25",
+      "proved": "the trial lasts 7 days, gives $0.90 of sandbox time and needs a card to start",
+      "capture": "sha256:1304e1c10b1f9e7bf68c3fbc25c09c0e3062f72fbcda6882e236c914fce63b98",
+      "quote": "The trial gives $0.90 of sandbox time for 7 days. After it, sandboxes need a plan."
+    },
+    {
+      "url": "https://munito.ai/pricing",
+      "date": "2026-11-25",
+      "proved": "the paid sandbox plans start at $15 a month after the trial",
+      "capture": "sha256:1304e1c10b1f9e7bf68c3fbc25c09c0e3062f72fbcda6882e236c914fce63b98",
+      "quote": "- ### Starter\n\n  $15 a month\n\n  **50** sandboxes at once"
+    },
+    {
+      "url": "https://docs.munito.ai/sandboxes/pricing",
+      "date": "2026-11-25",
+      "proved": "the card starts a trial of $0.90 of sandbox time, 25 hours of 4 vCPUs and 8 GiB, over 7 days",
+      "capture": "sha256:41f35c5a42f586769c3ba00660ed8d1cd65a3777e43aeefad8da1f165efd291f",
+      "quote": "The card starts a trial: $0.90 of sandbox time, 25 hours of 4 vCPUs and 8 GiB, for 7 days."
+    },
+    {
+      "url": "https://docs.munito.ai/sandboxes/pricing",
+      "date": "2026-11-25",
+      "proved": "the default preset is 2 vCPUs and 4 GiB at $0.018 an hour, and the sizes are published",
+      "capture": "sha256:41f35c5a42f586769c3ba00660ed8d1cd65a3777e43aeefad8da1f165efd291f",
+      "quote": "| `default` | 2 | 4 GiB | $0.018     |"
+    },
+    {
+      "url": "https://docs.munito.ai/sandboxes/pricing",
+      "date": "2026-11-25",
+      "proved": "one IP address is limited to 8,000 API requests a minute",
+      "capture": "sha256:41f35c5a42f586769c3ba00660ed8d1cd65a3777e43aeefad8da1f165efd291f",
+      "quote": "Creates       | No limit. API requests from one IP address are limited to 8,000 a minute"
+    },
+    {
+      "url": "https://docs.munito.ai/sandboxes/pricing",
+      "date": "2026-11-25",
+      "proved": "a sandbox has no outbound internet access until internet is set to true",
+      "capture": "sha256:41f35c5a42f586769c3ba00660ed8d1cd65a3777e43aeefad8da1f165efd291f",
+      "quote": "- A new sandbox has no outbound internet access. Set `\"internet\": true` to enable it."
+    },
+    {
+      "url": "https://docs.munito.ai/sandboxes/pricing",
+      "date": "2026-11-25",
+      "proved": "the file limit is 100 MiB and the sandbox life is 10 to 86,400 seconds, at most 7,200 during the trial",
+      "capture": "sha256:41f35c5a42f586769c3ba00660ed8d1cd65a3777e43aeefad8da1f165efd291f",
+      "quote": "| File                | 100 MiB"
+    },
+    {
+      "url": "https://console.munito.ai/registration",
+      "date": "2026-11-25",
+      "proved": "the sign-up page offers GitHub, Google or email and no phone or card field",
+      "capture": "sha256:c0f0eeb06a1c90e89c829537bbdaa2a31899ed70a8354834e4c497b7729134ea",
+      "quote": "Continue with GitHubContinue with Google\n\nOr\n\nEmail"
+    },
+    {
+      "url": "https://munito.ai/sandboxes",
+      "date": "2026-11-25",
+      "proved": "the sandbox product is hosted and is reached through a TypeScript client, an npm CLI, a shell and SSH",
+      "capture": "sha256:f983876525d102e2cca218a179550ff55faab40035c9306e089324c52eae5712",
+      "quote": "A shell, a browser, SSH, open ports and a desktop. Give an agent the machine, and the agent works the way a person would."
+    }
+  ],
+  "verdict": "trial-only",
+  "verified_at": "2026-11-25T02:12:34.610Z",
+  "price_per_tb_month": null,
+  "notes": "The hosted sandbox is billed by the second, with a card-gated 7-day trial and monthly plans from $15 to $1,995 a month. The model-inference free tier, which needs a verified phone, is a separate offer recorded under inference/munito.",
+  "extras": {
+    "shape": {
+      "vcpu": 2,
+      "ram_gib": 4,
+      "disk_gib": 10,
+      "gpu_class": "NVIDIA L4 add-on at $0.78 an hour",
+      "gpu_count": null
+    },
+    "billing_model": "per-second usage against a trial credit, then a monthly plan whose price returns as credits",
+    "free_tier_kind": "trial-credit",
+    "session_cap": {
+      "wall_clock_min": 1440,
+      "idle_reap_s": null,
+      "restart_required": false,
+      "note": "the trial lasts 7 days; a sandbox may run 10 to 86,400 seconds and defaults to 3,600"
+    },
+    "network_out": {
+      "allow_outbound": true,
+      "allow_inbound_listen": true,
+      "ports": "16 public ports for each sandbox",
+      "static_ip": null,
+      "ipv6": null,
+      "per_session_bytes": null
+    }
+  }
+}

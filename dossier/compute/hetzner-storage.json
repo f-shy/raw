@@ -5,7 +5,7 @@
   "url": "https://www.hetzner.com/dedicated-rootserver/matrix-sx/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "Three SX models, all with SATA HDD plus NVMe. SX65: 4 x 16 TB up to 4 x 22 TB SATA, 2 x 1 TB NVMe, 128 GB DDR4 ECC, Ryzen 7 3700X, from EUR 84.00 to EUR 159.00/month excl. VAT, EUR 39.00 one-time setup. SX135: 8 x 16 TB up to 8 x 22 TB, 2 x 1.92 TB NVMe, 256 GB, Ryzen 9 3900, EUR 289.00 to EUR 309.00/month, EUR 144.00 setup. SX295: 14 x 22 TB SATA (308 TB), 2 x 7.68 TB NVMe, EPYC 7502P, EUR 599.00 to EUR 879.00/month, EUR 439.00 setup. Traffic is unlimited and the port is 1 Gbit/s.",
+    "stated": "The SX line is paid-only: the SX65 card starts at EUR 84.00 per month, excl. VAT, with a one-time setup fee of EUR 39.00; SX135 starts at EUR 289.00 per month with EUR 144.00 setup and SX295 at EUR 879.00 per month with EUR 439.00 setup.",
     "unit": "GiB",
     "metered_on": "wall-clock",
     "source_url": "https://www.hetzner.com/dedicated-rootserver/matrix-sx/",
@@ -69,10 +69,17 @@
       "url": "https://www.hetzner.com/dedicated-rootserver/matrix-sx/",
       "date": "2026-10-22",
       "proved": "the hero text states 'SX server with up to 15.36 TB NVMe SSD and 308 TB SATA HDD', which is the 14 x 22 TB configuration of SX295"
+    },
+    {
+      "url": "https://www.hetzner.com/dedicated-rootserver/matrix-sx/",
+      "date": "2026-11-25",
+      "proved": "the SX65 card starts at EUR 84.00 per month excluding VAT",
+      "capture": "sha256:52d4acc07d1cc08e5fe965e977eca2af17e1429915d02fd63e641e8d4fc4fa0d",
+      "quote": "max/mo.  € 84.00 per month, excl. VAT"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:27.269Z",
   "notes": "The two prices per card are read as a low and a high configuration of the same model, because the card says '3 Types' for SX65 and '1 Type' for SX295, but the page never prints a price beside a disk count. A per-TB figure for SX65 or SX135 would therefore be an inference about which price pairs with which drive set, so only SX295 is given one. Hetzner also sells a Storage Box on the same page at EUR 3.20/TB (1 TB), EUR 10.90 (5 TB), EUR 20.80 (10 TB) and EUR 40.60 (20 TB); that is a managed NAS product, not a rented machine, and it is out of this document's scope.",
   "extras": {
     "wave2": {

@@ -6,7 +6,7 @@
   "category": "VPS",
   "tier": "2 GB KVM VPS (June promo, code FBAD2GB2026)",
   "free_tier": {
-    "stated": "No free tier. The advertised entry plan is USD 16.99 a year for 2 GB with the promo code FBAD2GB2026, which is USD 1.42 a month.",
+    "stated": "A Full Year of VPS Hosting From Just $16.99",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://serverhost.com/sale/2026/serverhost-fb-ad-june.html",
@@ -100,10 +100,24 @@
       "url": "https://serverhost.com/sale/2026/serverhost-fb-ad-june.html",
       "date": "2026-10-24",
       "proved": "quoted: '8 GB KVM VPS $59.99 /year' against a list rate of USD 24.00 a month for the same shape"
+    },
+    {
+      "url": "https://serverhost.com/sale/2026/serverhost-fb-ad-june.html",
+      "date": "2026-11-25",
+      "proved": "the promo page states a full year of VPS hosting from 16.99 dollars",
+      "capture": "sha256:11926e91fbd36631fc3699f1f93d1b5fd7fbf34ae426b862abdd69d05d7f085d",
+      "quote": "A Full Year of VPS Hosting From Just $16.99"
+    },
+    {
+      "url": "https://serverhost.com/sale/2026/serverhost-fb-ad-june.html",
+      "date": "2026-11-25",
+      "proved": "the promo page still states a full year of VPS hosting from 16.99 dollars",
+      "capture": "sha256:11926e91fbd36631fc3699f1f93d1b5fd7fbf34ae426b862abdd69d05d7f085d",
+      "quote": "A Full Year of VPS Hosting From Just $16.99"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-24T03:20:00.000Z",
+  "verified_at": "2026-11-25T15:03:55.554Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "This refutes the framing that ServerHost's USD 16.99 a year is a sub-USD-1-a-month machine. It is USD 1.42 a month, and the renewal price is not published, so even that figure is a first-term figure. RENEWAL PASS 2026-10-24: this is the clearest first-term promo in this category. The discount arrives as a promo code on an annual billing cycle, and the same billing system publishes a monthly list price for the identical shape at 4.2x the promo's effective rate. Nothing read today says what year 2 costs, so the row stays paid-only and the renewal stays unpublished. Note the read caveat: the sale page came from a stored snapshot dated 2026-10-22, not a live fetch.",

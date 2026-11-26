@@ -1,0 +1,21 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u362-rerun",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "Re-check these compute records against their own sources. Keep every clause the captured page supports, correct or remove only a clause it does not, then confirm each record with a quote from the page.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/student-voucher $.free_tier.stated: Page never says 无门槛/no-threshold (no occurrence of 门槛); other parts (300元, every 12 months, 1 year validity, partial public-cloud products) are stated.\n- compute/student-voucher $.free_tier.stated: Page never says 无门槛/no-threshold (no occurrence of 门槛); other parts (300元, every 12 months, 1 year validity, partial public-cloud products) are stated.\n- compute/swiss-ai-initiative $.free_tier.stated: Capture is the small-grants call only; the large-project call for >500k GPU hours is not in it (no '500k'). Other parts (six months, 20k-32k hours, 10,000 GH200, 10-20M GPU hours, 50% FTE, PI signature) are stated.\n- compute/swiss-ai-initiative $.free_tier.stated: Capture is the small-grants call only; the large-project call for >500k GPU hours is not in it (no '500k'). Other parts (six months, 20k-32k hours, 10,000 GH200, 10-20M GPU hours, 50% FTE, PI signature) are stated.\n- compute/technology-innovation-agency $.free_tier.stated: Band R50,000-R650,000 via Propella incubator is stated, but 'delivered through university technology transfer offices, science councils' is not in the capture.\n- compute/technology-innovation-agency $.free_tier.stated: Band R50,000-R650,000 via Propella incubator is stated, but 'delivered through university technology transfer offices, science councils' is not in the capture.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/surf $.free_tier.stated: Four ceilings match the capture, but the 'maximum duration of one year' is not in it; the page mentions only extensions (6 months, LUMI 3 months).\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/surf $.free_tier.stated: The four amounts match the page. The claim also says 'a maximum duration of one year'; the capture states no maximum duration (only 'one application per type of service, per calendar year' and one-time extensions of 6 months, 3 for LUMI).\n- compute/swiss-ai-initiative $.free_tier.stated: Six months, 20k-32k hours, 10,000 GH200, 10-20M, eligibility and signature are in the capture. The large-project call 'projects requesting more than 500k GPU hours' is not in this small-grants document; it only says 'For the large grants, see here.'",
+ "scope": {
+  "rids": [
+   "compute/student-voucher",
+   "compute/surf",
+   "compute/swiss-ai-initiative",
+   "compute/tangle-sandbox",
+   "compute/technology-innovation-agency"
+  ]
+ },
+ "origin": "audit u375 of 20261125-0107-research-compute-5c82/u362 failed: 2 of 2 unsupported",
+ "created": "2026-11-25T15:42:47Z",
+ "queue_files": [
+  "queue/20261125-0107-research-compute-5c82-u57-rerun.json",
+  "queue/20261125-0107-research-compute-5c82-u273-rerun.json"
+ ]
+}

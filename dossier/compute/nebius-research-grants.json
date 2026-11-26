@@ -5,7 +5,7 @@
   "url": "https://nebius.com/nebius-research-grants",
   "category": "GPU cloud",
   "free_tier": {
-    "stated": "GPU cloud credits, Token Factory tokens and Tavily credits. The page states 'The exact amount is determined individually based on each proposal' and states no ceiling. Eligibility is a closed list of four roles, all academic: 'Postgraduate students conducting academic research', 'PhD students and postdoctoral researchers', 'Faculty members from accredited academic institutions', 'Researchers from accredited academic institutions or non-profit research organizations'.",
+    "stated": "GPU cloud credits, Token Factory tokens and Tavily credits, provided free under a research grant whose 'exact amount is determined individually based on each proposal', with no ceiling stated. Eligibility is a closed list of four roles tied to accredited academic or non-profit institutions: 'Postgraduate students conducting academic research', 'PhD students and postdoctoral researchers', 'Faculty members from accredited academic institutions leading computational or data-intensive projects', 'Researchers from accredited academic institutions or non-profit research organizations'.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://nebius.com/nebius-research-grants",
@@ -64,10 +64,24 @@
       "url": "https://nebius.com/nebius-research-grants",
       "date": "2026-10-22",
       "proved": "'We are now accepting applications for the 2026-2027 academic year', 'Nebius Academy will review applications throughout summer 2026', 'Successful applicants will be notified by email in late Q3 to early Q4 2026' - a seasonal cycle, not a rolling one"
+    },
+    {
+      "url": "https://nebius.com/nebius-research-grants",
+      "date": "2026-11-25",
+      "proved": "the grant award amount is determined individually per proposal, with no ceiling published",
+      "capture": "sha256:96181159315a3df4908f04c035b8a638c098ccd7176883b3cacb3f98e02e0ec8",
+      "quote": "The exact amount is determined individually based on each proposal."
+    },
+    {
+      "url": "https://nebius.com/nebius-research-grants",
+      "date": "2026-11-25",
+      "proved": "the grants page still states the award amount is determined individually per proposal",
+      "capture": "sha256:96181159315a3df4908f04c035b8a638c098ccd7176883b3cacb3f98e02e0ec8",
+      "quote": "The exact amount is determined individually based on each proposal."
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:31.403Z",
   "notes": "Recorded because the amount is unbounded and the program is live, which makes it a magnet for the next session. The absence of a published ceiling is the trap: 'determined individually' means the record has no number to compare against any other entry, and the four-role list has no independent lane. A co-marketing obligation is attached ('being open to publicly acknowledging Nebius support'), which is a publishing condition rather than a compute one. Nothing here is a reason to reject it as a product; the door is the finding.",
   "extras": {
     "wave2": {

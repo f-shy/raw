@@ -1,0 +1,201 @@
+{
+  "topic": "compute",
+  "slug": "bitrise-remote-dev-environments",
+  "provider": "Bitrise Remote Dev Environments",
+  "url": "https://bitrise.io/pricing#remote-dev-environments",
+  "category": "sandbox (hosted macOS and Linux development VM)",
+  "tier": "Basic Tier 1, 14-day trial then USD 20 per month",
+  "free_tier": {
+    "stated": "a 14-day trial gives the Tier 1 allocation of 8 hours per OS with 1 concurrent VM; a credit card is required at signup for verification only and is not charged, and the trial does not auto-convert to a paid plan",
+    "unit": "hours",
+    "metered_on": "wall-clock",
+    "source_url": "https://bitrise.io/pricing#remote-dev-environments",
+    "read_on": "2026-11-25",
+    "notes": "8 hours per OS is 480 minutes; each OS has its own pool. After the trial, Basic starts at USD 20 per month billed monthly (USD 18 per month billed annually) with up to 480 included minutes per OS; RDE is billed separately from Bitrise CI build credits"
+  },
+  "per_object_cap": {
+    "stated": "not applicable: the unit is a development VM, not a stored object"
+  },
+  "retention": {
+    "stated": "a terminated session's persistent disk is kept indefinitely as long as the user does not delete it and the stack it was created from remains available; session disks are not backed up and are erased if the stack is removed",
+    "days": null,
+    "source_url": "https://docs.bitrise.io/en/bitrise-rde/getting-started/rde-faq"
+  },
+  "egress": {
+    "terms": "no separate session-storage or egress price is published on the page read; session storage is not billed separately today, and enterprise agreements define a storage allowance",
+    "metered": false,
+    "free_allowance": null,
+    "price_per_tb": null,
+    "source_url": "https://docs.bitrise.io/en/bitrise-rde/getting-started/rde-faq"
+  },
+  "interface": [
+    "ssh",
+    "rest",
+    "cli"
+  ],
+  "interface_detail": "a session is created from the terminal, IDE, browser UI or an AI coding agent; a REST API creates, reads, updates and deletes sessions, templates and saved inputs; a VNC desktop is exposed for macOS sessions",
+  "tooling": "the Bitrise CLI with bitrise-cli auth login and bitrise-cli rde, an RDE MCP server for AI agents, a VS Code plugin, a browser UI and a REST API",
+  "chaining": "an archive-and-restore development VM that keeps its disk between sessions, so a mobile project can be picked up later on the same stack; GitHub integration plants a short-lived token so git and the gh CLI authenticate as the user",
+  "limits": [
+    {
+      "kind": "volume-quota",
+      "value": "480 included minutes per OS per month at Basic Tier 1, then macOS USD 0.0288/min and Linux USD 0.0044/min up to a monthly cap of USD 99 macOS and USD 39 Linux",
+      "source": "https://bitrise.io/pricing#remote-dev-environments"
+    },
+    {
+      "kind": "write-gated",
+      "value": "a workspace owner or manager must enable RDE and grant the RDE User role before a member can start a session",
+      "source": "https://docs.bitrise.io/en/bitrise-rde/getting-started/rde-faq"
+    }
+  ],
+  "binding": "write-gated",
+  "binding_note": "access is granted per workspace: membership alone is not enough, so a new user is stopped by the RDE User role before the 8-hour trial cap or the per-minute overage comes into play",
+  "identity_cost": {
+    "kind": "card",
+    "detail": "the 14-day trial requires a credit card at signup for verification only, with no charge and no subscription; a workspace owner or manager must enable RDE and grant the RDE User role, and the CLI sign-in opens a browser to authenticate a Bitrise account",
+    "country": null
+  },
+  "reliability_note": "session disks are working storage with no backup and no service-level commitment; a session on a removed stack is unrecoverable, and long-running machines are drained for infrastructure maintenance even with the auto-terminate timer disabled",
+  "confidence": "documented",
+  "confidence_note": "the trial, price, minute pools, overage rates, monthly caps and identity gate are quoted from first-party pricing, FAQ and quickstart pages read on 2026-11-25; no session was created",
+  "evidence": [
+    {
+      "url": "https://bitrise.io/pricing#remote-dev-environments",
+      "date": "2026-11-25",
+      "proved": "the trial is two weeks at Tier 1 with 8 hours per OS, 1 concurrent VM and a card for verification only",
+      "capture": "sha256:226b873d453af4b37e89b2e2a61f99cc4a4b9d83c3ac132bef98aefc5b46f833",
+      "quote": "Two weeks, Tier 1 allocation (8 hours per OS, 1 concurrent VM), credit card required at signup for verification only."
+    },
+    {
+      "url": "https://bitrise.io/pricing#remote-dev-environments",
+      "date": "2026-11-25",
+      "proved": "the trial does not auto-bill into a paid plan",
+      "capture": "sha256:226b873d453af4b37e89b2e2a61f99cc4a4b9d83c3ac132bef98aefc5b46f833",
+      "quote": "We will not charge your credit card or require you to purchase a subscription."
+    },
+    {
+      "url": "https://bitrise.io/pricing#remote-dev-environments",
+      "date": "2026-11-25",
+      "proved": "the tier table gives Basic Tier 1 480 included minutes per OS per month, rising to 960 and 1,440 at the higher tiers",
+      "capture": "sha256:226b873d453af4b37e89b2e2a61f99cc4a4b9d83c3ac132bef98aefc5b46f833",
+      "quote": "Up to 1,440 included minutes/month, per OS"
+    },
+    {
+      "url": "https://bitrise.io/pricing#remote-dev-environments",
+      "date": "2026-11-25",
+      "proved": "the Basic monthly price starts at USD 18 when billed annually",
+      "capture": "sha256:226b873d453af4b37e89b2e2a61f99cc4a4b9d83c3ac132bef98aefc5b46f833",
+      "quote": "From $18"
+    },
+    {
+      "url": "https://bitrise.io/pricing#remote-dev-environments",
+      "date": "2026-11-25",
+      "proved": "the Basic column of the machine-rate table gives macOS overage USD 0.0288 per minute and Linux overage USD 0.0044 per minute",
+      "capture": "sha256:226b873d453af4b37e89b2e2a61f99cc4a4b9d83c3ac132bef98aefc5b46f833",
+      "quote": "| macOS overage | $0.0288/min | $0.0576/min |"
+    },
+    {
+      "url": "https://docs.bitrise.io/en/bitrise-rde/getting-started/rde-faq",
+      "date": "2026-11-25",
+      "proved": "the offer is an on-demand macOS or Linux cloud machine on Bitrise infrastructure",
+      "capture": "sha256:c1ffb41ec94d5209233730906b2c0b22c38e574f2d7673ebc606760bdc9be134",
+      "quote": "An on-demand cloud machine - macOS or Linux - running on the same infrastructure"
+    },
+    {
+      "url": "https://docs.bitrise.io/en/bitrise-rde/getting-started/rde-faq",
+      "date": "2026-11-25",
+      "proved": "access comes through self-serve signup or enterprise sales and then needs the RDE User role",
+      "capture": "sha256:c1ffb41ec94d5209233730906b2c0b22c38e574f2d7673ebc606760bdc9be134",
+      "quote": "There are two ways to get RDE."
+    },
+    {
+      "url": "https://docs.bitrise.io/en/bitrise-rde/getting-started/rde-faq",
+      "date": "2026-11-25",
+      "proved": "trial sessions are capped at eight hours and cannot change the auto-terminate timer",
+      "capture": "sha256:c1ffb41ec94d5209233730906b2c0b22c38e574f2d7673ebc606760bdc9be134",
+      "quote": "Sessions in free-trial workspaces are capped at eight hours and can"
+    },
+    {
+      "url": "https://docs.bitrise.io/en/bitrise-rde/getting-started/rde-faq",
+      "date": "2026-11-25",
+      "proved": "session storage is not billed separately and RDE does not use CI build credits",
+      "capture": "sha256:c1ffb41ec94d5209233730906b2c0b22c38e574f2d7673ebc606760bdc9be134",
+      "quote": "Session storage isn't billed separately today."
+    },
+    {
+      "url": "https://docs.bitrise.io/en/bitrise-rde/getting-started/rde-faq",
+      "date": "2026-11-25",
+      "proved": "a REST API can manage sessions and the GitHub integration plants a short-lived token",
+      "capture": "sha256:c1ffb41ec94d5209233730906b2c0b22c38e574f2d7673ebc606760bdc9be134",
+      "quote": "Yes. You can create, read, update, and delete sessions, templates, and saved inputs through the API."
+    },
+    {
+      "url": "https://docs.bitrise.io/en/bitrise-rde/getting-started/remote-dev-environments-overview",
+      "date": "2026-11-25",
+      "proved": "the machines run in US and EU data centers with Apple silicon macOS and 2 to 48 vCPU Linux",
+      "capture": "sha256:bc4d6845ee72141c3dd5be8c84212076e5da30cd05c6fe7e6ec0b6b16cf10308",
+      "quote": "RDE runs on production-grade Bitrise infrastructure in US and EU data centers:"
+    },
+    {
+      "url": "https://bitrise.io/pricing#remote-dev-environments",
+      "date": "2026-11-25",
+      "proved": "the tier table gives Basic Tier 1 480 included minutes per OS per month, rising to 1,440 at the highest tier",
+      "capture": "sha256:226b873d453af4b37e89b2e2a61f99cc4a4b9d83c3ac132bef98aefc5b46f833",
+      "quote": "| Included minutes (per OS) | Up to 1,440 minutes (24 hrs) |"
+    },
+    {
+      "url": "https://bitrise.io/pricing#remote-dev-environments",
+      "date": "2026-11-25",
+      "proved": "the machine-rate table gives macOS overage of USD 0.0288 per minute on the Basic column",
+      "capture": "sha256:226b873d453af4b37e89b2e2a61f99cc4a4b9d83c3ac132bef98aefc5b46f833",
+      "quote": "| macOS overage | $0.0288/min | $0.0576/min |"
+    },
+    {
+      "url": "https://bitrise.io/pricing#remote-dev-environments",
+      "date": "2026-11-25",
+      "proved": "the machine-rate table gives Linux overage of USD 0.0044 per minute on the Basic column",
+      "capture": "sha256:226b873d453af4b37e89b2e2a61f99cc4a4b9d83c3ac132bef98aefc5b46f833",
+      "quote": "| Linux overage | $0.0044/min | $0.0088/min |"
+    },
+    {
+      "url": "https://bitrise.io/pricing#remote-dev-environments",
+      "date": "2026-11-25",
+      "proved": "the tier table lists 480, 960 and 1,440 included minutes per OS per month across the three Basic tiers",
+      "capture": "sha256:226b873d453af4b37e89b2e2a61f99cc4a4b9d83c3ac132bef98aefc5b46f833",
+      "quote": "480 minutes / month (8 hrs) | 960 minutes / month (16 hrs) | 1,440 minutes / month (24 hrs)"
+    }
+  ],
+  "verdict": "trial-only",
+  "verified_at": "2026-11-25T02:12:34.793Z",
+  "price_per_tb_month": null,
+  "notes": "A hosted development VM rather than a code-execution sandbox: macOS M2 Pro Large or Linux up to 4 vCPU at Basic Tier 1. The free allowance is a 14-day, 8-hours-per-OS trial with a card held for verification only; after that Basic is USD 20 per month (USD 18 annual) with per-OS minute pools and metered overage capped per OS. Workspace-level RDE access must be granted by an owner or manager.",
+  "extras": {
+    "shape": {
+      "vcpu": 6,
+      "ram_gib": 14,
+      "disk_gib": null,
+      "gpu_class": null,
+      "gpu_count": null,
+      "note": "Basic Tier 1 offers macOS M2 Pro Large at 6 vCPU and 14 GB RAM; Linux machines go up to 4 vCPU and 16 GB RAM"
+    },
+    "billing_model": "14-day trial then monthly plan with included minutes per OS and metered overage to a monthly cap",
+    "free_tier_kind": "time-boxed trial",
+    "term": "session auto-terminates after 5 days idle by default, up to 30 days or disabled on paid plans; trial sessions are capped at 8 hours",
+    "price_arithmetic": "trial 480 minutes per OS over 14 days; Basic Tier 1 USD 20 per month; macOS overage USD 0.0288/min = USD 1.728/h; Linux overage USD 0.0044/min = USD 0.264/h",
+    "derived": "USD 0.0288/min x 60 = USD 1.728/h macOS overage; USD 0.0044/min x 60 = USD 0.264/h Linux overage",
+    "network_out": {
+      "allow_outbound": true,
+      "allow_inbound_listen": null,
+      "ports": null,
+      "static_ip": null,
+      "ipv6": null,
+      "per_session_bytes": null
+    },
+    "session_cap": {
+      "wall_clock_min": null,
+      "idle_reap_s": 432000,
+      "restart_required": false,
+      "note": "trial sessions capped at 8 hours; paid sessions auto-terminate after 5 days idle by default"
+    }
+  }
+}

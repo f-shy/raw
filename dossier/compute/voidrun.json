@@ -1,0 +1,121 @@
+{
+  "topic": "compute",
+  "slug": "voidrun",
+  "provider": "VoidRun",
+  "url": "https://void-run.com/pricing",
+  "category": "cloud sandbox",
+  "tier": "Usage-first (trial credits)",
+  "free_tier": {
+    "stated": "No base subscription. Fully usage-based. Launch trial: get started with free credits and run real workloads without adding a card. Up to ₹4,600.00 free credits, then pay only for consumed compute, memory, and storage.",
+    "unit": "credits",
+    "metered_on": "wall-clock",
+    "source_url": "https://void-run.com/pricing",
+    "read_on": "2026-11-25",
+    "notes": "The page fixes an exchange rate of $1 = ₹92.00 (fallback). Metered rates are ₹0.0010304 per compute-second, ₹0.0003312 per GB-second of memory and ₹0.000002208 per GB-second of storage; the storage meter reads 'Beta: ₹0.0000 charge'. Rates are published in Indian rupees."
+  },
+  "per_object_cap": {
+    "stated": "not applicable: the billed unit is compute-seconds and GB-seconds, not an object; no per-object cap is published",
+    "bytes": null,
+    "source_url": "https://void-run.com/pricing"
+  },
+  "retention": {
+    "stated": "not published for sandboxes: the pricing page names persisted disk volume for artifacts and cache but states no retention period",
+    "days": null,
+    "source_url": "https://void-run.com/pricing"
+  },
+  "egress": {
+    "terms": "not published: the pricing page lists compute, memory and storage meters and states no egress allowance or price",
+    "metered": false,
+    "free_allowance": null,
+    "price_per_tb": null,
+    "source_url": "https://void-run.com/pricing"
+  },
+  "interface": [
+    "rest",
+    "cli"
+  ],
+  "interface_detail": "A dashboard at dash.void-run.com and an API are implied by the usage-first lane; the pricing page does not name an endpoint or a CLI.",
+  "tooling": "the dashboard at dash.void-run.com is the stated entry point; no SDK, CLI or API endpoint is published on the pricing page.",
+  "chaining": "Hosted, usage-metered sandboxes for developers and AI agents with no base subscription, so short workloads can be paid per consumed compute, memory and storage without a card until credits run out.",
+  "limits": [
+    {
+      "kind": "volume-quota",
+      "value": "up to ₹4,600.00 of free credits, then pay per compute-second, GB-second of memory and GB-second of storage",
+      "source": "https://void-run.com/pricing"
+    },
+    {
+      "kind": "volume-quota",
+      "value": "₹89.03 per compute unit per day and ₹2,670.80 per compute unit per month at the published meter",
+      "source": "https://void-run.com/pricing"
+    }
+  ],
+  "binding": "volume-quota",
+  "binding_note": "The ₹4,600.00 credit is the first limit reached; there is no subscription floor, so usage is capped by the credit before any unpublished concurrency limit.",
+  "identity_cost": {
+    "kind": "email",
+    "detail": "The signup page offers 'Continue with GitHub' or an email address, with optional first and last name, and asks the user to agree to the Terms of Service and Privacy Policy; it says 'No. You can start with free credits and add payment later.' No card, phone or ID is asked for at signup.",
+    "country": null
+  },
+  "reliability_note": "Storage billing is marked Beta with a ₹0.0000 charge in one line and a nonzero meter in another; charges are metered continuously and the trial credits are one-time.",
+  "confidence": "documented",
+  "confidence_note": "The credit amount, no-card statement, metered rates and signup fields are quoted from VoidRun's own pricing and signup pages read 2026-11-25; the prices are published in rupees.",
+  "evidence": [
+    {
+      "url": "https://void-run.com/pricing",
+      "date": "2026-11-25",
+      "proved": "a trial gives free credits usable without a card, with payment added later only for higher limits",
+      "capture": "sha256:4d48ff10f119a30b41e93956bda67d964e8cbbd5f97738737a5f2dae54e08dd0",
+      "quote": "No. You can start with free credits and add payment later."
+    },
+    {
+      "url": "https://void-run.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the free credit allowance is up to ₹4,600.00, after which usage is billed",
+      "capture": "sha256:4d48ff10f119a30b41e93956bda67d964e8cbbd5f97738737a5f2dae54e08dd0",
+      "quote": "Up to ₹4,600.00 free credits, then pay only for consumed compute, memory, and storage."
+    },
+    {
+      "url": "https://void-run.com/pricing",
+      "date": "2026-11-25",
+      "proved": "the compute meter is ₹0.0010304 per second",
+      "capture": "sha256:4d48ff10f119a30b41e93956bda67d964e8cbbd5f97738737a5f2dae54e08dd0",
+      "quote": "₹0.0010304"
+    },
+    {
+      "url": "https://dash.void-run.com/sign-up",
+      "date": "2026-11-25",
+      "proved": "signup accepts GitHub or an email address with optional first and last name",
+      "capture": "sha256:5d3ffedb25d58ea707e7de2558efc9ba1561c7337cdc169362326413f9bd0975",
+      "quote": "Continue with GitHub"
+    }
+  ],
+  "verdict": "trial-only",
+  "verified_at": "2026-11-25T02:12:34.709Z",
+  "notes": "Hosted, disposable cloud sandboxes for developers and AI agents, sold entirely usage-based with up to ₹4,600.00 of trial credit and no card needed to start. The credit is a sign-up trial rather than a recurring free tier, so the verdict is trial-only; interface and retention beyond the dashboard are unverified from the public pages.",
+  "extras": {
+    "shape": {
+      "vcpu": null,
+      "ram_gib": null,
+      "disk_gib": null,
+      "gpu_class": "not published",
+      "gpu_count": 0,
+      "note": "compute units, GB of memory and GB of storage are metered separately; no machine shape is published"
+    },
+    "billing_model": "usage-only meters for compute, memory and storage, with trial credits",
+    "free_tier_kind": "signup-credit",
+    "network_out": {
+      "allow_outbound": null,
+      "allow_inbound_listen": null,
+      "ports": "not published",
+      "static_ip": null,
+      "ipv6": null,
+      "per_session_bytes": null
+    },
+    "session_cap": {
+      "wall_clock_min": null,
+      "idle_reap_s": null,
+      "restart_required": null,
+      "note": "not published"
+    }
+  }
+}

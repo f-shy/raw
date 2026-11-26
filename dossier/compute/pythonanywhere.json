@@ -29,7 +29,7 @@
   "limits_note": "no SSH on the free plan; the console is in the browser",
   "reliability_note": "no reliability event observed",
   "confidence": "documented",
-  "verified_at": "2026-10-24T01:56:00.000Z",
+  "verified_at": "2026-11-25T11:17:45.895Z",
   "price_per_tb_month": null,
   "notes": "The free tier is real and permanent, and it is a web host. Without SSH and without general outbound access it cannot be a VPN node, a monitor that calls out, or a build machine. Unverified: a probe running a tight loop and reading the CPU counter.",
   "slug": "pythonanywhere",
@@ -37,7 +37,7 @@
   "url": "https://www.pythonanywhere.com/pricing/",
   "category": "shared shell",
   "free_tier": {
-    "stated": "USD 0 a month: one web app, up to 2 consoles, 100 CPU seconds a day, 512 MB of private file storage, outbound internet to a whitelist of sites only, no SSH",
+    "stated": "USD 0 a month (Beginner): one web app, up to 2 consoles, 100 CPU seconds, 512MB private file storage, 'Specific sites via HTTP(S) only' outbound, and no SSH mark in the Beginner column",
     "unit": "seconds",
     "metered_on": "wall-clock",
     "source_url": "https://www.pythonanywhere.com/pricing/",
@@ -82,6 +82,13 @@
       "url": "https://www.pythonanywhere.com/pricing/",
       "date": "2026-10-24",
       "proved": "quoted: 'SSH access to your account via `ssh.pythonanywhere.com`' appears with no mark in the Beginner column, while paid columns carry one"
+    },
+    {
+      "url": "https://www.pythonanywhere.com/pricing/",
+      "date": "2026-11-25",
+      "proved": "the Beginner column shows $0 a month, one web app, up to 2 consoles, 100 CPU seconds, 512MB storage, HTTP(S)-only whitelist access and an empty SSH cell",
+      "capture": "sha256:2d45ff34acf6d6407253137fc07d3544be681627d6ed2598bc005effc40717ef",
+      "quote": "Beginner: $0/month ... Python web applications At *your-username*.pythonanywhere.com At your own domain | 1 | You choose | 1 ... Consoles (Python, Bash, etc...) | Unlimited | Unlimited | Up to 2 ... SSH access to your account via `ssh.pythonanywhere.com` |  |  |  ... Access to external internet sites from your code ... [Specific sites via HTTP(S) only](https://www.pythonanywhere.com/whitelist/) ... CPU allowance ... 5,000 seconds | You choose | 100 seconds ... Private file storage | 5GB | You choose | 512MB"
     }
   ],
   "verdict": "fails-quota",

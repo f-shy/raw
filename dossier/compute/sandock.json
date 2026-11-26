@@ -5,12 +5,12 @@
   "url": "https://sandock.ai/pricing",
   "category": "container and VM sandbox",
   "free_tier": {
-    "stated": "Plus is USD 5 per month for 5 sandboxes, 2 GB of storage, a 4-hour session timeout and up to 4 vCPU. Pro runs from USD 15 per month (10 sandboxes, 2 GB) through USD 30 (25 sandboxes, 10 GB, 8-hour timeout, up to 8 vCPU), USD 60 (60 sandboxes) to USD 100 (150 sandboxes). Code executions are not limited by plan: plans differ on sandbox count, storage, session timeout, compute capacity and support. There is no free plan.",
+    "stated": "Plus is $5/month with 5 sandboxes and 2 GB storage.",
     "unit": "hours",
     "metered_on": "wall-clock",
     "source_url": "https://sandock.ai/pricing",
     "read_on": "2026-10-22",
-    "notes": "none"
+    "notes": "The FAQ says Sandock is a paid product and no free plan is offered; Pro plans run from $15/month to $100/month, code executions are not limited by plan, and session timeouts are 4 hours on Plus and 8 hours on Pro."
   },
   "per_object_cap": {
     "stated": "not applicable: the unit is a machine, not an object",
@@ -69,10 +69,24 @@
       "url": "https://sandock.ai/pricing",
       "date": "2026-10-22",
       "proved": "a 14-day money-back guarantee on paid plans and billing through Creem"
+    },
+    {
+      "url": "https://sandock.ai/pricing",
+      "date": "2026-11-25",
+      "proved": "the pricing FAQ states the cheapest paid plan, Plus, at $5 per month with 5 sandboxes and 2 GB storage",
+      "capture": "sha256:bdfb0445022f0d884679a02e098b1912a06f9ee5b73c0defb3a342a92a6ac0b0",
+      "quote": "Plus is $5/month with 5 sandboxes and 2 GB storage."
+    },
+    {
+      "url": "https://sandock.ai/pricing",
+      "date": "2026-11-25",
+      "proved": "the FAQ describes paid plans starting at $5 and $15 per month",
+      "capture": "sha256:bdfb0445022f0d884679a02e098b1912a06f9ee5b73c0defb3a342a92a6ac0b0",
+      "quote": "We offer a Plus plan at $5/month and Pro plans from $15/month, so you can start small and scale as your needs grow."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:47.061Z",
   "notes": "The cheapest paid shape recorded among documented hosts by subscription, and the honest floor for a Docker sandbox that must not be rebuilt from scratch. It is recorded as paid-only because the vendor states plainly that there is no free plan, which refutes the 'start free' line in the page description that the page itself then contradicts in its own FAQ. The RAM per sandbox is not stated on the pricing page, so shape carries null for RAM; 'up to 4 vCPU' is the only compute number published. Session timeouts of 4 and 8 hours are short for an agent that runs overnight.",
   "extras": {
     "wave2": {

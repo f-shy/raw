@@ -1,0 +1,14 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u384-q01",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "Should AWS Device Farm (real-device mobile testing, one-time trial of 1,000 device minutes then USD 0.17 per minute, unmetered plans from USD 250 per slot per month) get its own record instead of being folded into compute/aws-agentcore?",
+ "why": "u123 proposed new/compute/aws-device-farm.json and the integrator refused it as a duplicate of compute/aws-agentcore; the two are distinct AWS services with different units, prices and trials, so a separate scope or a relate decision is needed",
+ "scope": {
+  "rids": [
+   "compute/aws-agentcore"
+  ]
+ },
+ "origin": "20261125-0107-research-compute-5c82/u384",
+ "created": "2026-11-25T16:38:10Z"
+}

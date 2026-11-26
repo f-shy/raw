@@ -6,7 +6,7 @@
   "category": "VPS",
   "tier": "メモリ512MB",
   "free_tier": {
-    "stated": "no free tier; the 512 MB plan is JPY 590 a month equivalent or JPY 7,078 a year, and the 1 GB plan is JPY 807 a month equivalent",
+    "stated": "お申し込み時に「クレジットカード払い」を選択された場合、全プランで2週間の無料お試し期間をご利用いただけます。",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://vps.sakura.ad.jp/specification/",
@@ -72,10 +72,24 @@
       "url": "https://help.sakura.ad.jp/purpose_beginner/2571/",
       "date": "2026-10-24",
       "proved": "quoted: '「さくらのクラウド」や「さくらのVPS」など一部のサービスは、電話認証が完了するまで利用できません。' and '1電話番号・国を選択し、「音声電話で認証コードを受け取る」をクリックします。'"
+    },
+    {
+      "url": "https://vps.sakura.ad.jp/flow/",
+      "date": "2026-11-25",
+      "proved": "with card payment, a two-week free trial is available on all plans",
+      "capture": "sha256:d32e09d45068cba2989469ec1b6508cb2d0d4033f3cb932cab7b4c866c5d9b1e",
+      "quote": "お申し込み時に「クレジットカード払い」を選択された場合、全プランで2週間の無料お試し期間をご利用いただけます。"
+    },
+    {
+      "url": "https://vps.sakura.ad.jp/flow/",
+      "date": "2026-11-25",
+      "proved": "the two-week free trial on all plans with card payment is unchanged on the vendor's flow page",
+      "capture": "sha256:d32e09d45068cba2989469ec1b6508cb2d0d4033f3cb932cab7b4c866c5d9b1e",
+      "quote": "お申し込み時に「クレジットカード払い」を選択された場合、全プランで2週間の無料お試し期間をご利用いただけます。"
     }
   ],
   "verdict": "qualifies",
-  "verified_at": "2026-10-24T02:05:00.000Z",
+  "verified_at": "2026-11-25T15:03:54.277Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "The English site returned a 403 bot challenge, so whether an English order path exists is unverified. No traffic allowance is printed, which is unusual and worth a second look before relying on it for anything outbound-heavy.",

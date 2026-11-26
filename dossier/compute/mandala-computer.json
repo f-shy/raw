@@ -1,173 +1,199 @@
 {
-  "topic": "compute",
-  "slug": "mandala-computer",
-  "provider": "Mandala Computer",
-  "url": "https://mandala.computer/pricing",
-  "category": "cloud desktop for AI agents",
-  "tier": "Solo",
-  "free_tier": {
-    "stated": "No free tier stated: a paid plan or prepaid credits are required to launch computers; without a plan, pay as you go from prepaid credits at $0.12 an hour for a Standard computer.",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://mandala.computer/pricing",
-    "read_on": "2026-11-24"
+ "topic": "compute",
+ "slug": "mandala-computer",
+ "provider": "Mandala Computer",
+ "url": "https://mandala.computer/pricing",
+ "category": "container and vm sandbox",
+ "tier": "Pay as you go",
+ "free_tier": {
+  "stated": "No free tier: a paid plan or prepaid credits are required to launch a computer. Without a subscription, credits are bought in USD 10, 25 or 50 packs, expiring 12 months after purchase, and a standard computer runs at USD 0.12/hour billed by the second; starting anything needs at least USD 0.25 of credit.",
+  "unit": "none",
+  "metered_on": "wall-clock",
+  "source_url": "https://mandala.computer/pricing",
+  "read_on": "2026-11-25",
+  "notes": "The operator list's $0.12/h is the pay-as-you-go Standard computer rate for 2 vCPU / 4 GB. The Solo plan is $29/month for a pool of 4 vCPU, 8 GB RAM and 80 GB across up to 4 computers."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the metered unit is a running virtual machine, not a stored object; files up to 2 GiB can be uploaded into a computer, and a pay-as-you-go computer allows up to 4 vCPU, 8 GB RAM and 80 GB each",
+  "source_url": "https://mandala.computer/pricing"
+ },
+ "retention": {
+  "stated": "Scheduled snapshots are opt-in and bounded by the plan's window: 7 days on Solo, 7 daily plus 4 weekly on Studio, adding 12 monthly on Swarm. A computer out of credit for 30 days may be deleted, with an email warning at least seven days before.",
+  "days": 30,
+  "source_url": "https://mandala.computer/pricing"
+ },
+ "egress": {
+  "terms": "Each computer can serve a port on its own HTTPS address under mandala.dev, open to anyone with the link or private to signed-in account users; the pricing page states no separate egress volume allowance or per-GB traffic price.",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://mandala.computer/pricing"
+ },
+ "interface": [
+  "rest",
+  "cli",
+  "ssh",
+  "browser",
+  "chat"
+ ],
+ "interface_detail": "A REST API with Python and TypeScript SDKs, a mandala CLI, an MCP server for coding agents, a graphical Linux desktop with screenshot/click/type controls and an embeddable live view.",
+ "endpoint": "https://app.mandala.computer/docs",
+ "tooling": "The user installs the Python or TypeScript SDK or the mandala CLI, or connects an agent over MCP; each computer is a hardware-isolated Linux VM.",
+ "chaining": "Persistent desktop VMs let an agent use a browser and desktop applications across sessions, with snapshots for recovery, alongside inference records that supply the model calls.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "No free tier: prepaid credits in $10, $25 or $50 packs, expiring 12 months after purchase; $0.12/hour for a Standard 2 vCPU / 4 GB computer, $0.03 per vCPU-hour plus $0.015 per GB-hour and $0.10 per GB-month of disk",
+   "source": "https://mandala.computer/pricing"
   },
-  "per_object_cap": {
-    "stated": "Files of up to 2 GiB go into a computer as a resumable upload, sent in chunks and picked up again after a dropped connection.",
-    "bytes": 2147483648,
-    "source_url": "https://mandala.computer/pricing"
-  },
-  "retention": {
-    "stated": "Files, logins and installed software stay on the computer between sessions; scheduled snapshots keep 7 daily history on Solo, and Swarm adds 4 weekly and 12 monthly, but schedules are not enabled by default.",
-    "days": null,
-    "source_url": "https://mandala.computer/pricing"
-  },
-  "egress": {
-    "terms": "Computers reach the internet through an address shared with other customers; each computer has its own network policy, and up to 2 public URLs per computer on Solo are served under mandala.dev. No egress volume allowance or per-GB price is stated on the pricing or terms page.",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://mandala.computer/terms"
-  },
-  "interface": [
-    "rest",
-    "cli",
-    "chat"
-  ],
-  "interface_detail": "REST API, Python and TypeScript SDKs, an MCP server and a command-line client; the desktop is driven by screenshot, click, type, key and exec inside the session.",
-  "tooling": "pip install mandala-computer, npm install mandala-computer, the mandala CLI, or an MCP client pointed at the hosted MCP server; an API key from Settings is required.",
-  "chaining": "A persistent Linux desktop with a shell and browser can run an agent that writes its checkpoints to object storage; the shared outbound address makes a dedicated IP from an egress record necessary for any service that keys on source address.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "Solo: 4 vCPU, 8 GB RAM and 80 GB storage pool, up to 4 computers, up to 4 vCPU and 8 GB RAM per computer; 7-day snapshot history",
-      "source": "https://mandala.computer/pricing"
-    },
-    {
-      "kind": "per-object-cap",
-      "value": "uploads into a computer are limited to files of up to 2 GiB",
-      "source": "https://mandala.computer/pricing"
-    },
-    {
-      "kind": "write-gated",
-      "value": "a paid plan or prepaid credits, an account and an API key are required before a computer can be created",
-      "source": "https://mandala.computer/pricing"
-    }
-  ],
-  "limits_note": "A built-in agent run stops after 60 minutes; a monthly plan's snapshot history is 7 daily on Solo and up to 12 monthly on Swarm.",
-  "binding": "write-gated",
-  "binding_note": "No free lane exists and a computer cannot be launched without a paid plan or prepaid credits, so the payment and API-key gate fails before the 4-vCPU pool or the 2 GiB upload cap.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The sign-up page offers Continue with GitHub and Continue with Google; the terms require the user to be at least 18 and to provide a working email address. A paid plan or prepaid credits bought through Stripe are required to launch a computer; no phone or ID document is asked for on the pages read.",
-    "country": null
-  },
-  "reliability_note": "Computers may be suspended when idle and published services carry no uptime commitment; snapshots are not scheduled by default, and an account out of credit for 30 days may have its computers deleted after a seven-day warning.",
-  "confidence": "documented",
-  "confidence_note": "The price, pool limits, upload cap, sign-up methods and shared-address term are quoted from the vendor's own pages read on 2026-11-24.",
-  "evidence": [
-    {
-      "url": "https://mandala.computer/pricing",
-      "date": "2026-11-24",
-      "proved": "Solo costs $29 a month",
-      "capture": "sha256:9ac437c50bb81e9bdf0ced7d8ef6ea090e5a853e7d380ca1c4a7b290ab866efc",
-      "quote": "$29 / month"
-    },
-    {
-      "url": "https://mandala.computer/pricing",
-      "date": "2026-11-24",
-      "proved": "pay as you go is $0.12 an hour for a Standard computer",
-      "capture": "sha256:9ac437c50bb81e9bdf0ced7d8ef6ea090e5a853e7d380ca1c4a7b290ab866efc",
-      "quote": "$0.12 / hour for a Standard computer"
-    },
-    {
-      "url": "https://mandala.computer/pricing",
-      "date": "2026-11-24",
-      "proved": "the Solo pool is 4 vCPU, 8 GB RAM and 80 GB storage",
-      "capture": "sha256:9ac437c50bb81e9bdf0ced7d8ef6ea090e5a853e7d380ca1c4a7b290ab866efc",
-      "quote": "4 vCPU · 8 GB RAM · 80 GB storage pool"
-    },
-    {
-      "url": "https://mandala.computer/pricing",
-      "date": "2026-11-24",
-      "proved": "the per-computer storage ceiling on Solo is 40 GB",
-      "capture": "sha256:9ac437c50bb81e9bdf0ced7d8ef6ea090e5a853e7d380ca1c4a7b290ab866efc",
-      "quote": "Storage per computer | 40 GB"
-    },
-    {
-      "url": "https://mandala.computer/pricing",
-      "date": "2026-11-24",
-      "proved": "files uploaded into a computer are capped at 2 GiB",
-      "capture": "sha256:9ac437c50bb81e9bdf0ced7d8ef6ea090e5a853e7d380ca1c4a7b290ab866efc",
-      "quote": "Files of up to 2 GiB go into a computer as a resumable upload"
-    },
-    {
-      "url": "https://mandala.computer/pricing",
-      "date": "2026-11-24",
-      "proved": "a paid plan or prepaid credits are required to launch computers",
-      "capture": "sha256:9ac437c50bb81e9bdf0ced7d8ef6ea090e5a853e7d380ca1c4a7b290ab866efc",
-      "quote": "A paid plan or prepaid credits are required to launch computers: without a plan, pay as you go."
-    },
-    {
-      "url": "https://app.mandala.computer/signup",
-      "date": "2026-11-24",
-      "proved": "sign-up offers GitHub and Google as registration methods",
-      "capture": "sha256:2f766f68baf38fe1051045840339ebbc6693a39a9e50cc441b73993d3239a661",
-      "quote": "[Continue with GitHub](https://app.mandala.computer/api/auth/github/start?intent=login) [Continue with Google](https://app.mandala.computer/api/auth/google/start?intent=login)"
-    },
-    {
-      "url": "https://mandala.computer/terms",
-      "date": "2026-11-24",
-      "proved": "registration requires the user to be 18 or older and to provide a working email address",
-      "capture": "sha256:d5a7c317d124009c505c1dc4e40f1c0142541f986289fb868bd4ca7edaac465f",
-      "quote": "You must be at least 18 years old, provide a working email address, and be legally able to enter this agreement."
-    },
-    {
-      "url": "https://mandala.computer/terms",
-      "date": "2026-11-24",
-      "proved": "outbound traffic shares one address with other customers",
-      "capture": "sha256:d5a7c317d124009c505c1dc4e40f1c0142541f986289fb868bd4ca7edaac465f",
-      "quote": "Your computers reach the internet through an address shared with other customers."
-    },
-    {
-      "url": "https://mandala.computer",
-      "date": "2026-11-24",
-      "proved": "the computer is reachable over a REST API, SDKs and an MCP server",
-      "capture": "sha256:b7f2cdadb2d26ff0be61edc7c14e07d17f5487ce960ccbb6aa5ab49e39d41889",
-      "quote": "Access | REST API, Python and TypeScript SDKs, MCP server"
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T10:11:14.914Z",
-  "price_per_tb_month": null,
-  "notes": "Cloud Linux desktop VMs for agents, priced per plan or by the second; no free tier or sign-up credit is published. The built-in agent is a separate metered add-on billed through Mandala AI credits.",
-  "extras": {
-    "shape": {
-      "vcpu": 4,
-      "ram_gib": 8,
-      "disk_gib": 80,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "Solo pool of 4 vCPU, 8 GB RAM and 80 GB storage split across up to 4 computers; 40 GB disk per computer"
-    },
-    "billing_model": "monthly plan or prepaid credits by the second",
-    "free_tier_kind": "none",
-    "term": "monthly, cancel at period end",
-    "price_arithmetic": "USD 29 a month for Solo, or USD 0.03 per vCPU-hour plus USD 0.015 per GB-hour of RAM and USD 0.10 per GB-month of disk on pay as you go",
-    "status": "live hosted paid service",
-    "network_out": {
-      "allow_outbound": true,
-      "allow_inbound_listen": true,
-      "ports": "up to 2 public URLs per computer on Solo under mandala.dev",
-      "static_ip": false,
-      "ipv6": null,
-      "per_session_bytes": null
-    },
-    "session_cap": {
-      "wall_clock_min": 60,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "a built-in agent run stops after 60 minutes; a computer can be stopped and resumed with its disk kept"
-    }
+  {
+   "kind": "request-rate",
+   "value": "Pay as you go runs up to 8 computers sharing 8 vCPU / 16 GB RAM and 160 GB storage, up to 4 vCPU / 8 GB RAM / 80 GB per computer, 1 seat",
+   "source": "https://mandala.computer/pricing"
   }
+ ],
+ "limits_note": "Monthly plans: Solo $29 (4 computers, 4 vCPU / 8 GB / 80 GB pool), Studio $99 (16 computers, 16 vCPU / 32 GB / 320 GB), Swarm $399 (32 computers, 64 vCPU / 128 GB / 640 GB). A built-in computer-agent run stops after 60 minutes.",
+ "binding": "volume-quota",
+ "binding_note": "Prepaid credits are required before any computer starts and are what run out first; at zero credit running computers are suspended or stopped with disks kept, and nothing new starts.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "The sign-up page offers an email field, a password of at least 8 characters, and Continue with GitHub or Continue with Google. Credits and plans require payment; the terms and payment page are not gated by a phone number or ID document on the pages read.",
+  "country": null
+ },
+ "reliability_note": "Out-of-credit computers are suspended with sessions saved or stopped with disks kept; a computer out of credit for 30 days may be deleted with an email warning at least 7 days before. Snapshots count against snapshot storage, so a long schedule can leave less room for manual snapshots.",
+ "confidence": "documented",
+ "confidence_note": "Prices, credit expiry, per-computer caps, snapshot windows and sign-up fields are quoted from first-party pages read on 2026-11-25. Egress volumes are not published.",
+ "evidence": [
+  {
+   "url": "https://mandala.computer/pricing",
+   "date": "2026-11-25",
+   "proved": "the pay-as-you-go Standard computer is $0.12 per hour, matching the operator list",
+   "capture": "sha256:9ac437c50bb81e9bdf0ced7d8ef6ea090e5a853e7d380ca1c4a7b290ab866efc",
+   "quote": "$0.12 / hour for a Standard computer"
+  },
+  {
+   "url": "https://mandala.computer/pricing",
+   "date": "2026-11-25",
+   "proved": "disk costs $0.10 per GB-month while a computer exists, snapshots included",
+   "capture": "sha256:9ac437c50bb81e9bdf0ced7d8ef6ea090e5a853e7d380ca1c4a7b290ab866efc",
+   "quote": "$0.10 per GB-month of disk while a computer exists; snapshots included"
+  },
+  {
+   "url": "https://mandala.computer/",
+   "date": "2026-11-25",
+   "proved": "the starting price is $29/month for up to 4 computers or $0.12/hour as you go",
+   "capture": "sha256:b7f2cdadb2d26ff0be61edc7c14e07d17f5487ce960ccbb6aa5ab49e39d41889",
+   "quote": "| From | $29 / month · up to 4 computers, or $0.12 an hour as you go |"
+  },
+  {
+   "url": "https://app.mandala.computer/signup",
+   "date": "2026-11-25",
+   "proved": "sign-up asks for an email and password and offers GitHub or Google sign-in",
+   "capture": "sha256:28fb2df689f6951dddbe891851994b68feeac16a2aaa05315b3c1d1570b11652",
+   "quote": "<input type=\"email\" placeholder=\"Email\" autofocus=\"\" value=\"\"/></div><div class=\"field\"><input type=\"password\" placeholder=\"Password (min 8 characters)\" value=\"\"/></div>"
+  },
+  {
+   "url": "https://mandala.computer/pricing",
+   "date": "2026-11-24",
+   "proved": "Solo costs $29 a month",
+   "capture": "sha256:9ac437c50bb81e9bdf0ced7d8ef6ea090e5a853e7d380ca1c4a7b290ab866efc",
+   "quote": "$29 / month"
+  },
+  {
+   "url": "https://mandala.computer/pricing",
+   "date": "2026-11-24",
+   "proved": "pay as you go is $0.12 an hour for a Standard computer",
+   "capture": "sha256:9ac437c50bb81e9bdf0ced7d8ef6ea090e5a853e7d380ca1c4a7b290ab866efc",
+   "quote": "$0.12 / hour for a Standard computer"
+  },
+  {
+   "url": "https://mandala.computer/pricing",
+   "date": "2026-11-24",
+   "proved": "the Solo pool is 4 vCPU, 8 GB RAM and 80 GB storage",
+   "capture": "sha256:9ac437c50bb81e9bdf0ced7d8ef6ea090e5a853e7d380ca1c4a7b290ab866efc",
+   "quote": "4 vCPU · 8 GB RAM · 80 GB storage pool"
+  },
+  {
+   "url": "https://mandala.computer/pricing",
+   "date": "2026-11-24",
+   "proved": "the per-computer storage ceiling on Solo is 40 GB",
+   "capture": "sha256:9ac437c50bb81e9bdf0ced7d8ef6ea090e5a853e7d380ca1c4a7b290ab866efc",
+   "quote": "Storage per computer | 40 GB"
+  },
+  {
+   "url": "https://mandala.computer/pricing",
+   "date": "2026-11-24",
+   "proved": "files uploaded into a computer are capped at 2 GiB",
+   "capture": "sha256:9ac437c50bb81e9bdf0ced7d8ef6ea090e5a853e7d380ca1c4a7b290ab866efc",
+   "quote": "Files of up to 2 GiB go into a computer as a resumable upload"
+  },
+  {
+   "url": "https://mandala.computer/pricing",
+   "date": "2026-11-24",
+   "proved": "a paid plan or prepaid credits are required to launch computers",
+   "capture": "sha256:9ac437c50bb81e9bdf0ced7d8ef6ea090e5a853e7d380ca1c4a7b290ab866efc",
+   "quote": "A paid plan or prepaid credits are required to launch computers: without a plan, pay as you go."
+  },
+  {
+   "url": "https://app.mandala.computer/signup",
+   "date": "2026-11-24",
+   "proved": "sign-up offers GitHub and Google as registration methods",
+   "capture": "sha256:2f766f68baf38fe1051045840339ebbc6693a39a9e50cc441b73993d3239a661",
+   "quote": "[Continue with GitHub](https://app.mandala.computer/api/auth/github/start?intent=login) [Continue with Google](https://app.mandala.computer/api/auth/google/start?intent=login)"
+  },
+  {
+   "url": "https://mandala.computer/terms",
+   "date": "2026-11-24",
+   "proved": "registration requires the user to be 18 or older and to provide a working email address",
+   "capture": "sha256:d5a7c317d124009c505c1dc4e40f1c0142541f986289fb868bd4ca7edaac465f",
+   "quote": "You must be at least 18 years old, provide a working email address, and be legally able to enter this agreement."
+  },
+  {
+   "url": "https://mandala.computer/terms",
+   "date": "2026-11-24",
+   "proved": "outbound traffic shares one address with other customers",
+   "capture": "sha256:d5a7c317d124009c505c1dc4e40f1c0142541f986289fb868bd4ca7edaac465f",
+   "quote": "Your computers reach the internet through an address shared with other customers."
+  },
+  {
+   "url": "https://mandala.computer",
+   "date": "2026-11-24",
+   "proved": "the computer is reachable over a REST API, SDKs and an MCP server",
+   "capture": "sha256:b7f2cdadb2d26ff0be61edc7c14e07d17f5487ce960ccbb6aa5ab49e39d41889",
+   "quote": "Access | REST API, Python and TypeScript SDKs, MCP server"
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T11:55:06.371Z",
+ "price_per_tb_month": null,
+ "notes": "Cloud Linux desktop VMs for agents, priced per plan or by the second; no free tier or sign-up credit is published. The built-in agent is a separate metered add-on billed through Mandala AI credits.",
+ "extras": {
+  "shape": {
+   "vcpu": 4,
+   "ram_gib": 8,
+   "disk_gib": 80,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "Solo pool of 4 vCPU, 8 GB RAM and 80 GB storage split across up to 4 computers; 40 GB disk per computer"
+  },
+  "billing_model": "monthly plan or prepaid credits by the second",
+  "free_tier_kind": "none",
+  "term": "monthly, cancel at period end",
+  "price_arithmetic": "USD 29 a month for Solo, or USD 0.03 per vCPU-hour plus USD 0.015 per GB-hour of RAM and USD 0.10 per GB-month of disk on pay as you go",
+  "status": "live hosted paid service",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": true,
+   "ports": "up to 2 public URLs per computer on Solo under mandala.dev",
+   "static_ip": false,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": 60,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "a built-in agent run stops after 60 minutes; a computer can be stopped and resumed with its disk kept"
+  }
+ }
 }

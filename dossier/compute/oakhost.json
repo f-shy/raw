@@ -1,219 +1,205 @@
 {
-  "topic": "compute",
-  "slug": "oakhost",
-  "provider": "OakHost",
-  "url": "https://www.oakhost.com/mac-mini-hosting",
-  "category": "macOS host",
-  "free_tier": {
-    "stated": "no free tier: dedicated Mac mini hosting from EUR 70 a month, with the device assigned after checkout",
-    "unit": "none",
-    "metered_on": "none",
-    "source_url": "https://www.oakhost.com/mac-mini-hosting",
-    "read_on": "2026-10-22"
+ "topic": "compute",
+ "slug": "oakhost",
+ "provider": "OakHost",
+ "url": "https://www.oakhost.com/mac-mini-hosting",
+ "category": "macOS host",
+ "free_tier": {
+  "stated": "no free tier: dedicated Mac mini hosting from €200 a month, with the device assigned to your account within minutes of checkout",
+  "unit": "none",
+  "metered_on": "none",
+  "source_url": "https://www.oakhost.com/mac-mini-hosting",
+  "read_on": "2026-10-22"
+ },
+ "per_object_cap": {
+  "stated": "not stated",
+  "bytes": null,
+  "source_url": "https://www.oakhost.com/mac-mini-hosting",
+  "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+ },
+ "retention": {
+  "stated": "The Mac is dedicated to the account and assigned within minutes of checkout; FileVault is supported and the disk persists for the rental term. No deletion timer is published.",
+  "days": null,
+  "source_url": "https://www.oakhost.com/mac-mini-hosting",
+  "notes": "Disk durability across instance stops and deletions is not documented."
+ },
+ "egress": {
+  "terms": "Every listed tier includes a static IP address and a Gbit/s uplink; no data transfer allowance or per-TB price is published.",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://www.oakhost.com/mac-mini-hosting"
+ },
+ "interface": [
+  "browser",
+  "ssh"
+ ],
+ "interface_detail": "Browser customer panel with KVM remote management, an SSH-tunnelled remote desktop client (OakConnect) and a customer API for firewall rules and power state.",
+ "tooling": "not stated",
+ "chaining": "not established",
+ "limits": [
+  {
+   "kind": "request-rate",
+   "value": "EUR 70 to EUR 260 a month across thirteen Mac mini tiers; most tiers are marked Out of Stock, and the orderable ones are M1.M at EUR 80 and M6.S at EUR 120 a month",
+   "source": "https://www.oakhost.com/mac-mini-hosting"
+  }
+ ],
+ "limits_note": "Session cap, idle-reap and network policy are not documented.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "\"Email Address:\" and \"Password:\" on the customer panel login at https://www.oakhost.com/login, whose \"Sign Up Now!\" link leads to https://www.oakhost.com/register; the registration page says \"Creating a free account allows you to manage your subscriptions.\" The raw form also asks for First Name, Last Name, Confirm Password, Company, Address, Postal Code, City, Country and an EU/UK VAT ID; no card field is shown on the signup page.",
+  "country": null
+ },
+ "reliability_note": "no reliability event recorded in the source passes",
+ "confidence": "documented",
+ "confidence_note": "the Mac mini hosting page was read on 2026-10-22 and prices four monthly tiers. There is no free tier or trial, so the verdict moves to paid-only",
+ "evidence": [
+  {
+   "url": "https://www.oakhost.com/mac-mini-hosting",
+   "date": "2026-10-02",
+   "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
   },
-  "per_object_cap": {
-    "stated": "not stated",
-    "bytes": null,
-    "source_url": "https://www.oakhost.com/mac-mini-hosting",
-    "notes": "a sandbox has a disk ceiling rather than an object cap; the card does not carry it"
+  {
+   "url": "https://www.oakhost.com/mac-mini-hosting",
+   "date": "2026-10-22",
+   "proved": "'€ 120 /mo.', '€ 130 /mo.', '€ 200 /mo.', '€ 340 /mo.' for dedicated Mac mini hosting, with 'assigned to your account within minutes after checkout', quoted"
   },
-  "retention": {
-    "stated": "The Mac is dedicated to the account and assigned within minutes of checkout; FileVault is supported and the disk persists for the rental term. No deletion timer is published.",
-    "days": null,
-    "source_url": "https://www.oakhost.com/mac-mini-hosting",
-    "notes": "Disk durability across instance stops and deletions is not documented."
+  {
+   "url": "https://www.oakhost.com/mac-mini-hosting",
+   "date": "2026-11-25",
+   "proved": "the page lists a dedicated Mac mini tier at €200 per month, excluding VAT",
+   "capture": "sha256:d2f0bf31478d067369d7216245e07b17b293ba84eaf55d68c485631feb587180",
+   "quote": "Mac M6.M Apple M6 32 GB RAM 1 TB SSD € 200 /mo. excl. VAT"
   },
-  "egress": {
-    "terms": "Every listed tier includes a static IP address and a Gbit/s uplink; no data transfer allowance or per-TB price is published.",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://www.oakhost.com/mac-mini-hosting"
+  {
+   "url": "https://www.oakhost.com/mac-mini-hosting",
+   "date": "2026-11-25",
+   "proved": "the page states the device is assigned to the account within minutes of checkout",
+   "capture": "sha256:d2f0bf31478d067369d7216245e07b17b293ba84eaf55d68c485631feb587180",
+   "quote": "Your Mac is ready to go and will be assigned to your account within minutes of checkout."
   },
-  "interface": [
-    "browser",
-    "ssh"
-  ],
-  "interface_detail": "Browser customer panel with KVM remote management, an SSH-tunnelled remote desktop client (OakConnect) and a customer API for firewall rules and power state.",
-  "tooling": "not stated",
-  "chaining": "not established",
-  "limits": [
-    {
-      "kind": "request-rate",
-      "value": "EUR 70 to EUR 260 a month across thirteen Mac mini tiers; most tiers are marked Out of Stock, and the orderable ones are M1.M at EUR 80 and M6.S at EUR 120 a month",
-      "source": "https://www.oakhost.com/mac-mini-hosting"
-    }
-  ],
-  "limits_note": "Session cap, idle-reap and network policy are not documented.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "\"Email Address:\" and \"Password:\" on the customer panel login at https://www.oakhost.com/login, whose \"Sign Up Now!\" link leads to https://www.oakhost.com/register; the registration page says \"Creating a free account allows you to manage your subscriptions.\" The raw form also asks for First Name, Last Name, Confirm Password, Company, Address, Postal Code, City, Country and an EU/UK VAT ID; no card field is shown on the signup page.",
-    "country": null
+  {
+   "url": "https://www.oakhost.com/mac-mini-hosting",
+   "date": "2026-11-24",
+   "proved": "the lowest published monthly tier is EUR 70",
+   "capture": "sha256:54197005c520c579e9769da21a10ab929ac5ad82f2ac17decc161516c5d48fd2",
+   "quote": "<span class=\"text-2xl font-bold mx-1 \">70</span>"
   },
-  "reliability_note": "no reliability event recorded in the source passes",
-  "confidence": "documented",
-  "confidence_note": "the Mac mini hosting page was read on 2026-10-22 and prices four monthly tiers. There is no free tier or trial, so the verdict moves to paid-only",
-  "evidence": [
-    {
-      "url": "https://www.oakhost.com/mac-mini-hosting",
-      "date": "2026-10-02",
-      "proved": "listed in the peli-cloud corpus card at commit f6a71ab0; the card is the source, not the vendor page"
-    },
-    {
-      "url": "https://www.oakhost.com/mac-mini-hosting",
-      "date": "2026-10-22",
-      "proved": "'€ 120 /mo.', '€ 130 /mo.', '€ 200 /mo.', '€ 340 /mo.' for dedicated Mac mini hosting, with 'assigned to your account within minutes after checkout', quoted"
-    },
-    {
-      "url": "https://www.oakhost.com/mac-mini-hosting",
-      "date": "2026-11-24",
-      "proved": "the lowest published monthly tier is EUR 70",
-      "capture": "sha256:54197005c520c579e9769da21a10ab929ac5ad82f2ac17decc161516c5d48fd2",
-      "quote": "<span class=\"text-2xl font-bold mx-1 \">70</span>"
-    },
-    {
-      "url": "https://www.oakhost.com/mac-mini-hosting",
-      "date": "2026-11-24",
-      "proved": "the displayed monthly prices range from EUR 70 to EUR 260",
-      "capture": "sha256:54197005c520c579e9769da21a10ab929ac5ad82f2ac17decc161516c5d48fd2",
-      "quote": "<span class=\"text-2xl font-bold mx-1 \">260</span>"
-    },
-    {
-      "url": "https://www.oakhost.com/mac-mini-hosting",
-      "date": "2026-11-24",
-      "proved": "browser access to the dedicated Mac is published",
-      "capture": "sha256:e48ea19bdca45623663e81aa14b422a102739ccf8c4aed9b328e3e887af780b4",
-      "quote": "Dedicated Mac mini hosting on macOS Tahoe in Germany, ready to go within minutes - with full access through your browser."
-    },
-    {
-      "url": "https://www.oakhost.com/mac-mini-hosting",
-      "date": "2026-11-24",
-      "proved": "a customer API and remote management are published",
-      "capture": "sha256:e48ea19bdca45623663e81aa14b422a102739ccf8c4aed9b328e3e887af780b4",
-      "quote": "Enroll your Mac in your automation pipeline using our customer API. Set firewall rules and manage the power state of the Mac in your existing workflow."
-    },
-    {
-      "url": "https://www.oakhost.com/mac-mini-hosting",
-      "date": "2026-11-24",
-      "proved": "the device is dedicated to the account after checkout",
-      "capture": "sha256:e48ea19bdca45623663e81aa14b422a102739ccf8c4aed9b328e3e887af780b4",
-      "quote": "Your Mac is ready to go and will be assigned to your account within minutes of checkout. No waiting around for someone to manually provision the device for you."
-    },
-    {
-      "url": "https://www.oakhost.com/mac-mini-hosting",
-      "date": "2026-11-24",
-      "proved": "a static IP is included with the listed tiers",
-      "capture": "sha256:e48ea19bdca45623663e81aa14b422a102739ccf8c4aed9b328e3e887af780b4",
-      "quote": "Static IP Address"
-    },
-    {
-      "url": "https://www.oakhost.com/mac-mini-hosting",
-      "date": "2026-11-24",
-      "proved": "the macOS hosting page is live and describes dedicated browser-accessible hardware",
-      "capture": "sha256:e48ea19bdca45623663e81aa14b422a102739ccf8c4aed9b328e3e887af780b4",
-      "quote": "Dedicated Mac mini hosting on macOS Tahoe in Germany, ready to go within minutes - with full access through your browser."
-    },
-    {
-      "url": "https://www.oakhost.com/mac-mini-hosting",
-      "date": "2026-11-24",
-      "proved": "the published Mac mini row carries a monthly price, not a request or rate cap",
-      "capture": "sha256:d2f0bf31478d067369d7216245e07b17b293ba84eaf55d68c485631feb587180",
-      "quote": "€ 200 /mo."
-    },
-    {
-      "url": "https://www.oakhost.com/mac-mini-hosting",
-      "date": "2026-11-24",
-      "proved": "a monthly price is published in place of a quota",
-      "capture": "sha256:d2f0bf31478d067369d7216245e07b17b293ba84eaf55d68c485631feb587180",
-      "quote": "€ 200 /mo."
-    },
-    {
-      "url": "https://www.oakhost.com/mac-mini-hosting",
-      "date": "2026-11-24",
-      "proved": "the M6.M Mac mini row publishes a monthly price",
-      "capture": "sha256:d2f0bf31478d067369d7216245e07b17b293ba84eaf55d68c485631feb587180",
-      "quote": "€ 200 /mo."
-    },
-    {
-      "url": "https://www.oakhost.com/register",
-      "date": "2026-11-24",
-      "proved": "the provider's own signup page creates a free account with no payment gate",
-      "capture": "sha256:15ee748eb8b66e8898f565705aa592dbaf3aae88e557be22ea81ff953cbc54fb",
-      "quote": "Creating a free account allows you to manage your subscriptions."
-    },
-    {
-      "url": "https://www.oakhost.com/login",
-      "date": "2026-11-24",
-      "proved": "the customer panel login asks for an email address and password and links to the signup page",
-      "capture": "sha256:950573a0da3779523cc6c7f1eb25cda947651166b41ccf55e60395e3a2e2b0ee",
-      "quote": "Email Address:"
-    },
-    {
-      "url": "https://www.oakhost.com/register",
-      "date": "2026-11-24",
-      "proved": "the signup page creates a free account",
-      "capture": "sha256:15ee748eb8b66e8898f565705aa592dbaf3aae88e557be22ea81ff953cbc54fb",
-      "quote": "Creating a free account allows you to manage your subscriptions."
-    }
-  ],
-  "verdict": "paid-only",
-  "verified_at": "2026-11-24T18:47:21.390Z",
-  "price_per_tb_month": null,
-  "notes": "",
-  "extras": {
-    "seed_status": "ranked",
-    "talaria_m10h_usd": 33.66,
-    "talaria_m24h_usd": 80.78,
-    "nemo_m10h_usd": null,
-    "keep_rate": 1.0,
-    "keep_rate_basis": "always-on by contract",
-    "billing_model": "unclassified",
-    "shape": {
-      "vcpu": null,
-      "ram": null,
-      "disk": null,
-      "gpu_class": "Apple Silicon",
-      "gpu_count": 1,
-      "note": "dedicated Mac mini hardware; the page prices tiers rather than shapes"
-    },
-    "session_cap": {
-      "wall_clock_min": null,
-      "idle_reap_s": null,
-      "restart_required": false,
-      "note": "a dedicated Mac; the machine can be rebooted, powered on and driven into Recovery Mode, so the state belongs to the account"
-    },
-    "persistent_storage": null,
-    "network_out": null,
-    "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
-    "free_tier_kind": "none",
-    "granularity": {
-      "min_billed_s": 0,
-      "rounding_s": null
-    },
-    "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
-    "free_tier_kind_basis": "decided from the page read on 2026-10-22",
-    "ps": {
-      "gib": null,
-      "price": "dedicated storage in the device",
-      "durability": "dedicated disk, FileVault supported",
-      "on_stop": true,
-      "on_destroy": false,
-      "retention": "the rental term"
-    },
-    "net": {
-      "out": true,
-      "in": true,
-      "ports": "managed firewall with filter rules from the control panel",
-      "static_ip": true,
-      "ipv6": null,
-      "allowance": null
-    }
+  {
+   "url": "https://www.oakhost.com/mac-mini-hosting",
+   "date": "2026-11-24",
+   "proved": "the displayed monthly prices range from EUR 70 to EUR 260",
+   "capture": "sha256:54197005c520c579e9769da21a10ab929ac5ad82f2ac17decc161516c5d48fd2",
+   "quote": "<span class=\"text-2xl font-bold mx-1 \">260</span>"
   },
-  "stale": true,
-  "stale_checked_at": "2026-10-22T00:00:00.000Z",
-  "binding": "none",
-  "history": [
-    "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
-  ],
-  "binding_note": "No request or rate cap is published: the price, not a quota, is what binds. The dedicated Mac mini is EUR 200 a month on the M6.M row and EUR 340 a month on the M5Pro.L row, and the page states no session cap, idle reap or request allowance."
+  {
+   "url": "https://www.oakhost.com/mac-mini-hosting",
+   "date": "2026-11-24",
+   "proved": "browser access to the dedicated Mac is published",
+   "capture": "sha256:e48ea19bdca45623663e81aa14b422a102739ccf8c4aed9b328e3e887af780b4",
+   "quote": "Dedicated Mac mini hosting on macOS Tahoe in Germany, ready to go within minutes - with full access through your browser."
+  },
+  {
+   "url": "https://www.oakhost.com/mac-mini-hosting",
+   "date": "2026-11-24",
+   "proved": "a customer API and remote management are published",
+   "capture": "sha256:e48ea19bdca45623663e81aa14b422a102739ccf8c4aed9b328e3e887af780b4",
+   "quote": "Enroll your Mac in your automation pipeline using our customer API. Set firewall rules and manage the power state of the Mac in your existing workflow."
+  },
+  {
+   "url": "https://www.oakhost.com/mac-mini-hosting",
+   "date": "2026-11-24",
+   "proved": "the device is dedicated to the account after checkout",
+   "capture": "sha256:e48ea19bdca45623663e81aa14b422a102739ccf8c4aed9b328e3e887af780b4",
+   "quote": "Your Mac is ready to go and will be assigned to your account within minutes of checkout. No waiting around for someone to manually provision the device for you."
+  },
+  {
+   "url": "https://www.oakhost.com/mac-mini-hosting",
+   "date": "2026-11-24",
+   "proved": "a static IP is included with the listed tiers",
+   "capture": "sha256:e48ea19bdca45623663e81aa14b422a102739ccf8c4aed9b328e3e887af780b4",
+   "quote": "Static IP Address"
+  },
+  {
+   "url": "https://www.oakhost.com/mac-mini-hosting",
+   "date": "2026-11-24",
+   "proved": "the published Mac mini row carries a monthly price, not a request or rate cap",
+   "capture": "sha256:d2f0bf31478d067369d7216245e07b17b293ba84eaf55d68c485631feb587180",
+   "quote": "€ 200 /mo."
+  },
+  {
+   "url": "https://www.oakhost.com/register",
+   "date": "2026-11-24",
+   "proved": "the provider's own signup page creates a free account with no payment gate",
+   "capture": "sha256:15ee748eb8b66e8898f565705aa592dbaf3aae88e557be22ea81ff953cbc54fb",
+   "quote": "Creating a free account allows you to manage your subscriptions."
+  },
+  {
+   "url": "https://www.oakhost.com/login",
+   "date": "2026-11-24",
+   "proved": "the customer panel login asks for an email address and password and links to the signup page",
+   "capture": "sha256:950573a0da3779523cc6c7f1eb25cda947651166b41ccf55e60395e3a2e2b0ee",
+   "quote": "Email Address:"
+  }
+ ],
+ "verdict": "paid-only",
+ "verified_at": "2026-11-25T05:18:27.431Z",
+ "price_per_tb_month": null,
+ "notes": "",
+ "extras": {
+  "seed_status": "ranked",
+  "talaria_m10h_usd": 33.66,
+  "talaria_m24h_usd": 80.78,
+  "nemo_m10h_usd": null,
+  "keep_rate": 1.0,
+  "keep_rate_basis": "always-on by contract",
+  "billing_model": "unclassified",
+  "shape": {
+   "vcpu": null,
+   "ram": null,
+   "disk": null,
+   "gpu_class": "Apple Silicon",
+   "gpu_count": 1,
+   "note": "dedicated Mac mini hardware; the page prices tiers rather than shapes"
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "a dedicated Mac; the machine can be rebooted, powered on and driven into Recovery Mode, so the state belongs to the account"
+  },
+  "persistent_storage": null,
+  "network_out": null,
+  "price_note": "a price without a shape and a horizon is not a price; both columns are kept because the two seed models disagree and neither is wrong",
+  "free_tier_kind": "none",
+  "granularity": {
+   "min_billed_s": 0,
+   "rounding_s": null
+  },
+  "minimum_bill_source": "sources/p/61/61bc225f00bd19a0d4dadbd308c5efa5efaf054cee81e3ce0e701dfe7cd005ed.json.gz and sources/p/5c/5c76c170ac901d25964c9a0ad470bc2c046bd1c98be534ce2a8c3d445da9271e.json.gz, both 2026-10-02; restored 2026-10-22",
+  "free_tier_kind_basis": "decided from the page read on 2026-10-22",
+  "ps": {
+   "gib": null,
+   "price": "dedicated storage in the device",
+   "durability": "dedicated disk, FileVault supported",
+   "on_stop": true,
+   "on_destroy": false,
+   "retention": "the rental term"
+  },
+  "net": {
+   "out": true,
+   "in": true,
+   "ports": "managed firewall with filter rules from the control panel",
+   "static_ip": true,
+   "ipv6": null,
+   "allowance": null
+  }
+ },
+ "stale": true,
+ "stale_checked_at": "2026-10-22T00:00:00.000Z",
+ "binding": "none",
+ "history": [
+  "history/2026-10-22T053000Z/seventy-three-free-tiers-were-not-on-the-page.md"
+ ],
+ "binding_note": "No request or rate cap is published: the price, not a quota, is what binds. The dedicated Mac mini is EUR 200 a month on the M6.M row and EUR 340 a month on the M5Pro.L row, and the page states no session cap, idle reap or request allowance."
 }

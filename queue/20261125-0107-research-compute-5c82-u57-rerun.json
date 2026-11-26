@@ -1,0 +1,17 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u57-rerun",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "Re-check these compute records against their own sources. Keep every clause the captured page supports, correct or remove only a clause it does not, then confirm each record with a quote from the page.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/student-voucher $.free_tier.stated: Page never says 无门槛/no-threshold (no occurrence of 门槛); other parts (300元, every 12 months, 1 year validity, partial public-cloud products) are stated.\n- compute/student-voucher $.free_tier.stated: Page never says 无门槛/no-threshold (no occurrence of 门槛); other parts (300元, every 12 months, 1 year validity, partial public-cloud products) are stated.\n- compute/swiss-ai-initiative $.free_tier.stated: Capture is the small-grants call only; the large-project call for >500k GPU hours is not in it (no '500k'). Other parts (six months, 20k-32k hours, 10,000 GH200, 10-20M GPU hours, 50% FTE, PI signature) are stated.\n- compute/swiss-ai-initiative $.free_tier.stated: Capture is the small-grants call only; the large-project call for >500k GPU hours is not in it (no '500k'). Other parts (six months, 20k-32k hours, 10,000 GH200, 10-20M GPU hours, 50% FTE, PI signature) are stated.\n- compute/technology-innovation-agency $.free_tier.stated: Band R50,000-R650,000 via Propella incubator is stated, but 'delivered through university technology transfer offices, science councils' is not in the capture.\n- compute/technology-innovation-agency $.free_tier.stated: Band R50,000-R650,000 via Propella incubator is stated, but 'delivered through university technology transfer offices, science councils' is not in the capture.",
+ "scope": {
+  "rids": [
+   "compute/student-voucher",
+   "compute/surf",
+   "compute/swiss-ai-initiative",
+   "compute/tangle-sandbox",
+   "compute/technology-innovation-agency"
+  ]
+ },
+ "origin": "audit u197 of 20261125-0107-research-compute-5c82/u57 failed: 6 of 10 unsupported",
+ "created": "2026-11-25T11:52:13Z"
+}

@@ -69,10 +69,17 @@
       "url": "https://virmach.com/",
       "date": "2026-10-22",
       "proved": "the vendor homepage returns 200 and describes 'cheap VPS (virtual machine cloud hosting) for a few dollars, in 14 global datacenters' with no plan table in the extract; https://virmach.com/kvm-vps/ returned a 404 body"
+    },
+    {
+      "url": "https://www.serverhunter.com/offer/virmach-ssd256/",
+      "date": "2026-11-25",
+      "proved": "the page was read on 2026-11-25 and still states this value",
+      "capture": "sha256:a0e97e0e0ec5dd3dde1e644354129a0c016b3a10cfbfa017c21d62c03c006c4a",
+      "quote": "Description 256-384MB DEDICATED RAM // 1 vCORE // 10GB SSD (HW RAID 10) // DDoS Protection Available // 500GB BANDWIDTH // 100MBPS - 1GBPS"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T15:03:48.363Z",
   "notes": "Found via serverhunter. Recorded despite the stale stock line because the price is what the index publishes and the staleness is itself the finding. Unverified: an attempt to order the plan, which is the only test of whether USD 1.25 is still a purchasable machine.",
   "extras": {
     "wave2": {

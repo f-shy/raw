@@ -1,160 +1,235 @@
 {
-  "topic": "compute",
-  "slug": "epho",
-  "provider": "Epho",
-  "url": "https://epho.io/",
-  "category": "cloud coding-agent sandbox API",
-  "tier": "usage-based with 10 dollar starting credit",
-  "free_tier": {
-    "stated": "Epho's own page states a 'starting credit: $10 on signup — roughly 60 hours of the default instance'. Sandbox resources are metered per second from boot to teardown: CPU $0.0000164 per vCPU-second, memory $0.0000053 per GiB-second, disk $0.000000036 per GiB-second. The default instance is 2 vCPU, 2 GiB and 10 GiB at about $0.0000438 per second, or about $0.0026 for a one-minute run. No monthly plan fee is stated.",
-    "unit": "credits",
-    "metered_on": "wall-clock",
-    "source_url": "https://epho.io/",
-    "read_on": "2026-11-24",
-    "notes": "The 10 dollars is a starting credit, not a recurring monthly allowance. Model tokens are never billed by Epho; they ride on the caller's provider_api_key at the provider's price. A turn is refused with 402 once the Epho credit balance reaches zero."
+ "topic": "compute",
+ "slug": "epho",
+ "provider": "Epho",
+ "url": "https://epho.io/",
+ "category": "agent sandbox",
+ "tier": "usage-based agent sandbox",
+ "free_tier": {
+  "stated": "USD 10 of starting credit on signup, roughly 60 hours of the default 2 vCPU/2 GiB instance; OpenCode Zen models ending in -free need no provider key.",
+  "unit": "credits",
+  "metered_on": "wall-clock",
+  "source_url": "https://epho.io/",
+  "read_on": "2026-11-25",
+  "notes": "The USD 10 is a one-time starting credit, not a recurring allowance; it is consumed by sandbox compute at the published per-second rates."
+ },
+ "per_object_cap": {
+  "stated": "not applicable: the unit is a sandbox, not an object",
+  "notes": "Up to 20 input files and 32 repositories per request are documented; no storage object cap is published."
+ },
+ "retention": {
+  "stated": "A chat's sandbox stops when a turn ends and resumes for the next one; files and agent session survive. Artifact download URLs are presigned for about ten minutes and renewable.",
+  "source_url": "https://epho.io/"
+ },
+ "egress": {
+  "terms": "Not published as a volume or price; the sandbox runs on the vendor's boxes and artifacts return as presigned URLs.",
+  "metered": false,
+  "free_allowance": null,
+  "price_per_tb": null,
+  "source_url": "https://epho.io/"
+ },
+ "interface": [
+  "rest",
+  "chat"
+ ],
+ "interface_detail": "One REST endpoint POST /api/v1/chat plus /chat/async, streaming server-sent events and a chat_id for a durable multi-turn sandbox; MCP servers and repository tokens are declared in the request.",
+ "tooling": "A single HTTP POST with a JSON body and an API key; no SDK or daemon is required.",
+ "chaining": "Runs can be driven from scripts, CI, cron or a Slack bot, and model tokens bill to the caller's own provider key with no Epho markup.",
+ "limits": [
+  {
+   "kind": "volume-quota",
+   "value": "USD 10 starting credit on signup; a turn is refused with 402 at zero balance",
+   "source": "https://epho.io/"
   },
-  "per_object_cap": {
-    "stated": "Not an object store: the default sandbox is 2 vCPU, 2 GiB RAM and 10 GiB disk. A request accepts up to 32 repos and up to 20 input files, and produced files come back as artifacts with a presigned URL good for about ten minutes.",
-    "bytes": null,
-    "source_url": "https://epho.io/",
-    "notes": "The instance object in the API lets the caller size the box, so CPU, memory and disk are configurable."
+  {
+   "kind": "request-rate",
+   "value": "teams start with five active turns; extra turns queue at no cost until a slot opens",
+   "source": "https://epho.io/"
   },
-  "retention": {
-    "stated": "Nothing idles, nothing is stored, nothing keeps billing: the sandbox stops when a turn ends. A chat keeps its filesystem and agent session across turns; if the box is gone, a replacement boots and the agent session snapshot is restored. Artifact download URLs expire about ten minutes after the event.",
-    "days": null,
-    "source_url": "https://epho.io/",
-    "notes": "No retention period in days is published; the sandbox is torn down at the end of each turn."
-  },
-  "egress": {
-    "terms": "No egress price or allowance is stated: the meter prices sandbox CPU, memory and disk per second, and produced files are returned through presigned download URLs against an otherwise-private bucket that expire about ten minutes after the event. Outbound network access from the sandbox is not priced separately on the page.",
-    "metered": false,
-    "free_allowance": null,
-    "price_per_tb": null,
-    "source_url": "https://epho.io/"
-  },
-  "interface": [
-    "rest"
-  ],
-  "interface_detail": "One HTTP endpoint, POST /api/v1/chat with a JSON body, returns text/event-stream; POST /api/v1/chat/async queues the turn; GET /chat/{id}/events/subscribe replays and live-tails persisted events. API base https://app.epho.io/api.",
-  "endpoint": "https://app.epho.io/api",
-  "tooling": "curl or any HTTP client, no SDK required; the quickstart shows curl -N with an Epho API key and a provider API key.",
-  "chaining": "A team API key scopes the work, a provider_api_key pays the model tokens at the provider's own price, and the chat_id resumes the same sandbox and agent session on the next turn.",
-  "limits": [
-    {
-      "kind": "volume-quota",
-      "value": "10 dollars starting credit on signup; a turn is refused with 402 once the balance hits zero",
-      "source": "https://epho.io/"
-    },
-    {
-      "kind": "write-gated",
-      "value": "the run is gated by an Epho team API key and, for most harnesses, a provider_api_key carried per request",
-      "source": "https://epho.io/docs/quickstart"
-    },
-    {
-      "kind": "volume-quota",
-      "value": "default team cap of five active turns; work above the cap stays queued",
-      "source": "https://epho.io/docs/chats-and-turns"
-    }
-  ],
-  "limits_note": "Per chat only one turn may be active; another turn started before the first settles returns 409 Conflict. A request accepts up to 32 repos and up to 20 input files.",
-  "binding": "volume-quota",
-  "binding_note": "The 10-dollar credit is the first limit an individual user meets: the default instance burns about 0.0026 dollars per minute, so roughly 60 hours of compute, and a turn is refused with 402 when the balance reaches zero.",
-  "identity_cost": {
-    "kind": "email",
-    "detail": "The registration form asks for Name, Email address, Password and Confirm password, and offers Google or GitHub sign-in. Registration was read in an archived capture because the live /register URL redirects to a login wall. The 10-dollar starting credit appears in the app's login page props as 'verifiedBonusDollars': 10; whether verification gates the bonus is unverified: behind a sign-up.",
-    "country": null
-  },
-  "reliability_note": "The sandbox is torn down at the end of each turn; an interrupted pipe does not kill a run because events are persisted and the stream can be re-subscribed. An artifact URL expires about ten minutes after it is emitted.",
-  "confidence": "documented",
-  "confidence_note": "Rates, credit, default instance, token billing, meter semantics, artifact lifetime and free-model option are quoted from Epho's own page read 2026-11-24; the concurrency cap, 409 rule and API shape come from the first-party docs. The signup form is quoted from an archived capture because all live routes to /register were walled. Account-only terms such as verification for the bonus are unverified: behind a sign-up.",
-  "evidence": [
-    {
-      "url": "https://epho.io/",
-      "date": "2026-11-24",
-      "proved": "the default instance is 2 vCPU, 2 GiB, 10 GiB at about 0.0000438 dollars per second and one minute costs about 0.0026 dollars",
-      "capture": "sha256:a686287037676a31329a2c2ba42a08bbc70b02102b4aa933836e465cfd0a63e6",
-      "quote": "**default instance:** 2 vCPU · 2 GiB · 10 GiB ≈ $0.0000438/s · a one-minute run ≈ $0.0026"
-    },
-    {
-      "url": "https://epho.io/",
-      "date": "2026-11-24",
-      "proved": "a 10-dollar start credit is granted on signup, about 60 hours of the default instance",
-      "capture": "sha256:a686287037676a31329a2c2ba42a08bbc70b02102b4aa933836e465cfd0a63e6",
-      "quote": "**starting credit:** $10 on signup — roughly 60 hours of the default instance"
-    },
-    {
-      "url": "https://epho.io/",
-      "date": "2026-11-24",
-      "proved": "CPU is 0.0000164 dollars per vCPU-second and memory 0.0000053 dollars per GiB-second",
-      "capture": "sha256:a686287037676a31329a2c2ba42a08bbc70b02102b4aa933836e465cfd0a63e6",
-      "quote": "cpu $0.0000164  *per vCPU · per second*"
-    },
-    {
-      "url": "https://epho.io/",
-      "date": "2026-11-24",
-      "proved": "model tokens are never billed by Epho and ride on the caller's provider key at the provider price",
-      "capture": "sha256:a686287037676a31329a2c2ba42a08bbc70b02102b4aa933836e465cfd0a63e6",
-      "quote": "**model tokens:** never billed by epho. they ride on your provider_api_key, at your provider's price."
-    },
-    {
-      "url": "https://epho.io/",
-      "date": "2026-11-24",
-      "proved": "a turn is refused with 402 once the credit balance reaches zero",
-      "capture": "sha256:a686287037676a31329a2c2ba42a08bbc70b02102b4aa933836e465cfd0a63e6",
-      "quote": "**the meter:** read it any time with GET /credits — a turn is refused with 402 once the balance hits zero."
-    },
-    {
-      "url": "https://epho.io/",
-      "date": "2026-11-24",
-      "proved": "nothing idles, is stored or keeps billing after a run; produced artifacts come back on a presigned URL good for about ten minutes",
-      "capture": "sha256:a686287037676a31329a2c2ba42a08bbc70b02102b4aa933836e465cfd0a63e6",
-      "quote": "anything the agent produces comes back as artifacts with a presigned download url, good for about ten minutes and re-mintable from the response endpoint."
-    },
-    {
-      "url": "https://epho.io/docs/chats-and-turns",
-      "date": "2026-11-24",
-      "proved": "the default team cap is five active turns and extra work stays queued",
-      "capture": "sha256:9ebc8ad20402ee2886272e561e1bf20620cd24fbfd7b554a64562becc3c64e98",
-      "quote": "Teams can run multiple chats concurrently. The default team cap is five active turns; work above the cap stays queued and emits the `queued` phase."
-    },
-    {
-      "url": "https://epho.io/docs/quickstart",
-      "date": "2026-11-24",
-      "proved": "an account and a team API key are required before the first request; the provider key is separate",
-      "capture": "sha256:c61675c36d8d043636f87e3d56c2240ce90a560746100edb63464f4104836a5e",
-      "quote": "Create an account at [app.epho.io](https://app.epho.io/), open the API keys page, and create a team key."
-    },
-    {
-      "url": "https://web.archive.org/web/20261011144051/https://app.epho.io/register",
-      "date": "2026-11-24",
-      "proved": "the registration form asks for Name, Email address, Password and Confirm password, with Google and GitHub options and no phone or card field",
-      "capture": "sha256:798f0fc2a234090039221b90b9a2d8a388edbe6082739c57e6a046db194a28f0",
-      "quote": "[Google](https://web.archive.org/web/20261011144051/https://app.epho.io/auth/google/redirect) [GitHub](https://web.archive.org/web/20261011144051/https://app.epho.io/auth/github/redirect)"
-    },
-    {
-      "url": "https://epho.io/docs",
-      "date": "2026-11-24",
-      "proved": "the API is team-scoped and every run is a turn inside a durable chat; the sandbox is stopped so compute billing ends",
-      "capture": "sha256:d01d63ad5b1f5f306feeef11c46970c25adaed424b7db1455c37c2cd5c27db5c",
-      "quote": "Epho accepts a team-scoped API key."
-    }
-  ],
-  "verdict": "qualifies-with-caveat",
-  "verified_at": "2026-11-24T10:11:14.726Z",
-  "price_per_tb_month": null,
-  "notes": "Epho is a hosted agent API: the user sends a prompt and Epho boots and tears down the sandbox, so nothing is installed or operated by the user. The 10-dollar credit is a start bonus, not a recurring free tier; the metered resource is sandbox wall-clock, and model tokens bill on a key the caller supplies. The live /register page redirects to a login wall, so the signup form was read from an archived capture.",
-  "extras": {
-    "billing_model": "per-second sandbox resources plus caller-paid model tokens",
-    "free_tier_kind": "one-time-credit",
-    "shape": {
-      "vcpu": 2,
-      "ram_gib": 2,
-      "disk_gib": 10,
-      "gpu_class": null,
-      "gpu_count": null,
-      "note": "default instance from the pricing block; size is configurable via the instance request key"
-    },
-    "price_arithmetic": "2 x $0.0000164 + 2 x $0.0000053 + 10 x $0.000000036 = $0.0000438/s; x 60 = $0.00263 per minute; $10 / $0.0000438 = 228,310 s = 63.4 hours, consistent with the published 'roughly 60 hours'.",
-    "derived": "2 x 0.0000164 + 2 x 0.0000053 + 10 x 0.000000036 = 0.0000438/s; 0.0000438 x 3600 = 0.1577/h; 10 / 0.1577 = 63.4 h"
+  {
+   "kind": "per-object-cap",
+   "value": "up to 32 repositories and 20 input files per request",
+   "source": "https://epho.io/"
   }
+ ],
+ "limits_note": "A run is metered from boot to teardown and stops when the run does; one live turn per chat.",
+ "binding": "volume-quota",
+ "binding_note": "The USD 10 starting credit is the first allowance to run out; the five-turn active limit is a concurrency gate that queues rather than stops work.",
+ "identity_cost": {
+  "kind": "email",
+  "detail": "A team API key is required and, per a third-party review, sign-up involves email verification. The exact fields of the registration form were not read: the app.epho.io registration page redirected to sign-in and presented a login wall to every reader.",
+  "country": null
+ },
+ "reliability_note": "A dropped stream does not kill a run: events are persisted and replayed on reconnect; the platform re-queues a run on a fallback sandbox backend when a box dies mid-run.",
+ "confidence": "documented",
+ "confidence_note": "Per-second rates and credit are quoted from the vendor home page read on 2026-11-25; the email-verification step is reported by a third party because the registration page was a login wall.",
+ "evidence": [
+  {
+   "url": "https://epho.io/",
+   "date": "2026-11-25",
+   "capture": "sha256:984d0647ee7a1df2e96177a43b4da653a07b577239ca3568821c47ea6b1d7593",
+   "quote": "$0.0000164",
+   "proved": "CPU price per vCPU-second"
+  },
+  {
+   "url": "https://epho.io/",
+   "date": "2026-11-25",
+   "capture": "sha256:984d0647ee7a1df2e96177a43b4da653a07b577239ca3568821c47ea6b1d7593",
+   "quote": "$0.0000053",
+   "proved": "memory price per GiB-second"
+  },
+  {
+   "url": "https://epho.io/",
+   "date": "2026-11-25",
+   "capture": "sha256:984d0647ee7a1df2e96177a43b4da653a07b577239ca3568821c47ea6b1d7593",
+   "quote": "$0.000000036",
+   "proved": "disk price per GiB-second"
+  },
+  {
+   "url": "https://epho.io/",
+   "date": "2026-11-25",
+   "capture": "sha256:984d0647ee7a1df2e96177a43b4da653a07b577239ca3568821c47ea6b1d7593",
+   "quote": "**default instance:** 2 vCPU · 2 GiB · 10 GiB ≈ $0.0000438/s · a one-minute run ≈ $0.0026",
+   "proved": "the default instance and its per-second cost"
+  },
+  {
+   "url": "https://epho.io/",
+   "date": "2026-11-25",
+   "capture": "sha256:984d0647ee7a1df2e96177a43b4da653a07b577239ca3568821c47ea6b1d7593",
+   "quote": "**starting credit:** $10 on signup — roughly 60 hours of the default instance",
+   "proved": "the starting credit"
+  },
+  {
+   "url": "https://epho.io/",
+   "date": "2026-11-25",
+   "capture": "sha256:984d0647ee7a1df2e96177a43b4da653a07b577239ca3568821c47ea6b1d7593",
+   "quote": "the opencode zen models ending in `-free` run without any provider credential. one epho key and a curl is the entire setup.",
+   "proved": "free model option without a provider key"
+  },
+  {
+   "url": "https://epho.io/",
+   "date": "2026-11-25",
+   "capture": "sha256:984d0647ee7a1df2e96177a43b4da653a07b577239ca3568821c47ea6b1d7593",
+   "quote": "**the meter:** read it any time with GET /credits — a turn is refused with 402 once the balance hits zero.",
+   "proved": "balance gate"
+  },
+  {
+   "url": "https://epho.io/",
+   "date": "2026-11-25",
+   "capture": "sha256:984d0647ee7a1df2e96177a43b4da653a07b577239ca3568821c47ea6b1d7593",
+   "quote": "yes — each chat gets its own isolated environment, so fan out as wide as you like. teams start with five active turns; anything past the cap sits in a queue, emits a `queued` status and costs nothing until a slot opens. one live turn per chat, though — parallel work wants parallel chats.",
+   "proved": "active-turn limit"
+  },
+  {
+   "url": "https://techshark.io/tools/epho/",
+   "date": "2026-11-25",
+   "capture": "sha256:36f91cf5209d58478a3e5707587f5024ad7e7b05b4b494b9a647b905d37ae5e1",
+   "quote": "- $10 free compute credit upon sign-up and email verification",
+   "proved": "third-party account of the signup gate"
+  },
+  {
+   "url": "https://epho.io/",
+   "date": "2026-11-24",
+   "proved": "the default instance is 2 vCPU, 2 GiB, 10 GiB at about 0.0000438 dollars per second and one minute costs about 0.0026 dollars",
+   "capture": "sha256:a686287037676a31329a2c2ba42a08bbc70b02102b4aa933836e465cfd0a63e6",
+   "quote": "**default instance:** 2 vCPU · 2 GiB · 10 GiB ≈ $0.0000438/s · a one-minute run ≈ $0.0026"
+  },
+  {
+   "url": "https://epho.io/",
+   "date": "2026-11-24",
+   "proved": "a 10-dollar start credit is granted on signup, about 60 hours of the default instance",
+   "capture": "sha256:a686287037676a31329a2c2ba42a08bbc70b02102b4aa933836e465cfd0a63e6",
+   "quote": "**starting credit:** $10 on signup — roughly 60 hours of the default instance"
+  },
+  {
+   "url": "https://epho.io/",
+   "date": "2026-11-24",
+   "proved": "CPU is 0.0000164 dollars per vCPU-second and memory 0.0000053 dollars per GiB-second",
+   "capture": "sha256:a686287037676a31329a2c2ba42a08bbc70b02102b4aa933836e465cfd0a63e6",
+   "quote": "cpu $0.0000164  *per vCPU · per second*"
+  },
+  {
+   "url": "https://epho.io/",
+   "date": "2026-11-24",
+   "proved": "model tokens are never billed by Epho and ride on the caller's provider key at the provider price",
+   "capture": "sha256:a686287037676a31329a2c2ba42a08bbc70b02102b4aa933836e465cfd0a63e6",
+   "quote": "**model tokens:** never billed by epho. they ride on your provider_api_key, at your provider's price."
+  },
+  {
+   "url": "https://epho.io/",
+   "date": "2026-11-24",
+   "proved": "a turn is refused with 402 once the credit balance reaches zero",
+   "capture": "sha256:a686287037676a31329a2c2ba42a08bbc70b02102b4aa933836e465cfd0a63e6",
+   "quote": "**the meter:** read it any time with GET /credits — a turn is refused with 402 once the balance hits zero."
+  },
+  {
+   "url": "https://epho.io/",
+   "date": "2026-11-24",
+   "proved": "nothing idles, is stored or keeps billing after a run; produced artifacts come back on a presigned URL good for about ten minutes",
+   "capture": "sha256:a686287037676a31329a2c2ba42a08bbc70b02102b4aa933836e465cfd0a63e6",
+   "quote": "anything the agent produces comes back as artifacts with a presigned download url, good for about ten minutes and re-mintable from the response endpoint."
+  },
+  {
+   "url": "https://epho.io/docs/chats-and-turns",
+   "date": "2026-11-24",
+   "proved": "the default team cap is five active turns and extra work stays queued",
+   "capture": "sha256:9ebc8ad20402ee2886272e561e1bf20620cd24fbfd7b554a64562becc3c64e98",
+   "quote": "Teams can run multiple chats concurrently. The default team cap is five active turns; work above the cap stays queued and emits the `queued` phase."
+  },
+  {
+   "url": "https://epho.io/docs/quickstart",
+   "date": "2026-11-24",
+   "proved": "an account and a team API key are required before the first request; the provider key is separate",
+   "capture": "sha256:c61675c36d8d043636f87e3d56c2240ce90a560746100edb63464f4104836a5e",
+   "quote": "Create an account at [app.epho.io](https://app.epho.io/), open the API keys page, and create a team key."
+  },
+  {
+   "url": "https://web.archive.org/web/20261011144051/https://app.epho.io/register",
+   "date": "2026-11-24",
+   "proved": "the registration form asks for Name, Email address, Password and Confirm password, with Google and GitHub options and no phone or card field",
+   "capture": "sha256:798f0fc2a234090039221b90b9a2d8a388edbe6082739c57e6a046db194a28f0",
+   "quote": "[Google](https://web.archive.org/web/20261011144051/https://app.epho.io/auth/google/redirect) [GitHub](https://web.archive.org/web/20261011144051/https://app.epho.io/auth/github/redirect)"
+  },
+  {
+   "url": "https://epho.io/docs",
+   "date": "2026-11-24",
+   "proved": "the API is team-scoped and every run is a turn inside a durable chat; the sandbox is stopped so compute billing ends",
+   "capture": "sha256:d01d63ad5b1f5f306feeef11c46970c25adaed424b7db1455c37c2cd5c27db5c",
+   "quote": "Epho accepts a team-scoped API key."
+  }
+ ],
+ "verdict": "qualifies-with-caveat",
+ "verified_at": "2026-11-25T02:12:34.751Z",
+ "price_per_tb_month": null,
+ "notes": "A hosted coding-agent sandbox sold per second: USD 0.0000438/s for the default box and USD 10 of starting credit. The registration form was behind a login wall, so its exact fields are unverified; a third party reports email verification.",
+ "extras": {
+  "shape": {
+   "vcpu": 2,
+   "ram_gib": 2,
+   "disk_gib": 10,
+   "gpu_class": null,
+   "gpu_count": null,
+   "note": "default instance 2 vCPU, 2 GiB RAM, 10 GiB disk; other sizes available via the instance field"
+  },
+  "billing_model": "per-second compute, prepaid credit",
+  "free_tier_kind": "one-time credit",
+  "term": "per-second, no recurring free allowance",
+  "price_arithmetic": "2 × $0.0000164 + 2 × $0.0000053 + 10 × $0.000000036 = $0.0000438 per second; $10 / $0.0000438 ≈ 228,310 s ≈ 63.4 h",
+  "status": "live",
+  "network_out": {
+   "allow_outbound": true,
+   "allow_inbound_listen": null,
+   "ports": null,
+   "static_ip": null,
+   "ipv6": null,
+   "per_session_bytes": null
+  },
+  "session_cap": {
+   "wall_clock_min": null,
+   "idle_reap_s": null,
+   "restart_required": false,
+   "note": "sandbox stops at the end of a turn and resumes for the next one; model tokens bill on the caller's own provider key"
+  }
+ },
+ "endpoint": "https://app.epho.io/api"
 }

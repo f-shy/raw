@@ -5,7 +5,7 @@
   "url": "https://huggingface.co/docs/hub/en/jobs-pricing",
   "category": "platform host",
   "free_tier": {
-    "stated": "no free compute allowance of its own: a Job bills by the minute while it is Starting or Running, at hardware rates from $0.01 an hour for CPU Basic to $23.50 an hour for eight L40S",
+    "stated": "During a Job’s lifecycle, it is only billed when the Job is Starting or Running. This means that there is no cost during build.",
     "unit": "none",
     "metered_on": "none",
     "source_url": "https://huggingface.co/docs/hub/en/jobs-pricing",
@@ -72,12 +72,33 @@
       "url": "https://huggingface.co/docs/hub/en/jobs-pricing",
       "date": "2026-10-22",
       "proved": "'Like hardware, it is billed by the minute, only while the Job is Starting or Running' with the hardware table: 'CPU Basic 2 vCPU 16 GB 50 GB $0.01' an hour, 'Nvidia T4 - small 4 vCPU 15 GB 16 GB 50 GB $0.40', up to '8x Nvidia L40S 192 vCPU 1534 GB 384 GB 6500 GB $23.50', quoted"
+    },
+    {
+      "url": "https://huggingface.co/docs/hub/en/jobs-pricing",
+      "date": "2026-11-25",
+      "proved": "the page states that a Job is billed only while Starting or Running",
+      "capture": "sha256:93901dcca032a016760e6fe7c12644087a56533edb7f15b24d0d72f6ab054448",
+      "quote": "During a Job’s lifecycle, it is only billed when the Job is Starting or Running. This means that there is no cost during build."
+    },
+    {
+      "url": "https://huggingface.co/docs/hub/en/jobs-pricing",
+      "date": "2026-11-25",
+      "proved": "the page was read on 2026-11-25 and still states this billing rule",
+      "capture": "sha256:93901dcca032a016760e6fe7c12644087a56533edb7f15b24d0d72f6ab054448",
+      "quote": "During a Job’s lifecycle, it is only billed when the Job is Starting or Running. This means that there is no cost during build."
+    },
+    {
+      "url": "https://huggingface.co/docs/hub/en/jobs-pricing",
+      "date": "2026-11-25",
+      "proved": "the page states minute-based hardware billing",
+      "capture": "sha256:93901dcca032a016760e6fe7c12644087a56533edb7f15b24d0d72f6ab054448",
+      "quote": "Billing on Jobs is based on hardware usage and is computed by the minute: you get charged for every minute the Jobs runs on the requested hardware."
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T04:47:08.000Z",
+  "verified_at": "2026-11-25T15:03:50.407Z",
   "price_per_tb_month": null,
-  "notes": "",
+  "notes": "Jobs are billed per minute based on the hardware used. CPU Basic is $0.01 an hour and eight L40S is $23.50 an hour. Monthly compute credits with PRO, Team or Enterprise subscriptions count towards the balance used for Jobs; no free compute allowance is stated for a Job itself.",
   "extras": {
     "seed_status": "ranked",
     "talaria_m10h_usd": 12.0,

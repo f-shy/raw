@@ -58,10 +58,17 @@
       "url": "https://freemach.rowe.sh/",
       "date": "2026-10-24",
       "proved": "quoted: 'EU1 (AlphaVPS, Bulgaria): 10/10 VMs Allocated (0 slots free)', 'US1 (VirMach, New York): 10/10 VMs Allocated (0 slots free)'; 'LES/HT/LET account must be at least 3 months old at time of application'; 'Must pass a FraudRecord check'; specs '2 vCPU', '2GB RAM', '25GB SSD', '1TB @ 1 Gbps', '1 IPv4'"
+    },
+    {
+      "url": "https://freemach.rowe.sh/",
+      "date": "2026-11-25",
+      "proved": "both hosts still report all 10 VM slots allocated and no free slot",
+      "capture": "sha256:f5ef0b80abd49f3b99a505ce945bbbc49f29bec1730300f67825b9a0596c3b18",
+      "quote": "- EU1 (AlphaVPS, Bulgaria): 10/10 VMs Allocated (0 slots free)\n- US1 (VirMach, New York): 10/10 VMs Allocated (0 slots free)"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-24T04:12:03.000Z",
+  "verified_at": "2026-11-25T11:17:20.282Z",
   "price_per_tb_month": null,
   "history": [],
   "notes": "A real project with real sponsors and a real specification, documented because it is the clearest illustration of why the free-VPS forum layer is not a route: every slot is full, and the door is a three-month-old forum account plus a fraud check. earlier readings already carries freevps.org and microlxc on the same reputation model. Nothing here is a defect in the project; it is simply not available to a person who is not already in that community.",

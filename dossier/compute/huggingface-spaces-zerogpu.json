@@ -24,7 +24,7 @@
   "limits_note": "the 48-hour sleep was confirmed server-side by historical research records via the runtime API reporting gcTimeout 172800.",
   "reliability_note": "quota exhaustion drops the caller down the GPU queue, and the xlarge size costs double quota for the same wall-clock",
   "confidence": "documented",
-  "verified_at": "2026-10-24T01:52:00.000Z",
+  "verified_at": "2026-11-25T11:17:44.306Z",
   "price_per_tb_month": null,
   "notes": "The best VRAM in evaluated offerings for free and the smallest time budget. It is a serving allowance for a public demo, not a compute allowance for a job.",
   "slug": "huggingface-spaces-zerogpu",
@@ -32,7 +32,7 @@
   "url": "https://huggingface.co/docs/hub/en/spaces-zerogpu",
   "category": "notebook runtime",
   "free_tier": {
-    "stated": "a free account in good standing (verified email, older than 30 days) may host up to 2 ZeroGPU Spaces and use 5 minutes of GPU a day, on a half RTX Pro 6000 Blackwell with 48 GB VRAM",
+    "stated": "Free personal accounts in good standing (verified email, account older than 30 days) can host up to 2 ZeroGPU Spaces for free; a Free account has an included daily GPU quota of 5 minutes, on the default `large` GPU size backed by Half NVIDIA RTX Pro 6000 Blackwell with 48GB VRAM.",
     "unit": "minutes",
     "metered_on": "wall-clock",
     "source_url": "https://huggingface.co/docs/hub/en/spaces-zerogpu",
@@ -95,6 +95,20 @@
       "url": "https://huggingface.co/docs/hub/en/spaces-zerogpu",
       "date": "2026-10-24",
       "proved": "quoted, bold markers in the original: 'PRO, Team, and Enterprise users can continue using ZeroGPU Spaces beyond their included daily quota by consuming pre-paid credits at the rate of **$1 per 10 minutes** of GPU time.'"
+    },
+    {
+      "url": "https://huggingface.co/docs/hub/en/spaces-zerogpu",
+      "date": "2026-11-25",
+      "proved": "the verified-email and 30-day account gate and the 2-Space hosting allowance",
+      "capture": "sha256:949c22d45251350837459dc32cd16a8713d43068105dd2e610515a6e41af513b",
+      "quote": "Free personal accounts: accounts in good standing (verified email, account older than 30 days) can host up to 2 ZeroGPU Spaces for free."
+    },
+    {
+      "url": "https://huggingface.co/docs/hub/en/spaces-zerogpu",
+      "date": "2026-11-25",
+      "proved": "the free ZeroGPU lane for 2 Spaces is unchanged",
+      "capture": "sha256:949c22d45251350837459dc32cd16a8713d43068105dd2e610515a6e41af513b",
+      "quote": "Free personal accounts: accounts in good standing (verified email, account older than 30 days) can host up to 2 ZeroGPU Spaces for free."
     }
   ],
   "verdict": "qualifies-with-caveat",

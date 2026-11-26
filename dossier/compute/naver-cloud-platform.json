@@ -5,7 +5,7 @@
   "url": "https://www.ncloud.com/main/creditEvent",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "KRW 100,000 of signup credit, valid 3 months, usable on any NAVER Cloud Platform service except free-tier and marketplace products, granted after a payment method is registered. A separate 1-year free Micro Server exists but the page states ', ' (offered only if the country of residence is Korea).",
+    "stated": "KRW 100,000 of signup credit, valid 3 months, usable on any NAVER Cloud Platform service except free-tier and marketplace products, granted after a payment method is registered. A separate Micro Server is free for one year (one per person, from payment-method registration) and is offered only if the country of residence is Korea; after the free year an unreturned Micro Server is automatically charged.",
     "unit": "none",
     "metered_on": "wall-clock",
     "source_url": "https://www.ncloud.com/main/creditEvent",
@@ -79,10 +79,24 @@
       "url": "https://www.fin-ncloud.com/main/creditEvent",
       "date": "2026-10-22",
       "proved": "'Green Rookie' student credit of KRW 200,000 requires a partner-institution email address ('ooo@ooo.ac.kr / ooo@ooo.edu'), quoted, so that lane is institution-gated"
+    },
+    {
+      "url": "https://www.ncloud.com/main/creditEvent",
+      "date": "2026-11-25",
+      "proved": "new customers receive KRW 100,000 of discount credit valid for 3 months",
+      "capture": "sha256:9f2c3fe403edc18379bebe4904f60e2987dc63da48d21a08aa17855f1db13585",
+      "quote": "신규 가입 고객분들께 모든 서비스 결제에 적용할 수 있는   \n *100,000 원의 할인 크레딧*을 드립니다. (유효기간 3개월)"
+    },
+    {
+      "url": "https://www.ncloud.com/main/creditEvent",
+      "date": "2026-11-25",
+      "proved": "the credit event page still states the KRW 100,000 credit valid for 3 months",
+      "capture": "sha256:9f2c3fe403edc18379bebe4904f60e2987dc63da48d21a08aa17855f1db13585",
+      "quote": "신규 가입 고객분들께 모든 서비스 결제에 적용할 수 있는   \n *100,000 원의 할인 크레딧*을 드립니다. (유효기간 3개월)"
     }
   ],
   "verdict": "fails-identity",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T11:17:31.402Z",
   "notes": "This corrects the corpus. dossier/compute/naver-cloud.json records Naver as 'no free tier ... paid-only', sourced from the product page, which does not carry the credit event. The credit is live on the separate event page. The correction is not a promotion: the verdict moves from paid-only to trial-only, which tells a reader to look and find a card-gated 3-month window instead of skipping the provider. Two live pages disagree on the size (KRW 100,000 vs 'up to KRW 300,000'), and neither explains the gap; the 300,000 figure appeared in a 2022 blog post as a 200,000+100,000 stack, so the 300,000 is probably an older promotion left up. Corrected 2026-10-22: the KRW 200,000 Green Rookie credit and the exam voucher are for students and staff of a participating institution, which is an institution gate rather than a trial any account can start.",
   "extras": {
     "wave2": {

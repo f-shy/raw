@@ -1,0 +1,21 @@
+{
+ "id": "20261125-0107-research-compute-5c82-u364-rerun",
+ "kind": "verify",
+ "topic": "compute",
+ "question": "Re-check these compute records against their own sources. Keep every clause the captured page supports, correct or remove only a clause it does not, then confirm each record with a quote from the page.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/together-code-sandbox $.free_tier.stated: Prices are stated, but the page never says there is no free tier; it shows free models (Ternary Bonsai 27B 'Free') and the description says 'Start for free, scale on demand.' The 'no free tier' part is not supported.\n- compute/together-code-sandbox $.free_tier.stated: Prices are stated, but the page never says there is no free tier; it shows free models (Ternary Bonsai 27B 'Free') and the description says 'Start for free, scale on demand.' The 'no free tier' part is not supported.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/together-code-sandbox $.free_tier.stated: Page text is the generic Together AI platform description (inference, endpoints, fine-tuning, clusters); it does not mention the code sandbox, and gives no free amount.\n- compute/together-code-sandbox $.free_tier.stated: Page text is the generic Together AI platform description (inference, endpoints, fine-tuning, clusters); it does not mention the code sandbox, and gives no free amount.\n- compute/voltage-park $.free_tier.stated: Pricing page lists on-demand H100 as 'Contact for pricing'; 'Pay only for what you need' is pay-as-you-go wording, not a free tier or credit.\n- compute/voltage-park $.free_tier.stated: Pricing page lists on-demand H100 as 'Contact for pricing'; 'Pay only for what you need' is pay-as-you-go wording, not a free tier or credit.\nAn audit of the first attempt judged these claims unsupported by their sources; settle each one first:\n- compute/together-code-sandbox $.egress.terms: The cited quote is about PTU savings and says nothing about sandbox egress. The capture has no egress or outbound-transfer text at all, so it cannot show that the page publishes none. The claim also cites a billing page that is not the evidence capture.\n- compute/voltage-park $.egress.terms: Source is the third-party gpurentalprices.com, not Voltage Park's pricing page. It says data in and out is free; it has no 'no hidden ingress, egress or support costs' statement and no mention of support costs. The cited quote is only the H100 rate.",
+ "scope": {
+  "rids": [
+   "compute/together-code-sandbox",
+   "compute/use-computer",
+   "compute/upcloud",
+   "compute/ubicloud",
+   "compute/voltage-park"
+  ]
+ },
+ "origin": "audit u377 of 20261125-0107-research-compute-5c82/u364 failed: 2 of 4 unsupported",
+ "created": "2026-11-25T15:42:47Z",
+ "queue_files": [
+  "queue/20261125-0107-research-compute-5c82-u80-rerun.json",
+  "queue/20261125-0107-research-compute-5c82-u285-rerun.json"
+ ]
+}

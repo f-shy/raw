@@ -5,10 +5,10 @@
   "url": "https://serverscamp.com/",
   "category": "cloud VM",
   "free_tier": {
-    "stated": "Simple VPS from EUR 1.00/month in Bucharest, Romania: VPS 0.75 gives 0.5 vCore, 768 MB RAM, 10 GB of storage and 500 GB of bandwidth. VPS 1 is EUR 1.50 for 1 vCore, 1 GB, 20 GB and 1 TB; VPS 2 is EUR 3.00 for 2 vCores, 2 GB, 40 GB and 2 TB; VPS 4 is EUR 6.00 for 2 vCores, 4 GB, 80 GB and 3 TB; VPS 8 is EUR 12.00 for 4 vCores, 8 GB, 160 GB and 4 TB; VPS 16 is EUR 24.00 for 8 vCores, 16 GB, 320 GB and 5 TB. Every server gets a 1 Gbit/s port, 1 IPv4 plus an IPv6 /56, daily backups, VNC and serial console, and reverse DNS; CPUs vary by node across Xeon Gold 6154, Xeon Gold 6132, Xeon Silver 4116 and EPYC 7543.",
+    "stated": "Simple VPS from EUR 1.00/month in Bucharest, Romania: VPS 0.75 gives 0.5 vCore, 768MB RAM, 10GB storage and 500GB bandwidth. VPS 1 is EUR 1.50 for 1 vCore, 1GB RAM, 20GB storage and 1TB bandwidth; VPS 2 is EUR 3.00 for 2 vCores, 2GB RAM, 40GB storage and 2TB bandwidth; VPS 4 is EUR 6.00 for 2 vCores, 4GB RAM, 80GB storage and 3TB bandwidth. Every server gets a 1 Gbit/s port, 1x IPv4 plus IPv6 /56, daily backups (+20% of the plan price, last 5 kept), VNC and serial console, and reverse DNS; the CPU depends on the node: Intel Xeon Gold 6154, Xeon Gold 6132, Xeon Silver 4116 or AMD EPYC 7543.",
     "unit": "GiB",
     "metered_on": "wall-clock",
-    "source_url": "https://serverscamp.com/",
+    "source_url": "https://lowendtalk.com/discussion/222400/serverscamp-new-simple-vps-starting-1-month",
     "read_on": "2026-10-22",
     "notes": "none"
   },
@@ -65,10 +65,31 @@
       "url": "https://serverscamp.com/",
       "date": "2026-10-22",
       "proved": "the vendor page answered 200 and describes the platform ('Cloud servers, managed databases and storage in Europe, billed by the hour in EUR', replicated software-defined storage, 200k IOPS per disk) but renders no Simple VPS plan table or price, so the figures rest on the forum post"
+    },
+    {
+      "url": "https://lowendtalk.com/discussion/222400/serverscamp-new-simple-vps-starting-1-month",
+      "date": "2026-11-25",
+      "proved": "the vendor announcement states the EUR 1.00 entry plan, the VPS 1, VPS 2 and VPS 4 rows, the Bucharest location, the included network, panel and backup terms, and the CPU options",
+      "capture": "sha256:b6daf367c69d5753cd24af771aa8acc75a3b6fb7929011692994f694a91d202d",
+      "quote": "VPS 0.75 · €1.00/mo ... 0.5 vCore / 768MB RAM / 10GB Storage / 500GB Bandwidth ... VPS 1 · €1.50/mo ... 1 vCore / 1GB RAM / 20GB Storage / 1TB Bandwidth ... VPS 2 · €3.00/mo ... 2 vCores / 2GB RAM / 40GB Storage / 2TB Bandwidth ... VPS 4 · €6.00/mo ... 2 vCores / 4GB RAM / 80GB Storage / 3TB Bandwidth ... Location: Bucharest, Romania ... CPU: depends on the node, Intel Xeon Gold 6154, Xeon Gold 6132, Xeon Silver 4116 or AMD EPYC 7543 ... Network: 1 Gbit/s port, 1x IPv4 + IPv6 /56 ... Backups: daily, +20% of the plan price, last 5 kept ... Panel: VNC and serial console, reverse DNS"
+    },
+    {
+      "url": "https://lowendtalk.com/discussion/222400/serverscamp-new-simple-vps-starting-1-month",
+      "date": "2026-11-25",
+      "proved": "the vendor's offer still states the entry price, the four plan rows and the included network and backup terms",
+      "capture": "sha256:b6daf367c69d5753cd24af771aa8acc75a3b6fb7929011692994f694a91d202d",
+      "quote": "VPS 0.75 · €1.00/mo ... 0.5 vCore / 768MB RAM / 10GB Storage / 500GB Bandwidth ... VPS 1 · €1.50/mo ... 1 vCore / 1GB RAM / 20GB Storage / 1TB Bandwidth ... VPS 2 · €3.00/mo ... 2 vCores / 2GB RAM / 40GB Storage / 2TB Bandwidth ... VPS 4 · €6.00/mo ... 2 vCores / 4GB RAM / 80GB Storage / 3TB Bandwidth ... Location: Bucharest, Romania ... CPU: depends on the node, Intel Xeon Gold 6154, Xeon Gold 6132, Xeon Silver 4116 or AMD EPYC 7543 ... Network: 1 Gbit/s port, 1x IPv4 + IPv6 /56 ... Backups: daily, +20% of the plan price, last 5 kept ... Panel: VNC and serial console, reverse DNS"
+    },
+    {
+      "url": "https://lowendtalk.com/discussion/222400/serverscamp-new-simple-vps-starting-1-month",
+      "date": "2026-11-25",
+      "proved": "the vendor announcement, not the vendor cloud page, states the Simple VPS entry plan and price",
+      "capture": "sha256:b6daf367c69d5753cd24af771aa8acc75a3b6fb7929011692994f694a91d202d",
+      "quote": "VPS 0.75 · €1.00/mo ... 0.5 vCore / 768MB RAM / 10GB Storage / 500GB Bandwidth"
     }
   ],
   "verdict": "paid-only",
-  "verified_at": "2026-10-22T00:00:00.000Z",
+  "verified_at": "2026-11-25T05:18:25.129Z",
   "notes": "The vendor page states hourly billing on the cloud line while the thread prices Simple VPS monthly, which are two products and not a disagreement. Unverified: whether the Simple VPS plans are orderable without the cloud account, and whether the 100 Mbit/s post-quota throttle also applies to inbound, which the thread does not say. The thread states prices in EUR and no USD conversion was performed here.",
   "extras": {
     "wave2": {
